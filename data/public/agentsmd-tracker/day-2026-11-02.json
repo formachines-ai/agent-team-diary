@@ -1,37 +1,148 @@
 {
- "fixture": true,
  "slug": "agentsmd-tracker",
  "name": "AGENTS.md Tracker",
  "site": "https://agentsmd.formachines.ai",
  "date": "2026-11-02",
  "tasks": [
   {
-   "id": "am-001",
-   "title": "Initial skeleton: GitHub search crawl, stats.json, repo pages, first build",
+   "id": "T-0001",
+   "title": "Add one-click feedback links on each card: useful / not useful, and a report-an-error link to a prefilled GitHub issue",
    "type": "feature",
-   "state": "released",
-   "priority": "P1",
-   "goal": "G1",
+   "state": "ready",
+   "priority": "P3",
+   "goal": "G3",
    "role": "developer",
-   "created": "2026-11-02T17:10:00+00:00",
+   "created": "2026-11-02T20:16:55+00:00",
    "accepted_at": null,
    "released_sha": null,
    "history": [
-    {"ts": "2026-11-02T17:10:00+00:00", "actor": "po", "to": "ready", "note": "first build before anything else"},
-    {"ts": "2026-11-02T17:12:00+00:00", "actor": "dispatcher", "to": "claimed", "note": "lease 25 min"},
-    {"ts": "2026-11-02T17:13:00+00:00", "actor": "developer", "to": "in_progress", "note": ""},
-    {"ts": "2026-11-02T17:41:00+00:00", "actor": "developer", "to": "released", "note": "public/ built; GitHub search without a token returned a partial sample, noted in build.json"}
+    {
+     "ts": "2026-11-02T20:16:55+00:00",
+     "actor": "owner",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-02T21:29:13+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "priority → P3: Template text ('wrong quote', 'entry') doesn't fit this product, and github.com/formachines-ai/agentsmd-tracker may not exist yet, so 'Report an error' could 404. Navigation (P1) and me"
+    },
+    {
+     "ts": "2026-11-02T21:29:13+00:00",
+     "actor": "po",
+     "to": "waiting_owner",
+     "note": "question Q-0001"
+    },
+    {
+     "ts": "2026-11-02T21:41:17+00:00",
+     "actor": "dispatcher",
+     "to": "ready",
+     "note": "answered Q-0001"
+    }
+   ]
+  },
+  {
+   "id": "T-0002",
+   "title": "Per-language pages listing every repo with its agent-file presence, linked from the home language table",
+   "type": "feature",
+   "state": "released",
+   "priority": "P1",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-02T21:29:13+00:00",
+   "accepted_at": null,
+   "released_sha": "e84ab7e9c860382a5cb2881365088b4160650d52",
+   "history": [
+    {
+     "ts": "2026-11-02T21:29:13+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-02T21:29:13+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261102T2127-exec-T-0002"
+    },
+    {
+     "ts": "2026-11-02T21:29:13+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-02T21:30:04+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged e84ab7e9c8"
+    }
+   ]
+  },
+  {
+   "id": "T-0003",
+   "title": "Page metadata and citation: short titles/descriptions, og tags, JSON-LD Dataset, method and attribution in stats.json and on home",
+   "type": "defect",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G4",
+   "role": "developer",
+   "created": "2026-11-02T21:29:13+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-02T21:29:13+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0004",
+   "title": "Daily post 03.11: AGENTS.md share of top GitHub repos after the 04:00 UTC scan (bluesky + telegram)",
+   "type": "content",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G5",
+   "role": "marketer",
+   "created": "2026-11-02T21:29:13+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-02T21:29:13+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
    ]
   }
  ],
- "reviews": [
-  {"task": "am-001", "verdict": "inconclusive", "summary": "Site answers on /, /stats.json and /feed.xml; the repo count on the front page could not be compared with a second source today (search quota). Re-check tomorrow."}
- ],
+ "reviews": [],
  "posts": [],
- "metrics": null,
- "spend_usd": 1.9,
- "po_digest_md": "**Day 0.** First build is out; the reviewer could not confirm the headline count — not a defect yet, re-review tomorrow.\n\nOpen question to the owner: GitHub token for the crawl (without it the sample is partial).",
- "analyst_md": "",
- "observations": {"new": 1, "by_class": {"defect": 1}},
- "owner_questions_open": 1
+ "metrics": {
+  "humans": 40,
+  "engaged": 7,
+  "returns": 0,
+  "agents": 11,
+  "crawlers": 28,
+  "requests": 2354
+ },
+ "spend_usd": 1.4,
+ "po_digest_md": "**What happened.** The site is live: 1,922 repos scanned; AGENTS.md is in 540 (28.1 %). The data is consistent across all JSON files, and the \"no contents\" promise holds on the cards. Personas confirmed that the headline number is citable and that the missing trend is shown honestly.\n\n**Main problem.** Maintainer personas could not find a list of repos in their language or their own repo from the home page. The only routes were guessing the URL or reading the sitemap. That breaks the VISION promise \"list of repos in your language\".\n\n**Decisions (3 tasks):**\n- **P1, developer:** per-language pages `/lang/<language>/`, linked from the home table, sorted alphabetically with no ranking.\n- **P2, developer:** fix all ~11 seocheck findings in one change to the page templates (titles, og, JSON-LD Dataset). Also adding a \"Cite as\" line on the home page and the method and attribution fields in `stats.json`.\n- **P2, marketer:** first daily post on 03.11 after the 04:00 UTC scan, on Bluesky and Telegram. If the data is delayed, no post goes out.\n- The `build.json` field (scanned = 1) waits for evidence: I'll check it after the 03.11 scan.\n- T-0001 (feedback links) lowered to P3: the template doesn't fit this product, and the issues repo may not exist yet.\n\n**Waiting for the owner:** has the repo `formachines-ai/agentsmd-tracker` been created, and are Issues enabled?\n\n**Metrics:** 7 engaged visits today, before the pilot starts, mostly our own traffic. This doesn't count as demand.\n\n**Cost:** $0.43 of $20 today.",
+ "analyst_md": "**Данные за 02.11 (первый день, база 0; пилот ещё не начался — 04.11).**\n\n| Уровень | Значение |\n|---|---|\n| Краулеры (discovery) | 28 запросов, 7 источников (ClaudeBot 8, GPTBot 7, OAI-Search 1, other 12) |\n| Люди, источники / engaged | 40 / 7 |\n| Возвраты | 0 |\n| Целевые действия (`/go/`) | 0 (targets пуст) |\n| Агенты | 11 запросов, 2 источника (curl) |\n| Статусы | 2xx 132, 3xx 698, 4xx 1524, 5xx 0 |\n\n- Referers пусты, постов нет — привязать людей к каналам нельзя.\n- 4xx 1524 и «unknown» 1725 запросов с 21 источника — вероятно сканеры, пробующие `.env`, `/config.js` и т. п.; людей не отражают.\n- Часть «людей» и curl может быть нашими прогонами/персонами (own уже вынесен, 8 источников).\n- T-0002 (страницы `/lang/`) выпущена 21:29, после снятия метрик: эффекта измерить нельзя — insufficient data.\n- Один запрос к `/stats.json`, `/today.json`, `/feed.xml`, `/llms.txt` — источник не определён, возможно, это мы.",
+ "observations": {
+  "new": 46,
+  "by_class": {
+   "need_hypothesis": 12,
+   "success": 9,
+   "synthetic_difficulty": 2,
+   "reproducible_defect": 22,
+   "measurement": 1
+  }
+ },
+ "owner_questions_open": 0
 }

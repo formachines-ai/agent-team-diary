@@ -1,38 +1,239 @@
 {
- "fixture": true,
  "slug": "release-radar",
  "name": "Release Radar",
  "site": "https://releases.formachines.ai",
  "date": "2026-11-02",
  "tasks": [
   {
-   "id": "rr-001",
-   "title": "Initial skeleton: build.py (stdlib), 93 tracked packages, first real build of public/",
+   "id": "T-0001",
+   "title": "Day-1 daily card: N releases in 24 h, M flagged — Bluesky",
+   "type": "marketing",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-02T19:27:02+00:00",
+   "accepted_at": "2026-11-02T19:27:02+00:00",
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-02T19:27:02+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "recreated by the dispatcher after the 02.11 sync incident; the original T-0001 ran in cycle first-rr"
+    },
+    {
+     "ts": "2026-11-02T19:27:02+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "first-rr-exec"
+    },
+    {
+     "ts": "2026-11-02T19:27:02+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "first-rr-exec"
+    },
+    {
+     "ts": "2026-11-02T19:27:02+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "posted on Bluesky (run first-rr-mkt-T-0001, $0.18)"
+    },
+    {
+     "ts": "2026-11-02T19:27:02+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "post verified live by the dispatcher"
+    }
+   ]
+  },
+  {
+   "id": "T-0002",
+   "title": "Show the build time and short commit hash in the footer of every page",
    "type": "feature",
    "state": "accepted",
-   "priority": "P1",
+   "priority": "P2",
+   "goal": "G4",
+   "role": "developer",
+   "created": "2026-11-02T19:27:52+00:00",
+   "accepted_at": "2026-11-02T19:31:55+00:00",
+   "released_sha": "64116c95c75109552be3f1d501a5ca73d10eead4",
+   "history": [
+    {
+     "ts": "2026-11-02T19:27:52+00:00",
+     "actor": "dispatcher",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-02T19:27:52+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "first-dev-exec-T-0002"
+    },
+    {
+     "ts": "2026-11-02T19:27:52+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-02T19:28:45+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 64116c95c7"
+    },
+    {
+     "ts": "2026-11-02T19:31:55+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The sampled HTML pages (home, legal, npm and pypi package pages, a go redirect page, 404) show the build line with the same UTC time and a 7-char hash, and build.json has a non-null commit. The disclo"
+    }
+   ]
+  },
+  {
+   "id": "T-0003",
+   "title": "Add one-click feedback links on each card: useful / not useful, and a report-an-error link to a prefilled GitHub issue",
+   "type": "feature",
+   "state": "released",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-02T20:16:55+00:00",
+   "accepted_at": null,
+   "released_sha": "05105f3cdc97a1e2765721a96b060908f30f8bc1",
+   "history": [
+    {
+     "ts": "2026-11-02T20:16:55+00:00",
+     "actor": "owner",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-02T21:33:42+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261102T2127-exec-T-0003"
+    },
+    {
+     "ts": "2026-11-02T21:33:42+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-02T21:34:43+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 05105f3cdc"
+    }
+   ]
+  },
+  {
+   "id": "T-0004",
+   "title": "MCP server over the public JSON: releases_today, package_releases, flagged_breaking (read-only, stdio)",
+   "type": "feature",
+   "state": "ready",
+   "priority": "P3",
+   "goal": "G4",
+   "role": "developer",
+   "created": "2026-11-02T20:16:55+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-02T20:16:55+00:00",
+     "actor": "owner",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0005",
+   "title": "Add og:title, og:description and a JSON-LD block to every page template (home, /pkg/, /legal/)",
+   "type": "defect",
+   "state": "ready",
+   "priority": "P2",
    "goal": "G1",
    "role": "developer",
-   "created": "2026-11-02T16:40:00+00:00",
-   "accepted_at": "2026-11-02T18:50:00+00:00",
-   "released_sha": "895223d",
+   "created": "2026-11-02T21:33:42+00:00",
+   "accepted_at": null,
+   "released_sha": null,
    "history": [
-    {"ts": "2026-11-02T16:40:00+00:00", "actor": "po", "to": "ready", "note": "VISION approved by the owner; the site needs its first build before any other task"},
-    {"ts": "2026-11-02T16:45:00+00:00", "actor": "dispatcher", "to": "claimed", "note": "lease 25 min"},
-    {"ts": "2026-11-02T16:46:00+00:00", "actor": "developer", "to": "in_progress", "note": ""},
-    {"ts": "2026-11-02T17:02:00+00:00", "actor": "developer", "to": "released", "note": "build.py, config/packages.txt, public/ built: packages=93 releases=156 flagged=14 errors=0"},
-    {"ts": "2026-11-02T18:50:00+00:00", "actor": "reviewer", "to": "accepted", "note": "all criteria pass on the live site"}
+    {
+     "ts": "2026-11-02T21:33:42+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0006",
+   "title": "Daily card 03.11: 'N releases in 24 h, M flagged' in Telegram @relesae_radar and Bluesky",
+   "type": "content",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-02T21:33:42+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-02T21:33:42+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
    ]
   }
  ],
  "reviews": [
-  {"task": "rr-001", "verdict": "pass", "summary": "Front page lists 156 releases of the last 7 days; 14 flagged cards each carry a verbatim quote and a /go/ link; feed.xml and today.json parse; footer disclosure present on every page; 375 px width scrolls only inside the table."}
+  {
+   "task": "T-0002",
+   "verdict": "inconclusive",
+   "summary": "The build line \"build 2026-11-02T19:28:19Z UTC · 895223d\" appears on every non-home page I checked, including legal, package and go pages. build.json has a non-null 7-char commit. I could not see the home page footer because the fetch was truncated, so the \"every page\" criterion is not fully confirmed."
+  },
+  {
+   "task": "T-0002",
+   "verdict": "pass",
+   "summary": "The sampled HTML pages (home, legal, npm and pypi package pages, a go redirect page, 404) show the build line with the same UTC time and a 7-char hash, and build.json has a non-null commit. The disclosure line, feed and JSON endpoints still work."
+  }
  ],
- "posts": [],
- "metrics": null,
- "spend_usd": 2.4,
- "po_digest_md": "**Day 0.** The site exists: 93 packages tracked, first build published, review passed.\n\nNext in line:\n- add the Errata badge check to the reviewer checklist\n- marketer: first daily card once the Telegram channel name is confirmed by the owner\n\nNo metrics yet — the metrics job starts with the first full day of logs.",
- "analyst_md": "",
- "observations": {"new": 2, "by_class": {"defect": 1, "idea": 1}},
- "owner_questions_open": 1
+ "posts": [
+  {
+   "channel": "bluesky",
+   "url": "https://bsky.app/profile/formachines.bsky.social/post/3mze2hojkx222",
+   "ts": "2026-11-02T19:26:24+00:00"
+  },
+  {
+   "channel": "bluesky",
+   "url": "https://bsky.app/profile/formachines.bsky.social/post/3mze2hojkx222",
+   "ts": "2026-11-02T19:27:02+00:00"
+  }
+ ],
+ "metrics": {
+  "humans": 53,
+  "engaged": 11,
+  "returns": 0,
+  "agents": 18,
+  "crawlers": 397,
+  "requests": 929
+ },
+ "spend_usd": 1.0,
+ "po_digest_md": "**Release Radar — разбор вечера 02.11**\n\n**Что произошло:** приняты T-0001 (первый пост в Bluesky) и T-0002 (в футере каждой страницы теперь видны время сборки и хеш коммита). В футере стоит хеш родительского коммита: коммит не может содержать собственный хеш. Сборку это всё равно однозначно определяет, поэтому замечание закрыто.\n\n**Решено:**\n- 18 SEO-замечаний на деле одна проблема: на всех шаблонах нет og-тегов и JSON-LD. Из-за этого ссылки в Telegram и Bluesky уходят без превью. Создана задача разработчику (P2, G1).\n- Создана задача маркетологу на ежедневную карточку 03.11. В этот раз — и в Telegram, и в Bluesky: в Telegram ещё не было ни одного поста.\n- 10 «осиротевших» страниц /go/<id>/ работают, адреса стабильны, как обещано. Задача отложена до первого 404.\n- Объединять две строки футера не будем: так легче не потерять обязательную плашку «updated».\n\n**В работе:** T-0003 (ссылки «полезно / не полезно» и «сообщить об ошибке», P2) и T-0004 (MCP-сервер, P3). WIP невысокий: MCP пойдёт после обратной связи.\n\n**Метрики (до пилота):** 53 человека, 11 engaged, 2 запроса /today.json. Значительная часть трафика, скорее всего, наша — спросом это не считаю.\n\n**От владельца ничего не требуется.** Потрачено сегодня $0.41 из $20.",
+ "analyst_md": "**День 1 (02.11, данные до 21:01 UTC). Сайт новый, база 0.**\n\n| Уровень | Значение |\n|---|---|\n| Discovery: краулеры | 397 запросов, 28 источников (GPTBot 194, ClaudeBot 143) |\n| Люди: источники / engaged | 53 / 11 |\n| Возвраты | 0 |\n| Целевые действия (`/go/`) | targets пуст (0 зафиксировано) |\n| Агенты | 18 запросов, 3 источника (curl 17, undici 1) |\n| `/today.json` | 2 запроса (не обязательно внешние) |\n| Статусы | 5xx = 0, 4xx = 117 |\n| Referer | только www.google.com (1) |\n\nУровни не суммируются. Свои запросы (58, 9 источников) уже исключены. Агентские curl-запросы возможно наши проверки, так как их мало и они идут парами.\n\nПосты: два Bluesky в 19:26–19:27 UTC (один URL, дубль записи). Данные только за день, нет почасовой разбивки, поэтому эффект постов не оценить; referer bsky.app нет.\n\nЗадачи: T-0001, T-0002, T-0003 — недостаточно данных; до/после нет. T-0003 ещё не принята.\n\nГипотезы: 117 ответов 4xx нужно разобрать по путям (спрос на `/pkg/<x>/` или сканеры). Цель G3 требует учёта `/go/`: targets пуст, хотя `/go/*` есть в top_pages.",
+ "observations": {
+  "new": 33,
+  "by_class": {
+   "need_hypothesis": 13,
+   "success": 1,
+   "reproducible_defect": 18,
+   "measurement": 1
+  }
+ },
+ "owner_questions_open": 0
 }

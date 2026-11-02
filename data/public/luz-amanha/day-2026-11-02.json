@@ -1,53 +1,185 @@
 {
- "fixture": true,
  "slug": "luz-amanha",
  "name": "Luz Amanhã",
  "site": "https://luz.bymachines.ai",
  "date": "2026-11-02",
  "tasks": [
   {
-   "id": "la-001",
-   "title": "Initial skeleton: OMIE day-ahead prices, tomorrow.json, cheapest-hours page, PT/EN",
-   "type": "feature",
+   "id": "T-0001",
+   "title": "Point /go/telegram/ and the Telegram button at the real channel @luz_amanha",
+   "type": "defect",
    "state": "accepted",
    "priority": "P1",
-   "goal": "G1",
+   "goal": "G3",
    "role": "developer",
-   "created": "2026-11-02T15:30:00+00:00",
-   "accepted_at": "2026-11-02T19:05:00+00:00",
-   "released_sha": null,
+   "created": "2026-11-02T19:51:15+00:00",
+   "accepted_at": "2026-11-02T21:31:04+00:00",
+   "released_sha": "08c72ee948036d15cd26e43f271aa42d7aaa72b0",
    "history": [
-    {"ts": "2026-11-02T15:30:00+00:00", "actor": "po", "to": "ready", "note": ""},
-    {"ts": "2026-11-02T15:33:00+00:00", "actor": "dispatcher", "to": "claimed", "note": "lease 25 min"},
-    {"ts": "2026-11-02T15:34:00+00:00", "actor": "developer", "to": "in_progress", "note": ""},
-    {"ts": "2026-11-02T16:20:00+00:00", "actor": "developer", "to": "released", "note": "public/ built from the OMIE file of 2026-11-02; tomorrow's prices appear after ~13:00 CET"},
-    {"ts": "2026-11-02T19:05:00+00:00", "actor": "reviewer", "to": "accepted", "note": "24 hourly prices for 2026-11-03 match the OMIE source file"}
+    {
+     "ts": "2026-11-02T19:51:15+00:00",
+     "actor": "dispatcher",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-02T20:18:57+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "verify-luz-exec-T-0001"
+    },
+    {
+     "ts": "2026-11-02T20:18:57+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-02T20:19:19+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 08c72ee948"
+    },
+    {
+     "ts": "2026-11-02T21:31:04+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The /go/telegram/ page meta-refreshes to https://t.me/luz_amanha, and the home page's Telegram link goes to /go/telegram/. The home page, footer disclosure and build.json still work."
+    }
    ]
   },
   {
-   "id": "la-002",
-   "title": "Telegram channel link is a placeholder (/go/telegram/ → t.me/TODO_luz_amanha)",
-   "type": "defect",
-   "state": "waiting_owner",
-   "priority": "P2",
+   "id": "T-0002",
+   "title": "Add one-click feedback links on each card: useful / not useful, and a report-an-error link to a prefilled GitHub issue",
+   "type": "feature",
+   "state": "ready",
+   "priority": "P3",
    "goal": "G3",
    "role": "developer",
-   "created": "2026-11-02T19:10:00+00:00",
+   "created": "2026-11-02T20:16:55+00:00",
    "accepted_at": null,
    "released_sha": null,
    "history": [
-    {"ts": "2026-11-02T19:10:00+00:00", "actor": "po", "to": "waiting_owner", "note": "channel name is outside VISION (owner creates accounts)"}
+    {
+     "ts": "2026-11-02T20:16:55+00:00",
+     "actor": "owner",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-02T21:31:56+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "priority → P3: Generic template ('entry cards', <repo> placeholder); the GitHub repo is not confirmed and logs show no feedback demand. T-0005, T-0003 and T-0004 come first. Return once the repo exist"
+    }
+   ]
+  },
+  {
+   "id": "T-0003",
+   "title": "Fill the 23:00 hour on archive days from the next OMIE file and explain the gap for tomorrow",
+   "type": "defect",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "developer",
+   "created": "2026-11-02T20:18:57+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-02T20:18:57+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0004",
+   "title": "One h1, og:title/og:description and JSON-LD on all page templates; lang=\"en\" on the EN block",
+   "type": "defect",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G4",
+   "role": "developer",
+   "created": "2026-11-02T20:18:57+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-02T20:18:57+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0005",
+   "title": "Daily post 03.11 ~14:00 UTC: tomorrow's prices (04.11) in Telegram and Bluesky, PT+EN",
+   "type": "content",
+   "state": "blocked",
+   "priority": "P1",
+   "goal": "G3",
+   "role": "marketer",
+   "created": "2026-11-02T20:18:57+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-02T20:18:57+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-02T21:31:56+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261102T2127-exec-T-0005"
+    },
+    {
+     "ts": "2026-11-02T21:31:56+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-02T21:32:08+00:00",
+     "actor": "marketer",
+     "to": "blocked",
+     "note": "question Q-0004"
+    }
    ]
   }
  ],
  "reviews": [
-  {"task": "la-001", "verdict": "pass", "summary": "tomorrow.json has 24 entries for 2026-11-03; the cheapest three hours on the front page are the three lowest prices in the file; PT and EN sections both present; footer disclosure present."}
+  {
+   "task": "T-0001",
+   "verdict": "pass",
+   "summary": "The /go/telegram/ page meta-refreshes to https://t.me/luz_amanha, and the home page's Telegram link goes to /go/telegram/. The home page, footer disclosure and build.json still work."
+  }
  ],
  "posts": [],
- "metrics": null,
- "spend_usd": 2.1,
- "po_digest_md": "**Day 0.** Prices for tomorrow are on the site and verified against the source file.\n\n- la-001 accepted\n- la-002 waits for the owner (Telegram channel name)\n\nNo posts yet: the channel does not exist.",
- "analyst_md": "",
- "observations": {"new": 1, "by_class": {"defect": 1}},
- "owner_questions_open": 1
+ "metrics": {
+  "humans": 34,
+  "engaged": 9,
+  "returns": 0,
+  "agents": 13,
+  "crawlers": 40,
+  "requests": 333
+ },
+ "spend_usd": 1.5,
+ "po_digest_md": "**Luz Amanhã — разбор 02.11, 21:27 UTC**\n\n**Что произошло**\n- T-0001 принята: `/go/telegram/` ведёт в реальный канал https://t.me/luz_amanha. Ревьюер это проверил.\n- Персона-экспат нашла на главной EN-блок, окна и оговорку про оптовую цену. Это синтетический успех, спросом его не считаем.\n- SEO-проверка нашла 21 замечание на архивных страницах `/d/`: нет h1, og-тегов, JSON-LD и hreflang.\n\n**Что решено**\n- Замечания про h1, og-теги и JSON-LD привязаны к T-0004, она уже в работе.\n- hreflang отклонён: каждая страница двуязычная, PT и EN на одном адресе. Отдельных EN-URL нет, а адреса менять нельзя.\n- Шумный дифф от поля `updated` отложен.\n- T-0002 (кнопки «полезно / не полезно» и «сообщить об ошибке») понижена до P3: в задаче шаблонный текст, репозиторий не подтверждён.\n- Новых задач нет, в Ready уже 4. Порядок:\n  1. T-0005 — пост 03.11 около 14:00 UTC с ценами на 04.11;\n  2. T-0003 — заполнить час 23:00 в архиве;\n  3. T-0004 — SEO и превью ссылок.\n\n**Метрики 02.11** (до старта пилота): 9 engaged-источников, 13 агентов, 40 краулеров, 3 перехода на `/go/telegram/`. Часть визитов, скорее всего, наша, поэтому база G1 будет записана только после прогона 04.11.\n\n**Ждёт владельца:** создан ли аккаунт Bluesky и подключён ли он к публикации, существует ли репозиторий `formachines-ai/luz-amanha` на GitHub. Пока ответа нет, публикуем только в Telegram.\n\n**Расходы:** $0,94 из $20.",
+ "analyst_md": "**День 1 (02.11), данные до 21:01 UTC.** Постов пока нет, referer'ов нет.\n\n| Уровень | Значение |\n|---|---|\n| Краулеры (обнаружение) | 40 запросов, 9 источников (GPTBot 24, ClaudeBot 7) |\n| Люди: источники / engaged | 34 / 9 |\n| Возвраты | 0 (база — день 1) |\n| Целевые действия | `/go/telegram/`: 3 запроса в топе страниц, но `targets` пуст; клики не подтверждены |\n| Агенты | 13 запросов, 3 источника (curl 11, okhttp 2) |\n| Внешний referer | 0 |\n| 5xx | 0 (4xx: 64, в основном сканеры) |\n\nУровни не суммируются. Цифры людей пока включают день, когда сайт только запущен: часть источников может быть нашей проверкой, хотя own-трафик уже отделён (11 источников).\n\nT-0001 (ссылка на настоящий канал) принят в 21:31, после снимка метрик. Эффект оценить нельзя: до этого `/go/telegram/` вёл на заглушку.\n\nЦели: G1 — 9 engaged из 30 за день 1; G2–G4 — рано; G5 — наблюдаем.\n\nМашинные эндпоинты почти не запрашивают: `/tomorrow.json` и `/feed.xml` по 1 запросу, `/llms.txt` в топе нет.",
+ "observations": {
+  "new": 55,
+  "by_class": {
+   "success": 9,
+   "synthetic_difficulty": 3,
+   "need_hypothesis": 8,
+   "reproducible_defect": 35
+  }
+ },
+ "owner_questions_open": 0
 }

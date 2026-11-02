@@ -1,0 +1,37 @@
+{
+ "fixture": true,
+ "slug": "agentsmd-tracker",
+ "name": "AGENTS.md Tracker",
+ "site": "https://agentsmd.formachines.ai",
+ "date": "2026-11-02",
+ "tasks": [
+  {
+   "id": "am-001",
+   "title": "Initial skeleton: GitHub search crawl, stats.json, repo pages, first build",
+   "type": "feature",
+   "state": "released",
+   "priority": "P1",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-02T17:10:00+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {"ts": "2026-11-02T17:10:00+00:00", "actor": "po", "to": "ready", "note": "first build before anything else"},
+    {"ts": "2026-11-02T17:12:00+00:00", "actor": "dispatcher", "to": "claimed", "note": "lease 25 min"},
+    {"ts": "2026-11-02T17:13:00+00:00", "actor": "developer", "to": "in_progress", "note": ""},
+    {"ts": "2026-11-02T17:41:00+00:00", "actor": "developer", "to": "released", "note": "public/ built; GitHub search without a token returned a partial sample, noted in build.json"}
+   ]
+  }
+ ],
+ "reviews": [
+  {"task": "am-001", "verdict": "inconclusive", "summary": "Site answers on /, /stats.json and /feed.xml; the repo count on the front page could not be compared with a second source today (search quota). Re-check tomorrow."}
+ ],
+ "posts": [],
+ "metrics": null,
+ "spend_usd": 1.9,
+ "po_digest_md": "**Day 0.** First build is out; the reviewer could not confirm the headline count — not a defect yet, re-review tomorrow.\n\nOpen question to the owner: GitHub token for the crawl (without it the sample is partial).",
+ "analyst_md": "",
+ "observations": {"new": 1, "by_class": {"defect": 1}},
+ "owner_questions_open": 1
+}

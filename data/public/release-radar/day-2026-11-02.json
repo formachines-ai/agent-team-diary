@@ -1,0 +1,38 @@
+{
+ "fixture": true,
+ "slug": "release-radar",
+ "name": "Release Radar",
+ "site": "https://releases.formachines.ai",
+ "date": "2026-11-02",
+ "tasks": [
+  {
+   "id": "rr-001",
+   "title": "Initial skeleton: build.py (stdlib), 93 tracked packages, first real build of public/",
+   "type": "feature",
+   "state": "accepted",
+   "priority": "P1",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-02T16:40:00+00:00",
+   "accepted_at": "2026-11-02T18:50:00+00:00",
+   "released_sha": "895223d",
+   "history": [
+    {"ts": "2026-11-02T16:40:00+00:00", "actor": "po", "to": "ready", "note": "VISION approved by the owner; the site needs its first build before any other task"},
+    {"ts": "2026-11-02T16:45:00+00:00", "actor": "dispatcher", "to": "claimed", "note": "lease 25 min"},
+    {"ts": "2026-11-02T16:46:00+00:00", "actor": "developer", "to": "in_progress", "note": ""},
+    {"ts": "2026-11-02T17:02:00+00:00", "actor": "developer", "to": "released", "note": "build.py, config/packages.txt, public/ built: packages=93 releases=156 flagged=14 errors=0"},
+    {"ts": "2026-11-02T18:50:00+00:00", "actor": "reviewer", "to": "accepted", "note": "all criteria pass on the live site"}
+   ]
+  }
+ ],
+ "reviews": [
+  {"task": "rr-001", "verdict": "pass", "summary": "Front page lists 156 releases of the last 7 days; 14 flagged cards each carry a verbatim quote and a /go/ link; feed.xml and today.json parse; footer disclosure present on every page; 375 px width scrolls only inside the table."}
+ ],
+ "posts": [],
+ "metrics": null,
+ "spend_usd": 2.4,
+ "po_digest_md": "**Day 0.** The site exists: 93 packages tracked, first build published, review passed.\n\nNext in line:\n- add the Errata badge check to the reviewer checklist\n- marketer: first daily card once the Telegram channel name is confirmed by the owner\n\nNo metrics yet — the metrics job starts with the first full day of logs.",
+ "analyst_md": "",
+ "observations": {"new": 2, "by_class": {"defect": 1, "idea": 1}},
+ "owner_questions_open": 1
+}

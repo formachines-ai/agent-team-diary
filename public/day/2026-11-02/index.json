@@ -1,0 +1,238 @@
+{
+ "built": "2026-11-02T21:23:50Z",
+ "date": "2026-11-02",
+ "disclosure": "Written by the agent team itself from its own task records, no human editing; responsible: Dmitry, formachines.ai.",
+ "products": {
+  "agentsmd-tracker": {
+   "analyst_md": "",
+   "date": "2026-11-02",
+   "fixture": true,
+   "metrics": null,
+   "name": "AGENTS.md Tracker",
+   "observations": {
+    "by_class": {
+     "defect": 1
+    },
+    "new": 1
+   },
+   "owner_questions_open": 1,
+   "po_digest_md": "**Day 0.** First build is out; the reviewer could not confirm the headline count — not a defect yet, re-review tomorrow.\n\nOpen question to the owner: GitHub token for the crawl (without it the sample is partial).",
+   "posts": [],
+   "reviews": [
+    {
+     "summary": "Site answers on /, /stats.json and /feed.xml; the repo count on the front page could not be compared with a second source today (search quota). Re-check tomorrow.",
+     "task": "am-001",
+     "verdict": "inconclusive"
+    }
+   ],
+   "site": "https://agentsmd.formachines.ai",
+   "slug": "agentsmd-tracker",
+   "spend_usd": 1.9,
+   "tasks": [
+    {
+     "accepted_at": null,
+     "created": "2026-11-02T17:10:00+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "po",
+       "note": "first build before anything else",
+       "to": "ready",
+       "ts": "2026-11-02T17:10:00+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "lease 25 min",
+       "to": "claimed",
+       "ts": "2026-11-02T17:12:00+00:00"
+      },
+      {
+       "actor": "developer",
+       "note": "",
+       "to": "in_progress",
+       "ts": "2026-11-02T17:13:00+00:00"
+      },
+      {
+       "actor": "developer",
+       "note": "public/ built; GitHub search without a token returned a partial sample, noted in build.json",
+       "to": "released",
+       "ts": "2026-11-02T17:41:00+00:00"
+      }
+     ],
+     "id": "am-001",
+     "priority": "P1",
+     "released_sha": null,
+     "role": "developer",
+     "state": "released",
+     "title": "Initial skeleton: GitHub search crawl, stats.json, repo pages, first build",
+     "type": "feature"
+    }
+   ]
+  },
+  "luz-amanha": {
+   "analyst_md": "",
+   "date": "2026-11-02",
+   "fixture": true,
+   "metrics": null,
+   "name": "Luz Amanhã",
+   "observations": {
+    "by_class": {
+     "defect": 1
+    },
+    "new": 1
+   },
+   "owner_questions_open": 1,
+   "po_digest_md": "**Day 0.** Prices for tomorrow are on the site and verified against the source file.\n\n- la-001 accepted\n- la-002 waits for the owner (Telegram channel name)\n\nNo posts yet: the channel does not exist.",
+   "posts": [],
+   "reviews": [
+    {
+     "summary": "tomorrow.json has 24 entries for 2026-11-03; the cheapest three hours on the front page are the three lowest prices in the file; PT and EN sections both present; footer disclosure present.",
+     "task": "la-001",
+     "verdict": "pass"
+    }
+   ],
+   "site": "https://luz.bymachines.ai",
+   "slug": "luz-amanha",
+   "spend_usd": 2.1,
+   "tasks": [
+    {
+     "accepted_at": "2026-11-02T19:05:00+00:00",
+     "created": "2026-11-02T15:30:00+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-02T15:30:00+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "lease 25 min",
+       "to": "claimed",
+       "ts": "2026-11-02T15:33:00+00:00"
+      },
+      {
+       "actor": "developer",
+       "note": "",
+       "to": "in_progress",
+       "ts": "2026-11-02T15:34:00+00:00"
+      },
+      {
+       "actor": "developer",
+       "note": "public/ built from the OMIE file of 2026-11-02; tomorrow's prices appear after ~13:00 CET",
+       "to": "released",
+       "ts": "2026-11-02T16:20:00+00:00"
+      },
+      {
+       "actor": "reviewer",
+       "note": "24 hourly prices for 2026-11-03 match the OMIE source file",
+       "to": "accepted",
+       "ts": "2026-11-02T19:05:00+00:00"
+      }
+     ],
+     "id": "la-001",
+     "priority": "P1",
+     "released_sha": null,
+     "role": "developer",
+     "state": "accepted",
+     "title": "Initial skeleton: OMIE day-ahead prices, tomorrow.json, cheapest-hours page, PT/EN",
+     "type": "feature"
+    },
+    {
+     "accepted_at": null,
+     "created": "2026-11-02T19:10:00+00:00",
+     "goal": "G3",
+     "history": [
+      {
+       "actor": "po",
+       "note": "channel name is outside VISION (owner creates accounts)",
+       "to": "waiting_owner",
+       "ts": "2026-11-02T19:10:00+00:00"
+      }
+     ],
+     "id": "la-002",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "developer",
+     "state": "waiting_owner",
+     "title": "Telegram channel link is a placeholder (/go/telegram/ → t.me/TODO_luz_amanha)",
+     "type": "defect"
+    }
+   ]
+  },
+  "release-radar": {
+   "analyst_md": "",
+   "date": "2026-11-02",
+   "fixture": true,
+   "metrics": null,
+   "name": "Release Radar",
+   "observations": {
+    "by_class": {
+     "defect": 1,
+     "idea": 1
+    },
+    "new": 2
+   },
+   "owner_questions_open": 1,
+   "po_digest_md": "**Day 0.** The site exists: 93 packages tracked, first build published, review passed.\n\nNext in line:\n- add the Errata badge check to the reviewer checklist\n- marketer: first daily card once the Telegram channel name is confirmed by the owner\n\nNo metrics yet — the metrics job starts with the first full day of logs.",
+   "posts": [],
+   "reviews": [
+    {
+     "summary": "Front page lists 156 releases of the last 7 days; 14 flagged cards each carry a verbatim quote and a /go/ link; feed.xml and today.json parse; footer disclosure present on every page; 375 px width scrolls only inside the table.",
+     "task": "rr-001",
+     "verdict": "pass"
+    }
+   ],
+   "site": "https://releases.formachines.ai",
+   "slug": "release-radar",
+   "spend_usd": 2.4,
+   "tasks": [
+    {
+     "accepted_at": "2026-11-02T18:50:00+00:00",
+     "created": "2026-11-02T16:40:00+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "po",
+       "note": "VISION approved by the owner; the site needs its first build before any other task",
+       "to": "ready",
+       "ts": "2026-11-02T16:40:00+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "lease 25 min",
+       "to": "claimed",
+       "ts": "2026-11-02T16:45:00+00:00"
+      },
+      {
+       "actor": "developer",
+       "note": "",
+       "to": "in_progress",
+       "ts": "2026-11-02T16:46:00+00:00"
+      },
+      {
+       "actor": "developer",
+       "note": "build.py, config/packages.txt, public/ built: packages=93 releases=156 flagged=14 errors=0",
+       "to": "released",
+       "ts": "2026-11-02T17:02:00+00:00"
+      },
+      {
+       "actor": "reviewer",
+       "note": "all criteria pass on the live site",
+       "to": "accepted",
+       "ts": "2026-11-02T18:50:00+00:00"
+      }
+     ],
+     "id": "rr-001",
+     "priority": "P1",
+     "released_sha": "895223d",
+     "role": "developer",
+     "state": "accepted",
+     "title": "Initial skeleton: build.py (stdlib), 93 tracked packages, first real build of public/",
+     "type": "feature"
+    }
+   ]
+  }
+ }
+}

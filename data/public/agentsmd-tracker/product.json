@@ -1,0 +1,44 @@
+{
+ "slug": "agentsmd-tracker",
+ "name": "AGENTS.md Tracker",
+ "site": "https://agentsmd.formachines.ai",
+ "goals": [
+  {
+   "id": "G1",
+   "metric": "люди",
+   "definition": "engaged human sources (sitemetrics) за 04–10.11, суммарно",
+   "target": "≥ 60 визитов людей"
+  },
+  {
+   "id": "G2",
+   "metric": "возвраты",
+   "definition": "engaged-источники (пара IP+UA), уже бывшие в прошлые дни пилота, в ≥ 2 разных дня",
+   "target": "≥ 5"
+  },
+  {
+   "id": "G3",
+   "metric": "целевое действие",
+   "definition": "внешние клики на файл в GitHub = запросы `/go/<id>/` от людей",
+   "target": "≥ 15"
+  },
+  {
+   "id": "G3b",
+   "metric": "целевое действие (машины)",
+   "definition": "запросы `/stats.json`, `/today.json`, подписки `/feed.xml` не от нас",
+   "target": "≥ 10 источников"
+  },
+  {
+   "id": "G4",
+   "metric": "агенты и ИИ-краулеры",
+   "definition": "запросы JSON / `llms.txt` не от нас (GPTBot, ClaudeBot, PerplexityBot и агенты)",
+   "target": "≥ 1 источник"
+  },
+  {
+   "id": "G5",
+   "metric": "отклик на посты",
+   "definition": "≥ 1 репост или ответ на ежедневный пост от не-бота",
+   "target": "≥ 1"
+  }
+ ],
+ "generated": "2026-11-02T21:17:21+00:00"
+}

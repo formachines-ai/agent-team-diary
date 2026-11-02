@@ -1,0 +1,38 @@
+{
+ "slug": "luz-amanha",
+ "name": "Luz Amanhã",
+ "site": "https://luz.bymachines.ai",
+ "goals": [
+  {
+   "id": "G1",
+   "metric": "люди",
+   "definition": "engaged human sources (пара UA + /24, не краулер, не агент) за 04–10.11",
+   "target": "≥ 30"
+  },
+  {
+   "id": "G2",
+   "metric": "возвраты",
+   "definition": "доля engaged-источников, уже бывших в прошлые дни (нужно ≥ 5 дней данных — читать 10.11, не раньше)",
+   "target": "≥ 15 %"
+  },
+  {
+   "id": "G3",
+   "metric": "целевое действие",
+   "definition": "подписчики Telegram-канала (видно в канале) + клики `/go/telegram/`",
+   "target": "≥ 10 подписчиков"
+  },
+  {
+   "id": "G4",
+   "metric": "внешний referer",
+   "definition": "визиты с referer не из наших постов и не с наших доменов",
+   "target": "≥ 1"
+  },
+  {
+   "id": "G5",
+   "metric": "агенты и ИИ-краулеры",
+   "definition": "запросы `/tomorrow.json`, `/feed.xml`, `/llms.txt` не от нас",
+   "target": "наблюдаем, порога нет"
+  }
+ ],
+ "generated": "2026-11-02T21:17:21+00:00"
+}

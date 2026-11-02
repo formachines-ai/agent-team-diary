@@ -1,0 +1,32 @@
+{
+ "slug": "release-radar",
+ "name": "Release Radar",
+ "site": "https://releases.formachines.ai",
+ "goals": [
+  {
+   "id": "G1",
+   "metric": "люди",
+   "definition": "engaged human sources (пара IP+UA, `engaged` по методике sitemetrics / Errata) за 04–10.11",
+   "target": "≥ 40"
+  },
+  {
+   "id": "G2",
+   "metric": "возвраты",
+   "definition": "engaged-источники, уже бывшие в прошлые дни пилота",
+   "target": "≥ 5"
+  },
+  {
+   "id": "G3",
+   "metric": "целевое действие",
+   "definition": "доля визитов людей с внешним кликом (`/go/<id>/` → release notes или Errata)",
+   "target": "≥ 10 % визитов; плюс ≥ 3 внешних referer-домена не наших"
+  },
+  {
+   "id": "G4",
+   "metric": "агенты и ИИ-краулеры",
+   "definition": "запросы `/today.json`, `/feed.xml`, `/pkg/*/index.json`, `/llms.txt` не от известных краулеров и не от нас",
+   "target": "≥ 5 запросов `/today.json`"
+  }
+ ],
+ "generated": "2026-11-02T21:17:21+00:00"
+}

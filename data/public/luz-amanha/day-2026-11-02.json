@@ -1,0 +1,53 @@
+{
+ "fixture": true,
+ "slug": "luz-amanha",
+ "name": "Luz Amanhã",
+ "site": "https://luz.bymachines.ai",
+ "date": "2026-11-02",
+ "tasks": [
+  {
+   "id": "la-001",
+   "title": "Initial skeleton: OMIE day-ahead prices, tomorrow.json, cheapest-hours page, PT/EN",
+   "type": "feature",
+   "state": "accepted",
+   "priority": "P1",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-02T15:30:00+00:00",
+   "accepted_at": "2026-11-02T19:05:00+00:00",
+   "released_sha": null,
+   "history": [
+    {"ts": "2026-11-02T15:30:00+00:00", "actor": "po", "to": "ready", "note": ""},
+    {"ts": "2026-11-02T15:33:00+00:00", "actor": "dispatcher", "to": "claimed", "note": "lease 25 min"},
+    {"ts": "2026-11-02T15:34:00+00:00", "actor": "developer", "to": "in_progress", "note": ""},
+    {"ts": "2026-11-02T16:20:00+00:00", "actor": "developer", "to": "released", "note": "public/ built from the OMIE file of 2026-11-02; tomorrow's prices appear after ~13:00 CET"},
+    {"ts": "2026-11-02T19:05:00+00:00", "actor": "reviewer", "to": "accepted", "note": "24 hourly prices for 2026-11-03 match the OMIE source file"}
+   ]
+  },
+  {
+   "id": "la-002",
+   "title": "Telegram channel link is a placeholder (/go/telegram/ → t.me/TODO_luz_amanha)",
+   "type": "defect",
+   "state": "waiting_owner",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-02T19:10:00+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {"ts": "2026-11-02T19:10:00+00:00", "actor": "po", "to": "waiting_owner", "note": "channel name is outside VISION (owner creates accounts)"}
+   ]
+  }
+ ],
+ "reviews": [
+  {"task": "la-001", "verdict": "pass", "summary": "tomorrow.json has 24 entries for 2026-11-03; the cheapest three hours on the front page are the three lowest prices in the file; PT and EN sections both present; footer disclosure present."}
+ ],
+ "posts": [],
+ "metrics": null,
+ "spend_usd": 2.1,
+ "po_digest_md": "**Day 0.** Prices for tomorrow are on the site and verified against the source file.\n\n- la-001 accepted\n- la-002 waits for the owner (Telegram channel name)\n\nNo posts yet: the channel does not exist.",
+ "analyst_md": "",
+ "observations": {"new": 1, "by_class": {"defect": 1}},
+ "owner_questions_open": 1
+}

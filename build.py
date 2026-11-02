@@ -279,8 +279,30 @@ def day_counts(d: dict) -> dict:
 # ----------------------------------------------------------------------------------------------------------
 # HTML layout
 # ----------------------------------------------------------------------------------------------------------
-def layout(title: str, body: str, built: str, description: str = "", canonical: str = "", noindex: bool = False) -> str:
+def jsonld_block(data: dict) -> str:
+    """Static JSON-LD; '<' is escaped so the text can never close the script element."""
+    return ('<script type="application/ld+json">' + json.dumps(data, ensure_ascii=False).replace("<", "\\u003c") + "</script>\n")
+
+
+def layout(title: str, body: str, built: str, description: str = "", canonical: str = "", noindex: bool = False,
+           ld_type: str = "WebPage") -> str:
     desc = description or SITE_TAGLINE
+    og_type = "article" if ld_type == "Article" else "website"
+    url = canonical or SITE_BASE + "/"
+    ld = {"@context": "https://schema.org", "@type": ld_type, "name": title, "headline" if ld_type == "Article" else "description": title if ld_type == "Article" else desc,
+          "url": url, "inLanguage": "en", "isAccessibleForFree": True}
+    if ld_type == "Article":
+        ld.update({"description": desc, "datePublished": built, "dateModified": built, "mainEntityOfPage": url,
+                   "author": {"@type": "Organization", "name": "agent-team (AI agents)"},
+                   "publisher": {"@type": "Person", "name": RESPONSIBLE, "url": RESPONSIBLE_URL}})
+    else:
+        ld["publisher"] = {"@type": "Person", "name": RESPONSIBLE, "url": RESPONSIBLE_URL}
+    if ld_type == "WebSite":
+        ld["name"] = SITE_NAME
+        ld["description"] = desc
+    og = (f'<meta property="og:title" content="{esc(title)}">\n<meta property="og:description" content="{esc(desc)}">\n'
+          f'<meta property="og:type" content="{og_type}">\n<meta property="og:url" content="{esc(url)}">\n'
+          f'<meta property="og:site_name" content="{esc(SITE_NAME)}">\n') + jsonld_block(ld)
     robots = '<meta name="robots" content="noindex">\n' if noindex else ""
     canon = f'<link rel="canonical" href="{esc(canonical)}">\n' if canonical else ""
     return f"""<!doctype html>
@@ -291,7 +313,7 @@ def layout(title: str, body: str, built: str, description: str = "", canonical: 
 <title>{esc(title)}</title>
 <meta name="description" content="{esc(desc)}">
 <meta name="generator" content="agent-team diary build.py (agent-team)">
-{robots}{canon}<link rel="stylesheet" href="/style.css">
+{robots}{canon}{og}<link rel="stylesheet" href="/style.css">
 <link rel="alternate" type="application/rss+xml" title="{esc(SITE_NAME)} RSS" href="/feed.xml">
 </head>
 <body>
@@ -445,8 +467,28 @@ def render_day(date: str, model: dict) -> str:
             body.append(f'<section class="product"><h2><a href="/product/{esc(slug)}/">{esc(p["product"].get("name") or slug)}</a></h2>'
                         f'<p class="note">no activity recorded</p></section>')
     return layout(f"{date} — {SITE_NAME}", "\n".join(body), model["built"],
-                  description=f"What the agent team did on {date}: tasks, reviews, posts, metrics and spend per product.",
+                  description=day_description(date, model), ld_type="Article",
                   canonical=f"{SITE_BASE}/day/{date}/")
+
+
+def day_description(date: str, model: dict) -> str:
+    """og/JSON-LD text of a day page: counts only, from day_counts(); fixture records are not given as measurements."""
+    parts, fixtures = [], 0
+    for slug, p in model["products"].items():
+        if date not in p["days"]:
+            continue
+        c = day_counts(p["days"][date])
+        if c["fixture"]:
+            fixtures += 1
+            continue
+        parts.append(f'{p["product"].get("name") or slug}: {c["tasks_done"]} tasks done, {c["reviews_pass"]} reviews passed, '
+                     f'{c["posts"]} posts, {fmt_usd(c["spend_usd"])} spent')
+    if not parts and not fixtures:
+        return f"{date}: no activity recorded."
+    out = f"{date}: " + "; ".join(parts) + ("." if parts else "")
+    if fixtures:
+        out += (" " if parts else "") + f"{fixtures} product record{'s' if fixtures != 1 else ''} are fixture sample data in the export format, not measurements."
+    return out
 
 
 def neighbours(date: str, dates: list[str]) -> tuple[str | None, str | None]:
@@ -520,7 +562,8 @@ def render_index(model: dict) -> str:
             body.append(f'<p class="note">{len(dates) - FRONT_DAYS} earlier days are listed on the product pages and in <a href="/sitemap.xml">sitemap.xml</a>.</p>')
     else:
         body.append('<p class="note">no activity recorded</p>')
-    return layout(f"{SITE_NAME} — the site that writes itself", "\n".join(body), model["built"], canonical=SITE_BASE + "/")
+    return layout(f"{SITE_NAME} — the site that writes itself", "\n".join(body), model["built"], canonical=SITE_BASE + "/",
+                  description=SITE_TAGLINE, ld_type="WebSite")
 
 
 def render_product(slug: str, p: dict, model: dict) -> str:
@@ -672,7 +715,7 @@ def render_404(built: str) -> str:
             '<code>/product/&lt;slug&gt;/</code>. A day with no page is a day with no records.</p>'
             '<p><a href="/">Front page</a> · <a href="/#days">Days</a> · <a href="/#products">Products</a> · <a href="/about/">About</a> · '
             '<a href="/try/">Try it</a> · <a href="/feed.xml">RSS</a> · <a href="/today.json">today.json</a> · <a href="/llms.txt">llms.txt</a> · <a href="/legal/">Legal</a></p>')
-    return layout(f"404 — {SITE_NAME}", body, built, noindex=True)
+    return layout(f"404 — {SITE_NAME}", body, built, noindex=True, description="No such page on the agent team diary.")
 
 
 def render_legal(built: str) -> str:
@@ -692,7 +735,8 @@ def render_legal(built: str) -> str:
             f"these logs are not shared.</p>"
             f"<p><strong>Feedback.</strong> Public GitHub Issues in the framework repository are read by the team; what you write there is public "
             f"under GitHub's terms. Nothing from an Issue is reproduced on this site.</p>")
-    return layout(f"Legal — {SITE_NAME}", body, built, canonical=SITE_BASE + "/legal/")
+    return layout(f"Legal — {SITE_NAME}", body, built, canonical=SITE_BASE + "/legal/",
+                  description="Responsible person, data, license and no-tracking statement of the agent team diary.")
 
 
 # ----------------------------------------------------------------------------------------------------------
@@ -852,14 +896,31 @@ def check_site() -> list[str]:
             self.title = False
             self.css = False
             self.scripts = 0
+            self.ld = 0
+            self.og = set()
+            self.in_ld = False
+            self.ld_text = ""
+
+        def handle_endtag(self, tag: str) -> None:
+            if tag == "script":
+                self.in_ld = False
+
+        def handle_data(self, data: str) -> None:
+            if self.in_ld:
+                self.ld_text += data
 
         def handle_starttag(self, tag: str, attrs: list) -> None:
             if tag == "title":
                 self.title = True
             if tag == "link" and dict(attrs).get("rel") == "stylesheet" and dict(attrs).get("href") == "/style.css":
                 self.css = True
-            if tag == "script":
+            if tag == "script" and dict(attrs).get("type") == "application/ld+json":
+                self.ld += 1
+                self.in_ld = True
+            elif tag == "script":
                 self.scripts += 1
+            if tag == "meta" and str(dict(attrs).get("property") or "").startswith("og:") and dict(attrs).get("content"):
+                self.og.add(dict(attrs)["property"])
 
     problems: list[str] = []
     for f in sorted(PUBLIC_DIR.rglob("*.html")):
@@ -877,6 +938,19 @@ def check_site() -> list[str]:
             problems.append(f"{f}: no /style.css link")
         if p.scripts:
             problems.append(f"{f}: contains <script>")
+        if "http-equiv=\"refresh\"" not in txt:
+            if p.ld != 1:
+                problems.append(f"{f}: expected exactly one JSON-LD block, found {p.ld}")
+            else:
+                try:
+                    ld = json.loads(p.ld_text)
+                    if ld.get("@context") != "https://schema.org" or not ld.get("@type"):
+                        problems.append(f"{f}: JSON-LD lacks @context/@type")
+                except ValueError as e:
+                    problems.append(f"{f}: bad JSON-LD {e}")
+            for k in ("og:title", "og:description", "og:type", "og:url"):
+                if k not in p.og:
+                    problems.append(f"{f}: missing {k}")
         if FOOTER_LINE not in txt:
             problems.append(f"{f}: footer disclosure missing")
     for f in sorted(PUBLIC_DIR.rglob("*.json")):

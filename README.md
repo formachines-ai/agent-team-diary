@@ -30,6 +30,8 @@ python3 build.py -v          # debug log
 ```
 data/public/<slug>/product.json          slug, name, site, goals (rows of the VISION goals table), generated
 data/public/<slug>/day-YYYY-MM-DD.json   one UTC day of one product (format: docstring of team/export.py in the dispatcher)
+data/public/<other>/…                    other exports may land here too (publish-diary.sh adds framework/ friction data);
+                                         a folder without product.json is not a product and build.py ignores it
 ```
 
 **The dispatcher writes `data/public/`** (`team export-public` through the server script `publish-diary.sh`, after

@@ -219,6 +219,10 @@ def load_data() -> dict:
     for pdir in sorted(DATA_DIR.iterdir()):
         if not pdir.is_dir() or not SLUG_RE.match(pdir.name):
             continue
+        if not (pdir / "product.json").exists():
+            # other exports land here too (e.g. framework/ friction data); a product is a folder with product.json
+            log.debug("%s: no product.json, not a product — skipped", pdir.name)
+            continue
         prod = read_json(pdir / "product.json") or {}
         if not isinstance(prod, dict):
             prod = {}

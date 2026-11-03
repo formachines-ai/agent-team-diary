@@ -73,6 +73,9 @@ def iso(dt: datetime) -> str:
     return dt.astimezone(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
+DESC_MAX = 160  # meta/og description limit (seocheck: 50-160)
+
+
 def esc(s: object) -> str:
     return html.escape(str(s if s is not None else ""), quote=True)
 
@@ -333,6 +336,8 @@ def jsonld_block(data: dict) -> str:
 def layout(title: str, body: str, built: str, description: str = "", canonical: str = "", noindex: bool = False,
            ld_type: str = "WebPage") -> str:
     desc = description or SITE_TAGLINE
+    if len(desc) > DESC_MAX:  # whole words only, no ellipsis
+        desc = desc[:DESC_MAX + 1].rsplit(" ", 1)[0].rstrip(" ,;:-")
     og_type = "article" if ld_type == "Article" else "website"
     url = canonical or SITE_BASE + "/"
     ld = {"@context": "https://schema.org", "@type": ld_type, "name": title, "headline" if ld_type == "Article" else "description": title if ld_type == "Article" else desc,
@@ -519,23 +524,14 @@ def render_day(date: str, model: dict) -> str:
 
 
 def day_description(date: str, model: dict) -> str:
-    """og/JSON-LD text of a day page: counts only, from day_counts(); fixture records are not given as measurements."""
-    parts, fixtures = [], 0
-    for slug, p in model["products"].items():
-        if date not in p["days"]:
-            continue
-        c = day_counts(p["days"][date])
-        if c["fixture"]:
-            fixtures += 1
-            continue
-        parts.append(f'{p["product"].get("name") or slug}: {c["tasks_done"]} tasks done, {c["reviews_pass"]} reviews passed, '
-                     f'{c["posts"]} posts, {fmt_usd(c["spend_usd"])} spent')
-    if not parts and not fixtures:
+    """Short meta/og text of a day page: totals over the products present that day (same fields as index.json)."""
+    cs = [day_counts(p["days"][date]) for p in model["products"].values() if date in p["days"]]
+    if not cs:
         return f"{date}: no activity recorded."
-    out = f"{date}: " + "; ".join(parts) + ("." if parts else "")
-    if fixtures:
-        out += (" " if parts else "") + f"{fixtures} product record{'s' if fixtures != 1 else ''} are fixture sample data in the export format, not measurements."
-    return out
+    spend = round(sum(float(p["days"][date].get("spend_usd") or 0.0) for p in model["products"].values() if date in p["days"]), 1)
+    sample = " (fixture sample, not a measurement)" if any(c["fixture"] for c in cs) else ""
+    return (f"{date}{sample}: {sum(c['tasks_done'] for c in cs)} tasks done, {sum(c['reviews_pass'] for c in cs)} reviews passed, "
+            f"{sum(c['posts'] for c in cs)} posts, {fmt_usd(spend)} model spend across {len(cs)} product{'s' if len(cs) != 1 else ''}")
 
 
 def neighbours(date: str, dates: list[str]) -> tuple[str | None, str | None]:

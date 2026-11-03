@@ -906,6 +906,7 @@ def write_site(model: dict) -> dict:
     for date in model["dates"]:
         write_text(PUBLIC_DIR / "day" / date / "index.html", render_day(date, model)); written += 1
         merged = {"date": date, "products": {slug: p["days"][date] for slug, p in model["products"].items() if date in p["days"]},
+                  "counts": {slug: day_counts(p["days"][date]) for slug, p in model["products"].items() if date in p["days"]},
                   "disclosure": f"{FOOTER_LINE}; responsible: {RESPONSIBLE}.", "built": built}
         write_json(PUBLIC_DIR / "day" / date / "index.json", merged)
     for slug, p in model["products"].items():

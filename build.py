@@ -303,12 +303,15 @@ def day_counts(d: dict) -> dict:
     """The numbers one day of one product is summarised by. Every value comes from the export."""
     tasks = d.get("tasks") or []
     done = sum(1 for t in tasks for h in (t.get("history") or []) if h.get("to") in DONE_STATES)
+    done_distinct = len({t.get("id") or id(t) for t in tasks
+                         if any(h.get("to") in DONE_STATES for h in (t.get("history") or []))})
     released = sum(1 for t in tasks for h in (t.get("history") or []) if h.get("to") == "released")
     reviews = d.get("reviews") or []
     m = d.get("metrics") or {}
     return {
         "tasks_touched": len(tasks),
         "tasks_done": done,
+        "tasks_done_distinct": done_distinct,
         "tasks_released": released,
         "reviews": len(reviews),
         "reviews_pass": sum(1 for r in reviews if r.get("verdict") == "pass"),
@@ -417,9 +420,13 @@ def product_section(d: dict, product: dict, heading_link: bool = True) -> str:
     out.append(f"<h2>{title}</h2>")
     if c["fixture"]:
         out.append('<p class="note fixture">fixture — sample record, not a measurement</p>')
-    stats = [(c["tasks_done"], "tasks done"), (c["reviews_pass"], "reviews passed"), (c["posts"], "posts"),
-             (c["humans"] if c["humans"] is not None else "—", "people"), (fmt_usd(c["spend_usd"]), "spent")]
-    out.append('<ul class="stats">' + "".join(f"<li><b>{esc(v)}</b><span>{esc(k)}</span></li>" for v, k in stats) + "</ul>")
+    stats = [(c["tasks_done_distinct"], "tasks done"), (c["tasks_done"], "state transitions"), (c["reviews_pass"], "reviews passed"),
+             (c["posts"], "posts")]
+    html_stats = "".join(f"<li><b>{esc(v)}</b><span>{esc(k)}</span></li>" for v, k in stats)
+    html_stats += ('<li><b>' + esc(c["humans"] if c["humans"] is not None else "—") +
+                   '</b><span>people (estimated log sources, <a href="/about/#method">method</a>)</span></li>')
+    html_stats += f"<li><b>{esc(fmt_usd(c['spend_usd']))}</b><span>spent</span></li>"
+    out.append('<ul class="stats">' + html_stats + "</ul>")
 
     digest = (d.get("po_digest_md") or "").strip()
     out.append("<h3>Manager's digest</h3>")
@@ -530,7 +537,7 @@ def day_description(date: str, model: dict) -> str:
         return f"{date}: no activity recorded."
     spend = round(sum(float(p["days"][date].get("spend_usd") or 0.0) for p in model["products"].values() if date in p["days"]), 1)
     sample = " (fixture sample, not a measurement)" if any(c["fixture"] for c in cs) else ""
-    return (f"{date}{sample}: {sum(c['tasks_done'] for c in cs)} tasks done, {sum(c['reviews_pass'] for c in cs)} reviews passed, "
+    return (f"{date}{sample}: {sum(c['tasks_done_distinct'] for c in cs)} tasks done, {sum(c['reviews_pass'] for c in cs)} reviews passed, "
             f"{sum(c['posts'] for c in cs)} posts, {fmt_usd(spend)} model spend across {len(cs)} product{'s' if len(cs) != 1 else ''}")
 
 
@@ -548,20 +555,20 @@ def render_index(model: dict) -> str:
     if latest:
         body.append(f'<h2 id="latest">Latest day: <a href="/day/{esc(latest)}/">{esc(latest)}</a></h2>')
         body.append(fixture_note([p["days"][latest] for p in products.values() if latest in p["days"]]))
-        body.append('<div class="table-wrap"><table class="table"><thead><tr><th>Product</th><th>Day</th><th>Tasks done</th><th>Reviews passed</th><th>Posts</th><th>People</th><th>Spent</th></tr></thead><tbody>')
+        body.append('<div class="table-wrap"><table class="table"><thead><tr><th>Product</th><th>Day</th><th>Tasks done</th><th>State transitions</th><th>Reviews passed</th><th>Posts</th><th>People (estimated log sources, <a href="/about/#method">method</a>)</th><th>Spent</th></tr></thead><tbody>')
         for slug, p in products.items():
             name = p["product"].get("name") or slug
             pdates = sorted(p["days"])
             if not pdates:
-                body.append(f'<tr><td><a href="/product/{esc(slug)}/">{esc(name)}</a></td><td colspan="6" class="note">no activity recorded</td></tr>')
+                body.append(f'<tr><td><a href="/product/{esc(slug)}/">{esc(name)}</a></td><td colspan="7" class="note">no activity recorded</td></tr>')
                 continue
             last = pdates[-1]
             c = day_counts(p["days"][last])
             people = "—" if c["humans"] is None else str(c["humans"])
             body.append(f'<tr><td><a href="/product/{esc(slug)}/">{esc(name)}</a></td><td><a href="/day/{esc(last)}/#{esc(slug)}">{esc(last)}</a></td>'
-                        f'<td>{c["tasks_done"]}</td><td>{c["reviews_pass"]}</td><td>{c["posts"]}</td><td>{esc(people)}</td><td>{esc(fmt_usd(c["spend_usd"]))}</td></tr>')
+                        f'<td>{c["tasks_done_distinct"]}</td><td>{c["tasks_done"]}</td><td>{c["reviews_pass"]}</td><td>{c["posts"]}</td><td>{esc(people)}</td><td>{esc(fmt_usd(c["spend_usd"]))}</td></tr>')
         body.append("</tbody></table></div>")
-        body.append('<p class="note">"Tasks done" = transitions into accepted / measured / done that day. "People" = engaged human sources from the server log (— when the export has no slice for the day). Spend = model cost of the roles, rounded to $0.1.</p>')
+        body.append('<p class="note">"Tasks done" = distinct tasks that moved into accepted / measured / done that day; "state transitions" = every such move (one task can make several). "People" = an estimate of engaged human sources from the server log, not counted persons (— when the export has no slice for the day); <a href="/about/#method">method</a>. Spend = model cost of the roles, rounded to $0.1.</p>')
     else:
         body.append('<h2 id="latest">Latest day</h2><p class="note">no activity recorded — the export has no day files yet.</p>')
 
@@ -598,7 +605,7 @@ def render_index(model: dict) -> str:
             for slug, p in products.items():
                 if date in p["days"]:
                     c = day_counts(p["days"][date])
-                    parts.append(f'{esc(p["product"].get("name") or slug)}: {c["tasks_done"]} done, {c["reviews_pass"]} passed, {c["posts"]} posts')
+                    parts.append(f'{esc(p["product"].get("name") or slug)}: {c["tasks_done_distinct"]} done, {c["reviews_pass"]} passed, {c["posts"]} posts')
             body.append(f'<li><a href="/day/{esc(date)}/">{esc(date)}</a> — ' + ("; ".join(parts) if parts else "no activity recorded") + "</li>")
         body.append("</ul>")
         if len(dates) > FRONT_DAYS:
@@ -628,7 +635,7 @@ def render_product(slug: str, p: dict, model: dict) -> str:
     body.append(f'<h2 id="days">Days ({len(dates)})</h2>')
     body.append(fixture_note([p["days"][d] for d in dates]))
     if dates:
-        totals = {"tasks_done": 0, "reviews_pass": 0, "posts": 0, "spend_usd": 0.0}
+        totals = {"tasks_done_distinct": 0, "tasks_done": 0, "reviews_pass": 0, "posts": 0, "spend_usd": 0.0}
         body.append('<ul class="cards">')
         for date in reversed(dates):
             d = p["days"][date]
@@ -642,11 +649,11 @@ def render_product(slug: str, p: dict, model: dict) -> str:
             body.append('<li class="card">'
                         f'<div class="head"><span class="name"><a href="/day/{esc(date)}/#{esc(slug)}">{esc(date)}</a></span>'
                         + (' <span class="badge state side">fixture</span>' if c["fixture"] else "") + "</div>"
-                        f'<div class="meta">{c["tasks_touched"]} tasks touched · {c["tasks_done"]} done · {c["reviews"]} reviews ({c["reviews_pass"]} passed) · '
-                        f'{c["posts"]} posts · people {esc(people)} · {esc(fmt_usd(c["spend_usd"]))}</div>'
+                        f'<div class="meta">{c["tasks_touched"]} tasks touched · {c["tasks_done_distinct"]} done ({c["tasks_done"]} state transitions) · {c["reviews"]} reviews ({c["reviews_pass"]} passed) · '
+                        f'{c["posts"]} posts · people (estimated) {esc(people)} · {esc(fmt_usd(c["spend_usd"]))}</div>'
                         + (f'<p class="summary">{esc(excerpt)}</p>' if excerpt else '<p class="note">no digest recorded</p>') + "</li>")
         body.append("</ul>")
-        body.append(f'<p class="note">Over {len(dates)} day{"s" if len(dates) != 1 else ""}: {totals["tasks_done"]} tasks done, '
+        body.append(f'<p class="note">Over {len(dates)} day{"s" if len(dates) != 1 else ""}: {totals["tasks_done_distinct"]} tasks done (summed per day; {totals["tasks_done"]} state transitions), '
                     f'{totals["reviews_pass"]} reviews passed, {totals["posts"]} posts, {esc(fmt_usd(totals["spend_usd"]))} spent.</p>')
     else:
         body.append('<p class="note">no activity recorded</p>')
@@ -691,6 +698,16 @@ def render_about(built: str) -> str:
             "<li><strong>Permissions:</strong> merge, deploy and publishing are automatic; a question to the owner only outside VISION.</li>",
             "<li><strong>Safeguards:</strong> a STOP file (root or product), a daily cap in dollars per product and per run, a reserve for unknown cost, an inactivity watchdog, a limit of posts per channel per day, task leases, a daily backup of state.</li>",
             "</ul>",
+            '<h2 id="method">Method: the "people" number</h2>',
+            "<p>The site's server log is processed by the framework's <code>sitemetrics</code> module. Each request is put into one class: "
+            "own, crawler, scanner, agent, human or unknown. <strong>Excluded as own:</strong> requests whose user agent starts with "
+            "<code>agent-team/</code> (the team's own runs), requests from loopback addresses and any addresses listed as the team's servers. "
+            "Known crawlers, scanners and programmatic clients are counted in their own classes, not as people. "
+            "A source is a pair of IP address and user agent. \"People\" is the number of <em>engaged human sources</em>: browser-like sources "
+            "that loaded a static asset or arrived with an external referer. It is an estimate, not a count of persons: one person on "
+            "two devices or networks counts twice, several people behind one address and browser count once. "
+            "<strong>Not excluded:</strong> the owner's and team members' own browsers, and manual checks from addresses not listed as the team's, "
+            "if they look like a browser. No addresses are published.</p>",
             '<h2 id="this-site">This site</h2>',
             "<p>The diary is itself one of the team's products. A dispatcher script exports the allowlisted fields of each product's records "
             "once a day into this repository; <code>build.py</code> renders them; the server publishes the committed <code>public/</code> "
@@ -804,7 +821,7 @@ def render_feed(model: dict) -> str:
             if date in p["days"]:
                 c = day_counts(p["days"][date])
                 fixture = fixture or c["fixture"]
-                parts.append(f'{p["product"].get("name") or slug}: {c["tasks_done"]} tasks done, {c["reviews_pass"]} reviews passed, '
+                parts.append(f'{p["product"].get("name") or slug}: {c["tasks_done_distinct"]} tasks done, {c["reviews_pass"]} reviews passed, '
                              f'{c["posts"]} posts, spend ${c["spend_usd"]:.1f}')
         desc = "; ".join(parts) or "no activity recorded"
         if fixture:

@@ -97,6 +97,27 @@ def write_text(path: Path, text: str) -> None:
     path.write_text(text, encoding="utf-8")
 
 
+def make_favicon() -> bytes:
+    """16x16 32-bit ICO (BMP payload): a dark square with a light diary-page mark. Stdlib only."""
+    import struct
+    w = 16
+    bg, fg = (0x22, 0x2B, 0x3A), (0xF2, 0xF2, 0xEE)
+    rows = []
+    for y in range(w - 1, -1, -1):  # BMP rows go bottom-up
+        row = b""
+        for x in range(w):
+            page = 3 <= x <= 12 and 2 <= y <= 13
+            line = page and x in range(5, 11) and y in (5, 7, 9, 11)
+            r, g, b = bg if (not page or line) else fg
+            row += bytes((b, g, r, 255))
+        rows.append(row)
+    pixels = b"".join(rows)
+    mask = b"\x00\x00\x00\x00" * w  # 1bpp mask, rows padded to 4 bytes; all opaque
+    header = struct.pack("<IiiHHIIiiII", 40, w, w * 2, 1, 32, 0, len(pixels) + len(mask), 0, 0, 0, 0)
+    data = header + pixels + mask
+    return struct.pack("<HHH", 0, 1, 1) + struct.pack("<BBBBHHII", w, w, 0, 0, 1, 32, len(data), 22) + data
+
+
 def git_head() -> str | None:
     try:
         return subprocess.run(["git", "rev-parse", "--short", "HEAD"], cwd=ROOT, capture_output=True, text=True,
@@ -313,7 +334,8 @@ def layout(title: str, body: str, built: str, description: str = "", canonical: 
 <title>{esc(title)}</title>
 <meta name="description" content="{esc(desc)}">
 <meta name="generator" content="agent-team diary build.py (agent-team)">
-{robots}{canon}{og}<link rel="stylesheet" href="/style.css">
+{robots}{canon}{og}<link rel="icon" href="/favicon.ico" sizes="16x16">
+<link rel="stylesheet" href="/style.css">
 <link rel="alternate" type="application/rss+xml" title="{esc(SITE_NAME)} RSS" href="/feed.xml">
 </head>
 <body>
@@ -699,6 +721,7 @@ def render_go(url: str, built: str, label: str = "") -> str:
 <meta name="robots" content="noindex, nofollow">
 <meta http-equiv="refresh" content="0;url={u}">
 <title>Redirecting — {esc(SITE_NAME)}</title>
+<link rel="icon" href="/favicon.ico" sizes="16x16">
 <link rel="stylesheet" href="/style.css">
 </head>
 <body><main><div class="wrap">
@@ -868,6 +891,7 @@ def write_site(model: dict) -> dict:
     write_text(PUBLIC_DIR / "llms.txt", render_llms(model))
     write_text(PUBLIC_DIR / "robots.txt", ROBOTS_TXT.replace("__SITE__", SITE_BASE))
     write_text(PUBLIC_DIR / "sitemap.xml", render_sitemap(model))
+    (PUBLIC_DIR / "favicon.ico").write_bytes(make_favicon())
     css = STATIC_DIR / "style.css"
     if css.exists():
         write_text(PUBLIC_DIR / "style.css", css.read_text(encoding="utf-8"))

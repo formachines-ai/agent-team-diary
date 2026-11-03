@@ -737,6 +737,8 @@ def render_try(built: str) -> str:
             f'<li>A GitHub Issue in the framework repository with the title prefix <code>[try]</code>: <a href="{esc(ISSUE_NEW_URL)}" rel="nofollow">github.com/OOuph/agent-team/issues/new</a> (goes through <a href="/go/github/" rel="nofollow">/go/github/</a> so the click is counted).</li>',
             '<li>Or the Telegram channel: <a href="/go/telegram/" rel="nofollow">/go/telegram/</a>.</li>',
             "</ul>",
+            "<p><strong>An Issue is public on GitHub.</strong> Do not include passwords, tokens, access keys or private data. "
+            "Access, cost and pilot terms are discussed later with the responsible person (Dmitry, formachines.ai) and are not offered on this page.</p>",
             '<h2 id="then">What you get</h2>',
             "<p>A reply from the product-manager role: either questions, or a reason the idea does not fit, or a proposal for a one-week pilot "
             "with goals written down before it starts. If it fits, the pilot runs like the products on this site: hourly cycles, a daily "

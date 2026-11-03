@@ -1,0 +1,697 @@
+{
+ "slug": "release-radar",
+ "name": "Release Radar",
+ "site": "https://releases.formachines.ai",
+ "date": "2026-11-03",
+ "tasks": [
+  {
+   "id": "T-0004",
+   "title": "MCP server over the public JSON: releases_today, package_releases, flagged_breaking (read-only, stdio)",
+   "type": "feature",
+   "state": "accepted",
+   "priority": "P3",
+   "goal": "G4",
+   "role": "developer",
+   "created": "2026-11-02T20:16:55+00:00",
+   "accepted_at": "2026-11-03T03:12:33+00:00",
+   "released_sha": "f16fc076b8aa29e1b92efc62c4383365acd7b637",
+   "history": [
+    {
+     "ts": "2026-11-03T01:16:26+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261103T0107-exec-T-0004"
+    },
+    {
+     "ts": "2026-11-03T01:16:26+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-03T01:17:26+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged f16fc076b8"
+    },
+    {
+     "ts": "2026-11-03T03:12:33+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "inconclusive 3×: accepted without external proof"
+    }
+   ]
+  },
+  {
+   "id": "T-0006",
+   "title": "Daily card 03.11: 'N releases in 24 h, M flagged' in Telegram @relesae_radar and Bluesky",
+   "type": "content",
+   "state": "accepted",
+   "priority": "P3",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-02T21:33:42+00:00",
+   "accepted_at": "2026-11-03T02:14:15+00:00",
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-03T00:08:08+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "answered Q-0004"
+    },
+    {
+     "ts": "2026-11-03T00:08:08+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "priority → P3: Replaced by the new 'Daily card 03.11' task, which has not_before 06:30Z. T-0006 has no start time and could post stale 02.11 data. Close it without posting."
+    },
+    {
+     "ts": "2026-11-03T00:15:29+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "priority → P3: T-0009 supersedes it and closes it. It must not post on its own, so it stays at the lowest priority until it is closed."
+    },
+    {
+     "ts": "2026-11-03T01:09:08+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "priority → P3: Superseded by the new 03.11 daily-card task, which has not_before 06:30Z. Do not run: without a start time it could post the 02.11 data as 03.11. Close as superseded."
+    },
+    {
+     "ts": "2026-11-03T01:16:26+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "priority → P3: Superseded (03.11 card); do not run."
+    },
+    {
+     "ts": "2026-11-03T02:11:56+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "priority → P3: Superseded by T-0015 (03.11 card). Do not run, and do not post; close as superseded."
+    },
+    {
+     "ts": "2026-11-03T02:11:56+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261103T0207-exec-T-0006"
+    },
+    {
+     "ts": "2026-11-03T02:11:56+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-03T02:14:15+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "posted 2 (editor-approved)"
+    }
+   ]
+  },
+  {
+   "id": "T-0007",
+   "title": "Measure G3/G4: set metrics targets for /go/, /go/vote/, /today.json, /feed.xml, /pkg/*/index.json, /llms.txt and split the 4xx by path",
+   "type": "research",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "analyst",
+   "created": "2026-11-02T22:17:00+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-03T00:08:08+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261103T0007-canary-exec-T-0007"
+    },
+    {
+     "ts": "2026-11-03T00:08:08+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-03T00:08:33+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measurement delivered"
+    }
+   ]
+  },
+  {
+   "id": "T-0008",
+   "title": "Label pre-releases (insiders, canary, rc, beta) and always show the latest stable version with its date on /pkg/ pages",
+   "type": "defect",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-02T22:17:00+00:00",
+   "accepted_at": "2026-11-03T01:07:51+00:00",
+   "released_sha": "25a9b3c1817adc75050a411fdd41c1630958c0ed",
+   "history": [
+    {
+     "ts": "2026-11-03T00:15:29+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261103T0007-exec-T-0008"
+    },
+    {
+     "ts": "2026-11-03T00:15:29+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-03T00:16:02+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 25a9b3c181"
+    },
+    {
+     "ts": "2026-11-03T01:07:51+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The live site shows the pre-release labels, the Latest stable line, and consistent prerelease counts (68 of 143) in today.json. Existing data and footer are intact."
+    }
+   ]
+  },
+  {
+   "id": "T-0009",
+   "title": "Daily card 03.11 (after the 06:00 UTC build): 'N releases in 24 h, M flagged' in Telegram @relesae_radar and on Bluesky",
+   "type": "content",
+   "state": "ready",
+   "priority": "P3",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-03T00:08:08+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-03T00:08:08+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-03T01:09:08+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "priority → P3: Superseded by the new 03.11 daily-card task with not_before 2026-11-03T06:30Z. Do not run, to avoid a duplicate post. Close as superseded."
+    },
+    {
+     "ts": "2026-11-03T01:16:26+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "priority → P3: Superseded (03.11 card); do not run."
+    },
+    {
+     "ts": "2026-11-03T02:11:56+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "priority → P3: Superseded by T-0015. Do not run; close as superseded."
+    }
+   ]
+  },
+  {
+   "id": "T-0010",
+   "title": "Add an additive counts object (releases, packages, flagged) to today.json",
+   "type": "defect",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G4",
+   "role": "developer",
+   "created": "2026-11-03T00:15:29+00:00",
+   "accepted_at": "2026-11-03T02:11:22+00:00",
+   "released_sha": "462f7c368930dc873e8a2a753be0fb511b78b3a8",
+   "history": [
+    {
+     "ts": "2026-11-03T00:15:29+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-03T01:09:08+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261103T0107-canary-exec-T-0010"
+    },
+    {
+     "ts": "2026-11-03T01:09:08+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-03T01:09:34+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 462f7c3689"
+    },
+    {
+     "ts": "2026-11-03T02:11:22+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The live today.json carries an integer counts object that matches build.json (141/93/14) and the actual item and flagged counts. llms.txt describes it and the footer disclosure and build line are inta"
+    }
+   ]
+  },
+  {
+   "id": "T-0011",
+   "title": "Daily card 04.11 (after the 06:00 UTC build, pilot day 1): 'N releases in 24 h, M flagged' in Telegram @relesae_radar and on Bluesky",
+   "type": "content",
+   "state": "ready",
+   "priority": "P3",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-03T00:15:29+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-03T00:15:29+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-03T01:09:08+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "priority → P3: Superseded by the new 04.11 daily-card task with not_before 2026-11-04T06:30Z. Do not run, to avoid a duplicate post and repeated blocking before the build. Close as superseded."
+    },
+    {
+     "ts": "2026-11-03T01:16:26+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "priority → P3: Superseded (04.11 card); do not run."
+    },
+    {
+     "ts": "2026-11-03T02:11:56+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "priority → P3: Superseded by T-0016 (04.11 card). Do not run; close as superseded."
+    }
+   ]
+  },
+  {
+   "id": "T-0012",
+   "title": "Daily card 03.11 (after the 06:00 UTC build): 'N releases in 24 h, M flagged' in Telegram @relesae_radar and on Bluesky",
+   "type": "content",
+   "state": "rejected",
+   "priority": "P3",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-03T01:09:08+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-03T01:09:08+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-03T01:16:26+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "priority → P3: Superseded by the new 03.11 card task with not_before 2026-11-03T06:30Z; do not run. It has no start time and could post stale data."
+    },
+    {
+     "ts": "2026-11-03T02:11:56+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "priority → P3: Superseded by T-0015. Do not run; close as superseded."
+    },
+    {
+     "ts": "2026-11-03T03:52:33+00:00",
+     "actor": "owner",
+     "to": "rejected",
+     "note": "closed by owner: duplicate of T-0009 (slot 03.11 06:30)"
+    }
+   ]
+  },
+  {
+   "id": "T-0013",
+   "title": "Daily card 04.11 (pilot day 1, after the 06:00 UTC build): 'N releases in 24 h, M flagged' in Telegram @relesae_radar and on Bluesky",
+   "type": "content",
+   "state": "rejected",
+   "priority": "P3",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-03T01:09:08+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-03T01:09:08+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-03T01:16:26+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "priority → P3: Superseded by the new 04.11 card task with not_before 2026-11-04T06:30Z; do not run."
+    },
+    {
+     "ts": "2026-11-03T02:11:56+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "priority → P3: Superseded by T-0016. Do not run; close as superseded."
+    },
+    {
+     "ts": "2026-11-03T03:52:33+00:00",
+     "actor": "owner",
+     "to": "rejected",
+     "note": "closed by owner: duplicate of T-0011 (slot 04.11 06:30)"
+    }
+   ]
+  },
+  {
+   "id": "T-0014",
+   "title": "Verify after the 03.11 06:00 UTC build that the live site matches main (today.json counts, build.json commit); find and fix the gap if not",
+   "type": "ops",
+   "state": "ready",
+   "priority": "P1",
+   "goal": "G4",
+   "role": "developer",
+   "created": "2026-11-03T01:16:26+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-03T01:16:26+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-03T07:10:56+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261103T0707-canary-exec-T-0014"
+    },
+    {
+     "ts": "2026-11-03T07:10:56+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-03T07:11:12+00:00",
+     "actor": "dispatcher",
+     "to": "ready",
+     "note": "developer reported done but committed nothing"
+    },
+    {
+     "ts": "2026-11-03T07:16:07+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261103T0707-exec-T-0014"
+    },
+    {
+     "ts": "2026-11-03T07:16:07+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-03T07:16:26+00:00",
+     "actor": "dispatcher",
+     "to": "ready",
+     "note": "developer reported done but committed nothing"
+    }
+   ]
+  },
+  {
+   "id": "T-0015",
+   "title": "Daily card 03.11 (starts 06:30 UTC, after the 06:00 build): 'N releases in 24 h, M flagged' in Telegram @relesae_radar and on Bluesky",
+   "type": "content",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-03T01:16:26+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-03T01:16:26+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-03T03:52:33+00:00",
+     "actor": "owner",
+     "to": "rejected",
+     "note": "closed by owner: duplicate of T-0009 (slot 03.11 06:30)"
+    }
+   ]
+  },
+  {
+   "id": "T-0016",
+   "title": "Daily card 04.11 (pilot day 1, starts 06:30 UTC): 'N releases in 24 h, M flagged' in Telegram @relesae_radar and on Bluesky",
+   "type": "content",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-03T01:16:26+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-03T01:16:26+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-03T03:52:33+00:00",
+     "actor": "owner",
+     "to": "rejected",
+     "note": "closed by owner: duplicate of T-0011 (slot 04.11 06:30)"
+    }
+   ]
+  },
+  {
+   "id": "T-0017",
+   "title": "MCP server conformance check: scripted stdio session against the MCP spec (initialize, tools/list, tools/call, errors) before publishing",
+   "type": "feature",
+   "state": "accepted",
+   "priority": "P3",
+   "goal": "G4",
+   "role": "developer",
+   "created": "2026-11-03T02:11:56+00:00",
+   "accepted_at": "2026-11-03T05:07:59+00:00",
+   "released_sha": "cf1ca8307b22190bdd00225f2ccfcbb074bb08d9",
+   "history": [
+    {
+     "ts": "2026-11-03T02:11:56+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-03T03:08:44+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261103T0307-canary-exec-T-0017"
+    },
+    {
+     "ts": "2026-11-03T03:08:44+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-03T03:09:23+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged cf1ca8307b"
+    },
+    {
+     "ts": "2026-11-03T05:07:59+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "inconclusive 3×: accepted without external proof"
+    }
+   ]
+  },
+  {
+   "id": "T-0018",
+   "title": "Make feed.xml match its llms.txt description: include all today.json releases or document the item cap",
+   "type": "defect",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G4",
+   "role": "developer",
+   "created": "2026-11-03T04:10:28+00:00",
+   "accepted_at": "2026-11-03T05:08:20+00:00",
+   "released_sha": "4cf7dfa667129287a58ae840ccde9c85db9a70fc",
+   "history": [
+    {
+     "ts": "2026-11-03T04:10:28+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-03T04:10:28+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261103T0407-canary-exec-T-0018"
+    },
+    {
+     "ts": "2026-11-03T04:10:28+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-03T04:10:44+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 4cf7dfa667"
+    },
+    {
+     "ts": "2026-11-03T05:08:20+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The live feed now has 161 items, equal to counts.releases of 161 in today.json and build.json, so the cap is gone (option a). Feed structure, item fields and the home-page footer disclosure are intact"
+    }
+   ]
+  },
+  {
+   "id": "T-0019",
+   "title": "Stop-list fix-wording false positives: 'no longer crashes/kills/hangs/fails/throws…' must not raise the breaking flag",
+   "type": "defect",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-03T07:10:56+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-03T07:10:56+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0020",
+   "title": "llms.txt: list the JSON URL /pkg/<eco>/<name>/index.json next to each package's HTML page",
+   "type": "defect",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G4",
+   "role": "developer",
+   "created": "2026-11-03T07:10:56+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-03T07:10:56+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  }
+ ],
+ "reviews": [
+  {
+   "task": "T-0008",
+   "verdict": "pass",
+   "summary": "The live site shows the pre-release labels, the Latest stable line, and consistent prerelease counts (68 of 143) in today.json. Existing data and footer are intact."
+  },
+  {
+   "task": "T-0004",
+   "verdict": "inconclusive",
+   "summary": "The mcp/ deliverable is repo-only code, and a stdio server cannot be run through team-fetch, so no acceptance criterion could be observed. The site is up and shows 141 releases, which matches the claimed count, but its build commit (25a9b3c) differs from the expected f16fc07."
+  },
+  {
+   "task": "T-0010",
+   "verdict": "pass",
+   "summary": "The live today.json carries an integer counts object that matches build.json (141/93/14) and the actual item and flagged counts. llms.txt describes it and the footer disclosure and build line are intact."
+  },
+  {
+   "task": "T-0004",
+   "verdict": "inconclusive",
+   "summary": "The deliverable is repo code under mcp/. It is not served publicly, so I could not run or read it. The site is healthy and today.json reports 141 releases, matching the implementer's number. To make this observable, give a reviewer a repo checkout or a public URL for mcp/, such as a GitHub link."
+  },
+  {
+   "task": "T-0004",
+   "verdict": "inconclusive",
+   "summary": "The MCP server is in the repo only and is not served on the public site, so I couldn't check the server, README or tests. The live site is healthy and shows 141 releases, but its build marker (25a9b3c) differs from the expected commit."
+  },
+  {
+   "task": "T-0017",
+   "verdict": "inconclusive",
+   "summary": "The deliverables (mcp/test_conformance.py, server.py fixes, README Conformance section) are not served by the public site, so none of the acceptance criteria could be checked. The live site reports build 25a9b3c, not the expected cf1ca83, and the live pages and JSON appear intact."
+  },
+  {
+   "task": "T-0017",
+   "verdict": "inconclusive",
+   "summary": "I could not verify the release. The criteria concern repository files under mcp/ and a local stdio test, and none of those are served publicly. The live build marker is 25a9b3c, not the expected cf1ca83."
+  },
+  {
+   "task": "T-0017",
+   "verdict": "inconclusive",
+   "summary": "The change lives only in the repository under mcp/, and team-fetch blocked github.com and raw.githubusercontent.com, so I could not read the test, server or README. The live site builds without errors, but nothing observable there confirms or refutes the acceptance criteria."
+  },
+  {
+   "task": "T-0018",
+   "verdict": "pass",
+   "summary": "The live feed now has 161 items, equal to counts.releases of 161 in today.json and build.json, so the cap is gone (option a). Feed structure, item fields and the home-page footer disclosure are intact."
+  }
+ ],
+ "posts": [
+  {
+   "channel": "bluesky",
+   "url": "https://bsky.app/profile/formachines.bsky.social/post/3mzercuqy4a2f",
+   "ts": "2026-11-03T02:14:14+00:00"
+  },
+  {
+   "channel": "telegram",
+   "url": "https://t.me/relesae_radar/2",
+   "ts": "2026-11-03T02:14:15+00:00"
+  }
+ ],
+ "metrics": {
+  "humans": 21,
+  "engaged": 4,
+  "returns": 0,
+  "agents": 171,
+  "crawlers": 118,
+  "requests": 946
+ },
+ "spend_usd": 6.7,
+ "po_digest_md": "**Release Radar — цикл 03.11 07:07 UTC**\n\n**Что произошло.** Новое наблюдение одно: OBS-0105 от разработчика по T-0014. В `build.json` поле `commit` указывает на родителя опубликованного коммита. Поэтому при сверке с `main` это выглядит как расхождение. На пользователей это не влияет.\n\n**Решение.** Отложено. Вернёмся, если отчёт T-0014 или ревьюер снова примут этот сдвиг за реальную проблему деплоя. Тогда заведу XS-задачу: описать поле в `llms.txt` или добавить поле `published_commit`.\n\n**Новых задач нет.** В работе уже 5 готовых задач, сначала доводим их:\n- T-0014 (P1): проверить, что живой сайт после сборки 06:00 совпадает с `main`.\n- T-0009: карточка за 03.11 в Telegram и Bluesky.\n- T-0011: карточка за 04.11, первый день пилота, после 06:30 UTC.\n- T-0019: стоп-лист для ложных флагов вида «no longer kills».\n- T-0020: JSON-ссылки на каждый пакет в `llms.txt`.\n\n**Метрики.** За 03.11 пока 21 человек и 4 engaged. Агентских запросов 171, по ответу ops на Q-0005 это в основном наши собственные запуски. Клики `/go/` за 02.11 (139) считаем нашим QA, а не спросом. Цели G1–G4 считаем с 04.11.\n\n**От владельца ничего не требуется.**\n\n**Расходы:** $6.41 из $20 дневного лимита.",
+ "analyst_md": "**Данные: 02.11 (полный день, до старта пилота 04.11) и частичные 03.11 (отчёт обрезан). Всё ниже про 02.11.**\n\n| Уровень | Значение |\n|---|---|\n| Discovery (краулеры) | 464 запроса, 40 источников (ClaudeBot 198, GPTBot 194) |\n| Люди (источники) | 65, из них engaged 16 |\n| Возвраты | 0 |\n| Целевое действие (`/go/`) | 139 запросов: 123 от 3 human-источников, 13 наши |\n| Агенты | 23 запроса, 4 источника (curl 21) |\n| 5xx / 4xx | 0 / 128 |\n\n- **Цели:** G1 16 из ≥40 (пилот не начался, оценивать рано). G2 0 из ≥5. G3 доля не считается, внешний referer один (google, 1 запрос). G4 `/today.json`: агенты 2, часть остальных запросов в обрезанной части, ≥5 не подтверждено.\n- **Посты:** почасовых данных и referer от Telegram или Bluesky нет, поэтому связь «пост → визиты» не показана. Есть 6 запросов facebookexternalhit.\n- **Подозрение:** 123 запроса `/go/` от 3 «людей», и по 3 запроса на каждую страницу `/pkg/*` и `/go/*`. Похоже на прогон скриптом, возможно наш. Это может завышать G1 и G3.\n- **Дефектов нет:** 5xx = 0.",
+ "observations": {
+  "new": 59,
+  "by_class": {
+   "need_hypothesis": 26,
+   "measurement": 2,
+   "success": 23,
+   "synthetic_difficulty": 7,
+   "ops": 1
+  }
+ },
+ "owner_questions_open": 0
+}

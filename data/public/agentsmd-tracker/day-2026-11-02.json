@@ -46,12 +46,12 @@
    "id": "T-0002",
    "title": "Per-language pages listing every repo with its agent-file presence, linked from the home language table",
    "type": "feature",
-   "state": "released",
+   "state": "accepted",
    "priority": "P1",
    "goal": "G3",
    "role": "developer",
    "created": "2026-11-02T21:29:13+00:00",
-   "accepted_at": null,
+   "accepted_at": "2026-11-02T22:10:41+00:00",
    "released_sha": "e84ab7e9c860382a5cb2881365088b4160650d52",
    "history": [
     {
@@ -77,6 +77,12 @@
      "actor": "dispatcher",
      "to": "released",
      "note": "merged e84ab7e9c8"
+    },
+    {
+     "ts": "2026-11-02T22:10:41+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "All 10 /lang/<slug>/ pages exist and are linked from the home table. Counts match the home table, and sitemap, llms.txt, the no-script/no-form rule and the footer are as specified. Two items were not "
     }
    ]
   },
@@ -84,19 +90,43 @@
    "id": "T-0003",
    "title": "Page metadata and citation: short titles/descriptions, og tags, JSON-LD Dataset, method and attribution in stats.json and on home",
    "type": "defect",
-   "state": "ready",
+   "state": "accepted",
    "priority": "P2",
    "goal": "G4",
    "role": "developer",
    "created": "2026-11-02T21:29:13+00:00",
-   "accepted_at": null,
-   "released_sha": null,
+   "accepted_at": "2026-11-02T22:21:20+00:00",
+   "released_sha": "af11ad6c173cfe1c28982f9a6ed0e62c8010cf14",
    "history": [
     {
      "ts": "2026-11-02T21:29:13+00:00",
      "actor": "po",
      "to": "ready",
      "note": ""
+    },
+    {
+     "ts": "2026-11-02T22:11:23+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261102T2207-exec-T-0003"
+    },
+    {
+     "ts": "2026-11-02T22:11:23+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-02T22:12:19+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged af11ad6c17"
+    },
+    {
+     "ts": "2026-11-02T22:21:20+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "All three pages have titles and descriptions within limits, og tags and JSON-LD (Dataset on home, WebPage on /legal/ and the card). stats.json has the additive method and attribution keys, and home sh"
     }
    ]
   },
@@ -117,32 +147,151 @@
      "actor": "po",
      "to": "ready",
      "note": ""
+    },
+    {
+     "ts": "2026-11-02T22:21:44+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "priority → P2: Priority stays P2. Note for the dispatcher: this post must not start before 2026-11-03T04:30:00Z (after the scan). Started earlier, its negative case would block the post and file a fal"
+    },
+    {
+     "ts": "2026-11-02T22:21:44+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261102T2218-exec-T-0004"
+    },
+    {
+     "ts": "2026-11-02T22:21:44+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-02T22:21:56+00:00",
+     "actor": "marketer",
+     "to": "blocked",
+     "note": "question Q-0002"
+    },
+    {
+     "ts": "2026-11-02T23:08:41+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "answered Q-0002"
+    },
+    {
+     "ts": "2026-11-02T23:08:41+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261102T2307-exec-T-0004"
+    },
+    {
+     "ts": "2026-11-02T23:08:41+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-02T23:08:50+00:00",
+     "actor": "marketer",
+     "to": "blocked",
+     "note": "question Q-0003"
+    }
+   ]
+  },
+  {
+   "id": "T-0005",
+   "title": "Link each repo card to its language page and mention /lang/ pages on home",
+   "type": "feature",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-02T22:11:23+00:00",
+   "accepted_at": "2026-11-03T02:08:42+00:00",
+   "released_sha": "f4d844371dad291a9d7e98ebb5f32089f5deb9b2",
+   "history": [
+    {
+     "ts": "2026-11-02T22:11:23+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0006",
+   "title": "Classify 4xx and 'unknown' traffic on 02.11 so G1 counts only real people",
+   "type": "research",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "analyst",
+   "created": "2026-11-02T22:11:23+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-02T22:11:23+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0007",
+   "title": "Make build.py --no-scan leave data/history/<date>.json unchanged (idempotent history write)",
+   "type": "defect",
+   "state": "accepted",
+   "priority": "P1",
+   "goal": "L0 daily dated data (supports G3b/G4 trust in stats.json)",
+   "role": "developer",
+   "created": "2026-11-02T22:21:44+00:00",
+   "accepted_at": "2026-11-03T07:14:05+00:00",
+   "released_sha": "4f88e29e99af803c819c58dc73592d06e128c7a4",
+   "history": [
+    {
+     "ts": "2026-11-02T22:21:44+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
     }
    ]
   }
  ],
- "reviews": [],
+ "reviews": [
+  {
+   "task": "T-0002",
+   "verdict": "pass",
+   "summary": "All 10 /lang/<slug>/ pages exist and are linked from the home table. Counts match the home table, and sitemap, llms.txt, the no-script/no-form rule and the footer are as specified. Two items were not fully verified: the exact row count on the Go page, and the 0-AGENTS.md language case."
+  },
+  {
+   "task": "T-0003",
+   "verdict": "pass",
+   "summary": "All three pages have titles and descriptions within limits, og tags and JSON-LD (Dataset on home, WebPage on /legal/ and the card). stats.json has the additive method and attribution keys, and home shows the Cite-as line with 2026-11-02."
+  }
+ ],
  "posts": [],
  "metrics": {
-  "humans": 40,
-  "engaged": 7,
+  "humans": 58,
+  "engaged": 14,
   "returns": 0,
-  "agents": 11,
-  "crawlers": 28,
-  "requests": 2354
+  "agents": 17,
+  "crawlers": 4126,
+  "requests": 6557
  },
- "spend_usd": 1.4,
- "po_digest_md": "**What happened.** The site is live: 1,922 repos scanned; AGENTS.md is in 540 (28.1 %). The data is consistent across all JSON files, and the \"no contents\" promise holds on the cards. Personas confirmed that the headline number is citable and that the missing trend is shown honestly.\n\n**Main problem.** Maintainer personas could not find a list of repos in their language or their own repo from the home page. The only routes were guessing the URL or reading the sitemap. That breaks the VISION promise \"list of repos in your language\".\n\n**Decisions (3 tasks):**\n- **P1, developer:** per-language pages `/lang/<language>/`, linked from the home table, sorted alphabetically with no ranking.\n- **P2, developer:** fix all ~11 seocheck findings in one change to the page templates (titles, og, JSON-LD Dataset). Also adding a \"Cite as\" line on the home page and the method and attribution fields in `stats.json`.\n- **P2, marketer:** first daily post on 03.11 after the 04:00 UTC scan, on Bluesky and Telegram. If the data is delayed, no post goes out.\n- The `build.json` field (scanned = 1) waits for evidence: I'll check it after the 03.11 scan.\n- T-0001 (feedback links) lowered to P3: the template doesn't fit this product, and the issues repo may not exist yet.\n\n**Waiting for the owner:** has the repo `formachines-ai/agentsmd-tracker` been created, and are Issues enabled?\n\n**Metrics:** 7 engaged visits today, before the pilot starts, mostly our own traffic. This doesn't count as demand.\n\n**Cost:** $0.43 of $20 today.",
+ "spend_usd": 2.6,
+ "po_digest_md": "## AGENTS.md Tracker — цикл 02.11 23:07 UTC\n\n**Что произошло.** T-0002 (страницы языков /lang/) и T-0003 (метаданные, JSON-LD, «Cite as», method в stats.json) приняты. Новых наблюдений нет. Трафик 02.11: 58 людей, из них 14 вовлечённых (но это до пилота, свой трафик и сканеры, наверное, тоже в счёте). Ещё 17 агентов и ~3 000 запросов краулеров. Реального спроса пока не видно.\n\n**Что решено.**\n- Новых задач нет. В работе уже 4 готовые задачи: T-0005 (ссылка с карточки на страницу языка), T-0006 (разбор трафика 4xx и unknown для честного G1), T-0007 (пересборка с --no-scan не должна переписывать историю), T-0001 (кнопки отзыва, P3). Лучше закончить их, чем начинать новые.\n- Ежедневный пост T-0004 запускается после скана 03.11 04:00 UTC, не раньше 04:15 UTC. Если stats.json не обновился или data_delayed = true, пост не выходит, а открывается дефект P1.\n\n**Ждёт владельца.** Ничего. VISION в статусе черновика: пилот 04–10.11 идёт по нему, пока владелец не внесёт правки.\n\n**Расходы.** $2.38 из $20 за день.",
  "analyst_md": "**Данные за 02.11 (первый день, база 0; пилот ещё не начался — 04.11).**\n\n| Уровень | Значение |\n|---|---|\n| Краулеры (discovery) | 28 запросов, 7 источников (ClaudeBot 8, GPTBot 7, OAI-Search 1, other 12) |\n| Люди, источники / engaged | 40 / 7 |\n| Возвраты | 0 |\n| Целевые действия (`/go/`) | 0 (targets пуст) |\n| Агенты | 11 запросов, 2 источника (curl) |\n| Статусы | 2xx 132, 3xx 698, 4xx 1524, 5xx 0 |\n\n- Referers пусты, постов нет — привязать людей к каналам нельзя.\n- 4xx 1524 и «unknown» 1725 запросов с 21 источника — вероятно сканеры, пробующие `.env`, `/config.js` и т. п.; людей не отражают.\n- Часть «людей» и curl может быть нашими прогонами/персонами (own уже вынесен, 8 источников).\n- T-0002 (страницы `/lang/`) выпущена 21:29, после снятия метрик: эффекта измерить нельзя — insufficient data.\n- Один запрос к `/stats.json`, `/today.json`, `/feed.xml`, `/llms.txt` — источник не определён, возможно, это мы.",
  "observations": {
-  "new": 46,
+  "new": 47,
   "by_class": {
-   "need_hypothesis": 12,
+   "need_hypothesis": 13,
    "success": 9,
    "synthetic_difficulty": 2,
    "reproducible_defect": 22,
    "measurement": 1
   }
  },
- "owner_questions_open": 0
+ "owner_questions_open": 1
 }

@@ -1,0 +1,447 @@
+{
+ "slug": "agentsmd-tracker",
+ "name": "AGENTS.md Tracker",
+ "site": "https://agentsmd.formachines.ai",
+ "date": "2026-11-03",
+ "tasks": [
+  {
+   "id": "T-0004",
+   "title": "Daily post 03.11: AGENTS.md share of top GitHub repos after the 04:00 UTC scan (bluesky + telegram)",
+   "type": "content",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G5",
+   "role": "marketer",
+   "created": "2026-11-02T21:29:13+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-03T00:09:24+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "answered Q-0003"
+    },
+    {
+     "ts": "2026-11-03T00:09:24+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261103T0007-exec-T-0004"
+    },
+    {
+     "ts": "2026-11-03T00:09:24+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-03T00:09:34+00:00",
+     "actor": "marketer",
+     "to": "blocked",
+     "note": "question Q-0004"
+    },
+    {
+     "ts": "2026-11-03T00:20:00+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "answered Q-0004; not before 2026-11-03T04:20:00+00:00"
+    },
+    {
+     "ts": "2026-11-03T04:49:13+00:00",
+     "actor": "dispatcher",
+     "to": "deferred",
+     "note": "ops hold 04:52 UTC: live stats.json 04:45 is a no-op rebuild of the 02.11 scan (+0 added); the forced scan is running until ~05:30 and will push fresh 03.11 data. Returned to ready by ops after that p"
+    },
+    {
+     "ts": "2026-11-03T05:49:37+00:00",
+     "actor": "dispatcher",
+     "to": "ready",
+     "note": "ops: forced 03.11 scan pushed; post in the next cycle"
+    },
+    {
+     "ts": "2026-11-03T05:50:37+00:00",
+     "actor": "dispatcher",
+     "to": "deferred",
+     "note": "ops 05:52 UTC: forced scan attempt 1 finished 05:27 but its push lost the race with the 05:07 merges; attempt 2 (full --force rescan) runs until ~06:10. Live stats.json still generated 2026-11-02T18:2"
+    },
+    {
+     "ts": "2026-11-03T07:14:57+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: No scan ran on 03.11 (stats.json generated is 02.11T18:26), so by the task's own rule the post must not go out. The daily posts continue in T-0010 (04.11, pilot day 1)."
+    },
+    {
+     "ts": "2026-11-03T07:20:20+00:00",
+     "actor": "dispatcher",
+     "to": "ready",
+     "note": "ops: forced 03.11 scan is live (stats.json generated today); post in the next cycle"
+    }
+   ]
+  },
+  {
+   "id": "T-0005",
+   "title": "Link each repo card to its language page and mention /lang/ pages on home",
+   "type": "feature",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-02T22:11:23+00:00",
+   "accepted_at": "2026-11-03T02:08:42+00:00",
+   "released_sha": "f4d844371dad291a9d7e98ebb5f32089f5deb9b2",
+   "history": [
+    {
+     "ts": "2026-11-03T01:13:01+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261103T0107-exec-T-0005"
+    },
+    {
+     "ts": "2026-11-03T01:13:01+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-03T01:13:36+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged f4d844371d"
+    },
+    {
+     "ts": "2026-11-03T02:08:42+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The cards I checked each link to a /lang/<slug>/ page that returns 200 and lists the repo. The home method section has a working /lang/python/ link, and the footer, JSON and card URLs are intact. I co"
+    }
+   ]
+  },
+  {
+   "id": "T-0006",
+   "title": "Classify 4xx and 'unknown' traffic on 02.11 so G1 counts only real people",
+   "type": "research",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "analyst",
+   "created": "2026-11-02T22:11:23+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-03T02:08:57+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261103T0207-exec-T-0006"
+    },
+    {
+     "ts": "2026-11-03T02:08:57+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-03T02:09:26+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measurement delivered"
+    }
+   ]
+  },
+  {
+   "id": "T-0007",
+   "title": "Make build.py --no-scan leave data/history/<date>.json unchanged (idempotent history write)",
+   "type": "defect",
+   "state": "accepted",
+   "priority": "P1",
+   "goal": "L0 daily dated data (supports G3b/G4 trust in stats.json)",
+   "role": "developer",
+   "created": "2026-11-02T22:21:44+00:00",
+   "accepted_at": "2026-11-03T07:14:05+00:00",
+   "released_sha": "4f88e29e99af803c819c58dc73592d06e128c7a4",
+   "history": [
+    {
+     "ts": "2026-11-03T03:09:29+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261103T0307-exec-T-0007"
+    },
+    {
+     "ts": "2026-11-03T03:09:29+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-03T03:10:01+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 21a0774c20"
+    },
+    {
+     "ts": "2026-11-03T05:08:43+00:00",
+     "actor": "reviewer",
+     "to": "in_progress",
+     "note": "failed: Criterion 2: https://agentsmd.formachines.ai/stats.json has \"generated\": \"2026-11-03T04:45:26Z\", identical to build.json built_at. The last check was 2026-11-02T18:26:07Z and the latest build "
+    },
+    {
+     "ts": "2026-11-03T05:09:46+00:00",
+     "actor": "po",
+     "to": "in_progress",
+     "note": "priority → P1: Rebuilds that move 'generated' forward make the data dating false (OBS-0068). This blocks trust in the daily post numbers from the first day of the pilot."
+    },
+    {
+     "ts": "2026-11-03T05:10:28+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 4f88e29e99"
+    },
+    {
+     "ts": "2026-11-03T07:14:05+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The fix is live: history is written only when a scan checked at least one repo, and stats.json 'generated' still shows the last real scan (2026-11-02T18:26:07Z) after a 05:10Z rebuild. Schemas and the"
+    }
+   ]
+  },
+  {
+   "id": "T-0008",
+   "title": "Language pages: link each 'yes' cell to its /go/<id>/ hop and add an 'AGENTS.md in <Language>' list at the top",
+   "type": "feature",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-03T01:13:01+00:00",
+   "accepted_at": "2026-11-03T06:09:14+00:00",
+   "released_sha": "c3b480a22b0047d02ae1af68d5a4121054475683",
+   "history": [
+    {
+     "ts": "2026-11-03T01:13:01+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-03T04:12:10+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261103T0407-exec-T-0008"
+    },
+    {
+     "ts": "2026-11-03T04:12:10+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-03T04:12:47+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged c3b480a22b"
+    },
+    {
+     "ts": "2026-11-03T06:09:14+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The live Go language page has the 'AGENTS.md in Go (64)' list, matching stats.json. All 134 yes cells link to /go/ hops, and the ids I checked match the repo cards. The page has no scripts other than "
+    }
+   ]
+  },
+  {
+   "id": "T-0009",
+   "title": "Verify the 04:00 UTC daily scan on the server and align build.json last_checked and stats.json attribution with the scan time",
+   "type": "defect",
+   "state": "waiting_owner",
+   "priority": "P1",
+   "goal": "L0 daily dated data (supports G3b/G4)",
+   "role": "developer",
+   "created": "2026-11-03T04:12:10+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-03T04:12:10+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-03T05:09:46+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "priority → P1: The pilot starts 04.11. VISION L0: a day without a fresh scan is a P1 defect. On 03.11 the scheduled scan did not produce fresh data and a manual --force was needed. The cron must be ve"
+    },
+    {
+     "ts": "2026-11-03T06:09:33+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261103T0607-exec-T-0009"
+    },
+    {
+     "ts": "2026-11-03T06:09:33+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-03T06:10:10+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "partial — continues next cycle"
+    },
+    {
+     "ts": "2026-11-03T07:14:57+00:00",
+     "actor": "po",
+     "to": "waiting_owner",
+     "note": "question Q-0005"
+    }
+   ]
+  },
+  {
+   "id": "T-0010",
+   "title": "Daily post 04.11 (pilot day 1): AGENTS.md share of top GitHub repos after the 04:00 UTC scan (bluesky + telegram)",
+   "type": "content",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G5",
+   "role": "marketer",
+   "created": "2026-11-03T04:12:10+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-03T04:12:10+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-03T05:55:16+00:00",
+     "actor": "dispatcher",
+     "to": "ready",
+     "note": "ops: not_before 05:45Z — daily scan now 04:20–≈05:35 UTC (--max-seconds 5400), publish ≤ 5 min"
+    }
+   ]
+  },
+  {
+   "id": "T-0011",
+   "title": "Keep crawlers off /go/ redirect hops via robots.txt",
+   "type": "defect",
+   "state": "released",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-03T07:14:57+00:00",
+   "accepted_at": null,
+   "released_sha": "23d167c843a53c5e90700f145c1b54990f4ea543",
+   "history": [
+    {
+     "ts": "2026-11-03T07:14:57+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-03T07:14:58+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261103T0707-exec-T-0011"
+    },
+    {
+     "ts": "2026-11-03T07:14:58+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-03T07:15:20+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 23d167c843"
+    }
+   ]
+  },
+  {
+   "id": "T-0012",
+   "title": "Derive all data dates from the scan time: today.json date and history rows only from a real scan",
+   "type": "defect",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "L0 daily dated data (supports G3b/G4)",
+   "role": "developer",
+   "created": "2026-11-03T07:14:57+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-03T07:14:57+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  }
+ ],
+ "reviews": [
+  {
+   "task": "T-0005",
+   "verdict": "pass",
+   "summary": "The cards I checked each link to a /lang/<slug>/ page that returns 200 and lists the repo. The home method section has a working /lang/python/ link, and the footer, JSON and card URLs are intact. I could not check the commit hash or the omit-link case for an unknown language."
+  },
+  {
+   "task": "T-0007",
+   "verdict": "inconclusive",
+   "summary": "The live stats.json and today.json keep the scan-time \"generated\" value (01:13:15Z) after a later rebuild (03:09:47Z), and the schemas look unchanged. The git-status and real-scan criteria can't be seen from outside, and the site has no commit marker, so the verdict is inconclusive."
+  },
+  {
+   "task": "T-0007",
+   "verdict": "fail",
+   "summary": "The live stats.json \"generated\" value equals the build time, not the last real scan time. That is the defect the task was meant to fix, and the implementer claimed 01:13:15Z, which is not what the site shows. The code and the git-status criteria could not be checked because the GitHub hosts are blocked."
+  },
+  {
+   "task": "T-0008",
+   "verdict": "inconclusive",
+   "summary": "The Go language page meets the main criteria. It lists 64 alphabetical entries matching stats.json, links the yes cells to /go/ hops with ids that match the repo cards, and keeps the footer with a UTC time. I could not observe the 0-AGENTS.md case, so the verdict is inconclusive."
+  },
+  {
+   "task": "T-0007",
+   "verdict": "inconclusive",
+   "summary": "On the live site, stats.json and today.json show generated 2026-11-02T18:26:07Z, which equals build.json last_checked. data_delayed is false, even though the site was rebuilt at 05:10Z. I could not confirm the code-level criteria (idempotent history write, a normal scan still writing history, schema unchanged) because the repo hosts are blocked, so the verdict is inconclusive."
+  },
+  {
+   "task": "T-0008",
+   "verdict": "pass",
+   "summary": "The live Go language page has the 'AGENTS.md in Go (64)' list, matching stats.json. All 134 yes cells link to /go/ hops, and the ids I checked match the repo cards. The page has no scripts other than ld+json and no forms, and the footer shows the updated time."
+  },
+  {
+   "task": "T-0007",
+   "verdict": "pass",
+   "summary": "The fix is live: history is written only when a scan checked at least one repo, and stats.json 'generated' still shows the last real scan (2026-11-02T18:26:07Z) after a 05:10Z rebuild. Schemas and the delay logic look unchanged, and data_delayed is false."
+  }
+ ],
+ "posts": [],
+ "metrics": {
+  "humans": 15,
+  "engaged": 0,
+  "returns": 0,
+  "agents": 7703,
+  "crawlers": 9,
+  "requests": 8054
+ },
+ "spend_usd": 4.1,
+ "po_digest_md": "**Цикл 03.11 07:07 UTC.** Расход $3.79 из $20.\n\n**Что произошло**\n- Персоны прошли сценарии мейнтейнера, автора инструмента и парсера, все успешно. Цепочка «главная → /lang/go/ → карточка → файл в GitHub» работает, цитата и метод на месте.\n- 03.11 скана не было: generated = 02.11 18:26. При этом today.json и история показывают дату 03.11 — это ложная строка в истории.\n- Метрики за 02.11:\n  - 14 вовлечённых людей, переходов людей на /go/ ноль;\n  - 882 из 885 запросов /go/ сделал ClaudeBot.\n\n**Решения**\n- Новая задача: robots.txt `Disallow: /go/`, чтобы краулеры не засоряли метрику G3. Страницы и JSON остаются открытыми для ИИ (G4).\n- Новая задача: все даты в данных берутся из времени скана, сборка без скана не добавляет строку в историю. Запуск после скана 04.11, чтобы не мешать T-0009.\n- T-0009 (проверка ежедневного скана в 04:00) в работе. Проверка — 04.11 после 04:00.\n- T-0004 (пост за 03.11) закрыт: данные за 03.11 не свежие. Пост первого дня пилота — T-0010, 04.11 в 05:45 UTC.\n- Разбор 4xx: сначала нужны пути с нашим referer. Похоже, это сканеры, а не битые ссылки.\n\n**Ждёт владельца**\n- В git remote клона на сервере GitHub-токен лежит открытым текстом. Ротировать его и перейти на credential helper? Пока роли токен не трогают.",
+ "analyst_md": "**Срез на 03.11 06:02 UTC. Пилот (04–10.11) ещё не начался, база нулевая. Данные только за 02.11, он идёт в отчёте как неполный день.**\n\n| Уровень | 02.11 |\n|---|---|\n| Обнаружение: краулеры | 4126 запросов, 19 источников (ClaudeBot 4094, GPTBot 7, OAI-SearchBot 1) |\n| Люди | 58 источников, engaged 14 |\n| Возвраты | 0 |\n| Внешние клики `/go/` от людей | 0 (из 885 запросов 882 — краулер, 1 — наши) |\n| Агенты | 3 источника (curl 17, claude-code 1) |\n| 5xx / 4xx | 0 / 1527 (сканеры и unknown) |\n\n- Посты не публиковались, поэтому сравнить часы до и после поста нельзя. Referers пусты, так что источник людей неизвестен.\n- Задачи T-0002, T-0003, T-0005, T-0008 приняты менее суток назад. Целевых действий нет, поэтому эффект оценить нельзя.\n- ClaudeBot делает почти все запросы дня, включая 882 на `/go/` с одного источника. На людей это не влияет, но шумит в метриках обнаружения.\n- Цели G1–G5 пока нулевые. Для G1 нужно около 9 engaged в день, а сейчас 14 — вероятно, пик первого дня.",
+ "observations": {
+  "new": 41,
+  "by_class": {
+   "measurement": 3,
+   "need_hypothesis": 11,
+   "success": 18,
+   "synthetic_difficulty": 4,
+   "ops": 3,
+   "reproducible_defect": 2
+  }
+ },
+ "owner_questions_open": 1
+}

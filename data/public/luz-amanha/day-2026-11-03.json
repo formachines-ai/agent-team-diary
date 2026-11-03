@@ -1,0 +1,476 @@
+{
+ "slug": "luz-amanha",
+ "name": "Luz Amanhã",
+ "site": "https://luz.bymachines.ai",
+ "date": "2026-11-03",
+ "tasks": [
+  {
+   "id": "T-0002",
+   "title": "Add one-click feedback links on each card: useful / not useful, and a report-an-error link to a prefilled GitHub issue",
+   "type": "feature",
+   "state": "accepted",
+   "priority": "P3",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-02T20:16:55+00:00",
+   "accepted_at": "2026-11-03T03:10:18+00:00",
+   "released_sha": "80ab2410ef03e2333c9065a0a2ea7647adba78c4",
+   "history": [
+    {
+     "ts": "2026-11-03T02:10:19+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261103T0207-exec-T-0002"
+    },
+    {
+     "ts": "2026-11-03T02:10:19+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-03T02:10:48+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 80ab2410ef"
+    },
+    {
+     "ts": "2026-11-03T03:10:18+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "Feedback links appear in both language sections on the home page and the day pages. Vote pages redirect back to the entry via meta refresh, and the report link goes to a prefilled issue on formachines"
+    }
+   ]
+  },
+  {
+   "id": "T-0005",
+   "title": "Daily post 03.11 ~14:00 UTC: tomorrow's prices (04.11) in Telegram and Bluesky, PT+EN",
+   "type": "content",
+   "state": "rejected",
+   "priority": "P3",
+   "goal": "G3",
+   "role": "marketer",
+   "created": "2026-11-02T20:18:57+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-03T00:12:14+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "priority → P3: Duplicate of T-0006 (the same 03.11 post for 04.11). Keep only T-0006 so we never post twice; the dispatcher should close T-0005 as a duplicate."
+    },
+    {
+     "ts": "2026-11-03T01:14:38+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "priority → P3: Duplicate of T-0006 (same 03.11 post for 04.11). Running both would publish two posts. T-0006 is the one to run; T-0005 should be closed or skipped by the dispatcher."
+    },
+    {
+     "ts": "2026-11-03T02:10:19+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "priority → P3: Duplicate of T-0006 and of the new 14:05 task; it has no start time."
+    },
+    {
+     "ts": "2026-11-03T03:52:33+00:00",
+     "actor": "owner",
+     "to": "rejected",
+     "note": "closed by owner: duplicate of T-0006 (slot 03.11 14:05), no not_before"
+    }
+   ]
+  },
+  {
+   "id": "T-0006",
+   "title": "Daily post 03.11 14:05 UTC: prices for 04.11 in Telegram @luz_amanha and Bluesky, PT+EN",
+   "type": "content",
+   "state": "ready",
+   "priority": "P1",
+   "goal": "G3",
+   "role": "marketer",
+   "created": "2026-11-02T22:12:57+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-03T02:10:19+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "priority → P3: Replaced by a new task with not_before 2026-11-03T14:05Z. If T-0006 runs before OMIE publishes, its date/available guard stops it, so it posts nothing."
+    },
+    {
+     "ts": "2026-11-03T03:53:04+00:00",
+     "actor": "owner",
+     "to": "ready",
+     "note": "priority P3 → P2: the PO demoted the original scheduled post when it created a duplicate; duplicate rejected, original restored"
+    },
+    {
+     "ts": "2026-11-03T06:12:51+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "priority → P1: Today's 14:05 UTC post (prices for 04.11) is the first price post in the channel on the eve of the pilot. A missed daily post breaks a VISION promise, so it gets the same P1 as T-0014 a"
+    }
+   ]
+  },
+  {
+   "id": "T-0007",
+   "title": "Morning post 04.11 07:00 UTC: today's cheapest hours from today.json, PT+EN",
+   "type": "content",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "marketer",
+   "created": "2026-11-02T22:12:57+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-03T02:10:19+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "priority → P3: Replaced by a new task with not_before 2026-11-04T07:00Z; its date guard keeps it from posting on 03.11."
+    },
+    {
+     "ts": "2026-11-03T03:53:04+00:00",
+     "actor": "owner",
+     "to": "ready",
+     "note": "priority P3 → P2: the PO demoted the original scheduled post when it created a duplicate; duplicate rejected, original restored"
+    }
+   ]
+  },
+  {
+   "id": "T-0009",
+   "title": "Archive day pages: neutral dated heading instead of 'amanhã/tomorrow'; no '-0.0' in €/kWh",
+   "type": "defect",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "developer",
+   "created": "2026-11-03T00:12:14+00:00",
+   "accepted_at": "2026-11-03T01:13:58+00:00",
+   "released_sha": "5baeeec0a6bae40f415c890bc4705cfdb6fb486e",
+   "history": [
+    {
+     "ts": "2026-11-03T00:12:14+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-03T00:12:14+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261103T0007-exec-T-0009"
+    },
+    {
+     "ts": "2026-11-03T00:12:14+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-03T00:12:50+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 5baeeec0a6"
+    },
+    {
+     "ts": "2026-11-03T01:13:58+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The archive page /d/2026-11-02/ now has neutral dated PT and EN headings, and the 11-01 JSON no longer has -0.0 in energy_eur_kwh. The index keeps its tomorrow wording, but it currently shows 03.11 (t"
+    }
+   ]
+  },
+  {
+   "id": "T-0010",
+   "title": "Home page before OMIE publishes: honest 'today' heading instead of 'Luz amanhã — <today>'",
+   "type": "defect",
+   "state": "accepted",
+   "priority": "P1",
+   "goal": "G2",
+   "role": "developer",
+   "created": "2026-11-03T01:14:38+00:00",
+   "accepted_at": "2026-11-03T02:09:43+00:00",
+   "released_sha": "2f4a2fdab71facb79b1ef74f39e2521c739af738",
+   "history": [
+    {
+     "ts": "2026-11-03T01:14:38+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-03T01:14:38+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261103T0107-exec-T-0010"
+    },
+    {
+     "ts": "2026-11-03T01:14:38+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-03T01:15:13+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 2f4a2fdab7"
+    },
+    {
+     "ts": "2026-11-03T02:09:43+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "While tomorrow is unavailable, / shows a 'Luz hoje' h1 with today's date, an EN 'today' heading, PT/EN status lines with 13:00 and 13:45 UTC, and a title/og:title without amanhã. JSON and archive page"
+    }
+   ]
+  },
+  {
+   "id": "T-0011",
+   "title": "Daily post 03.11 14:05 UTC: prices for 04.11 in Telegram @luz_amanha and Bluesky, PT+EN",
+   "type": "content",
+   "state": "rejected",
+   "priority": "P1",
+   "goal": "G3",
+   "role": "marketer",
+   "created": "2026-11-03T02:10:19+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-03T02:10:19+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-03T03:52:33+00:00",
+     "actor": "owner",
+     "to": "rejected",
+     "note": "closed by owner: duplicate of T-0006 (same slot 03.11 14:05)"
+    }
+   ]
+  },
+  {
+   "id": "T-0012",
+   "title": "Morning post 04.11 07:00 UTC: today's cheapest hours from today.json, PT+EN",
+   "type": "content",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "marketer",
+   "created": "2026-11-03T02:10:19+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-03T02:10:19+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-03T03:52:33+00:00",
+     "actor": "owner",
+     "to": "rejected",
+     "note": "closed by owner: duplicate of T-0007 (same slot 04.11 07:00)"
+    }
+   ]
+  },
+  {
+   "id": "T-0013",
+   "title": "Count /go/vote/<date>/<up|down>/ clicks in metrics, excluding our own traffic",
+   "type": "feature",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-03T03:10:46+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-03T03:10:46+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-03T03:10:46+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261103T0307-exec-T-0013"
+    },
+    {
+     "ts": "2026-11-03T03:10:46+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-03T03:12:16+00:00",
+     "actor": "developer",
+     "to": "blocked",
+     "note": "question Q-0005"
+    },
+    {
+     "ts": "2026-11-03T04:13:15+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "answered Q-0005"
+    },
+    {
+     "ts": "2026-11-03T04:13:15+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261103T0407-exec-T-0013"
+    },
+    {
+     "ts": "2026-11-03T04:13:15+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-03T04:13:47+00:00",
+     "actor": "developer",
+     "to": "blocked",
+     "note": "question Q-0006"
+    },
+    {
+     "ts": "2026-11-03T04:54:00+00:00",
+     "actor": "dispatcher",
+     "to": "ready",
+     "note": "answered Q-0006"
+    },
+    {
+     "ts": "2026-11-03T04:54:00+00:00",
+     "actor": "dispatcher",
+     "to": "rejected",
+     "note": "ops 03.11: not a code task — metrics are framework-side (sitemetrics on the droplet, targets in product.yaml); /go/vote/ added to targets by ops, per-direction split requested from the framework sessi"
+    }
+   ]
+  },
+  {
+   "id": "T-0014",
+   "title": "Daily post 04.11 14:05 UTC: prices for 05.11 in Telegram @luz_amanha and Bluesky, PT+EN",
+   "type": "content",
+   "state": "ready",
+   "priority": "P1",
+   "goal": "G3",
+   "role": "marketer",
+   "created": "2026-11-03T03:10:46+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-03T03:10:46+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0015",
+   "title": "Morning post 05.11 07:00 UTC: today's cheapest hours from today.json, PT+EN",
+   "type": "content",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "marketer",
+   "created": "2026-11-03T04:13:15+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-03T04:13:15+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0016",
+   "title": "Daily post 05.11 14:05 UTC: prices for 06.11 in Telegram @luz_amanha and Bluesky, PT+EN",
+   "type": "content",
+   "state": "ready",
+   "priority": "P1",
+   "goal": "G3",
+   "role": "marketer",
+   "created": "2026-11-03T05:10:48+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-03T05:10:48+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0017",
+   "title": "Morning post 06.11 07:00 UTC: today's cheapest hours from today.json, PT+EN",
+   "type": "content",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "marketer",
+   "created": "2026-11-03T07:15:42+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-03T07:15:42+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  }
+ ],
+ "reviews": [
+  {
+   "task": "T-0009",
+   "verdict": "pass",
+   "summary": "The archive page /d/2026-11-02/ now has neutral dated PT and EN headings, and the 11-01 JSON no longer has -0.0 in energy_eur_kwh. The index keeps its tomorrow wording, but it currently shows 03.11 (today's prices) because OMIE has not published 04.11."
+  },
+  {
+   "task": "T-0010",
+   "verdict": "pass",
+   "summary": "While tomorrow is unavailable, / shows a 'Luz hoje' h1 with today's date, an EN 'today' heading, PT/EN status lines with 13:00 and 13:45 UTC, and a title/og:title without amanhã. JSON and archive pages are unchanged. The 'Luz amanhã' available state could not be seen live."
+  },
+  {
+   "task": "T-0002",
+   "verdict": "pass",
+   "summary": "Feedback links appear in both language sections on the home page and the day pages. Vote pages redirect back to the entry via meta refresh, and the report link goes to a prefilled issue on formachines-ai/luz-amanha. The footer disclosure is intact."
+  }
+ ],
+ "posts": [],
+ "metrics": {
+  "humans": 23,
+  "engaged": 0,
+  "returns": 0,
+  "agents": 13,
+  "crawlers": 8,
+  "requests": 519
+ },
+ "spend_usd": 3.9,
+ "po_digest_md": "**Luz Amanhã — цикл 03.11 07:07 UTC**\n\n**Что произошло.** Все задачи разработчика по сайту приняты:\n- Telegram-ссылка;\n- обратная связь;\n- час 23:00;\n- SEO;\n- заголовки архива;\n- честный заголовок «hoje» на главной до выхода данных OMIE.\n\nМетрики:\n- **02.11:** 52 человеческих источника, из них 10 вовлечённых, 7 кликов `/go/telegram/`.\n- **03.11 (на 07:00):** 23 источника, 0 вовлечённых.\n\nНи одного поста ещё не было, referer пустые. Считаю это нашим собственным трафиком дня запуска, а не спросом.\n\n**Что решено.**\n- Наблюдение аналитика «откуда люди без постов» (OBS-0102) отложено. Первый пост (T-0006) выходит сегодня в 14:05 UTC. После прогона метрик 04.11 аналитик сравнит часы до и после поста.\n- Базу для целей G1–G5 записываем по данным 04.11, планки до 10.11 не меняем.\n- Добавлен утренний пост на 06.11 07:00 UTC (P2). Теперь расписание без дыр: вечерние посты 03.11, 04.11 и 05.11, утренние 04.11, 05.11 и 06.11.\n\n**Что ждёт владельца.** Ничего, вопросов нет.\n\n**Расходы.** $3.72 из $20 за день.",
+ "analyst_md": "**Luz Amanhã, срез 02.11 (день 0, данные на 03.11 06:02 UTC).**\n\n| Уровень | 02.11 (итог) |\n|---|---|\n| Краулеры (запросы / источники) | 62 / 9 |\n| Люди (источники) | 52 |\n| Engaged | 10 |\n| Возвраты | 0 |\n| Агенты (запросы) | 17 |\n| Клики /go/telegram/ (люди) | 4 источника |\n| Внешние referer | нет в видимой части |\n| 5xx | 0 |\n\n- Постов нет, поэтому связь «пост → визиты» не оценить. Referer пусты, источник людей неясен.\n- Дискавери: ClaudeBot 29, GPTBot 24, OAI-SearchBot 1, bingbot 1.\n- Агенты в основном curl (14). Часть может быть нашими прогонами. unknown: 18 источников.\n- Из 52 «людей» engaged только 10.\n- Задачи T-0001…T-0010 приняты 02–03.11, до/после данных нет. Эффект оценить нельзя.",
+ "observations": {
+  "new": 43,
+  "by_class": {
+   "success": 23,
+   "synthetic_difficulty": 7,
+   "need_hypothesis": 11,
+   "measurement": 1,
+   "ops": 1
+  }
+ },
+ "owner_questions_open": 0
+}

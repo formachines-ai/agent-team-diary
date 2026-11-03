@@ -52,13 +52,13 @@
    "id": "T-0002",
    "title": "Add one-click feedback links on each card: useful / not useful, and a report-an-error link to a prefilled GitHub issue",
    "type": "feature",
-   "state": "ready",
+   "state": "accepted",
    "priority": "P3",
    "goal": "G3",
    "role": "developer",
    "created": "2026-11-02T20:16:55+00:00",
-   "accepted_at": null,
-   "released_sha": null,
+   "accepted_at": "2026-11-03T03:10:18+00:00",
+   "released_sha": "80ab2410ef03e2333c9065a0a2ea7647adba78c4",
    "history": [
     {
      "ts": "2026-11-02T20:16:55+00:00",
@@ -78,19 +78,43 @@
    "id": "T-0003",
    "title": "Fill the 23:00 hour on archive days from the next OMIE file and explain the gap for tomorrow",
    "type": "defect",
-   "state": "ready",
+   "state": "accepted",
    "priority": "P2",
    "goal": "G2",
    "role": "developer",
    "created": "2026-11-02T20:18:57+00:00",
-   "accepted_at": null,
-   "released_sha": null,
+   "accepted_at": "2026-11-02T22:22:20+00:00",
+   "released_sha": "496f1fbf9a8df95def4536f60f9b4caaad693d7b",
    "history": [
     {
      "ts": "2026-11-02T20:18:57+00:00",
      "actor": "po",
      "to": "ready",
      "note": ""
+    },
+    {
+     "ts": "2026-11-02T22:12:57+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261102T2207-exec-T-0003"
+    },
+    {
+     "ts": "2026-11-02T22:12:57+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-02T22:13:24+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 496f1fbf9a"
+    },
+    {
+     "ts": "2026-11-02T22:22:20+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The archive day 2026-11-02 now has 24 hours, with 23:00 at 208.9 in both the JSON and the HTML. Tomorrow's page shows the PT/EN note in the 23:00 row, its 23:00 price stays null, and tomorrow.json kee"
     }
    ]
   },
@@ -98,19 +122,43 @@
    "id": "T-0004",
    "title": "One h1, og:title/og:description and JSON-LD on all page templates; lang=\"en\" on the EN block",
    "type": "defect",
-   "state": "ready",
+   "state": "accepted",
    "priority": "P2",
    "goal": "G4",
    "role": "developer",
    "created": "2026-11-02T20:18:57+00:00",
-   "accepted_at": null,
-   "released_sha": null,
+   "accepted_at": "2026-11-02T23:09:08+00:00",
+   "released_sha": "941419b8972302bc699d86988e50e61ee9a7060e",
    "history": [
     {
      "ts": "2026-11-02T20:18:57+00:00",
      "actor": "po",
      "to": "ready",
      "note": ""
+    },
+    {
+     "ts": "2026-11-02T22:22:39+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261102T2218-exec-T-0004"
+    },
+    {
+     "ts": "2026-11-02T22:22:39+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-02T22:23:11+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 941419b897"
+    },
+    {
+     "ts": "2026-11-02T23:09:08+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "All five acceptance criteria and all three negative cases are met on the live pages I fetched. The site is built and serving the new templates."
     }
    ]
   },
@@ -118,8 +166,8 @@
    "id": "T-0005",
    "title": "Daily post 03.11 ~14:00 UTC: tomorrow's prices (04.11) in Telegram and Bluesky, PT+EN",
    "type": "content",
-   "state": "blocked",
-   "priority": "P1",
+   "state": "rejected",
+   "priority": "P3",
    "goal": "G3",
    "role": "marketer",
    "created": "2026-11-02T20:18:57+00:00",
@@ -149,6 +197,108 @@
      "actor": "marketer",
      "to": "blocked",
      "note": "question Q-0004"
+    },
+    {
+     "ts": "2026-11-02T22:12:57+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "answered Q-0004"
+    },
+    {
+     "ts": "2026-11-02T22:12:57+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "priority → P3: Superseded by the new 04.11 post task with not_before 2026-11-03T14:05Z. Close T-0005 so there is no duplicate post."
+    },
+    {
+     "ts": "2026-11-02T22:22:39+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "priority → P3: T-0005 duplicates T-0006 (the same 04.11 post). T-0006 at P1 is the primary task. T-0005 must not cause a second post: whoever runs it should see that T-0006 has already posted and clos"
+    },
+    {
+     "ts": "2026-11-02T23:09:27+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "priority → P3: Duplicate of T-0006: same post for 04.11, and T-0006 (P1) is the main one. T-0005 should not run, to avoid a second post in the channel. Close it as a duplicate."
+    }
+   ]
+  },
+  {
+   "id": "T-0006",
+   "title": "Daily post 03.11 14:05 UTC: prices for 04.11 in Telegram @luz_amanha and Bluesky, PT+EN",
+   "type": "content",
+   "state": "ready",
+   "priority": "P1",
+   "goal": "G3",
+   "role": "marketer",
+   "created": "2026-11-02T22:12:57+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-02T22:12:57+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0007",
+   "title": "Morning post 04.11 07:00 UTC: today's cheapest hours from today.json, PT+EN",
+   "type": "content",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "marketer",
+   "created": "2026-11-02T22:12:57+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-02T22:12:57+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0008",
+   "title": "Count /go/telegram/ clicks as a target in metrics, excluding our own traffic",
+   "type": "ops",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "analyst",
+   "created": "2026-11-02T22:12:57+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-02T22:12:57+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-02T23:09:28+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261102T2307-exec-T-0008"
+    },
+    {
+     "ts": "2026-11-02T23:09:28+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-02T23:09:45+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measurement delivered"
     }
    ]
   }
@@ -158,26 +308,36 @@
    "task": "T-0001",
    "verdict": "pass",
    "summary": "The /go/telegram/ page meta-refreshes to https://t.me/luz_amanha, and the home page's Telegram link goes to /go/telegram/. The home page, footer disclosure and build.json still work."
+  },
+  {
+   "task": "T-0003",
+   "verdict": "pass",
+   "summary": "The archive day 2026-11-02 now has 24 hours, with 23:00 at 208.9 in both the JSON and the HTML. Tomorrow's page shows the PT/EN note in the 23:00 row, its 23:00 price stays null, and tomorrow.json keeps its structure."
+  },
+  {
+   "task": "T-0004",
+   "verdict": "pass",
+   "summary": "All five acceptance criteria and all three negative cases are met on the live pages I fetched. The site is built and serving the new templates."
   }
  ],
  "posts": [],
  "metrics": {
-  "humans": 34,
-  "engaged": 9,
+  "humans": 52,
+  "engaged": 10,
   "returns": 0,
-  "agents": 13,
-  "crawlers": 40,
-  "requests": 333
+  "agents": 16,
+  "crawlers": 62,
+  "requests": 467
  },
- "spend_usd": 1.5,
- "po_digest_md": "**Luz Amanhã — разбор 02.11, 21:27 UTC**\n\n**Что произошло**\n- T-0001 принята: `/go/telegram/` ведёт в реальный канал https://t.me/luz_amanha. Ревьюер это проверил.\n- Персона-экспат нашла на главной EN-блок, окна и оговорку про оптовую цену. Это синтетический успех, спросом его не считаем.\n- SEO-проверка нашла 21 замечание на архивных страницах `/d/`: нет h1, og-тегов, JSON-LD и hreflang.\n\n**Что решено**\n- Замечания про h1, og-теги и JSON-LD привязаны к T-0004, она уже в работе.\n- hreflang отклонён: каждая страница двуязычная, PT и EN на одном адресе. Отдельных EN-URL нет, а адреса менять нельзя.\n- Шумный дифф от поля `updated` отложен.\n- T-0002 (кнопки «полезно / не полезно» и «сообщить об ошибке») понижена до P3: в задаче шаблонный текст, репозиторий не подтверждён.\n- Новых задач нет, в Ready уже 4. Порядок:\n  1. T-0005 — пост 03.11 около 14:00 UTC с ценами на 04.11;\n  2. T-0003 — заполнить час 23:00 в архиве;\n  3. T-0004 — SEO и превью ссылок.\n\n**Метрики 02.11** (до старта пилота): 9 engaged-источников, 13 агентов, 40 краулеров, 3 перехода на `/go/telegram/`. Часть визитов, скорее всего, наша, поэтому база G1 будет записана только после прогона 04.11.\n\n**Ждёт владельца:** создан ли аккаунт Bluesky и подключён ли он к публикации, существует ли репозиторий `formachines-ai/luz-amanha` на GitHub. Пока ответа нет, публикуем только в Telegram.\n\n**Расходы:** $0,94 из $20.",
+ "spend_usd": 2.5,
+ "po_digest_md": "## Luz Amanhã — цикл 02.11 23:07 UTC\n\n**Что произошло.** Ревьюер принял T-0004: на страницах теперь один h1, есть og-теги, JSON-LD и `lang=\"en\"`. Также приняты T-0001 (ссылка на Telegram @luz_amanha) и T-0003 (час 23:00 в архиве).\n\n**Наблюдения.**\n- Общий og:description на `/d/` и `/legal/` допустим: у этих страниц нет даты. Привязал к T-0004, работы не требуется.\n- На `/d/` ссылка «EN» в меню ведёт на якорь `#en`, которого на странице нет. Это мелочь, отложил: исправим вместе со следующей правкой шаблонов.\n\n**Решения.**\n- Новых задач нет: в Ready уже 5, приоритет — довести их до конца. Это пост 03.11 на 14:05 UTC с ценами на 04.11 (T-0006, P1), утренний пост 04.11 в 07:00 (T-0007), счётчик кликов `/go/telegram/` в метриках (T-0008) и ссылки обратной связи (T-0002, P3; репозиторий подтверждён).\n- T-0005 дублирует T-0006. Оставил его на P3, диспетчеру стоит закрыть его как дубликат, чтобы в канале не вышло два поста.\n- У постов нет `not_before`. От публикации не того дня защищает проверка даты в `tomorrow.json` / `today.json`: при несовпадении пост не выходит.\n\n**Метрики 02.11.** 10 engaged-источников, 16 агентов, 60 краулеров. Почти весь этот трафик наш, до запуска: спросом его не считаю. Базу запишу после первого прогона 04.11.\n\n**От владельца ничего не требуется.**\n\n**Расходы.** $2.28 из $20.",
  "analyst_md": "**День 1 (02.11), данные до 21:01 UTC.** Постов пока нет, referer'ов нет.\n\n| Уровень | Значение |\n|---|---|\n| Краулеры (обнаружение) | 40 запросов, 9 источников (GPTBot 24, ClaudeBot 7) |\n| Люди: источники / engaged | 34 / 9 |\n| Возвраты | 0 (база — день 1) |\n| Целевые действия | `/go/telegram/`: 3 запроса в топе страниц, но `targets` пуст; клики не подтверждены |\n| Агенты | 13 запросов, 3 источника (curl 11, okhttp 2) |\n| Внешний referer | 0 |\n| 5xx | 0 (4xx: 64, в основном сканеры) |\n\nУровни не суммируются. Цифры людей пока включают день, когда сайт только запущен: часть источников может быть нашей проверкой, хотя own-трафик уже отделён (11 источников).\n\nT-0001 (ссылка на настоящий канал) принят в 21:31, после снимка метрик. Эффект оценить нельзя: до этого `/go/telegram/` вёл на заглушку.\n\nЦели: G1 — 9 engaged из 30 за день 1; G2–G4 — рано; G5 — наблюдаем.\n\nМашинные эндпоинты почти не запрашивают: `/tomorrow.json` и `/feed.xml` по 1 запросу, `/llms.txt` в топе нет.",
  "observations": {
-  "new": 55,
+  "new": 59,
   "by_class": {
-   "success": 9,
+   "success": 11,
    "synthetic_difficulty": 3,
-   "need_hypothesis": 8,
+   "need_hypothesis": 10,
    "reproducible_defect": 35
   }
  },

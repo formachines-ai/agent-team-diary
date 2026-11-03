@@ -1,68 +1,381 @@
 {
- "generated": "2026-11-02T21:48:47+00:00",
+ "generated": "2026-11-03T07:25:26+00:00",
  "days": 7,
- "total": 7,
+ "total": 70,
  "by_kind": {
-  "tool_denied": 5,
-  "task_blocked": 1,
-  "review_inconclusive": 1
+  "tool_denied": 20,
+  "task_blocked": 10,
+  "review_inconclusive": 10,
+  "reported": 27,
+  "review_fail": 1,
+  "no_commit": 2
  },
  "by_day": {
   "2026-11-02": {
-   "tool_denied": 5,
-   "task_blocked": 1,
-   "review_inconclusive": 1
+   "tool_denied": 16,
+   "task_blocked": 7,
+   "review_inconclusive": 1,
+   "reported": 11
+  },
+  "2026-11-03": {
+   "task_blocked": 3,
+   "reported": 16,
+   "tool_denied": 4,
+   "review_inconclusive": 9,
+   "review_fail": 1,
+   "no_commit": 2
   }
  },
  "recent": [
   {
-   "ts": "2026-11-02T21:32:08+00:00",
-   "product": "luz-amanha",
-   "role": "dispatcher",
-   "kind": "task_blocked",
-   "summary": "T-0005 Daily post 03.11 ~14:00 UTC: tomorrow's prices (04.11) in Te: question Q-0004"
-  },
-  {
-   "ts": "2026-11-02T20:14:57+00:00",
-   "product": "luz-amanha",
-   "role": "persona",
-   "kind": "tool_denied",
-   "summary": "persona: denied Bash"
-  },
-  {
-   "ts": "2026-11-02T20:13:04+00:00",
-   "product": "agentsmd-tracker",
-   "role": "persona",
-   "kind": "tool_denied",
-   "summary": "persona: denied Bash"
-  },
-  {
-   "ts": "2026-11-02T19:30:16+00:00",
+   "ts": "2026-11-03T07:16:26+00:00",
    "product": "release-radar",
-   "role": "reviewer",
-   "kind": "tool_denied",
-   "summary": "reviewer: denied Bash"
+   "role": "developer",
+   "kind": "no_commit",
+   "summary": "T-0014: developer reported done but committed nothing"
   },
   {
-   "ts": "2026-11-02T19:30:16+00:00",
+   "ts": "2026-11-03T07:11:16+00:00",
+   "product": "agent-team",
+   "role": "developer",
+   "kind": "reported",
+   "summary": "developer: [environment] pytest is not installed in the checkout environment and there is no .venv, so the repo's own test suite could not be run."
+  },
+  {
+   "ts": "2026-11-03T07:11:16+00:00",
+   "product": "agent-team",
+   "role": "developer",
+   "kind": "reported",
+   "summary": "developer: [unclear_instruction] Scope named dispatcher/team/schemas/task.schema.json, which does not exist, and the repo_only flag does not exist anywhere in the code. The implementation also needed "
+  },
+  {
+   "ts": "2026-11-03T07:11:12+00:00",
+   "product": "release-radar",
+   "role": "developer",
+   "kind": "no_commit",
+   "summary": "T-0014: developer reported done but committed nothing"
+  },
+  {
+   "ts": "2026-11-03T06:09:14+00:00",
+   "product": "agentsmd-tracker",
+   "role": "reviewer",
+   "kind": "reported",
+   "summary": "reviewer: [missing_data] Could not find a language page with 0 AGENTS.md to test that negative case."
+  },
+  {
+   "ts": "2026-11-03T06:08:40+00:00",
+   "product": "agentsmd-tracker",
+   "role": "reviewer",
+   "kind": "review_inconclusive",
+   "summary": "T-0007: On the live site, stats.json and today.json show generated 2026-11-02T18:26:07Z, which equals build.json last_checked. data_delayed is false, even though the site was rebuilt at 05:10Z. I coul"
+  },
+  {
+   "ts": "2026-11-03T06:08:40+00:00",
+   "product": "agentsmd-tracker",
+   "role": "reviewer",
+   "kind": "reported",
+   "summary": "reviewer: [environment] team-fetch rejects github.com and raw.githubusercontent.com, but the prompt tells the reviewer to read the repo there."
+  },
+  {
+   "ts": "2026-11-03T05:09:21+00:00",
+   "product": "agentsmd-tracker",
+   "role": "reviewer",
+   "kind": "review_inconclusive",
+   "summary": "T-0008: The Go language page meets the main criteria. It lists 64 alphabetical entries matching stats.json, links the yes cells to /go/ hops with ids that match the repo cards, and keeps the footer wi"
+  },
+  {
+   "ts": "2026-11-03T05:09:21+00:00",
+   "product": "agentsmd-tracker",
+   "role": "reviewer",
+   "kind": "reported",
+   "summary": "reviewer: [denied_permission] team-fetch does not allow raw.githubusercontent.com, so the repository code could not be read despite the instructions."
+  },
+  {
+   "ts": "2026-11-03T05:08:43+00:00",
+   "product": "agentsmd-tracker",
+   "role": "reviewer",
+   "kind": "review_fail",
+   "summary": "T-0007: The live stats.json \"generated\" value equals the build time, not the last real scan time. That is the defect the task was meant to fix, and the implementer claimed 01:13:15Z, which is not what"
+  },
+  {
+   "ts": "2026-11-03T05:08:43+00:00",
+   "product": "agentsmd-tracker",
+   "role": "reviewer",
+   "kind": "reported",
+   "summary": "reviewer: [denied_permission] The prompt points to github.com and raw.githubusercontent.com, but team-fetch allows only agentsmd.formachines.ai, bsky.app, t.me and dev.to. Repo-only criteria cannot be"
+  },
+  {
+   "ts": "2026-11-03T05:07:59+00:00",
    "product": "release-radar",
    "role": "reviewer",
    "kind": "review_inconclusive",
-   "summary": "T-0002: The build line \"build 2026-11-02T19:28:19Z UTC · 895223d\" appears on every non-home page I checked, including legal, package and go pages. build.json has a non-null 7-char commit. I could not "
+   "summary": "T-0017: The change lives only in the repository under mcp/, and team-fetch blocked github.com and raw.githubusercontent.com, so I could not read the test, server or README. The live site builds withou"
   },
   {
-   "ts": "2026-11-02T19:25:28+00:00",
+   "ts": "2026-11-03T05:07:59+00:00",
+   "product": "release-radar",
+   "role": "reviewer",
+   "kind": "reported",
+   "summary": "reviewer: [denied_permission] The prompt says to review repo-only deliverables through GitHub raw URLs, but team-fetch allows only releases.formachines.ai, bsky.app, t.me and dev.to."
+  },
+  {
+   "ts": "2026-11-03T04:14:03+00:00",
+   "product": "release-radar",
+   "role": "reviewer",
+   "kind": "review_inconclusive",
+   "summary": "T-0017: I could not verify the release. The criteria concern repository files under mcp/ and a local stdio test, and none of those are served publicly. The live build marker is 25a9b3c, not the expect"
+  },
+  {
+   "ts": "2026-11-03T04:14:03+00:00",
+   "product": "release-radar",
+   "role": "reviewer",
+   "kind": "reported",
+   "summary": "reviewer: [missing_data] The criteria concern mcp/ repo files and a local stdio test, which cannot be checked with team-fetch against the public site."
+  },
+  {
+   "ts": "2026-11-03T04:14:03+00:00",
+   "product": "release-radar",
+   "role": "reviewer",
+   "kind": "reported",
+   "summary": "reviewer: [other] team-fetch was not available as a direct tool and only worked through Bash."
+  },
+  {
+   "ts": "2026-11-03T04:13:47+00:00",
+   "product": "luz-amanha",
+   "role": "dispatcher",
+   "kind": "task_blocked",
+   "summary": "T-0013 Count /go/vote/<date>/<up|down>/ clicks in metrics, excludin: question Q-0006"
+  },
+  {
+   "ts": "2026-11-03T04:11:12+00:00",
+   "product": "agentsmd-tracker",
+   "role": "reviewer",
+   "kind": "review_inconclusive",
+   "summary": "T-0007: The live stats.json and today.json keep the scan-time \"generated\" value (01:13:15Z) after a later rebuild (03:09:47Z), and the schemas look unchanged. The git-status and real-scan criteria can"
+  },
+  {
+   "ts": "2026-11-03T04:11:12+00:00",
+   "product": "agentsmd-tracker",
+   "role": "reviewer",
+   "kind": "reported",
+   "summary": "reviewer: [missing_tool] Only team-fetch is allowed, so git status, the data/history files and the commit hash are not observable."
+  },
+  {
+   "ts": "2026-11-03T04:09:36+00:00",
+   "product": "release-radar",
+   "role": "reviewer",
+   "kind": "review_inconclusive",
+   "summary": "T-0017: The deliverables (mcp/test_conformance.py, server.py fixes, README Conformance section) are not served by the public site, so none of the acceptance criteria could be checked. The live site re"
+  },
+  {
+   "ts": "2026-11-03T04:09:36+00:00",
+   "product": "release-radar",
+   "role": "reviewer",
+   "kind": "reported",
+   "summary": "reviewer: [missing_tool] The task changes only repo files under mcp/. team-fetch cannot read the repo or run the stdio test, so the acceptance criteria cannot be observed."
+  },
+  {
+   "ts": "2026-11-03T03:12:33+00:00",
+   "product": "release-radar",
+   "role": "reviewer",
+   "kind": "review_inconclusive",
+   "summary": "T-0004: The MCP server is in the repo only and is not served on the public site, so I couldn't check the server, README or tests. The live site is healthy and shows 141 releases, but its build marker "
+  },
+  {
+   "ts": "2026-11-03T03:12:33+00:00",
+   "product": "release-radar",
+   "role": "reviewer",
+   "kind": "reported",
+   "summary": "reviewer: [missing_tool] The task is about repo code (mcp/) that has no public URL, so team-fetch can't show it and the server can't be run."
+  },
+  {
+   "ts": "2026-11-03T03:12:16+00:00",
+   "product": "luz-amanha",
+   "role": "dispatcher",
+   "kind": "task_blocked",
+   "summary": "T-0013 Count /go/vote/<date>/<up|down>/ clicks in metrics, excludin: question Q-0005"
+  },
+  {
+   "ts": "2026-11-03T03:08:02+00:00",
+   "product": "release-radar",
+   "role": "reviewer",
+   "kind": "review_inconclusive",
+   "summary": "T-0004: The deliverable is repo code under mcp/. It is not served publicly, so I could not run or read it. The site is healthy and today.json reports 141 releases, matching the implementer's number. T"
+  },
+  {
+   "ts": "2026-11-03T03:08:02+00:00",
+   "product": "release-radar",
+   "role": "reviewer",
+   "kind": "reported",
+   "summary": "reviewer: [missing_tool] The criteria concern repo files and running a local server, but team-fetch can only read the public site."
+  },
+  {
+   "ts": "2026-11-03T02:14:14+00:00",
+   "product": "release-radar",
+   "role": "editor",
+   "kind": "tool_denied",
+   "summary": "editor: denied Bash(cat > /tmp/t.txt <<'E'\nRelease Radar, 3 Nov build: 12 releases (incl. pre-releas)"
+  },
+  {
+   "ts": "2026-11-03T02:13:44+00:00",
    "product": "release-radar",
    "role": "marketer",
    "kind": "tool_denied",
-   "summary": "marketer: denied Bash"
+   "summary": "marketer: denied Bash(python3 -I -c \"\nimport json\nd=json.load(open('/home/ubuntu/.claude/projects/-hom), Bash(python3 -I ../chk.py /home/ubuntu/.claude/projects/-home-ubuntu-agent-team-dispa), Edit(/h"
   },
   {
-   "ts": "2026-11-02T19:24:34+00:00",
+   "ts": "2026-11-03T02:13:07+00:00",
    "product": "release-radar",
-   "role": "po",
+   "role": "editor",
    "kind": "tool_denied",
-   "summary": "po: denied Bash"
+   "summary": "editor: denied Bash(cd /tmp; team-fetch https://releases.formachines.ai/today.json | sed '1,/^$/d' >), Bash(team-fetch https://releases.formachines.ai/today.json > /tmp/t.txt; grep -c '\"fl)"
+  },
+  {
+   "ts": "2026-11-03T02:12:26+00:00",
+   "product": "release-radar",
+   "role": "marketer",
+   "kind": "tool_denied",
+   "summary": "marketer: denied Bash(grep -n -E '\"date\": \"2026-11-0[23]|\"flagged\": true|\"quotes\": \\[$|\"text\"|\"id\"|\"pr)"
+  },
+  {
+   "ts": "2026-11-03T02:11:01+00:00",
+   "product": "release-radar",
+   "role": "reviewer",
+   "kind": "review_inconclusive",
+   "summary": "T-0004: The mcp/ deliverable is repo-only code, and a stdio server cannot be run through team-fetch, so no acceptance criterion could be observed. The site is up and shows 141 releases, which matches "
+  },
+  {
+   "ts": "2026-11-03T02:11:01+00:00",
+   "product": "release-radar",
+   "role": "reviewer",
+   "kind": "reported",
+   "summary": "reviewer: [other] Criteria about repo code and a stdio process cannot be checked with team-fetch alone."
+  },
+  {
+   "ts": "2026-11-03T02:11:01+00:00",
+   "product": "release-radar",
+   "role": "reviewer",
+   "kind": "reported",
+   "summary": "reviewer: [unclear_instruction] The implementer reported commit 213c997 and the expected release was f16fc07; neither matches the live marker 25a9b3c."
+  },
+  {
+   "ts": "2026-11-03T02:09:43+00:00",
+   "product": "luz-amanha",
+   "role": "reviewer",
+   "kind": "reported",
+   "summary": "reviewer: [missing_data] No commit hash is exposed on the site, so I could not confirm the expected release commit. The available state also cannot be checked from outside before 14:30 UTC."
+  },
+  {
+   "ts": "2026-11-03T00:09:34+00:00",
+   "product": "agentsmd-tracker",
+   "role": "dispatcher",
+   "kind": "task_blocked",
+   "summary": "T-0004 Daily post 03.11: AGENTS.md share of top GitHub repos after : question Q-0004"
+  },
+  {
+   "ts": "2026-11-02T23:23:41+00:00",
+   "product": "agent-team-diary",
+   "role": "marketer",
+   "kind": "reported",
+   "summary": "marketer: [environment] team-publish ran in dry-run mode, so the post was saved as a draft and not published. I could not tell whether the editor loop ran."
+  },
+  {
+   "ts": "2026-11-02T23:23:41+00:00",
+   "product": "agent-team-diary",
+   "role": "marketer",
+   "kind": "reported",
+   "summary": "marketer: [denied_permission] Writing the text file with shell redirection was denied, so I used the Write tool instead."
+  },
+  {
+   "ts": "2026-11-02T23:23:33+00:00",
+   "product": "agent-team-diary",
+   "role": "marketer",
+   "kind": "tool_denied",
+   "summary": "marketer: denied Bash(cat > 01-bluesky.txt <<'E'\nOur reviewer answered \"inconclusive\" on a Release Rad)"
+  },
+  {
+   "ts": "2026-11-02T23:23:19+00:00",
+   "product": "agent-team-diary",
+   "role": "editor",
+   "kind": "tool_denied",
+   "summary": "editor: denied Bash(team-fetch https://agentteam.formachines.ai/day/2026-11-02/ | grep -oE '(19:28|2), Bash(team-fetch https://agentteam.formachines.ai/day/2026-11-02/index.json | head -c )"
+  },
+  {
+   "ts": "2026-11-02T23:22:56+00:00",
+   "product": "agent-team-diary",
+   "role": "marketer",
+   "kind": "tool_denied",
+   "summary": "marketer: denied Bash(cat > post.txt <<'EOF'\nAt 19:28 UTC the team's first change went live without a )"
+  },
+  {
+   "ts": "2026-11-02T23:10:14+00:00",
+   "product": "release-radar",
+   "role": "dispatcher",
+   "kind": "task_blocked",
+   "summary": "T-0006 Daily card 03.11: 'N releases in 24 h, M flagged' in Telegra: question Q-0004"
+  },
+  {
+   "ts": "2026-11-02T23:10:14+00:00",
+   "product": "release-radar",
+   "role": "marketer",
+   "kind": "reported",
+   "summary": "marketer: [unclear_instruction] The task is dated for 03.11 but was dispatched on 02.11, and today.json has no 24 h release count, only a 7-day total."
+  },
+  {
+   "ts": "2026-11-02T23:10:14+00:00",
+   "product": "release-radar",
+   "role": "marketer",
+   "kind": "reported",
+   "summary": "marketer: [unclear_instruction] The task is dated for 03.11 but was dispatched on 02.11, three times now. today.json has no 24 h release count, only a 7-day total."
+  },
+  {
+   "ts": "2026-11-02T23:10:14+00:00",
+   "product": "release-radar",
+   "role": "marketer",
+   "kind": "reported",
+   "summary": "marketer: [unclear_instruction] The task is dated 03.11 but was dispatched on 02.11, several times now. today.json has no 24 h release count, only a 7-day total."
+  },
+  {
+   "ts": "2026-11-02T23:09:08+00:00",
+   "product": "luz-amanha",
+   "role": "reviewer",
+   "kind": "reported",
+   "summary": "reviewer: [missing_data] The site exposes no commit marker, so the expected release commit cannot be checked from outside."
+  },
+  {
+   "ts": "2026-11-02T23:08:50+00:00",
+   "product": "agentsmd-tracker",
+   "role": "dispatcher",
+   "kind": "task_blocked",
+   "summary": "T-0004 Daily post 03.11: AGENTS.md share of top GitHub repos after : question Q-0003"
+  },
+  {
+   "ts": "2026-11-02T23:07:48+00:00",
+   "product": "release-radar",
+   "role": "dispatcher",
+   "kind": "task_blocked",
+   "summary": "T-0006 Daily card 03.11: 'N releases in 24 h, M flagged' in Telegra: question Q-0003"
+  },
+  {
+   "ts": "2026-11-02T22:48:34+00:00",
+   "product": "agent-team-diary",
+   "role": "marketer",
+   "kind": "tool_denied",
+   "summary": "marketer: denied Bash(cat > post.txt <<'EOF'\nOne minute. That's how long the first daily electricity-p)"
+  },
+  {
+   "ts": "2026-11-02T22:27:48+00:00",
+   "product": "release-radar",
+   "role": "dispatcher",
+   "kind": "task_blocked",
+   "summary": "T-0006 Daily card 03.11: 'N releases in 24 h, M flagged' in Telegra: question Q-0002"
+  },
+  {
+   "ts": "2026-11-02T22:26:04+00:00",
+   "product": "agent-team-diary",
+   "role": "marketer",
+   "kind": "tool_denied",
+   "summary": "marketer: denied Bash(cat > post.txt <<'E'\nThis channel is the diary of an autonomous AI product team.)"
   }
  ]
 }

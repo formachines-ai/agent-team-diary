@@ -1,0 +1,159 @@
+{
+ "slug": "agent-team",
+ "name": "agent-team (framework)",
+ "site": "",
+ "date": "2026-11-02",
+ "tasks": [
+  {
+   "id": "T-0001",
+   "title": "[retro] team-fetch: show a window around a grep match instead of a 500-char line cut",
+   "type": "feature",
+   "state": "done",
+   "priority": "P3",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-02T22:25:22+00:00",
+   "accepted_at": "2026-11-03T00:08:52+00:00",
+   "released_sha": "1c8dbafa716322b58197593a121704e6f6531df9",
+   "history": [
+    {
+     "ts": "2026-11-02T22:25:22+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-02T22:26:10+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "priority → P3: This is a change to tool code (team/fetch.py, risk medium). VISION allows it only as an issue proposal, not as a task. It is frozen until the owner decides, and T-0002/T-0003 (role_card"
+    },
+    {
+     "ts": "2026-11-02T22:26:10+00:00",
+     "actor": "po",
+     "to": "waiting_owner",
+     "note": "question Q-0003"
+    },
+    {
+     "ts": "2026-11-02T22:26:55+00:00",
+     "actor": "owner",
+     "to": "ready",
+     "note": "answered Q-0003"
+    }
+   ]
+  },
+  {
+   "id": "T-0002",
+   "title": "[retro] Role cards: one plain command per call, no cd/loops/pipes; PO and analyst have no shell",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-02T22:25:23+00:00",
+   "accepted_at": "2026-11-02T22:27:51+00:00",
+   "released_sha": "43acb7e608d51f5f58a46102fe5c4283f8ed001f",
+   "history": [
+    {
+     "ts": "2026-11-02T22:25:23+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-02T22:26:10+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261102T2226fw-exec-T-0002"
+    },
+    {
+     "ts": "2026-11-02T22:26:10+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-02T22:27:51+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (cycle 20261102T2226fw-canary of release-radar: all phases); merged 43acb7e608"
+    },
+    {
+     "ts": "2026-11-02T22:27:51+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0003",
+   "title": "[retro] PO: date-bound daily tasks must carry not_before; marketer must not block on a date",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-02T22:25:23+00:00",
+   "accepted_at": "2026-11-02T23:07:51+00:00",
+   "released_sha": "d27115542c3391b404a088b8ccf39281bb9dffea",
+   "history": [
+    {
+     "ts": "2026-11-02T22:25:23+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-02T22:26:10+00:00",
+     "actor": "po",
+     "to": "waiting_owner",
+     "note": "question Q-0004"
+    },
+    {
+     "ts": "2026-11-02T22:26:55+00:00",
+     "actor": "owner",
+     "to": "ready",
+     "note": "answered Q-0004"
+    },
+    {
+     "ts": "2026-11-02T23:07:02+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261102T2307-exec-T-0003"
+    },
+    {
+     "ts": "2026-11-02T23:07:02+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-02T23:07:51+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (cycle 20261102T2307-canary of release-radar: all phases); merged d27115542c"
+    },
+    {
+     "ts": "2026-11-02T23:07:51+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  }
+ ],
+ "reviews": [],
+ "posts": [],
+ "metrics": null,
+ "spend_usd": 0.5,
+ "po_digest_md": "## agent-team: цикл 20261102T2226fw\n\n**Что произошло.** Ретро открыло 3 issue (#2, #3, #4), и диспетчер уже сделал по ним задачи T-0001…T-0003. Новых задач я не создавал, просто связал наблюдения с этими задачами.\n\n**Решения**\n- **T-0002** (#3): правило в карточках ролей — одна простая команда за вызов; у PO и аналитика нет shell. Задача Ready, P2. У неё больше всего доказательств из регистра (8 записей). Проверка: число `tool_denied` в регистре за 7 дней.\n- **T-0003** (#4): `not_before` для задач с датой; маркетолог не блокируется из-за отсутствующей метрики. Задача Ready, P2. T-0002 и T-0003 правят одни и те же файлы (po.md, marketer.md), поэтому лучше делать их по очереди, а не параллельно.\n- **T-0001** (#2): флаги для `team/fetch.py`. Это правка кода инструмента с риском medium. По VISION такое оформляется только как issue, не задачей. Понизил до P3 и не берём в работу, пока вы не решите.\n\n**Ждёт вас**\n1. Можно ли сделать T-0001 через PR, или закрыть задачу и оставить issue как предложение?\n2. В T-0003 в одной задаче три правила, а VISION говорит «одно правило на задачу». Оставить как есть или ретро должно такие задачи делить?\n\n**Деньги.** Сегодня потрачено $0.24 из $5.",
+ "analyst_md": "",
+ "observations": {
+  "new": 3,
+  "by_class": {
+   "feedback": 3
+  }
+ },
+ "owner_questions_open": 0
+}

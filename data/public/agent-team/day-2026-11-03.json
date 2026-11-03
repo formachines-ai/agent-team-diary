@@ -1,0 +1,452 @@
+{
+ "slug": "agent-team",
+ "name": "agent-team (framework)",
+ "site": "",
+ "date": "2026-11-03",
+ "tasks": [
+  {
+   "id": "T-0001",
+   "title": "[retro] team-fetch: show a window around a grep match instead of a 500-char line cut",
+   "type": "feature",
+   "state": "done",
+   "priority": "P3",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-02T22:25:22+00:00",
+   "accepted_at": "2026-11-03T00:08:52+00:00",
+   "released_sha": "1c8dbafa716322b58197593a121704e6f6531df9",
+   "history": [
+    {
+     "ts": "2026-11-03T00:07:01+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261103T0007-exec-T-0001"
+    },
+    {
+     "ts": "2026-11-03T00:07:01+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-03T00:08:52+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (cycle 20261103T0007-canary of release-radar: all phases); merged 1c8dbafa71"
+    },
+    {
+     "ts": "2026-11-03T00:08:52+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0004",
+   "title": "[retro] Marketer: give Write tool, forbid heredoc/redirection",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-03T00:16:24+00:00",
+   "accepted_at": "2026-11-03T01:09:37+00:00",
+   "released_sha": "afc630109d8f2308a666b959b6d9faaa37d5786a",
+   "history": [
+    {
+     "ts": "2026-11-03T00:16:24+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-03T01:07:08+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261103T0107-exec-T-0004"
+    },
+    {
+     "ts": "2026-11-03T01:07:08+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-03T01:09:37+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (cycle 20261103T0107-canary of release-radar: all phases); merged afc630109d"
+    },
+    {
+     "ts": "2026-11-03T01:09:37+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0005",
+   "title": "[retro] Editor, reviewer, persona, support: add the one-plain-team-fetch-call shell rule",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-03T00:16:25+00:00",
+   "accepted_at": "2026-11-03T03:09:26+00:00",
+   "released_sha": "52f7c5f90c8bd92e8634a9a5730daef8b4ede4bf",
+   "history": [
+    {
+     "ts": "2026-11-03T00:16:25+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-03T03:07:14+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261103T0307-exec-T-0005"
+    },
+    {
+     "ts": "2026-11-03T03:07:14+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-03T03:09:26+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (cycle 20261103T0307-canary of release-radar: all phases); merged 52f7c5f90c"
+    },
+    {
+     "ts": "2026-11-03T03:09:26+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0006",
+   "title": "[retro] Dispatcher: do not start tasks whose title names a future date without not_before",
+   "type": "feature",
+   "state": "done",
+   "priority": "P1",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-03T01:17:55+00:00",
+   "accepted_at": "2026-11-03T04:07:02+00:00",
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-03T01:17:55+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-03T02:07:11+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "priority → P1: Из-за отсутствия защиты ежедневные задачи трёх продуктов блокировались 8 раз и тратили циклы; это ломает ежедневный сценарий. Идёт первой."
+    },
+    {
+     "ts": "2026-11-03T02:07:11+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261103T0207-exec-T-0006"
+    },
+    {
+     "ts": "2026-11-03T02:07:11+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-03T02:07:58+00:00",
+     "actor": "dispatcher",
+     "to": "waiting_owner",
+     "note": "pull request https://github.com/OOuph/agent-team/pull/13 (protected files team/store.py)"
+    },
+    {
+     "ts": "2026-11-03T04:07:02+00:00",
+     "actor": "owner",
+     "to": "accepted",
+     "note": "pull request merged https://github.com/OOuph/agent-team/pull/13"
+    },
+    {
+     "ts": "2026-11-03T04:07:02+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "merged by the owner; framework tasks are not measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0007",
+   "title": "[retro] Editor card: add the one-plain-team-fetch-call shell rule",
+   "type": "feature",
+   "state": "rejected",
+   "priority": "P3",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-03T01:17:56+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-03T01:17:56+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-03T03:07:14+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "priority → P3: Duplicates the editor part of T-0005, which already covers editor.md. Run T-0005 and close T-0007 as a duplicate when T-0005 merges, to avoid two PRs on the same file."
+    },
+    {
+     "ts": "2026-11-03T04:07:11+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Duplicate: T-0008 already adds the editor shell rule (F-0031 is in T-0008's evidence), and it is wider."
+    }
+   ]
+  },
+  {
+   "id": "T-0008",
+   "title": "[retro] Marketer and editor cards: explicit no-heredoc, no-pipe, no-file-save shell rule",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-03T03:13:35+00:00",
+   "accepted_at": "2026-11-03T04:10:47+00:00",
+   "released_sha": "a90847b36c6e7b03fea4a46fdb8ad4405d8ed7ad",
+   "history": [
+    {
+     "ts": "2026-11-03T03:13:35+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-03T04:07:11+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261103T0407-exec-T-0008"
+    },
+    {
+     "ts": "2026-11-03T04:07:11+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-03T04:10:47+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (cycle 20261103T0407-canary of release-radar: all phases); merged a90847b36c"
+    },
+    {
+     "ts": "2026-11-03T04:10:47+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0009",
+   "title": "[retro] Repo-only acceptance criteria: reviewer cannot observe them",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-03T03:13:35+00:00",
+   "accepted_at": "2026-11-03T05:08:23+00:00",
+   "released_sha": "74b739742dd89db6b4fa2dcb54e2d7b991b1ccc2",
+   "history": [
+    {
+     "ts": "2026-11-03T03:13:35+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-03T05:07:09+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261103T0507-exec-T-0009"
+    },
+    {
+     "ts": "2026-11-03T05:07:09+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-03T05:08:23+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (cycle 20261103T0507-canary of release-radar: all phases); merged 74b739742d"
+    },
+    {
+     "ts": "2026-11-03T05:08:23+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0010",
+   "title": "[retro] Reviewer: build-marker mismatch must not alone make a verdict inconclusive",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-03T03:13:36+00:00",
+   "accepted_at": "2026-11-03T06:07:48+00:00",
+   "released_sha": "cc98cabe58f2adcba1145c92209694bca74e5b90",
+   "history": [
+    {
+     "ts": "2026-11-03T03:13:36+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-03T06:07:02+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261103T0607-exec-T-0010"
+    },
+    {
+     "ts": "2026-11-03T06:07:02+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-03T06:07:48+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (cycle 20261103T0607-canary of release-radar: all phases); merged cc98cabe58"
+    },
+    {
+     "ts": "2026-11-03T06:07:48+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0011",
+   "title": "[retro] Give the reviewer read-only repo access for repo-only tasks",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-03T04:15:00+00:00",
+   "accepted_at": "2026-11-03T07:11:16+00:00",
+   "released_sha": "0686b387101cd7bdfe41503ae6024a9abf2ef0a3",
+   "history": [
+    {
+     "ts": "2026-11-03T04:15:00+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-03T07:07:08+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261103T0707-exec-T-0011"
+    },
+    {
+     "ts": "2026-11-03T07:07:09+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-03T07:11:16+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (cycle 20261103T0707-canary of release-radar: all phases); merged 0686b38710"
+    },
+    {
+     "ts": "2026-11-03T07:11:16+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0012",
+   "title": "[retro] Allow github.com and raw.githubusercontent.com in team-fetch for the reviewer run",
+   "type": "feature",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-03T06:14:05+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-03T06:14:05+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    }
+   ]
+  },
+  {
+   "id": "T-0013",
+   "title": "[retro] Reviewer: judge only the observable criteria, and return pass/fail for them when the rest is repo-only",
+   "type": "feature",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-03T06:14:06+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-03T06:14:06+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    }
+   ]
+  }
+ ],
+ "reviews": [],
+ "posts": [],
+ "metrics": null,
+ "spend_usd": 2.1,
+ "po_digest_md": "Новых задач нет. Issue #22 и #23 уже стали T-0012 и T-0013, обе в Ready. OBS-0015 отклонена: заметка разработчика без проблемы. Главная причина зависших ревью — репозиторные критерии, которые ревьюер не может прочитать. Её закрывают T-0011 и T-0012. Обратите внимание: T-0012 затрагивает `team/cycle.py`; это не защищённый файл, поэтому PR сольёт диспетчер после канарейки. Расход сегодня $1.77 из $5.",
+ "analyst_md": "",
+ "observations": {
+  "new": 16,
+  "by_class": {
+   "feedback": 10,
+   "need_hypothesis": 6
+  }
+ },
+ "owner_questions_open": 0
+}

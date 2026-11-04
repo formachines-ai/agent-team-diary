@@ -49,6 +49,7 @@ PUBLIC_DIR = ROOT / "public"
 FRONT_DAYS = 14             # day links shown on the front page
 FEED_MAX_ITEMS = 60         # days in feed.xml
 DIGEST_MAX_CHARS = 4000     # digest text is cut here (the export already caps at 4000)
+HOME_NOTE_MAX = 140         # reviewer note on the front page
 NOTE_MAX_CHARS = 200        # task-history note cap (the export already caps at 200)
 CHRONICLE_EXCERPT_CHARS = 240   # digest excerpt on the product page
 DAY_FILE_RE = re.compile(r"^day-(\d{4}-\d{2}-\d{2})\.json$")
@@ -411,7 +412,22 @@ def verdict_badge(v: str | None) -> str:
 # ----------------------------------------------------------------------------------------------------------
 # Page bodies
 # ----------------------------------------------------------------------------------------------------------
-def product_section(d: dict, product: dict, heading_link: bool = True) -> str:
+def task_anchors(date: str, model: dict) -> dict:
+    """(slug, task id) → element id on the day page. The first product holding a task id gets the bare id
+    (#T-0042); task ids repeat across products, so later ones get '<slug>-<id>' to keep ids unique."""
+    seen: set = set()
+    out: dict = {}
+    for slug, p in model["products"].items():
+        for t in (p["days"].get(date) or {}).get("tasks") or []:
+            tid = str(t.get("id") or "")
+            if not tid or (slug, tid) in out:
+                continue
+            out[(slug, tid)] = f"{slug}-{tid}" if tid in seen else tid
+            seen.add(tid)
+    return out
+
+
+def product_section(d: dict, product: dict, heading_link: bool = True, anchors: dict | None = None) -> str:
     """One product's block inside a day page: digest, tasks with history, reviews, posts, metrics, spend."""
     c = day_counts(d)
     slug, name = product["slug"], product.get("name") or product["slug"]
@@ -445,7 +461,8 @@ def product_section(d: dict, product: dict, heading_link: bool = True) -> str:
             meta = " · ".join(x for x in [esc(t.get("type")), esc(t.get("priority")), esc(t.get("role")),
                                            f"goal {esc(t['goal'])}" if t.get("goal") else "",
                                            f"commit {esc(str(t['released_sha'])[:10])}" if t.get("released_sha") else ""] if x)
-            out.append('<li class="card task">')
+            aid = (anchors or {}).get((slug, str(t.get("id") or "")))
+            out.append(f'<li class="card task" id="{esc(aid)}">' if aid else '<li class="card task">')
             out.append(f'<div class="head"><span class="id">{esc(t.get("id"))}</span> <span class="name">{esc(t.get("title"))}</span> {state_badge(t.get("state"))}</div>')
             if meta:
                 out.append(f'<div class="meta">{meta}</div>')
@@ -515,10 +532,11 @@ def render_day(date: str, model: dict) -> str:
     if nav:
         body.append('<p class="toc">' + " · ".join(nav) + "</p>")
     body.append(fixture_note([p["days"][date] for _, p in present]))
+    anchors = task_anchors(date, model)
     if present:
         body.append('<p class="toc">' + " · ".join(f'<a href="#{esc(s)}">{esc(p["product"].get("name") or s)}</a>' for s, p in present) + "</p>")
         for slug, p in present:
-            body.append(product_section(p["days"][date], p["product"]))
+            body.append(product_section(p["days"][date], p["product"], anchors=anchors))
     else:
         body.append('<p class="note">no activity recorded</p>')
     for slug, p in products.items():
@@ -548,6 +566,70 @@ def neighbours(date: str, dates: list[str]) -> tuple[str | None, str | None]:
     return (dates[i - 1] if i > 0 else None), (dates[i + 1] if i + 1 < len(dates) else None)
 
 
+def cut_words(text: str, limit: int = HOME_NOTE_MAX) -> str:
+    text = " ".join(str(text or "").split())
+    if len(text) <= limit:
+        return text
+    cut = text[:limit - 1]
+    if text[limit - 1] != " " and " " in cut:
+        cut = cut[:cut.rindex(" ")]
+    return cut.rstrip(" ,;:.-") + "…"
+
+
+def latest_day_block(latest: str, model: dict) -> str:
+    """Up to 3 tasks of the latest day: review fail / inconclusive / pass after fail; else accepted tasks."""
+    anchors = task_anchors(latest, model)
+    events, accepted = [], []
+    for slug, p in model["products"].items():
+        d = p["days"].get(latest)
+        if not d:
+            continue
+        revs: dict = {}
+        for r in d.get("reviews") or []:
+            revs.setdefault(str(r.get("task")), []).append(r)
+        for t in d.get("tasks") or []:
+            tid = str(t.get("id") or "")
+            rs = revs.get(tid, [])
+            vs = [str(r.get("verdict")) for r in rs]
+            item = (slug, p["product"].get("name") or slug, t, rs, bool(d.get("fixture")))
+            pass_after_fail = "fail" in vs and "pass" in vs[vs.index("fail"):]
+            if "fail" in vs or "inconclusive" in vs or pass_after_fail:
+                events.append(item)
+            elif any(h.get("to") in DONE_STATES for h in (t.get("history") or [])):
+                accepted.append(item)
+    # fail first, then pass-after-fail, then inconclusive; stable otherwise
+    def rank(it):
+        vs = [str(r.get("verdict")) for r in it[3]]
+        return 0 if "fail" in vs and vs[-1] != "pass" else (1 if "fail" in vs else 2)
+    events.sort(key=rank)
+    accepted.sort(key=lambda it: not it[3])
+    chosen = (events or accepted)[:3]
+    out = []
+    if not chosen:
+        return '<p class="note">no activity recorded for review events or accepted tasks on this day.</p>'
+    out.append('<ul class="cards latest-events">')
+    for slug, pname, t, rs, fx in chosen:
+        tid = str(t.get("id") or "")
+        aid = anchors.get((slug, tid), tid)
+        # collapse consecutive repeats: inconclusive, inconclusive → inconclusive ×2
+        seq: list = []
+        for r in rs:
+            v = str(r.get("verdict") or "unknown")
+            if seq and seq[-1][0] == v:
+                seq[-1][1] += 1
+            else:
+                seq.append([v, 1])
+        verdicts = " → ".join(verdict_badge(v) + (f" ×{c}" if c > 1 else "") for v, c in seq) if seq else state_badge(t.get("state"))
+        note = cut_words(rs[-1].get("summary")) if rs else ""
+        out.append(f'<li class="card"><div class="head"><span class="product-name">{esc(pname)}</span> '
+                   f'<a class="name" href="/day/{esc(latest)}/#{esc(aid)}">{esc(t.get("title"))}</a> {verdicts}'
+                   + (' <span class="badge other">fixture sample</span>' if fx else "") + "</div>"
+                   + (f'<p class="summary">{esc(note)}</p>' if note else "") + "</li>")
+    out.append("</ul>")
+    kind = "" if events else '<p class="note">No fail or inconclusive reviews that day; showing accepted tasks.</p>'
+    return kind + "\n".join(out) + f'<p><a href="/day/{esc(latest)}/">read the full day →</a></p>'
+
+
 def render_index(model: dict) -> str:
     products, dates = model["products"], model["dates"]
     latest = dates[-1] if dates else None
@@ -555,6 +637,7 @@ def render_index(model: dict) -> str:
     if latest:
         body.append(f'<h2 id="latest">Latest day: <a href="/day/{esc(latest)}/">{esc(latest)}</a></h2>')
         body.append(fixture_note([p["days"][latest] for p in products.values() if latest in p["days"]]))
+        body.append(latest_day_block(latest, model))
         body.append('<div class="table-wrap"><table class="table"><thead><tr><th>Product</th><th>Day</th><th>Tasks done</th><th>State transitions</th><th>Reviews passed</th><th>Posts</th><th>People (estimated log sources, <a href="/about/#method">method</a>)</th><th>Spent</th></tr></thead><tbody>')
         for slug, p in products.items():
             name = p["product"].get("name") or slug

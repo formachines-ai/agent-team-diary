@@ -413,17 +413,14 @@ def verdict_badge(v: str | None) -> str:
 # Page bodies
 # ----------------------------------------------------------------------------------------------------------
 def task_anchors(date: str, model: dict) -> dict:
-    """(slug, task id) → element id on the day page. The first product holding a task id gets the bare id
-    (#T-0042); task ids repeat across products, so later ones get '<slug>-<id>' to keep ids unique."""
-    seen: set = set()
+    """(slug, task id) → element id on the day page: '<slug>-<id>' (task ids repeat across products)."""
     out: dict = {}
     for slug, p in model["products"].items():
         for t in (p["days"].get(date) or {}).get("tasks") or []:
             tid = str(t.get("id") or "")
             if not tid or (slug, tid) in out:
                 continue
-            out[(slug, tid)] = f"{slug}-{tid}" if tid in seen else tid
-            seen.add(tid)
+            out[(slug, tid)] = f"{slug}-{tid}"
     return out
 
 
@@ -610,7 +607,7 @@ def latest_day_block(latest: str, model: dict) -> str:
     out.append('<ul class="cards latest-events">')
     for slug, pname, t, rs, fx in chosen:
         tid = str(t.get("id") or "")
-        aid = anchors.get((slug, tid), tid)
+        aid = anchors.get((slug, tid), f"{slug}-{tid}")
         # collapse consecutive repeats: inconclusive, inconclusive → inconclusive ×2
         seq: list = []
         for r in rs:

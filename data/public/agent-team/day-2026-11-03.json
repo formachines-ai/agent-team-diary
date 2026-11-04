@@ -398,7 +398,7 @@
    "id": "T-0012",
    "title": "[retro] Allow github.com and raw.githubusercontent.com in team-fetch for the reviewer run",
    "type": "feature",
-   "state": "ready",
+   "state": "rejected",
    "priority": "P2",
    "goal": "framework",
    "role": "developer",
@@ -411,6 +411,12 @@
      "actor": "framework-retro",
      "to": "ready",
      "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-03T08:07:11+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Already fixed: team.yaml fetch.extra_hosts_by_role.reviewer, cycle._allowed_hosts, test and CHANGELOG exist per retro 2026-11-03; the cited friction records predate the fix."
     }
    ]
   },
@@ -418,19 +424,515 @@
    "id": "T-0013",
    "title": "[retro] Reviewer: judge only the observable criteria, and return pass/fail for them when the rest is repo-only",
    "type": "feature",
-   "state": "ready",
+   "state": "done",
    "priority": "P2",
    "goal": "framework",
    "role": "developer",
    "created": "2026-11-03T06:14:06+00:00",
-   "accepted_at": null,
-   "released_sha": null,
+   "accepted_at": "2026-11-03T08:11:16+00:00",
+   "released_sha": "7c81fdd658fd0a8002922939211710edaa3593a4",
    "history": [
     {
      "ts": "2026-11-03T06:14:06+00:00",
      "actor": "framework-retro",
      "to": "ready",
      "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-03T08:07:11+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261103T0807-exec-T-0013"
+    },
+    {
+     "ts": "2026-11-03T08:07:11+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-03T08:11:16+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (cycle 20261103T0807-canary of release-radar: all phases); merged 7c81fdd658"
+    },
+    {
+     "ts": "2026-11-03T08:11:16+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0014",
+   "title": "[retro] Marketer: absolute --text-file path; handle team-publish dry_run explicitly",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-03T08:17:52+00:00",
+   "accepted_at": "2026-11-03T10:07:56+00:00",
+   "released_sha": "2504bfbb7f62b10e029eeb7bba83dfd283a9ccd5",
+   "history": [
+    {
+     "ts": "2026-11-03T08:17:52+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-03T10:07:09+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261103T1007-exec-T-0014"
+    },
+    {
+     "ts": "2026-11-03T10:07:09+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-03T10:07:56+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261103T1007-canary of release-radar on a state copy: all phases); merged 2504bfbb7f"
+    },
+    {
+     "ts": "2026-11-03T10:07:56+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0015",
+   "title": "[retro] PO card: set repo_only on tasks whose deliverable is not served publicly",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-03T10:14:17+00:00",
+   "accepted_at": "2026-11-03T13:07:04+00:00",
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-03T10:14:17+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-03T11:07:11+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261103T1107-exec-T-0015"
+    },
+    {
+     "ts": "2026-11-03T11:07:11+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-03T11:07:52+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "partial — continues next cycle"
+    },
+    {
+     "ts": "2026-11-03T12:08:32+00:00",
+     "actor": "dispatcher",
+     "to": "waiting_owner",
+     "note": "pull request https://github.com/OOuph/agent-team/pull/32; canary failed: phase error: ition T-0025 by dispatcher {\"from\": \"ready\", \"to\": \"claimed\", \"note\": \"20261103T1207-canary-exec-T-0025\"}\n2026-11-"
+    },
+    {
+     "ts": "2026-11-03T13:07:04+00:00",
+     "actor": "owner",
+     "to": "accepted",
+     "note": "pull request merged https://github.com/OOuph/agent-team/pull/32"
+    },
+    {
+     "ts": "2026-11-03T13:07:04+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "merged by the owner; framework tasks are not measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0016",
+   "title": "[retro] Marketer: dry_run in draft mode is expected, not friction",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-03T10:14:18+00:00",
+   "accepted_at": "2026-11-03T13:07:53+00:00",
+   "released_sha": "9bf86ebdecfa7422904b0858ef5554af7694eb76",
+   "history": [
+    {
+     "ts": "2026-11-03T10:14:18+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-03T13:07:13+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261103T1307-exec-T-0016"
+    },
+    {
+     "ts": "2026-11-03T13:07:13+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-03T13:07:53+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261103T1307-canary of release-radar on a state copy: all phases); merged 9bf86ebdec"
+    },
+    {
+     "ts": "2026-11-03T13:07:53+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0017",
+   "title": "[retro] Let the PO set repo_only; dispatcher sets it when the deliverable is not under public/",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-03T11:17:38+00:00",
+   "accepted_at": "2026-11-03T14:08:19+00:00",
+   "released_sha": "d0214f54f955841313593a434bbc665e7250a118",
+   "history": [
+    {
+     "ts": "2026-11-03T11:17:38+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-03T14:07:04+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261103T1407-exec-T-0017"
+    },
+    {
+     "ts": "2026-11-03T14:07:04+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-03T14:08:19+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261103T1407-canary of release-radar on a state copy: all phases); merged d0214f54f9"
+    },
+    {
+     "ts": "2026-11-03T14:08:19+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0018",
+   "title": "[retro] team-fetch: JSON extraction flags (--json-path, --json-keys) so roles stop piping",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-03T11:17:38+00:00",
+   "accepted_at": "2026-11-03T15:07:46+00:00",
+   "released_sha": "c1cec7af1916cd4139dd382facde18bb41488c01",
+   "history": [
+    {
+     "ts": "2026-11-03T11:17:38+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-03T15:07:04+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261103T1507-exec-T-0018"
+    },
+    {
+     "ts": "2026-11-03T15:07:04+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-03T15:07:46+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261103T1507-canary of release-radar on a state copy: all phases); merged c1cec7af19"
+    },
+    {
+     "ts": "2026-11-03T15:07:46+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0019",
+   "title": "[retro] Dispatcher: infer repo_only from the developer's changed paths",
+   "type": "feature",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-03T12:18:22+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-03T12:18:22+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-03T13:07:13+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Duplicates the dispatcher-fallback half of T-0017. One design for repo_only is enough, and PR #32 is still open."
+    }
+   ]
+  },
+  {
+   "id": "T-0020",
+   "title": "[retro] Denied shell calls: return the allowed form in the denial message",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-03T17:18:13+00:00",
+   "accepted_at": "2026-11-03T18:08:05+00:00",
+   "released_sha": "1d82fe0b7075e0afbed2ce0255779736fef6d111",
+   "history": [
+    {
+     "ts": "2026-11-03T17:18:13+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-03T18:07:11+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261103T1807-exec-T-0020"
+    },
+    {
+     "ts": "2026-11-03T18:07:11+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-03T18:08:05+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261103T1807-canary of release-radar on a state copy: all phases); merged 1d82fe0b70"
+    },
+    {
+     "ts": "2026-11-03T18:08:05+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0021",
+   "title": "[retro] PO card: scope must cover every file the criteria need; no hidden dependency on another task's report",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-03T18:19:40+00:00",
+   "accepted_at": "2026-11-03T19:07:50+00:00",
+   "released_sha": "54fdbd6e41c207af35253b1c51817fe640fb9e2f",
+   "history": [
+    {
+     "ts": "2026-11-03T18:19:40+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-03T19:07:11+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261103T1907-exec-T-0021"
+    },
+    {
+     "ts": "2026-11-03T19:07:11+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-03T19:07:50+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261103T1907-canary of release-radar on a state copy: all phases); merged 54fdbd6e41"
+    },
+    {
+     "ts": "2026-11-03T19:07:50+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0022",
+   "title": "[retro] Retry of a developer task continues from the earlier attempt's commit",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-03T20:09:11+00:00",
+   "accepted_at": "2026-11-03T21:08:09+00:00",
+   "released_sha": "884e8207f413eaa48844d63323caa032898dfa64",
+   "history": [
+    {
+     "ts": "2026-11-03T20:09:11+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-03T21:07:13+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261103T2107-exec-T-0022"
+    },
+    {
+     "ts": "2026-11-03T21:07:13+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-03T21:08:09+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261103T2107-canary of release-radar on a state copy: all phases); merged 884e8207f4"
+    },
+    {
+     "ts": "2026-11-03T21:08:09+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0023",
+   "title": "[retro] Test start_task_branch remote path (origin/task/<id>, no local branch)",
+   "type": "defect",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-03T22:07:16+00:00",
+   "accepted_at": "2026-11-03T22:08:03+00:00",
+   "released_sha": "7079bed8dd0d823530238fe95b1b2da6dda6f26d",
+   "history": [
+    {
+     "ts": "2026-11-03T22:07:16+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-03T22:07:16+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261103T2207-exec-T-0023"
+    },
+    {
+     "ts": "2026-11-03T22:07:16+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-03T22:08:03+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261103T2207-canary of release-radar on a state copy: all phases); merged 7079bed8dd"
+    },
+    {
+     "ts": "2026-11-03T22:08:03+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0024",
+   "title": "[retro] Dispatcher: stop retrying a task after repeated identical developer friction",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-03T22:10:11+00:00",
+   "accepted_at": "2026-11-04T00:07:56+00:00",
+   "released_sha": "fcdda16902b066ae602ebc14348c045b662638f1",
+   "history": [
+    {
+     "ts": "2026-11-03T22:10:11+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-03T23:07:11+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261103T2307-exec-T-0024"
+    },
+    {
+     "ts": "2026-11-03T23:07:11+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-03T23:08:05+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "partial — continues next cycle"
     }
    ]
   }
@@ -438,14 +940,15 @@
  "reviews": [],
  "posts": [],
  "metrics": null,
- "spend_usd": 2.1,
- "po_digest_md": "Новых задач нет. Issue #22 и #23 уже стали T-0012 и T-0013, обе в Ready. OBS-0015 отклонена: заметка разработчика без проблемы. Главная причина зависших ревью — репозиторные критерии, которые ревьюер не может прочитать. Её закрывают T-0011 и T-0012. Обратите внимание: T-0012 затрагивает `team/cycle.py`; это не защищённый файл, поэтому PR сольёт диспетчер после канарейки. Расход сегодня $1.77 из $5.",
+ "spend_usd": 4.8,
+ "po_digest_md": "**Цикл 23:07.** Новых задач нет. Issue #44 — это уже T-0024 (Ready, P2: останавливать задачу после двух одинаковых partial-раундов; доказательства F-0085/88/91/94). OBS-0045 (почему ветка стартует с main, F-0093) отложена: причина не подтверждена, возвращаемся при повторе на другой задаче. Вопросов владельцу нет. Расход: $4.65 из $10.",
  "analyst_md": "",
  "observations": {
-  "new": 16,
+  "new": 45,
   "by_class": {
-   "feedback": 10,
-   "need_hypothesis": 6
+   "feedback": 31,
+   "need_hypothesis": 13,
+   "ops": 1
   }
  },
  "owner_questions_open": 0

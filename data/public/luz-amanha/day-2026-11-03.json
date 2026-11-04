@@ -8,7 +8,7 @@
    "id": "T-0002",
    "title": "Add one-click feedback links on each card: useful / not useful, and a report-an-error link to a prefilled GitHub issue",
    "type": "feature",
-   "state": "accepted",
+   "state": "done",
    "priority": "P3",
    "goal": "G3",
    "role": "developer",
@@ -84,12 +84,12 @@
    "id": "T-0006",
    "title": "Daily post 03.11 14:05 UTC: prices for 04.11 in Telegram @luz_amanha and Bluesky, PT+EN",
    "type": "content",
-   "state": "ready",
+   "state": "accepted",
    "priority": "P1",
    "goal": "G3",
    "role": "marketer",
    "created": "2026-11-02T22:12:57+00:00",
-   "accepted_at": null,
+   "accepted_at": "2026-11-03T14:09:12+00:00",
    "released_sha": null,
    "history": [
     {
@@ -109,6 +109,24 @@
      "actor": "po",
      "to": "ready",
      "note": "priority → P1: Today's 14:05 UTC post (prices for 04.11) is the first price post in the channel on the eve of the pilot. A missed daily post breaks a VISION promise, so it gets the same P1 as T-0014 a"
+    },
+    {
+     "ts": "2026-11-03T14:08:25+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261103T1407-exec-T-0006"
+    },
+    {
+     "ts": "2026-11-03T14:08:25+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-03T14:09:12+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "posted 2 (editor-approved)"
     }
    ]
   },
@@ -116,12 +134,12 @@
    "id": "T-0007",
    "title": "Morning post 04.11 07:00 UTC: today's cheapest hours from today.json, PT+EN",
    "type": "content",
-   "state": "ready",
+   "state": "accepted",
    "priority": "P2",
    "goal": "G2",
    "role": "marketer",
    "created": "2026-11-02T22:12:57+00:00",
-   "accepted_at": null,
+   "accepted_at": "2026-11-04T07:14:22+00:00",
    "released_sha": null,
    "history": [
     {
@@ -142,7 +160,7 @@
    "id": "T-0009",
    "title": "Archive day pages: neutral dated heading instead of 'amanhã/tomorrow'; no '-0.0' in €/kWh",
    "type": "defect",
-   "state": "accepted",
+   "state": "done",
    "priority": "P2",
    "goal": "G2",
    "role": "developer",
@@ -186,7 +204,7 @@
    "id": "T-0010",
    "title": "Home page before OMIE publishes: honest 'today' heading instead of 'Luz amanhã — <today>'",
    "type": "defect",
-   "state": "accepted",
+   "state": "done",
    "priority": "P1",
    "goal": "G2",
    "role": "developer",
@@ -431,6 +449,702 @@
      "note": ""
     }
    ]
+  },
+  {
+   "id": "T-0018",
+   "title": "Аватар сайта и каналов: концепт и файлы на /brand/",
+   "type": "feature",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-03T09:24:52+00:00",
+   "accepted_at": "2026-11-03T11:12:21+00:00",
+   "released_sha": "0e18a7b892e80f496d8cbab3b125212266c8b7fe",
+   "history": [
+    {
+     "ts": "2026-11-03T09:24:52+00:00",
+     "actor": "owner",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-03T10:11:27+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261103T1007-exec-T-0018"
+    },
+    {
+     "ts": "2026-11-03T10:11:27+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-03T10:12:11+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 0e18a7b892"
+    },
+    {
+     "ts": "2026-11-03T11:12:21+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "All three acceptance criteria were observed on the live site. The /brand/ page, the avatar SVG and the favicon link all match the task."
+    }
+   ]
+  },
+  {
+   "id": "T-0019",
+   "title": "Marketing plan for 04–10.11 (pilot week): products/luz-amanha/marketing-plan.md",
+   "type": "marketing",
+   "state": "rejected",
+   "priority": "P1",
+   "goal": "G3",
+   "role": "marketer",
+   "created": "2026-11-03T11:12:49+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-03T11:12:49+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-03T12:15:09+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Replaced by a new plan task with a neutral title and not_before set to now. T-0019 named dates in its title without not_before, so the dispatcher would not start it (OBS-0105)."
+    }
+   ]
+  },
+  {
+   "id": "T-0020",
+   "title": "PNG export of the chosen avatar on /brand/ for Telegram and other channels",
+   "type": "feature",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-03T11:12:49+00:00",
+   "accepted_at": "2026-11-03T12:13:57+00:00",
+   "released_sha": "2d0f28ef6fdaf785101ef0e87e30995ec939de0e",
+   "history": [
+    {
+     "ts": "2026-11-03T11:12:49+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-03T11:12:49+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261103T1107-exec-T-0020"
+    },
+    {
+     "ts": "2026-11-03T11:12:49+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-03T11:13:17+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 2d0f28ef6f"
+    },
+    {
+     "ts": "2026-11-03T12:13:57+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "Both PNGs are served with 200 and image/png, and /brand/ links them next to the SVG with the footer intact and no JS. The SVG and favicon are unchanged, and the renderer reproduces the SVG's shapes an"
+    }
+   ]
+  },
+  {
+   "id": "T-0021",
+   "title": "Marketing plan for the pilot week (next 7 days): products/luz-amanha/marketing-plan.md",
+   "type": "marketing",
+   "state": "accepted",
+   "priority": "P1",
+   "goal": "G3",
+   "role": "marketer",
+   "created": "2026-11-03T12:15:09+00:00",
+   "accepted_at": "2026-11-03T12:15:35+00:00",
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-03T12:15:09+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-03T12:15:09+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261103T1207-exec-T-0021"
+    },
+    {
+     "ts": "2026-11-03T12:15:09+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-03T12:15:35+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "marketing plan written (4465 chars); no post expected"
+    }
+   ]
+  },
+  {
+   "id": "T-0022",
+   "title": "Mastodon post 03.11, today: first Fediverse card with the 04.11 windows",
+   "type": "marketing",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-03T13:11:32+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-03T13:11:32+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-03T14:38:21+00:00",
+     "actor": "owner",
+     "to": "ready",
+     "note": "not_before 2026-11-04T14:10:00Z -> now: owner 03.11 — a new channel is tried the day it becomes available"
+    },
+    {
+     "ts": "2026-11-03T15:09:04+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261103T1507-exec-T-0022"
+    },
+    {
+     "ts": "2026-11-03T15:09:04+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-03T15:09:17+00:00",
+     "actor": "marketer",
+     "to": "blocked",
+     "note": "question Q-0008"
+    },
+    {
+     "ts": "2026-11-03T16:13:26+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "answered Q-0008; not before 2026-11-04T14:10:00Z"
+    },
+    {
+     "ts": "2026-11-03T16:30:17+00:00",
+     "actor": "owner",
+     "to": "ready",
+     "note": "decision 28: trial on the data that exists today; text and dates rewritten, not_before=now"
+    },
+    {
+     "ts": "2026-11-03T17:12:29+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Its date guard contradicts its goal: a 04.11 card is blocked unless tomorrow.json.date == 2026-11-05, so it can never post. Replaced by a new mastodon trial task with the 2026-11-04 guar"
+    }
+   ]
+  },
+  {
+   "id": "T-0023",
+   "title": "X post 03.11, today: cheapest 3-hour window for 04.11, fact first",
+   "type": "marketing",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-03T13:11:32+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-03T13:11:32+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-03T14:38:21+00:00",
+     "actor": "owner",
+     "to": "ready",
+     "note": "not_before 2026-11-05T14:10:00Z -> now: owner 03.11 — a new channel is tried the day it becomes available"
+    },
+    {
+     "ts": "2026-11-03T14:38:46+00:00",
+     "actor": "owner",
+     "to": "ready",
+     "note": "dates moved to today: the trial runs on the data that exists now (04.11 prices), decision 28"
+    },
+    {
+     "ts": "2026-11-03T16:13:26+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Contradictory dates: the title and acceptance say 04.11, the guard requires 06.11, so it would block. Replaced by a new X trial task for today with consistent dates."
+    }
+   ]
+  },
+  {
+   "id": "T-0024",
+   "title": "Threads post 03.11, today: tomorrow (04.11) cheapest hours in one human sentence, from tomorrow.json",
+   "type": "marketing",
+   "state": "rejected",
+   "priority": "P3",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-03T13:11:32+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-03T13:11:32+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-03T14:38:21+00:00",
+     "actor": "owner",
+     "to": "ready",
+     "note": "not_before 2026-11-06T07:05:00Z -> now: owner 03.11 — a new channel is tried the day it becomes available"
+    },
+    {
+     "ts": "2026-11-03T14:38:46+00:00",
+     "actor": "owner",
+     "to": "ready",
+     "note": "dates moved to today: the trial runs on the data that exists now (04.11 prices), decision 28"
+    },
+    {
+     "ts": "2026-11-03T16:13:26+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Garbled dates (04.11 vs 06.11; today.json vs tomorrow.json), so it would block. Replaced by a new Threads trial task for today with consistent dates."
+    }
+   ]
+  },
+  {
+   "id": "T-0025",
+   "title": "Honest completeness on /: '23/24 horas' by windows and average, Lisbon time, plain wholesale note",
+   "type": "defect",
+   "state": "accepted",
+   "priority": "P1",
+   "goal": "G2",
+   "role": "developer",
+   "created": "2026-11-03T16:13:26+00:00",
+   "accepted_at": "2026-11-03T17:11:50+00:00",
+   "released_sha": "826b3c5b831cee4ed7e7c783c0e0e1b9e8122fcf",
+   "history": [
+    {
+     "ts": "2026-11-03T16:13:26+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-03T16:13:26+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261103T1607-exec-T-0025"
+    },
+    {
+     "ts": "2026-11-03T16:13:26+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-03T16:13:56+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 826b3c5b83"
+    },
+    {
+     "ts": "2026-11-03T17:11:50+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The home page, JSON and day page all show the promised honest-completeness texts, Lisbon-time line and wholesale note. No config/tariff.json remains and the JSON gained only the two new fields."
+    }
+   ]
+  },
+  {
+   "id": "T-0026",
+   "title": "X trial post today 03.11: cheapest 3-hour window for 04.11, fact first",
+   "type": "marketing",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-03T16:13:26+00:00",
+   "accepted_at": "2026-11-03T17:12:47+00:00",
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-03T16:13:26+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-03T17:12:30+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261103T1707-exec-T-0026"
+    },
+    {
+     "ts": "2026-11-03T17:12:30+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-03T17:12:47+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "posted 1 (editor-approved)"
+    }
+   ]
+  },
+  {
+   "id": "T-0027",
+   "title": "Mastodon trial post today 03.11: 04.11 windows (replaces T-0022 with a correct date guard)",
+   "type": "marketing",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-03T17:12:30+00:00",
+   "accepted_at": "2026-11-03T18:14:25+00:00",
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-03T17:12:30+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-03T18:14:04+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261103T1807-exec-T-0027"
+    },
+    {
+     "ts": "2026-11-03T18:14:04+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-03T18:14:25+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "posted 1 (editor-approved)"
+    }
+   ]
+  },
+  {
+   "id": "T-0028",
+   "title": "Threads trial post today 03.11: one human sentence with the 04.11 cheapest window",
+   "type": "marketing",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-03T17:12:30+00:00",
+   "accepted_at": "2026-11-03T19:12:03+00:00",
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-03T17:12:30+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-03T19:11:31+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261103T1907-exec-T-0028"
+    },
+    {
+     "ts": "2026-11-03T19:11:31+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-03T19:12:03+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "posted 1 (editor-approved)"
+    }
+   ]
+  },
+  {
+   "id": "T-0029",
+   "title": "Day-average comparison on the same basis: Lisbon hours, or a clearly named basis",
+   "type": "defect",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "developer",
+   "created": "2026-11-03T17:12:30+00:00",
+   "accepted_at": "2026-11-03T18:13:17+00:00",
+   "released_sha": "cfcfa83c8082de9204d11c2674ba1e8fe03f4fce",
+   "history": [
+    {
+     "ts": "2026-11-03T17:12:30+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-03T17:12:47+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261103T1707-exec-T-0029"
+    },
+    {
+     "ts": "2026-11-03T17:12:47+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-03T17:13:13+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged cfcfa83c80"
+    },
+    {
+     "ts": "2026-11-03T18:13:17+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "Both pages show vs percentages that match recomputation from Lisbon-hour averages, with PT and EN basis notes. JSON fields are preserved with only a basis field added."
+    }
+   ]
+  },
+  {
+   "id": "T-0030",
+   "title": "Bill-applicability caveat inside the cheap-window block on / and /d/ (PT+EN), before the chart",
+   "type": "defect",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "developer",
+   "created": "2026-11-03T18:14:04+00:00",
+   "accepted_at": "2026-11-03T19:10:45+00:00",
+   "released_sha": "6136494f59745a286da8a73a198fa7b68f4f79a5",
+   "history": [
+    {
+     "ts": "2026-11-03T18:14:04+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-03T18:14:25+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261103T1807-exec-T-0030"
+    },
+    {
+     "ts": "2026-11-03T18:14:25+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-03T18:14:50+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 6136494f59"
+    },
+    {
+     "ts": "2026-11-03T19:10:45+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The PT and EN caveat lines sit in the div.windows block, ahead of the chart, on both / and /d/2026-11-04/. Page structure, values and URLs look intact."
+    }
+   ]
+  },
+  {
+   "id": "T-0031",
+   "title": "Mastodon post 04.11 14:10 UTC: tomorrow card for 05.11 (plan slot, Fediverse trial 2)",
+   "type": "marketing",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-03T18:14:04+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-03T18:14:04+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0032",
+   "title": "X post 05.11 14:10 UTC: cheapest 3-hour window for 06.11, fact first (plan slot)",
+   "type": "marketing",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-03T18:14:04+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-03T18:14:04+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0033",
+   "title": "Daily post 06.11 14:05 UTC: prices for 07.11 in Telegram @luz_amanha and Bluesky, PT+EN",
+   "type": "content",
+   "state": "ready",
+   "priority": "P1",
+   "goal": "G3",
+   "role": "marketer",
+   "created": "2026-11-03T19:11:31+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-03T19:11:31+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0034",
+   "title": "Threads post 06.11 07:05 UTC: today's cheapest hours in one human sentence (plan slot)",
+   "type": "marketing",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-03T19:11:31+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-03T19:11:31+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0035",
+   "title": "Morning post 07.11 07:00 UTC: today's cheapest hours from today.json, PT+EN",
+   "type": "content",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "marketer",
+   "created": "2026-11-03T19:11:31+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-03T19:11:31+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0036",
+   "title": "Daily post 07.11 14:05 UTC: prices for 08.11 in Telegram @luz_amanha and Bluesky, PT+EN",
+   "type": "content",
+   "state": "ready",
+   "priority": "P1",
+   "goal": "G3",
+   "role": "marketer",
+   "created": "2026-11-03T23:08:44+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-03T23:08:44+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0037",
+   "title": "Mastodon post 07.11 14:10 UTC: 'For machines' — the same 24 hours as JSON/RSS/llms.txt (plan slot)",
+   "type": "marketing",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G5",
+   "role": "marketer",
+   "created": "2026-11-03T23:08:44+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-03T23:08:44+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0038",
+   "title": "Morning post 08.11 07:00 UTC: today's cheapest hours from today.json, PT+EN",
+   "type": "content",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "marketer",
+   "created": "2026-11-03T23:08:44+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-03T23:08:44+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
   }
  ],
  "reviews": [
@@ -448,28 +1162,81 @@
    "task": "T-0002",
    "verdict": "pass",
    "summary": "Feedback links appear in both language sections on the home page and the day pages. Vote pages redirect back to the entry via meta refresh, and the report link goes to a prefilled issue on formachines-ai/luz-amanha. The footer disclosure is intact."
+  },
+  {
+   "task": "T-0018",
+   "verdict": "pass",
+   "summary": "All three acceptance criteria were observed on the live site. The /brand/ page, the avatar SVG and the favicon link all match the task."
+  },
+  {
+   "task": "T-0020",
+   "verdict": "pass",
+   "summary": "Both PNGs are served with 200 and image/png, and /brand/ links them next to the SVG with the footer intact and no JS. The SVG and favicon are unchanged, and the renderer reproduces the SVG's shapes and colours at 512 and 1024."
+  },
+  {
+   "task": "T-0025",
+   "verdict": "pass",
+   "summary": "The home page, JSON and day page all show the promised honest-completeness texts, Lisbon-time line and wholesale note. No config/tariff.json remains and the JSON gained only the two new fields."
+  },
+  {
+   "task": "T-0029",
+   "verdict": "pass",
+   "summary": "Both pages show vs percentages that match recomputation from Lisbon-hour averages, with PT and EN basis notes. JSON fields are preserved with only a basis field added."
+  },
+  {
+   "task": "T-0030",
+   "verdict": "pass",
+   "summary": "The PT and EN caveat lines sit in the div.windows block, ahead of the chart, on both / and /d/2026-11-04/. Page structure, values and URLs look intact."
   }
  ],
- "posts": [],
+ "posts": [
+  {
+   "channel": "telegram",
+   "url": "https://t.me/luz_amanha/2",
+   "ts": "2026-11-03T14:09:11+00:00"
+  },
+  {
+   "channel": "bluesky",
+   "url": "https://bsky.app/profile/formachines.bsky.social/post/3mzfzbd6rca2f",
+   "ts": "2026-11-03T14:09:12+00:00"
+  },
+  {
+   "channel": "x",
+   "url": "https://x.com/formachines_ai/status/2117666309794042245",
+   "ts": "2026-11-03T17:12:47+00:00"
+  },
+  {
+   "channel": "mastodon",
+   "url": "https://mastodon.social/@formachines/117553867362614785",
+   "ts": "2026-11-03T18:14:25+00:00"
+  },
+  {
+   "channel": "threads",
+   "url": "https://www.threads.com/@formachines/post/DfSmou_DJe6",
+   "ts": "2026-11-03T19:12:03+00:00"
+  }
+ ],
  "metrics": {
-  "humans": 23,
-  "engaged": 0,
-  "returns": 0,
-  "agents": 13,
-  "crawlers": 8,
-  "requests": 519
+  "humans": 11,
+  "engaged": 3,
+  "returns": 1,
+  "agents": 154,
+  "crawlers": 195,
+  "requests": 1560
  },
- "spend_usd": 3.9,
- "po_digest_md": "**Luz Amanhã — цикл 03.11 07:07 UTC**\n\n**Что произошло.** Все задачи разработчика по сайту приняты:\n- Telegram-ссылка;\n- обратная связь;\n- час 23:00;\n- SEO;\n- заголовки архива;\n- честный заголовок «hoje» на главной до выхода данных OMIE.\n\nМетрики:\n- **02.11:** 52 человеческих источника, из них 10 вовлечённых, 7 кликов `/go/telegram/`.\n- **03.11 (на 07:00):** 23 источника, 0 вовлечённых.\n\nНи одного поста ещё не было, referer пустые. Считаю это нашим собственным трафиком дня запуска, а не спросом.\n\n**Что решено.**\n- Наблюдение аналитика «откуда люди без постов» (OBS-0102) отложено. Первый пост (T-0006) выходит сегодня в 14:05 UTC. После прогона метрик 04.11 аналитик сравнит часы до и после поста.\n- Базу для целей G1–G5 записываем по данным 04.11, планки до 10.11 не меняем.\n- Добавлен утренний пост на 06.11 07:00 UTC (P2). Теперь расписание без дыр: вечерние посты 03.11, 04.11 и 05.11, утренние 04.11, 05.11 и 06.11.\n\n**Что ждёт владельца.** Ничего, вопросов нет.\n\n**Расходы.** $3.72 из $20 за день.",
- "analyst_md": "**Luz Amanhã, срез 02.11 (день 0, данные на 03.11 06:02 UTC).**\n\n| Уровень | 02.11 (итог) |\n|---|---|\n| Краулеры (запросы / источники) | 62 / 9 |\n| Люди (источники) | 52 |\n| Engaged | 10 |\n| Возвраты | 0 |\n| Агенты (запросы) | 17 |\n| Клики /go/telegram/ (люди) | 4 источника |\n| Внешние referer | нет в видимой части |\n| 5xx | 0 |\n\n- Постов нет, поэтому связь «пост → визиты» не оценить. Referer пусты, источник людей неясен.\n- Дискавери: ClaudeBot 29, GPTBot 24, OAI-SearchBot 1, bingbot 1.\n- Агенты в основном curl (14). Часть может быть нашими прогонами. unknown: 18 источников.\n- Из 52 «людей» engaged только 10.\n- Задачи T-0001…T-0010 приняты 02–03.11, до/после данных нет. Эффект оценить нельзя.",
+ "spend_usd": 9.7,
+ "po_digest_md": "**Luz Amanhã — цикл 03.11 23:07 UTC**\n\n**Что произошло.** 03.11 закрыты задачи по сайту: честный заголовок до публикации OMIE, «23/24 h», оговорка про контракт рядом с окнами, сравнение средних на одной базе, аватар (SVG и PNG). Первые посты вышли во всех пяти каналах: Telegram, Bluesky, Mastodon, X и Threads.\n\n**Метрики за 03.11** (это ещё не база пилота — база пишется 04.11):\n- 78 human-источников, из них 14 engaged, 1 возврат;\n- 6 кликов `/go/telegram/`, 14 кликов `/go/vote/`;\n- 154 запроса от агентов;\n- переходы по `?src=`: Bluesky 6 источников, Threads 1; Mastodon, X и Telegram пока 0.\n\n**Решения.**\n- Два замечания SEO-проверки по `/brand/` (нет JSON-LD, нет hreflang) отклонены. Это служебная страница. Сайт двуязычный на одном URL, поэтому hreflang на несуществующие EN-адреса был бы ложным сигналом.\n- Созданы три задачи на ближайшие слоты:\n  - вечерний пост 07.11 в Telegram и Bluesky (цены на 08.11);\n  - Mastodon 07.11: пост «For machines» про JSON, RSS и llms.txt (цель G5);\n  - утренний пост 08.11.\n- Слоты 08.11 (X, тест формулировки) и 09.11 (Bluesky) нарежу в следующих циклах.\n\n**Ждёт владельца.** Аватар для @luz_amanha поставит владелец после возвращения 11.11 — файл лежит на https://luz.bymachines.ai/brand/avatar-512.png.\n\n**Расход.** $9.36 из $20 за день.",
+ "analyst_md": "**Данные:** в метриках от 03.11 18:00 UTC виден только полный день 02.11 (до пилота); блок 03.11 обрезан, поэтому эффект постов 03.11 оценить не по чему.\n\n| Уровень | 02.11 |\n|---|---|\n| Краулеры | 62 запроса, 9 источников (ClaudeBot 29, GPTBot 24) |\n| Люди (источники) | 52, из них engaged 10 |\n| Возвраты | 0 |\n| Целевое действие: /go/telegram/ (люди) | 4 источника, 4 запроса |\n| Агенты | 16 запросов, 3 источника (curl 14, okhttp 2) |\n| Внешний referer | 0 (список пуст) |\n| 5xx | 0 |\n\nЭто нулевая база, а не результат. Клики на Telegram 02.11 в основном шли до T-0001 (21:31 UTC), когда ссылка вела на заглушку.\n\n**Посты 03.11:** Telegram и Bluesky в 14:09, X в 17:12, Mastodon в 18:14. Referer-данных и `by_src` нет, сравнить часы до и после постов нельзя.\n\n**Цели:** G1 0 из 30 (пилот стартует 04.11), G2 не читать до 10.11, G3 подписчиков в метриках не видно, G4 0, G5 наблюдаем.",
  "observations": {
-  "new": 43,
+  "new": 93,
   "by_class": {
-   "success": 23,
-   "synthetic_difficulty": 7,
-   "need_hypothesis": 11,
-   "measurement": 1,
-   "ops": 1
+   "success": 46,
+   "synthetic_difficulty": 13,
+   "need_hypothesis": 22,
+   "measurement": 4,
+   "ops": 1,
+   "feedback": 5,
+   "reproducible_defect": 2
   }
  },
  "owner_questions_open": 0

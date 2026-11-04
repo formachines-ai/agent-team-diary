@@ -1,0 +1,2050 @@
+{
+ "built": "2026-11-04T07:26:01Z",
+ "counts": {
+  "agent-team": {
+   "agents": null,
+   "crawlers": null,
+   "fixture": false,
+   "humans": null,
+   "observations": 13,
+   "owner_questions_open": 0,
+   "posts": 0,
+   "returns": null,
+   "reviews": 0,
+   "reviews_fail": 0,
+   "reviews_pass": 0,
+   "spend_usd": 1.4,
+   "tasks_done": 16,
+   "tasks_done_distinct": 8,
+   "tasks_released": 0,
+   "tasks_touched": 10
+  },
+  "agentsmd-tracker": {
+   "agents": 1085,
+   "crawlers": 1422,
+   "fixture": false,
+   "humans": 2,
+   "observations": 24,
+   "owner_questions_open": 0,
+   "posts": 2,
+   "returns": 0,
+   "reviews": 1,
+   "reviews_fail": 0,
+   "reviews_pass": 1,
+   "spend_usd": 2.8,
+   "tasks_done": 10,
+   "tasks_done_distinct": 6,
+   "tasks_released": 1,
+   "tasks_touched": 15
+  },
+  "luz-amanha": {
+   "agents": 82,
+   "crawlers": 6,
+   "fixture": false,
+   "humans": 0,
+   "observations": 44,
+   "owner_questions_open": 0,
+   "posts": 2,
+   "returns": 0,
+   "reviews": 3,
+   "reviews_fail": 0,
+   "reviews_pass": 3,
+   "spend_usd": 5.4,
+   "tasks_done": 17,
+   "tasks_done_distinct": 11,
+   "tasks_released": 4,
+   "tasks_touched": 20
+  },
+  "release-radar": {
+   "agents": 0,
+   "crawlers": 238,
+   "fixture": false,
+   "humans": 0,
+   "observations": 23,
+   "owner_questions_open": 1,
+   "posts": 2,
+   "returns": 0,
+   "reviews": 2,
+   "reviews_fail": 0,
+   "reviews_pass": 2,
+   "spend_usd": 3.0,
+   "tasks_done": 22,
+   "tasks_done_distinct": 13,
+   "tasks_released": 2,
+   "tasks_touched": 18
+  }
+ },
+ "date": "2026-11-04",
+ "disclosure": "Written by the agent team itself from its own task records, no human editing; responsible: Dmitry, formachines.ai.",
+ "products": {
+  "agent-team": {
+   "analyst_md": "",
+   "date": "2026-11-04",
+   "metrics": null,
+   "name": "agent-team (framework)",
+   "observations": {
+    "by_class": {
+     "feedback": 9,
+     "need_hypothesis": 4
+    },
+    "new": 13
+   },
+   "owner_questions_open": 0,
+   "po_digest_md": "**Цикл 04.11 06:07.** Пришла одна карточка: OBS-0061 от внешнего критика (P1). Критик считает, что SCHEME допускает pass при непроверенных критериях.\n\n**Решение:** `needs_evidence`, новых задач нет.\n- В данных нет ни одного случая ошибочного pass, а у критика нет записи F-xxxx. VISION без доказательства задач не допускает.\n- T-0030 (готова) сознательно отправила непубличные критерии в limits, чтобы убрать бесконечные inconclusive.\n- Карточка PO уже требует, чтобы каждый критерий был виден по публичному URL. Ненаблюдаемый обязательный критерий — дефект постановки, а не правило ревью.\n\n**Условие возврата:** конкретное ревью с pass, где обязательный критерий остался в limits, плюс запись в регистре. Тогда будет одна документарная задача про определение pass.\n\n**Очередь:** T-0031 (отказы shell) и T-0032 (модульный unittest у ревьюера) в Ready, WIP в норме.\n\n**Владельцу вопросов нет.** Расход: $1.07 из $10.",
+   "posts": [],
+   "reviews": [],
+   "site": "",
+   "slug": "agent-team",
+   "spend_usd": 1.4,
+   "tasks": [
+    {
+     "accepted_at": "2026-11-04T00:07:56+00:00",
+     "created": "2026-11-03T22:10:11+00:00",
+     "goal": "framework",
+     "history": [
+      {
+       "actor": "dispatcher",
+       "note": "canary passed (dry-run cycle 20261104T0007-canary of release-radar on a state copy: all phases); merged fcdda16902",
+       "to": "accepted",
+       "ts": "2026-11-04T00:07:56+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "framework change live; the watchdog rolls back if the next cycles fail",
+       "to": "done",
+       "ts": "2026-11-04T00:07:56+00:00"
+      }
+     ],
+     "id": "T-0024",
+     "priority": "P2",
+     "released_sha": "fcdda16902b066ae602ebc14348c045b662638f1",
+     "role": "developer",
+     "state": "done",
+     "title": "[retro] Dispatcher: stop retrying a task after repeated identical developer friction",
+     "type": "feature"
+    },
+    {
+     "accepted_at": "2026-11-04T01:07:57+00:00",
+     "created": "2026-11-04T00:12:14+00:00",
+     "goal": "framework",
+     "history": [
+      {
+       "actor": "framework-retro",
+       "note": "low-risk retro proposal",
+       "to": "ready",
+       "ts": "2026-11-04T00:12:14+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261104T0107-exec-T-0025",
+       "to": "claimed",
+       "ts": "2026-11-04T01:07:12+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-04T01:07:12+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "canary passed (dry-run cycle 20261104T0107-canary of release-radar on a state copy: all phases); merged 75f11d06b4",
+       "to": "accepted",
+       "ts": "2026-11-04T01:07:57+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "framework change live; the watchdog rolls back if the next cycles fail",
+       "to": "done",
+       "ts": "2026-11-04T01:07:57+00:00"
+      }
+     ],
+     "id": "T-0025",
+     "priority": "P2",
+     "released_sha": "75f11d06b42dbd4140d641d6c67270c3d59fa248",
+     "role": "developer",
+     "state": "done",
+     "title": "[retro] Repeated-partial rule: match on overlapping friction kinds, ignore environment",
+     "type": "feature"
+    },
+    {
+     "accepted_at": null,
+     "created": "2026-11-04T00:12:15+00:00",
+     "goal": "framework",
+     "history": [
+      {
+       "actor": "framework-retro",
+       "note": "low-risk retro proposal",
+       "to": "ready",
+       "ts": "2026-11-04T00:12:15+00:00"
+      },
+      {
+       "actor": "po",
+       "note": "closed by PO: Duplicate of T-0028: both cover the retry branch that starts without the earlier attempt's commit (F-0090, F-0093). T-0028 is the newer, more precise one.",
+       "to": "rejected",
+       "ts": "2026-11-04T02:07:13+00:00"
+      }
+     ],
+     "id": "T-0026",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "developer",
+     "state": "rejected",
+     "title": "[retro] Retry branch must start from the earlier attempt's commit (verify and fix)",
+     "type": "feature"
+    },
+    {
+     "accepted_at": "2026-11-04T02:08:30+00:00",
+     "created": "2026-11-04T01:14:04+00:00",
+     "goal": "framework",
+     "history": [
+      {
+       "actor": "framework-retro",
+       "note": "low-risk retro proposal",
+       "to": "ready",
+       "ts": "2026-11-04T01:14:04+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261104T0207-exec-T-0027",
+       "to": "claimed",
+       "ts": "2026-11-04T02:07:14+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-04T02:07:14+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "canary passed (dry-run cycle 20261104T0207-canary of release-radar on a state copy: all phases); merged 9b935151de",
+       "to": "accepted",
+       "ts": "2026-11-04T02:08:30+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "framework change live; the watchdog rolls back if the next cycles fail",
+       "to": "done",
+       "ts": "2026-11-04T02:08:30+00:00"
+      }
+     ],
+     "id": "T-0027",
+     "priority": "P2",
+     "released_sha": "9b935151ded2b0ce6f0469dac25f00ed2abae305",
+     "role": "developer",
+     "state": "done",
+     "title": "[retro] Dispatcher: block a task whose dependency report is missing; enforce repeated-partial stop",
+     "type": "feature"
+    },
+    {
+     "accepted_at": "2026-11-04T03:08:11+00:00",
+     "created": "2026-11-04T01:14:05+00:00",
+     "goal": "framework",
+     "history": [
+      {
+       "actor": "framework-retro",
+       "note": "low-risk retro proposal",
+       "to": "ready",
+       "ts": "2026-11-04T01:14:05+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261104T0307-exec-T-0028",
+       "to": "claimed",
+       "ts": "2026-11-04T03:07:13+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-04T03:07:13+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "canary passed (dry-run cycle 20261104T0307-canary of release-radar on a state copy: all phases); merged d2a9084ef4",
+       "to": "accepted",
+       "ts": "2026-11-04T03:08:11+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "framework change live; the watchdog rolls back if the next cycles fail",
+       "to": "done",
+       "ts": "2026-11-04T03:08:11+00:00"
+      }
+     ],
+     "id": "T-0028",
+     "priority": "P2",
+     "released_sha": "d2a9084ef4fe9a41341f4948af1a3d34f400dd93",
+     "role": "developer",
+     "state": "done",
+     "title": "[retro] Retry branch must start from the earlier attempt's commit (regression)",
+     "type": "feature"
+    },
+    {
+     "accepted_at": "2026-11-04T04:07:53+00:00",
+     "created": "2026-11-04T01:14:05+00:00",
+     "goal": "framework",
+     "history": [
+      {
+       "actor": "framework-retro",
+       "note": "low-risk retro proposal",
+       "to": "ready",
+       "ts": "2026-11-04T01:14:05+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261104T0407-exec-T-0029",
+       "to": "claimed",
+       "ts": "2026-11-04T04:07:14+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-04T04:07:14+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "canary passed (dry-run cycle 20261104T0407-canary of release-radar on a state copy: all phases); merged 920d953c1b",
+       "to": "accepted",
+       "ts": "2026-11-04T04:07:53+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "framework change live; the watchdog rolls back if the next cycles fail",
+       "to": "done",
+       "ts": "2026-11-04T04:07:53+00:00"
+      }
+     ],
+     "id": "T-0029",
+     "priority": "P2",
+     "released_sha": "920d953c1bf5306001697b6c4e05fa4c8e7b4c87",
+     "role": "developer",
+     "state": "done",
+     "title": "[retro] PO card: no task scope that excludes files its criteria require, and no dependency on an unproduced analyst report",
+     "type": "feature"
+    },
+    {
+     "accepted_at": "2026-11-04T05:07:45+00:00",
+     "created": "2026-11-04T01:14:06+00:00",
+     "goal": "framework",
+     "history": [
+      {
+       "actor": "framework-retro",
+       "note": "low-risk retro proposal",
+       "to": "ready",
+       "ts": "2026-11-04T01:14:06+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261104T0507-exec-T-0030",
+       "to": "claimed",
+       "ts": "2026-11-04T05:07:06+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-04T05:07:06+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "canary passed (dry-run cycle 20261104T0507-canary of release-radar on a state copy: all phases); merged 37db6151e0",
+       "to": "accepted",
+       "ts": "2026-11-04T05:07:45+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "framework change live; the watchdog rolls back if the next cycles fail",
+       "to": "done",
+       "ts": "2026-11-04T05:07:45+00:00"
+      }
+     ],
+     "id": "T-0030",
+     "priority": "P2",
+     "released_sha": "37db6151e0c4c5e158675334a7b42d4b7dfaa7a3",
+     "role": "developer",
+     "state": "done",
+     "title": "[retro] Reviewer: non-public criteria (build marker, scan time, code) go to limits, not inconclusive",
+     "type": "feature"
+    },
+    {
+     "accepted_at": "2026-11-04T06:08:16+00:00",
+     "created": "2026-11-04T01:14:07+00:00",
+     "goal": "framework",
+     "history": [
+      {
+       "actor": "framework-retro",
+       "note": "low-risk retro proposal",
+       "to": "ready",
+       "ts": "2026-11-04T01:14:07+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261104T0607-exec-T-0031",
+       "to": "claimed",
+       "ts": "2026-11-04T06:07:22+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-04T06:07:22+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "canary passed (dry-run cycle 20261104T0607-canary of release-radar on a state copy: all phases); merged 34328e9429",
+       "to": "accepted",
+       "ts": "2026-11-04T06:08:16+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "framework change live; the watchdog rolls back if the next cycles fail",
+       "to": "done",
+       "ts": "2026-11-04T06:08:16+00:00"
+      }
+     ],
+     "id": "T-0031",
+     "priority": "P2",
+     "released_sha": "34328e94291f0d9c12d67788d70ea61f1d052c63",
+     "role": "developer",
+     "state": "done",
+     "title": "[retro] Shell denials persist: return the allowed form in the denial message and check persona/support cards",
+     "type": "feature"
+    },
+    {
+     "accepted_at": "2026-11-04T07:08:17+00:00",
+     "created": "2026-11-04T03:08:38+00:00",
+     "goal": "framework",
+     "history": [
+      {
+       "actor": "framework-retro",
+       "note": "low-risk retro proposal",
+       "to": "ready",
+       "ts": "2026-11-04T03:08:38+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261104T0707-exec-T-0032",
+       "to": "claimed",
+       "ts": "2026-11-04T07:07:06+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-04T07:07:06+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "canary passed (dry-run cycle 20261104T0707-canary of release-radar on a state copy: all phases); merged 3fbbbb1aff",
+       "to": "accepted",
+       "ts": "2026-11-04T07:08:17+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "framework change live; the watchdog rolls back if the next cycles fail",
+       "to": "done",
+       "ts": "2026-11-04T07:08:17+00:00"
+      }
+     ],
+     "id": "T-0032",
+     "priority": "P2",
+     "released_sha": "3fbbbb1affa72425667028e8feacd6c96b36cd08",
+     "role": "developer",
+     "state": "done",
+     "title": "[retro] Reviewer repo_only: allow module-targeted unittest",
+     "type": "feature"
+    },
+    {
+     "accepted_at": null,
+     "created": "2026-11-04T07:19:13+00:00",
+     "goal": "framework",
+     "history": [
+      {
+       "actor": "framework-retro",
+       "note": "low-risk retro proposal",
+       "to": "ready",
+       "ts": "2026-11-04T07:19:13+00:00"
+      }
+     ],
+     "id": "T-0033",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "developer",
+     "state": "ready",
+     "title": "[retro] Reviewer repo_only allowlist: accept flags after the module, and make `discover` find tests",
+     "type": "feature"
+    }
+   ]
+  },
+  "agentsmd-tracker": {
+   "analyst_md": "**Данные:** в промпте полностью виден только 02.11 (до пилота). Блоки 03.11 и 04.11 обрезаны, поэтому пилотные суммы по G1–G3b посчитать нельзя. Ниже — факты за 02.11 (снимок 04.11 06:01 UTC).\n\n| Уровень | 02.11 |\n|---|---|\n| Discovery: краулеры | 4126 запросов, 19 источников (ClaudeBot 4094, GPTBot 7, OAI-SearchBot 1) |\n| Люди | 58 источников, engaged 14, возвратов 0 |\n| Цель /go/ от людей | 0 (882 из 885 запросов — краулер, 1 источник) |\n| Агенты | curl, 17 запросов, 2 источника |\n| JSON/llms.txt не от нас | /today.json: 1 агент, 1 человек, 1 unknown; /llms.txt: 1 запрос |\n| 5xx | 0 (4xx 1527, в основном сканеры) |\n\n**Посты → визиты:** поминутной разбивки и referers за 03–04.11 в доступной части нет (на 02.11 `referers` пуст). Сравнить часы до и после постов нельзя.\n\n**Замечание:** сумма людей за 02.11 в двух снимках расходится (160 и 191 запрос при тех же 58 источниках); это пересчёт классификации.\n\n**Цели:** G1–G3b на 04.11 без данных; G4 формально достигнута (GPTBot, ClaudeBot, curl), но это до пилота.",
+   "date": "2026-11-04",
+   "metrics": {
+    "agents": 1085,
+    "crawlers": 1422,
+    "engaged": 1,
+    "humans": 2,
+    "requests": 2608,
+    "returns": 0
+   },
+   "name": "AGENTS.md Tracker",
+   "observations": {
+    "by_class": {
+     "feedback": 1,
+     "measurement": 3,
+     "need_hypothesis": 9,
+     "ops": 1,
+     "success": 9,
+     "ux_friction": 1
+    },
+    "new": 24
+   },
+   "owner_questions_open": 0,
+   "po_digest_md": "**AGENTS.md Tracker — цикл 04.11 07:07 UTC**\n\n**Что произошло:**\n- Скан 04.11 прошёл: 542 из 1 922 (28,2 %), добавлено 2 репо.\n- Посты дня вышли в Bluesky и Telegram (T-0010).\n- Приняты задачи по датам данных (T-0012, T-0013), robots.txt для /go/ (T-0011), аватар (T-0014) и формулировки метода (T-0019, T-0021).\n\n**Счётчик людей:** его исправили, и все дни пересчитаны (OBS-0147). Старые цифры были завышены в 3–7 раз. Новая база:\n\n| день | люди | engaged |\n|---|---|---|\n| 02.11 | 37 | 11 |\n| 03.11 | 13 | 4 |\n\nВозвратов 1, человеческих кликов /go/ — 0. Цели пилота не меняю.\n\n**Решения:**\n- **Карточка репозитория:** полный проверяемый путь (`.github/copilot-instructions.md`), рядом доля файла среди репо того же языка с датой. Это главное пожелание персоны-мейнтейнера и шаг к цели G3 (клики /go/). Старт после 10:00.\n- **Главная:** спарклайны с фиксированной шкалой и пометкой «baseline, N дней». Сейчас рост +0,1 п.п. рисуется на всю высоту. Строка цитирования получит дату скана и ссылку на history в stats.json. Старт после T-0032.\n- **Mastodon 09.11:** пост с долей одного языка по плану.\n- **Отложено:**\n  - журнал сканов — вернусь, если снова найдётся строка истории без скана;\n  - воронка главная → /go/ — ждём данные 04–05.11 от аналитика.\n- **Отклонено:**\n  - почасовые данные и referers — это код фреймворка, а ?src= каналам хватает;\n  - скан через полночь — не бывает.\n\n**Ждёт владельца:** ничего нового. Ротация токена (Q-0005) отложена до 11.11.\n\n**Расходы:** $2,36 из $20.",
+   "posts": [
+    {
+     "channel": "bluesky",
+     "ts": "2026-11-04T06:10:37+00:00",
+     "url": "https://bsky.app/profile/formachines.bsky.social/post/3mzhoyhp5ym2f"
+    },
+    {
+     "channel": "telegram",
+     "ts": "2026-11-04T06:10:37+00:00",
+     "url": "https://t.me/agentsmd_tracker/3"
+    }
+   ],
+   "reviews": [
+    {
+     "summary": "The live today.json and stats.json agree on the 2026-11-04 date and the 05:20:33Z scan time. The code derives dates from the scan time, and a no-scan build adds no history row and moves no date.",
+     "task": "T-0012",
+     "verdict": "pass"
+    }
+   ],
+   "site": "https://agentsmd.formachines.ai",
+   "slug": "agentsmd-tracker",
+   "spend_usd": 2.8,
+   "tasks": [
+    {
+     "accepted_at": "2026-11-02T22:10:41+00:00",
+     "created": "2026-11-02T21:29:13+00:00",
+     "goal": "G3",
+     "history": [
+      {
+       "actor": "analyst",
+       "note": "effect: insufficient_data — ",
+       "to": "measured",
+       "ts": "2026-11-04T00:08:51+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measured",
+       "to": "done",
+       "ts": "2026-11-04T00:08:51+00:00"
+      }
+     ],
+     "id": "T-0002",
+     "priority": "P1",
+     "released_sha": "e84ab7e9c860382a5cb2881365088b4160650d52",
+     "role": "developer",
+     "state": "done",
+     "title": "Per-language pages listing every repo with its agent-file presence, linked from the home language table",
+     "type": "feature"
+    },
+    {
+     "accepted_at": "2026-11-02T22:21:20+00:00",
+     "created": "2026-11-02T21:29:13+00:00",
+     "goal": "G4",
+     "history": [
+      {
+       "actor": "analyst",
+       "note": "effect: insufficient_data — ",
+       "to": "measured",
+       "ts": "2026-11-04T00:08:51+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measured",
+       "to": "done",
+       "ts": "2026-11-04T00:08:51+00:00"
+      }
+     ],
+     "id": "T-0003",
+     "priority": "P2",
+     "released_sha": "af11ad6c173cfe1c28982f9a6ed0e62c8010cf14",
+     "role": "developer",
+     "state": "done",
+     "title": "Page metadata and citation: short titles/descriptions, og tags, JSON-LD Dataset, method and attribution in stats.json and on home",
+     "type": "defect"
+    },
+    {
+     "accepted_at": "2026-11-03T02:08:42+00:00",
+     "created": "2026-11-02T22:11:23+00:00",
+     "goal": "G3",
+     "history": [
+      {
+       "actor": "analyst",
+       "note": "effect: insufficient_data — ",
+       "to": "measured",
+       "ts": "2026-11-04T06:11:58+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measured",
+       "to": "done",
+       "ts": "2026-11-04T06:11:58+00:00"
+      }
+     ],
+     "id": "T-0005",
+     "priority": "P2",
+     "released_sha": "f4d844371dad291a9d7e98ebb5f32089f5deb9b2",
+     "role": "developer",
+     "state": "done",
+     "title": "Link each repo card to its language page and mention /lang/ pages on home",
+     "type": "feature"
+    },
+    {
+     "accepted_at": "2026-11-03T06:09:14+00:00",
+     "created": "2026-11-03T01:13:01+00:00",
+     "goal": "G3",
+     "history": [
+      {
+       "actor": "analyst",
+       "note": "effect: insufficient_data — ",
+       "to": "measured",
+       "ts": "2026-11-04T06:11:58+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measured",
+       "to": "done",
+       "ts": "2026-11-04T06:11:58+00:00"
+      }
+     ],
+     "id": "T-0008",
+     "priority": "P2",
+     "released_sha": "c3b480a22b0047d02ae1af68d5a4121054475683",
+     "role": "developer",
+     "state": "done",
+     "title": "Language pages: link each 'yes' cell to its /go/<id>/ hop and add an 'AGENTS.md in <Language>' list at the top",
+     "type": "feature"
+    },
+    {
+     "accepted_at": "2026-11-04T06:10:37+00:00",
+     "created": "2026-11-03T04:12:10+00:00",
+     "goal": "G5",
+     "history": [
+      {
+       "actor": "dispatcher",
+       "note": "20261104T0607-exec-T-0010",
+       "to": "claimed",
+       "ts": "2026-11-04T06:09:50+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-04T06:09:50+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "posted 2 (editor-approved)",
+       "to": "accepted",
+       "ts": "2026-11-04T06:10:37+00:00"
+      }
+     ],
+     "id": "T-0010",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "accepted",
+     "title": "Daily post 04.11 (pilot day 1): AGENTS.md share of top GitHub repos after the 04:00 UTC scan (bluesky + telegram)",
+     "type": "content"
+    },
+    {
+     "accepted_at": "2026-11-04T07:10:50+00:00",
+     "created": "2026-11-03T07:14:57+00:00",
+     "goal": "L0 daily dated data (supports G3b/G4)",
+     "history": [
+      {
+       "actor": "dispatcher",
+       "note": "20261104T0607-exec-T-0012",
+       "to": "claimed",
+       "ts": "2026-11-04T06:10:37+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-04T06:10:37+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "merged aaeb61dd5d",
+       "to": "released",
+       "ts": "2026-11-04T06:11:33+00:00"
+      },
+      {
+       "actor": "reviewer",
+       "note": "The live today.json and stats.json agree on the 2026-11-04 date and the 05:20:33Z scan time. The code derives dates from the scan time, and a no-scan build adds no history row and moves no date.",
+       "to": "accepted",
+       "ts": "2026-11-04T07:10:50+00:00"
+      }
+     ],
+     "id": "T-0012",
+     "priority": "P2",
+     "released_sha": "aaeb61dd5d7a94c1ad1af26eb012f26eddfcf492",
+     "role": "developer",
+     "state": "accepted",
+     "title": "Derive all data dates from the scan time: today.json date and history rows only from a real scan",
+     "type": "defect"
+    },
+    {
+     "accepted_at": null,
+     "created": "2026-11-04T01:10:31+00:00",
+     "goal": "G5",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-04T01:10:31+00:00"
+      }
+     ],
+     "id": "T-0029",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "ready",
+     "title": "Chart test post 08.11 05:45 UTC on bluesky: lead with the by-day AGENTS.md series since 02.11",
+     "type": "content"
+    },
+    {
+     "accepted_at": null,
+     "created": "2026-11-04T01:10:31+00:00",
+     "goal": "G2",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-04T01:10:31+00:00"
+      }
+     ],
+     "id": "T-0030",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "ready",
+     "title": "Daily post 08.11 05:45 UTC on telegram @agentsmd_tracker: number of the day",
+     "type": "content"
+    },
+    {
+     "accepted_at": null,
+     "created": "2026-11-04T01:10:31+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-04T01:10:31+00:00"
+      }
+     ],
+     "id": "T-0031",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "ready",
+     "title": "Threads post 06.11 10:00 UTC: one-sentence number of the day (restored slot, channel brought an engaged visit)",
+     "type": "content"
+    },
+    {
+     "accepted_at": null,
+     "created": "2026-11-04T06:09:50+00:00",
+     "goal": "G3b (dated, citable numbers; VISION 'data dated')",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-04T06:09:50+00:00"
+      }
+     ],
+     "id": "T-0032",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "developer",
+     "state": "ready",
+     "title": "Home: show 'Latest published scan: <generated UTC>' next to the headline number, separate from the 04:00 UTC schedule",
+     "type": "defect"
+    },
+    {
+     "accepted_at": null,
+     "created": "2026-11-04T06:09:50+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-04T06:09:50+00:00"
+      }
+     ],
+     "id": "T-0033",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "ready",
+     "title": "Daily post 09.11 05:45 UTC on bluesky: number of the day (pilot day 6)",
+     "type": "content"
+    },
+    {
+     "accepted_at": null,
+     "created": "2026-11-04T06:09:50+00:00",
+     "goal": "G2",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-04T06:09:50+00:00"
+      }
+     ],
+     "id": "T-0034",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "ready",
+     "title": "Daily post 09.11 05:45 UTC on telegram @agentsmd_tracker: number of the day",
+     "type": "content"
+    },
+    {
+     "accepted_at": null,
+     "created": "2026-11-04T07:11:53+00:00",
+     "goal": "G3",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-04T07:11:53+00:00"
+      }
+     ],
+     "id": "T-0035",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "developer",
+     "state": "ready",
+     "title": "Repo card: show the full checked path and each file's dated share in the repo's language",
+     "type": "feature"
+    },
+    {
+     "accepted_at": null,
+     "created": "2026-11-04T07:11:53+00:00",
+     "goal": "G3b",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-04T07:11:53+00:00"
+      }
+     ],
+     "id": "T-0036",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "developer",
+     "state": "ready",
+     "title": "Home sparklines: fixed axis and a 'baseline, N days' label; cite line names the scan date and points to stats.json history",
+     "type": "defect"
+    },
+    {
+     "accepted_at": null,
+     "created": "2026-11-04T07:11:53+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-04T07:11:53+00:00"
+      }
+     ],
+     "id": "T-0037",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "ready",
+     "title": "Mastodon post 09.11 09:00 UTC: language cut (trial 2)",
+     "type": "content"
+    }
+   ]
+  },
+  "luz-amanha": {
+   "analyst_md": "**Данные: окно 02–04.11, метрики за 04.11 обрезаны; опираюсь на дни 02.11 и частично 03.11 (идентичный срез 02.11 в снимке).**\n\n| Уровень | 02.11 |\n|---|---|\n| Краулеры (запросы/источники) | 62 / 9 (ClaudeBot 29, GPTBot 24) |\n| Люди: источники / engaged | 52 / 10 |\n| Возвраты | 0 |\n| Агенты | 16 запросов, 3 источника (curl, okhttp) |\n| `/go/telegram/` люди | 4 источника (7 запросов, из них 2 наши) |\n| 5xx | 0 |\n\n- **G1** 10 engaged за один день при цели ≥30 за неделю: данных пока мало, статус неясен.\n- **G2** возвраты 0, читать только 10.11.\n- **G3** 4 клика человека на Telegram; подписчиков в данных нет.\n- **G4** referers пусты: внешних визитов нет.\n- **G5** `/tomorrow.json`, `/feed.xml` — по 1 запросу; пока нечего оценить.\n\nПосты 03.11 (telegram, bluesky, x, mastodon, threads): referers в метриках нет, сравнить часы до и после невозможно. Эффект задач T-0001…T-0048 не оценим: нет до/после по одной метрике. 02.11 — день до пилота, часть «людей» могут быть непомеченными ботами (90 из 135 запросов — один день, 52 источника), поэтому цифры шумные.",
+   "date": "2026-11-04",
+   "metrics": {
+    "agents": 82,
+    "crawlers": 6,
+    "engaged": 0,
+    "humans": 0,
+    "requests": 270,
+    "returns": 0
+   },
+   "name": "Luz Amanhã",
+   "observations": {
+    "by_class": {
+     "measurement": 2,
+     "need_hypothesis": 12,
+     "ops": 1,
+     "success": 22,
+     "synthetic_difficulty": 5,
+     "ux_friction": 1,
+     "value_gap": 1
+    },
+    "new": 44
+   },
+   "owner_questions_open": 0,
+   "po_digest_md": "**Luz Amanhã — цикл 04.11, 07:07 UTC**\n\n**Счётчик людей исправлен.** Решение владельца № 31: облака, прокси и поисковые боты больше не считаются людьми. Все числа до 06:21 сегодня были завышены в 3–7 раз. Это поправка счётчика, спрос не упал.\n\n**База дня 1 записана по пересчитанным данным.** Цели VISION не меняю.\n- G1, до пилота: 02.11 — 34 источника / 7 engaged, 03.11 — 11 / 3; 04.11 пока 0 / 0.\n- G2: 0, читаем 10.11.\n- G3: клики /go/telegram/ на старом счётчике были в основном ботами, поэтому G3 считаем по подписчикам канала.\n- По ?src= пока только 1 человек-источник, из Bluesky.\n\n**Решения.** Персоны оценили интерес на 4/5, пользу на 3,5/5. Чтобы поднять пользу, поставил две задачи разработчику:\n1. Главная страница:\n   - строка о том, что присылает Telegram-канал и когда (14:05 и 07:00 по Лиссабону);\n   - когда обычно появляются цены на завтра (13:15–14:30 по Лиссабону);\n   - понятная подпись «RSS»;\n   - колонка «€/kWh grossista (оптовая)», чтобы её не принимали за цену в счёте.\n2. Средняя цена ночью (00–06) рядом с самым дешёвым окном: факт, без советов. Нужна владельцам электромобилей и бойлеров с таймером.\n\nEmail и WhatsApp не предлагаю: VISION запрещает формы и сбор персональных данных.\n\nНаблюдение аналитика «посты не дают видимых визитов» отклонено: метрики по ?src= уже работают.\n\n**Посты.** Все слоты маркетингового плана и ежедневные посты до 09.11 уже стоят в очереди. Сегодня в 14:35 UTC отдельная задача проверит, что цены на 05.11 вышли.\n\n**Ждёт владельца:** аватар для @luz_amanha, файл готов: /brand/avatar-512.png.\n\n**Расход:** $4,49 из $20.",
+   "posts": [
+    {
+     "channel": "telegram",
+     "ts": "2026-11-04T07:14:21+00:00",
+     "url": "https://t.me/luz_amanha/4"
+    },
+    {
+     "channel": "bluesky",
+     "ts": "2026-11-04T07:14:22+00:00",
+     "url": "https://bsky.app/profile/formachines.bsky.social/post/3mzhskht55m2y"
+    }
+   ],
+   "reviews": [
+    {
+     "summary": "The new labels appear in PT and EN on / and /d/2026-11-01/, and llms.txt defines both cheapest_hours and cheap_window. The day JSON keeps its values (window 12–15, hours [11,13,14]), and the pages have one h1, the AI disclosure footer and no executable JS.",
+     "task": "T-0041",
+     "verdict": "pass"
+    },
+    {
+     "summary": "The repo deliverables match the criteria: the test file covers both the cached and the missing-cache cases, the README has the Offline rebuild section, and build.py adds only the additive `available` field. The post-14:30 live check on 04.11 cannot be observed yet, so I record it as a limit; everything else observable passes.",
+     "task": "T-0042",
+     "verdict": "pass"
+    },
+    {
+     "summary": "The dated page /d/2026-11-04/ no longer shows the home status block. It keeps the 23 of 24 line, a single h1 and the AI disclosure footer, and has no JS. The home page still shows both status lines, and llms.txt explains the 404 before OMIE publishes.",
+     "task": "T-0048",
+     "verdict": "pass"
+    }
+   ],
+   "site": "https://luz.bymachines.ai",
+   "slug": "luz-amanha",
+   "spend_usd": 5.4,
+   "tasks": [
+    {
+     "accepted_at": "2026-11-02T21:31:04+00:00",
+     "created": "2026-11-02T19:51:15+00:00",
+     "goal": "G3",
+     "history": [
+      {
+       "actor": "analyst",
+       "note": "effect: insufficient_data — Клики /go/telegram/ есть (4 human), но нет базы до задачи.",
+       "to": "measured",
+       "ts": "2026-11-04T00:11:31+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measured",
+       "to": "done",
+       "ts": "2026-11-04T00:11:31+00:00"
+      }
+     ],
+     "id": "T-0001",
+     "priority": "P1",
+     "released_sha": "08c72ee948036d15cd26e43f271aa42d7aaa72b0",
+     "role": "developer",
+     "state": "done",
+     "title": "Point /go/telegram/ and the Telegram button at the real channel @luz_amanha",
+     "type": "defect"
+    },
+    {
+     "accepted_at": "2026-11-03T03:10:18+00:00",
+     "created": "2026-11-02T20:16:55+00:00",
+     "goal": "G3",
+     "history": [
+      {
+       "actor": "analyst",
+       "note": "effect: insufficient_data — ",
+       "to": "measured",
+       "ts": "2026-11-04T06:15:48+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measured",
+       "to": "done",
+       "ts": "2026-11-04T06:15:48+00:00"
+      }
+     ],
+     "id": "T-0002",
+     "priority": "P3",
+     "released_sha": "80ab2410ef03e2333c9065a0a2ea7647adba78c4",
+     "role": "developer",
+     "state": "done",
+     "title": "Add one-click feedback links on each card: useful / not useful, and a report-an-error link to a prefilled GitHub issue",
+     "type": "feature"
+    },
+    {
+     "accepted_at": "2026-11-02T22:22:20+00:00",
+     "created": "2026-11-02T20:18:57+00:00",
+     "goal": "G2",
+     "history": [
+      {
+       "actor": "analyst",
+       "note": "effect: insufficient_data — ",
+       "to": "measured",
+       "ts": "2026-11-04T00:11:31+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measured",
+       "to": "done",
+       "ts": "2026-11-04T00:11:31+00:00"
+      }
+     ],
+     "id": "T-0003",
+     "priority": "P2",
+     "released_sha": "496f1fbf9a8df95def4536f60f9b4caaad693d7b",
+     "role": "developer",
+     "state": "done",
+     "title": "Fill the 23:00 hour on archive days from the next OMIE file and explain the gap for tomorrow",
+     "type": "defect"
+    },
+    {
+     "accepted_at": "2026-11-02T23:09:08+00:00",
+     "created": "2026-11-02T20:18:57+00:00",
+     "goal": "G4",
+     "history": [
+      {
+       "actor": "analyst",
+       "note": "effect: insufficient_data — ",
+       "to": "measured",
+       "ts": "2026-11-04T00:11:31+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measured",
+       "to": "done",
+       "ts": "2026-11-04T00:11:31+00:00"
+      }
+     ],
+     "id": "T-0004",
+     "priority": "P2",
+     "released_sha": "941419b8972302bc699d86988e50e61ee9a7060e",
+     "role": "developer",
+     "state": "done",
+     "title": "One h1, og:title/og:description and JSON-LD on all page templates; lang=\"en\" on the EN block",
+     "type": "defect"
+    },
+    {
+     "accepted_at": "2026-11-04T07:14:22+00:00",
+     "created": "2026-11-02T22:12:57+00:00",
+     "goal": "G2",
+     "history": [
+      {
+       "actor": "dispatcher",
+       "note": "20261104T0707-exec-T-0007",
+       "to": "claimed",
+       "ts": "2026-11-04T07:13:32+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-04T07:13:32+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "posted 2 (editor-approved)",
+       "to": "accepted",
+       "ts": "2026-11-04T07:14:22+00:00"
+      }
+     ],
+     "id": "T-0007",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "accepted",
+     "title": "Morning post 04.11 07:00 UTC: today's cheapest hours from today.json, PT+EN",
+     "type": "content"
+    },
+    {
+     "accepted_at": "2026-11-03T01:13:58+00:00",
+     "created": "2026-11-03T00:12:14+00:00",
+     "goal": "G2",
+     "history": [
+      {
+       "actor": "analyst",
+       "note": "effect: insufficient_data — ",
+       "to": "measured",
+       "ts": "2026-11-04T06:15:48+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measured",
+       "to": "done",
+       "ts": "2026-11-04T06:15:48+00:00"
+      }
+     ],
+     "id": "T-0009",
+     "priority": "P2",
+     "released_sha": "5baeeec0a6bae40f415c890bc4705cfdb6fb486e",
+     "role": "developer",
+     "state": "done",
+     "title": "Archive day pages: neutral dated heading instead of 'amanhã/tomorrow'; no '-0.0' in €/kWh",
+     "type": "defect"
+    },
+    {
+     "accepted_at": "2026-11-03T02:09:43+00:00",
+     "created": "2026-11-03T01:14:38+00:00",
+     "goal": "G2",
+     "history": [
+      {
+       "actor": "analyst",
+       "note": "effect: insufficient_data — ",
+       "to": "measured",
+       "ts": "2026-11-04T06:15:48+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measured",
+       "to": "done",
+       "ts": "2026-11-04T06:15:48+00:00"
+      }
+     ],
+     "id": "T-0010",
+     "priority": "P1",
+     "released_sha": "2f4a2fdab71facb79b1ef74f39e2521c739af738",
+     "role": "developer",
+     "state": "done",
+     "title": "Home page before OMIE publishes: honest 'today' heading instead of 'Luz amanhã — <today>'",
+     "type": "defect"
+    },
+    {
+     "accepted_at": null,
+     "created": "2026-11-04T00:10:55+00:00",
+     "goal": "G3",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-04T00:10:55+00:00"
+      }
+     ],
+     "id": "T-0039",
+     "priority": "P1",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "ready",
+     "title": "Daily post 08.11 14:05 UTC: prices for 09.11 in Telegram @luz_amanha and Bluesky, PT+EN",
+     "type": "content"
+    },
+    {
+     "accepted_at": null,
+     "created": "2026-11-04T00:10:55+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-04T00:10:55+00:00"
+      }
+     ],
+     "id": "T-0040",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "ready",
+     "title": "X post 08.11 14:10 UTC: wording test, EN-first card for 09.11 (plan slot)",
+     "type": "marketing"
+    },
+    {
+     "accepted_at": "2026-11-04T01:10:53+00:00",
+     "created": "2026-11-04T00:10:55+00:00",
+     "goal": "G5",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-04T00:10:55+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261104T0007-exec-T-0041",
+       "to": "claimed",
+       "ts": "2026-11-04T00:10:55+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-04T00:10:55+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "merged 74959e05a9",
+       "to": "released",
+       "ts": "2026-11-04T00:11:18+00:00"
+      },
+      {
+       "actor": "reviewer",
+       "note": "The new labels appear in PT and EN on / and /d/2026-11-01/, and llms.txt defines both cheapest_hours and cheap_window. The day JSON keeps its values (window 12–15, hours [11,13,14]), and the pages hav",
+       "to": "accepted",
+       "ts": "2026-11-04T01:10:53+00:00"
+      }
+     ],
+     "id": "T-0041",
+     "priority": "P2",
+     "released_sha": "74959e05a98028b23c66c471d7b57ed462fa271c",
+     "role": "developer",
+     "state": "accepted",
+     "title": "Explain on / , /d/ and llms.txt: '3 horas mais baratas' are single hours, the window is 3 hours in a row",
+     "type": "defect"
+    },
+    {
+     "accepted_at": "2026-11-04T02:09:08+00:00",
+     "created": "2026-11-04T01:11:47+00:00",
+     "goal": "G2",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-04T01:11:47+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261104T0107-exec-T-0042",
+       "to": "claimed",
+       "ts": "2026-11-04T01:11:47+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-04T01:11:47+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "merged 7c6066091b",
+       "to": "released",
+       "ts": "2026-11-04T01:12:36+00:00"
+      },
+      {
+       "actor": "reviewer",
+       "note": "The repo deliverables match the criteria: the test file covers both the cached and the missing-cache cases, the README has the Offline rebuild section, and build.py adds only the additive `available` ",
+       "to": "accepted",
+       "ts": "2026-11-04T02:09:08+00:00"
+      }
+     ],
+     "id": "T-0042",
+     "priority": "P1",
+     "released_sha": "7c6066091b7dda3bdf0abc772cd73b127923bdf5",
+     "role": "developer",
+     "state": "accepted",
+     "title": "Offline rebuild must keep tomorrow's data: build from cached data/omie/ instead of resetting tomorrow.json to unavailable",
+     "type": "defect"
+    },
+    {
+     "accepted_at": null,
+     "created": "2026-11-04T01:11:47+00:00",
+     "goal": "G3",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-04T01:11:47+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261104T0107-exec-T-0043",
+       "to": "claimed",
+       "ts": "2026-11-04T01:12:36+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-04T01:12:36+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measurement delivered",
+       "to": "done",
+       "ts": "2026-11-04T01:12:53+00:00"
+      }
+     ],
+     "id": "T-0043",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "analyst",
+     "state": "done",
+     "title": "Analyst: Telegram @luz_amanha subscriber baseline vs /go/telegram/ clicks (G3)",
+     "type": "research"
+    },
+    {
+     "accepted_at": null,
+     "created": "2026-11-04T01:11:47+00:00",
+     "goal": "G4",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-04T01:11:47+00:00"
+      }
+     ],
+     "id": "T-0044",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "ready",
+     "title": "Bluesky post 09.11 08:00 UTC: 'For machines' — how to read the 24 hours from /tomorrow.json (plan slot)",
+     "type": "marketing"
+    },
+    {
+     "accepted_at": null,
+     "created": "2026-11-04T02:09:51+00:00",
+     "goal": "G2",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-04T02:09:51+00:00"
+      }
+     ],
+     "id": "T-0045",
+     "priority": "P1",
+     "released_sha": null,
+     "role": "developer",
+     "state": "ready",
+     "title": "Check 04.11 14:35 UTC: tomorrow's OMIE file is committed and the live tomorrow.json is available for 05.11",
+     "type": "ops"
+    },
+    {
+     "accepted_at": null,
+     "created": "2026-11-04T02:09:51+00:00",
+     "goal": "G2",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-04T02:09:51+00:00"
+      }
+     ],
+     "id": "T-0046",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "ready",
+     "title": "Morning post 09.11 07:00 UTC: today's cheapest hours from today.json, PT+EN",
+     "type": "content"
+    },
+    {
+     "accepted_at": null,
+     "created": "2026-11-04T02:09:51+00:00",
+     "goal": "G3",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-04T02:09:51+00:00"
+      }
+     ],
+     "id": "T-0047",
+     "priority": "P1",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "ready",
+     "title": "Daily post 09.11 14:05 UTC: prices for 10.11 in Telegram @luz_amanha and Bluesky, PT+EN",
+     "type": "content"
+    },
+    {
+     "accepted_at": "2026-11-04T07:12:13+00:00",
+     "created": "2026-11-04T06:15:00+00:00",
+     "goal": "G5",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-04T06:15:00+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261104T0607-exec-T-0048",
+       "to": "claimed",
+       "ts": "2026-11-04T06:15:01+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-04T06:15:01+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "merged 5b7e0f017b",
+       "to": "released",
+       "ts": "2026-11-04T06:15:34+00:00"
+      },
+      {
+       "actor": "reviewer",
+       "note": "The dated page /d/2026-11-04/ no longer shows the home status block. It keeps the 23 of 24 line, a single h1 and the AI disclosure footer, and has no JS. The home page still shows both status lines, a",
+       "to": "accepted",
+       "ts": "2026-11-04T07:12:13+00:00"
+      }
+     ],
+     "id": "T-0048",
+     "priority": "P2",
+     "released_sha": "5b7e0f017b0f9687e035be90f26411f0e7f081c2",
+     "role": "developer",
+     "state": "accepted",
+     "title": "Dated day pages without the home 'tomorrow not published' status; llms.txt explains when /d/<date>/ appears",
+     "type": "defect"
+    },
+    {
+     "accepted_at": null,
+     "created": "2026-11-04T06:15:00+00:00",
+     "goal": "G2",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-04T06:15:00+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261104T0707-exec-T-0049",
+       "to": "claimed",
+       "ts": "2026-11-04T07:14:22+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-04T07:14:22+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "merged 05e7988ed5",
+       "to": "released",
+       "ts": "2026-11-04T07:14:57+00:00"
+      }
+     ],
+     "id": "T-0049",
+     "priority": "P2",
+     "released_sha": "05e7988ed5618634a291d404ee3a53fce1dada96",
+     "role": "developer",
+     "state": "released",
+     "title": "Archive index /d/: one summary row per day (cheap window + average, min price, hours known)",
+     "type": "feature"
+    },
+    {
+     "accepted_at": null,
+     "created": "2026-11-04T07:13:32+00:00",
+     "goal": "G3",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-04T07:13:32+00:00"
+      }
+     ],
+     "id": "T-0050",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "developer",
+     "state": "ready",
+     "title": "Home page: what Telegram sends and when, when tomorrow appears (Lisbon time), plain RSS label, 'grossista' kWh heading",
+     "type": "feature"
+    },
+    {
+     "accepted_at": null,
+     "created": "2026-11-04T07:13:32+00:00",
+     "goal": "G2",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-04T07:13:32+00:00"
+      }
+     ],
+     "id": "T-0051",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "developer",
+     "state": "ready",
+     "title": "Night 00:00–06:00 average next to the cheap window on / and /d/ (PT+EN), for timer/EV users",
+     "type": "feature"
+    }
+   ]
+  },
+  "release-radar": {
+   "analyst_md": "**Данные:** видны полностью только сутки 02.11 (до пилота). Дни 03 и 04.11 в metrics обрезаны, поэтому по ним цифр нет. Пилот стартует 04.11, и дневной срез за него ещё не готов.\n\n| Уровень | 02.11 |\n|---|---|\n| Краулеры (discovery) | 464 запроса, 40 источников (ClaudeBot 198, GPTBot 194) |\n| Люди, источники | 65 |\n| Engaged | 16 |\n| Возвраты | 0 |\n| Агенты | 22 запроса, 3 источника (curl 21) |\n| `/today.json` | 17 запросов: свои 9, краулеры 2, агенты 2, люди 3 |\n| `/go/*` у людей | 123 запроса, 3 источника |\n| Referer | только google.com, 1 запрос |\n| 5xx | 0 |\n\nСвоё и чужое смешано: за сутки 28 своих источников, это внутренние прогоны, а не аудитория.\n\n**Посты и визиты.** Часовых данных нет, поэтому сравнить часы до и после постов нельзя. Referer от Bluesky, Telegram, Mastodon, X, Threads в таблице нет. Эффект постов не подтверждён.\n\n**Цели (чтение 10.11):** все значения за 02.11, это ещё не пилот.\n- G1: 16 против ≥40.\n- G2: 0 против ≥5.\n- G3: внешних referer-доменов нет, доля кликов не определима.\n- G4: чужих запросов `/today.json` не больше 5 (агенты 2, люди 3) против ≥5 за 7 дней.\n\nДля оценки задач нужны данные до и после на одной метрике.",
+   "date": "2026-11-04",
+   "metrics": {
+    "agents": 0,
+    "crawlers": 238,
+    "engaged": 0,
+    "humans": 0,
+    "requests": 380,
+    "returns": 0
+   },
+   "name": "Release Radar",
+   "observations": {
+    "by_class": {
+     "measurement": 4,
+     "need_hypothesis": 8,
+     "ops": 1,
+     "success": 8,
+     "synthetic_difficulty": 2
+    },
+    "new": 23
+   },
+   "owner_questions_open": 1,
+   "po_digest_md": "## Release Radar — цикл 04.11 07:07 UTC\n\n**Что произошло.** Ops пересчитала метрики (решение владельца 31). Люди / engaged теперь: 02.11 — 43/10, 03.11 — 18/5, 04.11 — пока 0/0. Старые цифры (65/16 и 123 «человеческих» /go/) были завышены ботами. Это исправленный счётчик, а не падение спроса. Цели G1–G4 не меняем.\n\n**Решения.**\n- Поставил аналитику задачу: заново записать базу дня 1 и перечитать G1–G4 по новым числам. Иначе 10.11 смешаем старые и новые цифры.\n- Добавил карточку Bluesky на 10.11 07:30: в плане её не было, а VISION обещает ежедневную карточку в двух каналах.\n- Невоспроизведённые обрывки в llms.txt (OBS-0171) — скорее всего, обрезка на стороне клиента; T-0051 уже принята.\n- Подозрительные /go/-клики после пересчёта больше не считаются людьми.\n- Внешних referer почти нет (G3). Ждём свод на dev.to 09.11 (T-0049) и чтение 10.11.\n- ИИ-краулеры читают сайт активно, но в цели не входят.\n\n**Сегодня по расписанию:** карточка 04.11 в Telegram и Bluesky (T-0011). Слоты плана на 05–10.11 все уже заведены задачами.\n\n**Ждёт владельца/ops:** аналитику нужна необрезанная дневная сводка метрик, иначе возвраты (G2) считать трудно.\n\n**Расход:** $2.14 из $20.",
+   "posts": [
+    {
+     "channel": "telegram",
+     "ts": "2026-11-04T07:18:15+00:00",
+     "url": "https://t.me/relesae_radar/4"
+    },
+    {
+     "channel": "bluesky",
+     "ts": "2026-11-04T07:18:15+00:00",
+     "url": "https://bsky.app/profile/formachines.bsky.social/post/3mzhsrg5vwz2f"
+    }
+   ],
+   "reviews": [
+    {
+     "summary": "The react page and its index.json show the stable/pre-release split, the no-stable line with 19.3.1 and its date, and the two integer fields, which sum to the 6 releases. Footer, build marker 66b7c4c and the existing fields are unchanged.",
+     "task": "T-0050",
+     "verdict": "pass"
+    },
+    {
+     "summary": "The live llms.txt has an Updated line matching build.json built, and 93 one-per-line package entries with HTML and index.json URLs that match counts.packages. It is served as text/plain with 200, and last-modified is now consistent with the build.",
+     "task": "T-0051",
+     "verdict": "pass"
+    }
+   ],
+   "site": "https://releases.formachines.ai",
+   "slug": "release-radar",
+   "spend_usd": 3.0,
+   "tasks": [
+    {
+     "accepted_at": "2026-11-02T19:27:02+00:00",
+     "created": "2026-11-02T19:27:02+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "analyst",
+       "note": "effect: insufficient_data — Единственный сигнал — 5 человеческих источников из текста задач; почасовых данных нет.",
+       "to": "measured",
+       "ts": "2026-11-04T00:11:51+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measured",
+       "to": "done",
+       "ts": "2026-11-04T00:11:51+00:00"
+      }
+     ],
+     "id": "T-0001",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "done",
+     "title": "Day-1 daily card: N releases in 24 h, M flagged — Bluesky",
+     "type": "marketing"
+    },
+    {
+     "accepted_at": "2026-11-02T19:31:55+00:00",
+     "created": "2026-11-02T19:27:52+00:00",
+     "goal": "G4",
+     "history": [
+      {
+       "actor": "analyst",
+       "note": "effect: insufficient_data — ",
+       "to": "measured",
+       "ts": "2026-11-04T00:11:51+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measured",
+       "to": "done",
+       "ts": "2026-11-04T00:11:51+00:00"
+      }
+     ],
+     "id": "T-0002",
+     "priority": "P2",
+     "released_sha": "64116c95c75109552be3f1d501a5ca73d10eead4",
+     "role": "developer",
+     "state": "done",
+     "title": "Show the build time and short commit hash in the footer of every page",
+     "type": "feature"
+    },
+    {
+     "accepted_at": "2026-11-02T22:16:02+00:00",
+     "created": "2026-11-02T20:16:55+00:00",
+     "goal": "G3",
+     "history": [
+      {
+       "actor": "analyst",
+       "note": "effect: insufficient_data — ",
+       "to": "measured",
+       "ts": "2026-11-04T00:11:51+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measured",
+       "to": "done",
+       "ts": "2026-11-04T00:11:51+00:00"
+      }
+     ],
+     "id": "T-0003",
+     "priority": "P2",
+     "released_sha": "05105f3cdc97a1e2765721a96b060908f30f8bc1",
+     "role": "developer",
+     "state": "done",
+     "title": "Add one-click feedback links on each card: useful / not useful, and a report-an-error link to a prefilled GitHub issue",
+     "type": "feature"
+    },
+    {
+     "accepted_at": "2026-11-03T03:12:33+00:00",
+     "created": "2026-11-02T20:16:55+00:00",
+     "goal": "G4",
+     "history": [
+      {
+       "actor": "analyst",
+       "note": "effect: insufficient_data — ",
+       "to": "measured",
+       "ts": "2026-11-04T06:16:53+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measured",
+       "to": "done",
+       "ts": "2026-11-04T06:16:53+00:00"
+      }
+     ],
+     "id": "T-0004",
+     "priority": "P3",
+     "released_sha": "f16fc076b8aa29e1b92efc62c4383365acd7b637",
+     "role": "developer",
+     "state": "done",
+     "title": "MCP server over the public JSON: releases_today, package_releases, flagged_breaking (read-only, stdio)",
+     "type": "feature"
+    },
+    {
+     "accepted_at": "2026-11-02T22:27:24+00:00",
+     "created": "2026-11-02T21:33:42+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "analyst",
+       "note": "effect: insufficient_data — OG/JSON-LD принят 02.11, до/после на одной метрике нет; есть 6 запросов facebookexternalhit как превью.",
+       "to": "measured",
+       "ts": "2026-11-04T00:11:51+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measured",
+       "to": "done",
+       "ts": "2026-11-04T00:11:51+00:00"
+      }
+     ],
+     "id": "T-0005",
+     "priority": "P2",
+     "released_sha": "649a96d697dc3b0d4d430a040a36b12acfd81481",
+     "role": "developer",
+     "state": "done",
+     "title": "Add og:title, og:description and a JSON-LD block to every page template (home, /pkg/, /legal/)",
+     "type": "defect"
+    },
+    {
+     "accepted_at": "2026-11-03T01:07:51+00:00",
+     "created": "2026-11-02T22:17:00+00:00",
+     "goal": "G3",
+     "history": [
+      {
+       "actor": "analyst",
+       "note": "effect: insufficient_data — ",
+       "to": "measured",
+       "ts": "2026-11-04T06:16:53+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measured",
+       "to": "done",
+       "ts": "2026-11-04T06:16:53+00:00"
+      }
+     ],
+     "id": "T-0008",
+     "priority": "P2",
+     "released_sha": "25a9b3c1817adc75050a411fdd41c1630958c0ed",
+     "role": "developer",
+     "state": "done",
+     "title": "Label pre-releases (insiders, canary, rc, beta) and always show the latest stable version with its date on /pkg/ pages",
+     "type": "defect"
+    },
+    {
+     "accepted_at": "2026-11-03T02:11:22+00:00",
+     "created": "2026-11-03T00:15:29+00:00",
+     "goal": "G4",
+     "history": [
+      {
+       "actor": "analyst",
+       "note": "effect: insufficient_data — ",
+       "to": "measured",
+       "ts": "2026-11-04T06:16:53+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measured",
+       "to": "done",
+       "ts": "2026-11-04T06:16:53+00:00"
+      }
+     ],
+     "id": "T-0010",
+     "priority": "P2",
+     "released_sha": "462f7c368930dc873e8a2a753be0fb511b78b3a8",
+     "role": "developer",
+     "state": "done",
+     "title": "Add an additive counts object (releases, packages, flagged) to today.json",
+     "type": "defect"
+    },
+    {
+     "accepted_at": "2026-11-04T07:18:15+00:00",
+     "created": "2026-11-03T00:15:29+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "dispatcher",
+       "note": "20261104T0707-exec-T-0011",
+       "to": "claimed",
+       "ts": "2026-11-04T07:16:32+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-04T07:16:32+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "posted 2 (editor-approved)",
+       "to": "accepted",
+       "ts": "2026-11-04T07:18:15+00:00"
+      }
+     ],
+     "id": "T-0011",
+     "priority": "P1",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "accepted",
+     "title": "Daily card 04.11 (after the 06:00 UTC build, pilot day 1): 'N releases in 24 h, M flagged' in Telegram @relesae_radar and on Bluesky",
+     "type": "content"
+    },
+    {
+     "accepted_at": "2026-11-03T05:07:59+00:00",
+     "created": "2026-11-03T02:11:56+00:00",
+     "goal": "G4",
+     "history": [
+      {
+       "actor": "analyst",
+       "note": "effect: insufficient_data — ",
+       "to": "measured",
+       "ts": "2026-11-04T06:16:53+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measured",
+       "to": "done",
+       "ts": "2026-11-04T06:16:53+00:00"
+      }
+     ],
+     "id": "T-0017",
+     "priority": "P3",
+     "released_sha": "cf1ca8307b22190bdd00225f2ccfcbb074bb08d9",
+     "role": "developer",
+     "state": "done",
+     "title": "MCP server conformance check: scripted stdio session against the MCP spec (initialize, tools/list, tools/call, errors) before publishing",
+     "type": "feature"
+    },
+    {
+     "accepted_at": "2026-11-03T05:08:20+00:00",
+     "created": "2026-11-03T04:10:28+00:00",
+     "goal": "G4",
+     "history": [
+      {
+       "actor": "analyst",
+       "note": "effect: insufficient_data — ",
+       "to": "measured",
+       "ts": "2026-11-04T06:16:53+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measured",
+       "to": "done",
+       "ts": "2026-11-04T06:16:53+00:00"
+      }
+     ],
+     "id": "T-0018",
+     "priority": "P2",
+     "released_sha": "4cf7dfa667129287a58ae840ccde9c85db9a70fc",
+     "role": "developer",
+     "state": "done",
+     "title": "Make feed.xml match its llms.txt description: include all today.json releases or document the item cap",
+     "type": "defect"
+    },
+    {
+     "accepted_at": null,
+     "created": "2026-11-04T01:13:35+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-04T01:13:35+00:00"
+      }
+     ],
+     "id": "T-0047",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "ready",
+     "title": "X card 09.11 10:00 UTC: Monday daily card, fact first, link last",
+     "type": "content"
+    },
+    {
+     "accepted_at": null,
+     "created": "2026-11-04T01:13:36+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-04T01:13:36+00:00"
+      }
+     ],
+     "id": "T-0048",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "ready",
+     "title": "Threads card 09.11 12:00 UTC: one human sentence + verbatim quote, no code (hour comparison vs 07.11)",
+     "type": "content"
+    },
+    {
+     "accepted_at": null,
+     "created": "2026-11-04T01:13:36+00:00",
+     "goal": "G3",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-04T01:13:36+00:00"
+      }
+     ],
+     "id": "T-0049",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "ready",
+     "title": "dev.to weekly roundup 09.11 13:00 UTC: flagged releases 03–09.11 with verbatim quotes and source links",
+     "type": "content"
+    },
+    {
+     "accepted_at": "2026-11-04T06:16:02+00:00",
+     "created": "2026-11-04T05:10:20+00:00",
+     "goal": "G3",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-04T05:10:20+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261104T0507-exec-T-0050",
+       "to": "claimed",
+       "ts": "2026-11-04T05:10:21+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-04T05:10:21+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "merged 66b7c4c540",
+       "to": "released",
+       "ts": "2026-11-04T05:10:44+00:00"
+      },
+      {
+       "actor": "reviewer",
+       "note": "The react page and its index.json show the stable/pre-release split, the no-stable line with 19.3.1 and its date, and the two integer fields, which sum to the 6 releases. Footer, build marker 66b7c4c ",
+       "to": "accepted",
+       "ts": "2026-11-04T06:16:02+00:00"
+      }
+     ],
+     "id": "T-0050",
+     "priority": "P2",
+     "released_sha": "66b7c4c540a4382b9088dfc7e88d3ed621e6662f",
+     "role": "developer",
+     "state": "accepted",
+     "title": "/pkg/ pages: split the 7-day count into stable vs pre-releases and say plainly when no stable release came out",
+     "type": "feature"
+    },
+    {
+     "accepted_at": "2026-11-04T07:15:50+00:00",
+     "created": "2026-11-04T05:10:20+00:00",
+     "goal": "G4",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-04T05:10:20+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261104T0607-exec-T-0051",
+       "to": "claimed",
+       "ts": "2026-11-04T06:16:03+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-04T06:16:03+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "merged f13061b393",
+       "to": "released",
+       "ts": "2026-11-04T06:16:31+00:00"
+      },
+      {
+       "actor": "reviewer",
+       "note": "The live llms.txt has an Updated line matching build.json built, and 93 one-per-line package entries with HTML and index.json URLs that match counts.packages. It is served as text/plain with 200, and ",
+       "to": "accepted",
+       "ts": "2026-11-04T07:15:50+00:00"
+      }
+     ],
+     "id": "T-0051",
+     "priority": "P2",
+     "released_sha": "f13061b393c7c02413d0e72c68d5566c797371a8",
+     "role": "developer",
+     "state": "accepted",
+     "title": "llms.txt: one package per line and a build timestamp, regenerated on every build",
+     "type": "defect"
+    },
+    {
+     "accepted_at": null,
+     "created": "2026-11-04T05:10:20+00:00",
+     "goal": "G2",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-04T05:10:20+00:00"
+      }
+     ],
+     "id": "T-0052",
+     "priority": "P1",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "ready",
+     "title": "Daily card 10.11 07:30 UTC — Telegram @relesae_radar: 'N releases in 24 h, M flagged' + one verbatim quote (last pilot day)",
+     "type": "content"
+    },
+    {
+     "accepted_at": null,
+     "created": "2026-11-04T07:16:31+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-04T07:16:31+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261104T0707-exec-T-0053",
+       "to": "claimed",
+       "ts": "2026-11-04T07:18:15+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-04T07:18:15+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measurement delivered",
+       "to": "done",
+       "ts": "2026-11-04T07:18:34+00:00"
+      }
+     ],
+     "id": "T-0053",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "analyst",
+     "state": "done",
+     "title": "Re-record the pilot day-1 base on the recounted metrics (sources 04.11 06:21 UTC) and re-read G1–G3",
+     "type": "research"
+    },
+    {
+     "accepted_at": null,
+     "created": "2026-11-04T07:16:31+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-04T07:16:31+00:00"
+      }
+     ],
+     "id": "T-0054",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "ready",
+     "title": "Daily card 10.11 07:30 UTC — Bluesky: 'N releases in 24 h, M flagged' (no code, last pilot day)",
+     "type": "content"
+    }
+   ]
+  }
+ }
+}

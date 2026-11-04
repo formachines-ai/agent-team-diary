@@ -5,15 +5,53 @@
  "date": "2026-11-03",
  "tasks": [
   {
+   "id": "T-0001",
+   "title": "Add one-click feedback links on each card: useful / not useful, and a report-an-error link to a prefilled GitHub issue",
+   "type": "feature",
+   "state": "accepted",
+   "priority": "P3",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-02T20:16:55+00:00",
+   "accepted_at": "2026-11-03T12:10:29+00:00",
+   "released_sha": "94be73401e625ab7636d4875f26a45ebcab4b4d8",
+   "history": [
+    {
+     "ts": "2026-11-03T11:11:20+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261103T1107-exec-T-0001"
+    },
+    {
+     "ts": "2026-11-03T11:11:20+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-03T11:12:08+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 94be73401e"
+    },
+    {
+     "ts": "2026-11-03T12:10:29+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The repo entry page has the useful / not useful links and a prefilled Report an error link. Both vote pages meta-refresh back to the entry, and the page adds no forms, cookies or JS, with the footer i"
+    }
+   ]
+  },
+  {
    "id": "T-0004",
    "title": "Daily post 03.11: AGENTS.md share of top GitHub repos after the 04:00 UTC scan (bluesky + telegram)",
    "type": "content",
-   "state": "ready",
+   "state": "accepted",
    "priority": "P2",
    "goal": "G5",
    "role": "marketer",
    "created": "2026-11-02T21:29:13+00:00",
-   "accepted_at": null,
+   "accepted_at": "2026-11-03T08:16:29+00:00",
    "released_sha": null,
    "history": [
     {
@@ -75,6 +113,24 @@
      "actor": "dispatcher",
      "to": "ready",
      "note": "ops: forced 03.11 scan is live (stats.json generated today); post in the next cycle"
+    },
+    {
+     "ts": "2026-11-03T08:15:29+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261103T0807-exec-T-0004"
+    },
+    {
+     "ts": "2026-11-03T08:15:29+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-03T08:16:29+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "posted 2 (editor-approved)"
     }
    ]
   },
@@ -82,7 +138,7 @@
    "id": "T-0005",
    "title": "Link each repo card to its language page and mention /lang/ pages on home",
    "type": "feature",
-   "state": "accepted",
+   "state": "done",
    "priority": "P2",
    "goal": "G3",
    "role": "developer",
@@ -208,7 +264,7 @@
    "id": "T-0008",
    "title": "Language pages: link each 'yes' cell to its /go/<id>/ hop and add an 'AGENTS.md in <Language>' list at the top",
    "type": "feature",
-   "state": "accepted",
+   "state": "done",
    "priority": "P2",
    "goal": "G3",
    "role": "developer",
@@ -252,7 +308,7 @@
    "id": "T-0009",
    "title": "Verify the 04:00 UTC daily scan on the server and align build.json last_checked and stats.json attribution with the scan time",
    "type": "defect",
-   "state": "waiting_owner",
+   "state": "rejected",
    "priority": "P1",
    "goal": "L0 daily dated data (supports G3b/G4)",
    "role": "developer",
@@ -295,6 +351,12 @@
      "actor": "po",
      "to": "waiting_owner",
      "note": "question Q-0005"
+    },
+    {
+     "ts": "2026-11-03T08:14:48+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Split per OBS-0088: ops already runs the scheduler (cron 04:20 UTC), and the developer cannot check it. The build.py part moves to a new P1 task without the scheduler criterion. The 04.1"
     }
    ]
   },
@@ -302,12 +364,12 @@
    "id": "T-0010",
    "title": "Daily post 04.11 (pilot day 1): AGENTS.md share of top GitHub repos after the 04:00 UTC scan (bluesky + telegram)",
    "type": "content",
-   "state": "ready",
+   "state": "accepted",
    "priority": "P2",
    "goal": "G5",
    "role": "marketer",
    "created": "2026-11-03T04:12:10+00:00",
-   "accepted_at": null,
+   "accepted_at": "2026-11-04T06:10:37+00:00",
    "released_sha": null,
    "history": [
     {
@@ -328,12 +390,12 @@
    "id": "T-0011",
    "title": "Keep crawlers off /go/ redirect hops via robots.txt",
    "type": "defect",
-   "state": "released",
+   "state": "accepted",
    "priority": "P2",
    "goal": "G3",
    "role": "developer",
    "created": "2026-11-03T07:14:57+00:00",
-   "accepted_at": null,
+   "accepted_at": "2026-11-03T08:14:20+00:00",
    "released_sha": "23d167c843a53c5e90700f145c1b54990f4ea543",
    "history": [
     {
@@ -359,6 +421,12 @@
      "actor": "dispatcher",
      "to": "released",
      "note": "merged 23d167c843"
+    },
+    {
+     "ts": "2026-11-03T08:14:20+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The live robots.txt disallows only /go/ for all agents, keeps Allow: / and the Sitemap line, and sitemap.xml lists no redirect URLs. A sample /go/ page still forwards to GitHub, and no per-bot blocks "
     }
    ]
   },
@@ -366,16 +434,534 @@
    "id": "T-0012",
    "title": "Derive all data dates from the scan time: today.json date and history rows only from a real scan",
    "type": "defect",
-   "state": "ready",
+   "state": "accepted",
    "priority": "P2",
    "goal": "L0 daily dated data (supports G3b/G4)",
    "role": "developer",
    "created": "2026-11-03T07:14:57+00:00",
+   "accepted_at": "2026-11-04T07:10:50+00:00",
+   "released_sha": "aaeb61dd5d7a94c1ad1af26eb012f26eddfcf492",
+   "history": [
+    {
+     "ts": "2026-11-03T07:14:57+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0013",
+   "title": "build.py: build.json last_checked and stats.json attribution date come from the real scan; --no-scan never moves them",
+   "type": "defect",
+   "state": "accepted",
+   "priority": "P1",
+   "goal": "L0 daily dated data (supports G3b/G4)",
+   "role": "developer",
+   "created": "2026-11-03T08:14:48+00:00",
+   "accepted_at": "2026-11-03T10:10:02+00:00",
+   "released_sha": "41da384583901c501cf5a700f2dc5df67148adfa",
+   "history": [
+    {
+     "ts": "2026-11-03T08:14:48+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-03T08:14:48+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261103T0807-exec-T-0013"
+    },
+    {
+     "ts": "2026-11-03T08:14:48+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-03T08:15:29+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 41da384583"
+    },
+    {
+     "ts": "2026-11-03T10:10:02+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The live build.json and stats.json meet all four acceptance criteria. A rebuild happened (built_at 08:15:06Z) without moving generated or last_checked, which both stay at 2026-11-03T07:13:27Z."
+    }
+   ]
+  },
+  {
+   "id": "T-0014",
+   "title": "Аватар сайта и каналов: концепт и файлы на /brand/",
+   "type": "feature",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-03T09:24:52+00:00",
+   "accepted_at": "2026-11-03T11:10:43+00:00",
+   "released_sha": "2c14371c888c0e379ad788f20710da0b41bfc62b",
+   "history": [
+    {
+     "ts": "2026-11-03T09:24:52+00:00",
+     "actor": "owner",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-03T10:10:40+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261103T1007-exec-T-0014"
+    },
+    {
+     "ts": "2026-11-03T10:10:40+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-03T10:11:23+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 2c14371c88"
+    },
+    {
+     "ts": "2026-11-03T11:10:43+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The /brand/ page, avatar.svg and the favicon all match the acceptance criteria. The chosen avatar A is served as the favicon, and no text or AI mark appears in the images."
+    }
+   ]
+  },
+  {
+   "id": "T-0015",
+   "title": "Marketing plan for the pilot week 04–10.11 (marketing-plan.md)",
+   "type": "marketing",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "G5 (also G1, G2)",
+   "role": "marketer",
+   "created": "2026-11-03T10:10:40+00:00",
    "accepted_at": null,
    "released_sha": null,
    "history": [
     {
-     "ts": "2026-11-03T07:14:57+00:00",
+     "ts": "2026-11-03T10:10:40+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-03T11:11:20+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Replaced by a new plan task with not_before set (OBS-0092): T-0015 could not start because its title has dates and it had no not_before."
+    }
+   ]
+  },
+  {
+   "id": "T-0016",
+   "title": "Marketing plan for the pilot week starting 2026-11-04 (write marketing-plan.md now)",
+   "type": "marketing",
+   "state": "accepted",
+   "priority": "P1",
+   "goal": "G5 (also G1, G2)",
+   "role": "marketer",
+   "created": "2026-11-03T11:11:20+00:00",
+   "accepted_at": "2026-11-03T12:11:14+00:00",
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-03T11:11:20+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-03T12:10:47+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261103T1207-exec-T-0016"
+    },
+    {
+     "ts": "2026-11-03T12:10:47+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-03T12:11:14+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "marketing plan written (5206 chars); no post expected"
+    }
+   ]
+  },
+  {
+   "id": "T-0017",
+   "title": "Daily post 05.11 05:45 UTC on bluesky: number of the day (pilot day 2)",
+   "type": "content",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-03T13:11:04+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-03T13:11:04+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0018",
+   "title": "Mastodon trial post 1, 03.11, today: plain daily fact with stats.json as a citable source",
+   "type": "content",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "G4",
+   "role": "marketer",
+   "created": "2026-11-03T13:11:04+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-03T13:11:04+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-03T14:38:21+00:00",
+     "actor": "owner",
+     "to": "ready",
+     "note": "not_before 2026-11-05T09:00:00+00:00 -> now: owner 03.11 — a new channel is tried the day it becomes available"
+    },
+    {
+     "ts": "2026-11-03T15:08:50+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261103T1507-exec-T-0018"
+    },
+    {
+     "ts": "2026-11-03T15:08:50+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-03T15:09:02+00:00",
+     "actor": "marketer",
+     "to": "blocked",
+     "note": "question Q-0006"
+    },
+    {
+     "ts": "2026-11-03T16:11:38+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "answered Q-0006; not before 2026-11-05T09:00:00+00:00"
+    },
+    {
+     "ts": "2026-11-03T16:30:17+00:00",
+     "actor": "owner",
+     "to": "ready",
+     "note": "decision 28: trial on the data that exists today; text and dates rewritten, not_before=now"
+    },
+    {
+     "ts": "2026-11-03T17:10:21+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Its scope says to post on 03.11, but its acceptance requires a post dated 05.11, so it cannot pass review. It is replaced by a new Mastodon trial task for 03.11 with matching acceptance."
+    }
+   ]
+  },
+  {
+   "id": "T-0019",
+   "title": "Home: under the headline number, state what the share measures and give two paths (Explore your language, See the sampling method)",
+   "type": "feature",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-03T16:11:38+00:00",
+   "accepted_at": "2026-11-03T17:09:23+00:00",
+   "released_sha": "e8800c4465d2ec230d4c807f9b94cd815f931475",
+   "history": [
+    {
+     "ts": "2026-11-03T16:11:38+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-03T16:11:39+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261103T1607-exec-T-0019"
+    },
+    {
+     "ts": "2026-11-03T16:11:39+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-03T16:12:04+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged e8800c4465"
+    },
+    {
+     "ts": "2026-11-03T17:09:23+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The home page now states the limit under the headline, has both working anchor links, and the method section carries the paths, nested-files, lang-pages and baseline lines. No scripts or forms, footer"
+    }
+   ]
+  },
+  {
+   "id": "T-0020",
+   "title": "Threads trial post now (03.11): plain daily fact with the day's AGENTS.md share",
+   "type": "content",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-03T16:11:38+00:00",
+   "accepted_at": "2026-11-03T17:11:07+00:00",
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-03T16:11:38+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-03T17:10:22+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261103T1707-exec-T-0020"
+    },
+    {
+     "ts": "2026-11-03T17:10:22+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-03T17:11:07+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "posted 1 (editor-approved)"
+    }
+   ]
+  },
+  {
+   "id": "T-0021",
+   "title": "Home method wording: name the exact checked paths (root files plus .github/ and .cursor/ paths), not 'root only'",
+   "type": "defect",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G4",
+   "role": "developer",
+   "created": "2026-11-03T17:10:21+00:00",
+   "accepted_at": "2026-11-03T18:10:37+00:00",
+   "released_sha": "75be9cf9503cf956d7a49a16422ec06e84a08682",
+   "history": [
+    {
+     "ts": "2026-11-03T17:10:21+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-03T17:11:07+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261103T1707-exec-T-0021"
+    },
+    {
+     "ts": "2026-11-03T17:11:07+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-03T17:11:33+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 75be9cf950"
+    },
+    {
+     "ts": "2026-11-03T18:10:37+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The home page now names the exact checked paths in both the limit sentence and the method section, and still says nested files are not checked and that the count is presence only. stats.json is consis"
+    }
+   ]
+  },
+  {
+   "id": "T-0022",
+   "title": "Mastodon trial post 1 now (03.11): the day's AGENTS.md share, with stats.json as the citable source",
+   "type": "content",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G4",
+   "role": "marketer",
+   "created": "2026-11-03T17:10:21+00:00",
+   "accepted_at": "2026-11-03T18:11:27+00:00",
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-03T17:10:21+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-03T18:11:03+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261103T1807-exec-T-0022"
+    },
+    {
+     "ts": "2026-11-03T18:11:03+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-03T18:11:27+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "posted 1 (editor-approved)"
+    }
+   ]
+  },
+  {
+   "id": "T-0023",
+   "title": "Daily post 05.11 05:45 UTC on telegram @agentsmd_tracker: number of the day plus the 'added today' feed",
+   "type": "content",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "marketer",
+   "created": "2026-11-03T17:10:21+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-03T17:10:21+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0024",
+   "title": "Daily post 06.11 05:45 UTC on bluesky: number of the day (pilot day 3, baseline for the chart test)",
+   "type": "content",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-03T18:11:03+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-03T18:11:03+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0025",
+   "title": "Daily post 06.11 05:45 UTC on telegram @agentsmd_tracker: language cut (one language's AGENTS.md share)",
+   "type": "content",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "marketer",
+   "created": "2026-11-03T18:11:03+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-03T18:11:03+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0026",
+   "title": "Mastodon post 04.11 09:00 UTC: number of the day, link to home (channel test after the 03.11 trial)",
+   "type": "content",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-03T19:10:30+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-03T19:10:30+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0027",
+   "title": "Daily post 07.11 05:45 UTC on bluesky: number of the day (pilot day 4)",
+   "type": "content",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-03T19:10:30+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-03T19:10:30+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0028",
+   "title": "Daily post 07.11 05:45 UTC on telegram @agentsmd_tracker: number of the day",
+   "type": "content",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "marketer",
+   "created": "2026-11-03T19:10:30+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-03T19:10:30+00:00",
      "actor": "po",
      "to": "ready",
      "note": ""
@@ -418,30 +1004,82 @@
    "task": "T-0007",
    "verdict": "pass",
    "summary": "The fix is live: history is written only when a scan checked at least one repo, and stats.json 'generated' still shows the last real scan (2026-11-02T18:26:07Z) after a 05:10Z rebuild. Schemas and the delay logic look unchanged, and data_delayed is false."
+  },
+  {
+   "task": "T-0011",
+   "verdict": "pass",
+   "summary": "The live robots.txt disallows only /go/ for all agents, keeps Allow: / and the Sitemap line, and sitemap.xml lists no redirect URLs. A sample /go/ page still forwards to GitHub, and no per-bot blocks or scripts were added."
+  },
+  {
+   "task": "T-0013",
+   "verdict": "pass",
+   "summary": "The live build.json and stats.json meet all four acceptance criteria. A rebuild happened (built_at 08:15:06Z) without moving generated or last_checked, which both stay at 2026-11-03T07:13:27Z."
+  },
+  {
+   "task": "T-0014",
+   "verdict": "pass",
+   "summary": "The /brand/ page, avatar.svg and the favicon all match the acceptance criteria. The chosen avatar A is served as the favicon, and no text or AI mark appears in the images."
+  },
+  {
+   "task": "T-0001",
+   "verdict": "pass",
+   "summary": "The repo entry page has the useful / not useful links and a prefilled Report an error link. Both vote pages meta-refresh back to the entry, and the page adds no forms, cookies or JS, with the footer intact. The home-page convention cards and the language-list entries have no vote links; I read the task's \"entry\" as repo entries, so this is not a failure."
+  },
+  {
+   "task": "T-0019",
+   "verdict": "pass",
+   "summary": "The home page now states the limit under the headline, has both working anchor links, and the method section carries the paths, nested-files, lang-pages and baseline lines. No scripts or forms, footer kept, no advice or ranking, and stats.json 'generated' did not move."
+  },
+  {
+   "task": "T-0021",
+   "verdict": "pass",
+   "summary": "The home page now names the exact checked paths in both the limit sentence and the method section, and still says nested files are not checked and that the count is presence only. stats.json is consistent: its method has no root wording, its generated timestamp predates the home rebuild, and the footer, no-form and no-script requirements hold."
   }
  ],
- "posts": [],
+ "posts": [
+  {
+   "channel": "bluesky",
+   "url": "https://bsky.app/profile/formachines.bsky.social/post/3mzffjytrhr2l",
+   "ts": "2026-11-03T08:16:08+00:00"
+  },
+  {
+   "channel": "telegram",
+   "url": "https://t.me/agentsmd_tracker/2",
+   "ts": "2026-11-03T08:16:28+00:00"
+  },
+  {
+   "channel": "threads",
+   "url": "https://www.threads.com/@formachines/post/DfSYyrXjLz9",
+   "ts": "2026-11-03T17:11:07+00:00"
+  },
+  {
+   "channel": "mastodon",
+   "url": "https://mastodon.social/@formachines/117553855614919688",
+   "ts": "2026-11-03T18:11:27+00:00"
+  }
+ ],
  "metrics": {
-  "humans": 15,
-  "engaged": 0,
-  "returns": 0,
-  "agents": 7703,
-  "crawlers": 9,
-  "requests": 8054
+  "humans": 13,
+  "engaged": 4,
+  "returns": 1,
+  "agents": 15542,
+  "crawlers": 401,
+  "requests": 16996
  },
- "spend_usd": 4.1,
- "po_digest_md": "**Цикл 03.11 07:07 UTC.** Расход $3.79 из $20.\n\n**Что произошло**\n- Персоны прошли сценарии мейнтейнера, автора инструмента и парсера, все успешно. Цепочка «главная → /lang/go/ → карточка → файл в GitHub» работает, цитата и метод на месте.\n- 03.11 скана не было: generated = 02.11 18:26. При этом today.json и история показывают дату 03.11 — это ложная строка в истории.\n- Метрики за 02.11:\n  - 14 вовлечённых людей, переходов людей на /go/ ноль;\n  - 882 из 885 запросов /go/ сделал ClaudeBot.\n\n**Решения**\n- Новая задача: robots.txt `Disallow: /go/`, чтобы краулеры не засоряли метрику G3. Страницы и JSON остаются открытыми для ИИ (G4).\n- Новая задача: все даты в данных берутся из времени скана, сборка без скана не добавляет строку в историю. Запуск после скана 04.11, чтобы не мешать T-0009.\n- T-0009 (проверка ежедневного скана в 04:00) в работе. Проверка — 04.11 после 04:00.\n- T-0004 (пост за 03.11) закрыт: данные за 03.11 не свежие. Пост первого дня пилота — T-0010, 04.11 в 05:45 UTC.\n- Разбор 4xx: сначала нужны пути с нашим referer. Похоже, это сканеры, а не битые ссылки.\n\n**Ждёт владельца**\n- В git remote клона на сервере GitHub-токен лежит открытым текстом. Ротировать его и перейти на credential helper? Пока роли токен не трогают.",
- "analyst_md": "**Срез на 03.11 06:02 UTC. Пилот (04–10.11) ещё не начался, база нулевая. Данные только за 02.11, он идёт в отчёте как неполный день.**\n\n| Уровень | 02.11 |\n|---|---|\n| Обнаружение: краулеры | 4126 запросов, 19 источников (ClaudeBot 4094, GPTBot 7, OAI-SearchBot 1) |\n| Люди | 58 источников, engaged 14 |\n| Возвраты | 0 |\n| Внешние клики `/go/` от людей | 0 (из 885 запросов 882 — краулер, 1 — наши) |\n| Агенты | 3 источника (curl 17, claude-code 1) |\n| 5xx / 4xx | 0 / 1527 (сканеры и unknown) |\n\n- Посты не публиковались, поэтому сравнить часы до и после поста нельзя. Referers пусты, так что источник людей неизвестен.\n- Задачи T-0002, T-0003, T-0005, T-0008 приняты менее суток назад. Целевых действий нет, поэтому эффект оценить нельзя.\n- ClaudeBot делает почти все запросы дня, включая 882 на `/go/` с одного источника. На людей это не влияет, но шумит в метриках обнаружения.\n- Цели G1–G5 пока нулевые. Для G1 нужно около 9 engaged в день, а сейчас 14 — вероятно, пик первого дня.",
+ "spend_usd": 9.7,
+ "po_digest_md": "**agentsmd-tracker, cycle 03.11 19:07 UTC**\n\n**What happened.** On 03.11 the first posts went out in four channels (bluesky, telegram, mastodon, threads). The mastodon post brought the most visitors: 5 human sources and 83 requests. None of them engaged. Bluesky brought 3 sources (1 engaged), threads 1 (1 engaged), telegram 0. All 10 persona runs succeeded: the language pages, cards, citation line and JSON contract work. On 02.11 ClaudeBot made 882 of 885 requests to /go/. The robots.txt fix (T-0011) went live on 03.11, and we will compare after the 04.11 metrics.\n\n**Decisions:**\n- **Mastodon:** a post on 04.11 at 09:00 UTC, linking to the home page rather than stats.json, to see whether its visitors stay. Without it the channel would sit idle until 09.11.\n- **Plan slots for 07.11:** bluesky and telegram posts, both at 05:45 UTC.\n- **Long Go page (193 repos):** deferred. The short AGENTS.md list already sits at the top, and a filter would need JS.\n- **Different timestamps in build.json vs stats.json:** rejected. They differ by design (build time vs scan time).\n\n**Waiting for you:** please have ops add `/stats.json`, `/today.json`, `/feed.xml` and `/llms.txt` as metrics targets in product.yaml. Without them, goal G3b (requests to the JSON/RSS files from sources other than us) cannot be measured during the pilot.\n\n**Next:** at 04.11 05:45 UTC the first pilot-day post (T-0010), then the fix for data dates (T-0012).\n\n**Cost:** $9.32 of $20 spent today.",
+ "analyst_md": "**Данные на 03.11 18:00 UTC. Пилот (04–10.11) ещё не начался, база нулевая. В промпте обрезан блок за 03.11 (24 тыс. символов), поэтому по постам до/после и по referer данных нет.**\n\n| Уровень | 02.11 | Цель пилота |\n|---|---|---|\n| Discovery: краулеры | 4126 запросов, 19 источников (ClaudeBot 4094, GPTBot 7) | — |\n| Люди: engaged | 14 (всего 58 источников) | G1 ≥ 60 за 04–10.11 |\n| Возвраты | 0 | G2 ≥ 5 |\n| Клики `/go/` от людей | 0 (885 запросов: 882 краулер, 1 источник) | G3 ≥ 15 |\n| `/stats.json`, `/today.json`, `/feed.xml` | по 1 запросу за день в `top_pages`; не от нас — не разобрано | G3b ≥ 10 источников |\n| Агенты (curl, claude-code) | 17 запросов, 2–3 источника | G4 ≥ 1 |\n| Ответы на посты | нет данных | G5 ≥ 1 |\n\n- 5xx: 0.\n- Своих запросов 92 (18 источников), они исключены.\n- Счётчик за 02.11 вырос между снимками (5401 → 6557 запросов, ClaudeBot 2942 → 4094), хотя день уже закончился. Вероятно, логи досчитались или сместилась граница суток.\n- Referer за 02.11 пуст, поэтому связь «пост → визиты» не подтверждается.\n\nПостов 03.11 четыре: bluesky и telegram в 08:16, threads в 17:11, mastodon в 18:11. Для threads и mastodon окно «после» ещё слишком короткое.",
  "observations": {
-  "new": 41,
+  "new": 80,
   "by_class": {
-   "measurement": 3,
-   "need_hypothesis": 11,
-   "success": 18,
-   "synthetic_difficulty": 4,
+   "measurement": 5,
+   "need_hypothesis": 24,
+   "success": 37,
+   "synthetic_difficulty": 6,
    "ops": 3,
-   "reproducible_defect": 2
+   "reproducible_defect": 2,
+   "feedback": 3
   }
  },
- "owner_questions_open": 1
+ "owner_questions_open": 0
 }

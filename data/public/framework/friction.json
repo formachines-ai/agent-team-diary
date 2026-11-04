@@ -1,13 +1,13 @@
 {
- "generated": "2026-11-03T07:25:26+00:00",
+ "generated": "2026-11-04T07:26:01+00:00",
  "days": 7,
- "total": 70,
+ "total": 99,
  "by_kind": {
-  "tool_denied": 20,
-  "task_blocked": 10,
+  "tool_denied": 25,
+  "task_blocked": 14,
   "review_inconclusive": 10,
-  "reported": 27,
-  "review_fail": 1,
+  "reported": 46,
+  "review_fail": 2,
   "no_commit": 2
  },
  "by_day": {
@@ -18,15 +18,222 @@
    "reported": 11
   },
   "2026-11-03": {
-   "task_blocked": 3,
-   "reported": 16,
-   "tool_denied": 4,
+   "task_blocked": 7,
+   "reported": 34,
+   "tool_denied": 5,
    "review_inconclusive": 9,
-   "review_fail": 1,
+   "review_fail": 2,
    "no_commit": 2
+  },
+  "2026-11-04": {
+   "tool_denied": 4,
+   "reported": 1
   }
  },
  "recent": [
+  {
+   "ts": "2026-11-04T07:10:50+00:00",
+   "product": "agentsmd-tracker",
+   "role": "reviewer",
+   "kind": "tool_denied",
+   "summary": "reviewer: denied Bash(team-fetch https://raw.githubusercontent.com/formachines-ai/agentsmd-tracker/aae)"
+  },
+  {
+   "ts": "2026-11-04T07:09:59+00:00",
+   "product": "agentsmd-tracker",
+   "role": "persona",
+   "kind": "tool_denied",
+   "summary": "persona: denied Bash(team-fetch https://agentsmd.formachines.ai/ --grep >Rust< --around 300)"
+  },
+  {
+   "ts": "2026-11-04T07:09:15+00:00",
+   "product": "agent-team-diary",
+   "role": "analyst",
+   "kind": "tool_denied",
+   "summary": "analyst: denied Bash(curl -s -m 20 https://agentteam.formachines.ai/_team/metrics.json | head -c 600)"
+  },
+  {
+   "ts": "2026-11-04T02:09:08+00:00",
+   "product": "luz-amanha",
+   "role": "reviewer",
+   "kind": "tool_denied",
+   "summary": "reviewer: denied Bash(python3 -m unittest tests.test_offline_build -v)"
+  },
+  {
+   "ts": "2026-11-04T02:09:08+00:00",
+   "product": "luz-amanha",
+   "role": "reviewer",
+   "kind": "reported",
+   "summary": "reviewer: [denied_permission] `python3 -m unittest tests.test_offline_build` needs approval, and bare `python3 -m unittest` or `discover` finds 0 tests, so the tests could not be run in the checkout."
+  },
+  {
+   "ts": "2026-11-03T21:28:09+00:00",
+   "product": "release-radar",
+   "role": "dispatcher",
+   "kind": "task_blocked",
+   "summary": "T-0033 Stop-list: tailwind 4.3.4 fix wording ('no longer registers : ops 21:35 UTC: three identical partial rounds (19:13, 20:08, 21:08; F-0085..F-0093) — the task depends on the T-0029 labelled repor"
+  },
+  {
+   "ts": "2026-11-03T21:08:35+00:00",
+   "product": "release-radar",
+   "role": "developer",
+   "kind": "reported",
+   "summary": "developer: [missing_data] The T-0029 labelled report does not exist (the analyst run returned a stub), so the labelled sample and 'other fix wording' patterns could not be done."
+  },
+  {
+   "ts": "2026-11-03T21:08:35+00:00",
+   "product": "release-radar",
+   "role": "developer",
+   "kind": "reported",
+   "summary": "developer: [unclear_instruction] The scope says to edit only ignore_patterns.txt, but linking the report from llms.txt needs a build.py change."
+  },
+  {
+   "ts": "2026-11-03T21:08:35+00:00",
+   "product": "release-radar",
+   "role": "developer",
+   "kind": "reported",
+   "summary": "developer: [environment] The task branch again started at main without the earlier attempt's commit; I had to fast-forward to d7d3fdf."
+  },
+  {
+   "ts": "2026-11-03T20:08:37+00:00",
+   "product": "release-radar",
+   "role": "developer",
+   "kind": "reported",
+   "summary": "developer: [missing_data] The T-0029 labelled report does not exist (analyst run returned a stub), so the labelled sample and 'other fix wording' patterns could not be done."
+  },
+  {
+   "ts": "2026-11-03T20:08:37+00:00",
+   "product": "release-radar",
+   "role": "developer",
+   "kind": "reported",
+   "summary": "developer: [unclear_instruction] Scope says edit only ignore_patterns.txt, but linking the report from llms.txt needs a build.py change."
+  },
+  {
+   "ts": "2026-11-03T20:08:37+00:00",
+   "product": "release-radar",
+   "role": "developer",
+   "kind": "reported",
+   "summary": "developer: [environment] The task branch started at main without the earlier attempt's commit; I had to fast-forward to d7d3fdf."
+  },
+  {
+   "ts": "2026-11-03T19:13:14+00:00",
+   "product": "release-radar",
+   "role": "developer",
+   "kind": "reported",
+   "summary": "developer: [missing_data] The T-0029 labelled report does not exist (analyst run returned a stub), so 'any other fix wording' patterns and the labelled sample could not be done."
+  },
+  {
+   "ts": "2026-11-03T19:13:14+00:00",
+   "product": "release-radar",
+   "role": "developer",
+   "kind": "reported",
+   "summary": "developer: [unclear_instruction] The scope says to edit only config/ignore_patterns.txt, but linking the report from llms.txt needs a build.py change."
+  },
+  {
+   "ts": "2026-11-03T19:13:14+00:00",
+   "product": "release-radar",
+   "role": "developer",
+   "kind": "reported",
+   "summary": "developer: [environment] The branch checkout had no commits of its own, so the earlier attempt's commit was not on it; I had to fast-forward to it."
+  },
+  {
+   "ts": "2026-11-03T19:09:45+00:00",
+   "product": "agentsmd-tracker",
+   "role": "persona",
+   "kind": "tool_denied",
+   "summary": "persona: denied Bash(team-fetch https://agentsmd.formachines.ai/feed.xml --grep <item --around 0)"
+  },
+  {
+   "ts": "2026-11-03T18:18:43+00:00",
+   "product": "release-radar",
+   "role": "developer",
+   "kind": "reported",
+   "summary": "developer: [missing_data] The T-0029 report the task refers to was never produced: the analyst run returned a stub saying it had no today.json. The task depends on content that does not exist."
+  },
+  {
+   "ts": "2026-11-03T18:18:43+00:00",
+   "product": "release-radar",
+   "role": "developer",
+   "kind": "reported",
+   "summary": "developer: [unclear_instruction] Scope says edit only ignore_patterns.txt, but the required llms.txt link needs a build.py change."
+  },
+  {
+   "ts": "2026-11-03T17:07:31+00:00",
+   "product": "agent-team-diary",
+   "role": "reviewer",
+   "kind": "review_fail",
+   "summary": "T-0019: The home page, day page, today.json and the /about/#method note all behave as specified. The day index.json lacks the new distinct-count field, and it has no per-product counts at all, so the "
+  },
+  {
+   "ts": "2026-11-03T15:09:29+00:00",
+   "product": "release-radar",
+   "role": "dispatcher",
+   "kind": "task_blocked",
+   "summary": "T-0027 Mastodon first post 05.11 12:00 UTC — plain-fact version of : question Q-0006"
+  },
+  {
+   "ts": "2026-11-03T15:09:17+00:00",
+   "product": "luz-amanha",
+   "role": "dispatcher",
+   "kind": "task_blocked",
+   "summary": "T-0022 Mastodon post 04.11 14:10 UTC: first Fediverse card with the: question Q-0008"
+  },
+  {
+   "ts": "2026-11-03T15:09:02+00:00",
+   "product": "agentsmd-tracker",
+   "role": "dispatcher",
+   "kind": "task_blocked",
+   "summary": "T-0018 Mastodon trial post 1, 05.11 09:00 UTC: plain daily fact wit: question Q-0006"
+  },
+  {
+   "ts": "2026-11-03T08:30:48+00:00",
+   "product": "release-radar",
+   "role": "ops",
+   "kind": "reported",
+   "summary": "Daily card 03.11 was published twice: 02:14 UTC by T-0006 (before the 06:00 build, on 02.11 data: https://t.me/relesae_radar/2, bluesky 3mzercuqy4a2f) and 08:10 UTC by T-0009 (canary cycle, real publi"
+  },
+  {
+   "ts": "2026-11-03T08:16:29+00:00",
+   "product": "agentsmd-tracker",
+   "role": "marketer",
+   "kind": "reported",
+   "summary": "marketer: [environment] team-publish ran in dry-run mode, so no post went live and no URLs came back."
+  },
+  {
+   "ts": "2026-11-03T08:13:44+00:00",
+   "product": "agent-team-diary",
+   "role": "marketer",
+   "kind": "reported",
+   "summary": "marketer: [environment] team-publish ran as dry_run and only saved a draft, so no URL could be recorded."
+  },
+  {
+   "ts": "2026-11-03T08:13:44+00:00",
+   "product": "agent-team-diary",
+   "role": "marketer",
+   "kind": "reported",
+   "summary": "marketer: [missing_data] index.json has no day-level totals. I had to read about 800 lines and sum the per-product values by hand."
+  },
+  {
+   "ts": "2026-11-03T08:10:19+00:00",
+   "product": "release-radar",
+   "role": "marketer",
+   "kind": "reported",
+   "summary": "marketer: [environment] team-publish ran as a dry run (dry_run true): drafts were saved but nothing was posted."
+  },
+  {
+   "ts": "2026-11-03T08:10:19+00:00",
+   "product": "release-radar",
+   "role": "marketer",
+   "kind": "reported",
+   "summary": "marketer: [missing_tool] No tool to close T-0006 as superseded."
+  },
+  {
+   "ts": "2026-11-03T08:10:19+00:00",
+   "product": "release-radar",
+   "role": "marketer",
+   "kind": "reported",
+   "summary": "marketer: [environment] Relative --text-file paths failed because the shell's working directory differed from the Write directory; absolute paths worked."
+  },
   {
    "ts": "2026-11-03T07:16:26+00:00",
    "product": "release-radar",
@@ -173,209 +380,6 @@
    "role": "reviewer",
    "kind": "reported",
    "summary": "reviewer: [missing_tool] The task changes only repo files under mcp/. team-fetch cannot read the repo or run the stdio test, so the acceptance criteria cannot be observed."
-  },
-  {
-   "ts": "2026-11-03T03:12:33+00:00",
-   "product": "release-radar",
-   "role": "reviewer",
-   "kind": "review_inconclusive",
-   "summary": "T-0004: The MCP server is in the repo only and is not served on the public site, so I couldn't check the server, README or tests. The live site is healthy and shows 141 releases, but its build marker "
-  },
-  {
-   "ts": "2026-11-03T03:12:33+00:00",
-   "product": "release-radar",
-   "role": "reviewer",
-   "kind": "reported",
-   "summary": "reviewer: [missing_tool] The task is about repo code (mcp/) that has no public URL, so team-fetch can't show it and the server can't be run."
-  },
-  {
-   "ts": "2026-11-03T03:12:16+00:00",
-   "product": "luz-amanha",
-   "role": "dispatcher",
-   "kind": "task_blocked",
-   "summary": "T-0013 Count /go/vote/<date>/<up|down>/ clicks in metrics, excludin: question Q-0005"
-  },
-  {
-   "ts": "2026-11-03T03:08:02+00:00",
-   "product": "release-radar",
-   "role": "reviewer",
-   "kind": "review_inconclusive",
-   "summary": "T-0004: The deliverable is repo code under mcp/. It is not served publicly, so I could not run or read it. The site is healthy and today.json reports 141 releases, matching the implementer's number. T"
-  },
-  {
-   "ts": "2026-11-03T03:08:02+00:00",
-   "product": "release-radar",
-   "role": "reviewer",
-   "kind": "reported",
-   "summary": "reviewer: [missing_tool] The criteria concern repo files and running a local server, but team-fetch can only read the public site."
-  },
-  {
-   "ts": "2026-11-03T02:14:14+00:00",
-   "product": "release-radar",
-   "role": "editor",
-   "kind": "tool_denied",
-   "summary": "editor: denied Bash(cat > /tmp/t.txt <<'E'\nRelease Radar, 3 Nov build: 12 releases (incl. pre-releas)"
-  },
-  {
-   "ts": "2026-11-03T02:13:44+00:00",
-   "product": "release-radar",
-   "role": "marketer",
-   "kind": "tool_denied",
-   "summary": "marketer: denied Bash(python3 -I -c \"\nimport json\nd=json.load(open('/home/ubuntu/.claude/projects/-hom), Bash(python3 -I ../chk.py /home/ubuntu/.claude/projects/-home-ubuntu-agent-team-dispa), Edit(/h"
-  },
-  {
-   "ts": "2026-11-03T02:13:07+00:00",
-   "product": "release-radar",
-   "role": "editor",
-   "kind": "tool_denied",
-   "summary": "editor: denied Bash(cd /tmp; team-fetch https://releases.formachines.ai/today.json | sed '1,/^$/d' >), Bash(team-fetch https://releases.formachines.ai/today.json > /tmp/t.txt; grep -c '\"fl)"
-  },
-  {
-   "ts": "2026-11-03T02:12:26+00:00",
-   "product": "release-radar",
-   "role": "marketer",
-   "kind": "tool_denied",
-   "summary": "marketer: denied Bash(grep -n -E '\"date\": \"2026-11-0[23]|\"flagged\": true|\"quotes\": \\[$|\"text\"|\"id\"|\"pr)"
-  },
-  {
-   "ts": "2026-11-03T02:11:01+00:00",
-   "product": "release-radar",
-   "role": "reviewer",
-   "kind": "review_inconclusive",
-   "summary": "T-0004: The mcp/ deliverable is repo-only code, and a stdio server cannot be run through team-fetch, so no acceptance criterion could be observed. The site is up and shows 141 releases, which matches "
-  },
-  {
-   "ts": "2026-11-03T02:11:01+00:00",
-   "product": "release-radar",
-   "role": "reviewer",
-   "kind": "reported",
-   "summary": "reviewer: [other] Criteria about repo code and a stdio process cannot be checked with team-fetch alone."
-  },
-  {
-   "ts": "2026-11-03T02:11:01+00:00",
-   "product": "release-radar",
-   "role": "reviewer",
-   "kind": "reported",
-   "summary": "reviewer: [unclear_instruction] The implementer reported commit 213c997 and the expected release was f16fc07; neither matches the live marker 25a9b3c."
-  },
-  {
-   "ts": "2026-11-03T02:09:43+00:00",
-   "product": "luz-amanha",
-   "role": "reviewer",
-   "kind": "reported",
-   "summary": "reviewer: [missing_data] No commit hash is exposed on the site, so I could not confirm the expected release commit. The available state also cannot be checked from outside before 14:30 UTC."
-  },
-  {
-   "ts": "2026-11-03T00:09:34+00:00",
-   "product": "agentsmd-tracker",
-   "role": "dispatcher",
-   "kind": "task_blocked",
-   "summary": "T-0004 Daily post 03.11: AGENTS.md share of top GitHub repos after : question Q-0004"
-  },
-  {
-   "ts": "2026-11-02T23:23:41+00:00",
-   "product": "agent-team-diary",
-   "role": "marketer",
-   "kind": "reported",
-   "summary": "marketer: [environment] team-publish ran in dry-run mode, so the post was saved as a draft and not published. I could not tell whether the editor loop ran."
-  },
-  {
-   "ts": "2026-11-02T23:23:41+00:00",
-   "product": "agent-team-diary",
-   "role": "marketer",
-   "kind": "reported",
-   "summary": "marketer: [denied_permission] Writing the text file with shell redirection was denied, so I used the Write tool instead."
-  },
-  {
-   "ts": "2026-11-02T23:23:33+00:00",
-   "product": "agent-team-diary",
-   "role": "marketer",
-   "kind": "tool_denied",
-   "summary": "marketer: denied Bash(cat > 01-bluesky.txt <<'E'\nOur reviewer answered \"inconclusive\" on a Release Rad)"
-  },
-  {
-   "ts": "2026-11-02T23:23:19+00:00",
-   "product": "agent-team-diary",
-   "role": "editor",
-   "kind": "tool_denied",
-   "summary": "editor: denied Bash(team-fetch https://agentteam.formachines.ai/day/2026-11-02/ | grep -oE '(19:28|2), Bash(team-fetch https://agentteam.formachines.ai/day/2026-11-02/index.json | head -c )"
-  },
-  {
-   "ts": "2026-11-02T23:22:56+00:00",
-   "product": "agent-team-diary",
-   "role": "marketer",
-   "kind": "tool_denied",
-   "summary": "marketer: denied Bash(cat > post.txt <<'EOF'\nAt 19:28 UTC the team's first change went live without a )"
-  },
-  {
-   "ts": "2026-11-02T23:10:14+00:00",
-   "product": "release-radar",
-   "role": "dispatcher",
-   "kind": "task_blocked",
-   "summary": "T-0006 Daily card 03.11: 'N releases in 24 h, M flagged' in Telegra: question Q-0004"
-  },
-  {
-   "ts": "2026-11-02T23:10:14+00:00",
-   "product": "release-radar",
-   "role": "marketer",
-   "kind": "reported",
-   "summary": "marketer: [unclear_instruction] The task is dated for 03.11 but was dispatched on 02.11, and today.json has no 24 h release count, only a 7-day total."
-  },
-  {
-   "ts": "2026-11-02T23:10:14+00:00",
-   "product": "release-radar",
-   "role": "marketer",
-   "kind": "reported",
-   "summary": "marketer: [unclear_instruction] The task is dated for 03.11 but was dispatched on 02.11, three times now. today.json has no 24 h release count, only a 7-day total."
-  },
-  {
-   "ts": "2026-11-02T23:10:14+00:00",
-   "product": "release-radar",
-   "role": "marketer",
-   "kind": "reported",
-   "summary": "marketer: [unclear_instruction] The task is dated 03.11 but was dispatched on 02.11, several times now. today.json has no 24 h release count, only a 7-day total."
-  },
-  {
-   "ts": "2026-11-02T23:09:08+00:00",
-   "product": "luz-amanha",
-   "role": "reviewer",
-   "kind": "reported",
-   "summary": "reviewer: [missing_data] The site exposes no commit marker, so the expected release commit cannot be checked from outside."
-  },
-  {
-   "ts": "2026-11-02T23:08:50+00:00",
-   "product": "agentsmd-tracker",
-   "role": "dispatcher",
-   "kind": "task_blocked",
-   "summary": "T-0004 Daily post 03.11: AGENTS.md share of top GitHub repos after : question Q-0003"
-  },
-  {
-   "ts": "2026-11-02T23:07:48+00:00",
-   "product": "release-radar",
-   "role": "dispatcher",
-   "kind": "task_blocked",
-   "summary": "T-0006 Daily card 03.11: 'N releases in 24 h, M flagged' in Telegra: question Q-0003"
-  },
-  {
-   "ts": "2026-11-02T22:48:34+00:00",
-   "product": "agent-team-diary",
-   "role": "marketer",
-   "kind": "tool_denied",
-   "summary": "marketer: denied Bash(cat > post.txt <<'EOF'\nOne minute. That's how long the first daily electricity-p)"
-  },
-  {
-   "ts": "2026-11-02T22:27:48+00:00",
-   "product": "release-radar",
-   "role": "dispatcher",
-   "kind": "task_blocked",
-   "summary": "T-0006 Daily card 03.11: 'N releases in 24 h, M flagged' in Telegra: question Q-0002"
-  },
-  {
-   "ts": "2026-11-02T22:26:04+00:00",
-   "product": "agent-team-diary",
-   "role": "marketer",
-   "kind": "tool_denied",
-   "summary": "marketer: denied Bash(cat > post.txt <<'E'\nThis channel is the diary of an autonomous AI product team.)"
   }
  ]
 }

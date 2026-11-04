@@ -1,5 +1,5 @@
 {
- "built": "2026-11-03T18:09:14Z",
+ "built": "2026-11-04T07:26:01Z",
  "counts": {
   "agent-team": {
    "agents": null,
@@ -23,9 +23,9 @@
    "agents": 17,
    "crawlers": 4126,
    "fixture": false,
-   "humans": 58,
+   "humans": 37,
    "observations": 47,
-   "owner_questions_open": 1,
+   "owner_questions_open": 0,
    "posts": 0,
    "returns": 0,
    "reviews": 2,
@@ -41,7 +41,7 @@
    "agents": 16,
    "crawlers": 62,
    "fixture": false,
-   "humans": 52,
+   "humans": 34,
    "observations": 59,
    "owner_questions_open": 0,
    "posts": 0,
@@ -59,9 +59,9 @@
    "agents": 22,
    "crawlers": 464,
    "fixture": false,
-   "humans": 65,
+   "humans": 43,
    "observations": 47,
-   "owner_questions_open": 0,
+   "owner_questions_open": 1,
    "posts": 2,
    "returns": 0,
    "reviews": 4,
@@ -242,8 +242,8 @@
    "metrics": {
     "agents": 17,
     "crawlers": 4126,
-    "engaged": 14,
-    "humans": 58,
+    "engaged": 11,
+    "humans": 37,
     "requests": 6557,
     "returns": 0
    },
@@ -258,7 +258,7 @@
     },
     "new": 47
    },
-   "owner_questions_open": 1,
+   "owner_questions_open": 0,
    "po_digest_md": "## AGENTS.md Tracker — цикл 02.11 23:07 UTC\n\n**Что произошло.** T-0002 (страницы языков /lang/) и T-0003 (метаданные, JSON-LD, «Cite as», method в stats.json) приняты. Новых наблюдений нет. Трафик 02.11: 58 людей, из них 14 вовлечённых (но это до пилота, свой трафик и сканеры, наверное, тоже в счёте). Ещё 17 агентов и ~3 000 запросов краулеров. Реального спроса пока не видно.\n\n**Что решено.**\n- Новых задач нет. В работе уже 4 готовые задачи: T-0005 (ссылка с карточки на страницу языка), T-0006 (разбор трафика 4xx и unknown для честного G1), T-0007 (пересборка с --no-scan не должна переписывать историю), T-0001 (кнопки отзыва, P3). Лучше закончить их, чем начинать новые.\n- Ежедневный пост T-0004 запускается после скана 03.11 04:00 UTC, не раньше 04:15 UTC. Если stats.json не обновился или data_delayed = true, пост не выходит, а открывается дефект P1.\n\n**Ждёт владельца.** Ничего. VISION в статусе черновика: пилот 04–10.11 идёт по нему, пока владелец не внесёт правки.\n\n**Расходы.** $2.38 из $20 за день.",
    "posts": [],
    "reviews": [
@@ -278,7 +278,7 @@
    "spend_usd": 2.6,
    "tasks": [
     {
-     "accepted_at": null,
+     "accepted_at": "2026-11-03T12:10:29+00:00",
      "created": "2026-11-02T20:16:55+00:00",
      "goal": "G3",
      "history": [
@@ -309,9 +309,9 @@
      ],
      "id": "T-0001",
      "priority": "P3",
-     "released_sha": null,
+     "released_sha": "94be73401e625ab7636d4875f26a45ebcab4b4d8",
      "role": "developer",
-     "state": "ready",
+     "state": "accepted",
      "title": "Add one-click feedback links on each card: useful / not useful, and a report-an-error link to a prefilled GitHub issue",
      "type": "feature"
     },
@@ -355,7 +355,7 @@
      "priority": "P1",
      "released_sha": "e84ab7e9c860382a5cb2881365088b4160650d52",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Per-language pages listing every repo with its agent-file presence, linked from the home language table",
      "type": "feature"
     },
@@ -399,12 +399,12 @@
      "priority": "P2",
      "released_sha": "af11ad6c173cfe1c28982f9a6ed0e62c8010cf14",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Page metadata and citation: short titles/descriptions, og tags, JSON-LD Dataset, method and attribution in stats.json and on home",
      "type": "defect"
     },
     {
-     "accepted_at": null,
+     "accepted_at": "2026-11-03T08:16:29+00:00",
      "created": "2026-11-02T21:29:13+00:00",
      "goal": "G5",
      "history": [
@@ -467,7 +467,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "ready",
+     "state": "accepted",
      "title": "Daily post 03.11: AGENTS.md share of top GitHub repos after the 04:00 UTC scan (bluesky + telegram)",
      "type": "content"
     },
@@ -487,7 +487,7 @@
      "priority": "P2",
      "released_sha": "f4d844371dad291a9d7e98ebb5f32089f5deb9b2",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Link each repo card to its language page and mention /lang/ pages on home",
      "type": "feature"
     },
@@ -539,8 +539,8 @@
    "metrics": {
     "agents": 16,
     "crawlers": 62,
-    "engaged": 10,
-    "humans": 52,
+    "engaged": 7,
+    "humans": 34,
     "requests": 467,
     "returns": 0
    },
@@ -618,7 +618,7 @@
      "priority": "P1",
      "released_sha": "08c72ee948036d15cd26e43f271aa42d7aaa72b0",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Point /go/telegram/ and the Telegram button at the real channel @luz_amanha",
      "type": "defect"
     },
@@ -644,7 +644,7 @@
      "priority": "P3",
      "released_sha": "80ab2410ef03e2333c9065a0a2ea7647adba78c4",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Add one-click feedback links on each card: useful / not useful, and a report-an-error link to a prefilled GitHub issue",
      "type": "feature"
     },
@@ -688,7 +688,7 @@
      "priority": "P2",
      "released_sha": "496f1fbf9a8df95def4536f60f9b4caaad693d7b",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Fill the 23:00 hour on archive days from the next OMIE file and explain the gap for tomorrow",
      "type": "defect"
     },
@@ -732,7 +732,7 @@
      "priority": "P2",
      "released_sha": "941419b8972302bc699d86988e50e61ee9a7060e",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "One h1, og:title/og:description and JSON-LD on all page templates; lang=\"en\" on the EN block",
      "type": "defect"
     },
@@ -799,7 +799,7 @@
      "type": "content"
     },
     {
-     "accepted_at": null,
+     "accepted_at": "2026-11-03T14:09:12+00:00",
      "created": "2026-11-02T22:12:57+00:00",
      "goal": "G3",
      "history": [
@@ -814,12 +814,12 @@
      "priority": "P1",
      "released_sha": null,
      "role": "marketer",
-     "state": "ready",
+     "state": "accepted",
      "title": "Daily post 03.11 14:05 UTC: prices for 04.11 in Telegram @luz_amanha and Bluesky, PT+EN",
      "type": "content"
     },
     {
-     "accepted_at": null,
+     "accepted_at": "2026-11-04T07:14:22+00:00",
      "created": "2026-11-02T22:12:57+00:00",
      "goal": "G2",
      "history": [
@@ -834,7 +834,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "ready",
+     "state": "accepted",
      "title": "Morning post 04.11 07:00 UTC: today's cheapest hours from today.json, PT+EN",
      "type": "content"
     },
@@ -884,8 +884,8 @@
    "metrics": {
     "agents": 22,
     "crawlers": 464,
-    "engaged": 16,
-    "humans": 65,
+    "engaged": 10,
+    "humans": 43,
     "requests": 1190,
     "returns": 0
    },
@@ -900,7 +900,7 @@
     },
     "new": 47
    },
-   "owner_questions_open": 0,
+   "owner_questions_open": 1,
    "po_digest_md": "**Release Radar — цикл 02.11, 23:07 UTC**\\n\\n**Что произошло.** Новых наблюдений нет. Приняты задачи T-0001 (пост в Bluesky), T-0002 (время сборки и коммит в подвале страниц), T-0003 (ссылки «полезно / не полезно» и «сообщить об ошибке») и T-0005 (og-теги и JSON-LD). Метрики за 02.11: 64 человека, 16 из них engaged. Блок targets пока пуст, поэтому G3 и G4 посчитать нельзя. Это исправит T-0007.\\n\\n**Что решено.**\\n- Ответил маркетологу (Q-0003) по ежедневной карточке T-0006:\\n  - N — релизы, вышедшие за 24 ч до времени сборки, по датам в today.json;\\n  - M — сколько из них отмечено регэкспом;\\n  - публикация не раньше 06:05 UTC 03.11 и только при свежей сборке;\\n  - если релизов за 24 ч нет, пост говорит об этом и берёт окно 48 ч, как блок recent на сайте.\\n- Новых задач не создаю. В работе уже три задачи:\\n  - T-0007 (P2): счётчики /go/, /today.json и 404 на /pkg/ — без них не измерить G3 и G4;\\n  - T-0008 (P2): пометка пре-релизов и строка «последняя стабильная версия» на /pkg/;\\n  - T-0004 (P3): MCP-сервер.\\n  Важнее закончить эти задачи, чем начинать новые. Ежедневная карточка уже есть в T-0006.\\n\\n**Чего жду от владельца.** Ничего нового.\\n\\n**Затраты.** $2.60 из дневного лимита $20.",
    "posts": [
     {
@@ -980,7 +980,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "accepted",
+     "state": "done",
      "title": "Day-1 daily card: N releases in 24 h, M flagged — Bluesky",
      "type": "marketing"
     },
@@ -1024,7 +1024,7 @@
      "priority": "P2",
      "released_sha": "64116c95c75109552be3f1d501a5ca73d10eead4",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Show the build time and short commit hash in the footer of every page",
      "type": "feature"
     },
@@ -1068,7 +1068,7 @@
      "priority": "P2",
      "released_sha": "05105f3cdc97a1e2765721a96b060908f30f8bc1",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Add one-click feedback links on each card: useful / not useful, and a report-an-error link to a prefilled GitHub issue",
      "type": "feature"
     },
@@ -1088,7 +1088,7 @@
      "priority": "P3",
      "released_sha": "f16fc076b8aa29e1b92efc62c4383365acd7b637",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "MCP server over the public JSON: releases_today, package_releases, flagged_breaking (read-only, stdio)",
      "type": "feature"
     },
@@ -1132,7 +1132,7 @@
      "priority": "P2",
      "released_sha": "649a96d697dc3b0d4d430a040a36b12acfd81481",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Add og:title, og:description and a JSON-LD block to every page template (home, /pkg/, /legal/)",
      "type": "defect"
     },
@@ -1242,7 +1242,7 @@
      "priority": "P3",
      "released_sha": null,
      "role": "marketer",
-     "state": "accepted",
+     "state": "rejected",
      "title": "Daily card 03.11: 'N releases in 24 h, M flagged' in Telegram @relesae_radar and Bluesky",
      "type": "content"
     },
@@ -1282,7 +1282,7 @@
      "priority": "P2",
      "released_sha": "25a9b3c1817adc75050a411fdd41c1630958c0ed",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Label pre-releases (insiders, canary, rc, beta) and always show the latest stable version with its date on /pkg/ pages",
      "type": "defect"
     }

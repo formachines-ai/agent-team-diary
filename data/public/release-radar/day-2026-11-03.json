@@ -8,7 +8,7 @@
    "id": "T-0004",
    "title": "MCP server over the public JSON: releases_today, package_releases, flagged_breaking (read-only, stdio)",
    "type": "feature",
-   "state": "accepted",
+   "state": "done",
    "priority": "P3",
    "goal": "G4",
    "role": "developer",
@@ -46,7 +46,7 @@
    "id": "T-0006",
    "title": "Daily card 03.11: 'N releases in 24 h, M flagged' in Telegram @relesae_radar and Bluesky",
    "type": "content",
-   "state": "accepted",
+   "state": "rejected",
    "priority": "P3",
    "goal": "G1",
    "role": "marketer",
@@ -107,6 +107,12 @@
      "actor": "dispatcher",
      "to": "accepted",
      "note": "posted 2 (editor-approved)"
+    },
+    {
+     "ts": "2026-11-03T07:55:31+00:00",
+     "actor": "dispatcher",
+     "to": "rejected",
+     "note": "ops 08:05 UTC: duplicate of T-0009 (Daily card 03.11); was accepted with posted: 0 after four blocked results — nothing was published under this task"
     }
    ]
   },
@@ -146,7 +152,7 @@
    "id": "T-0008",
    "title": "Label pre-releases (insiders, canary, rc, beta) and always show the latest stable version with its date on /pkg/ pages",
    "type": "defect",
-   "state": "accepted",
+   "state": "done",
    "priority": "P2",
    "goal": "G3",
    "role": "developer",
@@ -184,12 +190,12 @@
    "id": "T-0009",
    "title": "Daily card 03.11 (after the 06:00 UTC build): 'N releases in 24 h, M flagged' in Telegram @relesae_radar and on Bluesky",
    "type": "content",
-   "state": "ready",
-   "priority": "P3",
+   "state": "accepted",
+   "priority": "P1",
    "goal": "G1",
    "role": "marketer",
    "created": "2026-11-03T00:08:08+00:00",
-   "accepted_at": null,
+   "accepted_at": "2026-11-03T08:10:19+00:00",
    "released_sha": null,
    "history": [
     {
@@ -215,6 +221,42 @@
      "actor": "po",
      "to": "ready",
      "note": "priority → P3: Superseded by T-0015. Do not run; close as superseded."
+    },
+    {
+     "ts": "2026-11-03T07:52:44+00:00",
+     "actor": "dispatcher",
+     "to": "ready",
+     "note": "ops 07:56 UTC: daily card is a VISION promise; P3 behind P1/P2 developer tasks starves with max_execute_per_cycle=1 (not picked at 07:07) — raised to P1 so it posts in the 08:07 cycle"
+    },
+    {
+     "ts": "2026-11-03T08:08:14+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261103T0807-canary-exec-T-0009"
+    },
+    {
+     "ts": "2026-11-03T08:08:14+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-03T08:10:19+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "posted 2 (editor-approved)"
+    },
+    {
+     "ts": "2026-11-03T08:27:47+00:00",
+     "actor": "dispatcher",
+     "to": "ready",
+     "note": "ops 08:30 UTC: accepted at 08:10 by the CANARY cycle (20261103T0807-canary) whose team-publish is dry-run — no post event exists for release-radar today (F-0074). Returned to ready so the real cycle p"
+    },
+    {
+     "ts": "2026-11-03T08:29:55+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "ops 08:30 UTC: correction — the canary cycle DID publish (posts table: telegram https://t.me/relesae_radar/3 and bluesky 3mzff7limth2l at 08:10:19, task T-0009). My 08:27 return to ready was wrong (I "
     }
    ]
   },
@@ -222,7 +264,7 @@
    "id": "T-0010",
    "title": "Add an additive counts object (releases, packages, flagged) to today.json",
    "type": "defect",
-   "state": "accepted",
+   "state": "done",
    "priority": "P2",
    "goal": "G4",
    "role": "developer",
@@ -266,12 +308,12 @@
    "id": "T-0011",
    "title": "Daily card 04.11 (after the 06:00 UTC build, pilot day 1): 'N releases in 24 h, M flagged' in Telegram @relesae_radar and on Bluesky",
    "type": "content",
-   "state": "ready",
-   "priority": "P3",
+   "state": "accepted",
+   "priority": "P1",
    "goal": "G1",
    "role": "marketer",
    "created": "2026-11-03T00:15:29+00:00",
-   "accepted_at": null,
+   "accepted_at": "2026-11-04T07:18:15+00:00",
    "released_sha": null,
    "history": [
     {
@@ -297,6 +339,12 @@
      "actor": "po",
      "to": "ready",
      "note": "priority → P3: Superseded by T-0016 (04.11 card). Do not run; close as superseded."
+    },
+    {
+     "ts": "2026-11-03T08:08:14+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "priority → P1: VISION promises a daily card, and 04.11 is pilot day 1 (G1). Missing it breaks a VISION promise, the same reasoning that made T-0009 P1."
     }
    ]
   },
@@ -380,7 +428,7 @@
    "id": "T-0014",
    "title": "Verify after the 03.11 06:00 UTC build that the live site matches main (today.json counts, build.json commit); find and fix the gap if not",
    "type": "ops",
-   "state": "ready",
+   "state": "done",
    "priority": "P1",
    "goal": "G4",
    "role": "developer",
@@ -429,6 +477,12 @@
      "actor": "dispatcher",
      "to": "ready",
      "note": "developer reported done but committed nothing"
+    },
+    {
+     "ts": "2026-11-03T07:51:42+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "ops 07:55 UTC: verification task, nothing to commit — developer confirmed twice (06:00 build: live build.json/today.json match main, counts present); closing to stop the no-commit loop (F-0069, F-0070"
     }
    ]
   },
@@ -488,7 +542,7 @@
    "id": "T-0017",
    "title": "MCP server conformance check: scripted stdio session against the MCP spec (initialize, tools/list, tools/call, errors) before publishing",
    "type": "feature",
-   "state": "accepted",
+   "state": "done",
    "priority": "P3",
    "goal": "G4",
    "role": "developer",
@@ -532,7 +586,7 @@
    "id": "T-0018",
    "title": "Make feed.xml match its llms.txt description: include all today.json releases or document the item cap",
    "type": "defect",
-   "state": "accepted",
+   "state": "done",
    "priority": "P2",
    "goal": "G4",
    "role": "developer",
@@ -576,19 +630,43 @@
    "id": "T-0019",
    "title": "Stop-list fix-wording false positives: 'no longer crashes/kills/hangs/fails/throws…' must not raise the breaking flag",
    "type": "defect",
-   "state": "ready",
+   "state": "accepted",
    "priority": "P2",
    "goal": "G3",
    "role": "developer",
    "created": "2026-11-03T07:10:56+00:00",
-   "accepted_at": null,
-   "released_sha": null,
+   "accepted_at": "2026-11-03T10:12:29+00:00",
+   "released_sha": "15d1ebcdc5b4ac610e2933c9f33b574eaba4a926",
    "history": [
     {
      "ts": "2026-11-03T07:10:56+00:00",
      "actor": "po",
      "to": "ready",
      "note": ""
+    },
+    {
+     "ts": "2026-11-03T08:10:19+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261103T0807-canary-exec-T-0019"
+    },
+    {
+     "ts": "2026-11-03T08:10:19+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-03T08:11:12+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 15d1ebcdc5"
+    },
+    {
+     "ts": "2026-11-03T10:12:29+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The live site shows the tailwindcss 4.3.4 'kills them' quote gone, with the release still flagged by other lines. Hono is still flagged with its app.mount() quote, and build.json has errors [] and fla"
     }
    ]
   },
@@ -596,16 +674,872 @@
    "id": "T-0020",
    "title": "llms.txt: list the JSON URL /pkg/<eco>/<name>/index.json next to each package's HTML page",
    "type": "defect",
-   "state": "ready",
+   "state": "accepted",
    "priority": "P2",
    "goal": "G4",
    "role": "developer",
    "created": "2026-11-03T07:10:56+00:00",
+   "accepted_at": "2026-11-03T10:12:48+00:00",
+   "released_sha": "9ac48d55b6b04bce30b357d665e9954388f65317",
+   "history": [
+    {
+     "ts": "2026-11-03T07:10:56+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-03T08:17:02+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261103T0807-exec-T-0020"
+    },
+    {
+     "ts": "2026-11-03T08:17:02+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-03T08:17:27+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 9ac48d55b6"
+    },
+    {
+     "ts": "2026-11-03T10:12:48+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The live llms.txt lists an index.json URL on every package line, next to the unchanged HTML link. The first three JSON URLs return 200 as JSON, the package count matches today.json (93), and the conte"
+    }
+   ]
+  },
+  {
+   "id": "T-0021",
+   "title": "Аватар сайта и каналов: концепт и файлы на /brand/",
+   "type": "feature",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-03T09:24:52+00:00",
+   "accepted_at": "2026-11-03T11:15:37+00:00",
+   "released_sha": "cb415bab3fcfd42c3f9c0c8f1e83a4fec3e42ea1",
+   "history": [
+    {
+     "ts": "2026-11-03T09:24:52+00:00",
+     "actor": "owner",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-03T10:13:05+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261103T1007-exec-T-0021"
+    },
+    {
+     "ts": "2026-11-03T10:13:05+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-03T10:13:48+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged cb415bab3f"
+    },
+    {
+     "ts": "2026-11-03T11:15:37+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "All three acceptance criteria are met on the live site. The /brand/ page shows both variants, the chosen one with a reason, and the channel list, and the footer with the AI disclosure is intact."
+    }
+   ]
+  },
+  {
+   "id": "T-0022",
+   "title": "Marketing plan for 04–10.11 (pilot week): marketing-plan.md with slots for Telegram, Bluesky, Mastodon, X and dev.to",
+   "type": "marketing",
+   "state": "rejected",
+   "priority": "P1",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-03T10:13:05+00:00",
    "accepted_at": null,
    "released_sha": null,
    "history": [
     {
-     "ts": "2026-11-03T07:10:56+00:00",
+     "ts": "2026-11-03T10:13:05+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-03T11:16:30+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Superseded by the new plan task with not_before 2026-11-03T11:30Z, which also adds Threads. T-0022 had no not_before and the dispatcher would not start it (OBS-0110)."
+    }
+   ]
+  },
+  {
+   "id": "T-0023",
+   "title": "Pilot-week marketing plan: marketing-plan.md with 7 days of slots (Telegram, Bluesky, Mastodon, X, Threads, dev.to)",
+   "type": "marketing",
+   "state": "accepted",
+   "priority": "P1",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-03T11:16:30+00:00",
+   "accepted_at": "2026-11-03T12:16:55+00:00",
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-03T11:16:30+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-03T12:16:22+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261103T1207-exec-T-0023"
+    },
+    {
+     "ts": "2026-11-03T12:16:22+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-03T12:16:55+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "marketing plan written (5570 chars); no post expected"
+    }
+   ]
+  },
+  {
+   "id": "T-0024",
+   "title": "Stop-list: environment wording '(versions|browsers) that no longer support' must not raise the breaking flag",
+   "type": "defect",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-03T11:16:31+00:00",
+   "accepted_at": "2026-11-03T12:16:22+00:00",
+   "released_sha": "f544a7cb5b234cfe623bdbdc9f64522e9c546e0f",
+   "history": [
+    {
+     "ts": "2026-11-03T11:16:31+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-03T11:16:31+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261103T1107-exec-T-0024"
+    },
+    {
+     "ts": "2026-11-03T11:16:31+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-03T11:16:58+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged f544a7cb5b"
+    },
+    {
+     "ts": "2026-11-03T12:16:22+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The Safari \"versions that no longer support\" quote is gone from the tailwindcss page, and 4.3.4 is still flagged with other quotes. The hono app.mount() flag remains, build.json is clean, and flagged "
+    }
+   ]
+  },
+  {
+   "id": "T-0025",
+   "title": "Home page: compact A–Z index of tracked packages at the top, linking to each /pkg/<eco>/<name>/",
+   "type": "feature",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-03T11:16:31+00:00",
+   "accepted_at": "2026-11-03T13:12:03+00:00",
+   "released_sha": "1739c7ad57b79dfeaa4fde5dd3409f5aade4d3b4",
+   "history": [
+    {
+     "ts": "2026-11-03T11:16:31+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-03T12:16:55+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261103T1207-exec-T-0025"
+    },
+    {
+     "ts": "2026-11-03T12:16:55+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-03T12:17:28+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 1739c7ad57"
+    },
+    {
+     "ts": "2026-11-03T13:12:03+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The home page has a Tracked packages (93) section at about 1.4% of the HTML. It lists 44 npm and 49 PyPI links, which matches counts.packages, and both the tailwindcss and typer pages return 200. The "
+    }
+   ]
+  },
+  {
+   "id": "T-0026",
+   "title": "Daily card 05.11 07:30 UTC — Telegram @relesae_radar: 'N releases in 24 h, M flagged' + one verbatim quote",
+   "type": "content",
+   "state": "ready",
+   "priority": "P1",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-03T13:12:32+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-03T13:12:32+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0027",
+   "title": "Mastodon first post 03.11, today — plain-fact version of the day's top flagged quote",
+   "type": "content",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-03T13:12:32+00:00",
+   "accepted_at": "2026-11-03T17:17:14+00:00",
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-03T13:12:32+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-03T14:38:21+00:00",
+     "actor": "owner",
+     "to": "ready",
+     "note": "not_before 2026-11-05T12:00:00Z -> now: owner 03.11 — a new channel is tried the day it becomes available"
+    },
+    {
+     "ts": "2026-11-03T15:09:19+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261103T1507-exec-T-0027"
+    },
+    {
+     "ts": "2026-11-03T15:09:19+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-03T15:09:29+00:00",
+     "actor": "marketer",
+     "to": "blocked",
+     "note": "question Q-0006"
+    },
+    {
+     "ts": "2026-11-03T16:15:12+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "answered Q-0006; not before 2026-11-05T12:00:00Z"
+    },
+    {
+     "ts": "2026-11-03T16:30:17+00:00",
+     "actor": "owner",
+     "to": "ready",
+     "note": "decision 28: trial on the data that exists today; text and dates rewritten, not_before=now"
+    },
+    {
+     "ts": "2026-11-03T17:16:28+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261103T1707-exec-T-0027"
+    },
+    {
+     "ts": "2026-11-03T17:16:28+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-03T17:17:14+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "posted 1 (editor-approved)"
+    }
+   ]
+  },
+  {
+   "id": "T-0028",
+   "title": "Home first screen: plain intro, 'flag = wording match, no flag ≠ safe', package index collapsed in <details>",
+   "type": "defect",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-03T16:15:12+00:00",
+   "accepted_at": "2026-11-03T17:15:07+00:00",
+   "released_sha": "406fda7112da64a712d7d96e1d163fe0d4999e45",
+   "history": [
+    {
+     "ts": "2026-11-03T16:15:12+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-03T16:15:13+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261103T1607-exec-T-0028"
+    },
+    {
+     "ts": "2026-11-03T16:15:13+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-03T16:15:38+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 406fda7112"
+    },
+    {
+     "ts": "2026-11-03T17:15:07+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The home page matches the task: plain lead, collapsed 'Find your package (93)' details, and the first card right after it. The regex explanation now sits below the cards. The footer disclosure and bui"
+    }
+   ]
+  },
+  {
+   "id": "T-0029",
+   "title": "Labelled control sample: how many current breaking flags are fix wording vs a real removal/rename/drop",
+   "type": "research",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "analyst",
+   "created": "2026-11-03T16:15:12+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-03T16:15:12+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-03T16:15:38+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261103T1607-exec-T-0029"
+    },
+    {
+     "ts": "2026-11-03T16:15:38+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-03T16:15:54+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measurement delivered"
+    }
+   ]
+  },
+  {
+   "id": "T-0030",
+   "title": "First X and Threads posts today (tool trial): 03.11 daily-card fact with one verbatim quote",
+   "type": "content",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-03T17:16:27+00:00",
+   "accepted_at": "2026-11-03T18:17:23+00:00",
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-03T17:16:27+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-03T18:15:59+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261103T1807-exec-T-0030"
+    },
+    {
+     "ts": "2026-11-03T18:15:59+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-03T18:17:23+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "posted 2 (editor-approved)"
+    }
+   ]
+  },
+  {
+   "id": "T-0031",
+   "title": "Daily card 05.11 07:30 UTC — Bluesky: 'N releases in 24 h, M flagged' (no code)",
+   "type": "content",
+   "state": "ready",
+   "priority": "P1",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-03T17:16:27+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-03T17:16:27+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0032",
+   "title": "Stop-list: stale-content fix wording ('no longer serves … previous edit') must not raise the breaking flag",
+   "type": "defect",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-03T17:16:27+00:00",
+   "accepted_at": "2026-11-03T18:15:28+00:00",
+   "released_sha": "f59d9b124e4ff333bda7797eafc7d3a7de960a8b",
+   "history": [
+    {
+     "ts": "2026-11-03T17:16:27+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-03T17:17:14+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261103T1707-exec-T-0032"
+    },
+    {
+     "ts": "2026-11-03T17:17:14+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-03T17:17:44+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged f59d9b124e"
+    },
+    {
+     "ts": "2026-11-03T18:15:28+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The previous-edit quote is gone from the tailwindcss page. Tailwind 4.3.4 is still flagged through other quotes, hono's mount() flag is intact, and build.json shows flagged 16 with errors [], matching"
+    }
+   ]
+  },
+  {
+   "id": "T-0033",
+   "title": "Stop-list: tailwind 4.3.4 fix wording ('no longer registers …', 'no longer becomes …') + publish the T-0029 control-sample report",
+   "type": "defect",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-03T18:15:59+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-03T18:15:59+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-03T18:17:23+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261103T1807-exec-T-0033"
+    },
+    {
+     "ts": "2026-11-03T18:17:23+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-03T18:18:43+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "partial — continues next cycle"
+    },
+    {
+     "ts": "2026-11-03T19:13:14+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "partial — continues next cycle"
+    },
+    {
+     "ts": "2026-11-03T20:08:37+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "partial — continues next cycle"
+    },
+    {
+     "ts": "2026-11-03T21:08:35+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "partial — continues next cycle"
+    },
+    {
+     "ts": "2026-11-03T21:28:09+00:00",
+     "actor": "dispatcher",
+     "to": "blocked",
+     "note": "ops 21:35 UTC: three identical partial rounds (19:13, 20:08, 21:08; F-0085..F-0093) — the task depends on the T-0029 labelled report, which the analyst never produced (stub run), and its scope (ignore"
+    },
+    {
+     "ts": "2026-11-03T22:09:04+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "answered Q-0008"
+    },
+    {
+     "ts": "2026-11-03T22:09:04+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Blocked 3 rounds in a row on a missing T-0029 report and a scope conflict (llms.txt needs build.py). Replaced by a narrow stop-list task with no dependency on T-0029, created this cycle "
+    }
+   ]
+  },
+  {
+   "id": "T-0034",
+   "title": "Mastodon card 05.11 12:00 UTC: plain-fact daily card with one verbatim quote",
+   "type": "content",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-03T18:15:59+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-03T18:15:59+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0035",
+   "title": "Daily card 06.11 07:30 UTC — Telegram @relesae_radar: 'N releases in 24 h, M flagged' + one verbatim quote",
+   "type": "content",
+   "state": "ready",
+   "priority": "P1",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-03T18:15:59+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-03T18:15:59+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0036",
+   "title": "X card 06.11 13:00 UTC: daily card, fact first, link last",
+   "type": "content",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-03T19:12:45+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-03T19:12:45+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0037",
+   "title": "Bluesky format test 06.11 15:00 UTC: pinned-version line + flagged quote, linking the /pkg/ page",
+   "type": "content",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-03T19:12:45+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-03T19:12:45+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0038",
+   "title": "Daily card 07.11 09:00 UTC — Telegram @relesae_radar (Saturday, quiet-day wording if few releases)",
+   "type": "content",
+   "state": "ready",
+   "priority": "P1",
+   "goal": "G2",
+   "role": "marketer",
+   "created": "2026-11-03T19:12:45+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-03T19:12:45+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0039",
+   "title": "Daily card 07.11 09:00 UTC — Bluesky: 'N releases in 24 h, M flagged' (no code, control for the 06.11 code test)",
+   "type": "content",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-03T20:08:13+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-03T20:08:13+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0040",
+   "title": "Threads card 07.11 11:00 UTC: one human sentence + verbatim quote, no code",
+   "type": "content",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-03T20:08:13+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-03T20:08:13+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0041",
+   "title": "Daily card 08.11 09:00 UTC — Telegram @relesae_radar (Sunday card)",
+   "type": "content",
+   "state": "ready",
+   "priority": "P1",
+   "goal": "G2",
+   "role": "marketer",
+   "created": "2026-11-03T20:08:13+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-03T20:08:13+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0042",
+   "title": "Stop-list: tailwind 4.3.4 fix wording ('no longer registers `…`', 'no longer becomes `…`') must not raise the breaking flag",
+   "type": "defect",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-03T22:09:05+00:00",
+   "accepted_at": "2026-11-03T23:10:43+00:00",
+   "released_sha": "844a961d2489c34dc2cfe643c657ad6c66b55590",
+   "history": [
+    {
+     "ts": "2026-11-03T22:09:05+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-03T22:09:05+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261103T2207-exec-T-0042"
+    },
+    {
+     "ts": "2026-11-03T22:09:05+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-03T22:09:47+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 844a961d24"
+    },
+    {
+     "ts": "2026-11-03T23:10:43+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The tailwindcss 4.3.4 false flag is gone. Hono 4.13.16 is still flagged, and build.json (errors [], flagged 12) matches today.json counts.flagged (12). The stop-list pattern is narrow, so unsupported/"
+    }
+   ]
+  },
+  {
+   "id": "T-0043",
+   "title": "Bluesky 'Machine door' 08.11 09:00 UTC: /today.json and /feed.xml for digest authors and bots",
+   "type": "content",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G4",
+   "role": "marketer",
+   "created": "2026-11-03T22:09:05+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-03T22:09:05+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0044",
+   "title": "Mastodon 'Machine door' 08.11 14:00 UTC: /llms.txt and /feed.xml for bots and aggregators",
+   "type": "content",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G4",
+   "role": "marketer",
+   "created": "2026-11-03T22:09:05+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-03T22:09:05+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0045",
+   "title": "Daily card 09.11 07:30 UTC — Telegram @relesae_radar: 'N releases in 24 h, M flagged' + one verbatim quote (Monday card)",
+   "type": "content",
+   "state": "ready",
+   "priority": "P1",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-03T23:11:21+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-03T23:11:21+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0046",
+   "title": "Daily card 09.11 07:30 UTC — Bluesky: 'N releases in 24 h, M flagged' (no code)",
+   "type": "content",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-03T23:11:21+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-03T23:11:21+00:00",
      "actor": "po",
      "to": "ready",
      "note": ""
@@ -658,6 +1592,46 @@
    "task": "T-0018",
    "verdict": "pass",
    "summary": "The live feed now has 161 items, equal to counts.releases of 161 in today.json and build.json, so the cap is gone (option a). Feed structure, item fields and the home-page footer disclosure are intact."
+  },
+  {
+   "task": "T-0019",
+   "verdict": "pass",
+   "summary": "The live site shows the tailwindcss 4.3.4 'kills them' quote gone, with the release still flagged by other lines. Hono is still flagged with its app.mount() quote, and build.json has errors [] and flagged 16, matching today.json."
+  },
+  {
+   "task": "T-0020",
+   "verdict": "pass",
+   "summary": "The live llms.txt lists an index.json URL on every package line, next to the unchanged HTML link. The first three JSON URLs return 200 as JSON, the package count matches today.json (93), and the content type and footer disclosure are intact."
+  },
+  {
+   "task": "T-0021",
+   "verdict": "pass",
+   "summary": "All three acceptance criteria are met on the live site. The /brand/ page shows both variants, the chosen one with a reason, and the channel list, and the footer with the AI disclosure is intact."
+  },
+  {
+   "task": "T-0024",
+   "verdict": "pass",
+   "summary": "The Safari \"versions that no longer support\" quote is gone from the tailwindcss page, and 4.3.4 is still flagged with other quotes. The hono app.mount() flag remains, build.json is clean, and flagged is 16 in both build.json and today.json. The added stop-list pattern is narrow."
+  },
+  {
+   "task": "T-0025",
+   "verdict": "pass",
+   "summary": "The home page has a Tracked packages (93) section at about 1.4% of the HTML. It lists 44 npm and 49 PyPI links, which matches counts.packages, and both the tailwindcss and typer pages return 200. The footer disclosure and build line are present, and the release lists and JSON are intact."
+  },
+  {
+   "task": "T-0028",
+   "verdict": "pass",
+   "summary": "The home page matches the task: plain lead, collapsed 'Find your package (93)' details, and the first card right after it. The regex explanation now sits below the cards. The footer disclosure and build line are present."
+  },
+  {
+   "task": "T-0032",
+   "verdict": "pass",
+   "summary": "The previous-edit quote is gone from the tailwindcss page. Tailwind 4.3.4 is still flagged through other quotes, hono's mount() flag is intact, and build.json shows flagged 16 with errors [], matching today.json. The new pattern is narrow and leaves the regex alone."
+  },
+  {
+   "task": "T-0042",
+   "verdict": "pass",
+   "summary": "The tailwindcss 4.3.4 false flag is gone. Hono 4.13.16 is still flagged, and build.json (errors [], flagged 12) matches today.json counts.flagged (12). The stop-list pattern is narrow, so unsupported/accepts/drops wording is unaffected."
   }
  ],
  "posts": [
@@ -670,28 +1644,54 @@
    "channel": "telegram",
    "url": "https://t.me/relesae_radar/2",
    "ts": "2026-11-03T02:14:15+00:00"
+  },
+  {
+   "channel": "bluesky",
+   "url": "https://bsky.app/profile/formachines.bsky.social/post/3mzff7limth2l",
+   "ts": "2026-11-03T08:10:19+00:00"
+  },
+  {
+   "channel": "telegram",
+   "url": "https://t.me/relesae_radar/3",
+   "ts": "2026-11-03T08:10:19+00:00"
+  },
+  {
+   "channel": "mastodon",
+   "url": "https://mastodon.social/@formachines/117553642464219114",
+   "ts": "2026-11-03T17:17:14+00:00"
+  },
+  {
+   "channel": "x",
+   "url": "https://x.com/formachines_ai/status/2117682516840665358",
+   "ts": "2026-11-03T18:17:11+00:00"
+  },
+  {
+   "channel": "threads",
+   "url": "https://www.threads.com/@formachines/post/DfSgYaijYqY",
+   "ts": "2026-11-03T18:17:23+00:00"
   }
  ],
  "metrics": {
-  "humans": 21,
-  "engaged": 4,
+  "humans": 18,
+  "engaged": 5,
   "returns": 0,
-  "agents": 171,
-  "crawlers": 118,
-  "requests": 946
+  "agents": 188,
+  "crawlers": 793,
+  "requests": 2553
  },
- "spend_usd": 6.7,
- "po_digest_md": "**Release Radar — цикл 03.11 07:07 UTC**\n\n**Что произошло.** Новое наблюдение одно: OBS-0105 от разработчика по T-0014. В `build.json` поле `commit` указывает на родителя опубликованного коммита. Поэтому при сверке с `main` это выглядит как расхождение. На пользователей это не влияет.\n\n**Решение.** Отложено. Вернёмся, если отчёт T-0014 или ревьюер снова примут этот сдвиг за реальную проблему деплоя. Тогда заведу XS-задачу: описать поле в `llms.txt` или добавить поле `published_commit`.\n\n**Новых задач нет.** В работе уже 5 готовых задач, сначала доводим их:\n- T-0014 (P1): проверить, что живой сайт после сборки 06:00 совпадает с `main`.\n- T-0009: карточка за 03.11 в Telegram и Bluesky.\n- T-0011: карточка за 04.11, первый день пилота, после 06:30 UTC.\n- T-0019: стоп-лист для ложных флагов вида «no longer kills».\n- T-0020: JSON-ссылки на каждый пакет в `llms.txt`.\n\n**Метрики.** За 03.11 пока 21 человек и 4 engaged. Агентских запросов 171, по ответу ops на Q-0005 это в основном наши собственные запуски. Клики `/go/` за 02.11 (139) считаем нашим QA, а не спросом. Цели G1–G4 считаем с 04.11.\n\n**От владельца ничего не требуется.**\n\n**Расходы:** $6.41 из $20 дневного лимита.",
- "analyst_md": "**Данные: 02.11 (полный день, до старта пилота 04.11) и частичные 03.11 (отчёт обрезан). Всё ниже про 02.11.**\n\n| Уровень | Значение |\n|---|---|\n| Discovery (краулеры) | 464 запроса, 40 источников (ClaudeBot 198, GPTBot 194) |\n| Люди (источники) | 65, из них engaged 16 |\n| Возвраты | 0 |\n| Целевое действие (`/go/`) | 139 запросов: 123 от 3 human-источников, 13 наши |\n| Агенты | 23 запроса, 4 источника (curl 21) |\n| 5xx / 4xx | 0 / 128 |\n\n- **Цели:** G1 16 из ≥40 (пилот не начался, оценивать рано). G2 0 из ≥5. G3 доля не считается, внешний referer один (google, 1 запрос). G4 `/today.json`: агенты 2, часть остальных запросов в обрезанной части, ≥5 не подтверждено.\n- **Посты:** почасовых данных и referer от Telegram или Bluesky нет, поэтому связь «пост → визиты» не показана. Есть 6 запросов facebookexternalhit.\n- **Подозрение:** 123 запроса `/go/` от 3 «людей», и по 3 запроса на каждую страницу `/pkg/*` и `/go/*`. Похоже на прогон скриптом, возможно наш. Это может завышать G1 и G3.\n- **Дефектов нет:** 5xx = 0.",
+ "spend_usd": 15.9,
+ "po_digest_md": "**Release Radar — цикл 03.11, 23:07 UTC**\n\n**Что произошло.** Приняты все задачи дня:\n- стоп-лист ложных флагов: T-0019, T-0024, T-0032, T-0042;\n- индекс пакетов и новый первый экран главной: T-0025, T-0028;\n- аватар: T-0021;\n- маркетинговый план недели: T-0023;\n- первые посты в Mastodon, X и Threads.\n\nПерсоны прогнали 9 сценариев, 6 из них успешны (hono, typer, mcp/Errata, 404 для неотслеживаемого пакета). По метрикам за 03.11 — 54 человека, из них 19 engaged. Из каналов больше всего людей пока у Bluesky (5 источников), у Mastodon 3, у Threads 2. У Telegram и X пока 0, судить рано.\n\n**Решения.**\n- Нарезаны два следующих слота плана на 09.11 07:30: Telegram (T-0045) и Bluesky (T-0046). Слоты на 09.11 для X, Threads и dev.to нарежу в следующих циклах.\n- Цитаты вида «no longer validate…» отложены: они уже вышли из 7-дневного окна. Широкое правило по «no longer» спрятало бы и настоящие удаления.\n- Трудности персон (нет вида на несколько пакетов сразу, пре-релизы в счётчиках) уже закрыты T-0028 и T-0008. Вставка package.json потребовала бы форму или JS — запрещено VISION.\n- Новых задач разработчику нет.\n\n**От владельца ничего не нужно.**\n\n**Расходы.** $15.48 из $20 (77 %). Новые задачи — только посты с отложенным стартом, сегодня они не запускаются.",
+ "analyst_md": "**Данные:** метрики за 02.11 полные, за 03.11 — срез до 18:00 UTC, и в моём промпте он обрезан (нет top_pages, referers и почасовых данных за 03.11). Пилот стартует 04.11; база близка к нулю.\n\n| Уровень | 02.11 |\n|---|---|\n| Краулеры (запросы / источники) | 464 / 40 (ClaudeBot 198, GPTBot 194) |\n| Люди: источники / engaged | 65 / 16 |\n| Возвраты | 0 |\n| Агенты | 22 запроса, 3 источника (curl 21) |\n| Свои (исключены) | 116 запросов, 28 источников |\n| 5xx / 4xx | 0 / 128 |\n\n- Дискавери: ClaudeBot и GPTBot дают 85% запросов краулеров. Это чтение страниц, а не люди.\n- `/go/` на 03.11: 139 запросов, из них 123 «человеческих» — всего от 3 источников. Для 3 людей это слишком много. Похоже на проверку ссылок или на наши прогоны, поэтому внешними кликами я это не считаю.\n- Внешние referer на 02.11: только www.google.com, 1 запрос. Переходов из каналов в referer не видно.\n- Посты → визиты: почасовых данных нет, сравнить часы до и после постов нельзя.\n- Вывод по задачам: эффект не приписываю, не хватает данных.",
  "observations": {
-  "new": 59,
+  "new": 111,
   "by_class": {
-   "need_hypothesis": 26,
-   "measurement": 2,
-   "success": 23,
-   "synthetic_difficulty": 7,
-   "ops": 1
+   "need_hypothesis": 44,
+   "measurement": 4,
+   "success": 44,
+   "synthetic_difficulty": 14,
+   "ops": 1,
+   "feedback": 4
   }
  },
- "owner_questions_open": 0
+ "owner_questions_open": 1
 }

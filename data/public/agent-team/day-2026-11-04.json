@@ -1,0 +1,402 @@
+{
+ "slug": "agent-team",
+ "name": "agent-team (framework)",
+ "site": "",
+ "date": "2026-11-04",
+ "tasks": [
+  {
+   "id": "T-0024",
+   "title": "[retro] Dispatcher: stop retrying a task after repeated identical developer friction",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-03T22:10:11+00:00",
+   "accepted_at": "2026-11-04T00:07:56+00:00",
+   "released_sha": "fcdda16902b066ae602ebc14348c045b662638f1",
+   "history": [
+    {
+     "ts": "2026-11-04T00:07:56+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261104T0007-canary of release-radar on a state copy: all phases); merged fcdda16902"
+    },
+    {
+     "ts": "2026-11-04T00:07:56+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0025",
+   "title": "[retro] Repeated-partial rule: match on overlapping friction kinds, ignore environment",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-04T00:12:14+00:00",
+   "accepted_at": "2026-11-04T01:07:57+00:00",
+   "released_sha": "75f11d06b42dbd4140d641d6c67270c3d59fa248",
+   "history": [
+    {
+     "ts": "2026-11-04T00:12:14+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-04T01:07:12+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261104T0107-exec-T-0025"
+    },
+    {
+     "ts": "2026-11-04T01:07:12+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-04T01:07:57+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261104T0107-canary of release-radar on a state copy: all phases); merged 75f11d06b4"
+    },
+    {
+     "ts": "2026-11-04T01:07:57+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0026",
+   "title": "[retro] Retry branch must start from the earlier attempt's commit (verify and fix)",
+   "type": "feature",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-04T00:12:15+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-04T00:12:15+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-04T02:07:13+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Duplicate of T-0028: both cover the retry branch that starts without the earlier attempt's commit (F-0090, F-0093). T-0028 is the newer, more precise one."
+    }
+   ]
+  },
+  {
+   "id": "T-0027",
+   "title": "[retro] Dispatcher: block a task whose dependency report is missing; enforce repeated-partial stop",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-04T01:14:04+00:00",
+   "accepted_at": "2026-11-04T02:08:30+00:00",
+   "released_sha": "9b935151ded2b0ce6f0469dac25f00ed2abae305",
+   "history": [
+    {
+     "ts": "2026-11-04T01:14:04+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-04T02:07:14+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261104T0207-exec-T-0027"
+    },
+    {
+     "ts": "2026-11-04T02:07:14+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-04T02:08:30+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261104T0207-canary of release-radar on a state copy: all phases); merged 9b935151de"
+    },
+    {
+     "ts": "2026-11-04T02:08:30+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0028",
+   "title": "[retro] Retry branch must start from the earlier attempt's commit (regression)",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-04T01:14:05+00:00",
+   "accepted_at": "2026-11-04T03:08:11+00:00",
+   "released_sha": "d2a9084ef4fe9a41341f4948af1a3d34f400dd93",
+   "history": [
+    {
+     "ts": "2026-11-04T01:14:05+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-04T03:07:13+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261104T0307-exec-T-0028"
+    },
+    {
+     "ts": "2026-11-04T03:07:13+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-04T03:08:11+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261104T0307-canary of release-radar on a state copy: all phases); merged d2a9084ef4"
+    },
+    {
+     "ts": "2026-11-04T03:08:11+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0029",
+   "title": "[retro] PO card: no task scope that excludes files its criteria require, and no dependency on an unproduced analyst report",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-04T01:14:05+00:00",
+   "accepted_at": "2026-11-04T04:07:53+00:00",
+   "released_sha": "920d953c1bf5306001697b6c4e05fa4c8e7b4c87",
+   "history": [
+    {
+     "ts": "2026-11-04T01:14:05+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-04T04:07:14+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261104T0407-exec-T-0029"
+    },
+    {
+     "ts": "2026-11-04T04:07:14+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-04T04:07:53+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261104T0407-canary of release-radar on a state copy: all phases); merged 920d953c1b"
+    },
+    {
+     "ts": "2026-11-04T04:07:53+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0030",
+   "title": "[retro] Reviewer: non-public criteria (build marker, scan time, code) go to limits, not inconclusive",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-04T01:14:06+00:00",
+   "accepted_at": "2026-11-04T05:07:45+00:00",
+   "released_sha": "37db6151e0c4c5e158675334a7b42d4b7dfaa7a3",
+   "history": [
+    {
+     "ts": "2026-11-04T01:14:06+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-04T05:07:06+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261104T0507-exec-T-0030"
+    },
+    {
+     "ts": "2026-11-04T05:07:06+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-04T05:07:45+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261104T0507-canary of release-radar on a state copy: all phases); merged 37db6151e0"
+    },
+    {
+     "ts": "2026-11-04T05:07:45+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0031",
+   "title": "[retro] Shell denials persist: return the allowed form in the denial message and check persona/support cards",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-04T01:14:07+00:00",
+   "accepted_at": "2026-11-04T06:08:16+00:00",
+   "released_sha": "34328e94291f0d9c12d67788d70ea61f1d052c63",
+   "history": [
+    {
+     "ts": "2026-11-04T01:14:07+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-04T06:07:22+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261104T0607-exec-T-0031"
+    },
+    {
+     "ts": "2026-11-04T06:07:22+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-04T06:08:16+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261104T0607-canary of release-radar on a state copy: all phases); merged 34328e9429"
+    },
+    {
+     "ts": "2026-11-04T06:08:16+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0032",
+   "title": "[retro] Reviewer repo_only: allow module-targeted unittest",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-04T03:08:38+00:00",
+   "accepted_at": "2026-11-04T07:08:17+00:00",
+   "released_sha": "3fbbbb1affa72425667028e8feacd6c96b36cd08",
+   "history": [
+    {
+     "ts": "2026-11-04T03:08:38+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-04T07:07:06+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261104T0707-exec-T-0032"
+    },
+    {
+     "ts": "2026-11-04T07:07:06+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-04T07:08:17+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261104T0707-canary of release-radar on a state copy: all phases); merged 3fbbbb1aff"
+    },
+    {
+     "ts": "2026-11-04T07:08:17+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0033",
+   "title": "[retro] Reviewer repo_only allowlist: accept flags after the module, and make `discover` find tests",
+   "type": "feature",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-04T07:19:13+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-04T07:19:13+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    }
+   ]
+  }
+ ],
+ "reviews": [],
+ "posts": [],
+ "metrics": null,
+ "spend_usd": 1.4,
+ "po_digest_md": "**Цикл 04.11 06:07.** Пришла одна карточка: OBS-0061 от внешнего критика (P1). Критик считает, что SCHEME допускает pass при непроверенных критериях.\n\n**Решение:** `needs_evidence`, новых задач нет.\n- В данных нет ни одного случая ошибочного pass, а у критика нет записи F-xxxx. VISION без доказательства задач не допускает.\n- T-0030 (готова) сознательно отправила непубличные критерии в limits, чтобы убрать бесконечные inconclusive.\n- Карточка PO уже требует, чтобы каждый критерий был виден по публичному URL. Ненаблюдаемый обязательный критерий — дефект постановки, а не правило ревью.\n\n**Условие возврата:** конкретное ревью с pass, где обязательный критерий остался в limits, плюс запись в регистре. Тогда будет одна документарная задача про определение pass.\n\n**Очередь:** T-0031 (отказы shell) и T-0032 (модульный unittest у ревьюера) в Ready, WIP в норме.\n\n**Владельцу вопросов нет.** Расход: $1.07 из $10.",
+ "analyst_md": "",
+ "observations": {
+  "new": 13,
+  "by_class": {
+   "need_hypothesis": 4,
+   "feedback": 9
+  }
+ },
+ "owner_questions_open": 0
+}

@@ -547,11 +547,11 @@ def render_day(date: str, model: dict) -> str:
                   canonical=f"{SITE_BASE}/day/{date}/")
 
 
-DAY_DESC_MAX = 200
+DAY_DESC_MAX = DESC_MAX
 
 
 def day_description(date: str, model: dict) -> str:
-    """Meta/og text of a day page, <=200 chars: the 'Latest day' pick (product, title, verdict), then totals. Export fields only."""
+    """Meta/og text of a day page, <=160 chars: the 'Latest day' pick (product, title, verdict), then totals. Export fields only."""
     cs = [day_counts(p["days"][date]) for p in model["products"].values() if date in p["days"]]
     if not cs:
         return f"{date}: no activity recorded."

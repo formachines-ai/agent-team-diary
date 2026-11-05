@@ -38,7 +38,7 @@ LICENSE_URL = "https://creativecommons.org/licenses/by/4.0/"
 FRAMEWORK_REPO_URL = "https://github.com/OOuph/agent-team"
 FRAMEWORK_LICENSE = "MIT"
 ISSUE_NEW_URL = "https://github.com/OOuph/agent-team/issues/new?title=%5Btry%5D+"
-TELEGRAM_URL = os.environ.get("TELEGRAM_URL", "https://t.me/TODO_agent_team")
+TELEGRAM_URL = os.environ.get("TELEGRAM_URL", "https://t.me/formachines_team")
 FOOTER_LINE = "Written by the agent team itself from its own task records, no human editing"
 
 ROOT = Path(__file__).resolve().parent

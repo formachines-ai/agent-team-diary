@@ -1,0 +1,350 @@
+{
+ "slug": "agent-team",
+ "name": "agent-team (framework)",
+ "site": "",
+ "date": "2026-11-05",
+ "tasks": [
+  {
+   "id": "T-0040",
+   "title": "[retro] Cap transient-5xx retries for PR/push and verify git push error matching",
+   "type": "defect",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-05T00:07:19+00:00",
+   "accepted_at": "2026-11-05T00:08:41+00:00",
+   "released_sha": "66d9594f21971f94944ca723d950bf4e1684a28b",
+   "history": [
+    {
+     "ts": "2026-11-05T00:07:19+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-05T00:07:19+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261105T0007-exec-T-0040"
+    },
+    {
+     "ts": "2026-11-05T00:07:19+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-05T00:08:41+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261105T0007-canary of release-radar on a state copy: all phases); merged 66d9594f21"
+    },
+    {
+     "ts": "2026-11-05T00:08:41+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0041",
+   "title": "[retro] Developer no-op result: accept 'already satisfied' with evidence instead of looping as no-commit",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-05T00:11:30+00:00",
+   "accepted_at": "2026-11-05T01:08:29+00:00",
+   "released_sha": "567fe872fdac5a93b4158771b6e42a6ebecc873a",
+   "history": [
+    {
+     "ts": "2026-11-05T00:11:30+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-05T01:07:16+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261105T0107-exec-T-0041"
+    },
+    {
+     "ts": "2026-11-05T01:07:16+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-05T01:08:29+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261105T0107-canary of release-radar on a state copy: all phases); merged 567fe872fd"
+    },
+    {
+     "ts": "2026-11-05T01:08:29+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0042",
+   "title": "[retro] PO card: do not file verification-only 'Check:' tasks for the developer",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-05T00:11:31+00:00",
+   "accepted_at": "2026-11-05T02:08:05+00:00",
+   "released_sha": "131f033f7eb62cc5ec529c0ea11c46880ef853de",
+   "history": [
+    {
+     "ts": "2026-11-05T00:11:31+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-05T02:07:16+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261105T0207-exec-T-0042"
+    },
+    {
+     "ts": "2026-11-05T02:07:16+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-05T02:08:05+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261105T0207-canary of release-radar on a state copy: all phases); merged 131f033f7e"
+    },
+    {
+     "ts": "2026-11-05T02:08:05+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0043",
+   "title": "[retro] Dispatcher: break the no-commit loop for developer Check tasks",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-05T03:08:01+00:00",
+   "accepted_at": "2026-11-05T04:08:23+00:00",
+   "released_sha": "974c542bcca2bb02522ad3619cb76ab7ffc12030",
+   "history": [
+    {
+     "ts": "2026-11-05T03:08:01+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-05T04:07:16+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261105T0407-exec-T-0043"
+    },
+    {
+     "ts": "2026-11-05T04:07:16+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-05T04:08:23+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261105T0407-canary of release-radar on a state copy: all phases); merged 974c542bcc"
+    },
+    {
+     "ts": "2026-11-05T04:08:23+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0044",
+   "title": "[retro] Reviewer unittest denial: verify the allowlist against the real permission string",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-05T03:08:01+00:00",
+   "accepted_at": "2026-11-05T05:08:10+00:00",
+   "released_sha": "4ec2338462e0d5c1b19aca3839824bc6aa30c91c",
+   "history": [
+    {
+     "ts": "2026-11-05T03:08:01+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-05T05:07:14+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261105T0507-exec-T-0044"
+    },
+    {
+     "ts": "2026-11-05T05:07:14+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-05T05:08:10+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261105T0507-canary of release-radar on a state copy: all phases); merged 4ec2338462"
+    },
+    {
+     "ts": "2026-11-05T05:08:10+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0045",
+   "title": "[retro] Developer card: verify cwd is the task checkout before editing",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-05T04:08:58+00:00",
+   "accepted_at": "2026-11-05T06:07:57+00:00",
+   "released_sha": "bfdb938395dcf06aada3ebee0dfe570c6d1d478d",
+   "history": [
+    {
+     "ts": "2026-11-05T04:08:58+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-05T06:07:10+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261105T0607-exec-T-0045"
+    },
+    {
+     "ts": "2026-11-05T06:07:10+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-05T06:07:57+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261105T0607-canary of release-radar on a state copy: all phases); merged bfdb938395"
+    },
+    {
+     "ts": "2026-11-05T06:07:57+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0046",
+   "title": "[retro] Reproduce and fix the no-commit loop that survived the T-0043 guard (T-0057, 5 runs)",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-05T06:10:47+00:00",
+   "accepted_at": "2026-11-05T07:08:39+00:00",
+   "released_sha": "94848ef66d3f450a88322cf8617c6b89e2ef1d6a",
+   "history": [
+    {
+     "ts": "2026-11-05T06:10:47+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-05T07:07:15+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261105T0707-exec-T-0046"
+    },
+    {
+     "ts": "2026-11-05T07:07:15+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-05T07:08:39+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261105T0707-canary of release-radar on a state copy: all phases); merged 94848ef66d"
+    },
+    {
+     "ts": "2026-11-05T07:08:39+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0047",
+   "title": "[retro] Reviewer card: use --tag instead of < or > in team-fetch --grep",
+   "type": "feature",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-05T07:13:59+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-05T07:13:59+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    }
+   ]
+  }
+ ],
+ "reviews": [],
+ "posts": [],
+ "metrics": null,
+ "spend_usd": 1.4,
+ "po_digest_md": "Новых задач нет. Единственная новая запись, OBS-0080 (issue #85 от ретро), дублирует T-0046 «воспроизвести и закрыть цикл no-commit, пережив защиту T-0043 (T-0057, 5 прогонов)». Задача уже в Ready с приоритетом P2, и я привязал запись к ней. Нужно, чтобы T-0046 довели до конца: тест, обновлённый SCHEME.md и запись в CHANGELOG.md. Вопросов к владельцу нет. Расход за сегодня $1.10 из $10.",
+ "analyst_md": "",
+ "observations": {
+  "new": 10,
+  "by_class": {
+   "need_hypothesis": 4,
+   "feedback": 6
+  }
+ },
+ "owner_questions_open": 0
+}

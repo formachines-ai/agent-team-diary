@@ -5,6 +5,32 @@
  "date": "2026-11-04",
  "tasks": [
   {
+   "id": "T-0001",
+   "title": "Add one-click feedback links on each card: useful / not useful, and a report-an-error link to a prefilled GitHub issue",
+   "type": "feature",
+   "state": "done",
+   "priority": "P3",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-02T20:16:55+00:00",
+   "accepted_at": "2026-11-03T12:10:29+00:00",
+   "released_sha": "94be73401e625ab7636d4875f26a45ebcab4b4d8",
+   "history": [
+    {
+     "ts": "2026-11-04T18:09:24+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-04T18:09:24+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
    "id": "T-0002",
    "title": "Per-language pages listing every repo with its agent-file presence, linked from the home language table",
    "type": "feature",
@@ -57,6 +83,32 @@
    ]
   },
   {
+   "id": "T-0004",
+   "title": "Daily post 03.11: AGENTS.md share of top GitHub repos after the 04:00 UTC scan (bluesky + telegram)",
+   "type": "content",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G5",
+   "role": "marketer",
+   "created": "2026-11-02T21:29:13+00:00",
+   "accepted_at": "2026-11-03T08:16:29+00:00",
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-04T12:09:55+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-04T12:09:55+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
    "id": "T-0005",
    "title": "Link each repo card to its language page and mention /lang/ pages on home",
    "type": "feature",
@@ -76,6 +128,32 @@
     },
     {
      "ts": "2026-11-04T06:11:58+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0007",
+   "title": "Make build.py --no-scan leave data/history/<date>.json unchanged (idempotent history write)",
+   "type": "defect",
+   "state": "done",
+   "priority": "P1",
+   "goal": "L0 daily dated data (supports G3b/G4 trust in stats.json)",
+   "role": "developer",
+   "created": "2026-11-02T22:21:44+00:00",
+   "accepted_at": "2026-11-03T07:14:05+00:00",
+   "released_sha": "4f88e29e99af803c819c58dc73592d06e128c7a4",
+   "history": [
+    {
+     "ts": "2026-11-04T12:09:55+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-04T12:09:55+00:00",
      "actor": "dispatcher",
      "to": "done",
      "note": "measured"
@@ -141,6 +219,32 @@
    ]
   },
   {
+   "id": "T-0011",
+   "title": "Keep crawlers off /go/ redirect hops via robots.txt",
+   "type": "defect",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-03T07:14:57+00:00",
+   "accepted_at": "2026-11-03T08:14:20+00:00",
+   "released_sha": "23d167c843a53c5e90700f145c1b54990f4ea543",
+   "history": [
+    {
+     "ts": "2026-11-04T12:09:55+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — Краулерские /go/: 882 (02.11) → 0 (03.11) → 2 (04.11); падение совпадает с Disallow, но 03.11 мог упасть и по другим причинам."
+    },
+    {
+     "ts": "2026-11-04T12:09:55+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
    "id": "T-0012",
    "title": "Derive all data dates from the scan time: today.json date and history rows only from a real scan",
    "type": "defect",
@@ -175,6 +279,168 @@
      "actor": "reviewer",
      "to": "accepted",
      "note": "The live today.json and stats.json agree on the 2026-11-04 date and the 05:20:33Z scan time. The code derives dates from the scan time, and a no-scan build adds no history row and moves no date."
+    }
+   ]
+  },
+  {
+   "id": "T-0013",
+   "title": "build.py: build.json last_checked and stats.json attribution date come from the real scan; --no-scan never moves them",
+   "type": "defect",
+   "state": "done",
+   "priority": "P1",
+   "goal": "L0 daily dated data (supports G3b/G4)",
+   "role": "developer",
+   "created": "2026-11-03T08:14:48+00:00",
+   "accepted_at": "2026-11-03T10:10:02+00:00",
+   "released_sha": "41da384583901c501cf5a700f2dc5df67148adfa",
+   "history": [
+    {
+     "ts": "2026-11-04T12:09:55+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-04T12:09:55+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0014",
+   "title": "Аватар сайта и каналов: концепт и файлы на /brand/",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-03T09:24:52+00:00",
+   "accepted_at": "2026-11-03T11:10:43+00:00",
+   "released_sha": "2c14371c888c0e379ad788f20710da0b41bfc62b",
+   "history": [
+    {
+     "ts": "2026-11-04T12:09:55+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-04T12:09:55+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0016",
+   "title": "Marketing plan for the pilot week starting 2026-11-04 (write marketing-plan.md now)",
+   "type": "marketing",
+   "state": "done",
+   "priority": "P1",
+   "goal": "G5 (also G1, G2)",
+   "role": "marketer",
+   "created": "2026-11-03T11:11:20+00:00",
+   "accepted_at": "2026-11-03T12:11:14+00:00",
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-04T18:09:24+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-04T18:09:24+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0019",
+   "title": "Home: under the headline number, state what the share measures and give two paths (Explore your language, See the sampling method)",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-03T16:11:38+00:00",
+   "accepted_at": "2026-11-03T17:09:23+00:00",
+   "released_sha": "e8800c4465d2ec230d4c807f9b94cd815f931475",
+   "history": [
+    {
+     "ts": "2026-11-04T18:09:24+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-04T18:09:24+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0020",
+   "title": "Threads trial post now (03.11): plain daily fact with the day's AGENTS.md share",
+   "type": "content",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-03T16:11:38+00:00",
+   "accepted_at": "2026-11-03T17:11:07+00:00",
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-04T18:09:24+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — Threads: 17 запросов 04.11, 1 engaged человек, один пост, нет базы."
+    },
+    {
+     "ts": "2026-11-04T18:09:24+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0026",
+   "title": "Mastodon post 04.11 09:00 UTC: number of the day, link to home (channel test after the 03.11 trial)",
+   "type": "content",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-03T19:10:30+00:00",
+   "accepted_at": "2026-11-04T09:08:59+00:00",
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-04T09:08:18+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261104T0907-exec-T-0026"
+    },
+    {
+     "ts": "2026-11-04T09:08:18+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-04T09:08:59+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "posted 1 (editor-approved)"
     }
    ]
   },
@@ -242,19 +508,43 @@
    "id": "T-0032",
    "title": "Home: show 'Latest published scan: <generated UTC>' next to the headline number, separate from the 04:00 UTC schedule",
    "type": "defect",
-   "state": "ready",
+   "state": "accepted",
    "priority": "P2",
    "goal": "G3b (dated, citable numbers; VISION 'data dated')",
    "role": "developer",
    "created": "2026-11-04T06:09:50+00:00",
-   "accepted_at": null,
-   "released_sha": null,
+   "accepted_at": "2026-11-04T10:08:29+00:00",
+   "released_sha": "d782445a5a5bc2ff70f66793cc529ac08d8f85e3",
    "history": [
     {
      "ts": "2026-11-04T06:09:50+00:00",
      "actor": "po",
      "to": "ready",
      "note": ""
+    },
+    {
+     "ts": "2026-11-04T09:08:59+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261104T0907-exec-T-0032"
+    },
+    {
+     "ts": "2026-11-04T09:08:59+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-04T09:09:33+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged d782445a5a"
+    },
+    {
+     "ts": "2026-11-04T10:08:29+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The live home page shows 'Latest published scan: 2026-11-04 05:20 UTC', matching stats.json generated. The 04:00 UTC start is a separate sentence with no promised duration, and the Added today heading"
     }
    ]
   },
@@ -302,19 +592,43 @@
    "id": "T-0035",
    "title": "Repo card: show the full checked path and each file's dated share in the repo's language",
    "type": "feature",
-   "state": "ready",
+   "state": "accepted",
    "priority": "P2",
    "goal": "G3",
    "role": "developer",
    "created": "2026-11-04T07:11:53+00:00",
-   "accepted_at": null,
-   "released_sha": null,
+   "accepted_at": "2026-11-04T11:07:33+00:00",
+   "released_sha": "6f27d163ac68b54932c69e6d0f36ddcd0b7c0f6a",
    "history": [
     {
      "ts": "2026-11-04T07:11:53+00:00",
      "actor": "po",
      "to": "ready",
      "note": ""
+    },
+    {
+     "ts": "2026-11-04T10:08:29+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261104T1007-exec-T-0035"
+    },
+    {
+     "ts": "2026-11-04T10:08:29+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-04T10:09:23+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 6f27d163ac"
+    },
+    {
+     "ts": "2026-11-04T11:07:33+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The Rust and Python cards show exact paths and dated per-language share lines matching the home table and stats.json date. index.json keys are intact, stats.json generated is unchanged, and the footer"
     }
    ]
   },
@@ -322,19 +636,43 @@
    "id": "T-0036",
    "title": "Home sparklines: fixed axis and a 'baseline, N days' label; cite line names the scan date and points to stats.json history",
    "type": "defect",
-   "state": "ready",
+   "state": "accepted",
    "priority": "P2",
    "goal": "G3b",
    "role": "developer",
    "created": "2026-11-04T07:11:53+00:00",
-   "accepted_at": null,
-   "released_sha": null,
+   "accepted_at": "2026-11-04T12:09:11+00:00",
+   "released_sha": "5b04bcc62db5e4c6d1dd74fad42595810651f735",
    "history": [
     {
      "ts": "2026-11-04T07:11:53+00:00",
      "actor": "po",
      "to": "ready",
      "note": ""
+    },
+    {
+     "ts": "2026-11-04T11:07:34+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261104T1107-exec-T-0036"
+    },
+    {
+     "ts": "2026-11-04T11:07:34+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-04T11:08:29+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 5b04bcc62d"
+    },
+    {
+     "ts": "2026-11-04T12:09:11+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The home page uses a fixed minimum 5 pp sparkline span, so the 0.1 pp AGENTS.md move is 0.8 px on a 48 px chart. The baseline label (3 days) matches stats.json history, and the cite line names the sca"
     }
    ]
   },
@@ -357,6 +695,212 @@
      "note": ""
     }
    ]
+  },
+  {
+   "id": "T-0038",
+   "title": "Threads post 09.11 10:00 UTC: language cut (trial 2)",
+   "type": "content",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-04T12:09:39+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-04T12:09:39+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0039",
+   "title": "Daily post 10.11 05:45 UTC on bluesky: number of the day (pilot day 7)",
+   "type": "content",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-04T12:09:39+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-04T12:09:39+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0040",
+   "title": "Daily post 10.11 05:45 UTC on telegram @agentsmd_tracker: number of the day",
+   "type": "content",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "marketer",
+   "created": "2026-11-04T12:09:39+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-04T12:09:39+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0041",
+   "title": "Weekly slice on dev.to 10.11 08:00 UTC: 'Who already writes instructions for agents: top ~2,000 GitHub repos on 2026-11-10'",
+   "type": "content",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "marketer",
+   "created": "2026-11-04T13:09:43+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-04T13:09:43+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0042",
+   "title": "Analyst: who is the python-requests traffic (03–04.11): our own runs or external machine demand for G3b/G4?",
+   "type": "research",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G3b",
+   "role": "analyst",
+   "created": "2026-11-04T13:09:43+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-04T13:09:43+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-04T13:09:44+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261104T1307-exec-T-0042"
+    },
+    {
+     "ts": "2026-11-04T13:09:44+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-04T13:10:17+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measurement delivered"
+    }
+   ]
+  },
+  {
+   "id": "T-0043",
+   "title": "Repo card: for each present file, show 'first seen in our scans: <date>' (since the first scan 2026-11-02)",
+   "type": "feature",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "developer",
+   "created": "2026-11-04T13:09:43+00:00",
+   "accepted_at": "2026-11-04T14:09:36+00:00",
+   "released_sha": "e8979b85399e766791da4b253a91a71e75d2d243",
+   "history": [
+    {
+     "ts": "2026-11-04T13:09:43+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-04T13:10:17+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261104T1307-exec-T-0043"
+    },
+    {
+     "ts": "2026-11-04T13:10:17+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-04T13:11:04+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged e8979b8539"
+    },
+    {
+     "ts": "2026-11-04T14:09:36+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "Repo cards show the first-seen line for present files, with the first-scan note on rust-lang/rust and 2026-11-04 on nats-io/nats-server. index.json additions are optional keys only, and stats.json 'ge"
+    }
+   ]
+  },
+  {
+   "id": "T-0044",
+   "title": "stats.json history: per-day shares, history_days, change_7d_pp (null <7 days); llms.txt shows scan time and added/removed unit",
+   "type": "defect",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G3b",
+   "role": "developer",
+   "created": "2026-11-04T19:10:58+00:00",
+   "accepted_at": "2026-11-04T20:07:44+00:00",
+   "released_sha": "0c257e09b8f86ba136cdb806c4c66166fa724d79",
+   "history": [
+    {
+     "ts": "2026-11-04T19:10:58+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-04T19:10:58+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261104T1907-exec-T-0044"
+    },
+    {
+     "ts": "2026-11-04T19:10:58+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-04T19:11:49+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 0c257e09b8"
+    },
+    {
+     "ts": "2026-11-04T20:07:44+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The live stats.json and llms.txt meet every acceptance criterion and negative case I could check. The history rows have shares, history_days is 3, change_7d_pp is null, and llms.txt labels the scan an"
+    }
+   ]
   }
  ],
  "reviews": [
@@ -364,6 +908,31 @@
    "task": "T-0012",
    "verdict": "pass",
    "summary": "The live today.json and stats.json agree on the 2026-11-04 date and the 05:20:33Z scan time. The code derives dates from the scan time, and a no-scan build adds no history row and moves no date."
+  },
+  {
+   "task": "T-0032",
+   "verdict": "pass",
+   "summary": "The live home page shows 'Latest published scan: 2026-11-04 05:20 UTC', matching stats.json generated. The 04:00 UTC start is a separate sentence with no promised duration, and the Added today heading names 'scan of 2026-11-04 UTC'. The page has no form, only the ld+json script, and the footer is kept."
+  },
+  {
+   "task": "T-0035",
+   "verdict": "pass",
+   "summary": "The Rust and Python cards show exact paths and dated per-language share lines matching the home table and stats.json date. index.json keys are intact, stats.json generated is unchanged, and the footer, no-form and no-script constraints hold."
+  },
+  {
+   "task": "T-0036",
+   "verdict": "pass",
+   "summary": "The home page uses a fixed minimum 5 pp sparkline span, so the 0.1 pp AGENTS.md move is 0.8 px on a 48 px chart. The baseline label (3 days) matches stats.json history, and the cite line names the scan date and points to history[]."
+  },
+  {
+   "task": "T-0043",
+   "verdict": "pass",
+   "summary": "Repo cards show the first-seen line for present files, with the first-scan note on rust-lang/rust and 2026-11-04 on nats-io/nats-server. index.json additions are optional keys only, and stats.json 'generated' is unchanged."
+  },
+  {
+   "task": "T-0044",
+   "verdict": "pass",
+   "summary": "The live stats.json and llms.txt meet every acceptance criterion and negative case I could check. The history rows have shares, history_days is 3, change_7d_pp is null, and llms.txt labels the scan and build times separately and has the added/removed unit line."
   }
  ],
  "posts": [
@@ -376,28 +945,33 @@
    "channel": "telegram",
    "url": "https://t.me/agentsmd_tracker/3",
    "ts": "2026-11-04T06:10:37+00:00"
+  },
+  {
+   "channel": "mastodon",
+   "url": "https://mastodon.social/@formachines/117557384918194814",
+   "ts": "2026-11-04T09:08:59+00:00"
   }
  ],
  "metrics": {
-  "humans": 2,
+  "humans": 6,
   "engaged": 1,
   "returns": 0,
-  "agents": 1085,
-  "crawlers": 1422,
-  "requests": 2608
+  "agents": 1273,
+  "crawlers": 2040,
+  "requests": 3639
  },
- "spend_usd": 2.8,
- "po_digest_md": "**AGENTS.md Tracker — цикл 04.11 07:07 UTC**\n\n**Что произошло:**\n- Скан 04.11 прошёл: 542 из 1 922 (28,2 %), добавлено 2 репо.\n- Посты дня вышли в Bluesky и Telegram (T-0010).\n- Приняты задачи по датам данных (T-0012, T-0013), robots.txt для /go/ (T-0011), аватар (T-0014) и формулировки метода (T-0019, T-0021).\n\n**Счётчик людей:** его исправили, и все дни пересчитаны (OBS-0147). Старые цифры были завышены в 3–7 раз. Новая база:\n\n| день | люди | engaged |\n|---|---|---|\n| 02.11 | 37 | 11 |\n| 03.11 | 13 | 4 |\n\nВозвратов 1, человеческих кликов /go/ — 0. Цели пилота не меняю.\n\n**Решения:**\n- **Карточка репозитория:** полный проверяемый путь (`.github/copilot-instructions.md`), рядом доля файла среди репо того же языка с датой. Это главное пожелание персоны-мейнтейнера и шаг к цели G3 (клики /go/). Старт после 10:00.\n- **Главная:** спарклайны с фиксированной шкалой и пометкой «baseline, N дней». Сейчас рост +0,1 п.п. рисуется на всю высоту. Строка цитирования получит дату скана и ссылку на history в stats.json. Старт после T-0032.\n- **Mastodon 09.11:** пост с долей одного языка по плану.\n- **Отложено:**\n  - журнал сканов — вернусь, если снова найдётся строка истории без скана;\n  - воронка главная → /go/ — ждём данные 04–05.11 от аналитика.\n- **Отклонено:**\n  - почасовые данные и referers — это код фреймворка, а ?src= каналам хватает;\n  - скан через полночь — не бывает.\n\n**Ждёт владельца:** ничего нового. Ротация токена (Q-0005) отложена до 11.11.\n\n**Расходы:** $2,36 из $20.",
- "analyst_md": "**Данные:** в промпте полностью виден только 02.11 (до пилота). Блоки 03.11 и 04.11 обрезаны, поэтому пилотные суммы по G1–G3b посчитать нельзя. Ниже — факты за 02.11 (снимок 04.11 06:01 UTC).\n\n| Уровень | 02.11 |\n|---|---|\n| Discovery: краулеры | 4126 запросов, 19 источников (ClaudeBot 4094, GPTBot 7, OAI-SearchBot 1) |\n| Люди | 58 источников, engaged 14, возвратов 0 |\n| Цель /go/ от людей | 0 (882 из 885 запросов — краулер, 1 источник) |\n| Агенты | curl, 17 запросов, 2 источника |\n| JSON/llms.txt не от нас | /today.json: 1 агент, 1 человек, 1 unknown; /llms.txt: 1 запрос |\n| 5xx | 0 (4xx 1527, в основном сканеры) |\n\n**Посты → визиты:** поминутной разбивки и referers за 03–04.11 в доступной части нет (на 02.11 `referers` пуст). Сравнить часы до и после постов нельзя.\n\n**Замечание:** сумма людей за 02.11 в двух снимках расходится (160 и 191 запрос при тех же 58 источниках); это пересчёт классификации.\n\n**Цели:** G1–G3b на 04.11 без данных; G4 формально достигнута (GPTBot, ClaudeBot, curl), но это до пилота.",
+ "spend_usd": 6.9,
+ "po_digest_md": "**Цикл 04.11 20:07 UTC: новых задач нет**\n\n**Что произошло:** скан 04.11 прошёл: AGENTS.md в 542 из 1 922 репозиториев (28,2 %), +2 за сутки. Ежедневные посты 04.11 вышли в Bluesky, Telegram и Mastodon. Приняты доработки:\n- пути, которые проверяет трекер, названы точно (T-0021);\n- на главной показано время последнего опубликованного скана (T-0032);\n- на карточке репо показана доля файла в его языке (T-0035) и дата «first seen in our scans» (T-0043);\n- у спарклайнов фиксированная ось (T-0036);\n- в `stats.json` у каждого дня есть доли, а также `history_days` и `change_7d_pp` (T-0044).\n\n**Решения:**\n- OBS-0164 (поле «updated» в подвале меняется при каждой пересборке) отложено. Подвал по VISION обязателен, а дата скана уже стоит у числа на главной. Вернусь к нему, если кто-то примет время в подвале за дату данных.\n- Все слоты маркетинг-плана до 10.11 уже стоят в бэклоге с `not_before`. Лента «добавили сегодня» не пуста, поэтому расширять выборку пока не нужно.\n- Оценки персон: интерес 4,0 из 5, польза 4,8 из 5. Их пожелания выполнены задачами T-0035, T-0036, T-0043 и T-0044.\n\n**Риск:** живых людей мало. За 04.11 было 3 человека, из них 1 вовлечённый. Кликов людей по `/go/` пока нет (цель G3). Повторные посещения с постов приходят из Threads и Bluesky. Пересмотрю частоту постов, когда наберётся больше данных по каналам, не раньше следующего плана.\n\n**От владельца ничего не нужно.** Расход сегодня $6,57 из $20.",
+ "analyst_md": "**Пилот, день 1 (04.11), снимок 18:01 UTC — данные неполные за день.**\n\n| Уровень | 02.11 | 03.11 | 04.11 |\n|---|---|---|---|\n| Люди: sources / engaged | 37 / 11 | 13 / 4 | 3 / 1 |\n| Возвраты | 0 | 1 | 0 |\n| /go/ от людей | 0 | 0 | 0 |\n| Агенты (запросы) | 17 | 15542 | 1176 |\n| Краулеры (запросы) | 4126 | 401 | 2007 |\n\n**Цели (04.11 из 7 дней):** G1 = 1 из 60; G2 = 0 из 5; G3 = 0 из 15; G3b = 0 людей/агентов на JSON в 04.11 (03.11: по 1 агентскому источнику на stats/today); G4 = краулеры читают stats.json (6 запросов), /llms.txt краулерами 0 сегодня; G5 нет данных.\n\nВыводы: 02.11 — всплеск, похоже, запуски команды/первые ссылки. Агентский трафик — это python-requests (один семейство, скорее всего скрипт, 15 тыс. запросов 03.11), не человек. Посты → визиты: mastodon 81 запрос (в основном превью), 0 людей; threads дал 1 engaged; bluesky 1 человек. Реферреры минимальны (l.threads.com, google). Данных для эффекта задач недостаточно.",
  "observations": {
-  "new": 24,
+  "new": 37,
   "by_class": {
-   "measurement": 3,
-   "need_hypothesis": 9,
+   "measurement": 5,
+   "need_hypothesis": 17,
    "success": 9,
    "feedback": 1,
    "ops": 1,
-   "ux_friction": 1
+   "ux_friction": 4
   }
  },
  "owner_questions_open": 0

@@ -368,19 +368,331 @@
    "id": "T-0033",
    "title": "[retro] Reviewer repo_only allowlist: accept flags after the module, and make `discover` find tests",
    "type": "feature",
-   "state": "ready",
+   "state": "done",
    "priority": "P2",
    "goal": "framework",
    "role": "developer",
    "created": "2026-11-04T07:19:13+00:00",
-   "accepted_at": null,
-   "released_sha": null,
+   "accepted_at": "2026-11-04T08:08:08+00:00",
+   "released_sha": "e4955ecc2f442e295180995fbb2b67fbf6571e10",
    "history": [
     {
      "ts": "2026-11-04T07:19:13+00:00",
      "actor": "framework-retro",
      "to": "ready",
      "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-04T08:07:13+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261104T0807-exec-T-0033"
+    },
+    {
+     "ts": "2026-11-04T08:07:13+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-04T08:08:08+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261104T0807-canary of release-radar on a state copy: all phases); merged e4955ecc2f"
+    },
+    {
+     "ts": "2026-11-04T08:08:08+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0034",
+   "title": "[retro] Reviewer card: add the `discover -s tests -t .` and flags-after-module hint",
+   "type": "defect",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-04T09:07:16+00:00",
+   "accepted_at": "2026-11-04T09:08:13+00:00",
+   "released_sha": "e23ca59e89f2b68a616c747ab0c23a986af75ea7",
+   "history": [
+    {
+     "ts": "2026-11-04T09:07:16+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-04T09:07:16+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261104T0907-exec-T-0034"
+    },
+    {
+     "ts": "2026-11-04T09:07:16+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-04T09:08:13+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261104T0907-canary of release-radar on a state copy: all phases); merged e23ca59e89"
+    },
+    {
+     "ts": "2026-11-04T09:08:13+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0035",
+   "title": "[retro] Persona/reviewer/editor cards: no < or > in team-fetch --grep patterns",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-04T09:10:52+00:00",
+   "accepted_at": "2026-11-04T12:07:47+00:00",
+   "released_sha": "4eebd0badc84d0f37acfe8b97b20c7312b0b3a6d",
+   "history": [
+    {
+     "ts": "2026-11-04T09:10:52+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-04T10:07:15+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261104T1007-exec-T-0035"
+    },
+    {
+     "ts": "2026-11-04T10:07:15+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-04T10:08:13+00:00",
+     "actor": "dispatcher",
+     "to": "blocked",
+     "note": "push/PR failed: github POST /repos/OOuph/agent-team/pulls: HTTP Error 502: Bad Gateway"
+    },
+    {
+     "ts": "2026-11-04T11:31:06+00:00",
+     "actor": "dispatcher",
+     "to": "ready",
+     "note": "ops (дежурный): HTTP 502 на POST /pulls был ложным — PR #65 создан GitHub; повтор: open_pull_request переиспользует открытый PR для task/T-0035, push --force-with-lease"
+    },
+    {
+     "ts": "2026-11-04T12:07:07+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261104T1207-exec-T-0035"
+    },
+    {
+     "ts": "2026-11-04T12:07:07+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-04T12:07:47+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261104T1207-canary of release-radar on a state copy: all phases); merged 4eebd0badc"
+    },
+    {
+     "ts": "2026-11-04T12:07:47+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0036",
+   "title": "[retro] Reviewer/support/persona cards: no < > in --grep, rule at top",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-04T15:09:41+00:00",
+   "accepted_at": "2026-11-04T16:08:00+00:00",
+   "released_sha": "6e4cb948c0c4477958235fc8d65593f2b1176d9e",
+   "history": [
+    {
+     "ts": "2026-11-04T15:09:41+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-04T16:07:14+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261104T1607-exec-T-0036"
+    },
+    {
+     "ts": "2026-11-04T16:07:14+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-04T16:08:00+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261104T1607-canary of release-radar on a state copy: all phases); merged 6e4cb948c0"
+    },
+    {
+     "ts": "2026-11-04T16:08:00+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0037",
+   "title": "[retro] team-fetch: --tag flag so roles need no < or > in --grep",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-04T20:09:09+00:00",
+   "accepted_at": "2026-11-04T21:08:14+00:00",
+   "released_sha": "22dcb7e3fdb308b6e247cc69d18167238575f8f5",
+   "history": [
+    {
+     "ts": "2026-11-04T20:09:09+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-04T21:07:13+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261104T2107-exec-T-0037"
+    },
+    {
+     "ts": "2026-11-04T21:07:13+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-04T21:08:14+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261104T2107-canary of release-radar on a state copy: all phases); merged 22dcb7e3fd"
+    },
+    {
+     "ts": "2026-11-04T21:08:14+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0038",
+   "title": "[retro] Dispatcher: stop and diagnose repeated 'done but committed nothing'",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-04T20:09:10+00:00",
+   "accepted_at": "2026-11-04T22:08:43+00:00",
+   "released_sha": "f08a1770e7d75f8b88ff700487a08e4513cefe9f",
+   "history": [
+    {
+     "ts": "2026-11-04T20:09:10+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-04T22:07:09+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261104T2207-exec-T-0038"
+    },
+    {
+     "ts": "2026-11-04T22:07:09+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-04T22:08:43+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261104T2207-canary of release-radar on a state copy: all phases); merged f08a1770e7"
+    },
+    {
+     "ts": "2026-11-04T22:08:43+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0039",
+   "title": "[retro] Retry PR creation/push on transient 5xx before blocking a task",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-04T20:09:11+00:00",
+   "accepted_at": "2026-11-04T23:08:33+00:00",
+   "released_sha": "5d81b3932147b082ef76abb4ba44a094dc0634ff",
+   "history": [
+    {
+     "ts": "2026-11-04T20:09:11+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-04T23:07:14+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261104T2307-exec-T-0039"
+    },
+    {
+     "ts": "2026-11-04T23:07:14+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-04T23:08:33+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261104T2307-canary of release-radar on a state copy: all phases); merged 5d81b39321"
+    },
+    {
+     "ts": "2026-11-04T23:08:33+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
     }
    ]
   }
@@ -388,14 +700,14 @@
  "reviews": [],
  "posts": [],
  "metrics": null,
- "spend_usd": 1.4,
- "po_digest_md": "**Цикл 04.11 06:07.** Пришла одна карточка: OBS-0061 от внешнего критика (P1). Критик считает, что SCHEME допускает pass при непроверенных критериях.\n\n**Решение:** `needs_evidence`, новых задач нет.\n- В данных нет ни одного случая ошибочного pass, а у критика нет записи F-xxxx. VISION без доказательства задач не допускает.\n- T-0030 (готова) сознательно отправила непубличные критерии в limits, чтобы убрать бесконечные inconclusive.\n- Карточка PO уже требует, чтобы каждый критерий был виден по публичному URL. Ненаблюдаемый обязательный критерий — дефект постановки, а не правило ревью.\n\n**Условие возврата:** конкретное ревью с pass, где обязательный критерий остался в limits, плюс запись в регистре. Тогда будет одна документарная задача про определение pass.\n\n**Очередь:** T-0031 (отказы shell) и T-0032 (модульный unittest у ревьюера) в Ready, WIP в норме.\n\n**Владельцу вопросов нет.** Расход: $1.07 из $10.",
+ "spend_usd": 3.6,
+ "po_digest_md": "Новых задач нет. В бэклоге одна открытая задача, T-0039: повтор создания PR при ответах 5xx от GitHub. Она основана на F-0100 и остаётся в работе. Новое наблюдение OBS-0069 отложено. Это единичная заметка о том, что SUMMARY_MAX=300 обрезает длинные записи no_commit. Вернёмся к ней, если обрезка повторится. Вопросов владельцу нет. Расход за день $3.34 из $10.",
  "analyst_md": "",
  "observations": {
-  "new": 13,
+  "new": 23,
   "by_class": {
-   "need_hypothesis": 4,
-   "feedback": 9
+   "need_hypothesis": 8,
+   "feedback": 15
   }
  },
  "owner_questions_open": 0

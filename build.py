@@ -338,10 +338,10 @@ def jsonld_block(data: dict) -> str:
 
 
 def layout(title: str, body: str, built: str, description: str = "", canonical: str = "", noindex: bool = False,
-           ld_type: str = "WebPage") -> str:
+           ld_type: str = "WebPage", desc_max: int = DESC_MAX) -> str:
     desc = description or SITE_TAGLINE
-    if len(desc) > DESC_MAX:  # whole words only, no ellipsis
-        desc = desc[:DESC_MAX + 1].rsplit(" ", 1)[0].rstrip(" ,;:-")
+    if len(desc) > desc_max:  # whole words only, no ellipsis
+        desc = desc[:desc_max + 1].rsplit(" ", 1)[0].rstrip(" ,;:-")
     og_type = "article" if ld_type == "Article" else "website"
     url = canonical or SITE_BASE + "/"
     ld = {"@context": "https://schema.org", "@type": ld_type, "name": title, "headline" if ld_type == "Article" else "description": title if ld_type == "Article" else desc,
@@ -357,7 +357,9 @@ def layout(title: str, body: str, built: str, description: str = "", canonical: 
         ld["description"] = desc
     og = (f'<meta property="og:title" content="{esc(title)}">\n<meta property="og:description" content="{esc(desc)}">\n'
           f'<meta property="og:type" content="{og_type}">\n<meta property="og:url" content="{esc(url)}">\n'
-          f'<meta property="og:site_name" content="{esc(SITE_NAME)}">\n') + jsonld_block(ld)
+          f'<meta property="og:site_name" content="{esc(SITE_NAME)}">\n'
+          f'<meta name="twitter:card" content="summary">\n<meta name="twitter:title" content="{esc(title)}">\n'
+          f'<meta name="twitter:description" content="{esc(desc)}">\n') + jsonld_block(ld)
     robots = '<meta name="robots" content="noindex">\n' if noindex else ""
     canon = f'<link rel="canonical" href="{esc(canonical)}">\n' if canonical else ""
     return f"""<!doctype html>
@@ -541,19 +543,35 @@ def render_day(date: str, model: dict) -> str:
             body.append(f'<section class="product"><h2><a href="/product/{esc(slug)}/">{esc(p["product"].get("name") or slug)}</a></h2>'
                         f'<p class="note">no activity recorded</p></section>')
     return layout(f"{date} — {SITE_NAME}", "\n".join(body), model["built"],
-                  description=day_description(date, model), ld_type="Article",
+                  description=day_description(date, model), ld_type="Article", desc_max=DAY_DESC_MAX,
                   canonical=f"{SITE_BASE}/day/{date}/")
 
 
+DAY_DESC_MAX = 200
+
+
 def day_description(date: str, model: dict) -> str:
-    """Short meta/og text of a day page: totals over the products present that day (same fields as index.json)."""
+    """Meta/og text of a day page, <=200 chars: the 'Latest day' pick (product, title, verdict), then totals. Export fields only."""
     cs = [day_counts(p["days"][date]) for p in model["products"].values() if date in p["days"]]
     if not cs:
         return f"{date}: no activity recorded."
     spend = round(sum(float(p["days"][date].get("spend_usd") or 0.0) for p in model["products"].values() if date in p["days"]), 1)
-    sample = " (fixture sample, not a measurement)" if any(c["fixture"] for c in cs) else ""
-    return (f"{date}{sample}: {sum(c['tasks_done_distinct'] for c in cs)} tasks done, {sum(c['reviews_pass'] for c in cs)} reviews passed, "
-            f"{sum(c['posts'] for c in cs)} posts, {fmt_usd(spend)} model spend across {len(cs)} product{'s' if len(cs) != 1 else ''}")
+    fixture = any(c["fixture"] for c in cs)
+    tail = f" {sum(c['tasks_done_distinct'] for c in cs)} tasks done, {fmt_usd(spend)} model spend."
+    head = f"{date}{' (sample)' if fixture else ''}:"
+    _, chosen = pick_latest_events(date, model)
+    if not chosen:
+        return head + tail
+    _, pname, t, rs, _fx = chosen[0]
+    verdict = str(rs[-1].get("verdict")) if rs else str(t.get("state") or "no state")
+    suffix = f" ({verdict})."
+    title = " ".join(str(t.get("title") or "").split())
+    room = DAY_DESC_MAX - len(head) - len(f" {pname} — ") - len(suffix) - len(tail) - 1
+    if len(title) > room:
+        title = title[:max(room, 0) + 1].rsplit(" ", 1)[0].rstrip(" ,;:-.") + "…" if room > 10 else ""
+    if not title:
+        return head + tail
+    return f"{head} {pname} — {title}{suffix}{tail}"
 
 
 def neighbours(date: str, dates: list[str]) -> tuple[str | None, str | None]:
@@ -573,9 +591,8 @@ def cut_words(text: str, limit: int = HOME_NOTE_MAX) -> str:
     return cut.rstrip(" ,;:.-") + "…"
 
 
-def latest_day_block(latest: str, model: dict) -> str:
-    """Up to 3 tasks of the latest day: review fail / inconclusive / pass after fail; else accepted tasks."""
-    anchors = task_anchors(latest, model)
+def pick_latest_events(latest: str, model: dict) -> tuple[list, list]:
+    """The home 'Latest day' rule: (events, chosen<=3) as (slug, product name, task, reviews, fixture)."""
     events, accepted = [], []
     for slug, p in model["products"].items():
         d = p["days"].get(latest)
@@ -600,7 +617,13 @@ def latest_day_block(latest: str, model: dict) -> str:
         return 0 if "fail" in vs and vs[-1] != "pass" else (1 if "fail" in vs else 2)
     events.sort(key=rank)
     accepted.sort(key=lambda it: not it[3])
-    chosen = (events or accepted)[:3]
+    return events, (events or accepted)[:3]
+
+
+def latest_day_block(latest: str, model: dict) -> str:
+    """Up to 3 tasks of the latest day: review fail / inconclusive / pass after fail; else accepted tasks."""
+    anchors = task_anchors(latest, model)
+    events, chosen = pick_latest_events(latest, model)
     out = []
     if not chosen:
         return '<p class="note">no activity recorded for review events or accepted tasks on this day.</p>'
@@ -693,7 +716,7 @@ def render_index(model: dict) -> str:
     else:
         body.append('<p class="note">no activity recorded</p>')
     return layout(f"{SITE_NAME} — the site that writes itself", "\n".join(body), model["built"], canonical=SITE_BASE + "/",
-                  description=SITE_TAGLINE, ld_type="WebSite")
+                  description=day_description(latest, model) if latest else SITE_TAGLINE, ld_type="WebSite", desc_max=DAY_DESC_MAX)
 
 
 def render_product(slug: str, p: dict, model: dict) -> str:

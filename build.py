@@ -518,6 +518,11 @@ def product_section(d: dict, product: dict, heading_link: bool = True, anchors: 
     return "\n".join(out)
 
 
+NEXT_ROW = ('<p class="next-row"><strong>Next:</strong> <a href="/feed.xml">new day every morning after 07 UTC — RSS</a>'
+            ' · <a href="/go/telegram/">Telegram</a> · <a href="/go/github/">code (MIT) on GitHub</a>'
+            ' · <a href="/try/">try with your product</a></p>')
+
+
 def render_day(date: str, model: dict) -> str:
     products = model["products"]
     present = [(slug, p) for slug, p in products.items() if date in p["days"]]
@@ -542,6 +547,7 @@ def render_day(date: str, model: dict) -> str:
         if date not in p["days"]:
             body.append(f'<section class="product"><h2><a href="/product/{esc(slug)}/">{esc(p["product"].get("name") or slug)}</a></h2>'
                         f'<p class="note">no activity recorded</p></section>')
+    body.append(NEXT_ROW)
     return layout(f"{date} — {SITE_NAME}", "\n".join(body), model["built"],
                   description=day_description(date, model), ld_type="Article", desc_max=DAY_DESC_MAX,
                   canonical=f"{SITE_BASE}/day/{date}/")
@@ -658,6 +664,7 @@ def render_index(model: dict) -> str:
         body.append(f'<h2 id="latest">Latest day: <a href="/day/{esc(latest)}/">{esc(latest)}</a></h2>')
         body.append(fixture_note([p["days"][latest] for p in products.values() if latest in p["days"]]))
         body.append(latest_day_block(latest, model))
+        body.append(NEXT_ROW)
         body.append('<div class="table-wrap"><table class="table"><thead><tr><th>Product</th><th>Day</th><th>Tasks done</th><th>State transitions</th><th>Reviews passed</th><th>Posts</th><th>People (estimated log sources, <a href="/about/#method">method</a>)</th><th>Spent</th></tr></thead><tbody>')
         for slug, p in products.items():
             name = p["product"].get("name") or slug

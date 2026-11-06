@@ -1,0 +1,99 @@
+{
+ "slug": "release-radar",
+ "name": "Release Radar",
+ "site": "https://releases.formachines.ai",
+ "date": "2026-11-06",
+ "tasks": [
+  {
+   "id": "T-0057",
+   "title": "Home page: a visible 'release notes →' link via /go/<id>/ on every release card, flagged releases first on the first screen",
+   "type": "feature",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-06T01:11:13+00:00",
+   "accepted_at": "2026-11-06T02:08:39+00:00",
+   "released_sha": "9448e7b19c3d4fc06a4031603301cd1a7a2b37cc",
+   "history": [
+    {
+     "ts": "2026-11-06T01:11:13+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-06T01:11:13+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261106T0107-exec-T-0057"
+    },
+    {
+     "ts": "2026-11-06T01:11:13+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-06T01:11:42+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 9448e7b19c"
+    },
+    {
+     "ts": "2026-11-06T02:08:39+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The live home page has the Flagged block first, after the lead. Every card has a 'release notes →' link to /go/<id>/ with rel=nofollow. The two /go/ pages I opened redirect to the right release notes,"
+    }
+   ]
+  },
+  {
+   "id": "T-0058",
+   "title": "Analyst 07.11: did the home-page 'release notes →' links (T-0057, live 06.11) produce human /go/ clicks? G3 reading for 06.11",
+   "type": "research",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "analyst",
+   "created": "2026-11-06T02:09:31+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-06T02:09:31+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  }
+ ],
+ "reviews": [
+  {
+   "task": "T-0057",
+   "verdict": "pass",
+   "summary": "The live home page has the Flagged block first, after the lead. Every card has a 'release notes →' link to /go/<id>/ with rel=nofollow. The two /go/ pages I opened redirect to the right release notes, robots.txt still disallows /go/, and build.json has no errors."
+  }
+ ],
+ "posts": [],
+ "metrics": {
+  "humans": 2,
+  "engaged": 1,
+  "returns": 0,
+  "agents": 3,
+  "crawlers": 78,
+  "requests": 149
+ },
+ "spend_usd": 1.3,
+ "po_digest_md": "**Release Radar — цикл 06.11 07:07 UTC**\n\n**Что произошло.** T-0057 принята (06.11 ~01:11 UTC). Теперь на каждой карточке видна ссылка «release notes →» через /go/, а релизы с флагом показаны первыми. Посты за 05.11 вышли в Telegram и Bluesky. Пересборка идёт по расписанию.\n\n**Метрики.**\n- 05.11: 40 human-источников, из них 5 engaged.\n- G3 (доля визитов с внешним кликом через /go/): 0 за 04–05.11.\n- G2 (возвраты): 0.\n- 06.11: пока только 2 источника, день не закончился.\n\n**Решения по 4 наблюдениям аналитика.**\n- G3 = 0 привязано к T-0058. Это замер 06.11 против 05.11 после T-0057, старт не раньше 07.11 02:30 UTC. Главную до замера не трогаю, иначе эффект T-0057 не измерить.\n- Всплеск ошибок 4xx 05.11 уже разобран в T-0056: это сканеры. Срез 404 по путям /pkg/ стоит в очереди фреймворка.\n- Как запросы агентов засчитываются в G4: отложено до 11.11. Это конфигурация метрик, её до возвращения владельца не меняем. Аналитик 10.11 посчитает G4 вручную по полному metrics.json.\n- G2 = 0: отложено. Если 08.11 возвратов всё ещё нет, будет задача показать на главной подписку (RSS и Telegram).\n\n**Новых задач нет.** Все слоты маркетинг-плана до 10.11 уже нарезаны. Сегодня по плану:\n- карточка в Telegram (T-0035);\n- тест формата в Bluesky в 15:00 UTC (T-0037).\n\nНовый недельный план понадобится к 10.11.\n\n**Ждёт владельца (11.11).**\n- Конфликт между VISION и мандатом по Mastodon, X и Threads. Шесть слотов в этих каналах закрыты, хотя Mastodon и X уже дали по 1 engaged-источнику.\n- Как считать агентов в G4.\n\n**Расход:** $1.05 из $20.",
+ "analyst_md": "**Release Radar, срез на 06.11 06:00 UTC (пилот 04–10.11, день 3 из 7; 06.11 — неполный день, только данные до сборки).**\n\n| Уровень | 04.11 | 05.11 | 06.11 (частично) |\n|---|---|---|---|\n| Люди: engaged / источники | 0 / 7 | 5 / 40 | 1 / 2 |\n| Возвраты | 0 | 0 | 0 |\n| Внешние клики (/go/ от людей) | 0 | 0 | 0 |\n| Агенты (запросы) | 16 | 23 | 3 |\n| /today.json от агентов | 0 | 0 | 0 |\n| Краулеры (запросы) | 351 | 306 | 52 |\n\nИтог пилота пока: engaged-люди 04–06.11 = 6 (цель G1 ≥ 40), возвраты 0 (G2 ≥ 5), клики /go/ от людей 0 (G3), /today.json от не-краулеров 0 (G4 ≥ 5). Это честные нули, не провал.\n\nПосты → визиты: по `?src=` только 05.11 — x дал 1 engaged-человека (t.co), bluesky 10 запросов, 0 людей. Пост Bluesky 09:09 и Telegram 08:14 не дали заметного роста людей (referer-доказательств нет). T-0057 (ссылка «release notes →») принят 06.11 02:08; до/после данных пока нет — insufficient data.",
+ "observations": {
+  "new": 9,
+  "by_class": {
+   "need_hypothesis": 6,
+   "measurement": 3
+  }
+ },
+ "owner_questions_open": 0
+}

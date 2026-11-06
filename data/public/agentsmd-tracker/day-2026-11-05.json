@@ -5,6 +5,58 @@
  "date": "2026-11-05",
  "tasks": [
   {
+   "id": "T-0010",
+   "title": "Daily post 04.11 (pilot day 1): AGENTS.md share of top GitHub repos after the 04:00 UTC scan (bluesky + telegram)",
+   "type": "content",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G5",
+   "role": "marketer",
+   "created": "2026-11-03T04:12:10+00:00",
+   "accepted_at": "2026-11-04T06:10:37+00:00",
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-05T12:09:17+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-05T12:09:17+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0012",
+   "title": "Derive all data dates from the scan time: today.json date and history rows only from a real scan",
+   "type": "defect",
+   "state": "done",
+   "priority": "P2",
+   "goal": "L0 daily dated data (supports G3b/G4)",
+   "role": "developer",
+   "created": "2026-11-03T07:14:57+00:00",
+   "accepted_at": "2026-11-04T07:10:50+00:00",
+   "released_sha": "aaeb61dd5d7a94c1ad1af26eb012f26eddfcf492",
+   "history": [
+    {
+     "ts": "2026-11-05T12:09:17+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-05T12:09:18+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
    "id": "T-0017",
    "title": "Daily post 05.11 05:45 UTC on bluesky: number of the day (pilot day 2)",
    "type": "content",
@@ -121,6 +173,130 @@
    ]
   },
   {
+   "id": "T-0026",
+   "title": "Mastodon post 04.11 09:00 UTC: number of the day, link to home (channel test after the 03.11 trial)",
+   "type": "content",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-03T19:10:30+00:00",
+   "accepted_at": "2026-11-04T09:08:59+00:00",
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-05T12:09:18+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-05T12:09:18+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0028",
+   "title": "Daily post 07.11 05:45 UTC on telegram @agentsmd_tracker: number of the day",
+   "type": "content",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "marketer",
+   "created": "2026-11-03T19:10:30+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-05T13:09:04+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Replaced by the 07.11 telegram landing test, which links a repo card instead of the home page (OBS-0176). Same rubric and slot."
+    }
+   ]
+  },
+  {
+   "id": "T-0032",
+   "title": "Home: show 'Latest published scan: <generated UTC>' next to the headline number, separate from the 04:00 UTC schedule",
+   "type": "defect",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G3b (dated, citable numbers; VISION 'data dated')",
+   "role": "developer",
+   "created": "2026-11-04T06:09:50+00:00",
+   "accepted_at": "2026-11-04T10:08:29+00:00",
+   "released_sha": "d782445a5a5bc2ff70f66793cc529ac08d8f85e3",
+   "history": [
+    {
+     "ts": "2026-11-05T12:09:18+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-05T12:09:18+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0035",
+   "title": "Repo card: show the full checked path and each file's dated share in the repo's language",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-04T07:11:53+00:00",
+   "accepted_at": "2026-11-04T11:07:33+00:00",
+   "released_sha": "6f27d163ac68b54932c69e6d0f36ddcd0b7c0f6a",
+   "history": [
+    {
+     "ts": "2026-11-05T12:09:18+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-05T12:09:18+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0036",
+   "title": "Home sparklines: fixed axis and a 'baseline, N days' label; cite line names the scan date and points to stats.json history",
+   "type": "defect",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G3b",
+   "role": "developer",
+   "created": "2026-11-04T07:11:53+00:00",
+   "accepted_at": "2026-11-04T12:09:11+00:00",
+   "released_sha": "5b04bcc62db5e4c6d1dd74fad42595810651f735",
+   "history": [
+    {
+     "ts": "2026-11-05T12:09:18+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-05T12:09:18+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
    "id": "T-0041",
    "title": "Weekly slice on dev.to 10.11 08:00 UTC: 'Who already writes instructions for agents: top ~2,000 GitHub repos on 2026-11-10'",
    "type": "content",
@@ -137,6 +313,32 @@
      "actor": "po",
      "to": "rejected",
      "note": "closed by PO: Replaced by the dev.to slice moved up to 06.11 08:00 UTC, so the article can bring traffic during the pilot. VISION allows only one slice in the pilot week."
+    }
+   ]
+  },
+  {
+   "id": "T-0043",
+   "title": "Repo card: for each present file, show 'first seen in our scans: <date>' (since the first scan 2026-11-02)",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "developer",
+   "created": "2026-11-04T13:09:43+00:00",
+   "accepted_at": "2026-11-04T14:09:36+00:00",
+   "released_sha": "e8979b85399e766791da4b253a91a71e75d2d243",
+   "history": [
+    {
+     "ts": "2026-11-05T18:09:37+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-05T18:09:37+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
     }
    ]
   },
@@ -164,12 +366,12 @@
    "id": "T-0046",
    "title": "X trial post 05.11 06:15 UTC from @formachines_ai: number of the day (only if X is enabled for team-publish)",
    "type": "content",
-   "state": "ready",
+   "state": "accepted",
    "priority": "P2",
    "goal": "G1",
    "role": "marketer",
    "created": "2026-11-05T01:09:59+00:00",
-   "accepted_at": null,
+   "accepted_at": "2026-11-05T08:10:49+00:00",
    "released_sha": null,
    "history": [
     {
@@ -177,6 +379,24 @@
      "actor": "po",
      "to": "ready",
      "note": ""
+    },
+    {
+     "ts": "2026-11-05T08:10:19+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261105T0807-exec-T-0046"
+    },
+    {
+     "ts": "2026-11-05T08:10:19+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-05T08:10:49+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "posted 1 (editor-approved)"
     }
    ]
   },
@@ -217,9 +437,199 @@
      "note": "measurement delivered"
     }
    ]
+  },
+  {
+   "id": "T-0048",
+   "title": "Page preview metadata (description, og:*, twitter:*) without daily-changing numbers on home and /lang/ pages",
+   "type": "defect",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1 (clear, citable number in channel previews; VISION 'data dated')",
+   "role": "developer",
+   "created": "2026-11-05T08:10:19+00:00",
+   "accepted_at": "2026-11-05T09:07:52+00:00",
+   "released_sha": "1ecfe60c5ba68a906707c034915c36db9890c351",
+   "history": [
+    {
+     "ts": "2026-11-05T08:10:19+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-05T08:10:49+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261105T0807-exec-T-0048"
+    },
+    {
+     "ts": "2026-11-05T08:10:49+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-05T08:11:46+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 1ecfe60c5b"
+    },
+    {
+     "ts": "2026-11-05T09:07:52+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "Home and /lang/python/ preview tags now carry only stable wording with no counts, percentages or dates. The visible headline, scan line, footer and stats.json are intact."
+    }
+   ]
+  },
+  {
+   "id": "T-0049",
+   "title": "X post 06.11 06:15 UTC from @formachines_ai: number of the day (mirror of the bluesky daily number)",
+   "type": "content",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-05T09:08:30+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-05T09:08:30+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0050",
+   "title": "X post 07.11 06:15 UTC from @formachines_ai: number of the day",
+   "type": "content",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-05T09:08:31+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-05T09:08:31+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0051",
+   "title": "X post 08.11 06:15 UTC from @formachines_ai: number of the day",
+   "type": "content",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-05T09:08:31+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-05T09:08:31+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0052",
+   "title": "Telegram post 07.11 05:50 UTC: daily number, linking the repo card of a file added today (landing test)",
+   "type": "content",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-05T13:09:04+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-05T13:09:04+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0053",
+   "title": "X post 09.11 06:15 UTC from @formachines_ai: number of the day",
+   "type": "content",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-05T19:09:02+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-05T19:09:02+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0054",
+   "title": "X post 10.11 06:15 UTC from @formachines_ai: number of the day (pilot day 7)",
+   "type": "content",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-05T19:09:02+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-05T19:09:02+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0055",
+   "title": "Marketing plan for 2026-11-11..2026-11-17 (after the pilot), written 09.11",
+   "type": "marketing",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-05T19:09:03+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-05T19:09:03+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
   }
  ],
- "reviews": [],
+ "reviews": [
+  {
+   "task": "T-0048",
+   "verdict": "pass",
+   "summary": "Home and /lang/python/ preview tags now carry only stable wording with no counts, percentages or dates. The visible headline, scan line, footer and stats.json are intact."
+  }
+ ],
  "posts": [
   {
    "channel": "bluesky",
@@ -230,24 +640,31 @@
    "channel": "telegram",
    "url": "https://t.me/agentsmd_tracker/4",
    "ts": "2026-11-05T07:11:18+00:00"
+  },
+  {
+   "channel": "x",
+   "url": "https://x.com/formachines_ai/status/2118254695034614037",
+   "ts": "2026-11-05T08:10:49+00:00"
   }
  ],
  "metrics": {
-  "humans": 0,
-  "engaged": 0,
+  "humans": 13,
+  "engaged": 3,
   "returns": 0,
-  "agents": 238,
-  "crawlers": 123,
-  "requests": 1866
+  "agents": 396,
+  "crawlers": 4257,
+  "requests": 6775
  },
- "spend_usd": 1.7,
- "po_digest_md": "**05.11, пилот, день 2.** Скан 05.11 прошёл: AGENTS.md есть у 544 из 1 922 репозиториев (28,3 %), за сутки добавилось 2. Пост в bluesky вышел (T-0017). Все слоты маркетинг-плана до 10.11 уже стоят в бэклоге. Новых постовых задач не нужно.\n\n**Тревожно:** G1 — 1 engaged-визит из 60 за два дня. Mastodon дал 172 запроса, но людей среди них 0: это боты, которые строят превью ссылок. Что уже сделано, чтобы привести людей:\n- срез на dev.to перенесён на 06.11 (T-0045);\n- попытка в X (T-0046), если канал X включён;\n- второй пост в threads 06.11 (T-0031). Threads — единственный канал, откуда был engaged-визит.\n\nПовторно смотрим 07.11, после выхода dev.to.\n\n**Решения:**\n- **Всплеск 4xx 05.11** (1 156 из 1 827 запросов): поставил аналитику задачу P2. Нужно понять, что это — шум сканеров или битые ссылки с наших страниц. Если ссылки наши, следующим циклом пойдёт дефект P1.\n- **Трафик python-requests:** привязан к T-0042. В G3b его не засчитываем, пока не доказано, что это отдельные источники, которые запрашивают JSON. Объём падает: 15 502 → 238 запросов в день.\n\n**Владельцу:** вопросов нет.\n\n**Расходы:** $1 из $20.",
- "analyst_md": "**Пилот, день 2 (04–05.11). Срез 05.11 06:02 UTC — день неполный (0 человек за утро).**\n\n| Уровень | 02.11 | 03.11 | 04.11 | 05.11* |\n|---|---|---|---|---|\n| Люди: engaged | 11 | 4 | 1 | 0 |\n| Возвраты | 0 | 1 | 0 | 0 |\n| Клики людей /go/ | 0 | 0 | 0 | 0 |\n| Агенты (python-requests) | 17 | 15542 | 1273 | 238 |\n| Краулеры (запросов) | 4126 | 401 | 2040 | 102 |\n\n**Цели (с 04.11):** G1 = 1 из ≥60 (почти не идёт); G2 = 0 из ≥5; G3 = 0 из ≥15; G3b = 0 источников людей, агентов нет — не достигнуто; G4 = выполнено (ClaudeBot, GPTBot, GoogleOther, Googlebot), но это краулеры по страницам; G5 = ответов нет данных.\n\n**Посты:** bluesky 04.11 06:10 → 9 запросов с ?src, 1 человек; mastodon 09:08 → 83 запроса, почти все превью (Mastodon 66), 0 людей; threads (03.11 → 04.11) дал единственного engaged. Эффект от постов виден лишь в единицах.\n\n**Дефект-подозрение:** 05.11 4xx = 1156 из 1827, при 04.11 — 54. Сканеры дают 451, остальное неясно.\n\nМетрики 02.11 (74 запроса людей) — вероятно, включают команду/запуск до фильтра.",
+ "spend_usd": 3.8,
+ "po_digest_md": "**Цикл 05.11 19:07 UTC — agentsmd-tracker**\n\n**Что произошло.** 05.11 вышли посты в bluesky, telegram и (впервые) в X. X дал 2 человека и 1 вовлечённый визит в день поста — лучший канал на один пост. Людей за 05.11: 11, вовлечённых 2; G1 по-прежнему сильно ниже цели (16 вовлечённых визитов за 4 дня). Задачи T-0044 (доли по дням в stats.json) и T-0048 (превью ссылок без устаревающих чисел) приняты.\n\n**Решения.**\n- Добавлены посты в X 09.11 и 10.11 в 06:15: 06–08.11 уже в бэклоге, теперь X закрыт до конца пилота.\n- Задача на маркетинговый план 11–17.11 стоит на 09.11 18:00, чтобы ежедневные посты не прервались после пилота. План учтёт тест графика 08.11, тест ссылки на карточку репозитория 07.11 и статью на dev.to 06.11.\n- Всплеск 4xx (1 344) отнесён к анализу T-0047, трафик python-requests — к T-0042. Он падает (15,5 тыс. → 393 запроса в день) и не засчитывается в G3b/G4. Если окажется, что 4xx идут по битым ссылкам с наших страниц, поставим дефект.\n\n**Ждёт владельца:** ничего нового. Ротация токена — по-прежнему 11.11.\n\n**Расходы:** $3.53 из $20 за день.",
+ "analyst_md": "**Срез на 05.11 (снимок 18:02 UTC, день неполный). Уровни не суммируются.**\n\n| Уровень | 03.11 | 04.11 | 05.11 |\n|---|---|---|---|\n| Краулеры, запросов | 401 | 2040 | 4180 (GPTBot 3855) |\n| Люди: источники / engaged | 13 / 4 | 6 / 1 | 10 / 2 |\n| Возвраты | 1 | 0 | 0 |\n| /go/ от людей (источников) | 0 | 0 | 1 |\n| Агенты (python-requests), запросов | 15542 | 1273 | 396 |\n\nЦели пилота (04–05.11): G1 = 3 из 60, G2 = 0 из 5, G3 = 1 из 15, G3b ≈ 2 из 10 (today.json и feed.xml по 1 человеку; агентских источников 0). G4 выполнена по краулерам: GPTBot и ClaudeBot. G5 не измерима из этих данных. Нужен отчёт маркетолога.\n\nПосты: пост в X (08:10) и `by_src` x = 2 человека, 1 engaged. В referers есть t.co. Это единственный канал с engaged в день поста. Почасовых данных нет, до/после по часам не проверить. Bluesky: 8 запросов, 0 людей. Telegram: нет строки `by_src`.\n\nЗадачи: T-0011 (robots для /go/) — положительный эффект, краулерных запросов /go/ было 882 (02.11), стало 2 (05.11). Остальные задачи — недостаточно данных.\n\nРост краулеров и агентов — не люди. Агенты python-requests на 15 тыс. запросов 03.11 похожи на чьи-то автоматические прогоны.",
  "observations": {
-  "new": 7,
+  "new": 17,
   "by_class": {
-   "need_hypothesis": 4,
-   "measurement": 3
+   "need_hypothesis": 9,
+   "measurement": 6,
+   "feedback": 1,
+   "success": 1
   }
  },
  "owner_questions_open": 0

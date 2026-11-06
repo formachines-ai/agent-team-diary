@@ -316,19 +316,131 @@
    "id": "T-0047",
    "title": "[retro] Reviewer card: use --tag instead of < or > in team-fetch --grep",
    "type": "feature",
-   "state": "ready",
+   "state": "done",
    "priority": "P2",
    "goal": "framework",
    "role": "developer",
    "created": "2026-11-05T07:13:59+00:00",
-   "accepted_at": null,
-   "released_sha": null,
+   "accepted_at": "2026-11-05T08:08:18+00:00",
+   "released_sha": "3f63fd18cad6ae75a7b5d8c27ca8168374fc0b36",
    "history": [
     {
      "ts": "2026-11-05T07:13:59+00:00",
      "actor": "framework-retro",
      "to": "ready",
      "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-05T08:07:22+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261105T0807-exec-T-0047"
+    },
+    {
+     "ts": "2026-11-05T08:07:22+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-05T08:08:18+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261105T0807-canary of release-radar on a state copy: all phases); merged 3f63fd18ca"
+    },
+    {
+     "ts": "2026-11-05T08:08:18+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0048",
+   "title": "Editor and marketer cards: the publish tool appends the AI disclosure; do not add a second one",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-05T17:37:03+00:00",
+   "accepted_at": "2026-11-05T18:08:04+00:00",
+   "released_sha": "3e8a1dd815e6240ee6f46867ed22651d8a6304d7",
+   "history": [
+    {
+     "ts": "2026-11-05T17:37:03+00:00",
+     "actor": "dispatcher",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-05T18:07:11+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261105T1807-exec-T-0048"
+    },
+    {
+     "ts": "2026-11-05T18:07:11+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-05T18:08:04+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261105T1807-canary of release-radar on a state copy: all phases); merged 3e8a1dd815"
+    },
+    {
+     "ts": "2026-11-05T18:08:04+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0049",
+   "title": "[retro] Analyst/editor cards: name the exact tools you lack (no curl, no Read, no cat)",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-05T21:08:25+00:00",
+   "accepted_at": "2026-11-05T22:08:15+00:00",
+   "released_sha": "668c8d8fba08c31da33677b231c29784f25e025a",
+   "history": [
+    {
+     "ts": "2026-11-05T21:08:25+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-05T22:07:17+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261105T2207-exec-T-0049"
+    },
+    {
+     "ts": "2026-11-05T22:07:17+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-05T22:08:15+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261105T2207-canary of release-radar on a state copy: all phases); merged 668c8d8fba"
+    },
+    {
+     "ts": "2026-11-05T22:08:15+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
     }
    ]
   }
@@ -336,14 +448,14 @@
  "reviews": [],
  "posts": [],
  "metrics": null,
- "spend_usd": 1.4,
- "po_digest_md": "Новых задач нет. Единственная новая запись, OBS-0080 (issue #85 от ретро), дублирует T-0046 «воспроизвести и закрыть цикл no-commit, пережив защиту T-0043 (T-0057, 5 прогонов)». Задача уже в Ready с приоритетом P2, и я привязал запись к ней. Нужно, чтобы T-0046 довели до конца: тест, обновлённый SCHEME.md и запись в CHANGELOG.md. Вопросов к владельцу нет. Расход за сегодня $1.10 из $10.",
+ "spend_usd": 2.9,
+ "po_digest_md": "**Цикл 05.11 23:07.** Новых наблюдений нет, очередь пуста, открытых вопросов к PO нет.\n\nНовых задач не создаю. Ретро за 05.11 не предложило ничего нового: все группы трудностей уже закрыты задачами T-0040…T-0049 или правилами в SCHEME.md. В VISION нет обещания ежедневного контента, поэтому «ежедневная» задача здесь не нужна. Задачи сюда ставит ретро.\n\nОтвет заместителя владельца на Q-0006 применён. Задачи, которым нужен новый канал или правка VISION продукта, закрываются с пометкой «ждёт владельца, 11.11». В очереди таких задач сейчас нет.\n\nВладельцу вопросов нет. Расход за день: $2.88 из $10.",
  "analyst_md": "",
  "observations": {
-  "new": 10,
+  "new": 12,
   "by_class": {
    "need_hypothesis": 4,
-   "feedback": 6
+   "feedback": 8
   }
  },
  "owner_questions_open": 0

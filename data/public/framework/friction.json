@@ -1,13 +1,13 @@
 {
- "generated": "2026-11-05T07:26:17+00:00",
+ "generated": "2026-11-06T07:26:28+00:00",
  "days": 7,
- "total": 113,
+ "total": 117,
  "by_kind": {
-  "tool_denied": 27,
+  "tool_denied": 28,
   "task_blocked": 17,
   "review_inconclusive": 10,
-  "reported": 48,
-  "review_fail": 2,
+  "reported": 50,
+  "review_fail": 3,
   "no_commit": 9
  },
  "by_day": {
@@ -30,9 +30,45 @@
    "reported": 3,
    "task_blocked": 3,
    "no_commit": 7
+  },
+  "2026-11-05": {
+   "review_fail": 1,
+   "reported": 1
+  },
+  "2026-11-06": {
+   "tool_denied": 1,
+   "reported": 1
   }
  },
  "recent": [
+  {
+   "ts": "2026-11-06T07:11:48+00:00",
+   "product": "luz-amanha",
+   "role": "marketer",
+   "kind": "reported",
+   "summary": "marketer: [environment] team-fetch does not allow threads.com, so I couldn't check whether a 06.11 morning post already exists."
+  },
+  {
+   "ts": "2026-11-06T02:08:39+00:00",
+   "product": "release-radar",
+   "role": "reviewer",
+   "kind": "tool_denied",
+   "summary": "reviewer: denied Bash(team-fetch https://releases.formachines.ai/ --grep li class=\"card --count), Bash(team-fetch https://releases.formachines.ai/ --grep class=\"card --count)"
+  },
+  {
+   "ts": "2026-11-05T17:09:45+00:00",
+   "product": "agent-team-diary",
+   "role": "marketer",
+   "kind": "reported",
+   "summary": "marketer: [environment] team-fetch refuses the host bymachines.ai, so I could not check the 'still online, last data week W40' claim on the live page; it rests on the source file."
+  },
+  {
+   "ts": "2026-11-05T14:07:38+00:00",
+   "product": "agent-team-diary",
+   "role": "reviewer",
+   "kind": "review_fail",
+   "summary": "T-0048: The Next row is placed correctly on / and on the day page, with the four links and dry wording. The Telegram link, however, goes to a placeholder (t.me/TODO_agent_team) rather than t.me/formac"
+  },
   {
    "ts": "2026-11-04T23:08:54+00:00",
    "product": "luz-amanha",
@@ -354,34 +390,6 @@
    "role": "developer",
    "kind": "reported",
    "summary": "developer: [unclear_instruction] Scope named dispatcher/team/schemas/task.schema.json, which does not exist, and the repo_only flag does not exist anywhere in the code. The implementation also needed "
-  },
-  {
-   "ts": "2026-11-03T07:11:12+00:00",
-   "product": "release-radar",
-   "role": "developer",
-   "kind": "no_commit",
-   "summary": "T-0014: developer reported done but committed nothing"
-  },
-  {
-   "ts": "2026-11-03T06:09:14+00:00",
-   "product": "agentsmd-tracker",
-   "role": "reviewer",
-   "kind": "reported",
-   "summary": "reviewer: [missing_data] Could not find a language page with 0 AGENTS.md to test that negative case."
-  },
-  {
-   "ts": "2026-11-03T06:08:40+00:00",
-   "product": "agentsmd-tracker",
-   "role": "reviewer",
-   "kind": "review_inconclusive",
-   "summary": "T-0007: On the live site, stats.json and today.json show generated 2026-11-02T18:26:07Z, which equals build.json last_checked. data_delayed is false, even though the site was rebuilt at 05:10Z. I coul"
-  },
-  {
-   "ts": "2026-11-03T06:08:40+00:00",
-   "product": "agentsmd-tracker",
-   "role": "reviewer",
-   "kind": "reported",
-   "summary": "reviewer: [environment] team-fetch rejects github.com and raw.githubusercontent.com, but the prompt tells the reviewer to read the repo there."
   }
  ]
 }

@@ -523,6 +523,19 @@ NEXT_ROW = ('<p class="next-row"><strong>Next:</strong> <a href="/feed.xml">new 
             ' · <a href="/try/">try with your product</a></p>')
 
 
+def day_in_progress(date: str, built: str) -> bool:
+    """A day is in progress if its UTC date >= the UTC date of the build time."""
+    return date >= built[:10]
+
+
+def progress_note(date: str, built: str) -> str:
+    if not day_in_progress(date, built):
+        return ""
+    d = datetime.strptime(date, "%Y-%m-%d")
+    return (f'<p class="note in-progress"><strong>{d.day:02d} {d.strftime("%B")} is still in progress (UTC).</strong> '
+            f'This snapshot was built at {esc(built[11:16])} UTC; later events of this day are not included yet.</p>')
+
+
 def render_day(date: str, model: dict) -> str:
     products = model["products"]
     present = [(slug, p) for slug, p in products.items() if date in p["days"]]
@@ -535,6 +548,7 @@ def render_day(date: str, model: dict) -> str:
         nav.append(f'<a href="/day/{esc(next_d)}/">{esc(next_d)} →</a>')
     if nav:
         body.append('<p class="toc">' + " · ".join(nav) + "</p>")
+    body.append(progress_note(date, model["built"]))
     body.append(fixture_note([p["days"][date] for _, p in present]))
     anchors = task_anchors(date, model)
     if present:
@@ -652,7 +666,8 @@ def latest_day_block(latest: str, model: dict) -> str:
                    + (' <span class="badge other">fixture sample</span>' if fx else "") + "</div>"
                    + (f'<p class="summary">{esc(note)}</p>' if note else "") + "</li>")
     out.append("</ul>")
-    kind = "" if events else '<p class="note">No fail or inconclusive reviews that day; showing accepted tasks.</p>'
+    when = "in this export so far" if day_in_progress(latest, model["built"]) else "that day"
+    kind = "" if events else f'<p class="note">No fail or inconclusive reviews {when}; showing accepted tasks.</p>'
     return kind + "\n".join(out) + f'<p><a href="/day/{esc(latest)}/">read the full day →</a></p>'
 
 
@@ -662,6 +677,7 @@ def render_index(model: dict) -> str:
     body = [f"<h1>{esc(SITE_NAME)}</h1>", f'<p class="lead">{esc(SITE_TAGLINE)}</p>']
     if latest:
         body.append(f'<h2 id="latest">Latest day: <a href="/day/{esc(latest)}/">{esc(latest)}</a></h2>')
+        body.append(progress_note(latest, model["built"]))
         body.append(fixture_note([p["days"][latest] for p in products.values() if latest in p["days"]]))
         body.append(latest_day_block(latest, model))
         body.append(NEXT_ROW)
@@ -1019,7 +1035,8 @@ def write_site(model: dict) -> dict:
         write_text(PUBLIC_DIR / "day" / date / "index.html", render_day(date, model)); written += 1
         merged = {"date": date, "products": {slug: p["days"][date] for slug, p in model["products"].items() if date in p["days"]},
                   "counts": {slug: day_counts(p["days"][date]) for slug, p in model["products"].items() if date in p["days"]},
-                  "disclosure": f"{FOOTER_LINE}; responsible: {RESPONSIBLE}.", "built": built}
+                  "disclosure": f"{FOOTER_LINE}; responsible: {RESPONSIBLE}.", "built": built,
+                  "day_complete": not day_in_progress(date, built), "snapshot_built_at": built}
         write_json(PUBLIC_DIR / "day" / date / "index.json", merged)
     for slug, p in model["products"].items():
         write_text(PUBLIC_DIR / "product" / slug / "index.html", render_product(slug, p, model)); written += 1
@@ -1040,6 +1057,8 @@ def write_site(model: dict) -> dict:
     today = day_summary(latest, model) if latest else {"date": None, "products": {}, "note": "no activity recorded",
                                                        "disclosure": f"{FOOTER_LINE}; responsible: {RESPONSIBLE}."}
     today["built"] = built
+    today["day_complete"] = bool(latest) and not day_in_progress(latest, built)
+    today["snapshot_built_at"] = built
     write_json(PUBLIC_DIR / "today.json", today)
     write_text(PUBLIC_DIR / "feed.xml", render_feed(model))
     write_text(PUBLIC_DIR / "llms.txt", render_llms(model))

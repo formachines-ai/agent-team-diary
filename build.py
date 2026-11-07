@@ -57,6 +57,7 @@ SLUG_RE = re.compile(r"^[a-z0-9][a-z0-9-]{0,63}$")
 
 # Task states that count as "done" for the day counters: a transition into one of these on that day.
 DONE_STATES = ("accepted", "measured", "done")
+OPEN_THREAD_STATES = ("fail", "failed", "inconclusive", "blocked", "review_failed", "review-failed")
 # States shown with a distinct marker in task lists.
 SIDE_STATES = ("blocked", "waiting_owner", "rejected", "deferred")
 
@@ -671,6 +672,45 @@ def latest_day_block(latest: str, model: dict) -> str:
     return kind + "\n".join(out) + f'<p><a href="/day/{esc(latest)}/">read the full day →</a></p>'
 
 
+def open_threads(latest: str, model: dict) -> list[dict]:
+    """Tasks of the latest day whose last recorded transition that day is a fail/inconclusive/blocked state."""
+    out = []
+    anchors = task_anchors(latest, model)
+    for slug, p in model["products"].items():
+        d = p["days"].get(latest)
+        if not d:
+            continue
+        for t in d.get("tasks") or []:
+            hist = t.get("history") or []
+            if not hist or str(hist[-1].get("to")) not in OPEN_THREAD_STATES:
+                continue
+            tid = str(t.get("id") or "")
+            aid = anchors.get((slug, tid), f"{slug}-{tid}")
+            out.append({"product": slug, "product_name": p["product"].get("name") or slug, "task": tid,
+                        "title": t.get("title"), "state": hist[-1].get("to"),
+                        "note": str(hist[-1].get("note") or "")[:NOTE_MAX_CHARS],
+                        "actor": hist[-1].get("actor"), "ts": hist[-1].get("ts"),
+                        "fixture": bool(d.get("fixture")),
+                        "url": f"{SITE_BASE}/day/{latest}/#{aid}", "_href": f"/day/{latest}/#{aid}"})
+    return out
+
+
+def open_threads_block(latest: str, model: dict) -> str:
+    items = open_threads(latest, model)
+    if not items:
+        return f'<h3 id="open-threads">Open threads</h3><p class="note">No open threads on {esc(latest)}</p>'
+    out = [f'<h3 id="open-threads">Open threads — will be settled in the next days</h3>',
+           f'<p class="note">Tasks of {esc(latest)} whose last recorded transition that day is fail, inconclusive or blocked.</p>',
+           '<ul class="cards open-threads">']
+    for it in items:
+        out.append(f'<li class="card"><div class="head"><span class="product-name">{esc(it["product_name"])}</span> '
+                   f'<a class="name" href="{esc(it["_href"])}"><span class="id">{esc(it["task"])}</span> {esc(it["title"])}</a> '
+                   f'{state_badge(it["state"])}' + (' <span class="badge other">fixture</span>' if it["fixture"] else "") + "</div>"
+                   + (f'<p class="summary">{esc(it["note"])}</p>' if it["note"] else "") + "</li>")
+    out.append("</ul>")
+    return "\n".join(out)
+
+
 def render_index(model: dict) -> str:
     products, dates = model["products"], model["dates"]
     latest = dates[-1] if dates else None
@@ -680,6 +720,7 @@ def render_index(model: dict) -> str:
         body.append(progress_note(latest, model["built"]))
         body.append(fixture_note([p["days"][latest] for p in products.values() if latest in p["days"]]))
         body.append(latest_day_block(latest, model))
+        body.append(open_threads_block(latest, model))
         body.append(NEXT_ROW)
         body.append('<div class="table-wrap"><table class="table"><thead><tr><th>Product</th><th>Day</th><th>Tasks done</th><th>State transitions</th><th>Reviews passed</th><th>Posts</th><th>People (estimated log sources, <a href="/about/#method">method</a>)</th><th>Spent</th></tr></thead><tbody>')
         for slug, p in products.items():
@@ -937,7 +978,8 @@ def day_summary(date: str, model: dict) -> dict:
         if date in p["days"]:
             per[slug] = {**day_counts(p["days"][date]), "name": p["product"].get("name") or slug, "site": p["product"].get("site") or "",
                          "page": f"{SITE_BASE}/day/{date}/#{slug}"}
-    return {"date": date, "page": f"{SITE_BASE}/day/{date}/", "products": per,
+    threads = [{k: v for k, v in it.items() if k != "_href"} for it in open_threads(date, model)]
+    return {"date": date, "page": f"{SITE_BASE}/day/{date}/", "products": per, "open_threads": threads,
             "disclosure": f"{FOOTER_LINE}; responsible: {RESPONSIBLE}."}
 
 

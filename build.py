@@ -608,6 +608,63 @@ def progress_note(date: str, built: str) -> str:
             f'This snapshot was built at {esc(built[11:16])} UTC; later events of this day are not included yet.</p>')
 
 
+BROKE_STATES = ("fail", "failed", "inconclusive", "blocked", "review_failed", "review-failed")
+
+
+def broke_items(date: str, model: dict) -> list[dict]:
+    """One item per transition of the day to a broken state, or a reopen (to ready/in_progress on a task that has a
+    review record that day). kind = the state, or 'reopened'; state = the recorded 'to' of that transition."""
+    out = []
+    anchors = task_anchors(date, model)
+    for slug, p in model["products"].items():
+        d = p["days"].get(date)
+        if not d:
+            continue
+        reviewed = {r.get("task") for r in d.get("reviews") or []}
+        for t in d.get("tasks") or []:
+            tid = str(t.get("id") or "")
+            for h in t.get("history") or []:
+                to = str(h.get("to"))
+                if to in BROKE_STATES:
+                    kind = to
+                elif to in REOPEN_STATES and t.get("id") in reviewed:
+                    kind = "reopened"
+                else:
+                    continue
+                out.append({"product": slug, "product_name": p["product"].get("name") or slug, "task": tid,
+                            "title": t.get("title"), "state": to, "kind": kind, "actor": h.get("actor"), "ts": h.get("ts"),
+                            "note": str(h.get("note") or "")[:NOTE_MAX_CHARS], "fixture": bool(d.get("fixture")),
+                            "anchor": anchors.get((slug, tid), f"{slug}-{tid}")})
+    return out
+
+
+def broke_counts(items: list[dict]) -> dict:
+    c: dict = {}
+    for it in items:
+        c[it["kind"]] = c.get(it["kind"], 0) + 1
+    return c
+
+
+def broke_block(date: str, model: dict) -> str:
+    items = broke_items(date, model)
+    out = ['<section class="broke" id="broke"><h2>What broke this day</h2>']
+    if not items:
+        out.append(f'<p class="note">Nothing recorded as broken in this public export for {esc(date)}.</p></section>')
+        return "\n".join(out)
+    c = broke_counts(items)
+    out.append('<p class="note">Counts by state: ' + " · ".join(f"{esc(k)} {v}" for k, v in sorted(c.items()))
+               + ". Transitions recorded that day; reopened = moved to ready/in_progress on a task reviewed that day.</p>")
+    out.append('<ul class="cards open-threads">')
+    for it in items:
+        label = state_badge(it["state"]) + (' <span class="badge other">reopened</span>' if it["kind"] == "reopened" else "")
+        out.append(f'<li class="card"><div class="head"><span class="product-name">{esc(it["product_name"])}</span> '
+                   f'<a class="name" href="#{esc(it["anchor"])}"><span class="id">{esc(it["task"])}</span> {esc(it["title"])}</a> {label}'
+                   + (' <span class="badge other">fixture</span>' if it["fixture"] else "") + "</div>"
+                   + (f'<p class="summary">{esc(it["note"])}</p>' if it["note"] else "") + "</li>")
+    out.append("</ul></section>")
+    return "\n".join(out)
+
+
 def render_day(date: str, model: dict) -> str:
     products = model["products"]
     present = [(slug, p) for slug, p in products.items() if date in p["days"]]
@@ -623,6 +680,7 @@ def render_day(date: str, model: dict) -> str:
     body.append(progress_note(date, model["built"]))
     body.append(fixture_note([p["days"][date] for _, p in present]))
     anchors = task_anchors(date, model)
+    body.append(broke_block(date, model))
     if present:
         body.append('<p class="toc">' + " · ".join(f'<a href="#{esc(s)}">{esc(p["product"].get("name") or s)}</a>' for s, p in present) + "</p>")
         for slug, p in present:
@@ -1170,6 +1228,8 @@ def write_site(model: dict) -> dict:
         merged = {"date": date, "products": {slug: with_artifacts(p["days"][date]) for slug, p in model["products"].items() if date in p["days"]},
                   "counts": {slug: day_counts(p["days"][date]) for slug, p in model["products"].items() if date in p["days"]},
                   "rework": {slug: rework_counts(p["days"][date]) for slug, p in model["products"].items() if date in p["days"]},
+                  "broke": [{k: v for k, v in it.items() if k != "anchor"} | {"anchor": f"#{it['anchor']}"} for it in broke_items(date, model)],
+                  "broke_counts": broke_counts(broke_items(date, model)),
                   "disclosure": f"{FOOTER_LINE}; responsible: {RESPONSIBLE}.", "built": built,
                   "day_complete": not day_in_progress(date, built), "snapshot_built_at": built}
         write_json(PUBLIC_DIR / "day" / date / "index.json", merged)

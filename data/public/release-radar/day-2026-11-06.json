@@ -5,10 +5,126 @@
  "date": "2026-11-06",
  "tasks": [
   {
+   "id": "T-0026",
+   "title": "Daily card 05.11 07:30 UTC — Telegram @relesae_radar: 'N releases in 24 h, M flagged' + one verbatim quote",
+   "type": "content",
+   "state": "done",
+   "priority": "P1",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-03T13:12:32+00:00",
+   "accepted_at": "2026-11-05T08:14:39+00:00",
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-06T12:09:26+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-06T12:09:26+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0031",
+   "title": "Daily card 05.11 07:30 UTC — Bluesky: 'N releases in 24 h, M flagged' (no code)",
+   "type": "content",
+   "state": "done",
+   "priority": "P1",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-03T17:16:27+00:00",
+   "accepted_at": "2026-11-05T09:09:43+00:00",
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-06T12:09:26+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — Bluesky 05.11 09:09: by_src bluesky 10 запросов, 0 human, 0 engaged."
+    },
+    {
+     "ts": "2026-11-06T12:09:26+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0035",
+   "title": "Daily card 06.11 07:30 UTC — Telegram @relesae_radar: 'N releases in 24 h, M flagged' + one verbatim quote",
+   "type": "content",
+   "state": "accepted",
+   "priority": "P1",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-03T18:15:59+00:00",
+   "accepted_at": "2026-11-06T08:10:23+00:00",
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-06T08:08:59+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261106T0807-exec-T-0035"
+    },
+    {
+     "ts": "2026-11-06T08:08:59+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-06T08:10:23+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "posted 1 (editor-approved)"
+    }
+   ]
+  },
+  {
+   "id": "T-0037",
+   "title": "Bluesky format test 06.11 15:00 UTC: pinned-version line + flagged quote, linking the /pkg/ page",
+   "type": "content",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-03T19:12:45+00:00",
+   "accepted_at": "2026-11-06T15:10:12+00:00",
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-06T15:09:32+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261106T1507-exec-T-0037"
+    },
+    {
+     "ts": "2026-11-06T15:09:32+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-06T15:10:12+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "posted 1 (editor-approved)"
+    }
+   ]
+  },
+  {
    "id": "T-0057",
    "title": "Home page: a visible 'release notes →' link via /go/<id>/ on every release card, flagged releases first on the first screen",
    "type": "feature",
-   "state": "accepted",
+   "state": "done",
    "priority": "P2",
    "goal": "G3",
    "role": "developer",
@@ -52,7 +168,7 @@
    "id": "T-0058",
    "title": "Analyst 07.11: did the home-page 'release notes →' links (T-0057, live 06.11) produce human /go/ clicks? G3 reading for 06.11",
    "type": "research",
-   "state": "ready",
+   "state": "done",
    "priority": "P2",
    "goal": "G3",
    "role": "analyst",
@@ -67,6 +183,26 @@
      "note": ""
     }
    ]
+  },
+  {
+   "id": "T-0059",
+   "title": "Marketing plan for 11–17.11: Telegram, Bluesky and the weekly dev.to post only, built on the pilot's ?src= results",
+   "type": "marketing",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-06T13:10:33+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-06T13:10:33+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
   }
  ],
  "reviews": [
@@ -76,23 +212,34 @@
    "summary": "The live home page has the Flagged block first, after the lead. Every card has a 'release notes →' link to /go/<id>/ with rel=nofollow. The two /go/ pages I opened redirect to the right release notes, robots.txt still disallows /go/, and build.json has no errors."
   }
  ],
- "posts": [],
+ "posts": [
+  {
+   "channel": "telegram",
+   "url": "https://t.me/relesae_radar/6",
+   "ts": "2026-11-06T08:10:23+00:00"
+  },
+  {
+   "channel": "bluesky",
+   "url": "https://bsky.app/profile/formachines.bsky.social/post/3mzno365fx22h",
+   "ts": "2026-11-06T15:10:12+00:00"
+  }
+ ],
  "metrics": {
-  "humans": 2,
-  "engaged": 1,
+  "humans": 20,
+  "engaged": 3,
   "returns": 0,
-  "agents": 3,
-  "crawlers": 78,
-  "requests": 149
+  "agents": 7,
+  "crawlers": 506,
+  "requests": 759
  },
- "spend_usd": 1.3,
- "po_digest_md": "**Release Radar — цикл 06.11 07:07 UTC**\n\n**Что произошло.** T-0057 принята (06.11 ~01:11 UTC). Теперь на каждой карточке видна ссылка «release notes →» через /go/, а релизы с флагом показаны первыми. Посты за 05.11 вышли в Telegram и Bluesky. Пересборка идёт по расписанию.\n\n**Метрики.**\n- 05.11: 40 human-источников, из них 5 engaged.\n- G3 (доля визитов с внешним кликом через /go/): 0 за 04–05.11.\n- G2 (возвраты): 0.\n- 06.11: пока только 2 источника, день не закончился.\n\n**Решения по 4 наблюдениям аналитика.**\n- G3 = 0 привязано к T-0058. Это замер 06.11 против 05.11 после T-0057, старт не раньше 07.11 02:30 UTC. Главную до замера не трогаю, иначе эффект T-0057 не измерить.\n- Всплеск ошибок 4xx 05.11 уже разобран в T-0056: это сканеры. Срез 404 по путям /pkg/ стоит в очереди фреймворка.\n- Как запросы агентов засчитываются в G4: отложено до 11.11. Это конфигурация метрик, её до возвращения владельца не меняем. Аналитик 10.11 посчитает G4 вручную по полному metrics.json.\n- G2 = 0: отложено. Если 08.11 возвратов всё ещё нет, будет задача показать на главной подписку (RSS и Telegram).\n\n**Новых задач нет.** Все слоты маркетинг-плана до 10.11 уже нарезаны. Сегодня по плану:\n- карточка в Telegram (T-0035);\n- тест формата в Bluesky в 15:00 UTC (T-0037).\n\nНовый недельный план понадобится к 10.11.\n\n**Ждёт владельца (11.11).**\n- Конфликт между VISION и мандатом по Mastodon, X и Threads. Шесть слотов в этих каналах закрыты, хотя Mastodon и X уже дали по 1 engaged-источнику.\n- Как считать агентов в G4.\n\n**Расход:** $1.05 из $20.",
- "analyst_md": "**Release Radar, срез на 06.11 06:00 UTC (пилот 04–10.11, день 3 из 7; 06.11 — неполный день, только данные до сборки).**\n\n| Уровень | 04.11 | 05.11 | 06.11 (частично) |\n|---|---|---|---|\n| Люди: engaged / источники | 0 / 7 | 5 / 40 | 1 / 2 |\n| Возвраты | 0 | 0 | 0 |\n| Внешние клики (/go/ от людей) | 0 | 0 | 0 |\n| Агенты (запросы) | 16 | 23 | 3 |\n| /today.json от агентов | 0 | 0 | 0 |\n| Краулеры (запросы) | 351 | 306 | 52 |\n\nИтог пилота пока: engaged-люди 04–06.11 = 6 (цель G1 ≥ 40), возвраты 0 (G2 ≥ 5), клики /go/ от людей 0 (G3), /today.json от не-краулеров 0 (G4 ≥ 5). Это честные нули, не провал.\n\nПосты → визиты: по `?src=` только 05.11 — x дал 1 engaged-человека (t.co), bluesky 10 запросов, 0 людей. Пост Bluesky 09:09 и Telegram 08:14 не дали заметного роста людей (referer-доказательств нет). T-0057 (ссылка «release notes →») принят 06.11 02:08; до/после данных пока нет — insufficient data.",
+ "spend_usd": 2.6,
+ "po_digest_md": "**Release Radar, 06.11 19:07 UTC**\n\n**Что произошло.** Сегодняшние посты вышли:\n- карточка в Telegram (T-0035);\n- тест формата в Bluesky, вариант с кодом (T-0037).\n\nT-0057 принята: на главной теперь у каждого релиза есть ссылка «release notes →» через /go/, а релизы с флагом стоят первым блоком.\n\nМетрики за 06.11: 12 людей, 3 engaged. Возвратов 0 за все дни. Переходов людей по /go/ по-прежнему 0: почти все 63 запроса к /go/ сделали краулеры.\n\n**Что решено.**\n- Новых задач нет. Сначала аналитик 07.11 (T-0058) проверит, дали ли новые ссылки на главной переходы людей. Менять первый экран раньше этого замера нельзя: тогда мы не узнаем, сработала ли T-0057.\n- Гипотеза аналитика об уходе с главной привязана к T-0058. Замер «увидел ли карточку до прокрутки» без JS невозможен, поэтому используем переходы по /go/.\n- G4 (запросы /today.json от агентов) отложена до ответа по Q-0012: цели и классы метрик меняет ops, это ждёт владельца после 11.11.\n\n**Расписание.** Посты в Telegram и Bluesky поставлены на 07–10.11, обзор на dev.to — на 09.11. План маркетинга на 11–17.11 (T-0059) начнут писать 09.11.\n\n**Ждёт владельца (11.11):**\n- Mastodon, X и Threads по-прежнему закрыты по указанию заместителя. Это противоречит VISION. На эти каналы был план по 2 тестовых поста на каждый; Mastodon уже привёл 1 engaged-посетителя (Q-0011). Нужно решение: возобновлять ли их и как часто.\n- Цели метрик для G4 (Q-0012).\n\n**Расход.** $2.37 из $20.",
+ "analyst_md": "**Пилот, день 3 из 7 (данные на 06.11 18:00 UTC; 06.11 неполный день).** Своего трафика в цифрах не видно; 5xx = 0 за все дни.\n\n| Метрика | 02.11 | 03.11 | 04.11 | 05.11 | 06.11 |\n|---|---|---|---|---|---|\n| люди: источники | 43 | 18 | 7 | 40 | 12 |\n| engaged | 10 | 5 | 0 | 5 | 3 |\n| возвраты | 0 | 0 | 0 | 0 | 0 |\n| /go/ людьми (src) | 0 | 0 | 0 | 0 | 0 |\n| /today.json агентами | 1 | 2 | 0 | 0 | 0 |\n\n**Цели (чтение 10.11):** G1 — engaged за 02–06.11 суммарно 23 (в окно 04–10.11: 8) при цели ≥40, ниже порога. G2 = 0 из 5. G3 = 0 внешних кликов людей; referer-доменов не наших: google, facebook, t.co (≈3, но это источники визитов, не клики). G4: `/today.json` не-краулерами — несколько запросов агентов (python-requests, aiohttp, chatgpt), но их источники в target-счётчике = 0, цель не подтверждена.\n\n**Посты → визиты:** после Bluesky 06.11 15:10 и Telegram 08:10 данных по часам нет; by_src bluesky = 15 запросов, 0 людей, вероятно превью/боты. Эффект не определить.\n\n**Задачи:** T-0057 (ссылка «release notes →») принята 06.11 02:08; до неё G3=0, после — 0 человеческих источников на /go/; данных мало. Всплески /go/ — краулеры (61 из 63).",
  "observations": {
-  "new": 9,
+  "new": 15,
   "by_class": {
-   "need_hypothesis": 6,
-   "measurement": 3
+   "need_hypothesis": 10,
+   "measurement": 5
   }
  },
  "owner_questions_open": 0

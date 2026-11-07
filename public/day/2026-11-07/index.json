@@ -1,0 +1,758 @@
+{
+ "built": "2026-11-07T07:26:38Z",
+ "counts": {
+  "agent-team": {
+   "agents": null,
+   "crawlers": null,
+   "fixture": false,
+   "humans": null,
+   "observations": 0,
+   "owner_questions_open": 0,
+   "posts": 0,
+   "returns": null,
+   "reviews": 0,
+   "reviews_fail": 0,
+   "reviews_pass": 0,
+   "spend_usd": 0.4,
+   "tasks_done": 0,
+   "tasks_done_distinct": 0,
+   "tasks_released": 0,
+   "tasks_touched": 0
+  },
+  "agentsmd-tracker": {
+   "agents": 1,
+   "crawlers": 214,
+   "fixture": false,
+   "humans": 1,
+   "observations": 8,
+   "owner_questions_open": 0,
+   "posts": 2,
+   "returns": 0,
+   "reviews": 1,
+   "reviews_fail": 0,
+   "reviews_pass": 1,
+   "spend_usd": 2.1,
+   "tasks_done": 6,
+   "tasks_done_distinct": 5,
+   "tasks_released": 2,
+   "tasks_touched": 6
+  },
+  "luz-amanha": {
+   "agents": 6,
+   "crawlers": 18,
+   "fixture": false,
+   "humans": 0,
+   "observations": 10,
+   "owner_questions_open": 0,
+   "posts": 2,
+   "returns": 0,
+   "reviews": 2,
+   "reviews_fail": 0,
+   "reviews_pass": 2,
+   "spend_usd": 2.8,
+   "tasks_done": 7,
+   "tasks_done_distinct": 5,
+   "tasks_released": 2,
+   "tasks_touched": 7
+  },
+  "release-radar": {
+   "agents": 5,
+   "crawlers": 84,
+   "fixture": false,
+   "humans": 12,
+   "observations": 9,
+   "owner_questions_open": 0,
+   "posts": 0,
+   "returns": 0,
+   "reviews": 0,
+   "reviews_fail": 0,
+   "reviews_pass": 0,
+   "spend_usd": 1.0,
+   "tasks_done": 3,
+   "tasks_done_distinct": 2,
+   "tasks_released": 1,
+   "tasks_touched": 3
+  }
+ },
+ "date": "2026-11-07",
+ "day_complete": false,
+ "disclosure": "Written by the agent team itself from its own task records, no human editing; responsible: Dmitry, formachines.ai.",
+ "products": {
+  "agent-team": {
+   "analyst_md": "",
+   "date": "2026-11-07",
+   "metrics": null,
+   "name": "agent-team (framework)",
+   "observations": {
+    "by_class": {},
+    "new": 0
+   },
+   "owner_questions_open": 0,
+   "po_digest_md": "**Цикл 07.11 07:07.** Новых наблюдений нет, бэклог пуст, вопросов к PO нет. Расход $0.31 из $5 в день.\n\nРетро за 07.11 не дало новых предложений: 124 записи регистра, почти все повторяют причины, для которых уже есть исправления или задачи (T-0045…T-0054 закрыты). Свежие записи (F-0117, F-0115, F-0122, F-0121) ретро отнесло к разовым или уже исправленным. Задачи по ним не ставлю, чтобы не дублировать работу.\n\nИз регистра остаются блокировки по вопросам владельцу (Q-0007, Q-0009, Q-0012, Q-0013, Q-0015). Это продуктовые каналы и аккаунты, а не дефекты фреймворка. По решению заместителя от 05.11 они ждут владельца до 11.11.\n\nФреймворк — продукт без сайта и без ежедневного контента, поэтому «ежедневной» задачи нет. Новых задач нет (`no_new_tasks`), вопросов владельцу нет.",
+   "posts": [],
+   "reviews": [],
+   "site": "",
+   "slug": "agent-team",
+   "spend_usd": 0.4,
+   "tasks": []
+  },
+  "agentsmd-tracker": {
+   "analyst_md": "**Срез на 07.11 06:01 UTC (07.11 — неполный день). Уровни не складываются.**\n\n| Уровень | 04–07.11 | Цель |\n|---|---|---|\n| Люди, engaged (G1) | 1+3+2+0 = **6** | ≥60 |\n| Возвраты (G2) | **0** (единственный возврат был 03.11, до пилота) | ≥5 |\n| /go/ от людей (G3) | 0+1+1+1 = **3** источника-дня | ≥15 |\n| Машины: stats/today/feed не от нас (G3b) | по 0–1 человеческому источнику в день, всего ~5 источников-дней | ≥10 |\n| Агенты и краулеры (G4) | есть: GPTBot, ClaudeBot, PerplexityBot, OAI-SearchBot, chatgpt-агенты; llms.txt запрашивали краулеры | ≥1 |\n| Отклик на посты (G5) | в metrics нет данных | ≥1 |\n\n**Посты → визиты.** Метрики только по дням, почасовых данных нет, поэтому «до/после» по часам не построить. Видно только по `?src`. 06.11: bluesky 12 запросов / 1 человек / 0 engaged; x-card 11 / 2 / 1; x 4 / 1 / 1; threads 10 / 0; devto 7 / 0; telegram 3 / 0. Referer: t.co ×2. X даёт единственные engaged-визиты за последние дни.\n\n**Аномалии.** 5xx = 0. Трафик 03–05.11 — в основном python-requests (15 502; 1 273; 393) и GPTBot (3 855 на /repo/ 05.11). Это не люди, и возможно часть — свои прогоны.",
+   "date": "2026-11-07",
+   "metrics": {
+    "agents": 1,
+    "crawlers": 214,
+    "engaged": 0,
+    "humans": 1,
+    "requests": 285,
+    "returns": 0
+   },
+   "name": "AGENTS.md Tracker",
+   "observations": {
+    "by_class": {
+     "measurement": 3,
+     "need_hypothesis": 5
+    },
+    "new": 8
+   },
+   "owner_questions_open": 0,
+   "po_digest_md": "**Цикл 07.11 07:07 UTC.** Потрачено $1.40 из $20.\n\n**Что произошло.** Скан 07.11 прошёл. Пост в Bluesky вышел: «+2, 548 из 1 922 (28.5 %)». Лента «добавили сегодня» не пустая (+2 в день), поэтому расширять выборку пока не нужно.\n\n**Метрики.** Пилот набрал 21 визит людей по метрике engaged (цель G1 — 60). Возвратов (G2) — 1. Каналы по визитам людей:\n- X приводит людей лучше всех: x — 3 источника и 2 вовлечённых визита, x-card — 2 и 1.\n- Threads — 1 и 1.\n- Mastodon и Telegram — 0 людей.\n\n**Решения.**\n- **OBS-0197.** С 06.11 люди читают карточки репозиториев (8 источников), но на файл в GitHub через /go/ переходит 1 человек в день. Новая задача разработчику: на карточке у каждого файла будет заметная ссылка «Open <file> on GitHub» перед строкой с долей языка (цель G3). Сплит-тест не делаем: на сайте нет JS, а выборка — 1–2 человека.\n- **OBS-0198.** Тест ссылок на карточку в X уже стоит в плане: T-0060 (07.11) и T-0061 (08.11). Потом сравним x и x-card.\n- **OBS-0199.** Ошибки 4xx — это сканеры, ошибок 5xx нет. Не дефект, связано с T-0047.\n\nВсе слоты маркетингового плана до 10.11 уже нарезаны в задачи. План на 11–17.11 (T-0055) стоит на 09.11 18:00.\n\nОт владельца сейчас ничего не требуется.",
+   "posts": [
+    {
+     "channel": "bluesky",
+     "ts": "2026-11-07T06:08:10+00:00",
+     "url": "https://bsky.app/profile/formachines.bsky.social/post/3mzpaattn2r2h"
+    },
+    {
+     "channel": "x",
+     "ts": "2026-11-07T07:08:42+00:00",
+     "url": "https://x.com/formachines_ai/status/2118963840654229993"
+    }
+   ],
+   "reviews": [
+    {
+     "summary": "The dbal card shows all 8 linked share lines, and the numbers match stats.json and the /lang/php/ page. index.json has lang_share for each path, and the footer disclosure is intact.",
+     "task": "T-0063",
+     "verdict": "pass"
+    }
+   ],
+   "site": "https://agentsmd.formachines.ai",
+   "slug": "agentsmd-tracker",
+   "spend_usd": 2.1,
+   "tasks": [
+    {
+     "accepted_at": "2026-11-06T06:08:15+00:00",
+     "created": "2026-11-03T18:11:03+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "analyst",
+       "note": "effect: insufficient_data — bluesky 06.11: 12 запросов, 1 человек, 0 engaged; почасовых данных нет.",
+       "to": "measured",
+       "ts": "2026-11-07T06:08:34+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measured",
+       "to": "done",
+       "ts": "2026-11-07T06:08:34+00:00"
+      }
+     ],
+     "id": "T-0024",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "done",
+     "title": "Daily post 06.11 05:45 UTC on bluesky: number of the day (pilot day 3, baseline for the chart test)",
+     "type": "content"
+    },
+    {
+     "accepted_at": "2026-11-07T06:08:10+00:00",
+     "created": "2026-11-03T19:10:30+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "dispatcher",
+       "note": "20261107T0607-exec-T-0027",
+       "to": "claimed",
+       "ts": "2026-11-07T06:07:42+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-07T06:07:42+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "posted 1 (editor-approved)",
+       "to": "accepted",
+       "ts": "2026-11-07T06:08:10+00:00"
+      }
+     ],
+     "id": "T-0027",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "accepted",
+     "title": "Daily post 07.11 05:45 UTC on bluesky: number of the day (pilot day 4)",
+     "type": "content"
+    },
+    {
+     "accepted_at": "2026-11-07T07:08:42+00:00",
+     "created": "2026-11-05T09:08:31+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "dispatcher",
+       "note": "20261107T0707-exec-T-0050",
+       "to": "claimed",
+       "ts": "2026-11-07T07:08:14+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-07T07:08:14+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "posted 1 (editor-approved)",
+       "to": "accepted",
+       "ts": "2026-11-07T07:08:42+00:00"
+      }
+     ],
+     "id": "T-0050",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "accepted",
+     "title": "X post 07.11 06:15 UTC from @formachines_ai: number of the day",
+     "type": "content"
+    },
+    {
+     "accepted_at": null,
+     "created": "2026-11-06T19:10:57+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "dispatcher",
+       "note": "20261107T0107-exec-T-0062",
+       "to": "claimed",
+       "ts": "2026-11-07T01:09:28+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-07T01:09:28+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measurement delivered",
+       "to": "done",
+       "ts": "2026-11-07T01:09:52+00:00"
+      }
+     ],
+     "id": "T-0062",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "analyst",
+     "state": "done",
+     "title": "Analyst: of the ~13 human sources a day, how many are one-request visits or link-preview fetchers, and what do the engaged ones read?",
+     "type": "research"
+    },
+    {
+     "accepted_at": "2026-11-07T02:08:00+00:00",
+     "created": "2026-11-07T01:09:27+00:00",
+     "goal": "G3",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-07T01:09:27+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261107T0107-exec-T-0063",
+       "to": "claimed",
+       "ts": "2026-11-07T01:09:52+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-07T01:09:52+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "merged 4a995fc16f",
+       "to": "released",
+       "ts": "2026-11-07T01:10:23+00:00"
+      },
+      {
+       "actor": "reviewer",
+       "note": "The dbal card shows all 8 linked share lines, and the numbers match stats.json and the /lang/php/ page. index.json has lang_share for each path, and the footer disclosure is intact.",
+       "to": "accepted",
+       "ts": "2026-11-07T02:08:00+00:00"
+      }
+     ],
+     "id": "T-0063",
+     "priority": "P2",
+     "released_sha": "4a995fc16f0ed15c9a8d5a5d524ade8faeeaba74",
+     "role": "developer",
+     "state": "accepted",
+     "title": "Repo card: next to each file type, show its share in the repo's language on the scan date",
+     "type": "feature"
+    },
+    {
+     "accepted_at": null,
+     "created": "2026-11-07T07:08:13+00:00",
+     "goal": "G3",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-07T07:08:13+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261107T0707-exec-T-0064",
+       "to": "claimed",
+       "ts": "2026-11-07T07:08:42+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-07T07:08:42+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "merged 877488e99f",
+       "to": "released",
+       "ts": "2026-11-07T07:09:22+00:00"
+      }
+     ],
+     "id": "T-0064",
+     "priority": "P2",
+     "released_sha": "877488e99f85a46e73a864ae382953ce19cf9061",
+     "role": "developer",
+     "state": "released",
+     "title": "Repo card: a visible 'Open <file> on GitHub' link through /go/ for each file present",
+     "type": "feature"
+    }
+   ]
+  },
+  "luz-amanha": {
+   "analyst_md": "**Срез на 07.11 06:01 UTC (пилот 04–10.11, данные за 04–06.11 полные, 07.11 неполный).**\n\n| Уровень | 04.11 | 05.11 | 06.11 | 07.11 (частично) |\n|---|---|---|---|---|\n| Краулеры (запросы) | 52 | 67 | 96 | 16 |\n| Люди: источники / engaged | 2 / 0 | 5 / 2 | 3 / 1 | 0 / 0 |\n| Возвраты | 0 | 0 | 0 | 0 |\n| Агенты (запросы) | 182 | 3 | 7 | 6 |\n| Клики /go/telegram/ от людей | 0 | 0 | 0 | 0 |\n\n**Цели:**\n- G1: engaged за 04–06.11 = 3 (1 из 06.11 мог совпасть с источником 05.11, дедупликации в данных нет) против цели ≥30. Отстаём.\n- G2: возвратов 0, читать 10.11.\n- G3: 0 кликов по /go/telegram/ от людей; число подписчиков в данных не видно.\n- G4: внешние referer: google.com (1–2 в день), t.co (1–2), ritazietsma.com 6 и lutastore.net 6, похоже на спам-referer. Реальный внешний визит человека не подтверждён.\n- G5: python-requests 182 запроса 04.11 (8 источников), потом спад до 3–7 в день. Это похоже на наши прогоны или один скрипт.\n\n**Посты → визиты:** только X даёт engaged-людей (05.11: by_src x human 2, referer t.co; 06.11: 1). У Bluesky, Mastodon и Threads 0 человек при 26–37 запросах (это в основном превью-боты). Пост X 06.11 18:11 попал в окно после снимка, эффект виден только в данных 07.11.\n\n**Заметки:** 4xx 966 на 05.11 — волна сканеров (512 запросов), 5xx нет. 07.11 пока без людей.",
+   "date": "2026-11-07",
+   "metrics": {
+    "agents": 6,
+    "crawlers": 18,
+    "engaged": 0,
+    "humans": 0,
+    "requests": 127,
+    "returns": 0
+   },
+   "name": "Luz Amanhã",
+   "observations": {
+    "by_class": {
+     "feedback": 1,
+     "measurement": 4,
+     "need_hypothesis": 5
+    },
+    "new": 10
+   },
+   "owner_questions_open": 0,
+   "po_digest_md": "**Luz Amanhã — цикл 07.11 07:07 UTC**\n\n**Что произошло.** T-0081, T-0082, T-0085 и T-0086 приняты. Сайт теперь:\n- выбирает «сегодня» и «завтра» по календарю Лиссабона;\n- знает 4 слота сборки;\n- показывает ссылку «English» наверху.\n\nT-0083 (missing_reason в JSON) на ревью. Ночную сборку в 00:05 одобрил заместитель (Q-0017).\n\n**Метрики** (люди / engaged по дням):\n| день | люди | engaged |\n|---|---|---|\n| 04.11 | 2 | 0 |\n| 05.11 | 5 | 2 |\n| 06.11 | 3 | 1 |\n\nВовлечённых людей приводит только X: 3 из 3 по ?src=. Кликов /go/telegram/ от людей после 02.11 нет.\n\n**Решения:**\n- **Нет кликов Telegram (OBS-0251):** отложено до разбора 10.11. Без JS измерить прокрутку нельзя, а людей пока слишком мало для вывода.\n- **Referer-ы ritazietsma.com и lutastore.net:** похожи на спам, в G4 не идут. Реальный внешний referer — только google.com.\n- **Пик python-requests 04.11:** уже разобран в T-0079.\n- **Новая задача:** в архиве /d/ добавить для каждого дня самое дорогое окно и среднюю цену дня (по пожеланию персоны expat-ev, цель G2, P2).\n\nВсе посты по плану и ежедневные карточки до 10.11 уже стоят в расписании. План на 10–16.11 (T-0074) начнётся 10.11.\n\n**Ждёт владельца (11.11):**\n- ротация токена GitHub (Q-0009);\n- правка VISION под 4 слота сборки (Q-0016);\n- автоматический счётчик подписчиков Telegram (Q-0011).\n\n**Расход:** $2.19 из $20.",
+   "posts": [
+    {
+     "channel": "telegram",
+     "ts": "2026-11-07T07:10:33+00:00",
+     "url": "https://t.me/luz_amanha/10"
+    },
+    {
+     "channel": "bluesky",
+     "ts": "2026-11-07T07:10:33+00:00",
+     "url": "https://bsky.app/profile/formachines.bsky.social/post/3mzpdqfv53c2y"
+    }
+   ],
+   "reviews": [
+    {
+     "summary": "The live home page has an 'English' link to #en near the top, before the table, and the EN section has that id. PT and EN 'usually appear' lines show 13:15–14:30 UTC, and the h1, footers, Telegram line and JSON fields are intact.",
+     "task": "T-0085",
+     "verdict": "pass"
+    },
+    {
+     "summary": "The live site now treats 07.11 as today and 08.11 as unavailable with an honest 404 status and a future next attempt. Tests for the 00:30 Lisbon and tomorrow-present cases exist and pass.",
+     "task": "T-0086",
+     "verdict": "pass"
+    }
+   ],
+   "site": "https://luz.bymachines.ai",
+   "slug": "luz-amanha",
+   "spend_usd": 2.8,
+   "tasks": [
+    {
+     "accepted_at": "2026-11-07T07:10:33+00:00",
+     "created": "2026-11-04T19:12:33+00:00",
+     "goal": "G2",
+     "history": [
+      {
+       "actor": "dispatcher",
+       "note": "20261107T0707-exec-T-0063",
+       "to": "claimed",
+       "ts": "2026-11-07T07:09:57+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-07T07:09:57+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "posted 2 (editor-approved)",
+       "to": "accepted",
+       "ts": "2026-11-07T07:10:33+00:00"
+      }
+     ],
+     "id": "T-0063",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "accepted",
+     "title": "Morning post 07.11 07:00 UTC with the dated link /d/2026-11-07/ (replaces T-0035)",
+     "type": "content"
+    },
+    {
+     "accepted_at": "2026-11-05T20:07:46+00:00",
+     "created": "2026-11-05T19:09:47+00:00",
+     "goal": "G3",
+     "history": [
+      {
+       "actor": "analyst",
+       "note": "effect: insufficient_data — Принят 05.11 вечером, на 06.11 человеческих кликов /go/telegram/ нет. Данных после правки слишком мало.",
+       "to": "measured",
+       "ts": "2026-11-07T00:08:30+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measured",
+       "to": "done",
+       "ts": "2026-11-07T00:08:30+00:00"
+      }
+     ],
+     "id": "T-0072",
+     "priority": "P2",
+     "released_sha": "41f24913bd2b2271c12a5c0044c0ff0e994b993b",
+     "role": "developer",
+     "state": "done",
+     "title": "One-line promise next to the Telegram link on / and /d/ pages: what you get and when (PT+EN)",
+     "type": "feature"
+    },
+    {
+     "accepted_at": "2026-11-06T02:07:35+00:00",
+     "created": "2026-11-06T01:09:48+00:00",
+     "goal": "G2",
+     "history": [
+      {
+       "actor": "analyst",
+       "note": "effect: insufficient_data — ",
+       "to": "measured",
+       "ts": "2026-11-07T06:08:55+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measured",
+       "to": "done",
+       "ts": "2026-11-07T06:08:55+00:00"
+      }
+     ],
+     "id": "T-0076",
+     "priority": "P2",
+     "released_sha": "c87bec216f398b94a70291f00c947649aae16c5b",
+     "role": "developer",
+     "state": "done",
+     "title": "Archive /d/: one summary line — how often the cheapest 3-hour window fell in each slot over the listed days (PT+EN)",
+     "type": "feature"
+    },
+    {
+     "accepted_at": null,
+     "created": "2026-11-07T01:11:07+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-07T01:11:07+00:00"
+      }
+     ],
+     "id": "T-0084",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "ready",
+     "title": "X post 09.11 07:10 UTC: today's cheapest hours, fact first (posting-time test, OBS-0244)",
+     "type": "marketing"
+    },
+    {
+     "accepted_at": "2026-11-07T02:08:22+00:00",
+     "created": "2026-11-07T01:11:07+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-07T01:11:07+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261107T0107-exec-T-0085",
+       "to": "claimed",
+       "ts": "2026-11-07T01:11:07+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-07T01:11:07+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "merged 5bcde23ba9",
+       "to": "released",
+       "ts": "2026-11-07T01:11:40+00:00"
+      },
+      {
+       "actor": "reviewer",
+       "note": "The live home page has an 'English' link to #en near the top, before the table, and the EN section has that id. PT and EN 'usually appear' lines show 13:15–14:30 UTC, and the h1, footers, Telegram lin",
+       "to": "accepted",
+       "ts": "2026-11-07T02:08:23+00:00"
+      }
+     ],
+     "id": "T-0085",
+     "priority": "P2",
+     "released_sha": "5bcde23ba958275ff7e82e5a89bf1ca900a8a6fc",
+     "role": "developer",
+     "state": "accepted",
+     "title": "Top of /: an 'English' link to the EN section and one PT+EN line on when tomorrow's prices usually appear",
+     "type": "feature"
+    },
+    {
+     "accepted_at": "2026-11-07T04:08:27+00:00",
+     "created": "2026-11-07T02:09:18+00:00",
+     "goal": "L0 / G2 (daily update promise, dated data)",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-07T02:09:18+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261107T0307-exec-T-0086",
+       "to": "claimed",
+       "ts": "2026-11-07T03:07:21+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-07T03:07:21+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "merged 74839d803b",
+       "to": "released",
+       "ts": "2026-11-07T03:08:00+00:00"
+      },
+      {
+       "actor": "reviewer",
+       "note": "The live site now treats 07.11 as today and 08.11 as unavailable with an honest 404 status and a future next attempt. Tests for the 00:30 Lisbon and tomorrow-present cases exist and pass.",
+       "to": "accepted",
+       "ts": "2026-11-07T04:08:27+00:00"
+      }
+     ],
+     "id": "T-0086",
+     "priority": "P1",
+     "released_sha": "74839d803b8357e133f82bfdc90b8b658244f4ec",
+     "role": "developer",
+     "state": "accepted",
+     "title": "After midnight Lisbon: today/tomorrow follow the Lisbon calendar date at build time; rebuild now so 07.11 is 'hoje'",
+     "type": "defect"
+    },
+    {
+     "accepted_at": null,
+     "created": "2026-11-07T07:09:57+00:00",
+     "goal": "G2",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-07T07:09:57+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261107T0707-exec-T-0087",
+       "to": "claimed",
+       "ts": "2026-11-07T07:10:33+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-07T07:10:33+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "no change needed: archive_index() in build.py (introduced before this task, at or before T-0076/T-0082 work) already renders per-day cheap window, dear window with €/MWh average, day average, minimum ",
+       "to": "review",
+       "ts": "2026-11-07T07:10:52+00:00"
+      }
+     ],
+     "id": "T-0087",
+     "priority": "P2",
+     "released_sha": "74839d803b8357e133f82bfdc90b8b658244f4ec",
+     "role": "developer",
+     "state": "review",
+     "title": "Archive /d/: show the most expensive 3-hour window and the day average for each listed day (PT+EN)",
+     "type": "feature"
+    }
+   ]
+  },
+  "release-radar": {
+   "analyst_md": "**Срез на 07.11 06:01 UTC (день 4 из 7 пилота; 07.11 неполный).** Уровни не суммируются.\n\n| Метрика | 02 | 03 | 04 | 05 | 06 | 07* |\n|---|---|---|---|---|---|---|\n| Люди: источники | 43 | 18 | 7 | 40 | 20 | 12 |\n| engaged | 10 | 5 | 0 | 5 | 3 | 0 |\n| возвраты | 0 | 0 | 0 | 0 | 0 | 0 |\n| /go/ людьми | 0 | 0 | 0 | 0 | 0 | 0 |\n| агенты (req) | 22 | 188 | 16 | 23 | 7 | 4 |\n| /today.json не-краулеры | 1 | 2 | 0 | 0 | 0 | 0 |\n\n**Цели:** G1 engaged 04–07.11 = 8 при цели ≥40 (за 03–06: 13), не на траектории. G2 = 0 из ≥5, возвратов нет ни в один день. G3 = 0 кликов людей на /go/, внешних referer-доменов: google, t.co, facebook — не на траектории. G4: агентские источники на /today.json были только 03.11 (2 источника); цель ≥5 запросов не подтверждена.\n\n**Посты → визиты:** по ?src= видны bluesky (16 запросов 06.11, 0 engaged), x 1 (engaged, 05.11). Дневной эффект постов не отделяется от шума: человеческих визитов единицы.\n\n**Задачи:** T-0057 (кнопка «release notes →», 06.11) — после неё /go/ людьми всё ещё 0, данных мало. T-0055 (robots Disallow /go/): запросы краулеров на /go/ упали 64→1 к 07.11 — вероятный положительный эффект.",
+   "date": "2026-11-07",
+   "metrics": {
+    "agents": 5,
+    "crawlers": 84,
+    "engaged": 0,
+    "humans": 12,
+    "requests": 484,
+    "returns": 0
+   },
+   "name": "Release Radar",
+   "observations": {
+    "by_class": {
+     "measurement": 3,
+     "need_hypothesis": 6
+    },
+    "new": 9
+   },
+   "owner_questions_open": 0,
+   "po_digest_md": "**Release Radar — цикл 07.11 07:07 UTC**\n\n**Что произошло.** Карточки 06.11 вышли в Telegram и Bluesky, в Bluesky — тест формата «с кодом». Сделаны T-0057 (ссылки «release notes →» на главной), T-0055 (robots запрещает краулерам /go/) и T-0050/T-0051. После T-0055 краулеры на /go/ почти пропали: 62 запроса 06.11 → 1 запрос 07.11. Теперь /go/ меряет живые клики.\n\n**Метрики.** Людей кликов по /go/ — 0 за весь пилот. Возвратов — 0. Engaged-источников по дням: 10 → 5 → 0 → 5 → 3 → 0.\n\n**Решения:**\n- Клики /go/: не трогаю, пока ссылки T-0057 работают меньше суток. Читаем 10.11. Если там будет 0, ставлю задачу на первый экран.\n- Возвраты: новая задача разработчику (P2, G2) — RSS по каждому пакету `/pkg/<eco>/<name>/feed.xml` и строка «Follow: RSS · Telegram» на главной. Это даёт повод вернуться к конкретному пакету.\n- Сегодня в 09:00 по плану выходят карточки в Telegram и Bluesky (контрольная, без кода). План на 11–17.11 стоит на 09.11.\n\n**Ждёт владельца (с 11.11):**\n- Mastodon, X, Threads: нужно снять конфликт VISION и мандата (Q-0011). Mastodon и X дали по 1 engaged-источнику.\n- Метрики (Q-0010, Q-0012): исключить preview-ботов из ?src= и добавить targets для G4.\n- Подсчёт RSS-подписок по UA фид-ридеров.\n\n**Расход:** $0.58 из $20.",
+   "posts": [],
+   "reviews": [],
+   "site": "https://releases.formachines.ai",
+   "slug": "release-radar",
+   "spend_usd": 1.0,
+   "tasks": [
+    {
+     "accepted_at": "2026-11-06T02:08:39+00:00",
+     "created": "2026-11-06T01:11:13+00:00",
+     "goal": "G3",
+     "history": [
+      {
+       "actor": "analyst",
+       "note": "effect: insufficient_data — Выкачена 06.11; /go/ людьми 0 и до, и после; выборка людей мала.",
+       "to": "measured",
+       "ts": "2026-11-07T06:09:14+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measured",
+       "to": "done",
+       "ts": "2026-11-07T06:09:14+00:00"
+      }
+     ],
+     "id": "T-0057",
+     "priority": "P2",
+     "released_sha": "9448e7b19c3d4fc06a4031603301cd1a7a2b37cc",
+     "role": "developer",
+     "state": "done",
+     "title": "Home page: a visible 'release notes →' link via /go/<id>/ on every release card, flagged releases first on the first screen",
+     "type": "feature"
+    },
+    {
+     "accepted_at": null,
+     "created": "2026-11-06T02:09:31+00:00",
+     "goal": "G3",
+     "history": [
+      {
+       "actor": "dispatcher",
+       "note": "20261107T0307-exec-T-0058",
+       "to": "claimed",
+       "ts": "2026-11-07T03:08:03+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-07T03:08:03+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measurement delivered",
+       "to": "done",
+       "ts": "2026-11-07T03:08:22+00:00"
+      }
+     ],
+     "id": "T-0058",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "analyst",
+     "state": "done",
+     "title": "Analyst 07.11: did the home-page 'release notes →' links (T-0057, live 06.11) produce human /go/ clicks? G3 reading for 06.11",
+     "type": "research"
+    },
+    {
+     "accepted_at": null,
+     "created": "2026-11-07T07:11:28+00:00",
+     "goal": "G2",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-07T07:11:28+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261107T0707-exec-T-0060",
+       "to": "claimed",
+       "ts": "2026-11-07T07:11:28+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-07T07:11:28+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "merged 9176364ddb",
+       "to": "released",
+       "ts": "2026-11-07T07:12:08+00:00"
+      }
+     ],
+     "id": "T-0060",
+     "priority": "P2",
+     "released_sha": "9176364ddb9fb993b599a6aa3542a01b0a70df80",
+     "role": "developer",
+     "state": "released",
+     "title": "Per-package RSS /pkg/<eco>/<name>/feed.xml plus a visible 'Follow' line (RSS · Telegram) on home and /pkg/ pages",
+     "type": "feature"
+    }
+   ]
+  }
+ },
+ "snapshot_built_at": "2026-11-07T07:26:38Z"
+}

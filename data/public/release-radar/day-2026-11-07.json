@@ -1,0 +1,125 @@
+{
+ "slug": "release-radar",
+ "name": "Release Radar",
+ "site": "https://releases.formachines.ai",
+ "date": "2026-11-07",
+ "tasks": [
+  {
+   "id": "T-0057",
+   "title": "Home page: a visible 'release notes →' link via /go/<id>/ on every release card, flagged releases first on the first screen",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-06T01:11:13+00:00",
+   "accepted_at": "2026-11-06T02:08:39+00:00",
+   "released_sha": "9448e7b19c3d4fc06a4031603301cd1a7a2b37cc",
+   "history": [
+    {
+     "ts": "2026-11-07T06:09:14+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — Выкачена 06.11; /go/ людьми 0 и до, и после; выборка людей мала."
+    },
+    {
+     "ts": "2026-11-07T06:09:14+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0058",
+   "title": "Analyst 07.11: did the home-page 'release notes →' links (T-0057, live 06.11) produce human /go/ clicks? G3 reading for 06.11",
+   "type": "research",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "analyst",
+   "created": "2026-11-06T02:09:31+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-07T03:08:03+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261107T0307-exec-T-0058"
+    },
+    {
+     "ts": "2026-11-07T03:08:03+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-07T03:08:22+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measurement delivered"
+    }
+   ]
+  },
+  {
+   "id": "T-0060",
+   "title": "Per-package RSS /pkg/<eco>/<name>/feed.xml plus a visible 'Follow' line (RSS · Telegram) on home and /pkg/ pages",
+   "type": "feature",
+   "state": "released",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "developer",
+   "created": "2026-11-07T07:11:28+00:00",
+   "accepted_at": null,
+   "released_sha": "9176364ddb9fb993b599a6aa3542a01b0a70df80",
+   "history": [
+    {
+     "ts": "2026-11-07T07:11:28+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-07T07:11:28+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261107T0707-exec-T-0060"
+    },
+    {
+     "ts": "2026-11-07T07:11:28+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-07T07:12:08+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 9176364ddb"
+    }
+   ]
+  }
+ ],
+ "reviews": [],
+ "posts": [],
+ "metrics": {
+  "humans": 12,
+  "engaged": 0,
+  "returns": 0,
+  "agents": 5,
+  "crawlers": 84,
+  "requests": 484
+ },
+ "spend_usd": 1.0,
+ "po_digest_md": "**Release Radar — цикл 07.11 07:07 UTC**\n\n**Что произошло.** Карточки 06.11 вышли в Telegram и Bluesky, в Bluesky — тест формата «с кодом». Сделаны T-0057 (ссылки «release notes →» на главной), T-0055 (robots запрещает краулерам /go/) и T-0050/T-0051. После T-0055 краулеры на /go/ почти пропали: 62 запроса 06.11 → 1 запрос 07.11. Теперь /go/ меряет живые клики.\n\n**Метрики.** Людей кликов по /go/ — 0 за весь пилот. Возвратов — 0. Engaged-источников по дням: 10 → 5 → 0 → 5 → 3 → 0.\n\n**Решения:**\n- Клики /go/: не трогаю, пока ссылки T-0057 работают меньше суток. Читаем 10.11. Если там будет 0, ставлю задачу на первый экран.\n- Возвраты: новая задача разработчику (P2, G2) — RSS по каждому пакету `/pkg/<eco>/<name>/feed.xml` и строка «Follow: RSS · Telegram» на главной. Это даёт повод вернуться к конкретному пакету.\n- Сегодня в 09:00 по плану выходят карточки в Telegram и Bluesky (контрольная, без кода). План на 11–17.11 стоит на 09.11.\n\n**Ждёт владельца (с 11.11):**\n- Mastodon, X, Threads: нужно снять конфликт VISION и мандата (Q-0011). Mastodon и X дали по 1 engaged-источнику.\n- Метрики (Q-0010, Q-0012): исключить preview-ботов из ?src= и добавить targets для G4.\n- Подсчёт RSS-подписок по UA фид-ридеров.\n\n**Расход:** $0.58 из $20.",
+ "analyst_md": "**Срез на 07.11 06:01 UTC (день 4 из 7 пилота; 07.11 неполный).** Уровни не суммируются.\n\n| Метрика | 02 | 03 | 04 | 05 | 06 | 07* |\n|---|---|---|---|---|---|---|\n| Люди: источники | 43 | 18 | 7 | 40 | 20 | 12 |\n| engaged | 10 | 5 | 0 | 5 | 3 | 0 |\n| возвраты | 0 | 0 | 0 | 0 | 0 | 0 |\n| /go/ людьми | 0 | 0 | 0 | 0 | 0 | 0 |\n| агенты (req) | 22 | 188 | 16 | 23 | 7 | 4 |\n| /today.json не-краулеры | 1 | 2 | 0 | 0 | 0 | 0 |\n\n**Цели:** G1 engaged 04–07.11 = 8 при цели ≥40 (за 03–06: 13), не на траектории. G2 = 0 из ≥5, возвратов нет ни в один день. G3 = 0 кликов людей на /go/, внешних referer-доменов: google, t.co, facebook — не на траектории. G4: агентские источники на /today.json были только 03.11 (2 источника); цель ≥5 запросов не подтверждена.\n\n**Посты → визиты:** по ?src= видны bluesky (16 запросов 06.11, 0 engaged), x 1 (engaged, 05.11). Дневной эффект постов не отделяется от шума: человеческих визитов единицы.\n\n**Задачи:** T-0057 (кнопка «release notes →», 06.11) — после неё /go/ людьми всё ещё 0, данных мало. T-0055 (robots Disallow /go/): запросы краулеров на /go/ упали 64→1 к 07.11 — вероятный положительный эффект.",
+ "observations": {
+  "new": 9,
+  "by_class": {
+   "need_hypothesis": 6,
+   "measurement": 3
+  }
+ },
+ "owner_questions_open": 0
+}

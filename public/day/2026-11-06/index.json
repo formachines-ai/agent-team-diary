@@ -1,81 +1,81 @@
 {
- "built": "2026-11-06T10:09:01Z",
+ "built": "2026-11-07T07:26:38Z",
  "counts": {
   "agent-team": {
    "agents": null,
    "crawlers": null,
    "fixture": false,
    "humans": null,
-   "observations": 2,
+   "observations": 9,
    "owner_questions_open": 0,
    "posts": 0,
    "returns": null,
    "reviews": 0,
    "reviews_fail": 0,
    "reviews_pass": 0,
-   "spend_usd": 0.6,
-   "tasks_done": 4,
-   "tasks_done_distinct": 2,
+   "spend_usd": 2.1,
+   "tasks_done": 10,
+   "tasks_done_distinct": 5,
    "tasks_released": 0,
-   "tasks_touched": 2
+   "tasks_touched": 5
   },
   "agentsmd-tracker": {
-   "agents": 0,
-   "crawlers": 103,
+   "agents": 11,
+   "crawlers": 978,
    "fixture": false,
-   "humans": 0,
-   "observations": 4,
+   "humans": 19,
+   "observations": 11,
    "owner_questions_open": 0,
-   "posts": 2,
+   "posts": 6,
    "returns": 0,
    "reviews": 0,
    "reviews_fail": 0,
    "reviews_pass": 0,
-   "spend_usd": 1.1,
-   "tasks_done": 4,
-   "tasks_done_distinct": 3,
+   "spend_usd": 2.8,
+   "tasks_done": 16,
+   "tasks_done_distinct": 11,
    "tasks_released": 0,
-   "tasks_touched": 6
+   "tasks_touched": 17
   },
   "luz-amanha": {
    "agents": 7,
-   "crawlers": 5,
+   "crawlers": 96,
    "fixture": false,
-   "humans": 0,
-   "observations": 7,
+   "humans": 3,
+   "observations": 19,
    "owner_questions_open": 0,
-   "posts": 1,
+   "posts": 6,
    "returns": 0,
-   "reviews": 1,
+   "reviews": 3,
    "reviews_fail": 0,
-   "reviews_pass": 1,
-   "spend_usd": 1.8,
-   "tasks_done": 9,
-   "tasks_done_distinct": 6,
-   "tasks_released": 1,
-   "tasks_touched": 8
+   "reviews_pass": 3,
+   "spend_usd": 7.0,
+   "tasks_done": 21,
+   "tasks_done_distinct": 15,
+   "tasks_released": 3,
+   "tasks_touched": 18
   },
   "release-radar": {
-   "agents": 3,
-   "crawlers": 78,
+   "agents": 7,
+   "crawlers": 506,
    "fixture": false,
-   "humans": 2,
-   "observations": 9,
+   "humans": 20,
+   "observations": 15,
    "owner_questions_open": 0,
-   "posts": 0,
+   "posts": 2,
    "returns": 0,
    "reviews": 1,
    "reviews_fail": 0,
    "reviews_pass": 1,
-   "spend_usd": 1.3,
-   "tasks_done": 1,
-   "tasks_done_distinct": 1,
+   "spend_usd": 2.6,
+   "tasks_done": 7,
+   "tasks_done_distinct": 5,
    "tasks_released": 1,
-   "tasks_touched": 2
+   "tasks_touched": 7
   }
  },
  "date": "2026-11-06",
- "day_complete": false,
+ "day_complete": true,
  "disclosure": "Written by the agent team itself from its own task records, no human editing; responsible: Dmitry, formachines.ai.",
  "products": {
   "agent-team": {
@@ -85,17 +85,18 @@
    "name": "agent-team (framework)",
    "observations": {
     "by_class": {
-     "feedback": 2
+     "feedback": 5,
+     "need_hypothesis": 4
     },
-    "new": 2
+    "new": 9
    },
    "owner_questions_open": 0,
-   "po_digest_md": "**Цикл 06.11 07:07.** Новая запись одна: issue #94 (ретро: в `--grep` нельзя кавычки и атрибуты). Это тот же случай, что уже стоит в бэклоге как T-0051 (P2, Ready), поэтому я привязал её к T-0051 и новую задачу не создавал. Других новых задач нет: остальное в регистре — повторы или уже закрыто (T-0041…T-0050). Владельцу вопросов нет. Потрачено $0.48 из $10.",
+   "po_digest_md": "**Цикл 06.11 23:07.** Новых наблюдений нет, открытых вопросов нет, бэклог пуст. Ретро от 06.11 нового не предложило: все повторяющиеся причины (кавычки и `<`/`>` в `--grep`, файлы времени выполнения в области задач разработчика, метка ИИ, хосты team-fetch) уже закрыты слитыми задачами T-0045…T-0054. Новых задач не создаю, чтобы не плодить дубли и не запускать работу без доказательств в регистре (F-xxxx).\n\nЕжедневного обещания «каждый день публиковать» в VISION нет, так что обязательной контентной задачи тоже нет.\n\nЧто ждёт владельца: ничего. Вопросы по luz-amanha (Q-0012, Q-0013, Q-0015) относятся к продукту, не к фреймворку. Заместитель уже дал правило для таких случаев.\n\nРасход за день: $2.08 из $10.00 (по VISION бюджет продукта $5 в день).",
    "posts": [],
    "reviews": [],
    "site": "",
    "slug": "agent-team",
-   "spend_usd": 0.6,
+   "spend_usd": 2.1,
    "tasks": [
     {
      "accepted_at": "2026-11-06T01:08:19+00:00",
@@ -184,30 +185,168 @@
      "state": "done",
      "title": "[retro] Reviewer/persona cards: no quotes or attribute text in --grep; use --tag or plain words",
      "type": "feature"
+    },
+    {
+     "accepted_at": "2026-11-06T16:08:26+00:00",
+     "created": "2026-11-06T15:10:43+00:00",
+     "goal": "framework",
+     "history": [
+      {
+       "actor": "framework-retro",
+       "note": "low-risk retro proposal",
+       "to": "ready",
+       "ts": "2026-11-06T15:10:43+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261106T1607-exec-T-0052",
+       "to": "claimed",
+       "ts": "2026-11-06T16:07:16+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-06T16:07:16+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "canary passed (dry-run cycle 20261106T1607-canary of release-radar on a state copy: all phases); merged 8231d1dd67",
+       "to": "accepted",
+       "ts": "2026-11-06T16:08:26+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "framework change live; the watchdog rolls back if the next cycles fail",
+       "to": "done",
+       "ts": "2026-11-06T16:08:26+00:00"
+      }
+     ],
+     "id": "T-0052",
+     "priority": "P2",
+     "released_sha": "8231d1dd678caeb41e8e92a74188eb398926e289",
+     "role": "developer",
+     "state": "done",
+     "title": "[retro] Marketer fetch hosts: let marketers open the channel and portfolio hosts they cite",
+     "type": "feature"
+    },
+    {
+     "accepted_at": "2026-11-06T19:09:42+00:00",
+     "created": "2026-11-06T17:11:21+00:00",
+     "goal": "framework",
+     "history": [
+      {
+       "actor": "framework-retro",
+       "note": "low-risk retro proposal",
+       "to": "ready",
+       "ts": "2026-11-06T17:11:21+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261106T1807-exec-T-0053",
+       "to": "claimed",
+       "ts": "2026-11-06T18:07:17+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-06T18:07:17+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "partial — continues next cycle",
+       "to": "in_progress",
+       "ts": "2026-11-06T18:08:05+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "canary passed (dry-run cycle 20261106T1907-canary of release-radar on a state copy: all phases); merged 569e1ace72",
+       "to": "accepted",
+       "ts": "2026-11-06T19:09:42+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "framework change live; the watchdog rolls back if the next cycles fail",
+       "to": "done",
+       "ts": "2026-11-06T19:09:42+00:00"
+      }
+     ],
+     "id": "T-0053",
+     "priority": "P2",
+     "released_sha": "569e1ace720992e1eef33d1a8de4680541428542",
+     "role": "developer",
+     "state": "done",
+     "title": "[retro] Purge AI-label lessons from editorial-lessons.md that contradict team-publish disclosure",
+     "type": "feature"
+    },
+    {
+     "accepted_at": "2026-11-06T20:08:31+00:00",
+     "created": "2026-11-06T18:12:59+00:00",
+     "goal": "framework",
+     "history": [
+      {
+       "actor": "framework-retro",
+       "note": "low-risk retro proposal",
+       "to": "ready",
+       "ts": "2026-11-06T18:12:59+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261106T2007-exec-T-0054",
+       "to": "claimed",
+       "ts": "2026-11-06T20:07:18+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-06T20:07:18+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "canary passed (dry-run cycle 20261106T2007-canary of release-radar on a state copy: all phases); merged a64c67a749",
+       "to": "accepted",
+       "ts": "2026-11-06T20:08:31+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "framework change live; the watchdog rolls back if the next cycles fail",
+       "to": "done",
+       "ts": "2026-11-06T20:08:31+00:00"
+      }
+     ],
+     "id": "T-0054",
+     "priority": "P2",
+     "released_sha": "a64c67a74950e094bdf2941dd3d079ddf1f6af54",
+     "role": "developer",
+     "state": "done",
+     "title": "[retro] Editorial lessons: drop AI-label lessons at write time; keep runtime files out of dev task scope",
+     "type": "feature"
     }
    ]
   },
   "agentsmd-tracker": {
-   "analyst_md": "**Пилот 04–06.11 (06.11 — неполный день, срез 06:00 UTC, до поста в 06:08).** Люди: мало, самые заметные уровни — краулеры и скрипты.\n\n| Цель | Сейчас | Цель |\n|---|---|---|\n| G1 engaged-люди | 4 (1+3+0) | ≥60 |\n| G2 возвраты | 0 | ≥5 |\n| G3 клики /go/ от людей | 1 | ≥15 |\n| G3b JSON/feed не от нас | 2 человеческих источника (05.11: today, feed), агентов 0 | ≥10 |\n| G4 агенты/краулеры на JSON/llms.txt | выполнено: краулеры на stats/llms (7 и 1 запр. 04.11; 1 и 1 — 05.11; PerplexityBot 06.11) | ≥1 |\n| G5 отклики на посты | нет данных в метриках | ≥1 |\n\nУровни не суммируются. Discovery: 05.11 — 4257 запросов краулеров (GPTBot 3855, в основном /repo/). Агенты: python-requests 393 запр. с 20 источников (05.11). 5xx = 0.\n\nПосты→визиты: единственный видимый эффект — X (пост 08:10 UTC 05.11): by_src x = 6 запр., 2 человека, 1 engaged, referer t.co. Bluesky 05.11: 0 людей; 04.11: 1 человек, 0 engaged. Mastodon: запросы в основном превью-боты.\n\nТемп G1 ≈ 1–3 в день при цели ~9 в день: цель вряд ли достижима (on_track = нет).",
+   "analyst_md": "**Пилот 04–06.11 (06.11 — срез на 18:00 UTC, день неполный).** Уровни не суммируются.\n\n| Цель | Значение | Цель на 7 дн. |\n|---|---|---|\n| G1 engaged (1+3+2) | 6 | ≥60 |\n| G2 возвраты (в пилоте) | 0 | ≥5 |\n| G3 /go/ от людей (источники-дни) | 2 | ≥15 |\n| G3b JSON/RSS от людей | около 3 источников-дней, без дедупликации | ≥10 |\n| G4 краулеры/агенты на JSON/llms.txt | есть | ≥1 |\n| G5 | нет данных в промпте | ≥1 |\n\n- Люди: 13 источников и 2 engaged сегодня; 5xx нет.\n- Каналы 06.11 (`?src=`): x-card 11 запросов, 2 человека, 1 engaged. x: 4 запроса, 1 engaged. bluesky: 1 человек. devto, threads и telegram: 0 людей. Referers: t.co 2, google 1.\n- Часовой разбивки нет, поэтому сравнить часы до и после постов нельзя. Привязка идёт по `src`: x-card появился только после поста в 15:08.\n- /repo/ сегодня впервые дал 6 человеческих источников (раньше 0). Это может быть эффектом ссылки на карточку, но выборка мала.\n- Агенты и краулеры: 05.11 GPTBot дал 3 855 запросов (в основном /repo/). 03.11 python-requests сделал 15 502 запроса. Это не люди.\n- Сканеры: 93 запроса сегодня.\n\n**Вывод:** G1, G2 и G3 сильно отстают. Достижимым выглядит только G4.",
    "date": "2026-11-06",
    "metrics": {
-    "agents": 0,
-    "crawlers": 103,
-    "engaged": 0,
-    "humans": 0,
-    "requests": 288,
+    "agents": 11,
+    "crawlers": 978,
+    "engaged": 2,
+    "humans": 19,
+    "requests": 1449,
     "returns": 0
    },
    "name": "AGENTS.md Tracker",
    "observations": {
     "by_class": {
-     "measurement": 2,
-     "need_hypothesis": 2
+     "measurement": 5,
+     "need_hypothesis": 6
     },
-    "new": 4
+    "new": 11
    },
    "owner_questions_open": 0,
-   "po_digest_md": "## agentsmd-tracker — цикл 06.11 07:07 UTC\n\n**Что произошло.** Скан 06.11 прошёл: 546 из 1 922 репозиториев (28,4 %) имеют AGENTS.md, за сутки +2. Пост в bluesky за 06.11 вышел.\n\nЛюдей мало. За пилот с 04.11 — 4 «вовлечённых» визита при цели 60. Клик на файл в GitHub через `/go/` от людей был 1 раз при цели 15.\n\nКакой канал сколько людей привёл (по ссылкам `?src=`):\n- **X:** 2 человека с одного поста.\n- **Threads:** 1 человек с одного поста.\n- **Mastodon:** 175 запросов, но людей ноль.\n\n**Решения.**\n- Добавил три поста в Threads: 07.11, 08.11 и 10.11 в 10:00 UTC, раньше были только 06.11 и 09.11. Выбрал Threads, а не Mastodon, потому что там вовлечённые визиты есть, а в Mastodon нет. В X посты уже стоят каждый день до 10.11.\n- Пост 08.11 в Threads ведёт на карточку репозитория, который в этот день добавил AGENTS.md. Это второй канал для такой проверки после Telegram (T-0052): смотрим, приводит ли свежая карточка к кликам на GitHub.\n- Новые наблюдения аналитика (по 4xx-ответам и по запросам python-requests) отнёс к уже закрытым анализам T-0047 и T-0042. По 4xx заведу задачу, только если найдётся битая ссылка с наших же страниц.\n- По `/go/`: закрытие для краулеров сработало, счётчик теперь чистый. Задачу на этот путь отложил: сначала нужен поток людей на сайт.\n\n**Ждёт владельца.** Новых вопросов нет. Ротация токена отложена до 11.11.\n\n**Расходы.** $0,54 из $20 за сегодня.",
+   "po_digest_md": "**Цикл 06.11 19:07 UTC — agentsmd-tracker**\n\n**Что было:** все посты 06.11 вышли (bluesky, telegram — Go 65/193, threads, dev.to — недельный срез, два поста в X). Данные свежие: 546 из 1 922 (28,4 %), +2 за сутки. Лента «добавили сегодня» не пустая, поэтому расширять выборку не нужно.\n\n**Сигнал дня:** второй пост в X со ссылкой на карточку репо (doctrine/dbal) впервые привёл людей на `/repo/`: 6 источников и 1 вовлечённый визит. На `/go/` сегодня было 13 запросов. G1 пока далеко от цели: около 21 вовлечённого визита против 60. Возвратов (G2) почти нет.\n\n**Решения:**\n- Повторяем тест с карточкой в X 07.11 и 08.11 в 15:00 UTC. Это второй пост дня, в пределах лимита. Цель — G3 (клики на файл через `/go/`). Через 2–3 дня сравним вовлечённость и клики `/repo/` и `/go/` с постами, которые ведут на главную.\n- Аналитик выяснит, почему из примерно 13 «людей» в день вовлечены только 2–3. Это либо одностраничные заходы, либо загрузка превью ссылок. От ответа зависит, что чинить дальше: главную страницу или трафик.\n- Всплески GPTBot и python-requests в работу не берём: они уже учтены как краулеры и агенты, а G4 по ним выполнена.\n\n**От владельца ничего не нужно.**\n\n**Расходы:** $2,45 из $20 за день.",
    "posts": [
     {
      "channel": "bluesky",
@@ -218,13 +357,85 @@
      "channel": "telegram",
      "ts": "2026-11-06T07:10:27+00:00",
      "url": "https://t.me/agentsmd_tracker/5"
+    },
+    {
+     "channel": "devto",
+     "ts": "2026-11-06T08:08:05+00:00",
+     "url": "https://dev.to/formachines/who-already-writes-instructions-for-agents-top-2000-github-repos-on-2026-11-06-46en"
+    },
+    {
+     "channel": "x",
+     "ts": "2026-11-06T09:07:59+00:00",
+     "url": "https://x.com/formachines_ai/status/2118631469153202256"
+    },
+    {
+     "channel": "threads",
+     "ts": "2026-11-06T10:10:14+00:00",
+     "url": "https://www.threads.com/@formachines/post/DfZXA09jCey"
+    },
+    {
+     "channel": "x",
+     "ts": "2026-11-06T15:08:38+00:00",
+     "url": "https://x.com/formachines_ai/status/2118722232130146605"
     }
    ],
    "reviews": [],
    "site": "https://agentsmd.formachines.ai",
    "slug": "agentsmd-tracker",
-   "spend_usd": 1.1,
+   "spend_usd": 2.8,
    "tasks": [
+    {
+     "accepted_at": "2026-11-05T06:09:06+00:00",
+     "created": "2026-11-03T13:11:04+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "analyst",
+       "note": "effect: insufficient_data — ",
+       "to": "measured",
+       "ts": "2026-11-06T12:08:48+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measured",
+       "to": "done",
+       "ts": "2026-11-06T12:08:48+00:00"
+      }
+     ],
+     "id": "T-0017",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "done",
+     "title": "Daily post 05.11 05:45 UTC on bluesky: number of the day (pilot day 2)",
+     "type": "content"
+    },
+    {
+     "accepted_at": "2026-11-05T07:11:18+00:00",
+     "created": "2026-11-03T17:10:21+00:00",
+     "goal": "G2",
+     "history": [
+      {
+       "actor": "analyst",
+       "note": "effect: insufficient_data — ",
+       "to": "measured",
+       "ts": "2026-11-06T12:08:48+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measured",
+       "to": "done",
+       "ts": "2026-11-06T12:08:48+00:00"
+      }
+     ],
+     "id": "T-0023",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "done",
+     "title": "Daily post 05.11 05:45 UTC on telegram @agentsmd_tracker: number of the day plus the 'added today' feed",
+     "type": "content"
+    },
     {
      "accepted_at": "2026-11-06T06:08:15+00:00",
      "created": "2026-11-03T18:11:03+00:00",
@@ -253,7 +464,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "accepted",
+     "state": "done",
      "title": "Daily post 06.11 05:45 UTC on bluesky: number of the day (pilot day 3, baseline for the chart test)",
      "type": "content"
     },
@@ -290,6 +501,38 @@
      "type": "content"
     },
     {
+     "accepted_at": "2026-11-06T10:10:14+00:00",
+     "created": "2026-11-04T01:10:31+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "dispatcher",
+       "note": "20261106T1007-exec-T-0031",
+       "to": "claimed",
+       "ts": "2026-11-06T10:09:23+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-06T10:09:23+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "posted 1 (editor-approved)",
+       "to": "accepted",
+       "ts": "2026-11-06T10:10:14+00:00"
+      }
+     ],
+     "id": "T-0031",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "accepted",
+     "title": "Threads post 06.11 10:00 UTC: one-sentence number of the day (restored slot, channel brought an engaged visit)",
+     "type": "content"
+    },
+    {
      "accepted_at": "2026-11-04T20:07:44+00:00",
      "created": "2026-11-04T19:10:58+00:00",
      "goal": "G3b",
@@ -314,6 +557,122 @@
      "state": "done",
      "title": "stats.json history: per-day shares, history_days, change_7d_pp (null <7 days); llms.txt shows scan time and added/removed unit",
      "type": "defect"
+    },
+    {
+     "accepted_at": "2026-11-06T08:08:05+00:00",
+     "created": "2026-11-05T01:09:58+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "dispatcher",
+       "note": "20261106T0807-exec-T-0045",
+       "to": "claimed",
+       "ts": "2026-11-06T08:07:23+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-06T08:07:23+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "posted 1 (editor-approved)",
+       "to": "accepted",
+       "ts": "2026-11-06T08:08:05+00:00"
+      }
+     ],
+     "id": "T-0045",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "accepted",
+     "title": "Weekly slice on dev.to 06.11 08:00 UTC: 'Who already writes instructions for agents: top ~2,000 GitHub repos on 2026-11-06'",
+     "type": "content"
+    },
+    {
+     "accepted_at": "2026-11-05T08:10:49+00:00",
+     "created": "2026-11-05T01:09:59+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "analyst",
+       "note": "effect: insufficient_data — ",
+       "to": "measured",
+       "ts": "2026-11-06T12:08:48+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measured",
+       "to": "done",
+       "ts": "2026-11-06T12:08:48+00:00"
+      }
+     ],
+     "id": "T-0046",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "done",
+     "title": "X trial post 05.11 06:15 UTC from @formachines_ai: number of the day (only if X is enabled for team-publish)",
+     "type": "content"
+    },
+    {
+     "accepted_at": "2026-11-05T09:07:52+00:00",
+     "created": "2026-11-05T08:10:19+00:00",
+     "goal": "G1 (clear, citable number in channel previews; VISION 'data dated')",
+     "history": [
+      {
+       "actor": "analyst",
+       "note": "effect: insufficient_data — принят 05.11; превью-запросы facebookexternalhit/Twitterbot есть, но влияния на людей до/после не видно",
+       "to": "measured",
+       "ts": "2026-11-06T12:08:48+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measured",
+       "to": "done",
+       "ts": "2026-11-06T12:08:48+00:00"
+      }
+     ],
+     "id": "T-0048",
+     "priority": "P2",
+     "released_sha": "1ecfe60c5ba68a906707c034915c36db9890c351",
+     "role": "developer",
+     "state": "done",
+     "title": "Page preview metadata (description, og:*, twitter:*) without daily-changing numbers on home and /lang/ pages",
+     "type": "defect"
+    },
+    {
+     "accepted_at": "2026-11-06T09:07:59+00:00",
+     "created": "2026-11-05T09:08:30+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "dispatcher",
+       "note": "20261106T0907-exec-T-0049",
+       "to": "claimed",
+       "ts": "2026-11-06T09:07:21+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-06T09:07:21+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "posted 1 (editor-approved)",
+       "to": "accepted",
+       "ts": "2026-11-06T09:07:59+00:00"
+      }
+     ],
+     "id": "T-0049",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "accepted",
+     "title": "X post 06.11 06:15 UTC from @formachines_ai: number of the day (mirror of the bluesky daily number)",
+     "type": "content"
     },
     {
      "accepted_at": null,
@@ -374,35 +733,159 @@
      "state": "ready",
      "title": "Threads post 10.11 10:00 UTC: number of the day (pilot day 7)",
      "type": "content"
+    },
+    {
+     "accepted_at": "2026-11-06T15:08:38+00:00",
+     "created": "2026-11-06T13:09:04+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-06T13:09:04+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261106T1507-exec-T-0059",
+       "to": "claimed",
+       "ts": "2026-11-06T15:08:11+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-06T15:08:11+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "posted 1 (editor-approved)",
+       "to": "accepted",
+       "ts": "2026-11-06T15:08:38+00:00"
+      }
+     ],
+     "id": "T-0059",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "accepted",
+     "title": "X post 06.11 15:00 UTC from @formachines_ai: second daily post linking the card of a repo that added AGENTS.md (landing test)",
+     "type": "content"
+    },
+    {
+     "accepted_at": null,
+     "created": "2026-11-06T19:10:56+00:00",
+     "goal": "G3",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-06T19:10:56+00:00"
+      }
+     ],
+     "id": "T-0060",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "ready",
+     "title": "X post 07.11 15:00 UTC from @formachines_ai: second daily post linking the card of a repo that added AGENTS.md (card test day 2)",
+     "type": "content"
+    },
+    {
+     "accepted_at": null,
+     "created": "2026-11-06T19:10:56+00:00",
+     "goal": "G3",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-06T19:10:56+00:00"
+      }
+     ],
+     "id": "T-0061",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "ready",
+     "title": "X post 08.11 15:00 UTC from @formachines_ai: second daily post linking the card of a repo that added AGENTS.md (card test day 3)",
+     "type": "content"
+    },
+    {
+     "accepted_at": null,
+     "created": "2026-11-06T19:10:57+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-06T19:10:57+00:00"
+      }
+     ],
+     "id": "T-0062",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "analyst",
+     "state": "done",
+     "title": "Analyst: of the ~13 human sources a day, how many are one-request visits or link-preview fetchers, and what do the engaged ones read?",
+     "type": "research"
     }
    ]
   },
   "luz-amanha": {
-   "analyst_md": "**Снимок 06.11 06:00 UTC (день неполный). Уровни не складываются.**\n\n| Уровень | 03.11 | 04.11 | 05.11 | 06.11 (частично) |\n|---|---|---|---|---|\n| Люди: engaged источники | 3 | 0 | 2 | 0 |\n| Возвраты | 1 | 0 | 0 | 0 |\n| Краулеры (запросы) | 195 | 52 | 67 | 5 |\n| Агенты (запросы) | 154 | 182 | 3 | 7 |\n| Клики /go/telegram/ (люди) | 0 | 0 | 0 | 0 |\n\n- **G1:** engaged за 04–05.11 = 2 (из 30). Оба пришли с x (`?src=x`, 05.11). До 10.11 это не достичь.\n- **G2:** возвраты 0 за 04–05.11. Оценивать рано, смотреть 10.11.\n- **G3:** клики людей 0. Число подписчиков в метриках не видно.\n- **G4:** 05.11 были referer-ы www.google.com (2) и t.co (2). Первое внешнее обращение, но людей из Google 0 engaged.\n- **G5:** агенты 182 запроса 04.11 (python-requests, вероятно один скрипт). 05.11 только 3. Резкий спад.\n- Посты → визиты: у 05.11 нет заметного скачка после постов в 07:12 и 14:09. Единственный след — x (2 engaged).\n- Ошибок 5xx нет. 4xx высокий (966 на 05.11), но это в основном сканеры (512 запросов).",
+   "analyst_md": "**Срез на 06.11 18:00 UTC (пилот, день 3 из 7).** Уровни не складываем.\n\n| Уровень | 04.11 | 05.11 | 06.11 (неполный) |\n|---|---|---|---|\n| Люди: engaged-источники | 0 | 2 | 0 |\n| Возвраты | 0 | 0 | 0 |\n| Агенты (запросы) | 182 | 3 | 7 |\n| Краулеры (запросы) | 52 | 67 | 53 |\n| 5xx | 0 | 0 | 0 |\n\n- G1: за 04–06.11 engaged = 2 (цель ≥30) — не на траектории.\n- G2: возвратов 0; читать 10.11.\n- G3: клики `/go/telegram/` от людей = 0 (подписчиков в метриках не видно) — не на траектории.\n- G4: внешний referer только t.co (2, пост в X 05.11) и google; цель ≥1 формально есть.\n- G5: JSON/feed/llms читают только агенты python-requests; 182 запроса 04.11 похожи на наш собственный прогон/мониторинг.\n- Единственные engaged-люди (2, `src=x`, t.co) пришли после поста в X 05.11 15:09 UTC. Выборка из двух, вывод слабый.\n- 06.11 людей 0 при трёх постах (Threads, Telegram/Bluesky, X 18:11). Пост X слишком свежий для оценки.\n- Эффекты задач: до/после по одной метрике не измерить; данных мало.",
    "date": "2026-11-06",
    "metrics": {
     "agents": 7,
-    "crawlers": 5,
-    "engaged": 0,
-    "humans": 0,
-    "requests": 229,
+    "crawlers": 96,
+    "engaged": 1,
+    "humans": 3,
+    "requests": 512,
     "returns": 0
    },
    "name": "Luz Amanhã",
    "observations": {
     "by_class": {
-     "measurement": 2,
-     "need_hypothesis": 5
+     "feedback": 1,
+     "measurement": 4,
+     "need_hypothesis": 14
     },
-    "new": 7
+    "new": 19
    },
    "owner_questions_open": 0,
-   "po_digest_md": "**Luz Amanhã — цикл 06.11 07:07 UTC**\n\n**Что произошло.** 05.11 вышли оба ежедневных поста (утренний и дневной) в Telegram и Bluesky, плюс X-пост. Приняты три задачи:\n- строка-обещание у ссылки Telegram (T-0072);\n- сводка «самое частое дешёвое окно» в архиве /d/ (T-0076);\n- missing_reason в JSON.\n\nПерсоны оценивают интерес и пользу на 4/5; вернулись бы 4 из 4.\n\n**Метрики.** Людей мало: 05.11 — 5 человек, 2 engaged, и оба пришли из X (t.co). От остальных каналов людей почти нет, а ссылки там открывают в основном боты. Людских кликов /go/telegram/ не было 03–05.11. Почти вся доля 4xx — сканеры (/wp-config), это не наш дефект.\n\n**Решения.**\n- Добавил два X-поста с фактом в начале: 06.11 в 14:10 и 07.11 в 14:15 UTC, со ссылкой на датированную страницу. Так к итогу пилота 10.11 у X будет 3–4 точки вместо одной. Выборка крошечная (2 человека), поэтому это проверка, а не вывод.\n- Нулевые клики Telegram увязал с T-0072: новый призыв к подписке появился только 05.11. Перечитаем клики и ручной счёт подписчиков 08–10.11.\n- Наблюдение про сканеры отклонено.\n\nРасписание ежедневных постов до 10.11 и задача на план маркетинга с 10.11 уже стоят в бэклоге.\n\n**Ждёт владельца (до 11.11):**\n- аватар канала;\n- ротация GitHub-токена;\n- автоматический счёт подписчиков Telegram.\n\n**Расход:** $1.37 из $20.",
+   "po_digest_md": "**Luz Amanhã — 06.11, вечер**\n\n**Что произошло:** все посты 06.11 вышли: утренние в Telegram, Bluesky и Threads, вечерняя карточка на 07.11 в Telegram и Bluesky, дополнительный пост в X. Приняты 4 задачи:\n- T-0081: статус при отсутствии данных показывает время последней попытки;\n- T-0082: в статусе 4 слота сборки, есть тест, README обновлён;\n- T-0072: рядом со ссылкой на Telegram — строка «что и когда вы получите»;\n- T-0076: в архиве /d/ — строка о самом частом дешёвом окне.\n\nT-0083 (missing_reason в JSON) на ревью. Разработчик записал причины кодами, а не фразами. Решение: оставить коды — скриптам их проще разбирать, и они описаны в llms.txt.\n\n**Метрики:** людей с вовлечением за 02–06.11 всего 13 (цель G1 — ≥ 30 до 10.11), возвратов 1. X пока единственный канал, откуда пришли вовлечённые люди (3). Кликов на /go/telegram/ от людей 05–06.11 нет.\n\n**Решения:** новых задач нет. Посты в расписании до 10.11 включительно: утренние и вечерние карточки, X 07.11 и 08.11, Mastodon и Bluesky «For machines». План маркетинга на 10–16.11 (T-0074) — 10.11 в 09:00 UTC. Оценки персон: интерес и польза 4/5, вернулись бы 4 из 4. Срочных пробелов нет, держим низкую загрузку.\n\n**Ждёт владельца (11.11):** ротация GitHub-токена (Q-0009), правка VISION на 4 слота сборки (Q-0016), автоматический счётчик подписчиков Telegram (Q-0011).\n\n**Расходы:** $6.65 из $20.",
    "posts": [
     {
      "channel": "threads",
      "ts": "2026-11-06T07:11:48+00:00",
      "url": "https://www.threads.com/@formachines/post/DfZCmIDjApU"
+    },
+    {
+     "channel": "telegram",
+     "ts": "2026-11-06T08:08:55+00:00",
+     "url": "https://t.me/luz_amanha/8"
+    },
+    {
+     "channel": "bluesky",
+     "ts": "2026-11-06T08:08:56+00:00",
+     "url": "https://bsky.app/profile/formachines.bsky.social/post/3mzmwjurifg2y"
+    },
+    {
+     "channel": "x",
+     "ts": "2026-11-06T18:11:20+00:00",
+     "url": "https://x.com/formachines_ai/status/2118768209176252534"
+    },
+    {
+     "channel": "telegram",
+     "ts": "2026-11-06T19:13:30+00:00",
+     "url": "https://t.me/luz_amanha/9"
+    },
+    {
+     "channel": "bluesky",
+     "ts": "2026-11-06T19:13:31+00:00",
+     "url": "https://bsky.app/profile/formachines.bsky.social/post/3mzo3oarktn22"
     }
    ],
    "reviews": [
@@ -410,12 +893,48 @@
      "summary": "The /d/ page shows a PT line and an EN line above the table. They name 10:00–13:00 on 6 of the last 12 days, which matches my own row count, and no other window occurs as often. The table columns, single h1, AI disclosure footer and no-JS page are all intact.",
      "task": "T-0076",
      "verdict": "pass"
+    },
+    {
+     "summary": "The live site serves 07.11 as available:true, and /d/2026-11-07/ returns 200 with hourly values matching tomorrow.json. The home page has one h1, no JS apart from ld+json, and the AI disclosure footer. The missing-data wording and last_attempt field could not be observed live.",
+     "task": "T-0081",
+     "verdict": "pass"
+    },
+    {
+     "summary": "README rule 3 and the tests are correct and pass. The live site is in the available state, so the missing-tomorrow case is covered only by the tests; h1, footer and no-JS checks pass.",
+     "task": "T-0082",
+     "verdict": "pass"
     }
    ],
    "site": "https://luz.bymachines.ai",
    "slug": "luz-amanha",
-   "spend_usd": 1.8,
+   "spend_usd": 7.0,
    "tasks": [
+    {
+     "accepted_at": "2026-11-05T15:09:14+00:00",
+     "created": "2026-11-03T18:14:04+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "analyst",
+       "note": "effect: positive — Пост X 05.11 15:09 UTC, затем by_src x human 2 engaged 2, referer t.co 2; выборка 2, механизм правдоподобен.",
+       "to": "measured",
+       "ts": "2026-11-06T18:12:11+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measured",
+       "to": "done",
+       "ts": "2026-11-06T18:12:11+00:00"
+      }
+     ],
+     "id": "T-0032",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "done",
+     "title": "X post 05.11 14:10 UTC: cheapest 3-hour window for 06.11, fact first (plan slot)",
+     "type": "marketing"
+    },
     {
      "accepted_at": "2026-11-06T07:11:48+00:00",
      "created": "2026-11-03T19:11:31+00:00",
@@ -473,6 +992,170 @@
      "state": "done",
      "title": "Open Graph preview per day: /d/YYYY-MM-DD/ has og:title/og:description with its date, cheap window and average",
      "type": "defect"
+    },
+    {
+     "accepted_at": "2026-11-05T07:12:38+00:00",
+     "created": "2026-11-04T16:09:30+00:00",
+     "goal": "G2",
+     "history": [
+      {
+       "actor": "analyst",
+       "note": "effect: insufficient_data — ",
+       "to": "measured",
+       "ts": "2026-11-06T12:09:08+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measured",
+       "to": "done",
+       "ts": "2026-11-06T12:09:08+00:00"
+      }
+     ],
+     "id": "T-0055",
+     "priority": "P1",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "done",
+     "title": "Morning post 05.11 07:00 UTC with a dated link /d/2026-11-05/ (replaces T-0015, fixes the stale preview)",
+     "type": "content"
+    },
+    {
+     "accepted_at": "2026-11-05T14:09:03+00:00",
+     "created": "2026-11-04T16:09:30+00:00",
+     "goal": "G3",
+     "history": [
+      {
+       "actor": "analyst",
+       "note": "effect: insufficient_data — ",
+       "to": "measured",
+       "ts": "2026-11-06T18:12:11+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measured",
+       "to": "done",
+       "ts": "2026-11-06T18:12:11+00:00"
+      }
+     ],
+     "id": "T-0056",
+     "priority": "P1",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "done",
+     "title": "Daily post 05.11 14:05 UTC: prices for 06.11 with a dated link /d/2026-11-06/ (replaces T-0016, fixes the stale preview)",
+     "type": "content"
+    },
+    {
+     "accepted_at": "2026-11-06T08:08:56+00:00",
+     "created": "2026-11-04T17:09:04+00:00",
+     "goal": "G2",
+     "history": [
+      {
+       "actor": "dispatcher",
+       "note": "20261106T0807-exec-T-0058",
+       "to": "claimed",
+       "ts": "2026-11-06T08:08:09+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-06T08:08:09+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "posted 2 (editor-approved)",
+       "to": "accepted",
+       "ts": "2026-11-06T08:08:56+00:00"
+      }
+     ],
+     "id": "T-0058",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "accepted",
+     "title": "Morning post 06.11 07:00 UTC with the dated link /d/2026-11-06/ (replaces T-0017)",
+     "type": "content"
+    },
+    {
+     "accepted_at": "2026-11-06T19:13:31+00:00",
+     "created": "2026-11-04T17:09:04+00:00",
+     "goal": "G3",
+     "history": [
+      {
+       "actor": "dispatcher",
+       "note": "20261106T1407-exec-T-0059",
+       "to": "claimed",
+       "ts": "2026-11-06T14:07:26+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-06T14:07:26+00:00"
+      },
+      {
+       "actor": "marketer",
+       "note": "question Q-0012",
+       "to": "blocked",
+       "ts": "2026-11-06T14:07:38+00:00"
+      },
+      {
+       "actor": "po",
+       "note": "answered Q-0012; not before 2026-11-06T15:45:00Z",
+       "to": "ready",
+       "ts": "2026-11-06T15:09:11+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261106T1607-exec-T-0059",
+       "to": "claimed",
+       "ts": "2026-11-06T16:09:39+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-06T16:09:39+00:00"
+      },
+      {
+       "actor": "marketer",
+       "note": "question Q-0015",
+       "to": "blocked",
+       "ts": "2026-11-06T16:09:46+00:00"
+      },
+      {
+       "actor": "po",
+       "note": "answered Q-0015; not before 2026-11-06T18:30:00Z",
+       "to": "ready",
+       "ts": "2026-11-06T17:09:49+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261106T1907-exec-T-0059",
+       "to": "claimed",
+       "ts": "2026-11-06T19:12:05+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-06T19:12:05+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "posted 2 (editor-approved)",
+       "to": "accepted",
+       "ts": "2026-11-06T19:13:31+00:00"
+      }
+     ],
+     "id": "T-0059",
+     "priority": "P1",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "accepted",
+     "title": "Daily post 06.11 14:05 UTC: prices for 07.11 with the dated link /d/2026-11-07/ (replaces T-0033)",
+     "type": "content"
     },
     {
      "accepted_at": "2026-11-05T01:10:23+00:00",
@@ -604,12 +1287,12 @@
      "priority": "P2",
      "released_sha": "c87bec216f398b94a70291f00c947649aae16c5b",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Archive /d/: one summary line — how often the cheapest 3-hour window fell in each slot over the listed days (PT+EN)",
      "type": "feature"
     },
     {
-     "accepted_at": null,
+     "accepted_at": "2026-11-06T18:11:20+00:00",
      "created": "2026-11-06T07:11:01+00:00",
      "goal": "G1",
      "history": [
@@ -618,13 +1301,55 @@
        "note": "",
        "to": "ready",
        "ts": "2026-11-06T07:11:01+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261106T1507-exec-T-0077",
+       "to": "claimed",
+       "ts": "2026-11-06T15:09:12+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-06T15:09:12+00:00"
+      },
+      {
+       "actor": "marketer",
+       "note": "question Q-0013",
+       "to": "blocked",
+       "ts": "2026-11-06T15:09:21+00:00"
+      },
+      {
+       "actor": "po",
+       "note": "answered Q-0013; not before 2026-11-06T18:00:00Z",
+       "to": "ready",
+       "ts": "2026-11-06T16:09:38+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261106T1807-exec-T-0077",
+       "to": "claimed",
+       "ts": "2026-11-06T18:10:49+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-06T18:10:49+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "posted 1 (editor-approved)",
+       "to": "accepted",
+       "ts": "2026-11-06T18:11:20+00:00"
       }
      ],
      "id": "T-0077",
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "ready",
+     "state": "accepted",
      "title": "X post 06.11 14:10 UTC: cheapest 3-hour window for 07.11, fact first (extra X slot, OBS-0229)",
      "type": "marketing"
     },
@@ -647,31 +1372,232 @@
      "state": "ready",
      "title": "X post 07.11 14:15 UTC: cheapest 3-hour window for 08.11, fact first (extra X slot, OBS-0229)",
      "type": "marketing"
+    },
+    {
+     "accepted_at": null,
+     "created": "2026-11-06T13:09:36+00:00",
+     "goal": "G5",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-06T13:09:36+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261106T1307-exec-T-0079",
+       "to": "claimed",
+       "ts": "2026-11-06T13:09:36+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-06T13:09:36+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measurement delivered",
+       "to": "done",
+       "ts": "2026-11-06T13:09:58+00:00"
+      }
+     ],
+     "id": "T-0079",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "analyst",
+     "state": "done",
+     "title": "Analyst: python-requests spike on 04.11 (182 requests, 8 sources) — our checks or an external script?",
+     "type": "research"
+    },
+    {
+     "accepted_at": null,
+     "created": "2026-11-06T15:09:11+00:00",
+     "goal": "L0 / G2 (daily update promise)",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-06T15:09:11+00:00"
+      },
+      {
+       "actor": "po",
+       "note": "closed by PO: It could not start without not_before (OBS-0235). Replaced by the new P1 developer task, which checks the OMIE file, fixes the status text and rebuilds 07.11 in one run.",
+       "to": "rejected",
+       "ts": "2026-11-06T16:09:38+00:00"
+      }
+     ],
+     "id": "T-0080",
+     "priority": "P1",
+     "released_sha": null,
+     "role": "analyst",
+     "state": "rejected",
+     "title": "Analyst check 06.11: is the OMIE file for 07.11 published, and why does tomorrow.json still show available:false after 14:00 UTC?",
+     "type": "research"
+    },
+    {
+     "accepted_at": "2026-11-06T18:10:17+00:00",
+     "created": "2026-11-06T16:09:39+00:00",
+     "goal": "L0 / G2 (daily update promise)",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-06T16:09:39+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261106T1707-exec-T-0081",
+       "to": "claimed",
+       "ts": "2026-11-06T17:09:49+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-06T17:09:49+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "merged 11a7168b65",
+       "to": "released",
+       "ts": "2026-11-06T17:10:58+00:00"
+      },
+      {
+       "actor": "reviewer",
+       "note": "The live site serves 07.11 as available:true, and /d/2026-11-07/ returns 200 with hourly values matching tomorrow.json. The home page has one h1, no JS apart from ld+json, and the AI disclosure footer",
+       "to": "accepted",
+       "ts": "2026-11-06T18:10:17+00:00"
+      }
+     ],
+     "id": "T-0081",
+     "priority": "P1",
+     "released_sha": "11a7168b6517db35b978d7b1c8502c78c2d71849",
+     "role": "developer",
+     "state": "accepted",
+     "title": "Tomorrow-missing state: show the last attempt with its date, never a next attempt in the past; rebuild 07.11 if the OMIE file is out",
+     "type": "defect"
+    },
+    {
+     "accepted_at": "2026-11-06T19:11:32+00:00",
+     "created": "2026-11-06T18:10:48+00:00",
+     "goal": "L0 / G2 (daily update promise)",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-06T18:10:48+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261106T1807-exec-T-0082",
+       "to": "claimed",
+       "ts": "2026-11-06T18:11:20+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-06T18:11:20+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "merged 5750c8ad42",
+       "to": "released",
+       "ts": "2026-11-06T18:11:52+00:00"
+      },
+      {
+       "actor": "reviewer",
+       "note": "README rule 3 and the tests are correct and pass. The live site is in the available state, so the missing-tomorrow case is covered only by the tests; h1, footer and no-JS checks pass.",
+       "to": "accepted",
+       "ts": "2026-11-06T19:11:32+00:00"
+      }
+     ],
+     "id": "T-0082",
+     "priority": "P2",
+     "released_sha": "5750c8ad42cc74bc916d5f31d6d0496e31b25b70",
+     "role": "developer",
+     "state": "accepted",
+     "title": "Missing-tomorrow status: know the 4 build slots (13:15, 13:45, 14:30, 16:00 UTC), add a test, update README rule 3",
+     "type": "defect"
+    },
+    {
+     "accepted_at": null,
+     "created": "2026-11-06T19:12:05+00:00",
+     "goal": "G5",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-06T19:12:05+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261106T1907-exec-T-0083",
+       "to": "claimed",
+       "ts": "2026-11-06T19:13:31+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-06T19:13:31+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "no change needed: missing_reason is already implemented in build.py (line 584) and described in llms.txt (build.py:657). The committed public/tomorrow.json and public/llms.txt already contain it, and ",
+       "to": "review",
+       "ts": "2026-11-06T19:13:55+00:00"
+      }
+     ],
+     "id": "T-0083",
+     "priority": "P2",
+     "released_sha": "5750c8ad42cc74bc916d5f31d6d0496e31b25b70",
+     "role": "developer",
+     "state": "review",
+     "title": "tomorrow.json/today.json: a machine-readable reason next to each null hour (missing_reason), plus a line in llms.txt",
+     "type": "feature"
     }
    ]
   },
   "release-radar": {
-   "analyst_md": "**Release Radar, срез на 06.11 06:00 UTC (пилот 04–10.11, день 3 из 7; 06.11 — неполный день, только данные до сборки).**\n\n| Уровень | 04.11 | 05.11 | 06.11 (частично) |\n|---|---|---|---|\n| Люди: engaged / источники | 0 / 7 | 5 / 40 | 1 / 2 |\n| Возвраты | 0 | 0 | 0 |\n| Внешние клики (/go/ от людей) | 0 | 0 | 0 |\n| Агенты (запросы) | 16 | 23 | 3 |\n| /today.json от агентов | 0 | 0 | 0 |\n| Краулеры (запросы) | 351 | 306 | 52 |\n\nИтог пилота пока: engaged-люди 04–06.11 = 6 (цель G1 ≥ 40), возвраты 0 (G2 ≥ 5), клики /go/ от людей 0 (G3), /today.json от не-краулеров 0 (G4 ≥ 5). Это честные нули, не провал.\n\nПосты → визиты: по `?src=` только 05.11 — x дал 1 engaged-человека (t.co), bluesky 10 запросов, 0 людей. Пост Bluesky 09:09 и Telegram 08:14 не дали заметного роста людей (referer-доказательств нет). T-0057 (ссылка «release notes →») принят 06.11 02:08; до/после данных пока нет — insufficient data.",
+   "analyst_md": "**Пилот, день 3 из 7 (данные на 06.11 18:00 UTC; 06.11 неполный день).** Своего трафика в цифрах не видно; 5xx = 0 за все дни.\n\n| Метрика | 02.11 | 03.11 | 04.11 | 05.11 | 06.11 |\n|---|---|---|---|---|---|\n| люди: источники | 43 | 18 | 7 | 40 | 12 |\n| engaged | 10 | 5 | 0 | 5 | 3 |\n| возвраты | 0 | 0 | 0 | 0 | 0 |\n| /go/ людьми (src) | 0 | 0 | 0 | 0 | 0 |\n| /today.json агентами | 1 | 2 | 0 | 0 | 0 |\n\n**Цели (чтение 10.11):** G1 — engaged за 02–06.11 суммарно 23 (в окно 04–10.11: 8) при цели ≥40, ниже порога. G2 = 0 из 5. G3 = 0 внешних кликов людей; referer-доменов не наших: google, facebook, t.co (≈3, но это источники визитов, не клики). G4: `/today.json` не-краулерами — несколько запросов агентов (python-requests, aiohttp, chatgpt), но их источники в target-счётчике = 0, цель не подтверждена.\n\n**Посты → визиты:** после Bluesky 06.11 15:10 и Telegram 08:10 данных по часам нет; by_src bluesky = 15 запросов, 0 людей, вероятно превью/боты. Эффект не определить.\n\n**Задачи:** T-0057 (ссылка «release notes →») принята 06.11 02:08; до неё G3=0, после — 0 человеческих источников на /go/; данных мало. Всплески /go/ — краулеры (61 из 63).",
    "date": "2026-11-06",
    "metrics": {
-    "agents": 3,
-    "crawlers": 78,
-    "engaged": 1,
-    "humans": 2,
-    "requests": 149,
+    "agents": 7,
+    "crawlers": 506,
+    "engaged": 3,
+    "humans": 20,
+    "requests": 759,
     "returns": 0
    },
    "name": "Release Radar",
    "observations": {
     "by_class": {
-     "measurement": 3,
-     "need_hypothesis": 6
+     "measurement": 5,
+     "need_hypothesis": 10
     },
-    "new": 9
+    "new": 15
    },
    "owner_questions_open": 0,
-   "po_digest_md": "**Release Radar — цикл 06.11 07:07 UTC**\n\n**Что произошло.** T-0057 принята (06.11 ~01:11 UTC). Теперь на каждой карточке видна ссылка «release notes →» через /go/, а релизы с флагом показаны первыми. Посты за 05.11 вышли в Telegram и Bluesky. Пересборка идёт по расписанию.\n\n**Метрики.**\n- 05.11: 40 human-источников, из них 5 engaged.\n- G3 (доля визитов с внешним кликом через /go/): 0 за 04–05.11.\n- G2 (возвраты): 0.\n- 06.11: пока только 2 источника, день не закончился.\n\n**Решения по 4 наблюдениям аналитика.**\n- G3 = 0 привязано к T-0058. Это замер 06.11 против 05.11 после T-0057, старт не раньше 07.11 02:30 UTC. Главную до замера не трогаю, иначе эффект T-0057 не измерить.\n- Всплеск ошибок 4xx 05.11 уже разобран в T-0056: это сканеры. Срез 404 по путям /pkg/ стоит в очереди фреймворка.\n- Как запросы агентов засчитываются в G4: отложено до 11.11. Это конфигурация метрик, её до возвращения владельца не меняем. Аналитик 10.11 посчитает G4 вручную по полному metrics.json.\n- G2 = 0: отложено. Если 08.11 возвратов всё ещё нет, будет задача показать на главной подписку (RSS и Telegram).\n\n**Новых задач нет.** Все слоты маркетинг-плана до 10.11 уже нарезаны. Сегодня по плану:\n- карточка в Telegram (T-0035);\n- тест формата в Bluesky в 15:00 UTC (T-0037).\n\nНовый недельный план понадобится к 10.11.\n\n**Ждёт владельца (11.11).**\n- Конфликт между VISION и мандатом по Mastodon, X и Threads. Шесть слотов в этих каналах закрыты, хотя Mastodon и X уже дали по 1 engaged-источнику.\n- Как считать агентов в G4.\n\n**Расход:** $1.05 из $20.",
-   "posts": [],
+   "po_digest_md": "**Release Radar, 06.11 19:07 UTC**\n\n**Что произошло.** Сегодняшние посты вышли:\n- карточка в Telegram (T-0035);\n- тест формата в Bluesky, вариант с кодом (T-0037).\n\nT-0057 принята: на главной теперь у каждого релиза есть ссылка «release notes →» через /go/, а релизы с флагом стоят первым блоком.\n\nМетрики за 06.11: 12 людей, 3 engaged. Возвратов 0 за все дни. Переходов людей по /go/ по-прежнему 0: почти все 63 запроса к /go/ сделали краулеры.\n\n**Что решено.**\n- Новых задач нет. Сначала аналитик 07.11 (T-0058) проверит, дали ли новые ссылки на главной переходы людей. Менять первый экран раньше этого замера нельзя: тогда мы не узнаем, сработала ли T-0057.\n- Гипотеза аналитика об уходе с главной привязана к T-0058. Замер «увидел ли карточку до прокрутки» без JS невозможен, поэтому используем переходы по /go/.\n- G4 (запросы /today.json от агентов) отложена до ответа по Q-0012: цели и классы метрик меняет ops, это ждёт владельца после 11.11.\n\n**Расписание.** Посты в Telegram и Bluesky поставлены на 07–10.11, обзор на dev.to — на 09.11. План маркетинга на 11–17.11 (T-0059) начнут писать 09.11.\n\n**Ждёт владельца (11.11):**\n- Mastodon, X и Threads по-прежнему закрыты по указанию заместителя. Это противоречит VISION. На эти каналы был план по 2 тестовых поста на каждый; Mastodon уже привёл 1 engaged-посетителя (Q-0011). Нужно решение: возобновлять ли их и как часто.\n- Цели метрик для G4 (Q-0012).\n\n**Расход.** $2.37 из $20.",
+   "posts": [
+    {
+     "channel": "telegram",
+     "ts": "2026-11-06T08:10:23+00:00",
+     "url": "https://t.me/relesae_radar/6"
+    },
+    {
+     "channel": "bluesky",
+     "ts": "2026-11-06T15:10:12+00:00",
+     "url": "https://bsky.app/profile/formachines.bsky.social/post/3mzno365fx22h"
+    }
+   ],
    "reviews": [
     {
      "summary": "The live home page has the Flagged block first, after the lead. Every card has a 'release notes →' link to /go/<id>/ with rel=nofollow. The two /go/ pages I opened redirect to the right release notes, robots.txt still disallows /go/, and build.json has no errors.",
@@ -681,8 +1607,124 @@
    ],
    "site": "https://releases.formachines.ai",
    "slug": "release-radar",
-   "spend_usd": 1.3,
+   "spend_usd": 2.6,
    "tasks": [
+    {
+     "accepted_at": "2026-11-05T08:14:39+00:00",
+     "created": "2026-11-03T13:12:32+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "analyst",
+       "note": "effect: insufficient_data — ",
+       "to": "measured",
+       "ts": "2026-11-06T12:09:26+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measured",
+       "to": "done",
+       "ts": "2026-11-06T12:09:26+00:00"
+      }
+     ],
+     "id": "T-0026",
+     "priority": "P1",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "done",
+     "title": "Daily card 05.11 07:30 UTC — Telegram @relesae_radar: 'N releases in 24 h, M flagged' + one verbatim quote",
+     "type": "content"
+    },
+    {
+     "accepted_at": "2026-11-05T09:09:43+00:00",
+     "created": "2026-11-03T17:16:27+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "analyst",
+       "note": "effect: insufficient_data — Bluesky 05.11 09:09: by_src bluesky 10 запросов, 0 human, 0 engaged.",
+       "to": "measured",
+       "ts": "2026-11-06T12:09:26+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measured",
+       "to": "done",
+       "ts": "2026-11-06T12:09:26+00:00"
+      }
+     ],
+     "id": "T-0031",
+     "priority": "P1",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "done",
+     "title": "Daily card 05.11 07:30 UTC — Bluesky: 'N releases in 24 h, M flagged' (no code)",
+     "type": "content"
+    },
+    {
+     "accepted_at": "2026-11-06T08:10:23+00:00",
+     "created": "2026-11-03T18:15:59+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "dispatcher",
+       "note": "20261106T0807-exec-T-0035",
+       "to": "claimed",
+       "ts": "2026-11-06T08:08:59+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-06T08:08:59+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "posted 1 (editor-approved)",
+       "to": "accepted",
+       "ts": "2026-11-06T08:10:23+00:00"
+      }
+     ],
+     "id": "T-0035",
+     "priority": "P1",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "accepted",
+     "title": "Daily card 06.11 07:30 UTC — Telegram @relesae_radar: 'N releases in 24 h, M flagged' + one verbatim quote",
+     "type": "content"
+    },
+    {
+     "accepted_at": "2026-11-06T15:10:12+00:00",
+     "created": "2026-11-03T19:12:45+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "dispatcher",
+       "note": "20261106T1507-exec-T-0037",
+       "to": "claimed",
+       "ts": "2026-11-06T15:09:32+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-06T15:09:32+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "posted 1 (editor-approved)",
+       "to": "accepted",
+       "ts": "2026-11-06T15:10:12+00:00"
+      }
+     ],
+     "id": "T-0037",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "accepted",
+     "title": "Bluesky format test 06.11 15:00 UTC: pinned-version line + flagged quote, linking the /pkg/ page",
+     "type": "content"
+    },
     {
      "accepted_at": "2026-11-06T02:08:39+00:00",
      "created": "2026-11-06T01:11:13+00:00",
@@ -723,7 +1765,7 @@
      "priority": "P2",
      "released_sha": "9448e7b19c3d4fc06a4031603301cd1a7a2b37cc",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Home page: a visible 'release notes →' link via /go/<id>/ on every release card, flagged releases first on the first screen",
      "type": "feature"
     },
@@ -743,12 +1785,32 @@
      "priority": "P2",
      "released_sha": null,
      "role": "analyst",
-     "state": "ready",
+     "state": "done",
      "title": "Analyst 07.11: did the home-page 'release notes →' links (T-0057, live 06.11) produce human /go/ clicks? G3 reading for 06.11",
      "type": "research"
+    },
+    {
+     "accepted_at": null,
+     "created": "2026-11-06T13:10:33+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-06T13:10:33+00:00"
+      }
+     ],
+     "id": "T-0059",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "ready",
+     "title": "Marketing plan for 11–17.11: Telegram, Bluesky and the weekly dev.to post only, built on the pilot's ?src= results",
+     "type": "marketing"
     }
    ]
   }
  },
- "snapshot_built_at": "2026-11-06T10:09:01Z"
+ "snapshot_built_at": "2026-11-07T07:26:38Z"
 }

@@ -91,18 +91,157 @@
      "note": "framework change live; the watchdog rolls back if the next cycles fail"
     }
    ]
+  },
+  {
+   "id": "T-0052",
+   "title": "[retro] Marketer fetch hosts: let marketers open the channel and portfolio hosts they cite",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-06T15:10:43+00:00",
+   "accepted_at": "2026-11-06T16:08:26+00:00",
+   "released_sha": "8231d1dd678caeb41e8e92a74188eb398926e289",
+   "history": [
+    {
+     "ts": "2026-11-06T15:10:43+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-06T16:07:16+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261106T1607-exec-T-0052"
+    },
+    {
+     "ts": "2026-11-06T16:07:16+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-06T16:08:26+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261106T1607-canary of release-radar on a state copy: all phases); merged 8231d1dd67"
+    },
+    {
+     "ts": "2026-11-06T16:08:26+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0053",
+   "title": "[retro] Purge AI-label lessons from editorial-lessons.md that contradict team-publish disclosure",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-06T17:11:21+00:00",
+   "accepted_at": "2026-11-06T19:09:42+00:00",
+   "released_sha": "569e1ace720992e1eef33d1a8de4680541428542",
+   "history": [
+    {
+     "ts": "2026-11-06T17:11:21+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-06T18:07:17+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261106T1807-exec-T-0053"
+    },
+    {
+     "ts": "2026-11-06T18:07:17+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-06T18:08:05+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "partial — continues next cycle"
+    },
+    {
+     "ts": "2026-11-06T19:09:42+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261106T1907-canary of release-radar on a state copy: all phases); merged 569e1ace72"
+    },
+    {
+     "ts": "2026-11-06T19:09:42+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0054",
+   "title": "[retro] Editorial lessons: drop AI-label lessons at write time; keep runtime files out of dev task scope",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-06T18:12:59+00:00",
+   "accepted_at": "2026-11-06T20:08:31+00:00",
+   "released_sha": "a64c67a74950e094bdf2941dd3d079ddf1f6af54",
+   "history": [
+    {
+     "ts": "2026-11-06T18:12:59+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-06T20:07:18+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261106T2007-exec-T-0054"
+    },
+    {
+     "ts": "2026-11-06T20:07:18+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-06T20:08:31+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261106T2007-canary of release-radar on a state copy: all phases); merged a64c67a749"
+    },
+    {
+     "ts": "2026-11-06T20:08:31+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
   }
  ],
  "reviews": [],
  "posts": [],
  "metrics": null,
- "spend_usd": 0.6,
- "po_digest_md": "**Цикл 06.11 07:07.** Новая запись одна: issue #94 (ретро: в `--grep` нельзя кавычки и атрибуты). Это тот же случай, что уже стоит в бэклоге как T-0051 (P2, Ready), поэтому я привязал её к T-0051 и новую задачу не создавал. Других новых задач нет: остальное в регистре — повторы или уже закрыто (T-0041…T-0050). Владельцу вопросов нет. Потрачено $0.48 из $10.",
+ "spend_usd": 2.1,
+ "po_digest_md": "**Цикл 06.11 23:07.** Новых наблюдений нет, открытых вопросов нет, бэклог пуст. Ретро от 06.11 нового не предложило: все повторяющиеся причины (кавычки и `<`/`>` в `--grep`, файлы времени выполнения в области задач разработчика, метка ИИ, хосты team-fetch) уже закрыты слитыми задачами T-0045…T-0054. Новых задач не создаю, чтобы не плодить дубли и не запускать работу без доказательств в регистре (F-xxxx).\n\nЕжедневного обещания «каждый день публиковать» в VISION нет, так что обязательной контентной задачи тоже нет.\n\nЧто ждёт владельца: ничего. Вопросы по luz-amanha (Q-0012, Q-0013, Q-0015) относятся к продукту, не к фреймворку. Заместитель уже дал правило для таких случаев.\n\nРасход за день: $2.08 из $10.00 (по VISION бюджет продукта $5 в день).",
  "analyst_md": "",
  "observations": {
-  "new": 2,
+  "new": 9,
   "by_class": {
-   "feedback": 2
+   "feedback": 5,
+   "need_hypothesis": 4
   }
  },
  "owner_questions_open": 0

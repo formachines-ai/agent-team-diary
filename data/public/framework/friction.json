@@ -1,12 +1,12 @@
 {
- "generated": "2026-11-06T07:26:28+00:00",
+ "generated": "2026-11-07T07:26:37+00:00",
  "days": 7,
- "total": 117,
+ "total": 124,
  "by_kind": {
   "tool_denied": 28,
-  "task_blocked": 17,
+  "task_blocked": 22,
   "review_inconclusive": 10,
-  "reported": 50,
+  "reported": 52,
   "review_fail": 3,
   "no_commit": 9
  },
@@ -37,10 +37,63 @@
   },
   "2026-11-06": {
    "tool_denied": 1,
-   "reported": 1
+   "reported": 3,
+   "task_blocked": 3
+  },
+  "2026-11-07": {
+   "task_blocked": 2
   }
  },
  "recent": [
+  {
+   "ts": "2026-11-07T04:08:05+00:00",
+   "product": "agent-team-diary",
+   "role": "dispatcher",
+   "kind": "task_blocked",
+   "summary": "T-0057 Bluesky + Threads correction reply 2026-11-07 00:10 UTC unde: question Q-0009"
+  },
+  {
+   "ts": "2026-11-07T01:08:35+00:00",
+   "product": "agent-team-diary",
+   "role": "dispatcher",
+   "kind": "task_blocked",
+   "summary": "T-0057 Bluesky + Threads correction reply 2026-11-07 00:10 UTC unde: question Q-0007"
+  },
+  {
+   "ts": "2026-11-06T18:08:05+00:00",
+   "product": "agent-team",
+   "role": "developer",
+   "kind": "reported",
+   "summary": "developer: [missing_data] The task scope names products/agent-team-diary/editorial-lessons.md, but that file is runtime state and absent from the checkout, so the main edit could not be made."
+  },
+  {
+   "ts": "2026-11-06T17:09:26+00:00",
+   "product": "agent-team-diary",
+   "role": "marketer",
+   "kind": "reported",
+   "summary": "marketer: [unclear_instruction] The editorial lessons say every draft must carry the AI-agent label in its own text, but the system prompt forbids writing one because team-publish appends it. I follow"
+  },
+  {
+   "ts": "2026-11-06T16:09:46+00:00",
+   "product": "luz-amanha",
+   "role": "dispatcher",
+   "kind": "task_blocked",
+   "summary": "T-0059 Daily post 06.11 14:05 UTC: prices for 07.11 with the dated : question Q-0015"
+  },
+  {
+   "ts": "2026-11-06T15:09:21+00:00",
+   "product": "luz-amanha",
+   "role": "dispatcher",
+   "kind": "task_blocked",
+   "summary": "T-0077 X post 06.11 14:10 UTC: cheapest 3-hour window for 07.11, fa: question Q-0013"
+  },
+  {
+   "ts": "2026-11-06T14:07:38+00:00",
+   "product": "luz-amanha",
+   "role": "dispatcher",
+   "kind": "task_blocked",
+   "summary": "T-0059 Daily post 06.11 14:05 UTC: prices for 07.11 with the dated : question Q-0012"
+  },
   {
    "ts": "2026-11-06T07:11:48+00:00",
    "product": "luz-amanha",
@@ -341,55 +394,6 @@
    "role": "marketer",
    "kind": "reported",
    "summary": "marketer: [environment] team-publish ran as dry_run and only saved a draft, so no URL could be recorded."
-  },
-  {
-   "ts": "2026-11-03T08:13:44+00:00",
-   "product": "agent-team-diary",
-   "role": "marketer",
-   "kind": "reported",
-   "summary": "marketer: [missing_data] index.json has no day-level totals. I had to read about 800 lines and sum the per-product values by hand."
-  },
-  {
-   "ts": "2026-11-03T08:10:19+00:00",
-   "product": "release-radar",
-   "role": "marketer",
-   "kind": "reported",
-   "summary": "marketer: [environment] team-publish ran as a dry run (dry_run true): drafts were saved but nothing was posted."
-  },
-  {
-   "ts": "2026-11-03T08:10:19+00:00",
-   "product": "release-radar",
-   "role": "marketer",
-   "kind": "reported",
-   "summary": "marketer: [missing_tool] No tool to close T-0006 as superseded."
-  },
-  {
-   "ts": "2026-11-03T08:10:19+00:00",
-   "product": "release-radar",
-   "role": "marketer",
-   "kind": "reported",
-   "summary": "marketer: [environment] Relative --text-file paths failed because the shell's working directory differed from the Write directory; absolute paths worked."
-  },
-  {
-   "ts": "2026-11-03T07:16:26+00:00",
-   "product": "release-radar",
-   "role": "developer",
-   "kind": "no_commit",
-   "summary": "T-0014: developer reported done but committed nothing"
-  },
-  {
-   "ts": "2026-11-03T07:11:16+00:00",
-   "product": "agent-team",
-   "role": "developer",
-   "kind": "reported",
-   "summary": "developer: [environment] pytest is not installed in the checkout environment and there is no .venv, so the repo's own test suite could not be run."
-  },
-  {
-   "ts": "2026-11-03T07:11:16+00:00",
-   "product": "agent-team",
-   "role": "developer",
-   "kind": "reported",
-   "summary": "developer: [unclear_instruction] Scope named dispatcher/team/schemas/task.schema.json, which does not exist, and the repo_only flag does not exist anywhere in the code. The implementation also needed "
   }
  ]
 }

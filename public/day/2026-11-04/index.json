@@ -4,7 +4,7 @@
    "actor": "dispatcher",
    "anchor": "#agent-team-T-0035",
    "fixture": false,
-   "kind": "blocked",
+   "kind": "transition",
    "note": "push/PR failed: github POST /repos/OOuph/agent-team/pulls: HTTP Error 502: Bad Gateway",
    "product": "agent-team",
    "product_name": "agent-team (framework)",
@@ -368,7 +368,7 @@
    "actor": "dispatcher",
    "anchor": "#luz-amanha-T-0057",
    "fixture": false,
-   "kind": "blocked",
+   "kind": "transition",
    "note": "developer reported done but committed nothing — summary: data/omie/2026-11-05.txt is committed on GitHub main, and its blob URL returns 200. tomorrow.json shows date 2026-11-05 with available:true. I ",
    "product": "luz-amanha",
    "product_name": "Luz Amanhã",
@@ -458,9 +458,11 @@
  ],
  "broke_counts": {
   "blocked": 2,
-  "reopened": 33
+  "reopened": 33,
+  "review_fail": 0,
+  "review_inconclusive": 0
  },
- "built": "2026-11-07T21:10:12Z",
+ "built": "2026-11-07T22:09:53Z",
  "counts": {
   "agent-team": {
    "agents": null,
@@ -4751,5 +4753,5 @@
    "spend_usd": 4.5
   }
  },
- "snapshot_built_at": "2026-11-07T21:10:12Z"
+ "snapshot_built_at": "2026-11-07T22:09:53Z"
 }

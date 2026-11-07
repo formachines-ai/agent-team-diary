@@ -632,16 +632,27 @@ def broke_items(date: str, model: dict) -> list[dict]:
                 else:
                     continue
                 out.append({"product": slug, "product_name": p["product"].get("name") or slug, "task": tid,
-                            "title": t.get("title"), "state": to, "kind": kind, "actor": h.get("actor"), "ts": h.get("ts"),
+                            "title": t.get("title"), "state": to, "kind": "reopened" if kind == "reopened" else "transition", "actor": h.get("actor"), "ts": h.get("ts"),
                             "note": str(h.get("note") or "")[:NOTE_MAX_CHARS], "fixture": bool(d.get("fixture")),
                             "anchor": anchors.get((slug, tid), f"{slug}-{tid}")})
+        titles = {str(t.get("id")): t.get("title") for t in d.get("tasks") or []}
+        for r in d.get("reviews") or []:
+            v = r.get("verdict")
+            if v not in ("fail", "inconclusive"):
+                continue
+            tid = str(r.get("task") or "")
+            out.append({"product": slug, "product_name": p["product"].get("name") or slug, "task": tid,
+                        "title": titles.get(tid), "state": v, "kind": "review", "actor": None, "ts": r.get("ts"),
+                        "note": str(r.get("summary") or "")[:NOTE_MAX_CHARS], "fixture": bool(d.get("fixture")),
+                        "anchor": anchors.get((slug, tid))})
     return out
 
 
 def broke_counts(items: list[dict]) -> dict:
-    c: dict = {}
+    c: dict = {"review_fail": 0, "review_inconclusive": 0}
     for it in items:
-        c[it["kind"]] = c.get(it["kind"], 0) + 1
+        k = f"review_{it['state']}" if it["kind"] == "review" else ("reopened" if it["kind"] == "reopened" else it["state"])
+        c[k] = c.get(k, 0) + 1
     return c
 
 
@@ -653,12 +664,15 @@ def broke_block(date: str, model: dict) -> str:
         return "\n".join(out)
     c = broke_counts(items)
     out.append('<p class="note">Counts by state: ' + " · ".join(f"{esc(k)} {v}" for k, v in sorted(c.items()))
-               + ". Transitions recorded that day; reopened = moved to ready/in_progress on a task reviewed that day.</p>")
+               + ". Kinds: transition = a task moved to a broken state; review = a review record with verdict fail or inconclusive; "
+               "reopened = a task sent back to ready/in_progress after a review that day (item state ready or in_progress).</p>")
     out.append('<ul class="cards open-threads">')
     for it in items:
-        label = state_badge(it["state"]) + (' <span class="badge other">reopened</span>' if it["kind"] == "reopened" else "")
+        label = (verdict_badge(it["state"]) if it["kind"] == "review" else state_badge(it["state"])) + f' <span class="badge other">{esc(it["kind"])}</span>'
+        inner = f'<span class="id">{esc(it["task"])}</span> {esc(it["title"] or "")}'
+        link = f'<a class="name" href="#{esc(it["anchor"])}">{inner}</a>' if it["anchor"] else f'<span class="name">{inner}</span>'
         out.append(f'<li class="card"><div class="head"><span class="product-name">{esc(it["product_name"])}</span> '
-                   f'<a class="name" href="#{esc(it["anchor"])}"><span class="id">{esc(it["task"])}</span> {esc(it["title"])}</a> {label}'
+                   f'{link} {label}'
                    + (' <span class="badge other">fixture</span>' if it["fixture"] else "") + "</div>"
                    + (f'<p class="summary">{esc(it["note"])}</p>' if it["note"] else "") + "</li>")
     out.append("</ul></section>")
@@ -1228,7 +1242,7 @@ def write_site(model: dict) -> dict:
         merged = {"date": date, "products": {slug: with_artifacts(p["days"][date]) for slug, p in model["products"].items() if date in p["days"]},
                   "counts": {slug: day_counts(p["days"][date]) for slug, p in model["products"].items() if date in p["days"]},
                   "rework": {slug: rework_counts(p["days"][date]) for slug, p in model["products"].items() if date in p["days"]},
-                  "broke": [{k: v for k, v in it.items() if k != "anchor"} | {"anchor": f"#{it['anchor']}"} for it in broke_items(date, model)],
+                  "broke": [{k: v for k, v in it.items() if k != "anchor"} | {"anchor": f"#{it['anchor']}" if it["anchor"] else None} for it in broke_items(date, model)],
                   "broke_counts": broke_counts(broke_items(date, model)),
                   "disclosure": f"{FOOTER_LINE}; responsible: {RESPONSIBLE}.", "built": built,
                   "day_complete": not day_in_progress(date, built), "snapshot_built_at": built}

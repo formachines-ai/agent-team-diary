@@ -455,6 +455,43 @@ def task_anchors(date: str, model: dict) -> dict:
     return out
 
 
+ARTIFACT_STATES = ("accepted", "done")
+URL_RE = re.compile(r"https?://[^\s<>\"'()\[\]]+")
+
+
+def task_artifact(t: dict, posts: list) -> dict | None:
+    """Artifact of a task whose last transition of the day is accepted/done, only from URLs already in the export:
+    a github.com URL in the task's own notes, or a note URL that is also a post URL of that day. Else None."""
+    hist = t.get("history") or []
+    if not hist or str(hist[-1].get("to")) not in ARTIFACT_STATES:
+        return None
+    post_urls = {str(p.get("url") or "") for p in posts}
+    for h in reversed(hist):
+        for u in URL_RE.findall(str(h.get("note") or "")):
+            u = u.rstrip(".,;:!?")
+            host = u.split("/")[2].lower() if u.count("/") >= 2 else ""
+            if host == "github.com" and re.search(r"/(pull|commit)/[0-9A-Za-z]+$", u):
+                return {"kind": "pr" if "/pull/" in u else "commit", "url": u}
+            if u in post_urls:
+                return {"kind": "post", "url": u}
+    return None
+
+
+def with_artifacts(d: dict) -> dict:
+    """Copy of a day record with an 'artifact' field on every accepted/done task."""
+    out = dict(d)
+    tasks = []
+    for t in d.get("tasks") or []:
+        t2 = dict(t)
+        hist = t.get("history") or []
+        if hist and str(hist[-1].get("to")) in ARTIFACT_STATES:
+            t2["artifact"] = task_artifact(t, d.get("posts") or [])
+        tasks.append(t2)
+    if "tasks" in d:
+        out["tasks"] = tasks
+    return out
+
+
 def product_section(d: dict, product: dict, heading_link: bool = True, anchors: dict | None = None) -> str:
     """One product's block inside a day page: digest, tasks with history, reviews, posts, metrics, spend."""
     c = day_counts(d)
@@ -496,6 +533,11 @@ def product_section(d: dict, product: dict, heading_link: bool = True, anchors: 
             if meta:
                 out.append(f'<div class="meta">{meta}</div>')
             hist = t.get("history") or []
+            if hist and str(hist[-1].get("to")) in ARTIFACT_STATES:
+                art = task_artifact(t, d.get("posts") or [])
+                out.append('<div class="meta artifact">artifact: ' + (
+                    f'<a href="{esc(art["url"])}" rel="nofollow">{esc(art["kind"])} {esc(art["url"])}</a>' if art
+                    else "no artifact in export") + "</div>")
             if hist:
                 out.append('<ol class="history">')
                 for h in hist:
@@ -1108,7 +1150,7 @@ def write_site(model: dict) -> dict:
     write_text(PUBLIC_DIR / "index.html", render_index(model)); written += 1
     for date in model["dates"]:
         write_text(PUBLIC_DIR / "day" / date / "index.html", render_day(date, model)); written += 1
-        merged = {"date": date, "products": {slug: p["days"][date] for slug, p in model["products"].items() if date in p["days"]},
+        merged = {"date": date, "products": {slug: with_artifacts(p["days"][date]) for slug, p in model["products"].items() if date in p["days"]},
                   "counts": {slug: day_counts(p["days"][date]) for slug, p in model["products"].items() if date in p["days"]},
                   "rework": {slug: rework_counts(p["days"][date]) for slug, p in model["products"].items() if date in p["days"]},
                   "disclosure": f"{FOOTER_LINE}; responsible: {RESPONSIBLE}.", "built": built,

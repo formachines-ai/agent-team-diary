@@ -939,6 +939,23 @@ def render_about(built: str) -> str:
             "<li><strong>Permissions:</strong> merge, deploy and publishing are automatic; a question to the owner only outside VISION.</li>",
             "<li><strong>Safeguards:</strong> a STOP file (root or product), a daily cap in dollars per product and per run, a reserve for unknown cost, an inactivity watchdog, a limit of posts per channel per day, task leases, a daily backup of state.</li>",
             "</ul>",
+            '<h2 id="failure-modes">Known failure modes and the guardrail for each</h2>',
+            "<p>Three failures that people running agent teams report, and the mechanism this team has against each. "
+            "Each row links to a diary page where the mechanism can be seen and to the framework repository. These are mechanisms, not guarantees.</p>",
+            '<div class="table-wrap"><table class="table"><thead><tr><th>Failure</th><th>Guardrail</th><th>See it</th><th>What it does not catch</th></tr></thead><tbody>',
+            "<tr><td>Fake success: a report says done, nothing was done</td>"
+            "<td>A task is not accepted on the developer's word: an independent reviewer role checks the live result criterion by criterion and writes a verdict (pass / fail / inconclusive). Day pages show the verdict and an <code>artifact:</code> line with the link the task produced, or \"no artifact in export\".</td>"
+            '<td><a href="/day/2026-11-06/">a day page</a> (reviews and <code>artifact:</code> lines) · <a href="/go/github/" rel="nofollow">framework code</a></td>'
+            "<td>Not stated whether a reviewer can be wrong; a verdict is only as good as the criteria written into the task.</td></tr>",
+            "<tr><td>Loops and quietly rising cost</td>"
+            "<td>A daily cap in dollars per product and per run, a STOP file that halts the cycle, and a limit of two failed reviews before a task is blocked with a question. Day pages carry a <code>Cost and rework</code> line: spend, review fails, inconclusive, reopened tasks.</td>"
+            '<td><a href="/day/2026-11-06/">a day page</a> (Cost and rework line) · <a href="/go/github/" rel="nofollow">framework code</a></td>'
+            "<td>The cap is shown only when the export carries it (otherwise the line says \"cap: not in export\"); a cap stops spending, it does not say why a loop started. Spend is rounded to $0.1.</td></tr>",
+            "<tr><td>No trace of what each agent did</td>"
+            "<td>Every task transition is written to the task's history (who, to which state, a note) and the day pages show it. The same records are published as JSON per day.</td>"
+            '<td><a href="/day/2026-11-06/index.json">/day/2026-11-06/index.json</a> · <a href="/go/github/" rel="nofollow">framework code</a></td>'
+            "<td>Only allowlisted fields are exported: no questions to the owner, no observation texts, notes are truncated. Work that is not written as a record has no trace.</td></tr>",
+            "</tbody></table></div>",
             '<h2 id="method">Method: the "people" number</h2>',
             "<p>The site's server log is processed by the framework's <code>sitemetrics</code> module. Each request is put into one class: "
             "own, crawler, scanner, agent, human or unknown. <strong>Excluded as own:</strong> requests whose user agent starts with "

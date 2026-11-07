@@ -330,6 +330,34 @@ def day_counts(d: dict) -> dict:
     }
 
 
+REOPEN_STATES = ("ready", "in_progress")
+
+
+def rework_counts(d: dict) -> dict:
+    """Cost and rework of one product-day, from the export only. cap_usd is null unless the export carries a budget field.
+    reopened = transitions to ready/in_progress that day of tasks that have a review record that day."""
+    reviews = d.get("reviews") or []
+    reviewed = {r.get("task") for r in reviews}
+    reopened = sum(1 for t in (d.get("tasks") or []) if t.get("id") in reviewed
+                   for h in (t.get("history") or []) if h.get("to") in REOPEN_STATES)
+    cap = None
+    for k in ("budget_usd_per_day", "budget_usd", "cap_usd"):
+        if isinstance(d.get(k), (int, float)):
+            cap = round(float(d[k]), 1)
+            break
+    return {"review_fail": sum(1 for r in reviews if r.get("verdict") == "fail"),
+            "review_inconclusive": sum(1 for r in reviews if r.get("verdict") == "inconclusive"),
+            "reopened": reopened, "spend_usd": round(float(d.get("spend_usd") or 0.0), 1), "cap_usd": cap}
+
+
+def rework_line(d: dict) -> str:
+    w = rework_counts(d)
+    cap = f"cap: {esc(fmt_usd(w['cap_usd']))}" if w["cap_usd"] is not None else "cap: not in export"
+    return (f'<p class="note rework"><strong>Cost and rework:</strong> spend {esc(fmt_usd(w["spend_usd"]))} · {cap} · '
+            f'review fail {w["review_fail"]} · inconclusive {w["review_inconclusive"]} · '
+            f'reopened {w["reopened"]} (moved to ready/in_progress on a task reviewed that day)</p>')
+
+
 # ----------------------------------------------------------------------------------------------------------
 # HTML layout
 # ----------------------------------------------------------------------------------------------------------
@@ -443,6 +471,7 @@ def product_section(d: dict, product: dict, heading_link: bool = True, anchors: 
                    '</b><span>people (estimated log sources, <a href="/about/#method">method</a>)</span></li>')
     html_stats += f"<li><b>{esc(fmt_usd(c['spend_usd']))}</b><span>spent</span></li>"
     out.append('<ul class="stats">' + html_stats + "</ul>")
+    out.append(rework_line(d))
 
     digest = (d.get("po_digest_md") or "").strip()
     out.append("<h3>Manager's digest</h3>")
@@ -982,7 +1011,8 @@ def day_summary(date: str, model: dict) -> dict:
             per[slug] = {**day_counts(p["days"][date]), "name": p["product"].get("name") or slug, "site": p["product"].get("site") or "",
                          "page": f"{SITE_BASE}/day/{date}/#{slug}"}
     threads = [{k: v for k, v in it.items() if k != "_href"} for it in open_threads(date, model)]
-    return {"date": date, "page": f"{SITE_BASE}/day/{date}/", "products": per, "open_threads": threads, "open_threads_states": list(OPEN_THREAD_STATES),
+    rework = {slug: rework_counts(p["days"][date]) for slug, p in model["products"].items() if date in p["days"]}
+    return {"date": date, "page": f"{SITE_BASE}/day/{date}/", "products": per, "rework": rework, "open_threads": threads, "open_threads_states": list(OPEN_THREAD_STATES),
             "disclosure": f"{FOOTER_LINE}; responsible: {RESPONSIBLE}."}
 
 
@@ -1080,6 +1110,7 @@ def write_site(model: dict) -> dict:
         write_text(PUBLIC_DIR / "day" / date / "index.html", render_day(date, model)); written += 1
         merged = {"date": date, "products": {slug: p["days"][date] for slug, p in model["products"].items() if date in p["days"]},
                   "counts": {slug: day_counts(p["days"][date]) for slug, p in model["products"].items() if date in p["days"]},
+                  "rework": {slug: rework_counts(p["days"][date]) for slug, p in model["products"].items() if date in p["days"]},
                   "disclosure": f"{FOOTER_LINE}; responsible: {RESPONSIBLE}.", "built": built,
                   "day_complete": not day_in_progress(date, built), "snapshot_built_at": built}
         write_json(PUBLIC_DIR / "day" / date / "index.json", merged)

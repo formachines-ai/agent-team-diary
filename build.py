@@ -1284,7 +1284,8 @@ def write_site(model: dict) -> dict:
     write_text(PUBLIC_DIR / "llms.txt", render_llms(model))
     write_text(PUBLIC_DIR / "robots.txt", ROBOTS_TXT.replace("__SITE__", SITE_BASE))
     write_text(PUBLIC_DIR / "sitemap.xml", render_sitemap(model))
-    (PUBLIC_DIR / "favicon.ico").write_bytes(make_favicon())
+    static_ico = STATIC_DIR / "favicon.ico"
+    (PUBLIC_DIR / "favicon.ico").write_bytes(static_ico.read_bytes() if static_ico.exists() else make_favicon())
     css = STATIC_DIR / "style.css"
     if css.exists():
         write_text(PUBLIC_DIR / "style.css", css.read_text(encoding="utf-8"))
@@ -1383,6 +1384,73 @@ def check_site() -> list[str]:
     return problems
 
 
+def check_links() -> dict:
+    """Walk every href/src in public/**/*.html that points to this site; the target file must exist and each #fragment
+    must be an id (or a[name]) on the target page. External links are not fetched."""
+    import html.parser
+    from urllib.parse import urldefrag, unquote, urlsplit
+
+    class L(html.parser.HTMLParser):
+        def __init__(self) -> None:
+            super().__init__()
+            self.links: list[str] = []
+            self.ids: set[str] = set()
+
+        def handle_starttag(self, tag: str, attrs: list) -> None:
+            a = dict(attrs)
+            if a.get("id"):
+                self.ids.add(a["id"])
+            if tag == "a" and a.get("name"):
+                self.ids.add(a["name"])
+            for k in ("href", "src"):
+                if a.get(k) and not (tag == "link" and a.get("rel") == "canonical"):
+                    self.links.append(a[k])
+
+    pages: dict[Path, L] = {}
+    for f in sorted(PUBLIC_DIR.rglob("*.html")):
+        p = L()
+        p.feed(f.read_text(encoding="utf-8"))
+        pages[f] = p
+    base = urlsplit(SITE_BASE)
+    checked, broken = 0, []
+    for f, p in pages.items():
+        page = "/" + f.relative_to(PUBLIC_DIR).as_posix()
+        for href in p.links:
+            h = href.strip()
+            if not h or h.startswith(("mailto:", "tel:", "data:", "javascript:")):
+                continue
+            u = urlsplit(h)
+            if u.scheme or u.netloc:
+                if not (u.scheme in ("http", "https") and u.netloc == base.netloc):
+                    continue
+                path = u.path or "/"
+            else:
+                path = u.path
+            frag = unquote(u.fragment)
+            if not path:
+                target = f
+            else:
+                if not path.startswith("/"):
+                    path = (Path(page).parent / path).as_posix()
+                    path = "/" + "/".join(x for x in __import__("posixpath").normpath(path).split("/") if x)
+                    if href.endswith("/") and not path.endswith("/"):
+                        path += "/"
+                target = PUBLIC_DIR / unquote(path).lstrip("/")
+                if path.endswith("/") or target.is_dir():
+                    target = target / "index.html"
+            checked += 1
+            ok = target.is_file()
+            if ok and frag and frag != "top":
+                if target.suffix == ".html":
+                    if target not in pages:
+                        ok = False
+                    else:
+                        ok = frag in pages[target].ids
+            if not ok:
+                broken.append({"page": page, "href": href})
+    return {"checked": checked, "broken": broken}
+
+
 # ----------------------------------------------------------------------------------------------------------
 # Entry point
 # ----------------------------------------------------------------------------------------------------------
@@ -1400,8 +1468,14 @@ def main(argv: list[str] | None = None) -> int:
     summary = write_site(model)
     log.info("products=%d days=%d day_files=%d fixture_days=%d errors=%d", summary["products"], summary["days"],
              summary["day_files"], summary["fixture_days"], len(summary["errors"]))
+    lc = check_links()
+    bj = json.loads((PUBLIC_DIR / "build.json").read_text(encoding="utf-8"))
+    bj["link_check"] = lc
+    write_json(PUBLIC_DIR / "build.json", bj)
+    log.info("link_check: checked=%d broken=%d", lc["checked"], len(lc["broken"]))
     if args.check:
         problems = check_site()
+        problems += [f"{b['page']}: dead link {b['href']}" for b in lc["broken"]]
         for pr in problems:
             log.error("check: %s", pr)
         log.info("check: %d problems", len(problems))

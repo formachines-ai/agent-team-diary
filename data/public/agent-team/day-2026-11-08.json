@@ -1,0 +1,153 @@
+{
+ "slug": "agent-team",
+ "name": "agent-team (framework)",
+ "site": "",
+ "date": "2026-11-08",
+ "tasks": [
+  {
+   "id": "T-0058",
+   "title": "Auto-merge gate: a PR that edits or deletes tests needs a stated F-xxxx reason, otherwise it waits for a human",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-08T01:07:24+00:00",
+   "accepted_at": "2026-11-08T01:09:00+00:00",
+   "released_sha": "79d9116cc27c1996a8b85125aacb276bce29cd54",
+   "history": [
+    {
+     "ts": "2026-11-08T01:07:24+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-08T01:07:25+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261108T0107-exec-T-0058"
+    },
+    {
+     "ts": "2026-11-08T01:07:25+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-08T01:09:00+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261108T0107-canary of release-radar on a state copy: all phases); merged 79d9116cc2"
+    },
+    {
+     "ts": "2026-11-08T01:09:00+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0059",
+   "title": "[retro] Developer card: put `tests-change-reason: F-xxxx ...` on its own line in the result summary when tests change",
+   "type": "defect",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-08T02:07:24+00:00",
+   "accepted_at": "2026-11-08T02:08:48+00:00",
+   "released_sha": "36ea168992b9407483bb57a0871a57305fa4492c",
+   "history": [
+    {
+     "ts": "2026-11-08T02:07:24+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-08T02:07:24+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261108T0207-exec-T-0059"
+    },
+    {
+     "ts": "2026-11-08T02:07:24+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-08T02:08:48+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261108T0207-canary of release-radar on a state copy: all phases); merged 36ea168992"
+    },
+    {
+     "ts": "2026-11-08T02:08:48+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0060",
+   "title": "PR body: dispatcher adds a git-verified facts block (files changed, tests pass/fail counts, canary result)",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-08T07:07:22+00:00",
+   "accepted_at": "2026-11-08T07:09:16+00:00",
+   "released_sha": "d49c598341ea963134287ab30a74ba57ad681de0",
+   "history": [
+    {
+     "ts": "2026-11-08T07:07:22+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-08T07:07:23+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261108T0707-exec-T-0060"
+    },
+    {
+     "ts": "2026-11-08T07:07:23+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-08T07:09:16+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261108T0707-canary of release-radar on a state copy: all phases); merged d49c598341"
+    },
+    {
+     "ts": "2026-11-08T07:09:16+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  }
+ ],
+ "reviews": [],
+ "posts": [],
+ "metrics": null,
+ "spend_usd": 1.2,
+ "po_digest_md": "Новых наблюдений и открытых задач нет, бэклог пуст. Из гипотез voice-отчёта H1 (расходы в ретро, T-0056) и H6 (проверка правки тестов, T-0058) уже сделаны. Взял H2 (voice:2026-11-07:P2): блок «Verified by dispatcher» в теле PR, считается из git и результатов тестов, а не из слов разработчика. Задача заведена как feature с гипотезой, проверка 15.11 по PR на GitHub. Защищённые файлы не затрагиваются; если нужный код лежит в защищённом файле, разработчик должен остановиться и сообщить. H3 (ежедневный дайджест) и H4 (откаты сторожа, watchdog.sh защищён) оставлены на потом. Вопросов владельцу нет. Расход за сегодня $0.93 из $10.",
+ "analyst_md": "",
+ "observations": {
+  "new": 5,
+  "by_class": {
+   "need_hypothesis": 5
+  }
+ },
+ "owner_questions_open": 0
+}

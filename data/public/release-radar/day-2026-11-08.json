@@ -1,0 +1,205 @@
+{
+ "slug": "release-radar",
+ "name": "Release Radar",
+ "site": "https://releases.formachines.ai",
+ "date": "2026-11-08",
+ "tasks": [
+  {
+   "id": "T-0064",
+   "title": "/pkg/ pages: a visible 'release notes →' link via /go/<id>/ on every release card (as on the home page since T-0057)",
+   "type": "feature",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-08T01:11:23+00:00",
+   "accepted_at": "2026-11-08T02:10:24+00:00",
+   "released_sha": "7dd33c232f903aa814a64e7c15353b99e98fb165",
+   "history": [
+    {
+     "ts": "2026-11-08T01:11:23+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-08T01:11:24+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261108T0107-exec-T-0064"
+    },
+    {
+     "ts": "2026-11-08T01:11:24+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-08T01:11:56+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 7dd33c232f"
+    },
+    {
+     "ts": "2026-11-08T02:10:25+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The openai package page shows a visible nofollow 'release notes →' link to /go/<id>/ under the version line on all 5 cards. The ids match the home page, the redirect hits the right GitHub release, bui"
+    }
+   ]
+  },
+  {
+   "id": "T-0065",
+   "title": "Analyst 08.11: /pkg/ 404s from humans and human entry pages with external referers, 04–08.11 — candidate packages to add",
+   "type": "research",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "analyst",
+   "created": "2026-11-08T01:11:24+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-08T01:11:24+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-08T01:11:56+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261108T0107-exec-T-0065"
+    },
+    {
+     "ts": "2026-11-08T01:11:56+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-08T01:12:16+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measurement delivered"
+    }
+   ]
+  },
+  {
+   "id": "T-0066",
+   "title": "Release-notes coverage: fetch GitHub notes for more releases (repo mapping, tag formats); list misses with a reason in build.json",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-08T06:12:09+00:00",
+   "accepted_at": "2026-11-08T07:14:22+00:00",
+   "released_sha": "719f85359b366f74f85b810a1bfd6ffe3973351d",
+   "history": [
+    {
+     "ts": "2026-11-08T06:12:09+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-08T06:12:09+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261108T0607-exec-T-0066"
+    },
+    {
+     "ts": "2026-11-08T06:12:09+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-08T06:17:18+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 719f85359b"
+    },
+    {
+     "ts": "2026-11-08T07:14:22+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The live build.json has notes_coverage (291 releases, 129 github_release, a missing list with eco/name/version/reason) and errors is []. github_release rose from 124 to 129, which is stated in the REA"
+    }
+   ]
+  },
+  {
+   "id": "T-0067",
+   "title": "Notes coverage: map prisma and @prisma/client to prisma/prisma in repo_overrides.txt (registry gives archived prisma-cli)",
+   "type": "quality",
+   "state": "blocked",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-08T07:15:25+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-08T07:15:25+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-08T07:15:26+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261108T0707-exec-T-0067"
+    },
+    {
+     "ts": "2026-11-08T07:15:26+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-08T07:17:01+00:00",
+     "actor": "developer",
+     "to": "blocked",
+     "note": "question Q-0013"
+    }
+   ]
+  }
+ ],
+ "reviews": [
+  {
+   "task": "T-0064",
+   "verdict": "pass",
+   "summary": "The openai package page shows a visible nofollow 'release notes →' link to /go/<id>/ under the version line on all 5 cards. The ids match the home page, the redirect hits the right GitHub release, build.json errors is empty and the other endpoints return 200."
+  },
+  {
+   "task": "T-0066",
+   "verdict": "pass",
+   "summary": "The live build.json has notes_coverage (291 releases, 129 github_release, a missing list with eco/name/version/reason) and errors is []. github_release rose from 124 to 129, which is stated in the README, and today.json, feed.xml and the pypi/openai index.json still return 200."
+  }
+ ],
+ "posts": [],
+ "metrics": {
+  "humans": 14,
+  "engaged": 0,
+  "returns": 0,
+  "agents": 21,
+  "crawlers": 69,
+  "requests": 240
+ },
+ "spend_usd": 2.4,
+ "po_digest_md": "**Release Radar — 08.11, утро**\n\nСборка 08.11 прошла. T-0060, T-0062, T-0063, T-0064 и T-0066 приняты.\n\n**Цифры.** Людей мало: 14 сегодня, 41 на 07.11.\n- Человеческих кликов на /go/ — 0 за все дни пилота.\n- Возвратов — 0.\n- Всплеск «агентов» 07.11 (python-requests, около 2420 запросов) похож на один скрипт. Спросом его не считаем.\n\n**Решения**\n- Разработчику дана одна задача качества: репозиторий prisma в реестре указан неверно (архивный prisma/prisma-cli). Перенаправляем на prisma/prisma, чтобы у prisma появились release notes и флаг. Других сломанных мест или проваленных проверок сегодня не видно, новых функций не придумываю.\n- Нет release notes у стабильных релизов django, boto3 и sqlalchemy: они публикуют только git-теги. Чтение CHANGELOG — это новый источник (L4), поэтому ждёт вашего решения.\n- Убирать ли dev, nightly и canary сборки из 7-дневного списка, решим после итогов пилота. Иначе числа в карточках недели перестанут сравниваться между собой.\n- Ноль кликов на /go/ проверим 17.11: ссылка на /pkg/ появилась только сегодня (T-0064).\n- Ноль возвратов, всплеск агентов и G4 войдут в итоги пилота 10.11 (T-0061).\n\n**Посты сегодня в 09:00:** карточка в Telegram (T-0041) и пост в Bluesky про /today.json (T-0043). Mastodon, X и Threads закрыты до вашего ответа на Q-0011.\n\n**Ждёт вас 11.11**\n- Разрешить ли CHANGELOG как источник.\n- Добавить в метрики список 404 по /pkg/.\n- Как считать возвраты людей.\n\n**Расходы:** $1.85 из $20.",
+ "analyst_md": "**Срез на 08.11 06:00 UTC (за 08.11 — неполные сутки).** Уровни не суммируются.\n\n| День | Люди (источники / engaged) | Возвраты | Агенты (запр.) | Краулеры (запр.) | /go/ людьми |\n|---|---|---|---|---|---|\n| 02.11 | 43 / 10 | 0 | 22 | 464 | 0 |\n| 03.11 | 18 / 5 | 0 | 188 | 793 | 0 |\n| 04.11 | 7 / 0 | 0 | 16 | 351 | 0 |\n| 05.11 | 40 / 5 | 0 | 23 | 306 | 0 |\n| 06.11 | 20 / 3 | 0 | 7 | 506 | 0 |\n| 07.11 | 41 / 5 | 0 | 2431 (python-requests 2420 — вероятно один скрипт) | 334 | 0 |\n| 08.11 | 14 / 0 | 0 | 7 | 48 | 0 |\n\n**Цели (чтение 10.11):** G1 — engaged за 02–08.11 сумма по дням ≈ 28 (уникальность не гарантирована) против ≥40; G2 = 0 против ≥5; G3 = 0 % против ≥10 %, внешних referer-доменов: google, facebook, t.co (не наши) — формально ≥3, но визитов мало; G4 — /today.json от агентов: 3 источника за период (02–03.11) против ≥5 запросов, на грани.\n\n**Посты → визиты:** по ?src= Bluesky даёт 1 человека в день, engaged 0. Единственный engaged от x (05.11) и mastodon (03.11). Раньше/позже поста различимой разницы нет: выборка слишком мала.\n\n**Задачи:** T-0057/0060/0063/0064 вышли 06–08.11; человеческих /go/ по-прежнему 0, эффект на G3 — недостаточно данных.",
+ "observations": {
+  "new": 13,
+  "by_class": {
+   "measurement": 4,
+   "need_hypothesis": 8,
+   "success": 1
+  }
+ },
+ "owner_questions_open": 0
+}

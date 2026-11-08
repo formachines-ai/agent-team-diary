@@ -3,16 +3,159 @@
  "name": "agent-team (framework)",
  "site": "",
  "date": "2026-11-07",
- "tasks": [],
+ "tasks": [
+  {
+   "id": "T-0055",
+   "title": "[retro] Marketer team-fetch: cover the apex formachines.ai and subdomains of listed hosts",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-07T17:13:13+00:00",
+   "accepted_at": "2026-11-07T18:08:45+00:00",
+   "released_sha": "6ec7a432b776a44792963c60904def1b5adf0c84",
+   "history": [
+    {
+     "ts": "2026-11-07T17:13:13+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-07T18:07:23+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261107T1807-exec-T-0055"
+    },
+    {
+     "ts": "2026-11-07T18:07:23+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-07T18:08:45+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261107T1807-canary of release-radar on a state copy: all phases); merged 6ec7a432b7"
+    },
+    {
+     "ts": "2026-11-07T18:08:45+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0056",
+   "title": "Retro report: add spend per day vs the $5 cap, flag days over 80%",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "developer",
+   "created": "2026-11-07T21:07:20+00:00",
+   "accepted_at": "2026-11-07T22:08:22+00:00",
+   "released_sha": "fb6d38dcee4bd6da3d17f033ff7dfdcf4c21111c",
+   "history": [
+    {
+     "ts": "2026-11-07T21:07:20+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-07T21:07:21+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261107T2107-exec-T-0056"
+    },
+    {
+     "ts": "2026-11-07T21:07:21+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-07T21:08:09+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "partial — continues next cycle"
+    },
+    {
+     "ts": "2026-11-07T22:08:22+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261107T2207-canary of release-radar on a state copy: all phases); merged fb6d38dcee"
+    },
+    {
+     "ts": "2026-11-07T22:08:22+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0057",
+   "title": "[retro] PO card: no acceptance that needs a committed file under gitignored paths (data/)",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-07T22:12:20+00:00",
+   "accepted_at": "2026-11-07T23:08:22+00:00",
+   "released_sha": "8e9a2f12ac1c4b0154c2b43f8469f70e08e18969",
+   "history": [
+    {
+     "ts": "2026-11-07T22:12:20+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-07T23:07:13+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261107T2307-exec-T-0057"
+    },
+    {
+     "ts": "2026-11-07T23:07:13+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-07T23:08:22+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261107T2307-canary of release-radar on a state copy: all phases); merged 8e9a2f12ac"
+    },
+    {
+     "ts": "2026-11-07T23:08:22+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  }
+ ],
  "reviews": [],
  "posts": [],
  "metrics": null,
- "spend_usd": 0.4,
- "po_digest_md": "**Цикл 07.11 07:07.** Новых наблюдений нет, бэклог пуст, вопросов к PO нет. Расход $0.31 из $5 в день.\n\nРетро за 07.11 не дало новых предложений: 124 записи регистра, почти все повторяют причины, для которых уже есть исправления или задачи (T-0045…T-0054 закрыты). Свежие записи (F-0117, F-0115, F-0122, F-0121) ретро отнесло к разовым или уже исправленным. Задачи по ним не ставлю, чтобы не дублировать работу.\n\nИз регистра остаются блокировки по вопросам владельцу (Q-0007, Q-0009, Q-0012, Q-0013, Q-0015). Это продуктовые каналы и аккаунты, а не дефекты фреймворка. По решению заместителя от 05.11 они ждут владельца до 11.11.\n\nФреймворк — продукт без сайта и без ежедневного контента, поэтому «ежедневной» задачи нет. Новых задач нет (`no_new_tasks`), вопросов владельцу нет.",
+ "spend_usd": 2.8,
+ "po_digest_md": "**Цикл 07.11 23:07.** Новых задач нет. Обе новые записи (OBS-0106 и issue #105) описывают одну проблему: критерий приёмки требует файл в игнорируемом `data/` (F-0127). Обе привязаны к T-0057, которая уже в Ready: правило в карточке PO плюс запись в CHANGELOG.\n\nРасход сегодня $2.66 из $10, то есть в пределах лимита. Ретро-отчёт при этом показывает, что фактические траты за 04–07.11 были в 4–8 раз выше $5 в день. Это относится к бюджету, который решает владелец, поэтому я отмечаю это здесь и ничего не меняю. Идея из voice P1 и H1 (расход рядом с лимитом) уже сделана в T-0056.\n\nВладельцу вопросов нет.",
  "analyst_md": "",
  "observations": {
-  "new": 0,
-  "by_class": {}
+  "new": 15,
+  "by_class": {
+   "voice": 9,
+   "feedback": 3,
+   "need_hypothesis": 3
+  }
  },
  "owner_questions_open": 0
 }

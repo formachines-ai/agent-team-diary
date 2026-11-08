@@ -1,12 +1,12 @@
 {
- "generated": "2026-11-07T07:26:37+00:00",
+ "generated": "2026-11-08T07:26:54+00:00",
  "days": 7,
- "total": 124,
+ "total": 128,
  "by_kind": {
   "tool_denied": 28,
-  "task_blocked": 22,
+  "task_blocked": 23,
   "review_inconclusive": 10,
-  "reported": 52,
+  "reported": 55,
   "review_fail": 3,
   "no_commit": 9
  },
@@ -41,10 +41,42 @@
    "task_blocked": 3
   },
   "2026-11-07": {
-   "task_blocked": 2
+   "task_blocked": 2,
+   "reported": 3
+  },
+  "2026-11-08": {
+   "task_blocked": 1
   }
  },
  "recent": [
+  {
+   "ts": "2026-11-08T07:17:01+00:00",
+   "product": "release-radar",
+   "role": "dispatcher",
+   "kind": "task_blocked",
+   "summary": "T-0067 Notes coverage: map prisma and @prisma/client to prisma/pris: question Q-0013"
+  },
+  {
+   "ts": "2026-11-07T22:08:22+00:00",
+   "product": "agent-team",
+   "role": "developer",
+   "kind": "reported",
+   "summary": "developer: [schema_mismatch] Acceptance asks for a committed retro report under data/framework/retro/ on the PR branch, but .gitignore ignores data/, so it can't be committed."
+  },
+  {
+   "ts": "2026-11-07T17:12:44+00:00",
+   "product": "agent-team-diary",
+   "role": "marketer",
+   "kind": "reported",
+   "summary": "marketer: [missing_data] team-fetch does not allow the host formachines.ai, so I could not check the live https://formachines.ai/errata/ page named in the task links"
+  },
+  {
+   "ts": "2026-11-07T17:12:44+00:00",
+   "product": "agent-team-diary",
+   "role": "marketer",
+   "kind": "reported",
+   "summary": "marketer: [unclear_instruction] The X 'thread of 3–5 posts' format conflicts with the limit of 2 posts per channel per day if each reply counts as a post; I used a single post"
+  },
   {
    "ts": "2026-11-07T04:08:05+00:00",
    "product": "agent-team-diary",
@@ -366,34 +398,6 @@
    "role": "dispatcher",
    "kind": "task_blocked",
    "summary": "T-0022 Mastodon post 04.11 14:10 UTC: first Fediverse card with the: question Q-0008"
-  },
-  {
-   "ts": "2026-11-03T15:09:02+00:00",
-   "product": "agentsmd-tracker",
-   "role": "dispatcher",
-   "kind": "task_blocked",
-   "summary": "T-0018 Mastodon trial post 1, 05.11 09:00 UTC: plain daily fact wit: question Q-0006"
-  },
-  {
-   "ts": "2026-11-03T08:30:48+00:00",
-   "product": "release-radar",
-   "role": "ops",
-   "kind": "reported",
-   "summary": "Daily card 03.11 was published twice: 02:14 UTC by T-0006 (before the 06:00 build, on 02.11 data: https://t.me/relesae_radar/2, bluesky 3mzercuqy4a2f) and 08:10 UTC by T-0009 (canary cycle, real publi"
-  },
-  {
-   "ts": "2026-11-03T08:16:29+00:00",
-   "product": "agentsmd-tracker",
-   "role": "marketer",
-   "kind": "reported",
-   "summary": "marketer: [environment] team-publish ran in dry-run mode, so no post went live and no URLs came back."
-  },
-  {
-   "ts": "2026-11-03T08:13:44+00:00",
-   "product": "agent-team-diary",
-   "role": "marketer",
-   "kind": "reported",
-   "summary": "marketer: [environment] team-publish ran as dry_run and only saved a draft, so no URL could be recorded."
   }
  ]
 }

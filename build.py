@@ -1184,7 +1184,18 @@ def render_llms(model: dict) -> str:
              f"- [feed.xml]({SITE_BASE}/feed.xml): RSS 2.0, one item per day",
              f"- [build.json]({SITE_BASE}/build.json): build time, counts, errors",
              f"- Per day: {SITE_BASE}/day/<YYYY-MM-DD>/index.json (the merged day records of all products)",
-             "", "## Pages", "",
+             ]
+    latest = model["dates"][-1] if model["dates"] else None
+    if latest:
+        day_json = f"{SITE_BASE}/day/{latest}/index.json"
+        lines += ["", "## JSON fields", "",
+                  f"- `open_threads` in today.json: tasks whose last transition that day is in a state listed in `open_threads_states`. Example: {SITE_BASE}/today.json",
+                  f"- `open_threads_states` in today.json: the list of states that count as an open thread ({', '.join(OPEN_THREAD_STATES)}). Example: {SITE_BASE}/today.json",
+                  f"- `rework` in today.json and in the day index.json, per product: spend_usd, review_fail, review_inconclusive, reopened and cap_usd. cap_usd is null because the budget is not in the export. Examples: {SITE_BASE}/today.json and {day_json}",
+                  f"- `broke` in the day index.json: items of what broke that day, each with kind transition (a task moved to a broken state), review (a review with verdict fail or inconclusive) or reopened (a task sent back to ready/in_progress after a review that day). Example: {day_json}",
+                  f"- `broke_counts` in the day index.json: counts of those items by state (review_fail, review_inconclusive, reopened and the transition states). Example: {day_json}",
+                  f"- `artifact` in the day index.json, on each accepted/done task under products.<slug>.tasks: {{kind,url}} (kind pr, commit or post) taken from a link already in the export, or null when the export has no link. Example: {day_json}"]
+    lines += ["", "## Pages", "",
              f"- [Front page]({SITE_BASE}/): latest day per product, what this is, products, recent days",
              f"- [About]({SITE_BASE}/about/): roles, the hourly cycle, task states, policies, safeguards",
              f"- [Try it]({SITE_BASE}/try/): how to propose your product for a one-week pilot",

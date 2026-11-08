@@ -399,7 +399,7 @@ def layout(title: str, body: str, built: str, description: str = "", canonical: 
 <title>{esc(title)}</title>
 <meta name="description" content="{esc(desc)}">
 <meta name="generator" content="agent-team diary build.py (agent-team)">
-{robots}{canon}{og}<link rel="icon" href="/brand/avatar.svg" type="image/svg+xml"><link rel="icon" href="/favicon.ico" sizes="16x16">
+{robots}{canon}{og}<link rel="icon" href="/brand/avatar.svg" type="image/svg+xml"><link rel="icon" href="/favicon.ico" sizes="16x16"><link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="/style.css">
 <link rel="alternate" type="application/rss+xml" title="{esc(SITE_NAME)} RSS" href="/feed.xml">
 </head>
@@ -1098,7 +1098,7 @@ def render_go(url: str, built: str, label: str = "") -> str:
 <meta name="robots" content="noindex, nofollow">
 <meta http-equiv="refresh" content="0;url={u}">
 <title>Redirecting — {esc(SITE_NAME)}</title>
-<link rel="icon" href="/brand/avatar.svg" type="image/svg+xml"><link rel="icon" href="/favicon.ico" sizes="16x16">
+<link rel="icon" href="/brand/avatar.svg" type="image/svg+xml"><link rel="icon" href="/favicon.ico" sizes="16x16"><link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="/style.css">
 </head>
 <body><main><div class="wrap">
@@ -1294,6 +1294,12 @@ def write_site(model: dict) -> dict:
     write_text(PUBLIC_DIR / "sitemap.xml", render_sitemap(model))
     static_ico = STATIC_DIR / "favicon.ico"
     (PUBLIC_DIR / "favicon.ico").write_bytes(static_ico.read_bytes() if static_ico.exists() else make_favicon())
+    icon = STATIC_DIR / "apple-touch-icon.png"
+    if icon.exists():
+        for name in ("apple-touch-icon.png", "apple-touch-icon-precomposed.png"):
+            (PUBLIC_DIR / name).write_bytes(icon.read_bytes())
+    else:
+        model["errors"].append("static/apple-touch-icon.png missing")
     css = STATIC_DIR / "style.css"
     if css.exists():
         write_text(PUBLIC_DIR / "style.css", css.read_text(encoding="utf-8"))

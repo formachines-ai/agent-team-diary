@@ -1190,9 +1190,12 @@ def render_llms(model: dict) -> str:
              f"- [today.json]({SITE_BASE}/today.json): summary of the latest day — per product: tasks done, reviews passed, posts, people, spend",
              f"- [feed.xml]({SITE_BASE}/feed.xml): RSS 2.0, one item per day",
              f"- [build.json]({SITE_BASE}/build.json): build time, counts, errors",
-             f"- Per day: {SITE_BASE}/day/<YYYY-MM-DD>/index.json (the merged day records of all products)",
+             "- Per day: the address pattern is `/day/YYYY-MM-DD/` (page) and `/day/YYYY-MM-DD/index.json` (the merged day records of all products); replace YYYY-MM-DD with a date from the Days list below",
              ]
     latest = model["dates"][-1] if model["dates"] else None
+    if latest:
+        lines += [f"- [Latest day {latest}]({SITE_BASE}/day/{latest}/): the page of the latest recorded day",
+                  f"- [Latest day {latest} as JSON]({SITE_BASE}/day/{latest}/index.json): the merged day records of all products"]
     if latest:
         day_json = f"{SITE_BASE}/day/{latest}/index.json"
         lines += ["", "## JSON fields", "",
@@ -1508,7 +1511,7 @@ def check_machine_urls() -> dict:
     abs_pat = re.compile(origin + r"(/[^\s<>\"'\)\]]*)?(?=[\s<>\"'\)\]]|$)")
 
     def urls_text(txt: str, relative: bool) -> list[str]:
-        out = [m.group(0) for m in abs_pat.finditer(txt) if not txt.startswith("<YYYY", m.end())]
+        out = [m.group(0) for m in abs_pat.finditer(txt)]
         if relative:
             out += re.findall(r"\]\((/[^\s\)]*)\)", txt)
         return out

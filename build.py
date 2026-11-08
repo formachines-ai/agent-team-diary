@@ -714,6 +714,13 @@ def render_day(date: str, model: dict) -> str:
 DAY_DESC_MAX = DESC_MAX
 
 
+def day_totals(date: str, model: dict) -> dict:
+    """Day-wide sums used in the meta description, published in day/<date>/index.json so the figures can be checked."""
+    ps = [p["days"][date] for p in model["products"].values() if date in p["days"]]
+    return {"tasks_done_distinct": sum(day_counts(d)["tasks_done_distinct"] for d in ps),
+            "spend_usd": round(sum(float(d.get("spend_usd") or 0.0) for d in ps), 1)}
+
+
 def day_description(date: str, model: dict) -> str:
     """Meta/og text of a day page, <=160 chars: the 'Latest day' pick (product, title, verdict), then totals. Export fields only."""
     cs = [day_counts(p["days"][date]) for p in model["products"].values() if date in p["days"]]
@@ -1252,6 +1259,7 @@ def write_site(model: dict) -> dict:
         write_text(PUBLIC_DIR / "day" / date / "index.html", render_day(date, model)); written += 1
         merged = {"date": date, "products": {slug: with_artifacts(p["days"][date]) for slug, p in model["products"].items() if date in p["days"]},
                   "counts": {slug: day_counts(p["days"][date]) for slug, p in model["products"].items() if date in p["days"]},
+                  "totals": day_totals(date, model),
                   "rework": {slug: rework_counts(p["days"][date]) for slug, p in model["products"].items() if date in p["days"]},
                   "broke": [{k: v for k, v in it.items() if k != "anchor"} | {"anchor": f"#{it['anchor']}" if it["anchor"] else None} for it in broke_items(date, model)],
                   "broke_counts": broke_counts(broke_items(date, model)),
@@ -1384,6 +1392,39 @@ def check_site() -> list[str]:
     return problems
 
 
+def check_meta() -> dict:
+    """Link-preview tags on every public index.html (redirect hops under /go/ are noindex meta-refresh pages: exempt)."""
+    import html.parser
+
+    class M(html.parser.HTMLParser):
+        def __init__(self) -> None:
+            super().__init__()
+            self.have: set[str] = set()
+
+        def handle_starttag(self, tag: str, attrs: list) -> None:
+            a = dict(attrs)
+            if tag == "meta" and a.get("content"):
+                key = a.get("property") or a.get("name")
+                if key in ("og:title", "og:description", "og:url", "og:type", "twitter:card"):
+                    self.have.add(key)
+            if tag == "link" and a.get("rel") == "canonical" and a.get("href"):
+                self.have.add("canonical")
+
+    need = ("og:title", "og:description", "og:url", "og:type", "twitter:card", "canonical")
+    checked, missing = 0, []
+    for f in sorted(PUBLIC_DIR.rglob("index.html")):
+        txt = f.read_text(encoding="utf-8")
+        if 'http-equiv="refresh"' in txt:
+            continue
+        m = M()
+        m.feed(txt)
+        checked += 1
+        page = "/" + f.parent.relative_to(PUBLIC_DIR).as_posix().strip(".") + "/"
+        page = page.replace("//", "/")
+        missing += [{"page": page, "tag": t} for t in need if t not in m.have]
+    return {"checked": checked, "missing": missing}
+
+
 def check_links() -> dict:
     """Walk every href/src in public/**/*.html that points to this site; the target file must exist and each #fragment
     must be an id (or a[name]) on the target page. External links are not fetched."""
@@ -1473,8 +1514,13 @@ def main(argv: list[str] | None = None) -> int:
     bj["link_check"] = lc
     write_json(PUBLIC_DIR / "build.json", bj)
     log.info("link_check: checked=%d broken=%d", lc["checked"], len(lc["broken"]))
+    mc = check_meta()
+    bj["meta_check"] = mc
+    write_json(PUBLIC_DIR / "build.json", bj)
+    log.info("meta_check: checked=%d missing=%d", mc["checked"], len(mc["missing"]))
     if args.check:
         problems = check_site()
+        problems += [f"{m['page']}: missing {m['tag']}" for m in mc["missing"]]
         problems += [f"{b['page']}: dead link {b['href']}" for b in lc["broken"]]
         for pr in problems:
             log.error("check: %s", pr)

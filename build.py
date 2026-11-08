@@ -1257,7 +1257,7 @@ def write_site(model: dict) -> dict:
     write_text(PUBLIC_DIR / "index.html", render_index(model)); written += 1
     for date in model["dates"]:
         write_text(PUBLIC_DIR / "day" / date / "index.html", render_day(date, model)); written += 1
-        merged = {"date": date, "products": {slug: with_artifacts(p["days"][date]) for slug, p in model["products"].items() if date in p["days"]},
+        merged = {"date": date, "page": f"{SITE_BASE}/day/{date}/", "products": {slug: with_artifacts(p["days"][date]) for slug, p in model["products"].items() if date in p["days"]},
                   "counts": {slug: day_counts(p["days"][date]) for slug, p in model["products"].items() if date in p["days"]},
                   "totals": day_totals(date, model),
                   "rework": {slug: rework_counts(p["days"][date]) for slug, p in model["products"].items() if date in p["days"]},
@@ -1498,6 +1498,58 @@ def check_links() -> dict:
     return {"checked": checked, "broken": broken}
 
 
+def check_machine_urls() -> dict:
+    """Extract every same-site URL from feed.xml, sitemap.xml, llms.txt, today.json and day/*/index.json; the target
+    must exist in public/ (a directory resolves to index.html; query strings and fragments are ignored)."""
+    from urllib.parse import unquote, urlsplit
+
+    base = urlsplit(SITE_BASE)
+    origin = re.escape(base.scheme + "://" + base.netloc)
+    abs_pat = re.compile(origin + r"(/[^\s<>\"'\)\]]*)?(?=[\s<>\"'\)\]]|$)")
+
+    def urls_text(txt: str, relative: bool) -> list[str]:
+        out = [m.group(0) for m in abs_pat.finditer(txt) if not txt.startswith("<YYYY", m.end())]
+        if relative:
+            out += re.findall(r"\]\((/[^\s\)]*)\)", txt)
+        return out
+
+    def urls_json(o) -> list[str]:
+        if isinstance(o, dict):
+            return [u for v in o.values() for u in urls_json(v)]
+        if isinstance(o, list):
+            return [u for v in o for u in urls_json(v)]
+        if isinstance(o, str):
+            if o.startswith("/") and not o.startswith("//") and " " not in o:
+                return [o]
+            return urls_text(o, False)
+        return []
+
+    groups: dict[str, list[tuple[str, str]]] = {k: [] for k in ("feed.xml", "sitemap.xml", "llms.txt", "today.json", "day_json")}
+    for key in ("feed.xml", "sitemap.xml", "llms.txt"):
+        f = PUBLIC_DIR / key
+        if f.is_file():
+            groups[key] += [("/" + key, u) for u in urls_text(f.read_text(encoding="utf-8"), key == "llms.txt")]
+    files = [("today.json", PUBLIC_DIR / "today.json")] + [
+        ("day_json", f) for f in sorted(PUBLIC_DIR.glob("day/*/index.json"))]
+    for key, f in files:
+        if f.is_file():
+            groups[key] += [("/" + f.relative_to(PUBLIC_DIR).as_posix(), u)
+                            for u in urls_json(json.loads(f.read_text(encoding="utf-8")))]
+    sources, broken = {}, []
+    for key, items in groups.items():
+        bad = 0
+        for page, u in items:
+            path = urlsplit(u).path or "/"
+            target = PUBLIC_DIR / unquote(path).lstrip("/")
+            if path.endswith("/") or target.is_dir():
+                target = target / "index.html"
+            if not target.is_file():
+                broken.append({"page": page, "href": u})
+                bad += 1
+        sources[key] = {"checked": len(items), "broken": bad}
+    return {"sources": sources, "broken": broken}
+
+
 # ----------------------------------------------------------------------------------------------------------
 # Entry point
 # ----------------------------------------------------------------------------------------------------------
@@ -1517,6 +1569,9 @@ def main(argv: list[str] | None = None) -> int:
              summary["day_files"], summary["fixture_days"], len(summary["errors"]))
     lc = check_links()
     bj = json.loads((PUBLIC_DIR / "build.json").read_text(encoding="utf-8"))
+    mu = check_machine_urls()
+    lc["sources"] = mu["sources"]
+    lc["broken"] = lc["broken"] + mu["broken"]
     bj["link_check"] = lc
     write_json(PUBLIC_DIR / "build.json", bj)
     log.info("link_check: checked=%d broken=%d", lc["checked"], len(lc["broken"]))

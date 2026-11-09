@@ -1644,6 +1644,40 @@ def check_numbers() -> dict:
     return {"checked": checked, "by_kind": kinds, "mismatches": mism, "nested": nested, "selftest": numbers_selftest()}
 
 
+def check_checklist() -> dict:
+    """Reviewer checklist: footer on every index.html, feed/sitemap parse, sitemap lists every day and the static pages,
+    newest day page equals the latest export day."""
+    import xml.etree.ElementTree as ET
+    from urllib.parse import urlsplit
+
+    pages = sorted(PUBLIC_DIR.rglob("index.html"))
+    footer_missing = []
+    for f in pages:
+        t = f.read_text(encoding="utf-8")
+        if "Written by the agent team itself" not in t or "responsible: " not in t or "Dmitry" not in t:
+            footer_missing.append("/" + f.relative_to(PUBLIC_DIR).as_posix())
+    xml_errors, locs = [], None
+    for name in ("feed.xml", "sitemap.xml"):
+        try:
+            tree = ET.parse(PUBLIC_DIR / name)
+            if name == "sitemap.xml":
+                locs = {urlsplit((e.text or "").strip()).path for e in tree.iter() if e.tag.rsplit("}", 1)[-1] == "loc"}
+        except (OSError, ET.ParseError) as e:
+            xml_errors.append(f"{name}: {e}")
+    days = sorted(d.name for d in (PUBLIC_DIR / "day").glob("*") if d.is_dir())
+    want = ["/", "/about/", "/try/", "/legal/"] + [f"/day/{d}/" for d in days]
+    sitemap_missing = [w for w in want if locs is None or w not in locs]
+    export_days = sorted({m.group(1) for f in DATA_DIR.glob("*/day-*.json")
+                          if (m := re.match(r"day-(\d{4}-\d{2}-\d{2})\.json$", f.name))})
+    latest = export_days[-1] if export_days else None
+    latest_problem = []
+    if latest and (not days or days[-1] != latest):
+        latest_problem.append(f"newest day page {days[-1] if days else None} != latest export day {latest}")
+    return {"pages_checked": len(pages), "footer_missing": footer_missing, "xml_errors": xml_errors,
+            "sitemap_missing": sitemap_missing, "latest_day": days[-1] if days else None,
+            "latest_export_day": latest, "latest_day_problems": latest_problem}
+
+
 def check_machine_urls() -> dict:
     """Extract every same-site URL from feed.xml, sitemap.xml, llms.txt, today.json and day/*/index.json; the target
     must exist in public/ (a directory resolves to index.html; query strings and fragments are ignored)."""
@@ -1729,8 +1763,16 @@ def main(argv: list[str] | None = None) -> int:
     bj["numbers_check"] = nc
     write_json(PUBLIC_DIR / "build.json", bj)
     log.info("numbers_check: checked=%d mismatches=%d", nc["checked"], len(nc["mismatches"]))
+    cc = check_checklist()
+    bj["checklist_check"] = cc
+    write_json(PUBLIC_DIR / "build.json", bj)
+    log.info("checklist_check: pages=%d footer_missing=%d xml_errors=%d sitemap_missing=%d latest_day=%s",
+             cc["pages_checked"], len(cc["footer_missing"]), len(cc["xml_errors"]), len(cc["sitemap_missing"]), cc["latest_day"])
     if args.check:
         problems = check_site()
+        problems += [f"{p}: footer disclosure missing" for p in cc["footer_missing"]]
+        problems += cc["xml_errors"] + cc["latest_day_problems"]
+        problems += [f"sitemap.xml: no <loc> for {p}" for p in cc["sitemap_missing"]]
         problems += [f"{m['page']}: number {m['key']} html={m['html']} json={m['json']}" for m in nc["mismatches"]]
         problems += [f"{m['page']}: nested data-k {m['key']}" for m in nc["nested"]]
         if nc["selftest"] != "pass":

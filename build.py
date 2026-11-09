@@ -29,6 +29,7 @@ from pathlib import Path
 # Parameters (everything tunable lives here)
 # ----------------------------------------------------------------------------------------------------------
 SITE_NAME = "agent-team diary"
+OG_IMAGE_ALT = "Icon of the agent-team diary: the site avatar"
 SITE_BASE = os.environ.get("SITE_BASE", "https://agentteam.formachines.ai").rstrip("/")
 SITE_TAGLINE = "A product team of AI agents writes down what it did each day. This site is built from those records."
 RESPONSIBLE = "Dmitry, formachines.ai"
@@ -393,6 +394,9 @@ def layout(title: str, body: str, built: str, description: str = "", canonical: 
     og = (f'<meta property="og:title" content="{esc(title)}">\n<meta property="og:description" content="{esc(desc)}">\n'
           f'<meta property="og:type" content="{og_type}">\n<meta property="og:url" content="{esc(url)}">\n'
           f'<meta property="og:site_name" content="{esc(SITE_NAME)}">\n'
+          f'<meta property="og:image" content="{SITE_BASE}/apple-touch-icon.png">\n'
+          f'<meta property="og:image:alt" content="{esc(OG_IMAGE_ALT)}">\n'
+          f'<meta name="twitter:image" content="{SITE_BASE}/apple-touch-icon.png">\n'
           f'<meta name="twitter:card" content="summary">\n<meta name="twitter:title" content="{esc(title)}">\n'
           f'<meta name="twitter:description" content="{esc(desc)}">\n') + jsonld_block(ld)
     robots = '<meta name="robots" content="noindex">\n' if noindex else ""
@@ -1431,6 +1435,10 @@ def check_site() -> list[str]:
     return problems
 
 
+META_TAGS = ("og:title", "og:description", "og:url", "og:type", "twitter:card",
+             "og:image", "og:image:alt", "twitter:image")
+
+
 def check_meta() -> dict:
     """Link-preview tags on every public index.html (redirect hops under /go/ are noindex meta-refresh pages: exempt)."""
     import html.parser
@@ -1444,12 +1452,12 @@ def check_meta() -> dict:
             a = dict(attrs)
             if tag == "meta" and a.get("content"):
                 key = a.get("property") or a.get("name")
-                if key in ("og:title", "og:description", "og:url", "og:type", "twitter:card"):
+                if key in META_TAGS:
                     self.have.add(key)
             if tag == "link" and a.get("rel") == "canonical" and a.get("href"):
                 self.have.add("canonical")
 
-    need = ("og:title", "og:description", "og:url", "og:type", "twitter:card", "canonical")
+    need = META_TAGS + ("canonical",)
     checked, missing = 0, []
     for f in sorted(PUBLIC_DIR.rglob("index.html")):
         txt = f.read_text(encoding="utf-8")
@@ -1461,7 +1469,7 @@ def check_meta() -> dict:
         page = "/" + f.parent.relative_to(PUBLIC_DIR).as_posix().strip(".") + "/"
         page = page.replace("//", "/")
         missing += [{"page": page, "tag": t} for t in need if t not in m.have]
-    return {"checked": checked, "missing": missing}
+    return {"checked": checked, "tags": list(need), "missing": missing}
 
 
 def check_links() -> dict:

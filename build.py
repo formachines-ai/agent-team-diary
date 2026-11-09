@@ -434,16 +434,16 @@ def fixture_note(days: list[dict]) -> str:
     return ""
 
 
-def state_badge(state: str | None) -> str:
+def state_badge(state: str | None, key: str | None = None) -> str:
     s = str(state or "unknown")
     cls = "done" if s in DONE_STATES else ("side" if s in SIDE_STATES else "open")
-    return f'<span class="badge state {cls}">{esc(s)}</span>'
+    return f'<span class="badge state {cls}"' + (f' data-k="{esc(key)}"' if key else "") + f'>{esc(s)}</span>'
 
 
-def verdict_badge(v: str | None) -> str:
+def verdict_badge(v: str | None, key: str | None = None) -> str:
     s = str(v or "unknown")
     cls = s if s in ("pass", "fail", "inconclusive") else "other"
-    return f'<span class="badge verdict {cls}">{esc(s)}</span>'
+    return f'<span class="badge verdict {cls}"' + (f' data-k="{esc(key)}"' if key else "") + f'>{esc(s)}</span>'
 
 
 # ----------------------------------------------------------------------------------------------------------
@@ -810,18 +810,23 @@ def latest_day_block(latest: str, model: dict) -> str:
     for slug, pname, t, rs, fx in chosen:
         tid = str(t.get("id") or "")
         aid = anchors.get((slug, tid), f"{slug}-{tid}")
+        dd = model["products"][slug]["days"][latest]
+        pre = f"day/{latest}:products.{slug}."
+        ti = next((i for i, x in enumerate(dd.get("tasks") or []) if x is t), None)
+        title_html = dk(f"{pre}tasks.{ti}.title", t.get("title")) if ti is not None else esc(t.get("title"))
         # collapse consecutive repeats: inconclusive, inconclusive → inconclusive ×2
         seq: list = []
         for r in rs:
             v = str(r.get("verdict") or "unknown")
+            ri = next((i for i, x in enumerate(dd.get("reviews") or []) if x is r), None)
             if seq and seq[-1][0] == v:
                 seq[-1][1] += 1
             else:
-                seq.append([v, 1])
-        verdicts = " → ".join(verdict_badge(v) + (f" ×{c}" if c > 1 else "") for v, c in seq) if seq else state_badge(t.get("state"))
+                seq.append([v, 1, f"{pre}reviews.{ri}.verdict" if ri is not None else None])
+        verdicts = " → ".join(verdict_badge(v, k) + (f" ×{c}" if c > 1 else "") for v, c, k in seq) if seq else state_badge(t.get("state"))
         note = cut_words(rs[-1].get("summary")) if rs else ""
         out.append(f'<li class="card"><div class="head"><span class="product-name">{esc(pname)}</span> '
-                   f'<a class="name" href="/day/{esc(latest)}/#{esc(aid)}">{esc(t.get("title"))}</a> {verdicts}'
+                   f'<a class="name" href="/day/{esc(latest)}/#{esc(aid)}">{title_html}</a> {verdicts}'
                    + (' <span class="badge other">fixture sample</span>' if fx else "") + "</div>"
                    + (f'<p class="summary">{esc(note)}</p>' if note else "") + "</li>")
     out.append("</ul>")
@@ -864,9 +869,9 @@ def open_threads_block(latest: str, model: dict) -> str:
            f'<p class="note">{esc(defn)}</p>',
            '<ul class="cards open-threads">']
     for i, it in enumerate(items):
-        out.append(f'<li class="card"><div class="head"><span class="product-name">{esc(it["product_name"])}</span> '
-                   f'<a class="name" href="{esc(it["_href"])}"><span class="id">{dk(f"open_threads.{i}.task", it["task"])}</span> {esc(it["title"])}</a> '
-                   f'{state_badge(it["state"])}' + (' <span class="badge other">fixture</span>' if it["fixture"] else "") + "</div>"
+        out.append(f'<li class="card"><div class="head"><span class="product-name">{dk(f"open_threads.{i}.product_name", it["product_name"])}</span> '
+                   f'<a class="name" href="{esc(it["_href"])}"><span class="id">{dk(f"open_threads.{i}.task", it["task"])}</span> {dk(f"open_threads.{i}.title", it["title"])}</a> '
+                   f'{state_badge(it["state"], f"open_threads.{i}.state")}' + (' <span class="badge other">fixture</span>' if it["fixture"] else "") + "</div>"
                    + (f'<p class="summary">{esc(it["note"])}</p>' if it["note"] else "") + "</li>")
     out.append("</ul>")
     return "\n".join(out)
@@ -936,7 +941,9 @@ def render_index(model: dict) -> str:
             for slug, p in products.items():
                 if date in p["days"]:
                     c = day_counts(p["days"][date])
-                    parts.append(f'{esc(p["product"].get("name") or slug)}: {c["tasks_done_distinct"]} done, {c["reviews_pass"]} passed, {c["posts"]} posts')
+                    ck = lambda f, date=date, slug=slug: f"day/{date}:counts.{slug}.{f}"
+                    parts.append(f'{esc(p["product"].get("name") or slug)}: {dk(ck("tasks_done_distinct"), c["tasks_done_distinct"])} done, '
+                                 f'{dk(ck("reviews_pass"), c["reviews_pass"])} passed, {dk(ck("posts"), c["posts"])} posts')
             body.append(f'<li><a href="/day/{esc(date)}/">{esc(date)}</a> — ' + ("; ".join(parts) if parts else "no activity recorded") + "</li>")
         body.append("</ul>")
         if len(dates) > FRONT_DAYS:
@@ -974,14 +981,16 @@ def render_product(slug: str, p: dict, model: dict) -> str:
             for k in totals:
                 totals[k] += c[k]
             people = "—" if c["humans"] is None else str(c["humans"])
+            ck = lambda f, date=date: f"day/{date}:counts.{slug}.{f}"
             excerpt = re.sub(r"\s+", " ", re.sub(r"[*`#>]", "", d.get("po_digest_md") or "")).strip()
             if len(excerpt) > CHRONICLE_EXCERPT_CHARS:
                 excerpt = excerpt[:CHRONICLE_EXCERPT_CHARS].rsplit(" ", 1)[0] + "…"
             body.append('<li class="card">'
                         f'<div class="head"><span class="name"><a href="/day/{esc(date)}/#{esc(slug)}">{esc(date)}</a></span>'
                         + (' <span class="badge state side">fixture</span>' if c["fixture"] else "") + "</div>"
-                        f'<div class="meta">{c["tasks_touched"]} tasks touched · {c["tasks_done_distinct"]} done ({c["tasks_done"]} state transitions) · {c["reviews"]} reviews ({c["reviews_pass"]} passed) · '
-                        f'{c["posts"]} posts · people (estimated) {esc(people)} · {esc(fmt_usd(c["spend_usd"]))}</div>'
+                        f'<div class="meta">{dk(ck("tasks_touched"), c["tasks_touched"])} tasks touched · {dk(ck("tasks_done_distinct"), c["tasks_done_distinct"])} done ({dk(ck("tasks_done"), c["tasks_done"])} state transitions) · '
+                        f'{dk(ck("reviews"), c["reviews"])} reviews ({dk(ck("reviews_pass"), c["reviews_pass"])} passed) · '
+                        f'{dk(ck("posts"), c["posts"])} posts · people (estimated) {dk(ck("humans") if c["humans"] is not None else None, people)} · ${dk(ck("spend_usd"), f"{c['spend_usd']:.1f}")}</div>'
                         + (f'<p class="summary">{esc(excerpt)}</p>' if excerpt else '<p class="note">no digest recorded</p>') + "</li>")
         body.append("</ul>")
         body.append(f'<p class="note">Over {len(dates)} day{"s" if len(dates) != 1 else ""}: {totals["tasks_done_distinct"]} tasks done (summed per day; {totals["tasks_done"]} state transitions), '
@@ -1554,27 +1563,47 @@ def check_numbers() -> dict:
             return f"{v:.1f}"
         return str(v)
 
-    pairs = [(PUBLIC_DIR / "index.html", PUBLIC_DIR / "today.json")]
-    pairs += [(h, h.with_name("index.json")) for h in sorted((PUBLIC_DIR / "day").glob("*/index.html"))]
+    pairs = [("home", PUBLIC_DIR / "index.html", PUBLIC_DIR / "today.json")]
+    pairs += [("day", h, h.with_name("index.json")) for h in sorted((PUBLIC_DIR / "day").glob("*/index.html"))]
+    pairs += [("product", h, None) for h in sorted((PUBLIC_DIR / "product").glob("*/index.html"))]
     checked, mism = 0, []
-    for page, jf in pairs:
-        if not page.exists() or not jf.exists():
+    kinds = {"home": 0, "day": 0, "product": 0}
+    cache: dict = {}
+
+    def load(path):
+        if path not in cache:
+            cache[path] = json.loads(path.read_text(encoding="utf-8")) if path.exists() else None
+        return cache[path]
+
+    for kind, page, jf in pairs:
+        if not page.exists() or (jf is not None and not jf.exists()):
             continue
         name = "/" + page.relative_to(PUBLIC_DIR).parent.as_posix().strip(".") 
         name = name.rstrip("/") + "/"
         k = K()
         k.feed(page.read_text(encoding="utf-8"))
-        data = json.loads(jf.read_text(encoding="utf-8"))
+        data = load(jf) if jf is not None else None
         for key, text in k.found:
             checked += 1
+            kinds[kind] += 1
             try:
-                v = show(lookup(data, key))
+                src = data
+                if key.startswith("day/"):
+                    dpart, _, key2 = key[4:].partition(":")
+                    src = load(PUBLIC_DIR / "day" / dpart / "index.json")
+                    if src is None or not key2:
+                        raise KeyError(key)
+                else:
+                    key2 = key
+                    if src is None:
+                        raise KeyError(key)
+                v = show(lookup(src, key2))
             except KeyError:
                 mism.append({"page": name, "key": key, "html": text, "json": "unknown path"})
                 continue
             if text != v:
                 mism.append({"page": name, "key": key, "html": text, "json": v})
-    return {"checked": checked, "mismatches": mism}
+    return {"checked": checked, "by_kind": kinds, "mismatches": mism}
 
 
 def check_machine_urls() -> dict:

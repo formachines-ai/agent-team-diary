@@ -1780,6 +1780,106 @@ def check_a11y() -> dict:
     return {"pages_checked": len(pages), "issues": issues, "contrast": contrast}
 
 
+def check_mobile() -> dict:
+    """Static 375 px check: viewport meta, no fixed width/min-width above 375px outside a max-width media query,
+    overflow-wrap on body, tables wrapped or stacked at <=480px, pre/code wrap or scroll."""
+    from html.parser import HTMLParser
+    issues = []
+    css = re.sub(r"/\*.*?\*/", "", (PUBLIC_DIR / "style.css").read_text(encoding="utf-8"), flags=re.S)
+
+    def blocks(text):
+        """Top-level (prelude, body) pairs."""
+        out, depth, start, pre = [], 0, 0, ""
+        for i, ch in enumerate(text):
+            if ch == "{":
+                if depth == 0:
+                    pre, start = text[start:i].strip(), i + 1
+                depth += 1
+            elif ch == "}":
+                depth -= 1
+                if depth == 0:
+                    out.append((pre, text[start:i]))
+                    start = i + 1
+        return out
+
+    def wide(body):
+        res = []
+        for prop, val in re.findall(r"(?<![\w-])((?:min-)?width)\s*:\s*([^;}]+)", body):
+            for n in re.findall(r"(\d+(?:\.\d+)?)px", val):
+                if float(n) > 375:
+                    res.append(f"{prop}: {val.strip()}")
+        return res
+
+    rules = []  # (selector, body) outside max-width media
+    stack_css = blocks(css)
+    for pre, body in stack_css:
+        if pre.startswith("@media"):
+            if re.search(r"max-width", pre):
+                continue
+            rules += blocks(body)
+        elif pre.startswith("@"):
+            continue
+        else:
+            rules.append((pre, body))
+    for sel, body in rules:
+        for d in wide(body):
+            issues.append({"page": "/style.css", "rule": "fixed-width", "detail": f"{sel}: {d}"})
+    wrap_ok = any(re.search(r"overflow-wrap\s*:\s*(anywhere|break-word)|word-break\s*:", b)
+                  and re.search(r"(^|,)\s*(body|main|\.wrap)\s*(,|$)", s) for s, b in rules)
+    if not wrap_ok:
+        issues.append({"page": "/style.css", "rule": "overflow-wrap", "detail": "no overflow-wrap/word-break on body, main or .wrap"})
+    pre_ok = any(re.search(r"(^|,)\s*pre\s*(,|$)", s) and re.search(r"overflow-x\s*:\s*(auto|scroll)|white-space\s*:\s*pre-(wrap|line)|overflow-wrap|word-break", b)
+                 for s, b in rules)
+    if not pre_ok:
+        issues.append({"page": "/style.css", "rule": "pre-wrap", "detail": "pre neither wraps nor scrolls"})
+    stack_ok = bool(re.search(r"\.table\.fm[^{]*\{[^}]*display\s*:\s*block", css))
+    wrapper_ok = bool(re.search(r"\.table-wrap\s*\{[^}]*overflow-x\s*:\s*auto", css))
+
+    VOID = {"meta", "link", "br", "hr", "img", "input", "col", "area", "base", "source", "wbr"}
+
+    class P(HTMLParser):
+        def __init__(self):
+            super().__init__()
+            self.viewport = False
+            self.stack = []
+            self.bad_tables = 0
+            self.inline = []
+
+        def handle_starttag(self, tag, attrs):
+            a = dict(attrs)
+            if tag == "meta" and (a.get("name") or "").lower() == "viewport" and "width=device-width" in (a.get("content") or ""):
+                self.viewport = True
+            st = a.get("style") or ""
+            if st:
+                self.inline += wide(st)
+            cls = (a.get("class") or "").split()
+            if tag == "table":
+                wrapped = wrapper_ok and any("table-wrap" in c for c in self.stack)
+                stacked = stack_ok and "fm" in cls
+                if not (wrapped or stacked):
+                    self.bad_tables += 1
+            if tag not in VOID:
+                self.stack.append(cls)
+
+        def handle_endtag(self, tag):
+            if tag not in VOID and self.stack:
+                self.stack.pop()
+
+    pages = sorted(PUBLIC_DIR.rglob("index.html"))
+    for f in pages:
+        page = "/" + f.parent.relative_to(PUBLIC_DIR).as_posix().strip(".") + ("/" if f.parent != PUBLIC_DIR else "")
+        page = page.replace("//", "/")
+        p = P()
+        p.feed(f.read_text(encoding="utf-8"))
+        if not p.viewport:
+            issues.append({"page": page, "rule": "viewport", "detail": "no meta viewport with width=device-width"})
+        if p.bad_tables:
+            issues.append({"page": page, "rule": "table", "detail": f"{p.bad_tables} table(s) neither in overflow-x:auto wrapper nor stacked"})
+        for d in p.inline:
+            issues.append({"page": page, "rule": "fixed-width", "detail": f"inline style {d}"})
+    return {"pages_checked": len(pages), "issues": issues}
+
+
 def check_machine_urls() -> dict:
     """Extract every same-site URL from feed.xml, sitemap.xml, llms.txt, today.json and day/*/index.json; the target
     must exist in public/ (a directory resolves to index.html; query strings and fragments are ignored)."""
@@ -1874,8 +1974,13 @@ def main(argv: list[str] | None = None) -> int:
     bj["a11y_check"] = ac
     write_json(PUBLIC_DIR / "build.json", bj)
     log.info("a11y_check: pages=%d issues=%d", ac["pages_checked"], len(ac["issues"]))
+    mob = check_mobile()
+    bj["mobile_check"] = mob
+    write_json(PUBLIC_DIR / "build.json", bj)
+    log.info("mobile_check: pages=%d issues=%d", mob["pages_checked"], len(mob["issues"]))
     if args.check:
         problems = check_site()
+        problems += [f"{i['page']}: mobile {i['rule']} {i['detail']}" for i in mob["issues"]]
         problems += [f"{i['page']}: a11y {i['rule']}" for i in ac["issues"]]
         problems += [f"{p}: footer disclosure missing" for p in cc["footer_missing"]]
         problems += cc["xml_errors"] + cc["latest_day_problems"]

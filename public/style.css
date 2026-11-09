@@ -135,3 +135,11 @@ footer.site p { margin: 0.2rem 0; }
 
 .next-row { margin: 1.2rem 0; padding: 0.5rem 0.8rem; border: 1px solid var(--muted); border-radius: 4px; overflow-wrap: anywhere; }
 .artifact { overflow-wrap: anywhere; word-break: break-word; }
+
+@media (max-width: 480px) {
+  .table.fm, .table.fm tbody, .table.fm tr, .table.fm td { display: block; width: 100%; }
+  .table.fm thead { position: absolute; left: -9999px; }
+  .table.fm tr { border: 1px solid var(--line); border-radius: 6px; margin: 0 0 0.8rem; padding: 0.3rem 0.1rem; }
+  .table.fm td { border-bottom: 0; overflow-wrap: anywhere; }
+  .table.fm td::before { content: attr(data-label); display: block; font-weight: 600; color: var(--muted); font-size: 0.82rem; }
+}

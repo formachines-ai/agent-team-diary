@@ -1041,27 +1041,27 @@ def render_about(built: str) -> str:
             '<h2 id="failure-modes">Known failure modes and the guardrail for each</h2>',
             "<p>Four failures that people running agent teams report, and the mechanism this team has against each, as described in the public framework repository. "
             "Each row links to the file that describes the mechanism and to a diary page where it shows. These are mechanisms, not guarantees; none of the failures is solved.</p>",
-            '<div class="table-wrap"><table class="table"><thead><tr><th>Failure</th><th>Guardrail</th><th>Described in</th><th>Seen on this site</th><th>What it does not catch</th></tr></thead><tbody>',
-            "<tr><td>Fake success: a report says done, nothing was done</td>"
-            "<td>A task is not accepted on the developer's word: an independent reviewer role checks the live result criterion by criterion and writes a verdict (pass / fail / inconclusive); the author does not accept their own work.</td>"
-            '<td><a href="https://github.com/OOuph/agent-team/blob/main/SCHEME.md" rel="nofollow">SCHEME.md</a></td>'
-            '<td><a href="/day/2026-11-08/">/day/2026-11-08/</a> (review verdicts, <code>artifact:</code> lines)</td>'
-            "<td>Not stated whether a reviewer can be wrong; a verdict is only as good as the criteria written into the task.</td></tr>",
-            "<tr><td>Loops and quietly rising cost</td>"
-            "<td>A daily cap in dollars per product and per run, a reserve for unknown cost, a STOP file that halts the cycle, and at most two failed reviews before a task is blocked with a question. The cap figure is not published here.</td>"
-            '<td><a href="https://github.com/OOuph/agent-team/blob/main/SCHEME.md" rel="nofollow">SCHEME.md</a></td>'
-            '<td><a href="/day/2026-11-08/">/day/2026-11-08/</a> (<code>Cost and rework</code> line: spend, review fails, reopened tasks)</td>'
-            "<td>The cap is shown only when the export carries it (otherwise the line says \"cap: not in export\"); a cap stops spending, it does not say why a loop started. Spend is rounded to $0.1.</td></tr>",
-            "<tr><td>No trace of what each agent did</td>"
-            "<td>Every task transition is written to the task's history (who, to which state, a note); the day pages show it and the same records are published as JSON per day. Failed runs and denied tools are collected into a friction register.</td>"
-            '<td><a href="https://github.com/OOuph/agent-team/blob/main/SCHEME.md" rel="nofollow">SCHEME.md</a></td>'
-            '<td><a href="/day/2026-11-08/">/day/2026-11-08/</a> (task histories, <code>What broke this day</code>) · <a href="/day/2026-11-08/index.json">index.json</a></td>'
-            "<td>Only allowlisted fields are exported: no questions to the owner, no observation texts, notes are truncated. Work that is not written as a record has no trace.</td></tr>",
-            "<tr><td>Drift without a human</td>"
-            "<td>Depth of changes is limited to levels L0–L3, and only the owner may go to L4 (new sources, accounts, paid services). While the owner is away a deputy role answers only within a written mandate and answers \"unavailable\" for money, accounts, goals and legal matters. A watchdog outside the dispatcher rolls back to the last good state when no cycle finishes for two hours.</td>"
-            '<td><a href="https://github.com/OOuph/agent-team/blob/main/SCHEME.md" rel="nofollow">SCHEME.md</a> · <a href="https://github.com/OOuph/agent-team/blob/main/DEPUTY.md" rel="nofollow">DEPUTY.md</a></td>'
-            '<td><a href="/day/2026-11-08/">/day/2026-11-08/</a> (task histories show which role moved each task and the note)</td>'
-            "<td>Not covered: whether the text of a note is accurate, and slow drift of tone or quality that no check measures.</td></tr>",
+            '<div class="table-wrap"><table class="table fm"><thead><tr><th>Failure</th><th>Guardrail</th><th>Described in</th><th>Seen on this site</th><th>What it does not catch</th></tr></thead><tbody>',
+            "<tr><td data-label=\"Failure\">Fake success: a report says done, nothing was done</td>"
+            "<td data-label=\"Guardrail\">A task is not accepted on the developer's word: an independent reviewer role checks the live result criterion by criterion and writes a verdict (pass / fail / inconclusive); the author does not accept their own work.</td>"
+            '<td data-label="Described in"><a href="https://github.com/OOuph/agent-team/blob/main/SCHEME.md" rel="nofollow">SCHEME.md</a> (in Russian)</td>'
+            '<td data-label="Seen on this site"><a href="/day/2026-11-08/">/day/2026-11-08/</a> (review verdicts, <code>artifact:</code> lines)</td>'
+            "<td data-label=\"What it does not catch\">Not stated whether a reviewer can be wrong; a verdict is only as good as the criteria written into the task.</td></tr>",
+            "<tr><td data-label=\"Failure\">Loops and quietly rising cost</td>"
+            "<td data-label=\"Guardrail\">A daily cap in dollars per product and per run, a reserve for unknown cost, a STOP file that halts the cycle, and at most two failed reviews before a task is blocked with a question. The cap figure is not published here.</td>"
+            '<td data-label="Described in"><a href="https://github.com/OOuph/agent-team/blob/main/SCHEME.md" rel="nofollow">SCHEME.md</a> (in Russian)</td>'
+            '<td data-label="Seen on this site"><a href="/day/2026-11-08/">/day/2026-11-08/</a> (<code>Cost and rework</code> line: spend, review fails, reopened tasks)</td>'
+            "<td data-label=\"What it does not catch\">The cap is shown only when the export carries it (otherwise the line says \"cap: not in export\"); a cap stops spending, it does not say why a loop started. Spend is rounded to $0.1.</td></tr>",
+            "<tr><td data-label=\"Failure\">No trace of what each agent did</td>"
+            "<td data-label=\"Guardrail\">Every task transition is written to the task's history (who, to which state, a note); the day pages show it and the same records are published as JSON per day. Failed runs and denied tools are collected into a friction register.</td>"
+            '<td data-label="Described in"><a href="https://github.com/OOuph/agent-team/blob/main/SCHEME.md" rel="nofollow">SCHEME.md</a> (in Russian)</td>'
+            '<td data-label="Seen on this site"><a href="/day/2026-11-08/">/day/2026-11-08/</a> (task histories, <code>What broke this day</code>) · <a href="/day/2026-11-08/index.json">index.json</a></td>'
+            "<td data-label=\"What it does not catch\">Only allowlisted fields are exported: no questions to the owner, no observation texts, notes are truncated. Work that is not written as a record has no trace.</td></tr>",
+            "<tr><td data-label=\"Failure\">Drift without a human</td>"
+            "<td data-label=\"Guardrail\">Depth of changes is limited to levels L0–L3, and only the owner may go to L4 (new sources, accounts, paid services). While the owner is away a deputy role answers only within a written mandate and answers \"unavailable\" for money, accounts, goals and legal matters. A watchdog outside the dispatcher rolls back to the last good state when no cycle finishes for two hours.</td>"
+            '<td data-label="Described in"><a href="https://github.com/OOuph/agent-team/blob/main/SCHEME.md" rel="nofollow">SCHEME.md</a> (in Russian) · <a href="https://github.com/OOuph/agent-team/blob/main/DEPUTY.md" rel="nofollow">DEPUTY.md</a> (in Russian)</td>'
+            '<td data-label="Seen on this site"><a href="/day/2026-11-08/">/day/2026-11-08/</a> (task histories show which role moved each task and the note)</td>'
+            "<td data-label=\"What it does not catch\">Not covered: whether the text of a note is accurate, and slow drift of tone or quality that no check measures.</td></tr>",
             "</tbody></table></div>",
             '<p>Code and the files above: <a href="/go/github/" rel="nofollow">github.com/OOuph/agent-team</a> (counted redirect).</p>',
             '<h2 id="method">Method: the "people" number</h2>',

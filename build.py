@@ -1888,6 +1888,50 @@ def check_mobile() -> dict:
     return {"pages_checked": len(pages), "issues": issues}
 
 
+def check_wellknown() -> dict:
+    """Standard client/crawler paths exist and are non-empty; robots.txt has the Sitemap line and blocks no sitemap URL."""
+    files, missing, problems = [], [], []
+    for name in ("robots.txt", "favicon.ico", "apple-touch-icon.png", "apple-touch-icon-precomposed.png"):
+        f = PUBLIC_DIR / name
+        n = f.stat().st_size if f.is_file() else 0
+        if n > 0:
+            files.append({"path": name, "bytes": n})
+        else:
+            missing.append(name)
+    rp = PUBLIC_DIR / "robots.txt"
+    if rp.is_file():
+        lines = [ln.strip() for ln in rp.read_text(encoding="utf-8").splitlines()]
+        if f"Sitemap: {SITE_BASE}/sitemap.xml" not in lines:
+            problems.append("robots.txt: Sitemap line missing")
+        if "User-agent: *" not in lines:
+            problems.append("robots.txt: 'User-agent: *' missing")
+        group, rules = [], {}
+        prev_ua = False
+        for ln in lines:
+            k, _, v = ln.partition(":")
+            k, v = k.strip().lower(), v.strip()
+            if k == "user-agent":
+                if not prev_ua:
+                    group = []
+                group.append(v)
+                prev_ua = True
+                continue
+            prev_ua = False
+            if k == "disallow" and v:
+                for ua in group:
+                    rules.setdefault(ua, []).append(v)
+        sp = PUBLIC_DIR / "sitemap.xml"
+        if sp.is_file():
+            locs = re.findall(r"<loc>([^<]+)</loc>", sp.read_text(encoding="utf-8"))
+            for loc in locs:
+                path = "/" + loc.split("://", 1)[-1].partition("/")[2]
+                for ua, dis in rules.items():
+                    for d in dis:
+                        if path.startswith(d):
+                            problems.append(f"robots.txt: Disallow {d} ({ua}) blocks sitemap URL {loc}")
+    return {"files": files, "missing": missing, "problems": problems}
+
+
 def check_machine_urls() -> dict:
     """Extract every same-site URL from feed.xml, sitemap.xml, llms.txt, today.json and day/*/index.json; the target
     must exist in public/ (a directory resolves to index.html; query strings and fragments are ignored)."""
@@ -1986,8 +2030,13 @@ def main(argv: list[str] | None = None) -> int:
     bj["mobile_check"] = mob
     write_json(PUBLIC_DIR / "build.json", bj)
     log.info("mobile_check: pages=%d issues=%d", mob["pages_checked"], len(mob["issues"]))
+    wk = check_wellknown()
+    bj["wellknown_check"] = {"files": wk["files"], "missing": wk["missing"]}
+    write_json(PUBLIC_DIR / "build.json", bj)
+    log.info("wellknown_check: files=%d missing=%d problems=%d", len(wk["files"]), len(wk["missing"]), len(wk["problems"]))
     if args.check:
         problems = check_site()
+        problems += [f"wellknown: missing or empty {m}" for m in wk["missing"]] + wk["problems"]
         problems += [f"{i['page']}: mobile {i['rule']} {i['detail']}" for i in mob["issues"]]
         problems += [f"{i['page']}: a11y {i['rule']}" for i in ac["issues"]]
         problems += [f"{p}: footer disclosure missing" for p in cc["footer_missing"]]

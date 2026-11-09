@@ -172,6 +172,11 @@ def fmt_ts(s: str | None) -> str:
     return dt.strftime("%H:%M") + " UTC"
 
 
+def dk(key: str | None, text: object) -> str:
+    """Wrap an exported figure in <span data-k="json.path"> so build.py --check can compare it with the JSON export."""
+    return f'<span data-k="{esc(key)}">{esc(text)}</span>' if key else esc(text)
+
+
 def fmt_usd(v: object) -> str:
     try:
         return f"${float(v):.1f}"
@@ -350,12 +355,13 @@ def rework_counts(d: dict) -> dict:
             "reopened": reopened, "spend_usd": round(float(d.get("spend_usd") or 0.0), 1), "cap_usd": cap}
 
 
-def rework_line(d: dict) -> str:
+def rework_line(d: dict, kp: str | None = None) -> str:
     w = rework_counts(d)
+    k = (lambda f: f"{kp}.{f}" if kp else None)
     cap = f"cap: {esc(fmt_usd(w['cap_usd']))}" if w["cap_usd"] is not None else "cap: not in export"
-    return (f'<p class="note rework"><strong>Cost and rework:</strong> spend {esc(fmt_usd(w["spend_usd"]))} · {cap} · '
-            f'review fail {w["review_fail"]} · inconclusive {w["review_inconclusive"]} · '
-            f'reopened {w["reopened"]} (moved to ready/in_progress on a task reviewed that day)</p>')
+    return (f'<p class="note rework"><strong>Cost and rework:</strong> spend ${dk(k("spend_usd"), f"{w['spend_usd']:.1f}")} · {cap} · '
+            f'review fail {dk(k("review_fail"), w["review_fail"])} · inconclusive {dk(k("review_inconclusive"), w["review_inconclusive"])} · '
+            f'reopened {dk(k("reopened"), w["reopened"])} (moved to ready/in_progress on a task reviewed that day)</p>')
 
 
 # ----------------------------------------------------------------------------------------------------------
@@ -496,19 +502,21 @@ def product_section(d: dict, product: dict, heading_link: bool = True, anchors: 
     """One product's block inside a day page: digest, tasks with history, reviews, posts, metrics, spend."""
     c = day_counts(d)
     slug, name = product["slug"], product.get("name") or product["slug"]
+    cp = f"counts.{slug}"
     out = [f'<section class="product" id="{esc(slug)}">']
     title = f'<a href="/product/{esc(slug)}/">{esc(name)}</a>' if heading_link else esc(name)
     out.append(f"<h2>{title}</h2>")
     if c["fixture"]:
         out.append('<p class="note fixture">fixture — sample record, not a measurement</p>')
-    stats = [(c["tasks_done_distinct"], "tasks done"), (c["tasks_done"], "state transitions"), (c["reviews_pass"], "reviews passed"),
-             (c["posts"], "posts")]
-    html_stats = "".join(f"<li><b>{esc(v)}</b><span>{esc(k)}</span></li>" for v, k in stats)
-    html_stats += ('<li><b>' + esc(c["humans"] if c["humans"] is not None else "—") +
+    stats = [("tasks_done_distinct", "tasks done"), ("tasks_done", "state transitions"), ("reviews_pass", "reviews passed"),
+             ("posts", "posts")]
+    html_stats = "".join(f"<li><b>{dk(cp + '.' + f, c[f])}</b><span>{esc(k)}</span></li>" for f, k in stats)
+    html_stats += ('<li><b>' + dk(f"{cp}.humans" if c["humans"] is not None else None, c["humans"] if c["humans"] is not None else "—") +
                    '</b><span>people (estimated log sources, <a href="/about/#method">method</a>)</span></li>')
-    html_stats += f"<li><b>{esc(fmt_usd(c['spend_usd']))}</b><span>spent</span></li>"
+    spent = f"{c['spend_usd']:.1f}"
+    html_stats += f"<li><b>${dk(cp + '.spend_usd', spent)}</b><span>spent</span></li>"
     out.append('<ul class="stats">' + html_stats + "</ul>")
-    out.append(rework_line(d))
+    out.append(rework_line(d, f"rework.{slug}"))
 
     digest = (d.get("po_digest_md") or "").strip()
     out.append("<h3>Manager's digest</h3>")
@@ -584,7 +592,7 @@ def product_section(d: dict, product: dict, heading_link: bool = True, anchors: 
     obs = d.get("observations") or {}
     by_class = obs.get("by_class") or {}
     obs_txt = ", ".join(f"{esc(k)} {n(v)}" for k, v in sorted(by_class.items())) if by_class else ""
-    out.append(f'<p class="note">Spend: {esc(fmt_usd(c["spend_usd"]))} · new observations: {c["observations"]}'
+    out.append(f'<p class="note">Spend: ${dk(cp + ".spend_usd", f"{c['spend_usd']:.1f}")} · new observations: {c["observations"]}'
                + (f" ({obs_txt})" if obs_txt else "") + f' · open questions to the owner: {c["owner_questions_open"]}</p>')
     out.append("</section>")
     return "\n".join(out)
@@ -663,7 +671,7 @@ def broke_block(date: str, model: dict) -> str:
         out.append(f'<p class="note">Nothing recorded as broken in this public export for {esc(date)}.</p></section>')
         return "\n".join(out)
     c = broke_counts(items)
-    out.append('<p class="note">Counts by state: ' + " · ".join(f"{esc(k)} {v}" for k, v in sorted(c.items()))
+    out.append('<p class="note">Counts by state: ' + " · ".join(f"{esc(k)} {dk('broke_counts.' + k, v)}" for k, v in sorted(c.items()))
                + ". Kinds: transition = a task moved to a broken state; review = a review record with verdict fail or inconclusive; "
                "reopened = a task sent back to ready/in_progress after a review that day (item state ready or in_progress).</p>")
     out.append('<ul class="cards open-threads">')
@@ -855,9 +863,9 @@ def open_threads_block(latest: str, model: dict) -> str:
     out = [f'<h3 id="open-threads">Open threads</h3>',
            f'<p class="note">{esc(defn)}</p>',
            '<ul class="cards open-threads">']
-    for it in items:
+    for i, it in enumerate(items):
         out.append(f'<li class="card"><div class="head"><span class="product-name">{esc(it["product_name"])}</span> '
-                   f'<a class="name" href="{esc(it["_href"])}"><span class="id">{esc(it["task"])}</span> {esc(it["title"])}</a> '
+                   f'<a class="name" href="{esc(it["_href"])}"><span class="id">{dk(f"open_threads.{i}.task", it["task"])}</span> {esc(it["title"])}</a> '
                    f'{state_badge(it["state"])}' + (' <span class="badge other">fixture</span>' if it["fixture"] else "") + "</div>"
                    + (f'<p class="summary">{esc(it["note"])}</p>' if it["note"] else "") + "</li>")
     out.append("</ul>")
@@ -885,8 +893,11 @@ def render_index(model: dict) -> str:
             last = pdates[-1]
             c = day_counts(p["days"][last])
             people = "—" if c["humans"] is None else str(c["humans"])
+            spent = f"{c['spend_usd']:.1f}"
+            hk = (lambda f, slug=slug: f"products.{slug}.{f}") if last == latest else (lambda f: None)
             body.append(f'<tr><td><a href="/product/{esc(slug)}/">{esc(name)}</a></td><td><a href="/day/{esc(last)}/#{esc(slug)}">{esc(last)}</a></td>'
-                        f'<td>{c["tasks_done_distinct"]}</td><td>{c["tasks_done"]}</td><td>{c["reviews_pass"]}</td><td>{c["posts"]}</td><td>{esc(people)}</td><td>{esc(fmt_usd(c["spend_usd"]))}</td></tr>')
+                        f'<td>{dk(hk("tasks_done_distinct"), c["tasks_done_distinct"])}</td><td>{dk(hk("tasks_done"), c["tasks_done"])}</td><td>{dk(hk("reviews_pass"), c["reviews_pass"])}</td><td>{dk(hk("posts"), c["posts"])}</td>'
+                        f'<td>{dk(hk("humans") if c["humans"] is not None else None, people)}</td><td>${dk(hk("spend_usd"), spent)}</td></tr>')
         body.append("</tbody></table></div>")
         body.append('<p class="note">"Tasks done" = distinct tasks that moved into accepted / measured / done that day; "state transitions" = every such move (one task can make several). "People" = an estimate of engaged human sources from the server log, not counted persons (— when the export has no slice for the day); <a href="/about/#method">method</a>. Spend = model cost of the roles, rounded to $0.1.</p>')
     else:
@@ -1501,6 +1512,71 @@ def check_links() -> dict:
     return {"checked": checked, "broken": broken}
 
 
+def check_numbers() -> dict:
+    """Every <span data-k="path"> on / and /day/*/ must equal the value at that path in today.json / day index.json."""
+    import html.parser
+
+    class K(html.parser.HTMLParser):
+        def __init__(self) -> None:
+            super().__init__()
+            self.cur: str | None = None
+            self.buf: list[str] = []
+            self.found: list[tuple[str, str]] = []
+
+        def handle_starttag(self, tag, attrs):
+            k = dict(attrs).get("data-k")
+            if tag == "span" and k is not None and self.cur is None:
+                self.cur, self.buf = k, []
+
+        def handle_data(self, data):
+            if self.cur is not None:
+                self.buf.append(data)
+
+        def handle_endtag(self, tag):
+            if tag == "span" and self.cur is not None:
+                self.found.append((self.cur, "".join(self.buf)))
+                self.cur = None
+
+    def lookup(obj, path):
+        for part in path.split("."):
+            if isinstance(obj, dict) and part in obj:
+                obj = obj[part]
+            elif isinstance(obj, list) and part.isdigit() and int(part) < len(obj):
+                obj = obj[int(part)]
+            else:
+                raise KeyError(path)
+        return obj
+
+    def show(v):
+        if v is None:
+            return "—"
+        if isinstance(v, float):
+            return f"{v:.1f}"
+        return str(v)
+
+    pairs = [(PUBLIC_DIR / "index.html", PUBLIC_DIR / "today.json")]
+    pairs += [(h, h.with_name("index.json")) for h in sorted((PUBLIC_DIR / "day").glob("*/index.html"))]
+    checked, mism = 0, []
+    for page, jf in pairs:
+        if not page.exists() or not jf.exists():
+            continue
+        name = "/" + page.relative_to(PUBLIC_DIR).parent.as_posix().strip(".") 
+        name = name.rstrip("/") + "/"
+        k = K()
+        k.feed(page.read_text(encoding="utf-8"))
+        data = json.loads(jf.read_text(encoding="utf-8"))
+        for key, text in k.found:
+            checked += 1
+            try:
+                v = show(lookup(data, key))
+            except KeyError:
+                mism.append({"page": name, "key": key, "html": text, "json": "unknown path"})
+                continue
+            if text != v:
+                mism.append({"page": name, "key": key, "html": text, "json": v})
+    return {"checked": checked, "mismatches": mism}
+
+
 def check_machine_urls() -> dict:
     """Extract every same-site URL from feed.xml, sitemap.xml, llms.txt, today.json and day/*/index.json; the target
     must exist in public/ (a directory resolves to index.html; query strings and fragments are ignored)."""
@@ -1582,8 +1658,13 @@ def main(argv: list[str] | None = None) -> int:
     bj["meta_check"] = mc
     write_json(PUBLIC_DIR / "build.json", bj)
     log.info("meta_check: checked=%d missing=%d", mc["checked"], len(mc["missing"]))
+    nc = check_numbers()
+    bj["numbers_check"] = nc
+    write_json(PUBLIC_DIR / "build.json", bj)
+    log.info("numbers_check: checked=%d mismatches=%d", nc["checked"], len(nc["mismatches"]))
     if args.check:
         problems = check_site()
+        problems += [f"{m['page']}: number {m['key']} html={m['html']} json={m['json']}" for m in nc["mismatches"]]
         problems += [f"{m['page']}: missing {m['tag']}" for m in mc["missing"]]
         problems += [f"{b['page']}: dead link {b['href']}" for b in lc["broken"]]
         for pr in problems:

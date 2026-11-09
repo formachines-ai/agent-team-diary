@@ -1131,6 +1131,7 @@ def render_go(url: str, built: str, label: str = "") -> str:
 <link rel="stylesheet" href="/style.css">
 </head>
 <body><main><div class="wrap">
+<h1>Redirecting</h1>
 <p>Redirecting to {esc(label) + ': ' if label else ''}<a href="{u}" rel="nofollow">{u}</a>. This hop exists only so that external clicks can be counted in the server log; nothing about you is stored.</p>
 </div></main>
 <footer class="site"><div class="wrap"><p>{esc(FOOTER_LINE)} · responsible: <a href="{esc(RESPONSIBLE_URL)}">{esc(RESPONSIBLE)}</a> · updated {esc(built)} UTC</p></div></footer>
@@ -1678,6 +1679,107 @@ def check_checklist() -> dict:
             "latest_export_day": latest, "latest_day_problems": latest_problem}
 
 
+def _hex_rgb(h: str) -> tuple[float, float, float]:
+    h = h.lstrip("#")
+    if len(h) == 3:
+        h = "".join(c * 2 for c in h)
+    return tuple(int(h[i:i + 2], 16) / 255 for i in (0, 2, 4))
+
+
+def _lum(h: str) -> float:
+    r, g, b = (c / 12.92 if c <= 0.03928 else ((c + 0.055) / 1.055) ** 2.4 for c in _hex_rgb(h))
+    return 0.2126 * r + 0.7152 * g + 0.0722 * b
+
+
+def contrast_ratio(a: str, b: str) -> float:
+    la, lb = sorted((_lum(a), _lum(b)), reverse=True)
+    return (la + 0.05) / (lb + 0.05)
+
+
+A11Y_PAIRS = [("fg", "bg"), ("fg", "card"), ("muted", "bg"), ("muted", "card"), ("accent", "bg"), ("accent", "card"),
+              ("fg", "code-bg"), ("accent", "code-bg"), ("ok-fg", "ok-bg"), ("warn-fg", "warn-bg"), ("bad-fg", "bad-bg")]
+
+
+def check_a11y() -> dict:
+    """Accessibility basics on every public/**/index.html plus WCAG contrast (>= 4.5) of the stylesheet colour pairs
+    in the light and the prefers-color-scheme: dark scheme."""
+    from html.parser import HTMLParser
+
+    class P(HTMLParser):
+        def __init__(self):
+            super().__init__()
+            self.lang = False
+            self.h1 = 0
+            self.img_no_alt = 0
+            self.tables = 0
+            self.th = 0
+            self.links = []  # [has_label, text]
+            self.cur = None
+
+        def handle_starttag(self, tag, attrs):
+            a = dict(attrs)
+            if tag == "html":
+                self.lang = bool((a.get("lang") or "").strip())
+            elif tag == "h1":
+                self.h1 += 1
+            elif tag == "img":
+                if "alt" not in a:
+                    self.img_no_alt += 1
+                if self.cur is not None and a.get("alt"):
+                    self.cur[1] += "x"
+            elif tag == "table":
+                self.tables += 1
+            elif tag == "th":
+                self.th += 1
+            elif tag == "a":
+                self.cur = [bool((a.get("aria-label") or "").strip()), ""]
+                self.links.append(self.cur)
+
+        def handle_data(self, data):
+            if self.cur is not None:
+                self.cur[1] += data.strip()
+
+        def handle_endtag(self, tag):
+            if tag == "a":
+                self.cur = None
+
+    issues = []
+    pages = sorted(PUBLIC_DIR.rglob("index.html"))
+    for f in pages:
+        page = "/" + f.parent.relative_to(PUBLIC_DIR).as_posix().strip(".") + ("/" if f.parent != PUBLIC_DIR else "")
+        page = page.replace("//", "/")
+        p = P()
+        p.feed(f.read_text(encoding="utf-8"))
+        if not p.lang:
+            issues.append({"page": page, "rule": "html-lang"})
+        if p.h1 != 1:
+            issues.append({"page": page, "rule": f"one-h1 (found {p.h1})"})
+        if p.img_no_alt:
+            issues.append({"page": page, "rule": "img-alt"})
+        if p.tables and p.th == 0:
+            issues.append({"page": page, "rule": "table-th"})
+        if any(not lab and not txt for lab, txt in p.links):
+            issues.append({"page": page, "rule": "link-text"})
+    css = (PUBLIC_DIR / "style.css").read_text(encoding="utf-8")
+    m = re.search(r":root\s*\{([^}]*)\}", css)
+    light = dict(re.findall(r"--([\w-]+):\s*(#[0-9a-fA-F]{3,6})", m.group(1))) if m else {}
+    dm = re.search(r"@media\s*\(prefers-color-scheme:\s*dark\)\s*\{\s*:root\s*\{([^}]*)\}", css)
+    dark = dict(light)
+    if dm:
+        dark.update(re.findall(r"--([\w-]+):\s*(#[0-9a-fA-F]{3,6})", dm.group(1)))
+    contrast = []
+    for scheme, colours in (("light", light), ("dark", dark)):
+        for fg, bg in A11Y_PAIRS:
+            if fg in colours and bg in colours:
+                r = round(contrast_ratio(colours[fg], colours[bg]), 2)
+                contrast.append({"scheme": scheme, "pair": f"{fg} on {bg}", "ratio": r})
+                if r < 4.5:
+                    issues.append({"page": "/style.css", "rule": f"contrast {scheme} {fg} on {bg} = {r}"})
+            else:
+                issues.append({"page": "/style.css", "rule": f"contrast colour missing {scheme} {fg}/{bg}"})
+    return {"pages_checked": len(pages), "issues": issues, "contrast": contrast}
+
+
 def check_machine_urls() -> dict:
     """Extract every same-site URL from feed.xml, sitemap.xml, llms.txt, today.json and day/*/index.json; the target
     must exist in public/ (a directory resolves to index.html; query strings and fragments are ignored)."""
@@ -1768,8 +1870,13 @@ def main(argv: list[str] | None = None) -> int:
     write_json(PUBLIC_DIR / "build.json", bj)
     log.info("checklist_check: pages=%d footer_missing=%d xml_errors=%d sitemap_missing=%d latest_day=%s",
              cc["pages_checked"], len(cc["footer_missing"]), len(cc["xml_errors"]), len(cc["sitemap_missing"]), cc["latest_day"])
+    ac = check_a11y()
+    bj["a11y_check"] = ac
+    write_json(PUBLIC_DIR / "build.json", bj)
+    log.info("a11y_check: pages=%d issues=%d", ac["pages_checked"], len(ac["issues"]))
     if args.check:
         problems = check_site()
+        problems += [f"{i['page']}: a11y {i['rule']}" for i in ac["issues"]]
         problems += [f"{p}: footer disclosure missing" for p in cc["footer_missing"]]
         problems += cc["xml_errors"] + cc["latest_day_problems"]
         problems += [f"sitemap.xml: no <loc> for {p}" for p in cc["sitemap_missing"]]

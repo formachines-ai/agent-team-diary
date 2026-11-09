@@ -1521,31 +1521,58 @@ def check_links() -> dict:
     return {"checked": checked, "broken": broken}
 
 
-def check_numbers() -> dict:
-    """Every <span data-k="path"> on / and /day/*/ must equal the value at that path in today.json / day index.json."""
-    import html.parser
+import html.parser
 
-    class K(html.parser.HTMLParser):
-        def __init__(self) -> None:
-            super().__init__()
-            self.cur: str | None = None
-            self.buf: list[str] = []
-            self.found: list[tuple[str, str]] = []
 
-        def handle_starttag(self, tag, attrs):
-            k = dict(attrs).get("data-k")
-            if tag == "span" and k is not None and self.cur is None:
-                self.cur, self.buf = k, []
+class _KParser(html.parser.HTMLParser):
+    """Collects <span data-k> texts. A data-k span inside another data-k span is recorded in .nested, never read."""
 
-        def handle_data(self, data):
-            if self.cur is not None:
-                self.buf.append(data)
+    def __init__(self) -> None:
+        super().__init__()
+        self.cur: str | None = None
+        self.depth = 0
+        self.buf: list[str] = []
+        self.found: list[tuple[str, str]] = []
+        self.nested: list[str] = []
 
-        def handle_endtag(self, tag):
-            if tag == "span" and self.cur is not None:
+    def handle_starttag(self, tag, attrs):
+        if tag != "span":
+            return
+        k = dict(attrs).get("data-k")
+        if self.cur is None:
+            if k is not None:
+                self.cur, self.buf, self.depth = k, [], 1
+        else:
+            self.depth += 1
+            if k is not None:
+                self.nested.append(k)
+
+    def handle_data(self, data):
+        if self.cur is not None:
+            self.buf.append(data)
+
+    def handle_endtag(self, tag):
+        if tag == "span" and self.cur is not None:
+            self.depth -= 1
+            if self.depth == 0:
                 self.found.append((self.cur, "".join(self.buf)))
                 self.cur = None
 
+
+def numbers_selftest() -> str:
+    """Parse an inline sample: the nested pair must be caught, the flat pair read correctly."""
+    try:
+        p = _KParser()
+        p.feed('<p><span data-k="a.b">1</span> <span data-k="x"><span data-k="y">2</span></span></p>')
+        p.close()
+        ok = p.found == [("a.b", "1"), ("x", "2")] and p.nested == ["y"]
+        return "pass" if ok else "fail"
+    except Exception:
+        return "fail"
+
+
+def check_numbers() -> dict:
+    """Every <span data-k="path"> on / and /day/*/ must equal the value at that path in today.json / day index.json."""
     def lookup(obj, path):
         for part in path.split("."):
             if isinstance(obj, dict) and part in obj:
@@ -1566,7 +1593,7 @@ def check_numbers() -> dict:
     pairs = [("home", PUBLIC_DIR / "index.html", PUBLIC_DIR / "today.json")]
     pairs += [("day", h, h.with_name("index.json")) for h in sorted((PUBLIC_DIR / "day").glob("*/index.html"))]
     pairs += [("product", h, None) for h in sorted((PUBLIC_DIR / "product").glob("*/index.html"))]
-    checked, mism = 0, []
+    checked, mism, nested = 0, [], []
     kinds = {"home": 0, "day": 0, "product": 0}
     cache: dict = {}
 
@@ -1580,9 +1607,11 @@ def check_numbers() -> dict:
             continue
         name = "/" + page.relative_to(PUBLIC_DIR).parent.as_posix().strip(".") 
         name = name.rstrip("/") + "/"
-        k = K()
+        k = _KParser()
         k.feed(page.read_text(encoding="utf-8"))
         data = load(jf) if jf is not None else None
+        for nk in k.nested:
+            nested.append({"page": name, "key": nk})
         for key, text in k.found:
             checked += 1
             kinds[kind] += 1
@@ -1603,7 +1632,7 @@ def check_numbers() -> dict:
                 continue
             if text != v:
                 mism.append({"page": name, "key": key, "html": text, "json": v})
-    return {"checked": checked, "by_kind": kinds, "mismatches": mism}
+    return {"checked": checked, "by_kind": kinds, "mismatches": mism, "nested": nested, "selftest": numbers_selftest()}
 
 
 def check_machine_urls() -> dict:
@@ -1694,6 +1723,9 @@ def main(argv: list[str] | None = None) -> int:
     if args.check:
         problems = check_site()
         problems += [f"{m['page']}: number {m['key']} html={m['html']} json={m['json']}" for m in nc["mismatches"]]
+        problems += [f"{m['page']}: nested data-k {m['key']}" for m in nc["nested"]]
+        if nc["selftest"] != "pass":
+            problems.append("numbers_check selftest failed")
         problems += [f"{m['page']}: missing {m['tag']}" for m in mc["missing"]]
         problems += [f"{b['page']}: dead link {b['href']}" for b in lc["broken"]]
         for pr in problems:

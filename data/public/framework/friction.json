@@ -1,13 +1,13 @@
 {
- "generated": "2026-11-08T07:26:54+00:00",
+ "generated": "2026-11-09T07:27:15+00:00",
  "days": 7,
- "total": 128,
+ "total": 137,
  "by_kind": {
-  "tool_denied": 28,
-  "task_blocked": 23,
+  "tool_denied": 30,
+  "task_blocked": 25,
   "review_inconclusive": 10,
-  "reported": 55,
-  "review_fail": 3,
+  "reported": 59,
+  "review_fail": 4,
   "no_commit": 9
  },
  "by_day": {
@@ -45,10 +45,80 @@
    "reported": 3
   },
   "2026-11-08": {
+   "task_blocked": 2,
+   "tool_denied": 2,
+   "reported": 3,
+   "review_fail": 1
+  },
+  "2026-11-09": {
+   "reported": 1,
    "task_blocked": 1
   }
  },
  "recent": [
+  {
+   "ts": "2026-11-09T07:12:26+00:00",
+   "product": "luz-amanha",
+   "role": "dispatcher",
+   "kind": "task_blocked",
+   "summary": "T-0066 Morning post 09.11 07:00 UTC with the dated link /d/2026-11-: question Q-0019"
+  },
+  {
+   "ts": "2026-11-09T04:07:47+00:00",
+   "product": "agent-team",
+   "role": "dispatcher",
+   "kind": "reported",
+   "summary": "dispatcher: [other] claim vs git diff MISMATCH T-0065: developer summary names files not in the git diff: build.json, today.json, robots.txt, metrics.json"
+  },
+  {
+   "ts": "2026-11-08T15:10:17+00:00",
+   "product": "agentsmd-tracker",
+   "role": "marketer",
+   "kind": "reported",
+   "summary": "marketer: [missing_data] No way to read likes/reposts/replies of the 07.11 X post; the report asked for them."
+  },
+  {
+   "ts": "2026-11-08T14:08:30+00:00",
+   "product": "agentsmd-tracker",
+   "role": "reviewer",
+   "kind": "review_fail",
+   "summary": "T-0077: The sample description is correct and consistent on stats.json, home and llms.txt, but the object is named sample_details instead of the required sample. The task's acceptance and its no-renam"
+  },
+  {
+   "ts": "2026-11-08T13:12:39+00:00",
+   "product": "release-radar",
+   "role": "analyst",
+   "kind": "tool_denied",
+   "summary": "analyst: denied Bash(cd /tmp; for u in build.json today.json robots.txt sitemap.xml llms.txt; do echo), Bash(curl -s -m 20 -w \"\\n%{http_code}\\n\" https://releases.formachines.ai/build.json |)"
+  },
+  {
+   "ts": "2026-11-08T12:13:02+00:00",
+   "product": "agentsmd-tracker",
+   "role": "dispatcher",
+   "kind": "task_blocked",
+   "summary": "T-0077 Explain the sample size: why M is 1,922 and not 2,000 (stats: question Q-0011"
+  },
+  {
+   "ts": "2026-11-08T10:16:46+00:00",
+   "product": "agent-team-diary",
+   "role": "marketer",
+   "kind": "reported",
+   "summary": "marketer: [missing_data] The dev.to article URL only exists after the dispatcher sends it, so Bluesky and Threads link to the dev.to profile instead"
+  },
+  {
+   "ts": "2026-11-08T10:16:46+00:00",
+   "product": "agent-team-diary",
+   "role": "marketer",
+   "kind": "reported",
+   "summary": "marketer: [environment] docs.paperclip.ing is not on team-fetch's allowed host list, so I could not read the linked page"
+  },
+  {
+   "ts": "2026-11-08T10:12:38+00:00",
+   "product": "agent-team-diary",
+   "role": "marketer",
+   "kind": "tool_denied",
+   "summary": "marketer: denied Edit(/home/ubuntu/agent-team/dispatcher/data/work/agent-team-diary/20261108T1007/mkt-)"
+  },
   {
    "ts": "2026-11-08T07:17:01+00:00",
    "product": "release-radar",
@@ -335,69 +405,6 @@
    "role": "developer",
    "kind": "reported",
    "summary": "developer: [environment] The task branch started at main without the earlier attempt's commit; I had to fast-forward to d7d3fdf."
-  },
-  {
-   "ts": "2026-11-03T19:13:14+00:00",
-   "product": "release-radar",
-   "role": "developer",
-   "kind": "reported",
-   "summary": "developer: [missing_data] The T-0029 labelled report does not exist (analyst run returned a stub), so 'any other fix wording' patterns and the labelled sample could not be done."
-  },
-  {
-   "ts": "2026-11-03T19:13:14+00:00",
-   "product": "release-radar",
-   "role": "developer",
-   "kind": "reported",
-   "summary": "developer: [unclear_instruction] The scope says to edit only config/ignore_patterns.txt, but linking the report from llms.txt needs a build.py change."
-  },
-  {
-   "ts": "2026-11-03T19:13:14+00:00",
-   "product": "release-radar",
-   "role": "developer",
-   "kind": "reported",
-   "summary": "developer: [environment] The branch checkout had no commits of its own, so the earlier attempt's commit was not on it; I had to fast-forward to it."
-  },
-  {
-   "ts": "2026-11-03T19:09:45+00:00",
-   "product": "agentsmd-tracker",
-   "role": "persona",
-   "kind": "tool_denied",
-   "summary": "persona: denied Bash(team-fetch https://agentsmd.formachines.ai/feed.xml --grep <item --around 0)"
-  },
-  {
-   "ts": "2026-11-03T18:18:43+00:00",
-   "product": "release-radar",
-   "role": "developer",
-   "kind": "reported",
-   "summary": "developer: [missing_data] The T-0029 report the task refers to was never produced: the analyst run returned a stub saying it had no today.json. The task depends on content that does not exist."
-  },
-  {
-   "ts": "2026-11-03T18:18:43+00:00",
-   "product": "release-radar",
-   "role": "developer",
-   "kind": "reported",
-   "summary": "developer: [unclear_instruction] Scope says edit only ignore_patterns.txt, but the required llms.txt link needs a build.py change."
-  },
-  {
-   "ts": "2026-11-03T17:07:31+00:00",
-   "product": "agent-team-diary",
-   "role": "reviewer",
-   "kind": "review_fail",
-   "summary": "T-0019: The home page, day page, today.json and the /about/#method note all behave as specified. The day index.json lacks the new distinct-count field, and it has no per-product counts at all, so the "
-  },
-  {
-   "ts": "2026-11-03T15:09:29+00:00",
-   "product": "release-radar",
-   "role": "dispatcher",
-   "kind": "task_blocked",
-   "summary": "T-0027 Mastodon first post 05.11 12:00 UTC — plain-fact version of : question Q-0006"
-  },
-  {
-   "ts": "2026-11-03T15:09:17+00:00",
-   "product": "luz-amanha",
-   "role": "dispatcher",
-   "kind": "task_blocked",
-   "summary": "T-0022 Mastodon post 04.11 14:10 UTC: first Fediverse card with the: question Q-0008"
   }
  ]
 }

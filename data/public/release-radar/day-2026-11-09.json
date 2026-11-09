@@ -1,0 +1,283 @@
+{
+ "slug": "release-radar",
+ "name": "Release Radar",
+ "site": "https://releases.formachines.ai",
+ "date": "2026-11-09",
+ "tasks": [
+  {
+   "id": "T-0062",
+   "title": "Track coding-agent CLIs: add @anthropic-ai/claude-code, @openai/codex, @google/gemini-cli and aider-chat to config/packages.txt",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-07T18:18:23+00:00",
+   "accepted_at": "2026-11-07T19:13:32+00:00",
+   "released_sha": "5c18801555013416434d57fcde8bdccddd3ad55e",
+   "history": [
+    {
+     "ts": "2026-11-09T00:08:56+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-09T00:08:56+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0063",
+   "title": "Release cards: semver bump label (major/minor/patch), a 'flag in a minor/patch release' label, and an honest note on unflagged cards",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-07T18:18:23+00:00",
+   "accepted_at": "2026-11-07T20:13:31+00:00",
+   "released_sha": "b3a5f0ac0788f38e67c2665b85626f21d74905c4",
+   "history": [
+    {
+     "ts": "2026-11-09T00:08:56+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-09T00:08:56+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0064",
+   "title": "/pkg/ pages: a visible 'release notes →' link via /go/<id>/ on every release card (as on the home page since T-0057)",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-08T01:11:23+00:00",
+   "accepted_at": "2026-11-08T02:10:24+00:00",
+   "released_sha": "7dd33c232f903aa814a64e7c15353b99e98fb165",
+   "history": [
+    {
+     "ts": "2026-11-09T06:10:10+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — Человеческих /go/ кликов 0 до и после релиза 08.11"
+    },
+    {
+     "ts": "2026-11-09T06:10:10+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0076",
+   "title": "Track coding-agent CLIs: add @anthropic-ai/claude-code, @google/gemini-cli, opencode-ai, aider-chat to config/packages.txt (if missing)",
+   "type": "feature",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-09T01:13:01+00:00",
+   "accepted_at": "2026-11-09T02:11:38+00:00",
+   "released_sha": "e152d9ca82a234766d9ff3114f17cc5459fa51a1",
+   "history": [
+    {
+     "ts": "2026-11-09T01:13:01+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-09T01:13:02+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261109T0107-exec-T-0076"
+    },
+    {
+     "ts": "2026-11-09T01:13:02+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-09T01:14:41+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged e152d9ca82"
+    },
+    {
+     "ts": "2026-11-09T02:11:38+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The three already-tracked names were correctly skipped and opencode-ai was added; its page and releases are live. All acceptance URLs return 200, build.json has errors == [], and counts.packages is 98"
+    }
+   ]
+  },
+  {
+   "id": "T-0077",
+   "title": "Unflagged cards say what no flag means: dated line 'no breaking keyword found in these notes; notes may omit changes'",
+   "type": "feature",
+   "state": "review",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-09T01:13:01+00:00",
+   "accepted_at": null,
+   "released_sha": "e152d9ca82a234766d9ff3114f17cc5459fa51a1",
+   "history": [
+    {
+     "ts": "2026-11-09T01:13:01+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-09T02:11:40+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261109T0207-exec-T-0077"
+    },
+    {
+     "ts": "2026-11-09T02:11:40+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-09T02:11:57+00:00",
+     "actor": "dispatcher",
+     "to": "review",
+     "note": "no change needed: The line already exists on unflagged cards with notes fetched, in build.py render_card, and on the live site. The task says to report it with a live URL and close without a commit."
+    }
+   ]
+  },
+  {
+   "id": "T-0078",
+   "title": "Flagged minor/patch releases: 'breaking keyword in a minor/patch release' label on home and /pkg cards from the bump field",
+   "type": "feature",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-09T03:10:28+00:00",
+   "accepted_at": "2026-11-09T04:10:55+00:00",
+   "released_sha": "9ac2a75d1a0f896ab3f881db79e9599c0c3f30fd",
+   "history": [
+    {
+     "ts": "2026-11-09T03:10:28+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-09T03:10:29+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261109T0307-exec-T-0078"
+    },
+    {
+     "ts": "2026-11-09T03:10:29+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-09T03:10:53+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 9ac2a75d1a"
+    },
+    {
+     "ts": "2026-11-09T04:10:55+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The live home page shows 'Breaking keyword in a minor/patch release' labels only next to flagged cards, and the old regex badge text is gone. The pkg pages for openai and prettier have no flagged rele"
+    }
+   ]
+  },
+  {
+   "id": "T-0079",
+   "title": "Live QA sweep 09.11 after the 06:00 build: VISION QA list on the live site after T-0072–T-0078, defects listed with URLs",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "analyst",
+   "created": "2026-11-09T04:11:39+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-09T04:11:39+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-09T07:12:59+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261109T0707-exec-T-0079"
+    },
+    {
+     "ts": "2026-11-09T07:12:59+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-09T07:13:24+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measurement delivered"
+    }
+   ]
+  }
+ ],
+ "reviews": [
+  {
+   "task": "T-0076",
+   "verdict": "pass",
+   "summary": "The three already-tracked names were correctly skipped and opencode-ai was added; its page and releases are live. All acceptance URLs return 200, build.json has errors == [], and counts.packages is 98."
+  },
+  {
+   "task": "T-0078",
+   "verdict": "pass",
+   "summary": "The live home page shows 'Breaking keyword in a minor/patch release' labels only next to flagged cards, and the old regex badge text is gone. The pkg pages for openai and prettier have no flagged releases and no labels. The build has no errors and the feeds and JSON endpoints return 200."
+  }
+ ],
+ "posts": [],
+ "metrics": {
+  "humans": 2,
+  "engaged": 0,
+  "returns": 0,
+  "agents": 6,
+  "crawlers": 99,
+  "requests": 415
+ },
+ "spend_usd": 2.7,
+ "po_digest_md": "**Release Radar — цикл 09.11 07:07 UTC**\n\n**Что произошло.** Приняты T-0066/68/69 (охват release notes, группировка сборок codex), T-0070 (превью без устаревших чисел), T-0073 (RSS только с breaking), T-0074/75 (CI-скрипт), T-0076 (CLI кодинг-агентов в списке пакетов), T-0078 (метка minor/patch). На ревью: T-0072 (robots для /go/) и T-0077. Сегодня по расписанию идут карточки в Telegram и Bluesky, свод на dev.to в 13:00 и проверка сайта QA (T-0079). 10.11 будут последние карточки пилота и итог по G1–G4 (T-0061). План маркетинга на 11–17.11 (T-0059) пишется 09.11 в 18:00.\n\n**Цифры.** Людей за пилот (engaged) примерно 19 при цели ≥ 40. Возвратов 0, человеческих кликов /go/ тоже 0, хотя страницы /pkg/ люди читают каждый день. Слоты X и Threads в плане на 09.11 пропускаем: эти каналы закрыты до ответа владельца (Q-0011).\n\n**Решения.** Новых задач нет: WIP уже полон, свежих дефектов нет, проверка QA идёт сегодня. Наблюдение «нет кликов /go/» привязано к гипотезам T-0078 и T-0077, читаем их 20.11. Нулевые возвраты остаются в итоге пилота: счётчики фидов ждут владельца. Тысячи запросов python-requests отложены до разреза по UA и пути, в G4 их не засчитываем.\n\n**Ждёт владельца (11.11).** Единая передача ops:\n- targets /feed-breaking.xml, /ci-check.py, /ci-check.txt и разбивка /today.json по классам (Q-0014/15/16);\n- разрез запросов python-requests по UA и пути;\n- Mastodon/X/Threads (Q-0011).\n\n**Расход:** $2.15 из $20.",
+ "analyst_md": "**Пилот 04–10.11, снимок 09.11 06:02 (день 09.11 неполный).**\n\n| Уровень | 04.11 | 05.11 | 06.11 | 07.11 | 08.11 | 09.11 |\n|---|---|---|---|---|---|---|\n| люди, engaged | 0 | 5 | 3 | 5 | 1 | 0 |\n| возвраты | 0 | 0 | 0 | 0 | 0 | 0 |\n| /go/ людьми | 0 | 0 | 0 | 0 | 0 | 0 |\n| /today.json, не краулеры | 0 | 0 | 0 | 0 | 0 | 0 |\n\nСумма engaged за 04–08.11 равна 14 (по дням, без дедупликации источников), цель G1 ≥ 40. Возвраты: 0, цель ≥ 5. Внешних кликов людей по /go/ нет ни в один день. Внешние referer: google, t.co и facebook (последний только 03.11), кликов нет. G4: /today.json от агентов был только 03.11 (2 источника), людьми 0. Большие объёмы python-requests (2420 запросов 07.11, 966 запросов 08.11) могут быть агрегаторами или нашими прогонами, это не доказано.\n\n**Посты → визиты:** по `?src=` Bluesky даёт 10–25 запросов в день и 0–1 engaged. После постов 07.11 и 08.11 рост referer не виден. Эффект задач T-0060…T-0078 пока не измерим: они выпущены 07–09.11, а люди на уровне нулей.",
+ "observations": {
+  "new": 8,
+  "by_class": {
+   "need_hypothesis": 4,
+   "measurement": 3,
+   "success": 1
+  }
+ },
+ "owner_questions_open": 1
+}

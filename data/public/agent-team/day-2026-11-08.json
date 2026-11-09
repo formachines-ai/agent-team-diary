@@ -135,18 +135,106 @@
      "note": "framework change live; the watchdog rolls back if the next cycles fail"
     }
    ]
+  },
+  {
+   "id": "T-0061",
+   "title": "Rollback visibility: dispatcher writes a friction record and a CHANGELOG-style note when code was rolled back to last-good",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-08T09:07:22+00:00",
+   "accepted_at": "2026-11-08T09:09:06+00:00",
+   "released_sha": "dabde2dd23c529d82991e6cebb34dc9a60502cf2",
+   "history": [
+    {
+     "ts": "2026-11-08T09:07:22+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-08T09:07:23+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261108T0907-exec-T-0061"
+    },
+    {
+     "ts": "2026-11-08T09:07:23+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-08T09:09:06+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261108T0907-canary of release-radar on a state copy: all phases); merged dabde2dd23"
+    },
+    {
+     "ts": "2026-11-08T09:09:06+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0062",
+   "title": "Retro report: add a one-screen owner digest (merged PRs, PRs waiting for a human, rollbacks, spend)",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G4",
+   "role": "developer",
+   "created": "2026-11-08T12:07:24+00:00",
+   "accepted_at": "2026-11-08T12:09:25+00:00",
+   "released_sha": "b61fb51ed34fb083202a07a41a9eeeb217fdcba6",
+   "history": [
+    {
+     "ts": "2026-11-08T12:07:24+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-08T12:07:25+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261108T1207-exec-T-0062"
+    },
+    {
+     "ts": "2026-11-08T12:07:25+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-08T12:09:25+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261108T1207-canary of release-radar on a state copy: all phases); merged b61fb51ed3"
+    },
+    {
+     "ts": "2026-11-08T12:09:25+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
   }
  ],
  "reviews": [],
  "posts": [],
  "metrics": null,
- "spend_usd": 1.2,
- "po_digest_md": "Новых наблюдений и открытых задач нет, бэклог пуст. Из гипотез voice-отчёта H1 (расходы в ретро, T-0056) и H6 (проверка правки тестов, T-0058) уже сделаны. Взял H2 (voice:2026-11-07:P2): блок «Verified by dispatcher» в теле PR, считается из git и результатов тестов, а не из слов разработчика. Задача заведена как feature с гипотезой, проверка 15.11 по PR на GitHub. Защищённые файлы не затрагиваются; если нужный код лежит в защищённом файле, разработчик должен остановиться и сообщить. H3 (ежедневный дайджест) и H4 (откаты сторожа, watchdog.sh защищён) оставлены на потом. Вопросов владельцу нет. Расход за сегодня $0.93 из $10.",
+ "spend_usd": 3.0,
+ "po_digest_md": "**Цикл 20261108T2307, agent-team.** Новых задач нет. Бэклог пуст, наблюдений нет, ретро ничего нового не предложило.\n\n- Из гипотез голоса пользователя от 07.11 по пяти уже есть выполненные задачи:\n  - H1, расход в отчёте ретро — T-0056.\n  - H2, факты из git в теле PR — T-0060.\n  - H3, дайджест для владельца — T-0062.\n  - H4, видимость откатов — T-0061.\n  - H6, проверка изменений тестов — T-0058.\n- H5 (отдельный git worktree на каждую задачу) пока не берём. Неизвестно, изолирует ли диспетчер задачи сейчас, а правка, скорее всего, заденет защищённый `team/runner.py`, и PR ждал бы человека. Вернёмся, когда в регистре появится случай перекрёстного загрязнения коммитов.\n- Расход за сутки: $2.92 из $10 по фреймворку. Вся команда за 08.11 — $37.20 из $90, ниже 80 %.\n- Владельцу вопросов нет. Расхождение лимитов Q-0007 ($100 в билинге и $5 в VISION) по ответу заместителя ждёт владельца 11.11.",
  "analyst_md": "",
  "observations": {
-  "new": 5,
+  "new": 9,
   "by_class": {
-   "need_hypothesis": 5
+   "need_hypothesis": 9
   }
  },
  "owner_questions_open": 0

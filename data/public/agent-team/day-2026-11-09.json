@@ -1,0 +1,153 @@
+{
+ "slug": "agent-team",
+ "name": "agent-team (framework)",
+ "site": "",
+ "date": "2026-11-09",
+ "tasks": [
+  {
+   "id": "T-0063",
+   "title": "[retro] Marketer card: define thread = one post, and no cross-links to URLs not yet known",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-09T00:09:20+00:00",
+   "accepted_at": "2026-11-09T01:08:47+00:00",
+   "released_sha": "b48153bf6746bcc9bf8dbc03f689dfe080eb502d",
+   "history": [
+    {
+     "ts": "2026-11-09T00:09:20+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-09T01:07:13+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261109T0107-exec-T-0063"
+    },
+    {
+     "ts": "2026-11-09T01:07:13+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-09T01:08:47+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261109T0107-canary of release-radar on a state copy: all phases); merged b48153bf67"
+    },
+    {
+     "ts": "2026-11-09T01:08:47+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0064",
+   "title": "[retro] PO card: acceptance field names must agree with the task's no-rename rule",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-09T00:09:21+00:00",
+   "accepted_at": "2026-11-09T02:08:44+00:00",
+   "released_sha": "4305b3832f6df0b9a0b4f66987c4a374a98fe058",
+   "history": [
+    {
+     "ts": "2026-11-09T00:09:21+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-09T02:07:09+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261109T0207-exec-T-0064"
+    },
+    {
+     "ts": "2026-11-09T02:07:09+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-09T02:08:44+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261109T0207-canary of release-radar on a state copy: all phases); merged 4305b3832f"
+    },
+    {
+     "ts": "2026-11-09T02:08:44+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0065",
+   "title": "[retro] Analyst card: no curl or fetch of any URL, live-site checks go to friction",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-09T03:11:15+00:00",
+   "accepted_at": "2026-11-09T04:08:47+00:00",
+   "released_sha": "70b0fc541918e55e7a2a1faf01c545e03a05e307",
+   "history": [
+    {
+     "ts": "2026-11-09T03:11:15+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-09T04:07:16+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261109T0407-exec-T-0065"
+    },
+    {
+     "ts": "2026-11-09T04:07:16+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-09T04:08:47+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261109T0407-canary of release-radar on a state copy: all phases); merged 70b0fc5419"
+    },
+    {
+     "ts": "2026-11-09T04:08:47+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  }
+ ],
+ "reviews": [],
+ "posts": [],
+ "metrics": null,
+ "spend_usd": 0.8,
+ "po_digest_md": "**Цикл 09.11 07:07 — новых задач нет.**\n\n- Бэклог пуст, новых наблюдений и открытых вопросов нет, метрик пока нет.\n- Последнее ретро (09.11) ничего нового не предложило. Старые кластеры (repo_only-ревью, цикл no_commit у luz-amanha, `--grep` с `<`/`>`) уже закрыты прошлыми предложениями, и с 03–04.11 они не повторялись.\n- За сутки слито 6 PR (T-0060…T-0065, включая сводку для владельца и сверку заявленного с git diff). PR, ждущих человека, и откатов нет.\n- Все четыре гипотезы из голоса пользователей, которые мы взяли (H1 — расходы, H2 — сверка с git, H3 — дайджест, H4 — откаты), уже сделаны. H6 тоже сделана: проверка правки тестов в T-0058.\n- Остаётся H5 (отдельный git worktree на задачу). Её сначала нужно проверить по коду, потому что она, скорее всего, затрагивает защищённые файлы (`team/runner.py`). Без сигнала от канарейки или реальных падений из-за общего чекаута делать её рано.\n- Расходы: $0.73 PO сегодня; вся команда сегодня $9.59 из $90 (11 %).\n- Владельцу вопросов нет. Расхождение лимитов $100 и $5 (Q-0007) остаётся до его возвращения 11.11.",
+ "analyst_md": "",
+ "observations": {
+  "new": 3,
+  "by_class": {
+   "feedback": 3
+  }
+ },
+ "owner_questions_open": 0
+}

@@ -1,0 +1,315 @@
+{
+ "slug": "luz-amanha",
+ "name": "Luz Amanhã",
+ "site": "https://luz.bymachines.ai",
+ "date": "2026-11-09",
+ "tasks": [
+  {
+   "id": "T-0066",
+   "title": "Morning post 09.11 07:00 UTC with the dated link /d/2026-11-09/ (replaces T-0046)",
+   "type": "content",
+   "state": "blocked",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "marketer",
+   "created": "2026-11-05T00:10:01+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-09T07:12:14+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261109T0707-exec-T-0066"
+    },
+    {
+     "ts": "2026-11-09T07:12:14+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-09T07:12:26+00:00",
+     "actor": "marketer",
+     "to": "blocked",
+     "note": "question Q-0019"
+    }
+   ]
+  },
+  {
+   "id": "T-0088",
+   "title": "Lisbon 23:00 hour from the next-day OMIE file when cached (today.json and /d/ get 24/24); label hours as Lisbon time",
+   "type": "defect",
+   "state": "done",
+   "priority": "P2",
+   "goal": "L0 / G2 (dated, true data; 24 hours promised by the QA)",
+   "role": "developer",
+   "created": "2026-11-07T18:15:50+00:00",
+   "accepted_at": "2026-11-07T19:11:58+00:00",
+   "released_sha": "aa953ffe10cf5dba8d1cb8c5d647a592796ae43d",
+   "history": [
+    {
+     "ts": "2026-11-09T00:08:37+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-09T00:08:37+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0089",
+   "title": "New page /ha/: copy-paste Home Assistant REST sensor for the cheapest and dearest windows from /tomorrow.json and /today.json (PT+EN)",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G5",
+   "role": "developer",
+   "created": "2026-11-07T18:15:51+00:00",
+   "accepted_at": "2026-11-07T20:11:17+00:00",
+   "released_sha": "f56b3ab21c19a0ce61fdeac1b7ba02f436348898",
+   "history": [
+    {
+     "ts": "2026-11-09T00:08:37+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — Выпущено 07.11; агентские запросы к JSON — python-requests, без HomeAssistant UA; min_sample 3, read_on 14.11."
+    },
+    {
+     "ts": "2026-11-09T00:08:37+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0090",
+   "title": "One PT+EN line next to the €/kWh energia column: '€/MWh ÷ 1000 = €/kWh energia; your supplier adds losses, margin, TAR and VAT'",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "developer",
+   "created": "2026-11-07T18:15:52+00:00",
+   "accepted_at": "2026-11-07T21:10:54+00:00",
+   "released_sha": "1de9d4243ff135cceba6acb83f9e9e72f1ed1ecc",
+   "history": [
+    {
+     "ts": "2026-11-09T00:08:37+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — Выпущено 07.11; engaged 2→1→1 при 1–6 людях в день, выборка слишком мала."
+    },
+    {
+     "ts": "2026-11-09T00:08:37+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0091",
+   "title": "Unavailable-day JSON: describe it in llms.txt, make the /ha/ YAML cope with available:false, test the /ha/ keys",
+   "type": "defect",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G5",
+   "role": "developer",
+   "created": "2026-11-07T20:12:15+00:00",
+   "accepted_at": "2026-11-07T22:10:40+00:00",
+   "released_sha": "e28818b6aa2bc9f7e8526e06c4d67af7fa19a901",
+   "history": [
+    {
+     "ts": "2026-11-09T00:08:37+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-09T00:08:37+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0092",
+   "title": "Unavailable tomorrow.json/today.json: add built_utc, timezone and disclosure fields; the /ha/ test uses the JSON that build.py generates",
+   "type": "defect",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G5",
+   "role": "developer",
+   "created": "2026-11-07T22:11:14+00:00",
+   "accepted_at": "2026-11-07T23:09:09+00:00",
+   "released_sha": "007062530c7ba111ae5f47d7948c2d961dded535",
+   "history": [
+    {
+     "ts": "2026-11-09T00:08:37+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-09T00:08:37+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0093",
+   "title": "JSON disclosure: one identical string in the available and the unavailable shape of tomorrow.json/today.json/d/*/index.json",
+   "type": "defect",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G5",
+   "role": "developer",
+   "created": "2026-11-07T23:09:46+00:00",
+   "accepted_at": "2026-11-08T00:08:48+00:00",
+   "released_sha": "6a24b88476334fe861ce69601ab43b0eed9df623",
+   "history": [
+    {
+     "ts": "2026-11-09T06:09:41+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-09T06:09:41+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0094",
+   "title": "Next to the Telegram link on / and /d/DD/: one PT+EN line on what the channel sends and when (14:05 and 07:00 UTC)",
+   "type": "content",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-07T23:09:47+00:00",
+   "accepted_at": "2026-11-08T01:10:11+00:00",
+   "released_sha": "178460fe871fddbd7c2692b365c05e20a762a925",
+   "history": [
+    {
+     "ts": "2026-11-09T06:09:41+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: none — Кликов /go/telegram/ с 05.11 нет, принято 08.11, данных мало."
+    },
+    {
+     "ts": "2026-11-09T06:09:41+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0095",
+   "title": "/ha/: add the same JSON-LD block and hreflang pt/en/x-default links that the other pages have (seocheck)",
+   "type": "defect",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G5",
+   "role": "developer",
+   "created": "2026-11-08T02:09:35+00:00",
+   "accepted_at": "2026-11-08T03:07:36+00:00",
+   "released_sha": "80f68f65629bbfc60cfe78f2b452a67aad1aa3d4",
+   "history": [
+    {
+     "ts": "2026-11-09T06:09:41+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-09T06:09:41+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0096",
+   "title": "build.py --offline must not downgrade an available tomorrow.json/today.json when the local cache lacks that day's OMIE file",
+   "type": "defect",
+   "state": "done",
+   "priority": "P2",
+   "goal": "L0 / G2 (daily update promise, dated true data)",
+   "role": "developer",
+   "created": "2026-11-08T03:08:09+00:00",
+   "accepted_at": "2026-11-08T04:07:45+00:00",
+   "released_sha": "a7ed05d24a53586aec0b0d879f46c8e2ea5a0f4d",
+   "history": [
+    {
+     "ts": "2026-11-09T06:09:41+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-09T06:09:41+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0101",
+   "title": "Pilot readout 04.11–10.11: G1–G5 actual vs target, by channel, for the owner's return on 11.11",
+   "type": "research",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "analyst",
+   "created": "2026-11-09T07:12:14+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-09T07:12:14+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  }
+ ],
+ "reviews": [],
+ "posts": [],
+ "metrics": {
+  "humans": 0,
+  "engaged": 0,
+  "returns": 0,
+  "agents": 0,
+  "crawlers": 4,
+  "requests": 50
+ },
+ "spend_usd": 1.2,
+ "po_digest_md": "**Цикл 09.11 07:07 UTC — luz-amanha**\n\n**Что произошло:** посты за 08.11 вышли по графику: утренний и дневной в Telegram и Bluesky, EN-first тест в X (T-0040). /ha/ meta description исправлен (T-0100 accepted). На ревью: missing_reason в JSON (T-0083), архив /d/ с дорогим окном (T-0087), ссылка English и время публикации на первом экране (T-0097).\n\n**Цифры:** engaged-люди за 04–08.11 = 6 (цель G1 ≥ 30, не достигается). Возвраты 0–1 в день. Из каналов людей привёл только X (3 engaged); Bluesky дал 1 человека; Telegram, Mastodon и Threads — 0. После 04.11 нет ни одного человеческого клика по /go/telegram/ (OBS-0290). Шум от сканеров (OBS-0291) — не дефект сайта, 5xx = 0, отклонено.\n\n**Решения:**\n- OBS-0290 привязано к плану маркетинга на 10–16.11 (T-0074): по нему решим, каким каналам дать больше постов.\n- Новая задача аналитику (с 11.11 01:00 UTC): итоги пилота по G1–G5 против целей и разбивка по каналам. Этот отчёт будет готов к возвращению владельца 11.11.\n- Посты расписаны до 11.11 включительно, утренний тест X 09.11 запланирован. Новых задач для разработчика нет, пока не закончится ревью трёх задач.\n\n**Ждёт владельца 11.11:**\n- правка VISION: 4 слота сборки и строка статуса (Q-0016);\n- /ha/ в targets метрик (Q-0018);\n- решения по целям после пилота: G1 почти наверняка не будет достигнута.\n\n**Расход:** $0.68 из $20.",
+ "analyst_md": "**Период 04–09.11 (09.11 — данные только до 06:02 UTC).** Уровни не суммируются.\n\n| Метрика | Значение |\n|---|---|\n| G1 engaged-источники 04–08.11 (по дням 0/2/1/2/1) | 6 (верхняя оценка, возможны повторы) |\n| G2 возвраты | 07.11: 1, 08.11: 1 |\n| G3 клики /go/telegram/ | 3 запроса 04.11, человек 0; позже строк нет |\n| G4 внешний referer | google.com, t.co, ritazietsma.com, lutastore.net |\n| G5 агенты | python-requests 67–182 запроса/день |\n| Краулеры 08.11 | 68 запросов, 51 источник |\n| 5xx | 0 за все дни |\n\nВыводы: G1 6 из 30 — цель не достигается. Engaged-люди приходят только с `?src=x` (t.co) в 4 дня из 4; у Bluesky, Mastodon, Threads и Telegram engaged = 0, их запросы в основном от превью-ботов. 08.11 было 4912 запросов, 1942 из них от двух сканеров — шум, не дефект. Эффекты задач на людей не видны: T-0085, T-0090 и T-0094 внедрены 07–08.11, выборка из 1–2 человек в день.",
+ "observations": {
+  "new": 4,
+  "by_class": {
+   "need_hypothesis": 1,
+   "measurement": 3
+  }
+ },
+ "owner_questions_open": 0
+}

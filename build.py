@@ -691,10 +691,30 @@ def broke_block(date: str, model: dict) -> str:
     return "\n".join(out)
 
 
+def try_line() -> str:
+    """One plain line right after the h1 of / and day pages: where to try the team and read the code."""
+    return ('<p class="try-line"><a href="/try/">Try this team on your own product</a> · '
+            '<a href="/go/github/">Read the framework code, MIT</a></p>')
+
+
+def check_nav() -> dict:
+    """/ and every /day/<date>/: links to /try/ and /go/github/ after <h1> and before the first <h2>."""
+    pages = [PUBLIC_DIR / "index.html"] + sorted(PUBLIC_DIR.glob("day/*/index.html"))
+    missing = []
+    for f in pages:
+        t = f.read_text(encoding="utf-8")
+        i1, i2 = t.find("<h1"), t.find("<h2")
+        head = t[i1:i2] if i2 > i1 >= 0 else ""
+        for href in ('href="/try/"', 'href="/go/github/"'):
+            if href not in head:
+                missing.append({"page": str(f.relative_to(PUBLIC_DIR)), "link": href})
+    return {"pages_checked": len(pages), "missing": missing}
+
+
 def render_day(date: str, model: dict) -> str:
     products = model["products"]
     present = [(slug, p) for slug, p in products.items() if date in p["days"]]
-    body = [f"<h1>{esc(date)}</h1>", f'<p class="lead">One day of the agent team, product by product. <a href="/day/{esc(date)}/index.json">index.json</a></p>']
+    body = [f"<h1>{esc(date)}</h1>", f'<p class="lead">One day of the agent team, product by product. <a href="/day/{esc(date)}/index.json">index.json</a></p>', try_line()]
     prev_d, next_d = neighbours(date, model["dates"])
     nav = []
     if prev_d:
@@ -884,7 +904,7 @@ def open_threads_block(latest: str, model: dict) -> str:
 def render_index(model: dict) -> str:
     products, dates = model["products"], model["dates"]
     latest = dates[-1] if dates else None
-    body = [f"<h1>{esc(SITE_NAME)}</h1>", f'<p class="lead">{esc(SITE_TAGLINE)}</p>']
+    body = [f"<h1>{esc(SITE_NAME)}</h1>", f'<p class="lead">{esc(SITE_TAGLINE)}</p>', try_line()]
     if latest:
         body.append(f'<h2 id="latest">Latest day: <a href="/day/{esc(latest)}/">{esc(latest)}</a></h2>')
         body.append(progress_note(latest, model["built"]))
@@ -2079,6 +2099,10 @@ def main(argv: list[str] | None = None) -> int:
     bj["wellknown_check"] = {"files": wk["files"], "missing": wk["missing"]}
     write_json(PUBLIC_DIR / "build.json", bj)
     log.info("wellknown_check: files=%d missing=%d problems=%d", len(wk["files"]), len(wk["missing"]), len(wk["problems"]))
+    nav = check_nav()
+    bj["nav_check"] = nav
+    write_json(PUBLIC_DIR / "build.json", bj)
+    log.info("nav_check: pages=%d missing=%d", nav["pages_checked"], len(nav["missing"]))
     mch = check_machine()
     bj["machine_check"] = mch
     write_json(PUBLIC_DIR / "build.json", bj)
@@ -2088,6 +2112,7 @@ def main(argv: list[str] | None = None) -> int:
         problems = check_site()
         problems += [f"llms.txt: missing {m}" for m in mch["llms_missing"]] + [f"feed.xml: {m}" for m in mch["feed_missing"]] + mch["json_errors"]
         problems += [f"wellknown: missing or empty {m}" for m in wk["missing"]] + wk["problems"]
+        problems += [f"{m['page']}: nav link {m['link']} not before first h2" for m in nav["missing"]]
         problems += [f"{i['page']}: mobile {i['rule']} {i['detail']}" for i in mob["issues"]]
         problems += [f"{i['page']}: a11y {i['rule']}" for i in ac["issues"]]
         problems += [f"{p}: footer disclosure missing" for p in cc["footer_missing"]]

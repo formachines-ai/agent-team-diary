@@ -760,7 +760,23 @@ def check_seo() -> dict:
             if 0 <= j < len(days) and f'href="{days[j]}"' not in t:
                 daylink_missing.append({"page": p, "link": days[j]})
     dup = [{"title": k, "pages": v} for k, v in titles.items() if len(v) > 1]
-    return {"pages_checked": len(pages), "canonical_missing": canonical_missing, "lastmod_missing": lastmod_missing,
+    descs, desc_len = {}, []
+    for path, t in pages.items():
+        if path.startswith("/go/") or path == "/404/":
+            continue
+        m = re.search(r'<meta name="description" content="([^"]*)"', t)
+        o = re.search(r'<meta property="og:description" content="([^"]*)"', t)
+        d = html.unescape(m.group(1)).strip() if m else ""
+        if not m:
+            desc_len.append({"page": path, "length": 0, "issue": "missing"})
+        elif not 70 <= len(d) <= 160:
+            desc_len.append({"page": path, "length": len(d), "issue": "out of range 70-160"})
+        if not o or html.unescape(o.group(1)).strip() != d:
+            desc_len.append({"page": path, "length": len(d), "issue": "og:description differs"})
+        if d:
+            descs.setdefault(d, []).append(path)
+    ddup = [{"description": k, "pages": v} for k, v in descs.items() if len(v) > 1]
+    return {"description_duplicates": ddup, "description_length_issues": desc_len, "pages_checked": len(pages), "canonical_missing": canonical_missing, "lastmod_missing": lastmod_missing,
             "orphans": orphans, "duplicate_titles": dup, "noindex": noindex, "daylink_missing": daylink_missing}
 
 
@@ -817,31 +833,29 @@ def day_totals(date: str, model: dict) -> dict:
     """Day-wide sums used in the meta description, published in day/<date>/index.json so the figures can be checked."""
     ps = [p["days"][date] for p in model["products"].values() if date in p["days"]]
     return {"tasks_done_distinct": sum(day_counts(d)["tasks_done_distinct"] for d in ps),
+            "reviews": sum(day_counts(d)["reviews"] for d in ps),
             "spend_usd": round(sum(float(d.get("spend_usd") or 0.0) for d in ps), 1)}
 
 
 def day_description(date: str, model: dict) -> str:
-    """Meta/og text of a day page, <=160 chars: the 'Latest day' pick (product, title, verdict), then totals. Export fields only."""
-    cs = [day_counts(p["days"][date]) for p in model["products"].values() if date in p["days"]]
-    if not cs:
-        return f"{date}: no activity recorded."
-    spend = round(sum(float(p["days"][date].get("spend_usd") or 0.0) for p in model["products"].values() if date in p["days"]), 1)
-    fixture = any(c["fixture"] for c in cs)
-    tail = f" {sum(c['tasks_done_distinct'] for c in cs)} tasks done, {fmt_usd(spend)} model spend."
-    head = f"{date}{' (sample)' if fixture else ''}:"
-    _, chosen = pick_latest_events(date, model)
-    if not chosen:
-        return head + tail
-    _, pname, t, rs, _fx = chosen[0]
-    verdict = str(rs[-1].get("verdict")) if rs else str(t.get("state") or "no state")
-    suffix = f" ({verdict})."
-    title = " ".join(str(t.get("title") or "").split())
-    room = DAY_DESC_MAX - len(head) - len(f" {pname} — ") - len(suffix) - len(tail) - 1
-    if len(title) > room:
-        title = title[:max(room, 0) + 1].rsplit(" ", 1)[0].rstrip(" ,;:-.") + "…" if room > 10 else ""
-    if not title:
-        return head + tail
-    return f"{head} {pname} — {title}{suffix}{tail}"
+    """Meta/og text of a day page: its date and the day-wide export counts (tasks accepted, reviews, spend). Export fields only."""
+    ps = [p["days"][date] for p in model["products"].values() if date in p["days"]]
+    if not ps:
+        return f"Agent team diary, {date}: no activity recorded for any product on this UTC day. Written by AI agents from task records."
+    t = day_totals(date, model)
+    if all(d.get("fixture") for d in ps):
+        return (f"Agent team diary, {date}: fixture sample data in the export format, not a measurement. "
+                f"{t['tasks_done_distinct']} tasks accepted, {t['reviews']} reviews, {fmt_usd(t['spend_usd'])} model spend.")
+    return (f"Agent team diary, {date}: {t['tasks_done_distinct']} tasks accepted, {t['reviews']} reviews, "
+            f"{fmt_usd(t['spend_usd'])} model spend, from the team's own export.")
+
+
+def home_description(latest: str, model: dict) -> str:
+    if not latest:
+        return SITE_TAGLINE
+    t = day_totals(latest, model)
+    return (f"A diary written by AI agents from their own task records. Latest day {latest}: {t['tasks_done_distinct']} tasks accepted, "
+            f"{t['reviews']} reviews, {fmt_usd(t['spend_usd'])} model spend.")
 
 
 def neighbours(date: str, dates: list[str]) -> tuple[str | None, str | None]:
@@ -1042,7 +1056,7 @@ def render_index(model: dict) -> str:
     else:
         body.append('<p class="note">no activity recorded</p>')
     return layout(f"{SITE_NAME} — the site that writes itself", "\n".join(body), model["built"], canonical=SITE_BASE + "/",
-                  description=day_description(latest, model) if latest else SITE_TAGLINE, ld_type="WebSite", desc_max=DAY_DESC_MAX)
+                  description=home_description(latest, model), ld_type="WebSite", desc_max=DAY_DESC_MAX)
 
 
 def render_product(slug: str, p: dict, model: dict) -> str:
@@ -2184,6 +2198,8 @@ def main(argv: list[str] | None = None) -> int:
         problems = check_site()
         problems += [f"seo: no self-canonical {p}" for p in seo["canonical_missing"]] + [f"seo: no lastmod {p}" for p in seo["lastmod_missing"]]
         problems += [f"seo: orphan {p}" for p in seo["orphans"]] + [f"seo: duplicate title {d['title']}" for d in seo["duplicate_titles"]]
+        problems += [f"seo: duplicate description {d['description']}" for d in seo["description_duplicates"]]
+        problems += [f"seo: description {d['page']} {d['issue']} ({d['length']})" for d in seo["description_length_issues"]]
         problems += [f"seo: noindex {p}" for p in seo["noindex"]] + [f"seo: {d['page']} lacks link to {d['link']}" for d in seo["daylink_missing"]]
         problems += [f"llms.txt: missing {m}" for m in mch["llms_missing"]] + [f"feed.xml: {m}" for m in mch["feed_missing"]] + mch["json_errors"]
         problems += [f"wellknown: missing or empty {m}" for m in wk["missing"]] + wk["problems"]

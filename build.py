@@ -713,6 +713,57 @@ def try_line() -> str:
             '<a href="/go/github/">Read the framework code, MIT</a></p>')
 
 
+def check_seo() -> dict:
+    """Self-canonical on every indexable page, lastmod on every sitemap <url>, prev/next day links, no orphan sitemap URLs,
+    no noindex outside /go/ and 404, unique titles."""
+    import xml.etree.ElementTree as ET
+    from urllib.parse import urlsplit
+    pages = {}
+    for f in sorted(PUBLIC_DIR.glob("**/index.html")):
+        rel = f.relative_to(PUBLIC_DIR).parent.as_posix()
+        pages["/" if rel == "." else f"/{rel}/"] = f.read_text(encoding="utf-8")
+    canonical_missing, titles, links, noindex = [], {}, {}, []
+    for path, t in pages.items():
+        if path.startswith("/go/"):
+            continue
+        m = re.search(r'<link rel="canonical" href="([^"]*)"', t)
+        if not m or html.unescape(m.group(1)) != SITE_BASE + path:
+            canonical_missing.append(path)
+        if re.search(r'<meta name="robots"[^>]*noindex', t):
+            noindex.append(path)
+        tm = re.search(r"<title>(.*?)</title>", t, re.S)
+        titles.setdefault(tm.group(1).strip() if tm else "", []).append(path)
+        for h in re.findall(r'href="([^"]+)"', t):
+            u = urlsplit(html.unescape(h))
+            if u.scheme in ("", "http", "https") and (not u.netloc or SITE_BASE.endswith(u.netloc)) and u.path.startswith("/"):
+                links.setdefault(u.path, set()).add(path)
+    lastmod_missing, orphans, locs = [], [], []
+    try:
+        root = ET.parse(PUBLIC_DIR / "sitemap.xml").getroot()
+        ns = "{http://www.sitemaps.org/schemas/sitemap/0.9}"
+        for u in root.findall(ns + "url"):
+            loc = (u.findtext(ns + "loc") or "").strip()
+            lm = (u.findtext(ns + "lastmod") or "").strip()
+            path = urlsplit(loc).path
+            locs.append(path)
+            if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", lm):
+                lastmod_missing.append(path)
+            if not (links.get(path, set()) - {path}):
+                orphans.append(path)
+    except (ET.ParseError, OSError):
+        lastmod_missing.append("sitemap.xml unreadable")
+    days = sorted(p for p in locs if p.startswith("/day/"))
+    daylink_missing = []
+    for i, p in enumerate(days):
+        t = pages.get(p, "")
+        for j in (i - 1, i + 1):
+            if 0 <= j < len(days) and f'href="{days[j]}"' not in t:
+                daylink_missing.append({"page": p, "link": days[j]})
+    dup = [{"title": k, "pages": v} for k, v in titles.items() if len(v) > 1]
+    return {"pages_checked": len(pages), "canonical_missing": canonical_missing, "lastmod_missing": lastmod_missing,
+            "orphans": orphans, "duplicate_titles": dup, "noindex": noindex, "daylink_missing": daylink_missing}
+
+
 def check_nav() -> dict:
     """/ and every /day/<date>/: links to /try/ and /go/github/ after <h1> and before the first <h2>."""
     pages = [PUBLIC_DIR / "index.html"] + sorted(PUBLIC_DIR.glob("day/*/index.html"))
@@ -1050,7 +1101,7 @@ def render_about(built: str) -> str:
             "a short run without memory; the roles do not talk to each other, all communication is a record in the product's folder: "
             "tasks, questions, observations, reviews, digests. The dispatcher is the program: queue, leases, budgets, phases, "
             "permissions, journal. Product decisions are made by the product-owner role inside the product's VISION file; anything "
-            "outside VISION (goals, channels, budget, promises, accounts, domains) is a question to the human owner.</p>",
+            "outside VISION (goals, channels, budget, promises, accounts, domains) is a question to the human owner. The site's avatar is described on the <a href=\"/brand/\">brand page</a>.</p>",
             '<h2 id="roles">Roles</h2>',
             '<div class="table-wrap"><table class="table"><thead><tr><th>Role</th><th>Responsible for</th><th>Tools</th><th>Output</th></tr></thead><tbody>',
             "<tr><td>PO</td><td>observations and goals → tasks with acceptance criteria; answers to roles; priorities; the daily digest</td><td>read-only view of the product files</td><td>decisions, ≤ 3 ready tasks, questions to the owner, digest</td></tr>",
@@ -2124,8 +2175,16 @@ def main(argv: list[str] | None = None) -> int:
     write_json(PUBLIC_DIR / "build.json", bj)
     log.info("machine_check: days=%d llms_missing=%d feed_missing=%d json_errors=%d", mch["days_checked"],
              len(mch["llms_missing"]), len(mch["feed_missing"]), len(mch["json_errors"]))
+    seo = check_seo()
+    bj["seo_check"] = seo
+    write_json(PUBLIC_DIR / "build.json", bj)
+    log.info("seo_check: pages=%d canonical_missing=%d lastmod_missing=%d orphans=%d duplicate_titles=%d", seo["pages_checked"],
+             len(seo["canonical_missing"]), len(seo["lastmod_missing"]), len(seo["orphans"]), len(seo["duplicate_titles"]))
     if args.check:
         problems = check_site()
+        problems += [f"seo: no self-canonical {p}" for p in seo["canonical_missing"]] + [f"seo: no lastmod {p}" for p in seo["lastmod_missing"]]
+        problems += [f"seo: orphan {p}" for p in seo["orphans"]] + [f"seo: duplicate title {d['title']}" for d in seo["duplicate_titles"]]
+        problems += [f"seo: noindex {p}" for p in seo["noindex"]] + [f"seo: {d['page']} lacks link to {d['link']}" for d in seo["daylink_missing"]]
         problems += [f"llms.txt: missing {m}" for m in mch["llms_missing"]] + [f"feed.xml: {m}" for m in mch["feed_missing"]] + mch["json_errors"]
         problems += [f"wellknown: missing or empty {m}" for m in wk["missing"]] + wk["problems"]
         problems += [f"{m['page']}: nav link {m['link']} not before first h2" for m in nav["missing"]]

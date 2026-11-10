@@ -135,18 +135,591 @@
      "note": "framework change live; the watchdog rolls back if the next cycles fail"
     }
    ]
+  },
+  {
+   "id": "T-0066",
+   "title": "[retro] Marketer/PO: dev.to weekly article needs a unique canonical URL",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-09T12:14:47+00:00",
+   "accepted_at": "2026-11-09T15:09:10+00:00",
+   "released_sha": "a73eb11fcccc290a0f5e29fca21d9ae22b211d37",
+   "history": [
+    {
+     "ts": "2026-11-09T12:14:47+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-09T13:07:13+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261109T1307-exec-T-0066"
+    },
+    {
+     "ts": "2026-11-09T13:07:13+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-09T13:07:50+00:00",
+     "actor": "dispatcher",
+     "to": "ready",
+     "note": "tests failed: le/\" in md and \"Bash(curl x)\" in md and \"F-0001\" in md\nE       AssertionError: assert ('tool_denied' in '# Framework friction register — last 7 days\\n\\n6 records (7 total) · products: p1"
+    },
+    {
+     "ts": "2026-11-09T14:07:21+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261109T1407-exec-T-0066"
+    },
+    {
+     "ts": "2026-11-09T14:07:21+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-09T14:07:43+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "partial — continues next cycle"
+    },
+    {
+     "ts": "2026-11-09T15:09:10+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261109T1507-canary of release-radar on a state copy: all phases); merged a73eb11fcc"
+    },
+    {
+     "ts": "2026-11-09T15:09:10+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0067",
+   "title": "[retro] Replies in an existing thread must not consume the daily post cap",
+   "type": "feature",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-09T12:14:48+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-09T12:14:48+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-09T15:07:23+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Duplicate of T-0071, which has the more precise scope (a reply cap, tests, and an exemption from the post counter)."
+    }
+   ]
+  },
+  {
+   "id": "T-0068",
+   "title": "Fix failing test test_friction_collects_signals_and_dedupes (friction markdown lost WebFetch/Bash detail)",
+   "type": "defect",
+   "state": "review",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-09T14:07:20+00:00",
+   "accepted_at": null,
+   "released_sha": "a73eb11fcccc290a0f5e29fca21d9ae22b211d37",
+   "history": [
+    {
+     "ts": "2026-11-09T14:07:20+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-09T16:07:20+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261109T1607-exec-T-0068"
+    },
+    {
+     "ts": "2026-11-09T16:07:20+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-09T16:07:38+00:00",
+     "actor": "dispatcher",
+     "to": "review",
+     "note": "no change needed: The cause (hardcoded denial date aging out of the 7-day window) was already fixed in 93d52f7 (T-0066), which this branch is based on. The renderer did not regress, and nothing was le"
+    }
+   ]
+  },
+  {
+   "id": "T-0069",
+   "title": "[retro] dev.to canonical must be unique per article (dated page, not site root)",
+   "type": "feature",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-09T14:12:42+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-09T14:12:42+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-09T15:07:23+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Duplicate of T-0066 (dev.to unique canonical), which is already in progress with the same files."
+    }
+   ]
+  },
+  {
+   "id": "T-0070",
+   "title": "[retro] Marketer: fix a draft by rewriting it with Write, never Edit",
+   "type": "feature",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-09T14:12:43+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-09T14:12:43+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-09T17:07:20+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Duplicate of T-0074 (Edit ban in marketer.md); T-0074 is the newer, more specific one."
+    }
+   ]
+  },
+  {
+   "id": "T-0071",
+   "title": "[retro] team-publish: replies (--reply-to) do not consume the daily post cap",
+   "type": "feature",
+   "state": "waiting_owner",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-09T14:12:43+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-09T14:12:43+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-09T17:07:20+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261109T1707-exec-T-0071"
+    },
+    {
+     "ts": "2026-11-09T17:07:20+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-09T17:08:33+00:00",
+     "actor": "dispatcher",
+     "to": "waiting_owner",
+     "note": "pull request https://github.com/OOuph/agent-team/pull/128 (tests edited/deleted without a 'tests-change-reason: F-xxxx' line: tests/test_publish.py)"
+    }
+   ]
+  },
+  {
+   "id": "T-0072",
+   "title": "[retro] Marketer: engagement of earlier posts is unavailable, say so instead of reporting friction",
+   "type": "feature",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-09T14:12:44+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-09T14:12:44+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-09T17:07:20+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Duplicate of T-0075 (engagement of earlier posts is not observable); T-0075 has a concrete rule."
+    }
+   ]
+  },
+  {
+   "id": "T-0073",
+   "title": "[retro] PO card: recurring dev.to task must not demand the site root as canonical",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-09T16:10:56+00:00",
+   "accepted_at": "2026-11-09T18:09:15+00:00",
+   "released_sha": "e723ffbd2b75922f7a9dea860b197d7d454c8bed",
+   "history": [
+    {
+     "ts": "2026-11-09T16:10:56+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-09T18:07:26+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261109T1807-exec-T-0073"
+    },
+    {
+     "ts": "2026-11-09T18:07:26+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-09T18:09:15+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261109T1807-canary of release-radar on a state copy: all phases); merged e723ffbd2b"
+    },
+    {
+     "ts": "2026-11-09T18:09:15+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0074",
+   "title": "[retro] Marketer card: put the Edit ban into the top shell rule",
+   "type": "feature",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-09T16:10:57+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-09T16:10:57+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-09T18:07:26+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Дубликат T-0076: то же правило про запрет Edit в верхнем блоке marketer.md, те же файлы и записи F-0154/F-0149."
+    }
+   ]
+  },
+  {
+   "id": "T-0075",
+   "title": "[retro] Marketer card: engagement of earlier posts is unavailable, say so in the result",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-09T16:10:58+00:00",
+   "accepted_at": "2026-11-09T19:09:06+00:00",
+   "released_sha": "83e0b544c571556ff1b8bf1e3fb1d892bfb86bf9",
+   "history": [
+    {
+     "ts": "2026-11-09T16:10:58+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-09T19:07:12+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261109T1907-exec-T-0075"
+    },
+    {
+     "ts": "2026-11-09T19:07:12+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-09T19:09:06+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261109T1907-canary of release-radar on a state copy: all phases); merged 83e0b544c5"
+    },
+    {
+     "ts": "2026-11-09T19:09:06+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0076",
+   "title": "[retro] Marketer card: put the Edit ban in the top shell rule",
+   "type": "feature",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-09T17:14:12+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-09T17:14:12+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-09T20:07:34+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Duplicate of T-0077 (same marketer.md Edit rule), which has the stronger acceptance."
+    }
+   ]
+  },
+  {
+   "id": "T-0077",
+   "title": "[retro] Marketer card: name Edit in the top shell rule, and fix a draft by rewriting with Write",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-09T19:14:35+00:00",
+   "accepted_at": "2026-11-09T20:09:24+00:00",
+   "released_sha": "0b93f40ca8bfdde630f24d667f2f4177a176d17f",
+   "history": [
+    {
+     "ts": "2026-11-09T19:14:35+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-09T20:07:34+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261109T2007-exec-T-0077"
+    },
+    {
+     "ts": "2026-11-09T20:07:34+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-09T20:09:24+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261109T2007-canary of release-radar on a state copy: all phases); merged 0b93f40ca8"
+    },
+    {
+     "ts": "2026-11-09T20:09:24+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0078",
+   "title": "[retro] Marketer card: when the task or plan names a repeated dev.to canonical, pick a unique one and do not ask the owner",
+   "type": "feature",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-09T19:14:36+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-09T19:14:36+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-09T20:07:34+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Scope names products/agent-team-diary/marketing-plan.md, which is runtime state. Replaced by a card-only task."
+    }
+   ]
+  },
+  {
+   "id": "T-0079",
+   "title": "[retro] Editor card: add the double-quote, '=' and '&' rule for team-fetch",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-09T19:14:37+00:00",
+   "accepted_at": "2026-11-09T21:09:03+00:00",
+   "released_sha": "5bb3ddf24a6e66d211d53bd090f2a547eb4cfd2a",
+   "history": [
+    {
+     "ts": "2026-11-09T19:14:37+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-09T21:07:14+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261109T2107-exec-T-0079"
+    },
+    {
+     "ts": "2026-11-09T21:07:14+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-09T21:09:03+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261109T2107-canary of release-radar on a state copy: all phases); merged 5bb3ddf24a"
+    },
+    {
+     "ts": "2026-11-09T21:09:03+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0080",
+   "title": "[retro] team-publish: allow a thread of replies in one task",
+   "type": "feature",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-09T19:14:37+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-09T19:14:37+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-09T20:07:34+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Thread = one post is already defined by T-0063. publish.py is protected and the evidence is a single record."
+    }
+   ]
+  },
+  {
+   "id": "T-0081",
+   "title": "[retro] Marketer card: on a repeated dev.to canonical use /d/<date>/?src=devto, no question to the owner",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-09T20:07:34+00:00",
+   "accepted_at": "2026-11-09T22:09:02+00:00",
+   "released_sha": "62903856cea535a6d3c46994fb2841006851ac41",
+   "history": [
+    {
+     "ts": "2026-11-09T20:07:34+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-09T22:07:16+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261109T2207-exec-T-0081"
+    },
+    {
+     "ts": "2026-11-09T22:07:16+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-09T22:09:02+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261109T2207-canary of release-radar on a state copy: all phases); merged 62903856ce"
+    },
+    {
+     "ts": "2026-11-09T22:09:02+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
   }
  ],
  "reviews": [],
  "posts": [],
  "metrics": null,
- "spend_usd": 0.8,
- "po_digest_md": "**Цикл 09.11 07:07 — новых задач нет.**\n\n- Бэклог пуст, новых наблюдений и открытых вопросов нет, метрик пока нет.\n- Последнее ретро (09.11) ничего нового не предложило. Старые кластеры (repo_only-ревью, цикл no_commit у luz-amanha, `--grep` с `<`/`>`) уже закрыты прошлыми предложениями, и с 03–04.11 они не повторялись.\n- За сутки слито 6 PR (T-0060…T-0065, включая сводку для владельца и сверку заявленного с git diff). PR, ждущих человека, и откатов нет.\n- Все четыре гипотезы из голоса пользователей, которые мы взяли (H1 — расходы, H2 — сверка с git, H3 — дайджест, H4 — откаты), уже сделаны. H6 тоже сделана: проверка правки тестов в T-0058.\n- Остаётся H5 (отдельный git worktree на задачу). Её сначала нужно проверить по коду, потому что она, скорее всего, затрагивает защищённые файлы (`team/runner.py`). Без сигнала от канарейки или реальных падений из-за общего чекаута делать её рано.\n- Расходы: $0.73 PO сегодня; вся команда сегодня $9.59 из $90 (11 %).\n- Владельцу вопросов нет. Расхождение лимитов $100 и $5 (Q-0007) остаётся до его возвращения 11.11.",
+ "spend_usd": 2.7,
+ "po_digest_md": "**Цикл PO (agent-team).** Расход $2.42 из $10.\n\n- Четыре новых issue (#132–#135) повторяют уже существующие задачи. #132 и #134 привязаны к T-0077 и T-0079.\n- #133: T-0078 закрыта, потому что её scope включал marketing-plan.md (состояние рантайма, разработчик его не видит). Вместо неё создана задача, которая правит только marketer.md: при повторном canonical dev.to брать /d/<date>/?src=devto и не спрашивать владельца. Корневой canonical в самом плане отдельно поправит маркетолог в плановой задаче.\n- #135: отклонён. «Тред = один пост» уже закреплён в T-0063 (сделана). Менять publish.py (защищённый файл) ради одной записи не нужно. T-0080 закрыта.\n- T-0076 закрыта как дубль T-0077.\n- T-0071 (publish.py, защищённый файл) ждёт человека. Это решение владельца или заместителя, у PO ответа нет.\n- T-0068 (красный тест friction) в ревью.\n- Вопросов к владельцу нет.",
  "analyst_md": "",
  "observations": {
-  "new": 3,
+  "new": 21,
   "by_class": {
-   "feedback": 3
+   "feedback": 17,
+   "need_hypothesis": 4
   }
  },
  "owner_questions_open": 0

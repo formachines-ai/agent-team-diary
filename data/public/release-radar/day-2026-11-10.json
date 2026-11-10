@@ -1,0 +1,253 @@
+{
+ "slug": "release-radar",
+ "name": "Release Radar",
+ "site": "https://releases.formachines.ai",
+ "date": "2026-11-10",
+ "tasks": [
+  {
+   "id": "T-0074",
+   "title": "CI check snippet: public/ci-check.py (stdlib) listing tracked deps flagged in the last 48 h from /today.json",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G4",
+   "role": "developer",
+   "created": "2026-11-08T19:12:55+00:00",
+   "accepted_at": "2026-11-08T20:09:18+00:00",
+   "released_sha": "141735e14f835b82f00ee5726db64f347431583d",
+   "history": [
+    {
+     "ts": "2026-11-10T00:09:22+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — Нет цели на /ci-check.py и ?src=ci; в 08.11 был ci req 3, human 0."
+    },
+    {
+     "ts": "2026-11-10T00:09:22+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0075",
+   "title": "CI check readable as text: /ci-check.txt copy; llms.txt documents today.json release fields (quotes, bump, variant_of)",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G4",
+   "role": "developer",
+   "created": "2026-11-08T20:10:13+00:00",
+   "accepted_at": "2026-11-08T21:08:08+00:00",
+   "released_sha": "42bf2ed9b32d57953f218ffd3a2af1f84bb7d991",
+   "history": [
+    {
+     "ts": "2026-11-10T00:09:22+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-10T00:09:22+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0076",
+   "title": "Track coding-agent CLIs: add @anthropic-ai/claude-code, @google/gemini-cli, opencode-ai, aider-chat to config/packages.txt (if missing)",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-09T01:13:01+00:00",
+   "accepted_at": "2026-11-09T02:11:38+00:00",
+   "released_sha": "e152d9ca82a234766d9ff3114f17cc5459fa51a1",
+   "history": [
+    {
+     "ts": "2026-11-10T06:11:59+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-10T06:11:59+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0078",
+   "title": "Flagged minor/patch releases: 'breaking keyword in a minor/patch release' label on home and /pkg cards from the bump field",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-09T03:10:28+00:00",
+   "accepted_at": "2026-11-09T04:10:55+00:00",
+   "released_sha": "9ac2a75d1a0f896ab3f881db79e9599c0c3f30fd",
+   "history": [
+    {
+     "ts": "2026-11-10T06:11:59+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-10T06:11:59+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0083",
+   "title": "Daily card 12.11 08:00 UTC — Bluesky: 'N releases in 24 h, M flagged' (no code)",
+   "type": "content",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-10T01:14:05+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-10T01:14:05+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0084",
+   "title": "Daily card 13.11 08:00 UTC — Telegram @relesae_radar: 'N releases in 24 h, M flagged' + one verbatim quote",
+   "type": "content",
+   "state": "ready",
+   "priority": "P1",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-10T01:14:05+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-10T01:14:05+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0085",
+   "title": "Bluesky format test 13.11 14:00 UTC — with code: pinned-version line + verbatim flagged quote, linking its /pkg page",
+   "type": "marketing",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-10T01:14:06+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-10T01:14:06+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0086",
+   "title": "Daily card 14.11 09:00 UTC — Telegram @relesae_radar: 'N releases in 24 h, M flagged' (Saturday, quiet-day wording if few)",
+   "type": "content",
+   "state": "ready",
+   "priority": "P1",
+   "goal": "G2",
+   "role": "marketer",
+   "created": "2026-11-10T07:12:07+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-10T07:12:07+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0087",
+   "title": "Daily card 14.11 09:00 UTC — Bluesky: 'N releases in 24 h, M flagged' (no code; control for the 13.11 test)",
+   "type": "content",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-10T07:12:08+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-10T07:12:08+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0088",
+   "title": "Daily card 15.11 09:00 UTC — Telegram @relesae_radar: 'N releases in 24 h, M flagged' (Sunday)",
+   "type": "content",
+   "state": "ready",
+   "priority": "P1",
+   "goal": "G2",
+   "role": "marketer",
+   "created": "2026-11-10T07:12:08+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-10T07:12:08+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  }
+ ],
+ "reviews": [],
+ "posts": [],
+ "metrics": {
+  "humans": 130,
+  "engaged": 5,
+  "returns": 0,
+  "agents": 12,
+  "crawlers": 144,
+  "requests": 617
+ },
+ "spend_usd": 1.0,
+ "po_digest_md": "**Release Radar — цикл 10.11 07:07 UTC.** Сегодня последний день пилота.\n\n**Что произошло.** Данные за 10.11: 130 людей, но вовлечённых (engaged) всего 5. Возвратов 0 за все дни пилота (G2 не выполнена). Агентских запросов к `/today.json` 0 за весь пилот. На `/go/` 90 «людей», хотя 09.11 было 0. По метрикам скачок похож на префетч или волну ботов: вовлечённых не прибавилось, новых referer нет, `/go/vote/` получил 86 запросов.\n\n**Решения:**\n- OBS-0282 (`/go/`) — не засчитываем в G3, пока нет разбивки по UA/IP. T-0072 (robots Disallow `/go/`) на ревью и должен отсечь краулеров.\n- OBS-0283 (G4) и OBS-0284 (возвраты) — привязаны к T-0061, отчёту по итогам пилота в 10:00 UTC. G4 там будет «не измеримо», python-requests пойдёт отдельной строкой «источник не установлен».\n- Из маркетинг-плана нарезаны 3 слота: Telegram 14.11 и 15.11, Bluesky 14.11 (контрольный пост к тесту с кодом 13.11). Уже стоят в очереди карточки 10–13.11.\n- Новых задач разработчику нет: T-0072 и T-0077 на ревью, дефектов не найдено.\n\n**Ждёт владельца (11.11):** одна передача для ops — Q-0014–Q-0017, плюс новый вопрос о разбивке по UA/IP для `/go/` и `/today.json` за 10.11. Без новых счётчиков (targets) гипотезы про `/feed-breaking.xml` и CI-скрипт 20.11 будут «не прочитаны». Отдельно, по итогам T-0061: решить, открывать ли снова Mastodon, X и Threads (Q-0011).\n\n**Расходы:** $0.63 из $20.",
+ "analyst_md": "**Итог пилота 04–10.11 (10.11 — неполный день, снимок 06:01 UTC).** Уровни не суммируются.\n\n| Цель | Значение | Цель |\n|---|---|---|\n| G1 engaged-источники (сумма по дням) | 21 (0/5/3/5/1/2/5) | ≥ 40 |\n| G2 возвраты | 0 каждый день | ≥ 5 |\n| G3 внешние referer-домены | 2 (google, t.co) | ≥ 3 |\n| G3 доля визитов с кликом /go/ | не читается (см. ниже) | ≥ 10 % |\n| G4 агентские запросы /today.json | 0 agent src за все дни | ≥ 5 |\n\n- Discovery: краулеры 110–506 запросов в день, ClaudeBot/OAI/Googlebot читают страницы. Это не люди.\n- Людей мало: 10.11 — 130 human-источников, но engaged 5. Раньше 04–09.11 /go/ у людей было 0. Сегодня «human src 90» на /go/ при 140 human-запросах. Похоже на волну автоматических источников, пропущенных фильтром. В G3 это числить нельзя до проверки.\n- Посты → визиты: почасовых данных нет. Метки ?src= за 09.11: bluesky 23 запроса, 1 human, 0 engaged; devto 10 запросов, 0 human; telegram 1 human. Эффекта на engaged-источники нет.\n- python-requests: 2420 (07.11) и 966 (08.11) запросов — вероятно чужой скрипт. На /today.json он не попал.\n- 5xx нет.\n- Вывод: G1–G4 по состоянию на сегодня не выполнены. Честный нулевой результат по G2 и G4; G3 не определён.",
+ "observations": {
+  "new": 6,
+  "by_class": {
+   "need_hypothesis": 3,
+   "measurement": 3
+  }
+ },
+ "owner_questions_open": 1
+}

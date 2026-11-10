@@ -1,0 +1,87 @@
+{
+ "slug": "luz-amanha",
+ "name": "Luz Amanhã",
+ "site": "https://luz.bymachines.ai",
+ "date": "2026-11-10",
+ "tasks": [
+  {
+   "id": "T-0068",
+   "title": "Morning post 10.11 07:00 UTC with the dated link /d/2026-11-10/ (last pilot day)",
+   "type": "content",
+   "state": "blocked",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "marketer",
+   "created": "2026-11-05T00:10:02+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-10T07:11:07+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261110T0707-exec-T-0068"
+    },
+    {
+     "ts": "2026-11-10T07:11:07+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-10T07:11:24+00:00",
+     "actor": "marketer",
+     "to": "blocked",
+     "note": "question Q-0023"
+    }
+   ]
+  },
+  {
+   "id": "T-0106",
+   "title": "Night average on / and /d/DD/: label names the exact hours averaged (00:00–05:59, 6 h), PT+EN",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "developer",
+   "created": "2026-11-09T23:08:13+00:00",
+   "accepted_at": "2026-11-10T00:08:39+00:00",
+   "released_sha": "332a80f79b8660f4d2ae5dd48e484c37506c3102",
+   "history": [
+    {
+     "ts": "2026-11-10T00:08:39+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The night block on / and /d/2026-11-10/ now names hours 00:00–05:59 (6 h) in PT and EN. The 160.31 average matches the mean of those six hours in the table."
+    }
+   ]
+  }
+ ],
+ "reviews": [
+  {
+   "task": "T-0106",
+   "verdict": "pass",
+   "summary": "The night block on / and /d/2026-11-10/ now names hours 00:00–05:59 (6 h) in PT and EN. The 160.31 average matches the mean of those six hours in the table."
+  }
+ ],
+ "posts": [],
+ "metrics": {
+  "humans": 0,
+  "engaged": 0,
+  "returns": 0,
+  "agents": 1,
+  "crawlers": 15,
+  "requests": 68
+ },
+ "spend_usd": 1.2,
+ "po_digest_md": "**Luz Amanhã — цикл 10.11 07:07 UTC (последний день пилота)**\n\n**Что произошло.** Посты 09.11 вышли все: утренний и дневной в Telegram/Bluesky, утренний тест в X, «For machines» в Bluesky. Дефект с датой today.json (T-0102) и подпись ночного среднего (T-0106) приняты. На ревью: missing_reason в JSON (T-0083), архив /d/ с дорогим окном (T-0087), ссылка «English» и время публикации (T-0097), заполнение часа 23:00 из файла OMIE следующего дня (T-0104).\n\n**Метрики.** Engaged-источников за 04–09.11 ≈ 8 (цель G1 ≥ 30 — не достигаем). Возвраты — 0–1 в день. По каналам людей приводит только X (3 engaged); у Bluesky — 192 запроса и 0 engaged. Кликов /go/telegram/ от людей — 2 за 09.11. Всплеск 4xx 08.11 дали сканеры, это не дефект.\n\n**Решения.** Новых задач нет: на сегодня уже стоят утренний пост (T-0068), дневной пост на 11.11 (T-0070) и последний пост в X (T-0105). В 09:00 UTC маркетолог пишет план на 10–16.11 (T-0074) с вердиктом по каналам: X держим, по остальным — по данным. Посты на 11.11 тоже стоят (T-0098, T-0099).\n\n**Ждёт владельца (11.11).** Итоговый отчёт G1–G5 (T-0101) будет готов к 01:00 UTC 11.11. По нему решать о целях и каналах после пилота. Нужно также подтвердить сборку в cron в 00:05 по Лиссабону (Q-0020/21) и добавить /ha/ в targets (Q-0018) — у гипотезы /ha/ пока нет своей метрики.\n\n**Расход:** $0.74 из $20.",
+ "analyst_md": "**Пилот 04–10.11, снимок 10.11 06:01 UTC (день 10 почти пуст).**\n\n| Уровень | 04 | 05 | 06 | 07 | 08 | 09 | 10 (6 ч) |\n|---|---|---|---|---|---|---|---|\n| люди (источники) | 2 | 5 | 3 | 6 | 3 | 8 | 0 |\n| engaged | 0 | 2 | 1 | 2 | 1 | 2 | 0 |\n| возвраты | 0 | 0 | 0 | 1 | 1 | 1 | 0 |\n| краулеры (запросы) | 52 | 67 | 96 | 144 | 68 | 94 | 13 |\n| агенты (запросы) | 182 | 3 | 7 | 6 | 67 | 5 | 1 |\n\nЦели: G1 — engaged за неделю ≈ 8 дневных (сумма по дням, не уникальные; пересечения не вычтены), цель 30 → не выполнена. G2 — возвраты 1 в день из 1–2 engaged, оценка за 7 дней нужна на 10.11, данных за день 10 ещё нет. G3 — клики /go/telegram/: 3 (04.11) и 2 (09.11, все не-человеческие); подписчиков в метриках не видно. G4 — внешний referer: google.com (2/день), t.co, ritazietsma.com, lutastore.net — вероятно, не от нас; требуется проверка, что это люди. G5 — агенты и краулеры стабильно запрашивают JSON/feed/llms.txt, порога нет.\n\nПосты→визиты: по ?src= у X стабильно 1 engaged-источник, у Bluesky — 0 engaged при максимуме запросов (в основном превью). Эффекты задач — по данным недостаточно.",
+ "observations": {
+  "new": 6,
+  "by_class": {
+   "measurement": 3,
+   "need_hypothesis": 3
+  }
+ },
+ "owner_questions_open": 0
+}

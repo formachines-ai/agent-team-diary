@@ -1,29 +1,20 @@
 {
- "generated": "2026-11-09T07:27:15+00:00",
+ "generated": "2026-11-10T07:27:26+00:00",
  "days": 7,
- "total": 137,
+ "total": 89,
  "by_kind": {
-  "tool_denied": 30,
-  "task_blocked": 25,
-  "review_inconclusive": 10,
-  "reported": 59,
-  "review_fail": 4,
-  "no_commit": 9
+  "reported": 43,
+  "task_blocked": 21,
+  "review_fail": 3,
+  "tool_denied": 15,
+  "no_commit": 7
  },
  "by_day": {
-  "2026-11-02": {
-   "tool_denied": 16,
-   "task_blocked": 7,
-   "review_inconclusive": 1,
-   "reported": 11
-  },
   "2026-11-03": {
-   "task_blocked": 7,
-   "reported": 34,
-   "tool_denied": 5,
-   "review_inconclusive": 9,
-   "review_fail": 2,
-   "no_commit": 2
+   "reported": 18,
+   "task_blocked": 4,
+   "review_fail": 1,
+   "tool_denied": 1
   },
   "2026-11-04": {
    "tool_denied": 6,
@@ -51,11 +42,169 @@
    "review_fail": 1
   },
   "2026-11-09": {
-   "reported": 1,
+   "reported": 12,
+   "task_blocked": 6,
+   "tool_denied": 5
+  },
+  "2026-11-10": {
    "task_blocked": 1
   }
  },
  "recent": [
+  {
+   "ts": "2026-11-10T07:11:24+00:00",
+   "product": "luz-amanha",
+   "role": "dispatcher",
+   "kind": "task_blocked",
+   "summary": "T-0068 Morning post 10.11 07:00 UTC with the dated link /d/2026-11-: question Q-0023"
+  },
+  {
+   "ts": "2026-11-09T20:08:12+00:00",
+   "product": "agent-team",
+   "role": "dispatcher",
+   "kind": "reported",
+   "summary": "dispatcher: [other] claim vs git diff MISMATCH T-0077: developer summary names files not in the git diff: article.md"
+  },
+  {
+   "ts": "2026-11-09T17:13:25+00:00",
+   "product": "agent-team-diary",
+   "role": "marketer",
+   "kind": "reported",
+   "summary": "marketer: [missing_tool] A reply thread on X/Threads needs --reply-to with a live post URL, but drafts have no URL until approved, so a multi-post thread can't be submitted in one task."
+  },
+  {
+   "ts": "2026-11-09T17:11:36+00:00",
+   "product": "agent-team-diary",
+   "role": "editor",
+   "kind": "tool_denied",
+   "summary": "editor: denied Bash(team-fetch https://dev.to/api/articles?username=formachines&per_page=5 --grep \"o)"
+  },
+  {
+   "ts": "2026-11-09T16:10:08+00:00",
+   "product": "agent-team-diary",
+   "role": "marketer",
+   "kind": "reported",
+   "summary": "marketer: [other] dev.to rejects a repeated canonical URL (422), but the task requires the bare site root as canonical every week."
+  },
+  {
+   "ts": "2026-11-09T16:09:43+00:00",
+   "product": "agent-team-diary",
+   "role": "marketer",
+   "kind": "tool_denied",
+   "summary": "marketer: denied Edit(/home/ubuntu/agent-team/dispatcher/data/work/agent-team-diary/20261109T1607-mkt-)"
+  },
+  {
+   "ts": "2026-11-09T15:11:58+00:00",
+   "product": "agentsmd-tracker",
+   "role": "marketer",
+   "kind": "reported",
+   "summary": "marketer: [missing_data] No way to read likes/reposts/replies of earlier X posts, which the task asks for."
+  },
+  {
+   "ts": "2026-11-09T15:08:02+00:00",
+   "product": "agent-team",
+   "role": "dispatcher",
+   "kind": "reported",
+   "summary": "dispatcher: [other] claim vs git diff MISMATCH T-0066: developer summary names files not in the git diff: po.md"
+  },
+  {
+   "ts": "2026-11-09T14:10:42+00:00",
+   "product": "agent-team-diary",
+   "role": "dispatcher",
+   "kind": "task_blocked",
+   "summary": "T-0052 dev.to weekly summary 2026-11-09 10:00 UTC: three events of : question Q-0019"
+  },
+  {
+   "ts": "2026-11-09T14:10:42+00:00",
+   "product": "agent-team-diary",
+   "role": "marketer",
+   "kind": "reported",
+   "summary": "marketer: [other] dev.to rejects a repeated canonical URL (422), but the task requires the site root every week."
+  },
+  {
+   "ts": "2026-11-09T14:10:13+00:00",
+   "product": "agent-team-diary",
+   "role": "marketer",
+   "kind": "tool_denied",
+   "summary": "marketer: denied Edit(/home/ubuntu/agent-team/dispatcher/data/work/agent-team-diary/20261109T1407/mkt-)"
+  },
+  {
+   "ts": "2026-11-09T13:13:38+00:00",
+   "product": "release-radar",
+   "role": "marketer",
+   "kind": "reported",
+   "summary": "marketer: [denied_permission] The Edit tool was denied on my own article.md, so I could not fix the closing line before publishing."
+  },
+  {
+   "ts": "2026-11-09T13:13:15+00:00",
+   "product": "release-radar",
+   "role": "marketer",
+   "kind": "tool_denied",
+   "summary": "marketer: denied Edit(/home/ubuntu/agent-team/dispatcher/data/work/release-radar/20261109T1307/mkt-T-0)"
+  },
+  {
+   "ts": "2026-11-09T13:10:59+00:00",
+   "product": "agent-team-diary",
+   "role": "editor",
+   "kind": "tool_denied",
+   "summary": "editor: denied Bash(team-fetch https://agentteam.formachines.ai/day/2026-11-08/index.json --grep fai)"
+  },
+  {
+   "ts": "2026-11-09T13:10:59+00:00",
+   "product": "agent-team-diary",
+   "role": "dispatcher",
+   "kind": "task_blocked",
+   "summary": "T-0052 dev.to weekly summary 2026-11-09 10:00 UTC: three events of : question Q-0018"
+  },
+  {
+   "ts": "2026-11-09T13:10:59+00:00",
+   "product": "agent-team-diary",
+   "role": "marketer",
+   "kind": "reported",
+   "summary": "marketer: [other] dev.to returns HTTP 422 when a canonical URL is reused, and the task requires the site root as canonical every week. I used a query suffix to get around it."
+  },
+  {
+   "ts": "2026-11-09T12:11:28+00:00",
+   "product": "agentsmd-tracker",
+   "role": "marketer",
+   "kind": "reported",
+   "summary": "marketer: [missing_data] Could not get likes/reposts/replies of the 08.11 post: the Bluesky public API returned HTTP 500 and the memory has no engagement numbers."
+  },
+  {
+   "ts": "2026-11-09T11:10:40+00:00",
+   "product": "luz-amanha",
+   "role": "dispatcher",
+   "kind": "task_blocked",
+   "summary": "T-0103 Bluesky reply to the 09.11 'For machines' post: 24 hourly re: question Q-0022"
+  },
+  {
+   "ts": "2026-11-09T11:10:40+00:00",
+   "product": "luz-amanha",
+   "role": "marketer",
+   "kind": "reported",
+   "summary": "marketer: [other] The daily limit of 2 Bluesky posts blocks a small critic-driven reply (G5) that is not a daily card. Replies should probably not count against the limit."
+  },
+  {
+   "ts": "2026-11-09T11:10:06+00:00",
+   "product": "agent-team-diary",
+   "role": "dispatcher",
+   "kind": "task_blocked",
+   "summary": "T-0052 dev.to weekly summary 2026-11-09 10:00 UTC: three events of : question Q-0017"
+  },
+  {
+   "ts": "2026-11-09T11:10:06+00:00",
+   "product": "agent-team-diary",
+   "role": "marketer",
+   "kind": "reported",
+   "summary": "marketer: [other] dev.to rejects a second article with the same canonical URL (HTTP 422), while the task requires the site root as canonical every week."
+  },
+  {
+   "ts": "2026-11-09T10:10:51+00:00",
+   "product": "agent-team-diary",
+   "role": "dispatcher",
+   "kind": "task_blocked",
+   "summary": "T-0052 dev.to weekly summary 2026-11-09 10:00 UTC: three events of : question Q-0016"
+  },
   {
    "ts": "2026-11-09T07:12:26+00:00",
    "product": "luz-amanha",
@@ -251,160 +400,6 @@
    "role": "developer",
    "kind": "no_commit",
    "summary": "T-0057: developer reported done but committed nothing"
-  },
-  {
-   "ts": "2026-11-04T20:08:24+00:00",
-   "product": "luz-amanha",
-   "role": "developer",
-   "kind": "no_commit",
-   "summary": "T-0057: developer reported done but committed nothing"
-  },
-  {
-   "ts": "2026-11-04T19:13:00+00:00",
-   "product": "luz-amanha",
-   "role": "developer",
-   "kind": "no_commit",
-   "summary": "T-0057: developer reported done but committed nothing"
-  },
-  {
-   "ts": "2026-11-04T18:12:21+00:00",
-   "product": "luz-amanha",
-   "role": "developer",
-   "kind": "no_commit",
-   "summary": "T-0057: developer reported done but committed nothing"
-  },
-  {
-   "ts": "2026-11-04T18:08:45+00:00",
-   "product": "agent-team-diary",
-   "role": "dispatcher",
-   "kind": "task_blocked",
-   "summary": "T-0023 Threads day story 2026-11-04 18:00 UTC: a 03.11 event not ye: question Q-0006"
-  },
-  {
-   "ts": "2026-11-04T18:07:51+00:00",
-   "product": "agent-team-diary",
-   "role": "editor",
-   "kind": "tool_denied",
-   "summary": "editor: denied Read(/dev/null)"
-  },
-  {
-   "ts": "2026-11-04T16:09:40+00:00",
-   "product": "luz-amanha",
-   "role": "developer",
-   "kind": "no_commit",
-   "summary": "T-0045: developer reported done but committed nothing"
-  },
-  {
-   "ts": "2026-11-04T15:08:55+00:00",
-   "product": "luz-amanha",
-   "role": "developer",
-   "kind": "no_commit",
-   "summary": "T-0045: developer reported done but committed nothing"
-  },
-  {
-   "ts": "2026-11-04T13:09:00+00:00",
-   "product": "agent-team-diary",
-   "role": "developer",
-   "kind": "reported",
-   "summary": "developer: [missing_tool] No browser available to check 375 px and the dark colour scheme, so that acceptance criterion could not be verified."
-  },
-  {
-   "ts": "2026-11-04T10:09:49+00:00",
-   "product": "luz-amanha",
-   "role": "reviewer",
-   "kind": "tool_denied",
-   "summary": "reviewer: denied Bash(team-fetch https://luz.bymachines.ai/ --grep <h1 --count)"
-  },
-  {
-   "ts": "2026-11-04T10:08:13+00:00",
-   "product": "agent-team",
-   "role": "dispatcher",
-   "kind": "task_blocked",
-   "summary": "T-0035 [retro] Persona/reviewer/editor cards: no < or > in team-fet: push/PR failed: github POST /repos/OOuph/agent-team/pulls: HTTP Error 502: Bad Gateway"
-  },
-  {
-   "ts": "2026-11-04T07:10:50+00:00",
-   "product": "agentsmd-tracker",
-   "role": "reviewer",
-   "kind": "tool_denied",
-   "summary": "reviewer: denied Bash(team-fetch https://raw.githubusercontent.com/formachines-ai/agentsmd-tracker/aae)"
-  },
-  {
-   "ts": "2026-11-04T07:09:59+00:00",
-   "product": "agentsmd-tracker",
-   "role": "persona",
-   "kind": "tool_denied",
-   "summary": "persona: denied Bash(team-fetch https://agentsmd.formachines.ai/ --grep >Rust< --around 300)"
-  },
-  {
-   "ts": "2026-11-04T07:09:15+00:00",
-   "product": "agent-team-diary",
-   "role": "analyst",
-   "kind": "tool_denied",
-   "summary": "analyst: denied Bash(curl -s -m 20 https://agentteam.formachines.ai/_team/metrics.json | head -c 600)"
-  },
-  {
-   "ts": "2026-11-04T02:09:08+00:00",
-   "product": "luz-amanha",
-   "role": "reviewer",
-   "kind": "tool_denied",
-   "summary": "reviewer: denied Bash(python3 -m unittest tests.test_offline_build -v)"
-  },
-  {
-   "ts": "2026-11-04T02:09:08+00:00",
-   "product": "luz-amanha",
-   "role": "reviewer",
-   "kind": "reported",
-   "summary": "reviewer: [denied_permission] `python3 -m unittest tests.test_offline_build` needs approval, and bare `python3 -m unittest` or `discover` finds 0 tests, so the tests could not be run in the checkout."
-  },
-  {
-   "ts": "2026-11-03T21:28:09+00:00",
-   "product": "release-radar",
-   "role": "dispatcher",
-   "kind": "task_blocked",
-   "summary": "T-0033 Stop-list: tailwind 4.3.4 fix wording ('no longer registers : ops 21:35 UTC: three identical partial rounds (19:13, 20:08, 21:08; F-0085..F-0093) — the task depends on the T-0029 labelled repor"
-  },
-  {
-   "ts": "2026-11-03T21:08:35+00:00",
-   "product": "release-radar",
-   "role": "developer",
-   "kind": "reported",
-   "summary": "developer: [missing_data] The T-0029 labelled report does not exist (the analyst run returned a stub), so the labelled sample and 'other fix wording' patterns could not be done."
-  },
-  {
-   "ts": "2026-11-03T21:08:35+00:00",
-   "product": "release-radar",
-   "role": "developer",
-   "kind": "reported",
-   "summary": "developer: [unclear_instruction] The scope says to edit only ignore_patterns.txt, but linking the report from llms.txt needs a build.py change."
-  },
-  {
-   "ts": "2026-11-03T21:08:35+00:00",
-   "product": "release-radar",
-   "role": "developer",
-   "kind": "reported",
-   "summary": "developer: [environment] The task branch again started at main without the earlier attempt's commit; I had to fast-forward to d7d3fdf."
-  },
-  {
-   "ts": "2026-11-03T20:08:37+00:00",
-   "product": "release-radar",
-   "role": "developer",
-   "kind": "reported",
-   "summary": "developer: [missing_data] The T-0029 labelled report does not exist (analyst run returned a stub), so the labelled sample and 'other fix wording' patterns could not be done."
-  },
-  {
-   "ts": "2026-11-03T20:08:37+00:00",
-   "product": "release-radar",
-   "role": "developer",
-   "kind": "reported",
-   "summary": "developer: [unclear_instruction] Scope says edit only ignore_patterns.txt, but linking the report from llms.txt needs a build.py change."
-  },
-  {
-   "ts": "2026-11-03T20:08:37+00:00",
-   "product": "release-radar",
-   "role": "developer",
-   "kind": "reported",
-   "summary": "developer: [environment] The task branch started at main without the earlier attempt's commit; I had to fast-forward to d7d3fdf."
   }
  ]
 }

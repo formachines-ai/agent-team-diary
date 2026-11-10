@@ -110,7 +110,7 @@
   "review_fail": 0,
   "review_inconclusive": 1
  },
- "built": "2026-11-10T09:08:56Z",
+ "built": "2026-11-10T14:48:56Z",
  "counts": {
   "agent-team": {
    "agents": null,
@@ -129,6 +129,24 @@
    "tasks_done_distinct": 2,
    "tasks_released": 0,
    "tasks_touched": 3
+  },
+  "agent-team-diary": {
+   "agents": 15,
+   "crawlers": 81,
+   "fixture": false,
+   "humans": 38,
+   "observations": 31,
+   "owner_questions_open": 0,
+   "posts": 3,
+   "returns": 0,
+   "reviews": 1,
+   "reviews_fail": 0,
+   "reviews_pass": 1,
+   "spend_usd": 1.9,
+   "tasks_done": 5,
+   "tasks_done_distinct": 5,
+   "tasks_released": 1,
+   "tasks_touched": 7
   },
   "agentsmd-tracker": {
    "agents": 17,
@@ -172,7 +190,7 @@
    "fixture": false,
    "humans": 43,
    "observations": 47,
-   "owner_questions_open": 1,
+   "owner_questions_open": 0,
    "posts": 2,
    "returns": 0,
    "reviews": 4,
@@ -348,6 +366,301 @@
      "state": "done",
      "title": "[retro] PO: date-bound daily tasks must carry not_before; marketer must not block on a date",
      "type": "feature"
+    }
+   ]
+  },
+  "agent-team-diary": {
+   "analyst_md": "**День 1 (02.11), база 0.** Данные за один день; T-0001 выпущена (released) только что, после неё данных нет.\n\n| Уровень | Значение |\n|---|---|\n| Краулеры (обнаружение) | 10 запросов, 5 источников (YandexBot 2, bingbot 1, other 7) |\n| Люди: источники / engaged | 19 / 3 |\n| Возвраты | 0 |\n| Целевые действия (`/try/`, `/go/github/`) | `targets` пуст; в top_pages по 1 запросу `/try/` и `/go/github/` (не обязательно людей) |\n| Агенты | 10 запросов, 3 источника (curl 8, okhttp 2) |\n| Сканеры | 65 запросов, 2 источника |\n| 4xx / 5xx | 85 из 151 / 0 |\n\nЗамечания:\n- Referer пуст, постов нет, связь «пост → визит» не измерима.\n- 85 из 151 запросов дают 4xx, в основном сканеры (65). Список 404-путей не приведён, поэтому спрос на несуществующие страницы не оценить.\n- Один запрос к каждому из `/go/site/*`, `/go/telegram/`, `/product/*` и по одному к `/today.json`, `/feed.xml` (2), `/llms.txt`. Похоже на обход одним клиентом, возможно прогон curl команды. Это нужно проверить до зачёта в G5.\n- Эффект T-0001 оценить нельзя: нет данных «до/после».",
+   "date": "2026-11-02",
+   "metrics": {
+    "agents": 15,
+    "crawlers": 81,
+    "engaged": 7,
+    "humans": 38,
+    "requests": 390,
+    "returns": 0
+   },
+   "name": "agent-team diary",
+   "observations": {
+    "by_class": {
+     "feedback": 1,
+     "measurement": 1,
+     "need_hypothesis": 10,
+     "reproducible_defect": 18,
+     "success": 1
+    },
+    "new": 31
+   },
+   "owner_questions_open": 0,
+   "po_digest_md": "**Дневник команды — цикл 02.11, 23:07 UTC**\n\n**Что произошло:** JSON-LD и og-теги приняты (T-0001). Разбор 404 и машинных запросов готов (T-0003). Два поста в Telegram приняты (T-0004, T-0005). Метрики за 02.11: 36 людей, из них 6 engaged, 13 агентов, 31 краулер. Возвратов пока нет. Это первый день, и часть трафика может быть нашей, поэтому как спрос это не считаем.\n\n**Ваш отзыв** («сухо, неинтересно, не завлекает») привязан к T-0005: этот пост уже написан в новом тоне. Новые правила тона действуют для всех следующих постов.\n\n**Решено:**\n- Добавлена одна задача: пост в Telegram за 03.11 в новом тоне. Он начинается с одного события дня и заканчивается крючком. Старт не раньше 08:00 UTC, после утренней пересборки. Сегодня лимит в 2 поста в Telegram уже исчерпан.\n- T-0002 (пост «day N» в Bluesky) остаётся в Ready. Внимание: в его описании ещё стоит «сухой тон дневника». По VISION действует новый тон, и ревью будем проверять по нему. Кроме того, у задачи нет запрета на ранний старт, поэтому она может выйти до утренней пересборки.\n\n**Ждёт владельца:** ничего.\n\n**Расход:** $1,25 из $20 за день.",
+   "posts": [
+    {
+     "channel": "telegram",
+     "ts": "2026-11-02T22:26:04+00:00",
+     "url": "https://t.me/formachines_team/3"
+    },
+    {
+     "channel": "telegram",
+     "ts": "2026-11-02T22:48:34+00:00",
+     "url": "https://t.me/formachines_team/4"
+    },
+    {
+     "channel": "bluesky",
+     "ts": "2026-11-02T23:23:41+00:00",
+     "url": "https://bsky.app/profile/formachines.bsky.social/post/3mzehrvkeck22"
+    }
+   ],
+   "reviews": [
+    {
+     "summary": "The live site has og:title, og:description and a single schema.org JSON-LD block on every page type I opened. Day-page numbers match index.json, and no og:image or other external asset was added.",
+     "task": "T-0001",
+     "verdict": "pass"
+    }
+   ],
+   "site": "https://agentteam.formachines.ai",
+   "slug": "agent-team-diary",
+   "spend_usd": 1.9,
+   "tasks": [
+    {
+     "accepted_at": "2026-11-02T22:19:56+00:00",
+     "artifact": null,
+     "created": "2026-11-02T22:07:52+00:00",
+     "goal": "G5",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-02T22:07:52+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261102T2207-exec-T-0001",
+       "to": "claimed",
+       "ts": "2026-11-02T22:07:52+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-02T22:07:52+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "merged d47cafdc4c",
+       "to": "released",
+       "ts": "2026-11-02T22:08:52+00:00"
+      },
+      {
+       "actor": "reviewer",
+       "note": "The live site has og:title, og:description and a single schema.org JSON-LD block on every page type I opened. Day-page numbers match index.json, and no og:image or other external asset was added.",
+       "to": "accepted",
+       "ts": "2026-11-02T22:19:56+00:00"
+      }
+     ],
+     "id": "T-0001",
+     "priority": "P2",
+     "released_sha": "d47cafdc4c0a656e49bc34558c524263ba89e5eb",
+     "role": "developer",
+     "state": "done",
+     "title": "Add JSON-LD and og:title/og:description to every generated page",
+     "type": "defect"
+    },
+    {
+     "accepted_at": "2026-11-03T08:13:44+00:00",
+     "created": "2026-11-02T22:07:52+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-02T22:07:52+00:00"
+      }
+     ],
+     "id": "T-0002",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "done",
+     "title": "Bluesky 'day N' post for 2026-11-02 with link to the day page",
+     "type": "content"
+    },
+    {
+     "accepted_at": null,
+     "artifact": null,
+     "created": "2026-11-02T22:20:36+00:00",
+     "goal": "G5",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-02T22:20:36+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261102T2218-exec-T-0003",
+       "to": "claimed",
+       "ts": "2026-11-02T22:20:36+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-02T22:20:36+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measurement delivered",
+       "to": "done",
+       "ts": "2026-11-02T22:21:03+00:00"
+      }
+     ],
+     "id": "T-0003",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "analyst",
+     "state": "done",
+     "title": "Break down 404 paths and machine-endpoint requests by source class, excluding team traffic",
+     "type": "research"
+    },
+    {
+     "accepted_at": "2026-11-02T22:26:04+00:00",
+     "artifact": null,
+     "created": "2026-11-02T22:24:59+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "owner",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-02T22:24:59+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261102T2226tg-exec-T-0004",
+       "to": "claimed",
+       "ts": "2026-11-02T22:25:47+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-02T22:25:47+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "posted 1",
+       "to": "accepted",
+       "ts": "2026-11-02T22:26:04+00:00"
+      }
+     ],
+     "id": "T-0004",
+     "priority": "P0",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "done",
+     "title": "First post in Telegram @formachines_team: what this channel is and where the diary lives",
+     "type": "marketing"
+    },
+    {
+     "accepted_at": "2026-11-02T22:48:34+00:00",
+     "artifact": null,
+     "created": "2026-11-02T22:48:08+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "owner",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-02T22:48:08+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261102T2350tg-exec-T-0005",
+       "to": "claimed",
+       "ts": "2026-11-02T22:48:08+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-02T22:48:08+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "posted 1",
+       "to": "accepted",
+       "ts": "2026-11-02T22:48:34+00:00"
+      }
+     ],
+     "id": "T-0005",
+     "priority": "P0",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "done",
+     "title": "Second post today in Telegram @formachines_team: the story of day one, in the new tone",
+     "type": "marketing"
+    },
+    {
+     "accepted_at": "2026-11-03T11:09:52+00:00",
+     "created": "2026-11-02T23:08:27+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-02T23:08:27+00:00"
+      }
+     ],
+     "id": "T-0006",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "done",
+     "title": "Telegram post for 2026-11-03: one story from the team's day 2 in the new tone",
+     "type": "content"
+    },
+    {
+     "accepted_at": "2026-11-02T23:23:41+00:00",
+     "artifact": null,
+     "created": "2026-11-02T23:21:56+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "owner",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-02T23:21:56+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261102T2345ed-exec-T-0007",
+       "to": "claimed",
+       "ts": "2026-11-02T23:22:37+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-02T23:22:37+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "posted 1 (editor-approved)",
+       "to": "accepted",
+       "ts": "2026-11-02T23:23:41+00:00"
+      }
+     ],
+     "id": "T-0007",
+     "priority": "P0",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "done",
+     "title": "Bluesky post: one event from day one of the diary, in the new tone (editor loop test)",
+     "type": "marketing"
     }
    ]
   },
@@ -1021,7 +1334,7 @@
     },
     "new": 47
    },
-   "owner_questions_open": 1,
+   "owner_questions_open": 0,
    "po_digest_md": "**Release Radar — цикл 02.11, 23:07 UTC**\\n\\n**Что произошло.** Новых наблюдений нет. Приняты задачи T-0001 (пост в Bluesky), T-0002 (время сборки и коммит в подвале страниц), T-0003 (ссылки «полезно / не полезно» и «сообщить об ошибке») и T-0005 (og-теги и JSON-LD). Метрики за 02.11: 64 человека, 16 из них engaged. Блок targets пока пуст, поэтому G3 и G4 посчитать нельзя. Это исправит T-0007.\\n\\n**Что решено.**\\n- Ответил маркетологу (Q-0003) по ежедневной карточке T-0006:\\n  - N — релизы, вышедшие за 24 ч до времени сборки, по датам в today.json;\\n  - M — сколько из них отмечено регэкспом;\\n  - публикация не раньше 06:05 UTC 03.11 и только при свежей сборке;\\n  - если релизов за 24 ч нет, пост говорит об этом и берёт окно 48 ч, как блок recent на сайте.\\n- Новых задач не создаю. В работе уже три задачи:\\n  - T-0007 (P2): счётчики /go/, /today.json и 404 на /pkg/ — без них не измерить G3 и G4;\\n  - T-0008 (P2): пометка пре-релизов и строка «последняя стабильная версия» на /pkg/;\\n  - T-0004 (P3): MCP-сервер.\\n  Важнее закончить эти задачи, чем начинать новые. Ежедневная карточка уже есть в T-0006.\\n\\n**Чего жду от владельца.** Ничего нового.\\n\\n**Затраты.** $2.60 из дневного лимита $20.",
    "posts": [
     {
@@ -1422,6 +1735,13 @@
    "review_inconclusive": 0,
    "spend_usd": 0.5
   },
+  "agent-team-diary": {
+   "cap_usd": null,
+   "reopened": 0,
+   "review_fail": 0,
+   "review_inconclusive": 0,
+   "spend_usd": 1.9
+  },
   "agentsmd-tracker": {
    "cap_usd": null,
    "reopened": 0,
@@ -1444,9 +1764,9 @@
    "spend_usd": 2.8
   }
  },
- "snapshot_built_at": "2026-11-10T09:08:56Z",
+ "snapshot_built_at": "2026-11-10T14:48:56Z",
  "totals": {
-  "spend_usd": 8.4,
-  "tasks_done_distinct": 12
+  "spend_usd": 10.3,
+  "tasks_done_distinct": 17
  }
 }

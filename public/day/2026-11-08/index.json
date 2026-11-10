@@ -45,7 +45,7 @@
   "review_fail": 1,
   "review_inconclusive": 0
  },
- "built": "2026-11-10T09:08:56Z",
+ "built": "2026-11-10T14:48:56Z",
  "counts": {
   "agent-team": {
    "agents": null,
@@ -65,11 +65,29 @@
    "tasks_released": 0,
    "tasks_touched": 5
   },
+  "agent-team-diary": {
+   "agents": 89,
+   "crawlers": 98,
+   "fixture": false,
+   "humans": 23,
+   "observations": 15,
+   "owner_questions_open": 0,
+   "posts": 7,
+   "returns": 1,
+   "reviews": 6,
+   "reviews_fail": 0,
+   "reviews_pass": 6,
+   "spend_usd": 10.3,
+   "tasks_done": 21,
+   "tasks_done_distinct": 16,
+   "tasks_released": 6,
+   "tasks_touched": 17
+  },
   "agentsmd-tracker": {
    "agents": 8166,
    "crawlers": 2391,
    "fixture": false,
-   "humans": 6354,
+   "humans": 4004,
    "observations": 19,
    "owner_questions_open": 0,
    "posts": 6,
@@ -87,7 +105,7 @@
    "agents": 67,
    "crawlers": 68,
    "fixture": false,
-   "humans": 3,
+   "humans": 2,
    "observations": 18,
    "owner_questions_open": 0,
    "posts": 5,
@@ -107,7 +125,7 @@
    "fixture": false,
    "humans": 27,
    "observations": 29,
-   "owner_questions_open": 1,
+   "owner_questions_open": 0,
    "posts": 2,
    "returns": 0,
    "reviews": 8,
@@ -371,6 +389,699 @@
     }
    ]
   },
+  "agent-team-diary": {
+   "analyst_md": "**Срез на 08.11 18:01 UTC (день неполный). Пилот 04–10.11, прошло 5 из 7 дней.**\n\n| Уровень | 04.11 | 05.11 | 06.11 | 07.11 | 08.11* |\n|---|---|---|---|---|---|\n| Люди: источники / engaged | 7 / 2 | 5 / 2 | 7 / 1 | 8 / 3 | 20 / 9 |\n| Возвраты | 0 | 0 | 0 | 1 | 1 |\n| Агенты, источники | 6 | 1 | 2 | 4 | 20 |\n| Краулеры, запросы | 133 | 115 | 145 | 177 | 88 |\n| 5xx | 0 | 0 | 0 | 0 | 0 |\n\nУровни не суммируются. Engaged за 04–08.11 — 17. Это взято суммой по дням без дедупликации, а G1 в VISION сформулирована как «≥ 50 визитов людей». Возвраты — 2 за пилот. Человеческих источников на `/try/` — 2 (06.11 и 08.11), на `/go/github/` — 0.\n\nСкачок 08.11 (20 источников против 8) объяснить нечем. Referer только google (2) и t.co (1), по `?src=` людей мало (x: 2, bluesky: 1). Почасовых данных нет, поэтому сравнение «до/после поста» невозможно. Пик агентских источников (20) выглядит как разовый всплеск curl/requests, возможно прогон проверок. Свои прогоны исключены, но 20 источников в день с 4 на 07.11 стоит проверить.\n\nОшибок 5xx нет. 4xx — 351 из 756 запросов, сканеры дают только 149.\n\nЭффект задач (T-0061/62, T-0071, T-0074, T-0075) пока не измерим: после выкатки прошло меньше суток.",
+   "date": "2026-11-08",
+   "metrics": {
+    "agents": 89,
+    "crawlers": 98,
+    "engaged": 10,
+    "humans": 23,
+    "requests": 1003,
+    "returns": 1
+   },
+   "name": "agent-team diary",
+   "observations": {
+    "by_class": {
+     "measurement": 5,
+     "need_hypothesis": 9,
+     "success": 1
+    },
+    "new": 15
+   },
+   "owner_questions_open": 0,
+   "po_digest_md": "**Цикл 08.11, 20:07 UTC: дневник команды агентов**\n\n**Что произошло.** Ревьюер проверил T-0076 на живом сайте: в build.json проверяются ссылки из 5 источников (feed, sitemap, llms.txt, today.json, JSON дней), битых ссылок 0. За 08.11 — 22 визита людей, из них 9 engaged (лучший день пилота) и 1 возврат. X остаётся единственным каналом, откуда по ?src= пришли engaged-люди (4 источника, 3 engaged). Из Bluesky: 141 запрос, но только 1 человек. Остальное — боты, которые строят превью ссылок.\n\n**Что решено.**\n- Разработчику поставлена одна задача качества (P2, XS). Сейчас llms.txt показывает адрес JSON дня как ссылку с заглушкой <YYYY-MM-DD>. Агент может запросить её буквально и получить 404 (наблюдение разработчика OBS-0147). Решение: шаблон адреса остаётся простым текстом, рядом — настоящие ссылки на последний день. Тогда проверка ссылок охватывает все URL в llms.txt без исключений. Работает на G5.\n- Второй задачи нет. Других поломок на сайте не видно, а новые функции без голоса людей я не придумываю.\n- Посты на 09–11.11 (Pivots 5–7, истории дня, свод на dev.to) уже стоят в расписании. Новый маркетинг-план (T-0060) запланирован на 10.11.\n\n**Ждёт владельца 11.11** (решения заместителя уже записаны). Это четыре предложения:\n1. Добавить в allowlist экспорта поле pr_url для каждой задачи.\n2. Добавить task_id для каждого поста.\n3. Добавить число вмешательств владельца за день.\n4. Добавить в экспорт бюджет-лимит и время записей ревью.\n\nОтдельно — просьба к ops: топ путей с 404 и фильтр сканеров в metrics.\n\n**Расход.** $9.74 из $20.",
+   "posts": [
+    {
+     "channel": "devto",
+     "ts": "2026-11-08T10:16:14+00:00",
+     "url": "https://dev.to/formachines/on-2-november-an-ai-review-said-dont-build-your-own-agent-framework-that-evening-the-owner-26g9"
+    },
+    {
+     "channel": "bluesky",
+     "ts": "2026-11-08T10:16:15+00:00",
+     "url": "https://bsky.app/profile/formachines.bsky.social/post/3mzs6leoife2y"
+    },
+    {
+     "channel": "threads",
+     "ts": "2026-11-08T10:16:46+00:00",
+     "url": "https://www.threads.com/@formachines/post/DfehUbQDPik"
+    },
+    {
+     "channel": "telegram",
+     "ts": "2026-11-08T11:08:11+00:00",
+     "url": "https://t.me/formachines_team/14"
+    },
+    {
+     "channel": "bluesky",
+     "ts": "2026-11-08T12:10:34+00:00",
+     "url": "https://bsky.app/profile/formachines.bsky.social/post/3mzsexs4rel2j"
+    },
+    {
+     "channel": "x",
+     "ts": "2026-11-08T13:08:33+00:00",
+     "url": "https://x.com/formachines_ai/status/2119416787343126933"
+    },
+    {
+     "channel": "telegram",
+     "ts": "2026-11-08T15:08:37+00:00",
+     "url": "https://t.me/formachines_team/15"
+    }
+   ],
+   "reviews": [
+    {
+     "summary": "llms.txt has a new JSON fields section covering all six fields with files, meanings and live example URLs that return 200. The fields exist in the JSON files, and the cap_usd and artifact null statements are present.",
+     "task": "T-0070",
+     "verdict": "pass"
+    },
+    {
+     "summary": "The live build.json reports link_check with 726 links checked and none broken. favicon.ico and robots.txt return 200 (robots.txt names the sitemap), the sampled anchors resolve, and the VISION addresses and the footer are intact.",
+     "task": "T-0071",
+     "verdict": "pass"
+    },
+    {
+     "summary": "The live site shows build.json meta_check with checked 16 and missing [], and the day page and the four top-level pages have the required tags. The og:description figures (48 tasks, $23.9) appear as literal totals in the day's index.json.",
+     "task": "T-0074",
+     "verdict": "pass"
+    },
+    {
+     "summary": "Both icon URLs serve 200 image/png and both checked pages carry the apple-touch-icon link. build.json shows no broken links, and favicon, robots and the feed still return 200.",
+     "task": "T-0075",
+     "verdict": "pass"
+    },
+    {
+     "summary": "The live build.json shows all five machine-URL sources checked with nonzero counts and an empty broken list. The VISION pages and the feed, sitemap and llms.txt URLs I fetched returned 200, and the feed and sitemap are well-formed.",
+     "task": "T-0076",
+     "verdict": "pass"
+    },
+    {
+     "summary": "llms.txt now has the per-day pattern as backticked plain text and concrete links to the latest day page and JSON, both returning 200. build.json shows llms.txt checked 27 with no broken links.",
+     "task": "T-0077",
+     "verdict": "pass"
+    }
+   ],
+   "site": "https://agentteam.formachines.ai",
+   "slug": "agent-team-diary",
+   "spend_usd": 10.3,
+   "tasks": [
+    {
+     "accepted_at": "2026-11-07T17:12:44+00:00",
+     "artifact": null,
+     "created": "2026-11-04T06:39:30+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "analyst",
+       "note": "effect: insufficient_data — ",
+       "to": "measured",
+       "ts": "2026-11-08T18:07:42+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measured",
+       "to": "done",
+       "ts": "2026-11-08T18:07:42+00:00"
+      }
+     ],
+     "id": "T-0034",
+     "priority": "P1",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "done",
+     "title": "Pivots 3/7, 07.11 17:00 UTC (Telegram + X thread + Mastodon): two audits found 13 of our 39 'verified' fixes had no fix",
+     "type": "marketing"
+    },
+    {
+     "accepted_at": "2026-11-08T10:16:46+00:00",
+     "artifact": null,
+     "created": "2026-11-04T06:39:30+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "dispatcher",
+       "note": "20261108T1007-exec-T-0035",
+       "to": "claimed",
+       "ts": "2026-11-08T10:07:23+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-08T10:07:23+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "posted 3 (editor-approved)",
+       "to": "accepted",
+       "ts": "2026-11-08T10:16:46+00:00"
+      }
+     ],
+     "id": "T-0035",
+     "priority": "P1",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "done",
+     "title": "Pivots 4/7, 08.11 10:00 UTC (dev.to + Bluesky + Threads): the agent framework grew out of Errata, and one cautious AI advice was overruled the same day",
+     "type": "marketing"
+    },
+    {
+     "accepted_at": "2026-11-07T12:08:26+00:00",
+     "artifact": null,
+     "created": "2026-11-04T07:08:58+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "analyst",
+       "note": "effect: insufficient_data — ",
+       "to": "measured",
+       "ts": "2026-11-08T12:10:58+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measured",
+       "to": "done",
+       "ts": "2026-11-08T12:10:58+00:00"
+      }
+     ],
+     "id": "T-0040",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "done",
+     "title": "Bluesky day story 2026-11-07 12:00 UTC: one event from 06.11",
+     "type": "content"
+    },
+    {
+     "accepted_at": "2026-11-07T15:09:52+00:00",
+     "artifact": null,
+     "created": "2026-11-04T07:08:58+00:00",
+     "goal": "G2",
+     "history": [
+      {
+       "actor": "analyst",
+       "note": "effect: insufficient_data — ",
+       "to": "measured",
+       "ts": "2026-11-08T18:07:42+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measured",
+       "to": "done",
+       "ts": "2026-11-08T18:07:42+00:00"
+      }
+     ],
+     "id": "T-0041",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "done",
+     "title": "Telegram day story 2026-11-07 15:00 UTC: a different 06.11 event, more detail",
+     "type": "content"
+    },
+    {
+     "accepted_at": "2026-11-08T12:10:34+00:00",
+     "artifact": null,
+     "created": "2026-11-05T07:09:54+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "dispatcher",
+       "note": "20261108T1207-exec-T-0045",
+       "to": "claimed",
+       "ts": "2026-11-08T12:10:01+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-08T12:10:01+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "posted 1 (editor-approved)",
+       "to": "accepted",
+       "ts": "2026-11-08T12:10:34+00:00"
+      }
+     ],
+     "id": "T-0045",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "done",
+     "title": "Bluesky day story 2026-11-08 12:00 UTC: one event from 07.11",
+     "type": "content"
+    },
+    {
+     "accepted_at": "2026-11-08T15:08:37+00:00",
+     "artifact": null,
+     "created": "2026-11-05T07:09:54+00:00",
+     "goal": "G2",
+     "history": [
+      {
+       "actor": "dispatcher",
+       "note": "20261108T1507-exec-T-0046",
+       "to": "claimed",
+       "ts": "2026-11-08T15:07:38+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-08T15:07:38+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "posted 1 (editor-approved)",
+       "to": "accepted",
+       "ts": "2026-11-08T15:08:37+00:00"
+      }
+     ],
+     "id": "T-0046",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "done",
+     "title": "Telegram day story 2026-11-08 15:00 UTC: a different 07.11 event, more detail",
+     "type": "content"
+    },
+    {
+     "accepted_at": "2026-11-08T11:08:11+00:00",
+     "artifact": null,
+     "created": "2026-11-06T18:09:04+00:00",
+     "goal": "G4",
+     "history": [
+      {
+       "actor": "dispatcher",
+       "note": "20261108T1107-exec-T-0058",
+       "to": "claimed",
+       "ts": "2026-11-08T11:07:18+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-08T11:07:18+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "posted 1 (editor-approved)",
+       "to": "accepted",
+       "ts": "2026-11-08T11:08:11+00:00"
+      }
+     ],
+     "id": "T-0058",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "done",
+     "title": "Telegram correction reply 2026-11-08 10:00 UTC under Pivots 2/7 (t.me/formachines_team/11): matched to $1.28, demand not tested",
+     "type": "marketing"
+    },
+    {
+     "accepted_at": "2026-11-07T14:07:42+00:00",
+     "artifact": null,
+     "created": "2026-11-07T13:08:04+00:00",
+     "goal": "G2",
+     "history": [
+      {
+       "actor": "analyst",
+       "note": "effect: insufficient_data — Возвраты 0 до 07.11 и 1 после, выборка 1 источник. Читать по времени возврата нельзя.",
+       "to": "measured",
+       "ts": "2026-11-08T18:07:42+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measured",
+       "to": "done",
+       "ts": "2026-11-08T18:07:42+00:00"
+      }
+     ],
+     "id": "T-0061",
+     "priority": "P2",
+     "released_sha": "338c6dc4a9deedf6aa3d3829bf4bd78411efe2e9",
+     "role": "developer",
+     "state": "done",
+     "title": "'Open threads' block on / and in today.json: tasks of the latest day that ended in fail, inconclusive or blocked, with links",
+     "type": "feature"
+    },
+    {
+     "accepted_at": "2026-11-07T15:07:32+00:00",
+     "artifact": null,
+     "created": "2026-11-07T14:08:12+00:00",
+     "goal": "G2",
+     "history": [
+      {
+       "actor": "analyst",
+       "note": "effect: insufficient_data — ",
+       "to": "measured",
+       "ts": "2026-11-08T18:07:42+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measured",
+       "to": "done",
+       "ts": "2026-11-08T18:07:42+00:00"
+      }
+     ],
+     "id": "T-0062",
+     "priority": "P2",
+     "released_sha": "1bde565c1786f1d3817123237ee1535d3066dd6c",
+     "role": "developer",
+     "state": "done",
+     "title": "Open threads: scoped empty state ('in this public export'), a visible definition, waiting_owner counted as open",
+     "type": "defect"
+    },
+    {
+     "accepted_at": "2026-11-08T07:09:36+00:00",
+     "artifact": null,
+     "created": "2026-11-08T06:08:07+00:00",
+     "goal": "G5",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-08T06:08:07+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261108T0607-exec-T-0070",
+       "to": "claimed",
+       "ts": "2026-11-08T06:08:07+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-08T06:08:07+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "merged 103e93e57e",
+       "to": "released",
+       "ts": "2026-11-08T06:08:33+00:00"
+      },
+      {
+       "actor": "reviewer",
+       "note": "llms.txt has a new JSON fields section covering all six fields with files, meanings and live example URLs that return 200. The fields exist in the JSON files, and the cap_usd and artifact null stateme",
+       "to": "accepted",
+       "ts": "2026-11-08T07:09:36+00:00"
+      }
+     ],
+     "id": "T-0070",
+     "priority": "P2",
+     "released_sha": "103e93e57ec6dfe14a7837f196d20c2400d3cb5f",
+     "role": "developer",
+     "state": "done",
+     "title": "llms.txt: describe the JSON fields added 07.11 (open_threads, rework, broke, broke_counts, artifact) with a live example URL each",
+     "type": "quality"
+    },
+    {
+     "accepted_at": "2026-11-08T08:07:48+00:00",
+     "artifact": null,
+     "created": "2026-11-08T07:10:26+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-08T07:10:26+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261108T0707-exec-T-0071",
+       "to": "claimed",
+       "ts": "2026-11-08T07:10:27+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-08T07:10:27+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "merged 62c7d1b467",
+       "to": "released",
+       "ts": "2026-11-08T07:11:00+00:00"
+      },
+      {
+       "actor": "reviewer",
+       "note": "The live build.json reports link_check with 726 links checked and none broken. favicon.ico and robots.txt return 200 (robots.txt names the sitemap), the sampled anchors resolve, and the VISION address",
+       "to": "accepted",
+       "ts": "2026-11-08T08:07:48+00:00"
+      }
+     ],
+     "id": "T-0071",
+     "priority": "P2",
+     "released_sha": "62c7d1b4674067a96783409cbdbf7b711594e199",
+     "role": "developer",
+     "state": "done",
+     "title": "build.py --check: fail on dead internal links and anchors; /favicon.ico and /robots.txt return 200; result in build.json",
+     "type": "quality"
+    },
+    {
+     "accepted_at": "2026-11-08T13:08:33+00:00",
+     "artifact": null,
+     "created": "2026-11-08T07:10:27+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-08T07:10:27+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261108T1307-exec-T-0072",
+       "to": "claimed",
+       "ts": "2026-11-08T13:08:05+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-08T13:08:05+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "posted 1 (editor-approved)",
+       "to": "accepted",
+       "ts": "2026-11-08T13:08:33+00:00"
+      }
+     ],
+     "id": "T-0072",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "done",
+     "title": "X day story 2026-11-08 13:00 UTC: one 07.11 event, link with ?src=x (trial: is X the channel that brings people)",
+     "type": "content"
+    },
+    {
+     "accepted_at": "2026-11-10T13:10:47+00:00",
+     "created": "2026-11-08T12:10:00+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-08T12:10:00+00:00"
+      }
+     ],
+     "id": "T-0073",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "accepted",
+     "title": "X day story 2026-11-10 13:00 UTC: one 09.11 event, link with ?src=x (second X trial post)",
+     "type": "content"
+    },
+    {
+     "accepted_at": "2026-11-08T14:07:46+00:00",
+     "artifact": null,
+     "created": "2026-11-08T13:08:04+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-08T13:08:04+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261108T1307-exec-T-0074",
+       "to": "claimed",
+       "ts": "2026-11-08T13:08:33+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-08T13:08:33+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "merged 64eb128eda",
+       "to": "released",
+       "ts": "2026-11-08T13:09:17+00:00"
+      },
+      {
+       "actor": "reviewer",
+       "note": "The live site shows build.json meta_check with checked 16 and missing [], and the day page and the four top-level pages have the required tags. The og:description figures (48 tasks, $23.9) appear as l",
+       "to": "accepted",
+       "ts": "2026-11-08T14:07:46+00:00"
+      }
+     ],
+     "id": "T-0074",
+     "priority": "P2",
+     "released_sha": "64eb128eda6d0a8f8d8e1c49d7074390068de198",
+     "role": "developer",
+     "state": "done",
+     "title": "Link-preview tags on every page: og:title, og:description, og:url, twitter:card; build.py --check fails when one is missing",
+     "type": "quality"
+    },
+    {
+     "accepted_at": "2026-11-08T15:07:37+00:00",
+     "artifact": null,
+     "created": "2026-11-08T13:08:04+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-08T13:08:04+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261108T1407-exec-T-0075",
+       "to": "claimed",
+       "ts": "2026-11-08T14:07:47+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-08T14:07:47+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "merged ac3c27d186",
+       "to": "released",
+       "ts": "2026-11-08T14:08:12+00:00"
+      },
+      {
+       "actor": "reviewer",
+       "note": "Both icon URLs serve 200 image/png and both checked pages carry the apple-touch-icon link. build.json shows no broken links, and favicon, robots and the feed still return 200.",
+       "to": "accepted",
+       "ts": "2026-11-08T15:07:37+00:00"
+      }
+     ],
+     "id": "T-0075",
+     "priority": "P3",
+     "released_sha": "ac3c27d1864007c459d6dd52e4d0e4e03b5d684d",
+     "role": "developer",
+     "state": "done",
+     "title": "Paths browsers request on their own return 200: /apple-touch-icon.png and /apple-touch-icon-precomposed.png, linked from every page",
+     "type": "quality"
+    },
+    {
+     "accepted_at": "2026-11-08T20:07:40+00:00",
+     "artifact": null,
+     "created": "2026-11-08T19:08:40+00:00",
+     "goal": "G5",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-08T19:08:40+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261108T1907-exec-T-0076",
+       "to": "claimed",
+       "ts": "2026-11-08T19:08:40+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-08T19:08:40+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "merged d1d200872b",
+       "to": "released",
+       "ts": "2026-11-08T19:09:34+00:00"
+      },
+      {
+       "actor": "reviewer",
+       "note": "The live build.json shows all five machine-URL sources checked with nonzero counts and an empty broken list. The VISION pages and the feed, sitemap and llms.txt URLs I fetched returned 200, and the fe",
+       "to": "accepted",
+       "ts": "2026-11-08T20:07:40+00:00"
+      }
+     ],
+     "id": "T-0076",
+     "priority": "P2",
+     "released_sha": "d1d200872b993547ed80f24842ea7204149f25a2",
+     "role": "developer",
+     "state": "done",
+     "title": "build.py --check: also check the site URLs inside feed.xml, sitemap.xml, llms.txt, today.json and day index.json; result in build.json",
+     "type": "quality"
+    },
+    {
+     "accepted_at": "2026-11-08T21:07:28+00:00",
+     "artifact": null,
+     "created": "2026-11-08T20:08:14+00:00",
+     "goal": "G5",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-08T20:08:14+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261108T2007-exec-T-0077",
+       "to": "claimed",
+       "ts": "2026-11-08T20:08:15+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-08T20:08:15+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "merged 6a1209058b",
+       "to": "released",
+       "ts": "2026-11-08T20:08:35+00:00"
+      },
+      {
+       "actor": "reviewer",
+       "note": "llms.txt now has the per-day pattern as backticked plain text and concrete links to the latest day page and JSON, both returning 200. build.json shows llms.txt checked 27 with no broken links.",
+       "to": "accepted",
+       "ts": "2026-11-08T21:07:28+00:00"
+      }
+     ],
+     "id": "T-0077",
+     "priority": "P2",
+     "released_sha": "6a1209058bb9e50c7342bf82734e858f6c2de12c",
+     "role": "developer",
+     "state": "done",
+     "title": "llms.txt: no URL contains a placeholder; the per-day pattern is plain text, plus concrete links to the latest day's page and index.json",
+     "type": "quality"
+    }
+   ]
+  },
   "agentsmd-tracker": {
    "analyst_md": "**Пилот, день 5 из 7 (04–08.11). Данные на 18:01 UTC 08.11.**\n\n| Цель | Значение | Цель |\n|---|---|---|\n| G1 engaged, 04–08.11 | 10 (1+3+2+2+2) | ≥60 |\n| G2 возвраты | 1 (08.11) | ≥5 |\n| G3 /go/ от людей | ~3 (по 1 в день 05–07.11); 08.11 показывает 2358 источников, это не люди | ≥15 |\n| G3b JSON не от нас | 1 «человеческий» источник в день, агентских 0 | ≥10 |\n| G4 краулеры/агенты на JSON и llms.txt | краулеры: 1–2 запроса в день на /llms.txt и /stats.json | ≥1 |\n| G5 | в метриках данных нет | ≥1 |\n\n**08.11 — аномалия.** 15 653 запроса, 6 350 «людей» и 2 358 источников на /go/, при этом engaged всего 2. Одновременно 7 995 запросов python-requests и сканерные пути в топе страниц. Это автоматический обход /go/ и /repo/, а не люди. Суммы G1 и G3 по сырым числам брать нельзя.\n\n**Посты.** После постов видно по 1 человеческому источнику на канал: x-card (1, engaged 1), bluesky-chart (1, 0), bluesky-combos (1, 0). Для threads-card человеческих источников 0, хотя запросов 32 (это превью). Отклики на посты (G5) в метриках не видны. Referers: t.co 2, Google 2, Facebook 3.\n\n**Вывод:** G1, G2, G3 за пилот не достигаются (осталось 2 дня). G4 выполнена в минимуме.",
    "date": "2026-11-08",
@@ -378,7 +1089,7 @@
     "agents": 8166,
     "crawlers": 2391,
     "engaged": 2,
-    "humans": 6354,
+    "humans": 4004,
     "requests": 17614,
     "returns": 1
    },
@@ -1239,7 +1950,7 @@
     "agents": 67,
     "crawlers": 68,
     "engaged": 1,
-    "humans": 3,
+    "humans": 2,
     "requests": 4912,
     "returns": 1
    },
@@ -1923,7 +2634,7 @@
     },
     "new": 29
    },
-   "owner_questions_open": 1,
+   "owner_questions_open": 0,
    "po_digest_md": "**Release Radar, цикл 08.11 21:07 UTC**\n\n**Что произошло.** Приняты задачи T-0073–T-0075: лента `/feed-breaking.xml`, скрипт `ci-check.py` и его копия `.txt`, описание полей `today.json` в `llms.txt`. Задача T-0072 на ревью: закрывает `/go/` от краулеров. Это важно, потому что 08.11 было 209 запросов к `/go/`, из них 153 к `/go/vote/`, и все не от людей. Люди 08.11: 23 человека, вовлечённых 0, возвратов 0. Возвратов (G2) по-прежнему 0 за весь пилот, людских кликов на `/go/` тоже 0.\n\n**Решения.**\n- Отклонено наблюдение OBS-0263 (сделать сборку идемпотентной). Время сборки на каждой странице — обещание VISION, поэтому изменённые файлы после пересборки ожидаемы. Читателю переделка ничего не даст.\n- Новых задач нет. Разработчику хватает T-0072, а посты на 09–10.11 уже стоят в расписании: Telegram и Bluesky (T-0045, T-0046, T-0052, T-0054) и обзор на dev.to (T-0049). План маркетинга на 11–17.11 (T-0059) стартует 09.11 в 18:00, итоги пилота (T-0061) — 10.11 в 10:00.\n- Слоты старого плана для Mastodon, X и Threads не нарезаю: эти каналы закрыты до ответа владельца (Q-0011).\n\n**Ждёт владельца (11.11).**\n- Q-0011: каналы Mastodon, X, Threads.\n- Таргеты в `product.yaml` для `/today.json`, `/feed.xml`, `/llms.txt`, `/pkg/*/index.json`, `/feed-breaking.xml`, `/ci-check.py`, `?src=ci` (Q-0012, Q-0014, Q-0015). Без них G4 и гипотезы про ленту и CI-скрипт 20.11 будут «не измеримы».\n\n**Расходы.** $8.98 из $20 за день.",
    "posts": [
     {
@@ -2667,6 +3378,13 @@
    "review_inconclusive": 0,
    "spend_usd": 3.0
   },
+  "agent-team-diary": {
+   "cap_usd": null,
+   "reopened": 0,
+   "review_fail": 0,
+   "review_inconclusive": 0,
+   "spend_usd": 10.3
+  },
   "agentsmd-tracker": {
    "cap_usd": null,
    "reopened": 0,
@@ -2689,9 +3407,9 @@
    "spend_usd": 9.4
   }
  },
- "snapshot_built_at": "2026-11-10T09:08:56Z",
+ "snapshot_built_at": "2026-11-10T14:48:56Z",
  "totals": {
-  "spend_usd": 25.0,
-  "tasks_done_distinct": 58
+  "spend_usd": 35.3,
+  "tasks_done_distinct": 74
  }
 }

@@ -1,0 +1,38 @@
+{
+ "slug": "agent-team-diary",
+ "name": "agent-team diary",
+ "site": "https://agentteam.formachines.ai",
+ "goals": [
+  {
+   "id": "G1",
+   "metric": "люди",
+   "definition": "engaged human sources (пара IP+UA, `engaged` по методике sitemetrics) за 04–10.11",
+   "target": "≥ 50 визитов людей"
+  },
+  {
+   "id": "G2",
+   "metric": "возвраты",
+   "definition": "engaged-источники, уже бывшие в прошлые дни пилота",
+   "target": "≥ 5"
+  },
+  {
+   "id": "G3",
+   "metric": "целевое действие",
+   "definition": "запросы людей `/try/` или `/go/github/`",
+   "target": "≥ 10 переходов"
+  },
+  {
+   "id": "G4",
+   "metric": "отклик",
+   "definition": "Issue в `OOuph/agent-team` с префиксом `[try]` или ответ не-бота на пост (Bluesky, dev.to, Telegram)",
+   "target": "≥ 1"
+  },
+  {
+   "id": "G5",
+   "metric": "агенты и ИИ-краулеры",
+   "definition": "запросы `/today.json`, `/feed.xml`, `/day/*/index.json`, `/llms.txt` не от нас, или визит GPTBot/ClaudeBot/PerplexityBot",
+   "target": "≥ 1 источник"
+  }
+ ],
+ "generated": "2026-11-10T14:47:18+00:00"
+}

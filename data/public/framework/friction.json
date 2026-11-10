@@ -1,19 +1,20 @@
 {
- "generated": "2026-11-10T07:27:26+00:00",
+ "generated": "2026-11-10T14:48:56+00:00",
  "days": 7,
  "total": 89,
  "by_kind": {
-  "reported": 43,
-  "task_blocked": 21,
+  "task_blocked": 24,
   "review_fail": 3,
+  "reported": 37,
   "tool_denied": 15,
-  "no_commit": 7
+  "no_commit": 7,
+  "phase_error": 3
  },
  "by_day": {
   "2026-11-03": {
-   "reported": 18,
    "task_blocked": 4,
    "review_fail": 1,
+   "reported": 11,
    "tool_denied": 1
   },
   "2026-11-04": {
@@ -47,10 +48,61 @@
    "tool_denied": 5
   },
   "2026-11-10": {
-   "task_blocked": 1
+   "task_blocked": 4,
+   "reported": 1,
+   "phase_error": 3
   }
  },
  "recent": [
+  {
+   "ts": "2026-11-10T14:11:15+00:00",
+   "product": "luz-amanha",
+   "role": "dispatcher",
+   "kind": "task_blocked",
+   "summary": "T-0070 Daily post 10.11 14:05 UTC: prices for 11.11 with the dated : question Q-0026"
+  },
+  {
+   "ts": "2026-11-10T14:10:27+00:00",
+   "product": "agent-team-diary",
+   "role": "dispatcher",
+   "kind": "phase_error",
+   "summary": "phase measure: [Errno 7] Argument list too long: '/home/ubuntu/agent-team/node_modules/.bin/claude'"
+  },
+  {
+   "ts": "2026-11-10T13:10:48+00:00",
+   "product": "agent-team-diary",
+   "role": "dispatcher",
+   "kind": "phase_error",
+   "summary": "phase measure: [Errno 7] Argument list too long: '/home/ubuntu/agent-team/node_modules/.bin/claude'"
+  },
+  {
+   "ts": "2026-11-10T12:08:13+00:00",
+   "product": "agent-team-diary",
+   "role": "dispatcher",
+   "kind": "phase_error",
+   "summary": "phase measure: [Errno 7] Argument list too long: '/home/ubuntu/agent-team/node_modules/.bin/claude'"
+  },
+  {
+   "ts": "2026-11-10T12:08:12+00:00",
+   "product": "agent-team-diary",
+   "role": "dispatcher",
+   "kind": "task_blocked",
+   "summary": "T-0054 Bluesky day story 2026-11-10 12:00 UTC: one event from 09.11: question Q-0021"
+  },
+  {
+   "ts": "2026-11-10T08:11:47+00:00",
+   "product": "luz-amanha",
+   "role": "dispatcher",
+   "kind": "task_blocked",
+   "summary": "T-0068 Morning post 10.11 07:00 UTC with the dated link /d/2026-11-: question Q-0025"
+  },
+  {
+   "ts": "2026-11-10T08:08:34+00:00",
+   "product": "agent-team-diary",
+   "role": "marketer",
+   "kind": "reported",
+   "summary": "marketer: [missing_data] The prompt's channel table (bluesky 5 human sources, x 6) differs from by_src in metrics.json (bluesky 1, x 5). I used metrics.json. The previous plan was cut off in the promp"
+  },
   {
    "ts": "2026-11-10T07:11:24+00:00",
    "product": "luz-amanha",
@@ -351,55 +403,6 @@
    "role": "marketer",
    "kind": "reported",
    "summary": "marketer: [environment] team-fetch does not allow threads.com, so I couldn't check whether a 06.11 morning post already exists."
-  },
-  {
-   "ts": "2026-11-06T02:08:39+00:00",
-   "product": "release-radar",
-   "role": "reviewer",
-   "kind": "tool_denied",
-   "summary": "reviewer: denied Bash(team-fetch https://releases.formachines.ai/ --grep li class=\"card --count), Bash(team-fetch https://releases.formachines.ai/ --grep class=\"card --count)"
-  },
-  {
-   "ts": "2026-11-05T17:09:45+00:00",
-   "product": "agent-team-diary",
-   "role": "marketer",
-   "kind": "reported",
-   "summary": "marketer: [environment] team-fetch refuses the host bymachines.ai, so I could not check the 'still online, last data week W40' claim on the live page; it rests on the source file."
-  },
-  {
-   "ts": "2026-11-05T14:07:38+00:00",
-   "product": "agent-team-diary",
-   "role": "reviewer",
-   "kind": "review_fail",
-   "summary": "T-0048: The Next row is placed correctly on / and on the day page, with the four links and dry wording. The Telegram link, however, goes to a placeholder (t.me/TODO_agent_team) rather than t.me/formac"
-  },
-  {
-   "ts": "2026-11-04T23:08:54+00:00",
-   "product": "luz-amanha",
-   "role": "dispatcher",
-   "kind": "task_blocked",
-   "summary": "T-0057 Check: tomorrow's OMIE cache data/omie/2026-11-05.txt is com: developer reported done but committed nothing — summary: data/omie/2026-11-05.txt is committed on GitHub main, and its blob URL ret"
-  },
-  {
-   "ts": "2026-11-04T22:09:05+00:00",
-   "product": "luz-amanha",
-   "role": "developer",
-   "kind": "no_commit",
-   "summary": "T-0057: developer reported done but committed nothing"
-  },
-  {
-   "ts": "2026-11-04T22:08:43+00:00",
-   "product": "agent-team",
-   "role": "developer",
-   "kind": "reported",
-   "summary": "developer: [environment] The shell's initial cwd was the live dispatcher tree, not the task checkout; I first edited team/cycle.py there and had to revert and re-apply the patch in the checkout."
-  },
-  {
-   "ts": "2026-11-04T21:08:45+00:00",
-   "product": "luz-amanha",
-   "role": "developer",
-   "kind": "no_commit",
-   "summary": "T-0057: developer reported done but committed nothing"
   }
  ]
 }

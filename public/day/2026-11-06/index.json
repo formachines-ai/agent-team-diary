@@ -45,7 +45,7 @@
   "review_fail": 0,
   "review_inconclusive": 0
  },
- "built": "2026-11-10T09:08:56Z",
+ "built": "2026-11-10T14:48:56Z",
  "counts": {
   "agent-team": {
    "agents": null,
@@ -64,6 +64,24 @@
    "tasks_done_distinct": 5,
    "tasks_released": 0,
    "tasks_touched": 5
+  },
+  "agent-team-diary": {
+   "agents": 22,
+   "crawlers": 145,
+   "fixture": false,
+   "humans": 7,
+   "observations": 15,
+   "owner_questions_open": 0,
+   "posts": 5,
+   "returns": 0,
+   "reviews": 1,
+   "reviews_fail": 0,
+   "reviews_pass": 1,
+   "spend_usd": 5.5,
+   "tasks_done": 19,
+   "tasks_done_distinct": 12,
+   "tasks_released": 1,
+   "tasks_touched": 18
   },
   "agentsmd-tracker": {
    "agents": 11,
@@ -107,7 +125,7 @@
    "fixture": false,
    "humans": 20,
    "observations": 15,
-   "owner_questions_open": 1,
+   "owner_questions_open": 0,
    "posts": 2,
    "returns": 0,
    "reviews": 1,
@@ -375,6 +393,560 @@
      "state": "done",
      "title": "[retro] Editorial lessons: drop AI-label lessons at write time; keep runtime files out of dev task scope",
      "type": "feature"
+    }
+   ]
+  },
+  "agent-team-diary": {
+   "analyst_md": "**Срез на 06.11 18:00 UTC (день не закончен; пилот 04–10.11).** Уровни не складываются.\n\n| Цель | Значение | Цель на 7 дн. |\n|---|---|---|\n| G1 люди (engaged) 04–06.11 | 2+2+1 = 5 | ≥ 50 |\n| G2 возвраты | 0 | ≥ 5 |\n| G3 /try/ или /go/github/ людьми | 0 | ≥ 10 |\n| G4 отклик | нет данных в метриках | ≥ 1 |\n| G5 агенты/краулеры | ≥1 источник (ClaudeBot ежедневно, go-http-client сегодня) | ≥ 1 |\n\nЛюди по дням (источники/engaged): 04.11 — 7/2, 05.11 — 5/2, 06.11 — 6/1. Пик 02.11 (38/7), скорее всего включал наш запуск. Посты → визиты: ссылки с ?src= в основном открывают превью-боты (facebookexternalhit, Mastodon); людей почти нет (bluesky 0, x 1 engaged 05.11 после поста). Реферреры: google.com 2. Ошибок 5xx нет. 4xx 252–817 в день — в основном сканеры; отдельно не разобрано. Эффекта задач (T-0044 превью, T-0048 «Next», T-0042 Latest day) пока не видно: человек из каналов ≈ 0 до и после.\n\nВывод: G1 и G2 по 3 дням далеки от цели; честная оценка — порог не достигнут.",
+   "date": "2026-11-06",
+   "metrics": {
+    "agents": 22,
+    "crawlers": 145,
+    "engaged": 1,
+    "humans": 7,
+    "requests": 866,
+    "returns": 0
+   },
+   "name": "agent-team diary",
+   "observations": {
+    "by_class": {
+     "feedback": 2,
+     "measurement": 5,
+     "need_hypothesis": 8
+    },
+    "new": 15
+   },
+   "owner_questions_open": 0,
+   "po_digest_md": "**Цикл 06.11 19:07 UTC — дневник команды**\n\n**Что случилось:** приняты пост в Bluesky и пост в Telegram о дне 05.11 (T-0024, T-0025), серия Pivots 2/7 в трёх каналах (T-0033), уточнение в X (T-0049) и метка неоконченного дня на сайте (T-0053). Ежедневные посты и серия Pivots запланированы до 11.11.\n\n**Метрики:** людей мало и почти не прибавляется: 5–7 источников в день 04–06.11, вовлечённых 1–2, возвратов 0. Аналитик заметил, что ссылки из постов открывают в основном боты превью. Людей привели только X (1 вовлечённый) и Bluesky (1).\n\n**Решения:**\n- Создана задача аналитику на 09.11: сравнить переходы людей на `/try/` и `/go/github/` за 3 дня до и 3 дня после строки «Next» (T-0048). Сначала проверяем, работает ли она, потом решаем, менять ли первый экран.\n- Разбор 4xx не повторяем: отчёт уже есть (T-0056).\n- Вывод про ботов и нулевые возвраты переносим в следующий маркетинг-план. Текущий план действует до 10.11. В новом плане считаем людей, а не запросы, и, вероятно, даём больше слотов X.\n\n**Ждёт владельца:** ничего.\n\n**Расход:** $5.20 из $20 за день.",
+   "posts": [
+    {
+     "channel": "bluesky",
+     "ts": "2026-11-06T12:08:02+00:00",
+     "url": "https://bsky.app/profile/formachines.bsky.social/post/3mzndvfztts26"
+    },
+    {
+     "channel": "telegram",
+     "ts": "2026-11-06T15:08:08+00:00",
+     "url": "https://t.me/formachines_team/10"
+    },
+    {
+     "channel": "telegram",
+     "ts": "2026-11-06T17:09:18+00:00",
+     "url": "https://t.me/formachines_team/11"
+    },
+    {
+     "channel": "threads",
+     "ts": "2026-11-06T17:09:25+00:00",
+     "url": "https://www.threads.com/@formachines/post/DfaG_0FDBtN"
+    },
+    {
+     "channel": "bluesky",
+     "ts": "2026-11-06T17:09:26+00:00",
+     "url": "https://bsky.app/profile/formachines.bsky.social/post/3mznuqeizkl2h"
+    }
+   ],
+   "reviews": [
+    {
+     "summary": "The live site shows the in-progress label with the 10:09 UTC snapshot time on / and on /day/2026-11-06/. The review sentence reads \"in this export so far\". today.json and the day's index.json gain day_complete and snapshot_built_at, and the finished day 2026-11-05 is unchanged.",
+     "task": "T-0053",
+     "verdict": "pass"
+    }
+   ],
+   "site": "https://agentteam.formachines.ai",
+   "slug": "agent-team-diary",
+   "spend_usd": 5.5,
+   "tasks": [
+    {
+     "accepted_at": "2026-11-05T12:08:42+00:00",
+     "artifact": null,
+     "created": "2026-11-03T13:08:28+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "analyst",
+       "note": "effect: insufficient_data — ",
+       "to": "measured",
+       "ts": "2026-11-06T18:09:20+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measured",
+       "to": "done",
+       "ts": "2026-11-06T18:09:20+00:00"
+      }
+     ],
+     "id": "T-0016",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "done",
+     "title": "Bluesky day story 2026-11-05 12:00 UTC: one event from 04.11",
+     "type": "content"
+    },
+    {
+     "accepted_at": "2026-11-05T15:08:50+00:00",
+     "artifact": null,
+     "created": "2026-11-03T13:08:29+00:00",
+     "goal": "G2",
+     "history": [
+      {
+       "actor": "analyst",
+       "note": "effect: insufficient_data — ",
+       "to": "measured",
+       "ts": "2026-11-06T18:09:20+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measured",
+       "to": "done",
+       "ts": "2026-11-06T18:09:20+00:00"
+      }
+     ],
+     "id": "T-0018",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "done",
+     "title": "Telegram day story 2026-11-05 15:00 UTC: a 04.11 event on one product's page",
+     "type": "content"
+    },
+    {
+     "accepted_at": "2026-11-04T19:08:52+00:00",
+     "artifact": null,
+     "created": "2026-11-03T19:08:36+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "analyst",
+       "note": "effect: insufficient_data — ",
+       "to": "measured",
+       "ts": "2026-11-06T00:07:41+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measured",
+       "to": "done",
+       "ts": "2026-11-06T00:07:41+00:00"
+      }
+     ],
+     "id": "T-0023",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "done",
+     "title": "Threads day story 2026-11-04 18:00 UTC: a 03.11 event not yet posted",
+     "type": "content"
+    },
+    {
+     "accepted_at": "2026-11-06T12:08:02+00:00",
+     "artifact": null,
+     "created": "2026-11-03T19:08:36+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "dispatcher",
+       "note": "20261106T1207-exec-T-0024",
+       "to": "claimed",
+       "ts": "2026-11-06T12:07:22+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-06T12:07:22+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "posted 1 (editor-approved)",
+       "to": "accepted",
+       "ts": "2026-11-06T12:08:02+00:00"
+      }
+     ],
+     "id": "T-0024",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "done",
+     "title": "Bluesky day story 2026-11-06 12:00 UTC: one event from 05.11",
+     "type": "content"
+    },
+    {
+     "accepted_at": "2026-11-06T15:08:08+00:00",
+     "artifact": null,
+     "created": "2026-11-03T19:08:36+00:00",
+     "goal": "G2",
+     "history": [
+      {
+       "actor": "dispatcher",
+       "note": "20261106T1507-exec-T-0025",
+       "to": "claimed",
+       "ts": "2026-11-06T15:07:17+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-06T15:07:17+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "posted 1 (editor-approved)",
+       "to": "accepted",
+       "ts": "2026-11-06T15:08:08+00:00"
+      }
+     ],
+     "id": "T-0025",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "done",
+     "title": "Telegram day story 2026-11-06 15:00 UTC: a different 05.11 event, more detail",
+     "type": "content"
+    },
+    {
+     "accepted_at": "2026-11-05T17:09:45+00:00",
+     "artifact": null,
+     "created": "2026-11-04T06:39:30+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "analyst",
+       "note": "effect: insufficient_data — ",
+       "to": "measured",
+       "ts": "2026-11-06T18:09:20+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measured",
+       "to": "done",
+       "ts": "2026-11-06T18:09:20+00:00"
+      }
+     ],
+     "id": "T-0032",
+     "priority": "P1",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "done",
+     "title": "Pivots 1/7, 05.11 17:00 UTC (Telegram + Threads + X): we built a lab that measured how AI picks businesses — and nobody needed the numbers",
+     "type": "marketing"
+    },
+    {
+     "accepted_at": "2026-11-06T17:09:26+00:00",
+     "artifact": null,
+     "created": "2026-11-04T06:39:30+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "dispatcher",
+       "note": "20261106T1707-exec-T-0033",
+       "to": "claimed",
+       "ts": "2026-11-06T17:07:22+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-06T17:07:22+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "posted 3 (editor-approved)",
+       "to": "accepted",
+       "ts": "2026-11-06T17:09:26+00:00"
+      }
+     ],
+     "id": "T-0033",
+     "priority": "P1",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "done",
+     "title": "Pivots 2/7, 06.11 17:00 UTC (Telegram + Threads + Bluesky): our audit matched the original to $1.28, so there was nothing to sell",
+     "type": "marketing"
+    },
+    {
+     "accepted_at": "2026-11-05T08:08:55+00:00",
+     "artifact": null,
+     "created": "2026-11-05T07:09:54+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "analyst",
+       "note": "effect: insufficient_data — Принята 05.11 08:08; людей из постов 05.11 — 1 (x), 06.11 — 0. Нет сравнения до/после на тех же каналах.",
+       "to": "measured",
+       "ts": "2026-11-06T12:08:19+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measured",
+       "to": "done",
+       "ts": "2026-11-06T12:08:19+00:00"
+      }
+     ],
+     "id": "T-0044",
+     "priority": "P2",
+     "released_sha": "71cca505f9b2bec299befee023017ccc14d1f9ba",
+     "role": "developer",
+     "state": "done",
+     "title": "Link previews: og/twitter meta on every page, with the day's real event in the day-page description",
+     "type": "feature"
+    },
+    {
+     "accepted_at": "2026-11-05T12:07:51+00:00",
+     "artifact": null,
+     "created": "2026-11-05T11:07:37+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "analyst",
+       "note": "effect: insufficient_data — ",
+       "to": "measured",
+       "ts": "2026-11-06T12:08:19+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measured",
+       "to": "done",
+       "ts": "2026-11-06T12:08:19+00:00"
+      }
+     ],
+     "id": "T-0047",
+     "priority": "P2",
+     "released_sha": "1ac386b05cef58af232c91030d60b7e3c8221bdd",
+     "role": "developer",
+     "state": "done",
+     "title": "Meta and og descriptions ≤160 chars on / and day pages, cut at a word",
+     "type": "defect"
+    },
+    {
+     "accepted_at": "2026-11-05T15:07:37+00:00",
+     "artifact": null,
+     "created": "2026-11-05T13:07:56+00:00",
+     "goal": "G3",
+     "history": [
+      {
+       "actor": "analyst",
+       "note": "effect: insufficient_data — Ревью fail 1, принято 05.11; за 06.11 /try/ 1 human src, /go/github/ 0, один день данных.",
+       "to": "measured",
+       "ts": "2026-11-06T18:09:20+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measured",
+       "to": "done",
+       "ts": "2026-11-06T18:09:20+00:00"
+      }
+     ],
+     "id": "T-0048",
+     "priority": "P1",
+     "released_sha": "bea896a1d64ff201841a897d8f91088ce001b273",
+     "role": "developer",
+     "state": "done",
+     "title": "Next-step row on / and on day pages: follow (RSS, Telegram), the code (GitHub) and try with your product (/try/)",
+     "type": "feature"
+    },
+    {
+     "accepted_at": "2026-11-09T16:10:08+00:00",
+     "created": "2026-11-06T01:08:56+00:00",
+     "goal": "G3",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-06T01:08:56+00:00"
+      }
+     ],
+     "id": "T-0052",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "accepted",
+     "title": "dev.to weekly summary 2026-11-09 10:00 UTC: three events of the week 03–08.11 from the day pages",
+     "type": "marketing"
+    },
+    {
+     "accepted_at": "2026-11-06T11:07:51+00:00",
+     "artifact": null,
+     "created": "2026-11-06T10:08:40+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-06T10:08:40+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261106T1007-exec-T-0053",
+       "to": "claimed",
+       "ts": "2026-11-06T10:08:41+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-06T10:08:41+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "merged e59be4dd67",
+       "to": "released",
+       "ts": "2026-11-06T10:09:20+00:00"
+      },
+      {
+       "actor": "reviewer",
+       "note": "The live site shows the in-progress label with the 10:09 UTC snapshot time on / and on /day/2026-11-06/. The review sentence reads \"in this export so far\". today.json and the day's index.json gain day",
+       "to": "accepted",
+       "ts": "2026-11-06T11:07:51+00:00"
+      }
+     ],
+     "id": "T-0053",
+     "priority": "P2",
+     "released_sha": "e59be4dd6725c2e2ce4b56057b7658dfe4a89fef",
+     "role": "developer",
+     "state": "done",
+     "title": "Partial-day label: a day built before its UTC end shows 'in progress, snapshot at <build UTC>' on /, its day page, JSON",
+     "type": "defect"
+    },
+    {
+     "accepted_at": null,
+     "created": "2026-11-06T10:08:41+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-06T10:08:41+00:00"
+      }
+     ],
+     "id": "T-0054",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "rejected",
+     "title": "Bluesky day story 2026-11-10 12:00 UTC: one event from 09.11",
+     "type": "content"
+    },
+    {
+     "accepted_at": null,
+     "created": "2026-11-06T10:08:41+00:00",
+     "goal": "G2",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-06T10:08:41+00:00"
+      }
+     ],
+     "id": "T-0055",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "rejected",
+     "title": "Telegram day story 2026-11-10 15:00 UTC: a different 09.11 event, more detail",
+     "type": "content"
+    },
+    {
+     "accepted_at": null,
+     "artifact": null,
+     "created": "2026-11-06T13:08:07+00:00",
+     "goal": "G5",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-06T13:08:07+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261106T1307-exec-T-0056",
+       "to": "claimed",
+       "ts": "2026-11-06T13:08:07+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-06T13:08:07+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measurement delivered",
+       "to": "done",
+       "ts": "2026-11-06T13:08:31+00:00"
+      }
+     ],
+     "id": "T-0056",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "analyst",
+     "state": "done",
+     "title": "404 breakdown by path without scanners, 31.10–06.11: which missing addresses do people and agents ask for",
+     "type": "research"
+    },
+    {
+     "accepted_at": "2026-11-07T18:11:18+00:00",
+     "created": "2026-11-06T18:09:04+00:00",
+     "goal": "G4",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-06T18:09:04+00:00"
+      }
+     ],
+     "id": "T-0057",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "done",
+     "title": "Bluesky + Threads correction reply 2026-11-07 00:10 UTC under Pivots 2/7: the $1.28 match did not test demand",
+     "type": "marketing"
+    },
+    {
+     "accepted_at": "2026-11-08T11:08:11+00:00",
+     "created": "2026-11-06T18:09:04+00:00",
+     "goal": "G4",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-06T18:09:04+00:00"
+      }
+     ],
+     "id": "T-0058",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "done",
+     "title": "Telegram correction reply 2026-11-08 10:00 UTC under Pivots 2/7 (t.me/formachines_team/11): matched to $1.28, demand not tested",
+     "type": "marketing"
+    },
+    {
+     "accepted_at": null,
+     "created": "2026-11-06T19:10:16+00:00",
+     "goal": "G3",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-06T19:10:16+00:00"
+      }
+     ],
+     "id": "T-0059",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "analyst",
+     "state": "done",
+     "title": "G3 before/after the Next row (T-0048): do people go from / to /try/ and /go/github/, 3 days vs 3 days",
+     "type": "research"
     }
    ]
   },
@@ -777,7 +1349,7 @@
      "type": "content"
     },
     {
-     "accepted_at": null,
+     "accepted_at": "2026-11-10T10:09:19+00:00",
      "created": "2026-11-06T07:09:40+00:00",
      "goal": "G1",
      "history": [
@@ -792,7 +1364,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "ready",
+     "state": "accepted",
      "title": "Threads post 10.11 10:00 UTC: number of the day (pilot day 7)",
      "type": "content"
     },
@@ -1662,7 +2234,7 @@
     },
     "new": 15
    },
-   "owner_questions_open": 1,
+   "owner_questions_open": 0,
    "po_digest_md": "**Release Radar, 06.11 19:07 UTC**\n\n**Что произошло.** Сегодняшние посты вышли:\n- карточка в Telegram (T-0035);\n- тест формата в Bluesky, вариант с кодом (T-0037).\n\nT-0057 принята: на главной теперь у каждого релиза есть ссылка «release notes →» через /go/, а релизы с флагом стоят первым блоком.\n\nМетрики за 06.11: 12 людей, 3 engaged. Возвратов 0 за все дни. Переходов людей по /go/ по-прежнему 0: почти все 63 запроса к /go/ сделали краулеры.\n\n**Что решено.**\n- Новых задач нет. Сначала аналитик 07.11 (T-0058) проверит, дали ли новые ссылки на главной переходы людей. Менять первый экран раньше этого замера нельзя: тогда мы не узнаем, сработала ли T-0057.\n- Гипотеза аналитика об уходе с главной привязана к T-0058. Замер «увидел ли карточку до прокрутки» без JS невозможен, поэтому используем переходы по /go/.\n- G4 (запросы /today.json от агентов) отложена до ответа по Q-0012: цели и классы метрик меняет ops, это ждёт владельца после 11.11.\n\n**Расписание.** Посты в Telegram и Bluesky поставлены на 07–10.11, обзор на dev.to — на 09.11. План маркетинга на 11–17.11 (T-0059) начнут писать 09.11.\n\n**Ждёт владельца (11.11):**\n- Mastodon, X и Threads по-прежнему закрыты по указанию заместителя. Это противоречит VISION. На эти каналы был план по 2 тестовых поста на каждый; Mastodon уже привёл 1 engaged-посетителя (Q-0011). Нужно решение: возобновлять ли их и как часто.\n- Цели метрик для G4 (Q-0012).\n\n**Расход.** $2.37 из $20.",
    "posts": [
     {
@@ -1903,6 +2475,13 @@
    "review_inconclusive": 0,
    "spend_usd": 2.1
   },
+  "agent-team-diary": {
+   "cap_usd": null,
+   "reopened": 0,
+   "review_fail": 0,
+   "review_inconclusive": 0,
+   "spend_usd": 5.5
+  },
   "agentsmd-tracker": {
    "cap_usd": null,
    "reopened": 0,
@@ -1925,9 +2504,9 @@
    "spend_usd": 2.6
   }
  },
- "snapshot_built_at": "2026-11-10T09:08:56Z",
+ "snapshot_built_at": "2026-11-10T14:48:56Z",
  "totals": {
-  "spend_usd": 14.5,
-  "tasks_done_distinct": 36
+  "spend_usd": 20.0,
+  "tasks_done_distinct": 48
  }
 }

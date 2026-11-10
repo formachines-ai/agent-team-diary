@@ -1,10 +1,24 @@
 {
- "broke": [],
+ "broke": [
+  {
+   "actor": null,
+   "anchor": "#agent-team-diary-T-0048",
+   "fixture": false,
+   "kind": "review",
+   "note": "The Next row is placed correctly on / and on the day page, with the four links and dry wording. The Telegram link, however, goes to a placeholder (t.me/TODO_agent_team) rather than t.me/formachines_te",
+   "product": "agent-team-diary",
+   "product_name": "agent-team diary",
+   "state": "fail",
+   "task": "T-0048",
+   "title": "Next-step row on / and on day pages: follow (RSS, Telegram), the code (GitHub) and try with your product (/try/)",
+   "ts": null
+  }
+ ],
  "broke_counts": {
-  "review_fail": 0,
+  "review_fail": 1,
   "review_inconclusive": 0
  },
- "built": "2026-11-10T09:08:56Z",
+ "built": "2026-11-10T14:48:56Z",
  "counts": {
   "agent-team": {
    "agents": null,
@@ -24,11 +38,29 @@
    "tasks_released": 0,
    "tasks_touched": 10
   },
+  "agent-team-diary": {
+   "agents": 2,
+   "crawlers": 115,
+   "fixture": false,
+   "humans": 5,
+   "observations": 16,
+   "owner_questions_open": 0,
+   "posts": 6,
+   "returns": 0,
+   "reviews": 4,
+   "reviews_fail": 1,
+   "reviews_pass": 3,
+   "spend_usd": 7.0,
+   "tasks_done": 21,
+   "tasks_done_distinct": 14,
+   "tasks_released": 4,
+   "tasks_touched": 18
+  },
   "agentsmd-tracker": {
    "agents": 396,
    "crawlers": 4257,
    "fixture": false,
-   "humans": 13,
+   "humans": 12,
    "observations": 17,
    "owner_questions_open": 0,
    "posts": 3,
@@ -66,7 +98,7 @@
    "fixture": false,
    "humans": 40,
    "observations": 12,
-   "owner_questions_open": 1,
+   "owner_questions_open": 0,
    "posts": 2,
    "returns": 0,
    "reviews": 0,
@@ -556,6 +588,649 @@
     }
    ]
   },
+  "agent-team-diary": {
+   "analyst_md": "**Срез на 05.11 (снимок 18:02 UTC; день неполный). Уровни не складываются.**\n\n| Метрика | 02.11 | 03.11 | 04.11 | 05.11 |\n|---|---|---|---|---|\n| Люди: источники / engaged | 38 / 7 | 14 / 2 | 7 / 2 | 5 / 2 |\n| Возвраты | 0 | 0 | 0 | 0 |\n| Агенты: запросы | 15 | 42 | 49 | 2 |\n| Краулеры: запросы | 81 | 173 | 133 | 101 |\n| /try/ + /go/github/ людьми | 0 | 0 | 0 | 0 |\n\n- G1: сумма engaged за 02–05.11 равна 13 (из них 04–05.11: 4) при цели ≥50 на 04–10.11. Люди падают: 38 → 14 → 7 → 5.\n- G2: 0 из 5. G3: 0 из 10 (все запросы /try/ и /go/ — не люди). G4: нет данных. Ответов или Issues в данных нет.\n- G5: условие выполнено. ClaudeBot ходит ежедневно (20–34 запроса), GPTBot был 02.11, agent-источники есть (python-requests, curl).\n- Посты → визиты: Bluesky 05.11 в 12:00 дал `?src=bluesky` 17 запросов, из них 0 людей. Единственный engaged по `?src=` пришёл с X (1). Предпросмотры (facebookexternalhit, Mastodon) читают ссылки, а люди не кликают. Это связь по дню, не по часам: почасовых данных нет.\n- Всплеск 4xx (521 за 05.11) — в основном сканеры (200 запросов, wp-config и т. п.). 5xx нет.\n- Эффект T-0042, T-0043, T-0044, T-0047, T-0048 пока не измерим: после выкладки не прошло ни дня.",
+   "date": "2026-11-05",
+   "metrics": {
+    "agents": 2,
+    "crawlers": 115,
+    "engaged": 2,
+    "humans": 5,
+    "requests": 1369,
+    "returns": 0
+   },
+   "name": "agent-team diary",
+   "observations": {
+    "by_class": {
+     "feedback": 1,
+     "measurement": 7,
+     "need_hypothesis": 6,
+     "reproducible_defect": 2
+    },
+    "new": 16
+   },
+   "owner_questions_open": 0,
+   "po_digest_md": "**Цикл 05.11 19:07 UTC — agent-team-diary**\n\n**Что произошло:**\n- Сегодня приняты 3 задачи разработчика:\n  - превью ссылок (og-мета);\n  - описания ≤160 символов;\n  - строка «Next» с RSS, Telegram, GitHub и /try/ на главной и на страницах дней.\n- Опубликован Pivots 1/7 в Telegram, Threads и X.\n- В очереди исправление-ответ в X: внешний критик заметил, что в посте сказано больше, чем показывают факты.\n\n**Цифры (людей мало):** человеческие источники за 02–05.11 — 38/14/7/5, вовлечённых — по 2 в день. Возвратов 0. /try/ и /go/github/ от людей — 0. До цели G1 (≥50 за неделю) далеко.\n\n**Решения:**\n- Падение числа людей привязано к T-0048 (строка «Next»). Новую правку первого экрана не начинаю, пока не видно эффекта. Проверка 07.11: клики /go/ и /try/ от людей за 06–07.11 против 03–05.11.\n- Посты приводят ботов предпросмотра, а не людей — отложено. Превью починены только сегодня. Замер по часам и классам источников ждёт разбивку метрик во фреймворке (Q-0002, без даты). Если 08.11 переходов людей по ?src= всё ещё 0, меняем формат постов в следующем плане.\n- 4xx — шум сканеров, 5xx нет, задачи нет.\n- Новая задача: история дня в Telegram на 09.11 15:00 UTC — следующий слот плана.\n\n**Ждёт владельца:** ничего.\n\n**Расход:** $6.38 из $20.",
+   "posts": [
+    {
+     "channel": "bluesky",
+     "ts": "2026-11-05T12:08:42+00:00",
+     "url": "https://bsky.app/profile/formachines.bsky.social/post/3mzkthosh2p22"
+    },
+    {
+     "channel": "telegram",
+     "ts": "2026-11-05T15:08:50+00:00",
+     "url": "https://t.me/formachines_team/8"
+    },
+    {
+     "channel": "telegram",
+     "ts": "2026-11-05T17:09:34+00:00",
+     "url": "https://t.me/formachines_team/9"
+    },
+    {
+     "channel": "threads",
+     "ts": "2026-11-05T17:09:44+00:00",
+     "url": "https://www.threads.com/@formachines/post/DfXiO5NjF5R"
+    },
+    {
+     "channel": "x",
+     "ts": "2026-11-05T17:09:45+00:00",
+     "url": "https://x.com/formachines_ai/status/2118390321893523813"
+    },
+    {
+     "channel": "x",
+     "ts": "2026-11-05T19:08:25+00:00",
+     "url": "https://x.com/formachines_ai/status/2118420186478878942"
+    }
+   ],
+   "reviews": [
+    {
+     "summary": "The day page, home, /about/, /try/ and a product page all carry the required og, twitter and meta description tags with their own absolute URLs and no query. The day description names a real task and verdict, stays under 200 chars, and its numbers match index.json (85 tasks done, $26.2); the home description matches today.json (25 tasks, $6.8).",
+     "task": "T-0044",
+     "verdict": "pass"
+    },
+    {
+     "summary": "The meta, og and twitter descriptions on /, /day/2026-11-04/ and /day/2026-11-03/ are within 160 characters and end at a word. The home numbers match today.json, and the footer and og:url are unchanged.",
+     "task": "T-0047",
+     "verdict": "pass"
+    },
+    {
+     "summary": "The Next row is placed correctly on / and on the day page, with the four links and dry wording. The Telegram link, however, goes to a placeholder (t.me/TODO_agent_team) rather than t.me/formachines_team, so that acceptance criterion fails.",
+     "task": "T-0048",
+     "verdict": "fail"
+    },
+    {
+     "summary": "The Next row is in the right place on / and on the day page, with four plain links. All of them resolve, including the corrected Telegram redirect to t.me/formachines_team. The counters match today.json and the footer is unchanged.",
+     "task": "T-0048",
+     "verdict": "pass"
+    }
+   ],
+   "site": "https://agentteam.formachines.ai",
+   "slug": "agent-team-diary",
+   "spend_usd": 7.0,
+   "tasks": [
+    {
+     "accepted_at": "2026-11-04T12:08:34+00:00",
+     "artifact": null,
+     "created": "2026-11-03T11:08:33+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "analyst",
+       "note": "effect: insufficient_data — ",
+       "to": "measured",
+       "ts": "2026-11-05T12:08:56+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measured",
+       "to": "done",
+       "ts": "2026-11-05T12:08:56+00:00"
+      }
+     ],
+     "id": "T-0013",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "done",
+     "title": "Bluesky day story 2026-11-04 12:00 UTC: one event from 03.11",
+     "type": "content"
+    },
+    {
+     "accepted_at": "2026-11-04T15:08:34+00:00",
+     "artifact": null,
+     "created": "2026-11-03T11:08:33+00:00",
+     "goal": "G2",
+     "history": [
+      {
+       "actor": "analyst",
+       "note": "effect: insufficient_data — ",
+       "to": "measured",
+       "ts": "2026-11-05T18:09:12+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measured",
+       "to": "done",
+       "ts": "2026-11-05T18:09:12+00:00"
+      }
+     ],
+     "id": "T-0014",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "done",
+     "title": "Telegram day story 2026-11-04 15:00 UTC: a different 03.11 event, more detail",
+     "type": "content"
+    },
+    {
+     "accepted_at": "2026-11-05T12:08:42+00:00",
+     "artifact": null,
+     "created": "2026-11-03T13:08:28+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "dispatcher",
+       "note": "20261105T1207-exec-T-0016",
+       "to": "claimed",
+       "ts": "2026-11-05T12:07:51+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-05T12:07:51+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "posted 1 (editor-approved)",
+       "to": "accepted",
+       "ts": "2026-11-05T12:08:42+00:00"
+      }
+     ],
+     "id": "T-0016",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "done",
+     "title": "Bluesky day story 2026-11-05 12:00 UTC: one event from 04.11",
+     "type": "content"
+    },
+    {
+     "accepted_at": "2026-11-05T15:08:50+00:00",
+     "artifact": null,
+     "created": "2026-11-03T13:08:29+00:00",
+     "goal": "G2",
+     "history": [
+      {
+       "actor": "dispatcher",
+       "note": "20261105T1507-exec-T-0018",
+       "to": "claimed",
+       "ts": "2026-11-05T15:07:38+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-05T15:07:38+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "posted 1 (editor-approved)",
+       "to": "accepted",
+       "ts": "2026-11-05T15:08:50+00:00"
+      }
+     ],
+     "id": "T-0018",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "done",
+     "title": "Telegram day story 2026-11-05 15:00 UTC: a 04.11 event on one product's page",
+     "type": "content"
+    },
+    {
+     "accepted_at": "2026-11-03T19:08:00+00:00",
+     "artifact": null,
+     "created": "2026-11-03T16:08:53+00:00",
+     "goal": "G4",
+     "history": [
+      {
+       "actor": "analyst",
+       "note": "effect: insufficient_data — ",
+       "to": "measured",
+       "ts": "2026-11-05T00:08:57+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measured",
+       "to": "done",
+       "ts": "2026-11-05T00:08:57+00:00"
+      }
+     ],
+     "id": "T-0020",
+     "priority": "P2",
+     "released_sha": "9aa0cfff965cb756c502bcbc89ee31591e876913",
+     "role": "developer",
+     "state": "done",
+     "title": "/try/: say that Issues are public and ask people not to include secrets or private data",
+     "type": "feature"
+    },
+    {
+     "accepted_at": "2026-11-03T18:10:03+00:00",
+     "artifact": null,
+     "created": "2026-11-03T17:08:01+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "analyst",
+       "note": "effect: insufficient_data — ",
+       "to": "measured",
+       "ts": "2026-11-05T00:08:57+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measured",
+       "to": "done",
+       "ts": "2026-11-05T00:08:57+00:00"
+      }
+     ],
+     "id": "T-0022",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "done",
+     "title": "Threads trial post now: one 03.11 event not yet posted, link to the day page",
+     "type": "content"
+    },
+    {
+     "accepted_at": "2026-11-04T17:08:20+00:00",
+     "artifact": null,
+     "created": "2026-11-04T06:33:50+00:00",
+     "goal": "G2",
+     "history": [
+      {
+       "actor": "analyst",
+       "note": "effect: insufficient_data — ",
+       "to": "measured",
+       "ts": "2026-11-05T18:09:12+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measured",
+       "to": "done",
+       "ts": "2026-11-05T18:09:12+00:00"
+      }
+     ],
+     "id": "T-0026",
+     "priority": "P1",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "done",
+     "title": "Series 1/6, 04.11 17:00 UTC (Telegram + Mastodon): we let an outside critic in",
+     "type": "marketing"
+    },
+    {
+     "accepted_at": "2026-11-05T17:09:45+00:00",
+     "artifact": null,
+     "created": "2026-11-04T06:39:30+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "dispatcher",
+       "note": "20261105T1707-exec-T-0032",
+       "to": "claimed",
+       "ts": "2026-11-05T17:07:17+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-05T17:07:17+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "posted 3 (editor-approved)",
+       "to": "accepted",
+       "ts": "2026-11-05T17:09:45+00:00"
+      }
+     ],
+     "id": "T-0032",
+     "priority": "P1",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "done",
+     "title": "Pivots 1/7, 05.11 17:00 UTC (Telegram + Threads + X): we built a lab that measured how AI picks businesses — and nobody needed the numbers",
+     "type": "marketing"
+    },
+    {
+     "accepted_at": "2026-11-04T14:07:51+00:00",
+     "artifact": null,
+     "created": "2026-11-04T13:08:06+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "analyst",
+       "note": "effect: insufficient_data — Принята 04.11. Людей 7 → 5, на страницы дней по-прежнему ~0–1. Различия невозможно отнести на счёт задачи.",
+       "to": "measured",
+       "ts": "2026-11-05T18:09:12+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measured",
+       "to": "done",
+       "ts": "2026-11-05T18:09:12+00:00"
+      }
+     ],
+     "id": "T-0042",
+     "priority": "P2",
+     "released_sha": "39f18027bb79ce2c90acd385fe017ca8205c2cb0",
+     "role": "developer",
+     "state": "done",
+     "title": "Home first screen: the latest day's review events (fail / inconclusive / pass after fail) with links into the day page",
+     "type": "feature"
+    },
+    {
+     "accepted_at": "2026-11-04T15:07:31+00:00",
+     "artifact": null,
+     "created": "2026-11-04T14:08:32+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "analyst",
+       "note": "effect: insufficient_data — ",
+       "to": "measured",
+       "ts": "2026-11-05T18:09:12+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measured",
+       "to": "done",
+       "ts": "2026-11-05T18:09:12+00:00"
+      }
+     ],
+     "id": "T-0043",
+     "priority": "P2",
+     "released_sha": "41175bd88bd76cd1480c35d64c7a40548d3adf65",
+     "role": "developer",
+     "state": "done",
+     "title": "Unique task anchors on day pages: id=<slug>-<task-id>, and the home 'Latest day' links point to them",
+     "type": "defect"
+    },
+    {
+     "accepted_at": "2026-11-05T08:08:55+00:00",
+     "artifact": null,
+     "created": "2026-11-05T07:09:54+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-05T07:09:54+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261105T0707-exec-T-0044",
+       "to": "claimed",
+       "ts": "2026-11-05T07:09:54+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-05T07:09:54+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "merged 71cca505f9",
+       "to": "released",
+       "ts": "2026-11-05T07:10:26+00:00"
+      },
+      {
+       "actor": "reviewer",
+       "note": "The day page, home, /about/, /try/ and a product page all carry the required og, twitter and meta description tags with their own absolute URLs and no query. The day description names a real task and ",
+       "to": "accepted",
+       "ts": "2026-11-05T08:08:55+00:00"
+      }
+     ],
+     "id": "T-0044",
+     "priority": "P2",
+     "released_sha": "71cca505f9b2bec299befee023017ccc14d1f9ba",
+     "role": "developer",
+     "state": "done",
+     "title": "Link previews: og/twitter meta on every page, with the day's real event in the day-page description",
+     "type": "feature"
+    },
+    {
+     "accepted_at": "2026-11-08T12:10:34+00:00",
+     "created": "2026-11-05T07:09:54+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-05T07:09:54+00:00"
+      }
+     ],
+     "id": "T-0045",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "done",
+     "title": "Bluesky day story 2026-11-08 12:00 UTC: one event from 07.11",
+     "type": "content"
+    },
+    {
+     "accepted_at": "2026-11-08T15:08:37+00:00",
+     "created": "2026-11-05T07:09:54+00:00",
+     "goal": "G2",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-05T07:09:54+00:00"
+      }
+     ],
+     "id": "T-0046",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "done",
+     "title": "Telegram day story 2026-11-08 15:00 UTC: a different 07.11 event, more detail",
+     "type": "content"
+    },
+    {
+     "accepted_at": "2026-11-05T12:07:51+00:00",
+     "artifact": null,
+     "created": "2026-11-05T11:07:37+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-05T11:07:37+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261105T1107-exec-T-0047",
+       "to": "claimed",
+       "ts": "2026-11-05T11:07:38+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-05T11:07:38+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "merged 1ac386b05c",
+       "to": "released",
+       "ts": "2026-11-05T11:08:06+00:00"
+      },
+      {
+       "actor": "reviewer",
+       "note": "The meta, og and twitter descriptions on /, /day/2026-11-04/ and /day/2026-11-03/ are within 160 characters and end at a word. The home numbers match today.json, and the footer and og:url are unchange",
+       "to": "accepted",
+       "ts": "2026-11-05T12:07:51+00:00"
+      }
+     ],
+     "id": "T-0047",
+     "priority": "P2",
+     "released_sha": "1ac386b05cef58af232c91030d60b7e3c8221bdd",
+     "role": "developer",
+     "state": "done",
+     "title": "Meta and og descriptions ≤160 chars on / and day pages, cut at a word",
+     "type": "defect"
+    },
+    {
+     "accepted_at": "2026-11-05T15:07:37+00:00",
+     "artifact": null,
+     "created": "2026-11-05T13:07:56+00:00",
+     "goal": "G3",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-05T13:07:56+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261105T1307-exec-T-0048",
+       "to": "claimed",
+       "ts": "2026-11-05T13:07:56+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-05T13:07:56+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "merged 3e72e0876f",
+       "to": "released",
+       "ts": "2026-11-05T13:08:24+00:00"
+      },
+      {
+       "actor": "reviewer",
+       "note": "failed: /go/telegram/ redirects to https://t.me/TODO_agent_team instead of t.me/formachines_team (meta refresh in the page).",
+       "to": "in_progress",
+       "ts": "2026-11-05T14:07:38+00:00"
+      },
+      {
+       "actor": "po",
+       "note": "priority → P1: Review found that /go/telegram/ redirects to the placeholder t.me/TODO_agent_team (OBS-0085). The Telegram follow link is the G2 return path that VISION promises, and the fix is now par",
+       "to": "in_progress",
+       "ts": "2026-11-05T14:08:09+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "merged bea896a1d6",
+       "to": "released",
+       "ts": "2026-11-05T14:08:26+00:00"
+      },
+      {
+       "actor": "reviewer",
+       "note": "The Next row is in the right place on / and on the day page, with four plain links. All of them resolve, including the corrected Telegram redirect to t.me/formachines_team. The counters match today.js",
+       "to": "accepted",
+       "ts": "2026-11-05T15:07:37+00:00"
+      }
+     ],
+     "id": "T-0048",
+     "priority": "P1",
+     "released_sha": "bea896a1d64ff201841a897d8f91088ce001b273",
+     "role": "developer",
+     "state": "done",
+     "title": "Next-step row on / and on day pages: follow (RSS, Telegram), the code (GitHub) and try with your product (/try/)",
+     "type": "feature"
+    },
+    {
+     "accepted_at": "2026-11-05T19:08:25+00:00",
+     "artifact": null,
+     "created": "2026-11-05T18:08:55+00:00",
+     "goal": "G4",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-05T18:08:55+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261105T1907-exec-T-0049",
+       "to": "claimed",
+       "ts": "2026-11-05T19:07:47+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-05T19:07:47+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "posted 1 (editor-approved)",
+       "to": "accepted",
+       "ts": "2026-11-05T19:08:25+00:00"
+      }
+     ],
+     "id": "T-0049",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "done",
+     "title": "X clarification reply now under the Pivots 1/7 post: 'no replies to our offers' is not 'nobody needed the numbers'",
+     "type": "marketing"
+    },
+    {
+     "accepted_at": "2026-11-09T12:09:07+00:00",
+     "created": "2026-11-05T18:08:56+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-05T18:08:56+00:00"
+      }
+     ],
+     "id": "T-0050",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "accepted",
+     "title": "Bluesky day story 2026-11-09 12:00 UTC: one event from 08.11",
+     "type": "content"
+    },
+    {
+     "accepted_at": "2026-11-09T15:11:04+00:00",
+     "created": "2026-11-05T19:07:47+00:00",
+     "goal": "G2",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-05T19:07:47+00:00"
+      }
+     ],
+     "id": "T-0051",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "accepted",
+     "title": "Telegram day story 2026-11-09 15:00 UTC: a different 08.11 event, more detail",
+     "type": "content"
+    }
+   ]
+  },
   "agentsmd-tracker": {
    "analyst_md": "**Срез на 05.11 (снимок 18:02 UTC, день неполный). Уровни не суммируются.**\n\n| Уровень | 03.11 | 04.11 | 05.11 |\n|---|---|---|---|\n| Краулеры, запросов | 401 | 2040 | 4180 (GPTBot 3855) |\n| Люди: источники / engaged | 13 / 4 | 6 / 1 | 10 / 2 |\n| Возвраты | 1 | 0 | 0 |\n| /go/ от людей (источников) | 0 | 0 | 1 |\n| Агенты (python-requests), запросов | 15542 | 1273 | 396 |\n\nЦели пилота (04–05.11): G1 = 3 из 60, G2 = 0 из 5, G3 = 1 из 15, G3b ≈ 2 из 10 (today.json и feed.xml по 1 человеку; агентских источников 0). G4 выполнена по краулерам: GPTBot и ClaudeBot. G5 не измерима из этих данных. Нужен отчёт маркетолога.\n\nПосты: пост в X (08:10) и `by_src` x = 2 человека, 1 engaged. В referers есть t.co. Это единственный канал с engaged в день поста. Почасовых данных нет, до/после по часам не проверить. Bluesky: 8 запросов, 0 людей. Telegram: нет строки `by_src`.\n\nЗадачи: T-0011 (robots для /go/) — положительный эффект, краулерных запросов /go/ было 882 (02.11), стало 2 (05.11). Остальные задачи — недостаточно данных.\n\nРост краулеров и агентов — не люди. Агенты python-requests на 15 тыс. запросов 03.11 похожи на чьи-то автоматические прогоны.",
    "date": "2026-11-05",
@@ -563,7 +1238,7 @@
     "agents": 396,
     "crawlers": 4257,
     "engaged": 3,
-    "humans": 13,
+    "humans": 12,
     "requests": 6775,
     "returns": 0
    },
@@ -1195,12 +1870,12 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "accepted",
+     "state": "done",
      "title": "X post 09.11 06:15 UTC from @formachines_ai: number of the day",
      "type": "content"
     },
     {
-     "accepted_at": null,
+     "accepted_at": "2026-11-10T08:10:03+00:00",
      "created": "2026-11-05T19:09:02+00:00",
      "goal": "G1",
      "history": [
@@ -1215,7 +1890,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "ready",
+     "state": "accepted",
      "title": "X post 10.11 06:15 UTC from @formachines_ai: number of the day (pilot day 7)",
      "type": "content"
     },
@@ -1947,7 +2622,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "accepted",
+     "state": "done",
      "title": "Morning post 09.11 07:00 UTC with the dated link /d/2026-11-09/ (replaces T-0046)",
      "type": "content"
     },
@@ -1972,7 +2647,7 @@
      "type": "content"
     },
     {
-     "accepted_at": null,
+     "accepted_at": "2026-11-10T09:11:02+00:00",
      "created": "2026-11-05T00:10:02+00:00",
      "goal": "G2",
      "history": [
@@ -1987,7 +2662,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "blocked",
+     "state": "accepted",
      "title": "Morning post 10.11 07:00 UTC with the dated link /d/2026-11-10/ (last pilot day)",
      "type": "content"
     },
@@ -2046,7 +2721,7 @@
      "priority": "P1",
      "released_sha": null,
      "role": "marketer",
-     "state": "ready",
+     "state": "blocked",
      "title": "Daily post 10.11 14:05 UTC: prices for 11.11 with the dated link /d/2026-11-11/",
      "type": "content"
     },
@@ -2174,7 +2849,7 @@
      "type": "research"
     },
     {
-     "accepted_at": null,
+     "accepted_at": "2026-11-10T10:10:09+00:00",
      "created": "2026-11-05T19:09:48+00:00",
      "goal": "G1",
      "history": [
@@ -2189,7 +2864,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "ready",
+     "state": "accepted",
      "title": "Marketing plan for 10.11–16.11, based on the pilot's ?src= results",
      "type": "marketing"
     }
@@ -2214,7 +2889,7 @@
     },
     "new": 12
    },
-   "owner_questions_open": 1,
+   "owner_questions_open": 0,
    "po_digest_md": "**Release Radar — цикл 05.11 19:07 UTC**\n\n**Что произошло.** Карточки за 05.11 вышли в Telegram и Bluesky: 31 релиз за 24 ч, 3 с флагом breaking. Задачи приняты (T-0026, T-0031).\n\nМетрики за 05.11:\n- 24 человека, из них 3 engaged;\n- 0 возвратов;\n- /go/ — 2 хита. Шум от краулеров ушёл после robots.txt из T-0055.\n\nС начала пилота у G1 2 engaged-источника из 40, у G3 0 %. Вывод о пилоте делаем 10.11.\n\n**Что решено.**\n- Наблюдения о 4xx (508 за день) и о 63 запросах к /today.json без класса привязаны к уже сделанному разбору T-0056. По правилам ops свои прогоны считаются классом own, поэтому G4 = 0 ожидаем.\n- G1 и G3 отложены. /go/ возвращаемся смотреть 08.11: если людей там всё ещё не будет, ставим задачу сделать ссылку на release notes заметнее.\n- Новых задач нет. Слоты на 06–10.11 в Telegram, Bluesky и dev.to уже стоят в расписании. Mastodon, X и Threads закрыты до решения владельца.\n\n**Ждёт владельца (11.11).** VISION разрешает Mastodon, X и Threads, а мандат на этой неделе их запрещает. Mastodon и X уже принесли по одному engaged-источнику. В плане было по 2 тестовых слота на канал. Нужно решение: возобновлять ли эти каналы и как часто.\n\n**Расходы.** $2.55 из $20.",
    "posts": [
     {
@@ -2658,6 +3333,13 @@
    "review_inconclusive": 0,
    "spend_usd": 2.9
   },
+  "agent-team-diary": {
+   "cap_usd": null,
+   "reopened": 0,
+   "review_fail": 1,
+   "review_inconclusive": 0,
+   "spend_usd": 7.0
+  },
   "agentsmd-tracker": {
    "cap_usd": null,
    "reopened": 0,
@@ -2680,9 +3362,9 @@
    "spend_usd": 2.8
   }
  },
- "snapshot_built_at": "2026-11-10T09:08:56Z",
+ "snapshot_built_at": "2026-11-10T14:48:56Z",
  "totals": {
-  "spend_usd": 14.5,
-  "tasks_done_distinct": 57
+  "spend_usd": 21.5,
+  "tasks_done_distinct": 71
  }
 }

@@ -1888,6 +1888,51 @@ def check_mobile() -> dict:
     return {"pages_checked": len(pages), "issues": issues}
 
 
+def check_machine() -> dict:
+    """Files agents read: llms.txt names the machine addresses, feed.xml has the latest day and only existing days,
+    every day index.json and today.json parse with the right date."""
+    import xml.etree.ElementTree as ET
+    days = sorted(p.name for p in (PUBLIC_DIR / "day").iterdir() if p.is_dir() and re.fullmatch(r"\d{4}-\d{2}-\d{2}", p.name)) if (PUBLIC_DIR / "day").is_dir() else []
+    latest = days[-1] if days else None
+    llms_missing, feed_missing, json_errors = [], [], []
+    try:
+        llms = (PUBLIC_DIR / "llms.txt").read_text(encoding="utf-8")
+    except OSError:
+        llms = ""
+    want = ["/today.json", "/feed.xml", "/about/", "/try/"]
+    want += [f"/product/{d.name}/" for d in sorted((PUBLIC_DIR / "product").iterdir()) if d.is_dir()] if (PUBLIC_DIR / "product").is_dir() else []
+    if latest:
+        want.append(f"/day/{latest}/index.json")
+    for w in want:
+        if f"]({SITE_BASE}{w})" not in llms:
+            llms_missing.append(w)
+    try:
+        root = ET.fromstring((PUBLIC_DIR / "feed.xml").read_text(encoding="utf-8"))
+        links = [(i.findtext("link") or "").strip() for i in root.iter("item")]
+    except (OSError, ET.ParseError) as e:
+        links = []
+        feed_missing.append(f"feed.xml unreadable: {e}")
+    if latest and f"{SITE_BASE}/day/{latest}/" not in links:
+        feed_missing.append(f"/day/{latest}/")
+    for l in links:
+        m = re.fullmatch(re.escape(SITE_BASE) + r"/day/(\d{4}-\d{2}-\d{2})/", l)
+        if not m or not (PUBLIC_DIR / "day" / m.group(1) / "index.html").is_file():
+            feed_missing.append(f"item link without day page: {l}")
+    for d in days:
+        p = PUBLIC_DIR / "day" / d / "index.json"
+        try:
+            if json.loads(p.read_text(encoding="utf-8")).get("date") != d:
+                json_errors.append(f"day/{d}/index.json: date != {d}")
+        except (OSError, ValueError, AttributeError) as e:
+            json_errors.append(f"day/{d}/index.json: {e}")
+    try:
+        if json.loads((PUBLIC_DIR / "today.json").read_text(encoding="utf-8")).get("date") != latest:
+            json_errors.append(f"today.json: date != {latest}")
+    except (OSError, ValueError, AttributeError) as e:
+        json_errors.append(f"today.json: {e}")
+    return {"days_checked": len(days), "llms_missing": llms_missing, "feed_missing": feed_missing, "json_errors": json_errors}
+
+
 def check_wellknown() -> dict:
     """Standard client/crawler paths exist and are non-empty; robots.txt has the Sitemap line and blocks no sitemap URL."""
     files, missing, problems = [], [], []
@@ -2034,8 +2079,14 @@ def main(argv: list[str] | None = None) -> int:
     bj["wellknown_check"] = {"files": wk["files"], "missing": wk["missing"]}
     write_json(PUBLIC_DIR / "build.json", bj)
     log.info("wellknown_check: files=%d missing=%d problems=%d", len(wk["files"]), len(wk["missing"]), len(wk["problems"]))
+    mch = check_machine()
+    bj["machine_check"] = mch
+    write_json(PUBLIC_DIR / "build.json", bj)
+    log.info("machine_check: days=%d llms_missing=%d feed_missing=%d json_errors=%d", mch["days_checked"],
+             len(mch["llms_missing"]), len(mch["feed_missing"]), len(mch["json_errors"]))
     if args.check:
         problems = check_site()
+        problems += [f"llms.txt: missing {m}" for m in mch["llms_missing"]] + [f"feed.xml: {m}" for m in mch["feed_missing"]] + mch["json_errors"]
         problems += [f"wellknown: missing or empty {m}" for m in wk["missing"]] + wk["problems"]
         problems += [f"{i['page']}: mobile {i['rule']} {i['detail']}" for i in mob["issues"]]
         problems += [f"{i['page']}: a11y {i['rule']}" for i in ac["issues"]]

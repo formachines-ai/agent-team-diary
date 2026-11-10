@@ -691,6 +691,51 @@ def broke_block(date: str, model: dict) -> str:
     return "\n".join(out)
 
 
+def not_to_plan_block(date: str, model: dict) -> str:
+    """Day page, right after the nav: fail/inconclusive reviews and tasks moved back from review to ready/in_progress.
+    Export fields only; a reopen needs the previous recorded transition of the same task that day to be 'review'."""
+    anchors = task_anchors(date, model)
+    rev, reo = [], []
+    for slug, p in model["products"].items():
+        d = p["days"].get(date)
+        if not d:
+            continue
+        pname = p["product"].get("name") or slug
+        titles = {str(t.get("id")): t.get("title") for t in d.get("tasks") or []}
+        fx = bool(d.get("fixture"))
+        for r in d.get("reviews") or []:
+            if r.get("verdict") in ("fail", "inconclusive"):
+                tid = str(r.get("task") or "")
+                rev.append((pname, tid, titles.get(tid), str(r.get("verdict")), str(r.get("summary") or "")[:NOTE_MAX_CHARS], anchors.get((slug, tid)), fx))
+        for t in d.get("tasks") or []:
+            hist = t.get("history") or []
+            tid = str(t.get("id") or "")
+            for prev, h in zip(hist, hist[1:]):
+                if str(prev.get("to")) == "review" and str(h.get("to")) in ("ready", "in_progress"):
+                    reo.append((pname, tid, t.get("title"), "review → " + str(h.get("to")), str(h.get("note") or "")[:NOTE_MAX_CHARS], anchors.get((slug, tid)), fx))
+    out = ['<section class="not-to-plan"><h2 id="not-to-plan">What did not go to plan</h2>']
+    if not any(d for d in (p["days"].get(date) for p in model["products"].values())):
+        out.append('<p class="note">no activity recorded</p></section>')
+        return "\n".join(out)
+    if not rev and not reo:
+        out.append('<p class="note">No failed or inconclusive reviews in the records of this day</p></section>')
+        return "\n".join(out)
+    nf = sum(1 for x in rev if x[3] == "fail")
+    ni = len(rev) - nf
+    out.append(f'<p class="note">Reviews with verdict fail: {dk("broke_counts.review_fail", nf)} · inconclusive: '
+               f'{dk("broke_counts.review_inconclusive", ni)} · tasks moved back from review to ready or in_progress: {len(reo)}. '
+               'Source: review records and task history of the export.</p><ul class="cards open-threads">')
+    for pname, tid, title, what, note, anchor, fx in rev + reo:
+        inner = f'<span class="id">{esc(tid)}</span> {esc(title or "")}'
+        link = f'<a class="name" href="#{esc(anchor)}">{inner}</a>' if anchor else f'<span class="name">{inner}</span>'
+        badge = verdict_badge(what) if what in ("fail", "inconclusive") else f'<span class="badge other">reopened: {esc(what)}</span>'
+        out.append(f'<li class="card"><div class="head"><span class="product-name">{esc(pname)}</span> {link} {badge}'
+                   + (' <span class="badge other">fixture</span>' if fx else "") + "</div>"
+                   + (f'<p class="summary">{esc(note)}</p>' if note else "") + "</li>")
+    out.append("</ul></section>")
+    return "\n".join(out)
+
+
 def try_line() -> str:
     """One plain line right after the h1 of / and day pages: where to try the team and read the code."""
     return ('<p class="try-line"><a href="/try/">Try this team on your own product</a> · '
@@ -726,6 +771,7 @@ def render_day(date: str, model: dict) -> str:
     body.append(progress_note(date, model["built"]))
     body.append(fixture_note([p["days"][date] for _, p in present]))
     anchors = task_anchors(date, model)
+    body.append(not_to_plan_block(date, model))
     body.append(broke_block(date, model))
     if present:
         body.append('<p class="toc">' + " · ".join(f'<a href="#{esc(s)}">{esc(p["product"].get("name") or s)}</a>' for s, p in present) + "</p>")

@@ -339,13 +339,23 @@ def day_counts(d: dict) -> dict:
 REOPEN_STATES = ("ready", "in_progress")
 
 
+def reopen_events(d: dict) -> list[tuple[dict, dict]]:
+    """THE definition of reopened: a task-history entry to ready/in_progress whose previous entry of the same task that
+    day is 'review'. The export history has no 'from' field, so the review must be in the same day's records."""
+    out = []
+    for t in d.get("tasks") or []:
+        hist = t.get("history") or []
+        for prev, h in zip(hist, hist[1:]):
+            if str(prev.get("to")) == "review" and str(h.get("to")) in REOPEN_STATES:
+                out.append((t, h))
+    return out
+
+
 def rework_counts(d: dict) -> dict:
     """Cost and rework of one product-day, from the export only. cap_usd is null unless the export carries a budget field.
-    reopened = transitions to ready/in_progress that day of tasks that have a review record that day."""
+    reopened = see reopen_events()."""
     reviews = d.get("reviews") or []
-    reviewed = {r.get("task") for r in reviews}
-    reopened = sum(1 for t in (d.get("tasks") or []) if t.get("id") in reviewed
-                   for h in (t.get("history") or []) if h.get("to") in REOPEN_STATES)
+    reopened = len(reopen_events(d))
     cap = None
     for k in ("budget_usd_per_day", "budget_usd", "cap_usd"):
         if isinstance(d.get(k), (int, float)):
@@ -362,7 +372,7 @@ def rework_line(d: dict, kp: str | None = None) -> str:
     cap = f"cap: {esc(fmt_usd(w['cap_usd']))}" if w["cap_usd"] is not None else "cap: not in export"
     return (f'<p class="note rework"><strong>Cost and rework:</strong> spend ${dk(k("spend_usd"), f"{w['spend_usd']:.1f}")} · {cap} · '
             f'review fail {dk(k("review_fail"), w["review_fail"])} · inconclusive {dk(k("review_inconclusive"), w["review_inconclusive"])} · '
-            f'reopened {dk(k("reopened"), w["reopened"])} (moved to ready/in_progress on a task reviewed that day)</p>')
+            f'reopened {dk(k("reopened"), w["reopened"])} (moved from review to ready/in_progress, same day)</p>')
 
 
 # ----------------------------------------------------------------------------------------------------------
@@ -632,19 +642,19 @@ def broke_items(date: str, model: dict) -> list[dict]:
         d = p["days"].get(date)
         if not d:
             continue
-        reviewed = {r.get("task") for r in d.get("reviews") or []}
         for t in d.get("tasks") or []:
             tid = str(t.get("id") or "")
-            for h in t.get("history") or []:
+            hist = t.get("history") or []
+            for i, h in enumerate(hist):
                 to = str(h.get("to"))
                 if to in BROKE_STATES:
-                    kind = to
-                elif to in REOPEN_STATES and t.get("id") in reviewed:
+                    kind = "transition"
+                elif to in REOPEN_STATES and i > 0 and str(hist[i - 1].get("to")) == "review":
                     kind = "reopened"
                 else:
                     continue
                 out.append({"product": slug, "product_name": p["product"].get("name") or slug, "task": tid,
-                            "title": t.get("title"), "state": to, "kind": "reopened" if kind == "reopened" else "transition", "actor": h.get("actor"), "ts": h.get("ts"),
+                            "title": t.get("title"), "state": to, "kind": kind, "actor": h.get("actor"), "ts": h.get("ts"),
                             "note": str(h.get("note") or "")[:NOTE_MAX_CHARS], "fixture": bool(d.get("fixture")),
                             "anchor": anchors.get((slug, tid), f"{slug}-{tid}")})
         titles = {str(t.get("id")): t.get("title") for t in d.get("tasks") or []}
@@ -668,16 +678,22 @@ def broke_counts(items: list[dict]) -> dict:
     return c
 
 
-def broke_block(date: str, model: dict) -> str:
+def not_to_plan_block(date: str, model: dict) -> str:
+    """Day page, right after the nav: the one failures block. Fail/inconclusive reviews, transitions to broken states
+    and reopens (see reopen_events), all from export fields, each counted once."""
     items = broke_items(date, model)
-    out = ['<section class="broke" id="broke"><h2>What broke this day</h2>']
+    out = ['<section class="not-to-plan broke" id="broke"><h2 id="not-to-plan">What did not go to plan</h2>']
+    if not any(d for d in (p["days"].get(date) for p in model["products"].values())):
+        out.append('<p class="note">no activity recorded</p></section>')
+        return "\n".join(out)
     if not items:
-        out.append(f'<p class="note">Nothing recorded as broken in this public export for {esc(date)}.</p></section>')
+        out.append('<p class="note">No failed or inconclusive reviews, broken states or reopened tasks in the records of this day.</p></section>')
         return "\n".join(out)
     c = broke_counts(items)
-    out.append('<p class="note">Counts by state: ' + " · ".join(f"{esc(k)} {dk('broke_counts.' + k, v)}" for k, v in sorted(c.items()))
-               + ". Kinds: transition = a task moved to a broken state; review = a review record with verdict fail or inconclusive; "
-               "reopened = a task sent back to ready/in_progress after a review that day (item state ready or in_progress).</p>")
+    out.append('<p class="note">Counted here: reviews with verdict fail or inconclusive, tasks moved to a broken state, and reopened tasks, '
+               'where reopened means a task whose history goes from review to ready or in_progress; a reopen is detected only when '
+               'that review is in the same day\'s records.</p>')
+    out.append('<p class="note">Counts by state: ' + " · ".join(f"{esc(k)} {dk('broke_counts.' + k, v)}" for k, v in sorted(c.items())) + ".</p>")
     out.append('<ul class="cards open-threads">')
     for it in items:
         label = (verdict_badge(it["state"]) if it["kind"] == "review" else state_badge(it["state"])) + f' <span class="badge other">{esc(it["kind"])}</span>'
@@ -687,51 +703,6 @@ def broke_block(date: str, model: dict) -> str:
                    f'{link} {label}'
                    + (' <span class="badge other">fixture</span>' if it["fixture"] else "") + "</div>"
                    + (f'<p class="summary">{esc(it["note"])}</p>' if it["note"] else "") + "</li>")
-    out.append("</ul></section>")
-    return "\n".join(out)
-
-
-def not_to_plan_block(date: str, model: dict) -> str:
-    """Day page, right after the nav: fail/inconclusive reviews and tasks moved back from review to ready/in_progress.
-    Export fields only; a reopen needs the previous recorded transition of the same task that day to be 'review'."""
-    anchors = task_anchors(date, model)
-    rev, reo = [], []
-    for slug, p in model["products"].items():
-        d = p["days"].get(date)
-        if not d:
-            continue
-        pname = p["product"].get("name") or slug
-        titles = {str(t.get("id")): t.get("title") for t in d.get("tasks") or []}
-        fx = bool(d.get("fixture"))
-        for r in d.get("reviews") or []:
-            if r.get("verdict") in ("fail", "inconclusive"):
-                tid = str(r.get("task") or "")
-                rev.append((pname, tid, titles.get(tid), str(r.get("verdict")), str(r.get("summary") or "")[:NOTE_MAX_CHARS], anchors.get((slug, tid)), fx))
-        for t in d.get("tasks") or []:
-            hist = t.get("history") or []
-            tid = str(t.get("id") or "")
-            for prev, h in zip(hist, hist[1:]):
-                if str(prev.get("to")) == "review" and str(h.get("to")) in ("ready", "in_progress"):
-                    reo.append((pname, tid, t.get("title"), "review → " + str(h.get("to")), str(h.get("note") or "")[:NOTE_MAX_CHARS], anchors.get((slug, tid)), fx))
-    out = ['<section class="not-to-plan"><h2 id="not-to-plan">What did not go to plan</h2>']
-    if not any(d for d in (p["days"].get(date) for p in model["products"].values())):
-        out.append('<p class="note">no activity recorded</p></section>')
-        return "\n".join(out)
-    if not rev and not reo:
-        out.append('<p class="note">No failed or inconclusive reviews in the records of this day</p></section>')
-        return "\n".join(out)
-    nf = sum(1 for x in rev if x[3] == "fail")
-    ni = len(rev) - nf
-    out.append(f'<p class="note">Reviews with verdict fail: {dk("broke_counts.review_fail", nf)} · inconclusive: '
-               f'{dk("broke_counts.review_inconclusive", ni)} · tasks moved back from review to ready or in_progress: {len(reo)}. '
-               'Source: review records and task history of the export.</p><ul class="cards open-threads">')
-    for pname, tid, title, what, note, anchor, fx in rev + reo:
-        inner = f'<span class="id">{esc(tid)}</span> {esc(title or "")}'
-        link = f'<a class="name" href="#{esc(anchor)}">{inner}</a>' if anchor else f'<span class="name">{inner}</span>'
-        badge = verdict_badge(what) if what in ("fail", "inconclusive") else f'<span class="badge other">reopened: {esc(what)}</span>'
-        out.append(f'<li class="card"><div class="head"><span class="product-name">{esc(pname)}</span> {link} {badge}'
-                   + (' <span class="badge other">fixture</span>' if fx else "") + "</div>"
-                   + (f'<p class="summary">{esc(note)}</p>' if note else "") + "</li>")
     out.append("</ul></section>")
     return "\n".join(out)
 
@@ -772,7 +743,6 @@ def render_day(date: str, model: dict) -> str:
     body.append(fixture_note([p["days"][date] for _, p in present]))
     anchors = task_anchors(date, model)
     body.append(not_to_plan_block(date, model))
-    body.append(broke_block(date, model))
     if present:
         body.append('<p class="toc">' + " · ".join(f'<a href="#{esc(s)}">{esc(p["product"].get("name") or s)}</a>' for s, p in present) + "</p>")
         for slug, p in present:
@@ -1302,7 +1272,7 @@ def render_llms(model: dict) -> str:
                   f"- `open_threads` in today.json: tasks whose last transition that day is in a state listed in `open_threads_states`. Example: {SITE_BASE}/today.json",
                   f"- `open_threads_states` in today.json: the list of states that count as an open thread ({', '.join(OPEN_THREAD_STATES)}). Example: {SITE_BASE}/today.json",
                   f"- `rework` in today.json and in the day index.json, per product: spend_usd, review_fail, review_inconclusive, reopened and cap_usd. cap_usd is null because the budget is not in the export. Examples: {SITE_BASE}/today.json and {day_json}",
-                  f"- `broke` in the day index.json: items of what broke that day, each with kind transition (a task moved to a broken state), review (a review with verdict fail or inconclusive) or reopened (a task sent back to ready/in_progress after a review that day). Example: {day_json}",
+                  f"- `broke` in the day index.json: items of what broke that day, each with kind transition (a task moved to a broken state), review (a review with verdict fail or inconclusive) or reopened (a task moved from review to ready/in_progress, review in the same day's records). Example: {day_json}",
                   f"- `broke_counts` in the day index.json: counts of those items by state (review_fail, review_inconclusive, reopened and the transition states). Example: {day_json}",
                   f"- `artifact` in the day index.json, on each accepted/done task under products.<slug>.tasks: {{kind,url}} (kind pr, commit or post) taken from a link already in the export, or null when the export has no link. Example: {day_json}"]
     lines += ["", "## Pages", "",

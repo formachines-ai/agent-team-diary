@@ -1,0 +1,166 @@
+{
+ "slug": "release-radar",
+ "name": "Release Radar",
+ "site": "https://releases.formachines.ai",
+ "date": "2026-11-11",
+ "tasks": [
+  {
+   "id": "T-0059",
+   "title": "Marketing plan for 11–17.11: Telegram, Bluesky and the weekly dev.to post only, built on the pilot's ?src= results",
+   "type": "marketing",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-06T13:10:33+00:00",
+   "accepted_at": "2026-11-09T18:11:43+00:00",
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-11T00:11:08+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-11T00:11:08+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0092",
+   "title": "Live QA sweep 11.11 after the 06:00 build: VISION QA list on the live site after T-0072, T-0077, T-0089, defects listed with URLs",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "analyst",
+   "created": "2026-11-10T13:15:01+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-11T07:18:04+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261111T0707-exec-T-0092"
+    },
+    {
+     "ts": "2026-11-11T07:18:04+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-11T07:18:29+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measurement delivered"
+    }
+   ]
+  },
+  {
+   "id": "T-0102",
+   "title": "Bluesky 17.11 10:00 UTC — week's strongest flagged release of 11–17.11 with verbatim quote and /pkg/ link",
+   "type": "content",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-11T01:13:16+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-11T01:13:16+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0103",
+   "title": "Telegram 17.11 10:00 UTC — week's strongest item (or the 16.11 dev.to roundup) with verbatim quote",
+   "type": "content",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "marketer",
+   "created": "2026-11-11T01:13:16+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-11T01:13:16+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0104",
+   "title": "rel=\"nofollow\" on every link to /go/ (release-notes and vote links) so crawlers stop following redirect and vote stubs",
+   "type": "quality",
+   "state": "review",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-11T07:18:04+00:00",
+   "accepted_at": null,
+   "released_sha": "6fa37109f8acf02eaf0717e833d950f2aaa5ae56",
+   "history": [
+    {
+     "ts": "2026-11-11T07:18:04+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-11T07:18:29+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261111T0707-exec-T-0104"
+    },
+    {
+     "ts": "2026-11-11T07:18:29+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-11T07:18:49+00:00",
+     "actor": "dispatcher",
+     "to": "review",
+     "note": "no change needed: Every /go/ link already has rel=\"nofollow\" in both build.py and the committed public/. Searched with grep; zero anchors with a /go/ href lack nofollow, so the task is already satisfi"
+    }
+   ]
+  }
+ ],
+ "reviews": [],
+ "posts": [],
+ "metrics": {
+  "humans": 2,
+  "engaged": 0,
+  "returns": 0,
+  "agents": 9,
+  "crawlers": 1097,
+  "requests": 1184
+ },
+ "spend_usd": 1.4,
+ "po_digest_md": "**Release Radar — цикл 11.11 07:07 UTC**\n\n**Что произошло.** Пилот 04–10.11 закрыт ниже порога: G1 ≈22 из 40, G2 0 из 5, G4 0 из 5. Это честный недобор, а не дефект. Цели и пороги ждут вас (Q-0019/Q-0020), а пока мы держим G1–G4 и читаем их раз в неделю, следующее чтение 17.11.\n\n11.11 краулер meta-externalagent сделал 973 запроса. Он ходит по /go/ и /go/vote/, и голоса и счётчики /go/ раздуваются. Поэтому числа /go/ в G3 не засчитываем.\n\nGoogle: 689 показов, 0 кликов. В индексе 3 страницы из 101, 84 со статусом «crawled – not indexed».\n\n**Что решено.**\n- **Краулер.** В ревью уже лежит T-0072 (Disallow /go/ и noindex). Сверху добавил одну задачу XS для разработчика: rel=nofollow на всех ссылках /go/, на случай если краулер не смотрит robots.txt. Ожидаем, что доля краулеров на /go/ упадёт; проверим по metrics после мержа.\n- **Индексация.** Связал с принятыми T-0089/T-0096 (уникальные title и description). Индекс читаю по GSC 18–20.11.\n- **4xx 10.11.** Это сканеры, 5xx = 0. Отложено до появления разбивки 404 по /pkg/.\n- **Маркетинг.** Слоты недели по плану T-0090 уже нарезаны. Сегодня в 08:00 выходит карточка в X, после неё QA-проверка T-0092. Лимиты каналов соблюдены.\n\n**Ждёт владельца (уже спрошено в Q-0020).**\n- Цели после пилота.\n- Targets /feed-breaking.xml, /ci-check.py, /ci-check.txt.\n- Как классифицировать /go/vote/: 305 запросов 10.11, 696 запросов 11.11.\n\n**Расходы.** $0.77 из $20.",
+ "analyst_md": "**Итог пилота 04–10.11 (снимок 11.11 06:00; 11.11 — неполный день).**\n\n| Цель | Значение | Цель |\n|---|---|---|\n| G1 engaged people | 22 (3+5+5+1+2+6 за 05–10.11; 04.11 нет в данных) | ≥40 |\n| G2 returns | 0 | ≥5 |\n| G3 внешний клик | /go/ human src 4 за 10.11; доля визитов ≈ 7 % (4/58 запросов, грубо); domain-referer: google, t.co (2) | ≥10 %, ≥3 домена |\n| G4 /today.json не-краулеры | agent src 0 по таргету; 75+29 запросов, human src 1 | ≥5 |\n\nУровни не суммируем. Discovery: краулеры 1054 запроса 11.11 (meta-externalagent 973, почти все на /go/ — шум краулера). Google: 689 показов, 0 кликов, в индексе 3 из 101. 5xx = 0.\n\nПосты → визиты: после постов 10.11 (Telegram 08:13, Bluesky 09:12) by_src: bluesky 15 req/1 human/0 engaged, telegram 2/0. Эффекта на engaged нет; данные по часам отсутствуют.\n\nЗадачи: эффект T-0073/T-0074/T-0078 не измерим (мало данных, чтение 20.11).",
+ "observations": {
+  "new": 8,
+  "by_class": {
+   "measurement": 4,
+   "need_hypothesis": 3,
+   "reproducible_defect": 1
+  }
+ },
+ "owner_questions_open": 0
+}

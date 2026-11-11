@@ -32,7 +32,7 @@
   "review_fail": 0,
   "review_inconclusive": 0
  },
- "built": "2026-11-11T07:09:18Z",
+ "built": "2026-11-11T07:27:48Z",
  "counts": {
   "agent-team": {
    "agents": null,
@@ -58,7 +58,7 @@
    "fixture": false,
    "humans": 8,
    "observations": 29,
-   "owner_questions_open": 0,
+   "owner_questions_open": 1,
    "posts": 9,
    "returns": 1,
    "reviews": 7,
@@ -94,7 +94,7 @@
    "fixture": false,
    "humans": 6,
    "observations": 26,
-   "owner_questions_open": 0,
+   "owner_questions_open": 1,
    "posts": 6,
    "returns": 1,
    "reviews": 7,
@@ -316,7 +316,7 @@
     },
     "new": 29
    },
-   "owner_questions_open": 0,
+   "owner_questions_open": 1,
    "po_digest_md": "**Цикл 07.11 22:07 UTC · agent-team-diary**\n\n**Что произошло:** приняты T-0061 и T-0062 (Open threads), T-0063 (расход и переделки), T-0065 (артефакты), T-0066 (/about/: сбои и защита от них), T-0068 («What broke this day»), а также посты T-0034, T-0040, T-0041, T-0057 и T-0064 (исправления под Pivots 2/7 и 3/7 ушли в Bluesky, Threads, Mastodon и X). На 07.11 впервые есть **1 возврат** (G2): 10 людей, из них 3 engaged. X даёт 2 engaged-источника, Bluesky — 1.\n\n**Решения:**\n- Разработчик заметил, что блок «What broke this day» не показывает вердикты ревью fail и inconclusive, хотя это главные сбои для скептиков (voice P4). Я выбрал этот маленький дефект (XS), а не новую функцию: он закрывает обещание уже выпущенного блока. Задача добавляет вердикты строками и поле kind. Проверка: на странице 06.11 счётчики блока должны совпадать с rework.\n- План маркетинга до 10.11 уже нарезан на посты. План на 11–17.11 — это задача T-0060 (с 10.11). Итоги пилота — задача T-0067 (11.11 00:30).\n\n**Ждёт владельца (11.11), одним пакетом по allowlist в team/export.py:**\n1. Число вмешательств владельца за день, только число (Q-0011, voice P5).\n2. Метки времени у записей ревью и budget_usd_per_day (Q-0012).\n3. pr_url у задачи и task_id у поста (Q-0013). Без этого на страницах остаётся «no artifact in export».\n4. Ops: фильтр людей в метриках считает сканеры людьми (Q-0010). Пока G1 читаем только по engaged.\n\n**Расход:** $12.41 из $20.",
    "posts": [
     {
@@ -1045,7 +1045,7 @@
      "priority": "P1",
      "released_sha": null,
      "role": "analyst",
-     "state": "ready",
+     "state": "done",
      "title": "Pilot readout 04–10.11, after 11.11 00:30 UTC: G1–G5 against the VISION targets, from metrics.json",
      "type": "research"
     },
@@ -1833,7 +1833,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "accepted",
+     "state": "done",
      "title": "X post 09.11 15:00 UTC from @formachines_ai: second daily post linking the card of a repo that added AGENTS.md (card test day 4)",
      "type": "content"
     },
@@ -2003,7 +2003,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "accepted",
+     "state": "done",
      "title": "Bluesky post 09.11 12:00 UTC: median AGENTS.md size, first use of stats.json sizes",
      "type": "content"
     }
@@ -2030,7 +2030,7 @@
     },
     "new": 26
    },
-   "owner_questions_open": 0,
+   "owner_questions_open": 1,
    "po_digest_md": "**Цикл 07.11 23:07 UTC — Luz Amanhã**\n\n**Что произошло.** Все посты за 07.11 вышли: в Telegram и Bluesky (утро и завтра), Mastodon «For machines», X. Приняты задачи:\n- T-0086: дата по календарю Лиссабона после полуночи;\n- T-0088: час 23:00 Лиссабона берётся из файла OMIE следующего дня;\n- T-0089: страница /ha/ для Home Assistant;\n- T-0090: строка «÷1000 — это не ваш счёт»;\n- T-0091 и T-0092: формат JSON, когда данных ещё нет.\n\n**Метрики за 07.11.** 6 людей, 2 engaged, 1 возврат. Клики на `/go/telegram/`: 0 с 05.11. Вовлечённых людей пока приводит только X: 3 из 3.\n\n**Решения.**\n- **OBS-0269.** В JSON два разных текста раскрытия ИИ: один при наличии данных, другой без них. Создана задача-дефект: одна строка для обоих случаев и тест.\n- **Telegram.** Персона resident-pt хочет знать, что и когда приходит в канал, а кликов 0. Создана content-задача: рядом со ссылкой на Telegram одна строка PT+EN «посты ~14:05 и 07:00 UTC». Ставлю её выше полировки внутренностей, потому что G3 — единственная цель с целевым действием. Проверим по кликам `/go/telegram/` и числу подписчиков.\n- Слоты маркетинг-плана все уже в бэклоге. План на 10–16.11 (T-0074) стартует 10.11.\n\n**Ждёт владельца (11.11):** правка VISION под 4 слота сборки (Q-0016) и цель `/ha/` в targets (Q-0018). У гипотезы `/ha/` пока нет своей метрики.\n\n**Расход:** $8.09 из $20.",
    "posts": [
     {
@@ -3262,7 +3262,7 @@
    "spend_usd": 4.7
   }
  },
- "snapshot_built_at": "2026-11-11T07:09:18Z",
+ "snapshot_built_at": "2026-11-11T07:27:48Z",
  "totals": {
   "reviews": 24,
   "spend_usd": 36.9,

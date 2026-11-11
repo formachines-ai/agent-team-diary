@@ -5,6 +5,26 @@
  "date": "2026-11-10",
  "tasks": [
   {
+   "id": "T-0071",
+   "title": "[retro] team-publish: replies (--reply-to) do not consume the daily post cap",
+   "type": "feature",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-09T14:12:43+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-10T15:07:33+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Owner closed #119/#122 as fixed (reply thread counts as one post); PR #128 with unexplained test changes is superseded."
+    }
+   ]
+  },
+  {
    "id": "T-0082",
    "title": "[retro] team-publish devto: make a reused canonical unique automatically",
    "type": "feature",
@@ -184,7 +204,7 @@
    "id": "T-0086",
    "title": "[retro] Runner: pass the prompt via stdin, not argv (Argument list too long)",
    "type": "feature",
-   "state": "waiting_owner",
+   "state": "rejected",
    "priority": "P2",
    "goal": "framework",
    "role": "developer",
@@ -215,6 +235,12 @@
      "actor": "dispatcher",
      "to": "waiting_owner",
      "note": "pull request https://github.com/OOuph/agent-team/pull/148 (tests edited/deleted without a 'tests-change-reason: F-xxxx' line: tests/test_runner.py)"
+    },
+    {
+     "ts": "2026-11-10T15:07:33+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Owner reports runner stdin prompt fixed in 20d4a75 (issues #147, #149 closed); task is redundant."
     }
    ]
   },
@@ -287,19 +313,175 @@
      "note": "framework change live; the watchdog rolls back if the next cycles fail"
     }
    ]
+  },
+  {
+   "id": "T-0089",
+   "title": "[retro] Developer card: list only files that are in the git diff",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-10T15:11:23+00:00",
+   "accepted_at": "2026-11-10T16:09:32+00:00",
+   "released_sha": "2c859bcd5467cbeb3881d48a23a00b866cd51357",
+   "history": [
+    {
+     "ts": "2026-11-10T15:11:23+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-10T16:07:33+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261110T1607-exec-T-0089"
+    },
+    {
+     "ts": "2026-11-10T16:07:33+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-10T16:09:32+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261110T1607-canary of release-radar on a state copy: all phases); merged 2c859bcd54"
+    },
+    {
+     "ts": "2026-11-10T16:09:32+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0090",
+   "title": "[retro] Runner: keep single argv entries under the OS limit (agents/schema over a size threshold)",
+   "type": "feature",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-10T16:15:24+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-10T16:15:24+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-10T17:07:24+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261110T1707-exec-T-0090"
+    },
+    {
+     "ts": "2026-11-10T17:07:24+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-10T17:08:19+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "partial — continues next cycle"
+    },
+    {
+     "ts": "2026-11-10T18:07:50+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "partial — continues next cycle"
+    },
+    {
+     "ts": "2026-11-10T19:07:50+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "partial — continues next cycle"
+    },
+    {
+     "ts": "2026-11-10T20:07:47+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "partial — continues next cycle"
+    },
+    {
+     "ts": "2026-11-10T21:07:45+00:00",
+     "actor": "dispatcher",
+     "to": "blocked",
+     "note": "partial repeated with the same summary: stuck"
+    },
+    {
+     "ts": "2026-11-10T22:07:35+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "answered Q-0008"
+    },
+    {
+     "ts": "2026-11-10T22:07:35+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: The argv size guard is already in 27523f6 and the tests pass. The remaining criterion needs a live cycle and is not a developer deliverable. A repeat of F-0162/F-0164/F-0165 will open a "
+    }
+   ]
+  },
+  {
+   "id": "T-0091",
+   "title": "[retro] Do not re-lease a blocked task until its question is answered",
+   "type": "feature",
+   "state": "waiting_owner",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-10T19:15:42+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-10T19:15:42+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-10T22:07:35+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261110T2207-exec-T-0091"
+    },
+    {
+     "ts": "2026-11-10T22:07:35+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-10T22:08:25+00:00",
+     "actor": "dispatcher",
+     "to": "waiting_owner",
+     "note": "pull request https://github.com/OOuph/agent-team/pull/157 (tests edited/deleted without a 'tests-change-reason: F-xxxx' line: tests/test_store_cycle.py)"
+    }
+   ]
   }
  ],
  "reviews": [],
  "posts": [],
  "metrics": null,
- "spend_usd": 1.3,
- "po_digest_md": "**Цикл 10.11, расход $1.18 из $10.**\n\n- **Runner/stdin (issue #149, OBS-0143/0144):** это дубль T-0086. Правка уже есть в PR #148, но `team/runner.py` защищён, поэтому PR ждёт человека. Из-за этого retro считает, что правка «не приземлилась». T-0087 закрыт как дубликат. **Ждёт владельца:** слить PR #148 (и проверить пометку «tests changed without reason») и PR #128 (T-0071). Пока они висят, фаза measure у agent-team-diary падает с E2BIG.\n- **Критик FW-06 (README):** создана задача quality XS. В Status нужно отделить эксплуатацию (с 02.11) от формального пилота (04–10.11), описать трафик как оценку источников, а не людей, и дать период и источник у диапазона «2–40» или убрать его. Оговорка про API-equivalent остаётся.\n- **T-0068** (красный тест friction) в review. Он блокирует зелёную базу для всех PR.\n- Новых вопросов к владельцу нет.",
+ "spend_usd": 2.8,
+ "po_digest_md": "**Цикл 20261110T2307 (agent-team).** Новых задач нет. Потрачено $2.71 из $10.\n\n- OBS-0173 (эскалация задачи, заблокированной 3 раза, в дайджест владельца): отложено. Сначала нужно слить T-0091. Её PR #157 ждёт человека, потому что затрагивает защищённые файлы, и тесты в нём изменены без указанной причины.\n- В работе: T-0068 (красный тест friction) на ревью. T-0091 в состоянии waiting_owner.\n- Ретро не предложило новых правок фреймворка. Повторяющиеся блокировки luz-amanha (T-0070, T-0105) закроет T-0091. Ошибку «Argument list too long» закроет T-0090.\n- От владельца ничего не требуется. Вопрос Q-0007 о лимите бюджета остаётся до 11.11, как ответил заместитель.",
  "analyst_md": "",
  "observations": {
-  "new": 8,
+  "new": 36,
   "by_class": {
-   "feedback": 7,
-   "need_hypothesis": 1
+   "feedback": 30,
+   "need_hypothesis": 6
   }
  },
  "owner_questions_open": 0

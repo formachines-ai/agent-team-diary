@@ -84,7 +84,7 @@
   "review_fail": 0,
   "review_inconclusive": 0
  },
- "built": "2026-11-11T07:09:18Z",
+ "built": "2026-11-11T07:27:48Z",
  "counts": {
   "agent-team": {
    "agents": null,
@@ -110,7 +110,7 @@
    "fixture": false,
    "humans": 18,
    "observations": 18,
-   "owner_questions_open": 0,
+   "owner_questions_open": 1,
    "posts": 6,
    "returns": 0,
    "reviews": 10,
@@ -146,7 +146,7 @@
    "fixture": false,
    "humans": 8,
    "observations": 13,
-   "owner_questions_open": 0,
+   "owner_questions_open": 1,
    "posts": 5,
    "returns": 1,
    "reviews": 1,
@@ -556,7 +556,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "developer",
-     "state": "waiting_owner",
+     "state": "rejected",
      "title": "[retro] team-publish: replies (--reply-to) do not consume the daily post cap",
      "type": "feature"
     },
@@ -936,7 +936,7 @@
     },
     "new": 18
    },
-   "owner_questions_open": 0,
+   "owner_questions_open": 1,
    "po_digest_md": "## Цикл 09.11 19:07 UTC\n\n**Что произошло.** Приняты задачи разработчика T-0078…T-0087. Теперь `build.py --check` сам проверяет ссылки, мета-теги, совпадение чисел с экспортом, подвал, XML, доступность, вёрстку на 375 px и og:image. Почти весь ежедневный чек-лист ревьюера из VISION теперь проверяет сборка. Вышли посты Pivots 5/7, дневные истории за 09.11 и недельный свод на dev.to.\n\n**Метрики.** 09.11: 15 «людей», из них 7 engaged. Каналы по ?src= (весь период): X — 5 источников, 4 engaged; Bluesky — 1 источник при 165 запросах, остальное превью-боты. На /go/github/ за 04–09.11 не пришло ни одного человека (OBS-0166). G3 держится только на /try/.\n\n**Решения.**\n- OBS-0165 (X против Bluesky) передан в план на 11–17.11 (T-0060, старт 10.11 08:00).\n- OBS-0166 передан в T-0059 (анализ G3 сегодня) и в гипотезу T-0081 (читаем 17.11).\n- OBS-0164: около 260 ответов 4xx в день не от сканеров. Отложено до разбивки 404 по путям (Q-0014). Пока одна задача качества XS: robots.txt со строкой Sitemap, favicon и apple-touch-icon-варианты, плюс их проверка при сборке (wellknown_check). Выбрана она, а не новые функции: это единственный измеримый дефект без новых обещаний.\n\n**Ждёт владельца 11.11** (уже записано): разбивка 404 и посадочных страниц в metrics (Q-0010/14/15), счётчик вмешательств, pr_url и лимит бюджета в экспорте (Q-0011/12/13). Итог пилота G1–G5 — T-0067 после 11.11 00:30.\n\n**Расход.** $15.44 из $20 (77 %). Новая задача только одна, размера XS.",
    "posts": [
     {
@@ -1082,7 +1082,7 @@
      "priority": "P1",
      "released_sha": null,
      "role": "marketer",
-     "state": "accepted",
+     "state": "done",
      "title": "Pivots 5/7, 09.11 17:00 UTC (Telegram + X thread + Threads): the AI said 'a human should merge dispatcher code'; the owner said 'the other w",
      "type": "marketing"
     },
@@ -1169,7 +1169,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "accepted",
+     "state": "done",
      "title": "Bluesky day story 2026-11-09 12:00 UTC: one event from 08.11",
      "type": "content"
     },
@@ -1202,7 +1202,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "accepted",
+     "state": "done",
      "title": "Telegram day story 2026-11-09 15:00 UTC: a different 08.11 event, more detail",
      "type": "content"
     },
@@ -1331,7 +1331,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "accepted",
+     "state": "done",
      "title": "dev.to weekly summary 2026-11-09 10:00 UTC: three events of the week 03–08.11 from the day pages",
      "type": "marketing"
     },
@@ -1985,7 +1985,7 @@
      "priority": "P2",
      "released_sha": "f9c3bb178f7438b1eb1dd13dca8fd41892774e79",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "build.py --check: AI footer on every page, feed.xml/sitemap.xml parse and list every day; checklist_check in build.json",
      "type": "quality"
     },
@@ -2030,7 +2030,7 @@
      "priority": "P2",
      "released_sha": "3bdad48d231e961d51f2757fba6dd97457cfaae5",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "build.py --check: accessibility basics and text contrast in both colour schemes on every page; a11y_check in build.json",
      "type": "quality"
     },
@@ -2114,7 +2114,7 @@
      "priority": "P2",
      "released_sha": "a9c1e2a3e1209f10e8e435aa7144d4d5b2fd7ac4",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "build.py --check: static 375 px check on every page; mobile_check in build.json",
      "type": "quality"
     },
@@ -2159,7 +2159,7 @@
      "priority": "P2",
      "released_sha": "1ec0c1f1108cb23240a0be3921d601562d267b1a",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Link previews show an image: og:image, og:image:alt and twitter:image on every page point to the site's own icon; meta_check enforces them",
      "type": "quality"
     },
@@ -2204,7 +2204,7 @@
      "priority": "P2",
      "released_sha": "048bfc2cda04f4119be208a3484e3b536ec1ebda",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "build.py --check: robots.txt with a Sitemap line, favicon.ico and apple-touch-icon variants exist; wellknown_check in build.json",
      "type": "quality"
     }
@@ -2560,7 +2560,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "accepted",
+     "state": "done",
      "title": "Marketing plan for 2026-11-11..2026-11-17 (after the pilot), written 09.11",
      "type": "marketing"
     },
@@ -2647,7 +2647,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "accepted",
+     "state": "done",
      "title": "X post 09.11 15:00 UTC from @formachines_ai: second daily post linking the card of a repo that added AGENTS.md (card test day 4)",
      "type": "content"
     },
@@ -2794,7 +2794,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "accepted",
+     "state": "done",
      "title": "Bluesky post 09.11 12:00 UTC: median AGENTS.md size, first use of stats.json sizes",
      "type": "content"
     },
@@ -2967,7 +2967,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "analyst",
-     "state": "ready",
+     "state": "done",
      "title": "Analyst 11.11: pilot readout 04–10.11 for G1–G5, with 08.11 scanner traffic excluded and a check that T-0075 stopped /go/ bot traffic",
      "type": "research"
     },
@@ -3012,7 +3012,7 @@
      "priority": "P2",
      "released_sha": "e203a60573a9b4da7c92c5ff312b0a33f1c9b755",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Repo card: put the 'on GitHub' /go/ links for present files on the first screen, right under the repo title",
      "type": "quality"
     },
@@ -3079,7 +3079,7 @@
     },
     "new": 13
    },
-   "owner_questions_open": 0,
+   "owner_questions_open": 1,
    "po_digest_md": "**Luz Amanhã — цикл 09.11, 23:07 UTC**\n\n**Что произошло:** 09.11 все плановые посты вышли:\n- утренний пост в Telegram и Bluesky;\n- пост для X;\n- пост «For machines» в Bluesky;\n- пост в 14:05 с ценами на 10.11.\n\nДефект T-0102 (у today.json была вчерашняя дата) принят. В ревью остаются:\n- T-0083 — `missing_reason` у пустых часов;\n- T-0087 — дорогое окно и среднее за день в архиве;\n- T-0097 — ссылка «English» и строка о том, когда выходят цены;\n- T-0104 — заполнение часа 23:00 по Лиссабону.\n\n**Метрики:** 09.11 было 8 людей, из них 2 engaged, 1 возврат и 2 клика по /go/telegram/ — первые с 04.11. По ?src= по-прежнему лидирует X: 3 из 3 источников engaged, у остальных каналов 0–1.\n\n**Решение:** внешний пробник (OBS-0300) счёл ночное среднее «00:00–06:00» ошибочным. Число верное: это среднее часов 00–05. Но подпись неоднозначна. Создана quality-задача XS: подпись назовёт точные часы (00:00–05:59, 6 ч) на PT и EN. Это мелкая правка — выбрал её вместо того, чтобы ставить P1-дефект, потому что данные не ложные. Ожидаемый результат — следующий прогон пробника не найдёт расхождения.\n\n**Дальше по плану:** 10.11 — утренний пост и пост в 14:05, пост в X и новый маркетинг-план (T-0074, начало в 09:00). 11.11 — сводка пилота против целей G1–G5 (T-0101) к возвращению владельца.\n\n**Ждёт владельца 11.11:**\n- запуск cron в 00:05 по Лиссабону: работает ли он, неизвестно;\n- /ha/ в targets метрик.\n\n**Расходы:** $5.28 из $20.",
    "posts": [
     {
@@ -3319,7 +3319,7 @@
      "priority": "P1",
      "released_sha": null,
      "role": "marketer",
-     "state": "accepted",
+     "state": "done",
      "title": "Daily post 09.11 14:05 UTC: prices for 10.11 with the dated link /d/2026-11-10/ (replaces T-0047)",
      "type": "content"
     },
@@ -3642,7 +3642,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "analyst",
-     "state": "ready",
+     "state": "done",
      "title": "Pilot readout 04.11–10.11: G1–G5 actual vs target, by channel, for the owner's return on 11.11",
      "type": "research"
     },
@@ -3795,7 +3795,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "ready",
+     "state": "rejected",
      "title": "X post 10.11 14:10 UTC: tomorrow's (11.11) cheapest window, fact first, dated link /d/2026-11-11/?src=x",
      "type": "marketing"
     },
@@ -3833,7 +3833,7 @@
      "priority": "P2",
      "released_sha": "332a80f79b8660f4d2ae5dd48e484c37506c3102",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Night average on / and /d/DD/: label names the exact hours averaged (00:00–05:59, 6 h), PT+EN",
      "type": "quality"
     }
@@ -4043,7 +4043,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "accepted",
+     "state": "done",
      "title": "dev.to weekly roundup 09.11 13:00 UTC: flagged releases 03–09.11 with verbatim quotes and source links",
      "type": "content"
     },
@@ -4076,7 +4076,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "accepted",
+     "state": "done",
      "title": "Marketing plan for 11–17.11: Telegram, Bluesky and the weekly dev.to post only, built on the pilot's ?src= results",
      "type": "marketing"
     },
@@ -4563,7 +4563,7 @@
    "spend_usd": 4.8
   }
  },
- "snapshot_built_at": "2026-11-11T07:09:18Z",
+ "snapshot_built_at": "2026-11-11T07:27:48Z",
  "totals": {
   "reviews": 15,
   "spend_usd": 34.6,

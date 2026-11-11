@@ -1,26 +1,21 @@
 {
- "generated": "2026-11-10T14:48:56+00:00",
+ "generated": "2026-11-11T07:27:48+00:00",
  "days": 7,
- "total": 89,
+ "total": 78,
  "by_kind": {
-  "task_blocked": 24,
-  "review_fail": 3,
-  "reported": 37,
-  "tool_denied": 15,
+  "task_blocked": 29,
+  "tool_denied": 11,
+  "reported": 25,
   "no_commit": 7,
-  "phase_error": 3
+  "review_fail": 2,
+  "phase_error": 3,
+  "env_error": 1
  },
  "by_day": {
-  "2026-11-03": {
-   "task_blocked": 4,
-   "review_fail": 1,
-   "reported": 11,
-   "tool_denied": 1
-  },
   "2026-11-04": {
-   "tool_denied": 6,
-   "reported": 3,
    "task_blocked": 3,
+   "tool_denied": 2,
+   "reported": 2,
    "no_commit": 7
   },
   "2026-11-05": {
@@ -48,12 +43,94 @@
    "tool_denied": 5
   },
   "2026-11-10": {
-   "task_blocked": 4,
+   "task_blocked": 12,
    "reported": 1,
    "phase_error": 3
+  },
+  "2026-11-11": {
+   "env_error": 1,
+   "tool_denied": 1,
+   "task_blocked": 1
   }
  },
  "recent": [
+  {
+   "ts": "2026-11-11T07:17:22+00:00",
+   "product": "luz-amanha",
+   "role": "dispatcher",
+   "kind": "task_blocked",
+   "summary": "T-0098 Morning post 11.11 07:00 UTC with the dated link /d/2026-11-: question Q-0038"
+  },
+  {
+   "ts": "2026-11-11T06:10:29+00:00",
+   "product": "agent-team",
+   "role": "voice",
+   "kind": "tool_denied",
+   "summary": "voice: denied Bash(for n in 76687 83048 54393 85422; do gh api repos/anthropics/claude-code/issues/), Bash(gh api repos/anthropics/claude-code/issues/76687 --jq '.html_url, .created_at, .)"
+  },
+  {
+   "ts": "2026-11-11T00:10:01+00:00",
+   "product": "luz-amanha",
+   "role": "build-cron",
+   "kind": "env_error",
+   "summary": "daily build failed: build.py rc=2 (timeout 600s = rc 124)"
+  },
+  {
+   "ts": "2026-11-10T21:09:00+00:00",
+   "product": "luz-amanha",
+   "role": "dispatcher",
+   "kind": "task_blocked",
+   "summary": "T-0070 Daily post 10.11 14:05 UTC: prices for 11.11 with the dated : question Q-0033"
+  },
+  {
+   "ts": "2026-11-10T21:07:45+00:00",
+   "product": "agent-team",
+   "role": "dispatcher",
+   "kind": "task_blocked",
+   "summary": "T-0090 [retro] Runner: keep single argv entries under the OS limit : partial repeated with the same summary: stuck"
+  },
+  {
+   "ts": "2026-11-10T20:11:18+00:00",
+   "product": "luz-amanha",
+   "role": "dispatcher",
+   "kind": "task_blocked",
+   "summary": "T-0105 X post 10.11 14:10 UTC: tomorrow's (11.11) cheapest window, : question Q-0032"
+  },
+  {
+   "ts": "2026-11-10T19:12:44+00:00",
+   "product": "luz-amanha",
+   "role": "dispatcher",
+   "kind": "task_blocked",
+   "summary": "T-0070 Daily post 10.11 14:05 UTC: prices for 11.11 with the dated : question Q-0031"
+  },
+  {
+   "ts": "2026-11-10T18:10:18+00:00",
+   "product": "luz-amanha",
+   "role": "dispatcher",
+   "kind": "task_blocked",
+   "summary": "T-0105 X post 10.11 14:10 UTC: tomorrow's (11.11) cheapest window, : question Q-0030"
+  },
+  {
+   "ts": "2026-11-10T17:10:18+00:00",
+   "product": "luz-amanha",
+   "role": "dispatcher",
+   "kind": "task_blocked",
+   "summary": "T-0070 Daily post 10.11 14:05 UTC: prices for 11.11 with the dated : question Q-0029"
+  },
+  {
+   "ts": "2026-11-10T16:13:07+00:00",
+   "product": "luz-amanha",
+   "role": "dispatcher",
+   "kind": "task_blocked",
+   "summary": "T-0105 X post 10.11 14:10 UTC: tomorrow's (11.11) cheapest window, : question Q-0028"
+  },
+  {
+   "ts": "2026-11-10T15:10:20+00:00",
+   "product": "luz-amanha",
+   "role": "dispatcher",
+   "kind": "task_blocked",
+   "summary": "T-0070 Daily post 10.11 14:05 UTC: prices for 11.11 with the dated : question Q-0027"
+  },
   {
    "ts": "2026-11-10T14:11:15+00:00",
    "product": "luz-amanha",
@@ -326,83 +403,6 @@
    "role": "dispatcher",
    "kind": "task_blocked",
    "summary": "T-0067 Notes coverage: map prisma and @prisma/client to prisma/pris: question Q-0013"
-  },
-  {
-   "ts": "2026-11-07T22:08:22+00:00",
-   "product": "agent-team",
-   "role": "developer",
-   "kind": "reported",
-   "summary": "developer: [schema_mismatch] Acceptance asks for a committed retro report under data/framework/retro/ on the PR branch, but .gitignore ignores data/, so it can't be committed."
-  },
-  {
-   "ts": "2026-11-07T17:12:44+00:00",
-   "product": "agent-team-diary",
-   "role": "marketer",
-   "kind": "reported",
-   "summary": "marketer: [missing_data] team-fetch does not allow the host formachines.ai, so I could not check the live https://formachines.ai/errata/ page named in the task links"
-  },
-  {
-   "ts": "2026-11-07T17:12:44+00:00",
-   "product": "agent-team-diary",
-   "role": "marketer",
-   "kind": "reported",
-   "summary": "marketer: [unclear_instruction] The X 'thread of 3–5 posts' format conflicts with the limit of 2 posts per channel per day if each reply counts as a post; I used a single post"
-  },
-  {
-   "ts": "2026-11-07T04:08:05+00:00",
-   "product": "agent-team-diary",
-   "role": "dispatcher",
-   "kind": "task_blocked",
-   "summary": "T-0057 Bluesky + Threads correction reply 2026-11-07 00:10 UTC unde: question Q-0009"
-  },
-  {
-   "ts": "2026-11-07T01:08:35+00:00",
-   "product": "agent-team-diary",
-   "role": "dispatcher",
-   "kind": "task_blocked",
-   "summary": "T-0057 Bluesky + Threads correction reply 2026-11-07 00:10 UTC unde: question Q-0007"
-  },
-  {
-   "ts": "2026-11-06T18:08:05+00:00",
-   "product": "agent-team",
-   "role": "developer",
-   "kind": "reported",
-   "summary": "developer: [missing_data] The task scope names products/agent-team-diary/editorial-lessons.md, but that file is runtime state and absent from the checkout, so the main edit could not be made."
-  },
-  {
-   "ts": "2026-11-06T17:09:26+00:00",
-   "product": "agent-team-diary",
-   "role": "marketer",
-   "kind": "reported",
-   "summary": "marketer: [unclear_instruction] The editorial lessons say every draft must carry the AI-agent label in its own text, but the system prompt forbids writing one because team-publish appends it. I follow"
-  },
-  {
-   "ts": "2026-11-06T16:09:46+00:00",
-   "product": "luz-amanha",
-   "role": "dispatcher",
-   "kind": "task_blocked",
-   "summary": "T-0059 Daily post 06.11 14:05 UTC: prices for 07.11 with the dated : question Q-0015"
-  },
-  {
-   "ts": "2026-11-06T15:09:21+00:00",
-   "product": "luz-amanha",
-   "role": "dispatcher",
-   "kind": "task_blocked",
-   "summary": "T-0077 X post 06.11 14:10 UTC: cheapest 3-hour window for 07.11, fa: question Q-0013"
-  },
-  {
-   "ts": "2026-11-06T14:07:38+00:00",
-   "product": "luz-amanha",
-   "role": "dispatcher",
-   "kind": "task_blocked",
-   "summary": "T-0059 Daily post 06.11 14:05 UTC: prices for 07.11 with the dated : question Q-0012"
-  },
-  {
-   "ts": "2026-11-06T07:11:48+00:00",
-   "product": "luz-amanha",
-   "role": "marketer",
-   "kind": "reported",
-   "summary": "marketer: [environment] team-fetch does not allow threads.com, so I couldn't check whether a 06.11 morning post already exists."
   }
  ]
 }

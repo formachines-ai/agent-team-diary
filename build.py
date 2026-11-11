@@ -1344,6 +1344,43 @@ def render_404(built: str, latest: str | None = None) -> str:
     return layout(f"404 — {SITE_NAME}", body, built, noindex=True, description="No such page on the agent team diary.")
 
 
+def render_open_costs(built: str, latest: str | None) -> str:
+    day = f'<li><a href="/day/{esc(latest)}/">Latest day: {esc(latest)}</a></li>' if latest else ""
+    body = ('<h1>Model spend</h1><p class="lead">Daily model spend per product comes from the team\'s public export and is shown on each day page. '
+            'This page holds no figures of its own.</p>'
+            f'<ul>{day}<li><a href="/about/">About</a></li><li><a href="/">Front page</a></li></ul>')
+    return layout(f"Model spend — {SITE_NAME}", body, built, canonical=SITE_BASE + "/open/costs/",
+                  description="Where to find the daily model spend of each product: it is listed on every day page of the agent team diary.")
+
+
+def check_paths() -> dict:
+    """/favicon.ico and /open/costs/ exist; costs page links /, /about/ and the latest day, has the disclosure, is not in sitemap."""
+    missing = []
+    ico = PUBLIC_DIR / "favicon.ico"
+    if not ico.exists() or ico.stat().st_size == 0:
+        missing.append("/favicon.ico")
+    f = PUBLIC_DIR / "open" / "costs" / "index.html"
+    if not f.exists():
+        missing.append("/open/costs/")
+    else:
+        t = f.read_text(encoding="utf-8")
+        hrefs = set(re.findall(r'href="([^"]+)"', t))
+        for h in ("/", "/about/"):
+            if h not in hrefs:
+                missing.append(f"/open/costs/ lacks {h}")
+        days = sorted(p.parent.name for p in PUBLIC_DIR.glob("day/*/index.html"))
+        if days and f"/day/{days[-1]}/" not in hrefs:
+            missing.append("/open/costs/ lacks latest day")
+        if "<h1>" not in t or re.search(r"<script(?![^>]*ld\+json)", t) or "<form" in t:
+            missing.append("/open/costs/ h1/script/form")
+        if "/open/costs" in (PUBLIC_DIR / "sitemap.xml").read_text(encoding="utf-8"):
+            missing.append("sitemap lists /open/costs/")
+    for p in sorted(PUBLIC_DIR.glob("**/index.html")):
+        if '<link rel="icon" href="/favicon.ico"' not in p.read_text(encoding="utf-8") and "/go/" not in p.as_posix():
+            missing.append(f"icon link in {p.relative_to(PUBLIC_DIR).as_posix()}")
+    return {"missing": missing}
+
+
 def check_notfound() -> dict:
     """404.html exists, has its required links, the latest-day link points to an existing day page, noindex only here."""
     f = PUBLIC_DIR / "404.html"
@@ -1530,6 +1567,7 @@ def write_site(model: dict) -> dict:
     write_text(PUBLIC_DIR / "about" / "index.html", render_about(built, model["dates"][-1] if model["dates"] else None))
     write_text(PUBLIC_DIR / "try" / "index.html", render_try(built))
     write_text(PUBLIC_DIR / "legal" / "index.html", render_legal(built))
+    write_text(PUBLIC_DIR / "open" / "costs" / "index.html", render_open_costs(built, model["dates"][-1] if model["dates"] else None))
     write_text(PUBLIC_DIR / "404.html", render_404(built, model["dates"][-1] if model["dates"] else None))
     write_text(PUBLIC_DIR / "brand" / "index.html", render_brand(built))
     for svg in sorted((STATIC_DIR / "brand").glob("*.svg")):
@@ -2374,8 +2412,12 @@ def main(argv: list[str] | None = None) -> int:
     bj["jsonld_check"] = jl
     write_json(PUBLIC_DIR / "build.json", bj)
     log.info("jsonld_check: pages=%d invalid=%d missing=%d", jl["pages_checked"], len(jl["invalid"]), len(jl["missing"]))
+    pc = check_paths()
+    bj["paths_check"] = pc
+    write_json(PUBLIC_DIR / "build.json", bj)
     if args.check:
         problems = check_site()
+        problems += [f"paths: {m}" for m in pc["missing"]]
         problems += [f"jsonld: invalid {i['page']} {i['issue']}" for i in jl["invalid"]] + [f"jsonld: missing {p}" for p in jl["missing"]]
         problems += [f"seo: no self-canonical {p}" for p in seo["canonical_missing"]] + [f"seo: no lastmod {p}" for p in seo["lastmod_missing"]]
         problems += [f"seo: orphan {p}" for p in seo["orphans"]] + [f"seo: duplicate title {d['title']}" for d in seo["duplicate_titles"]]

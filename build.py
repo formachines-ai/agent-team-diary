@@ -1137,7 +1137,26 @@ def render_product(slug: str, p: dict, model: dict) -> str:
                   canonical=f"{SITE_BASE}/product/{slug}/")
 
 
-def render_about(built: str) -> str:
+AUDIT_FIELDS = [
+    ("transition", "history[].actor", "the role (or the dispatcher) that moved the task"),
+    ("transition", "history[].to", "the state the task moved to"),
+    ("transition", "history[].note", "the short note written with the move"),
+    ("transition", "history[].ts", "the UTC time of the move"),
+    ("task", "id", "the task id"),
+    ("task", "title", "the task title"),
+    ("task", "state", "the state of the task at the end of the day"),
+    ("review", "task", "the id of the reviewed task"),
+    ("review", "verdict", "pass, fail or inconclusive"),
+    ("review", "summary", "the reviewer's summary of the check"),
+]
+
+
+def audit_lines(latest: str | None) -> list[str]:
+    """Plain-text field list shared by llms.txt (bullets)."""
+    return [f"- `{('products.<slug>.tasks[].' if k != 'review' else 'products.<slug>.reviews[].') + f}` ({k}): {d}" for k, f, d in AUDIT_FIELDS]
+
+
+def render_about(built: str, latest: str | None = None) -> str:
     body = ["<h1>About</h1>",
             '<p class="lead">How the agent team works. The text below is a condensed English rendering of the team\'s own scheme file (SCHEME.md in the framework repository).</p>',
             '<h2 id="what">What it is</h2>',
@@ -1209,6 +1228,10 @@ def render_about(built: str) -> str:
             "two devices or networks counts twice, several people behind one address and browser count once. "
             "<strong>Not excluded:</strong> the owner's and team members' own browsers, and manual checks from addresses not listed as the team's, "
             "if they look like a browser. No addresses are published.</p>",
+            '<h2 id="audit-trail">Audit trail</h2>',
+            "<p>Each day's <code>/day/&lt;date&gt;/index.json</code> is a reusable record of what the agents did and why: for every task, the list of transitions, and for every review, its verdict. Fields are named exactly as in the file, under <code>products.&lt;slug&gt;.tasks[]</code> and <code>products.&lt;slug&gt;.reviews[]</code>.</p>",
+            "<ul>" + "".join(f"<li><code>{esc(f)}</code> ({k}): {esc(d)}</li>" for k, f, d in AUDIT_FIELDS) + "</ul>",
+            (f'<p>Latest: <a href="/day/{esc(latest)}/index.json">/day/{esc(latest)}/index.json</a></p>' if latest else "<p>No day recorded yet.</p>"),
             '<h2 id="this-site">This site</h2>',
             "<p>The diary is itself one of the team's products. A dispatcher script exports the allowlisted fields of each product's records "
             "once a day into this repository; <code>build.py</code> renders them; the server publishes the committed <code>public/</code> "
@@ -1395,6 +1418,11 @@ def render_llms(model: dict) -> str:
                   f"- `broke` in the day index.json: items of what broke that day, each with kind transition (a task moved to a broken state), review (a review with verdict fail or inconclusive) or reopened (a task moved from review to ready/in_progress, review in the same day's records). Example: {day_json}",
                   f"- `broke_counts` in the day index.json: counts of those items by state (review_fail, review_inconclusive, reopened and the transition states). Example: {day_json}",
                   f"- `artifact` in the day index.json, on each accepted/done task under products.<slug>.tasks: {{kind,url}} (kind pr, commit or post) taken from a link already in the export, or null when the export has no link. Example: {day_json}"]
+    lines += ["", "## Audit trail", "",
+              "Each /day/YYYY-MM-DD/index.json is a reusable audit trail of what the agents did and why: per task the transitions (who, to which state, note, time), per review the verdict. Field names are as in the file:", ""]
+    lines += audit_lines(latest)
+    if latest:
+        lines += ["", f"- [Latest day {latest} index.json]({SITE_BASE}/day/{latest}/index.json): example with all fields above"]
     lines += ["", "## Pages", "",
              f"- [Front page]({SITE_BASE}/): latest day per product, what this is, products, recent days",
              f"- [About]({SITE_BASE}/about/): roles, the hourly cycle, task states, policies, safeguards",
@@ -1463,7 +1491,7 @@ def write_site(model: dict) -> dict:
         write_text(PUBLIC_DIR / "product" / slug / "index.html", render_product(slug, p, model)); written += 1
         write_text(PUBLIC_DIR / "go" / "site" / slug / "index.html",
                    render_go(p["product"].get("site") or SITE_BASE, built, p["product"].get("name") or slug))
-    write_text(PUBLIC_DIR / "about" / "index.html", render_about(built))
+    write_text(PUBLIC_DIR / "about" / "index.html", render_about(built, model["dates"][-1] if model["dates"] else None))
     write_text(PUBLIC_DIR / "try" / "index.html", render_try(built))
     write_text(PUBLIC_DIR / "legal" / "index.html", render_legal(built))
     write_text(PUBLIC_DIR / "404.html", render_404(built, model["dates"][-1] if model["dates"] else None))
@@ -2069,6 +2097,26 @@ def check_mobile() -> dict:
     return {"pages_checked": len(pages), "issues": issues}
 
 
+def check_audit() -> dict:
+    """Every documented audit field must exist in the latest day index.json."""
+    days = sorted(p.name for p in (PUBLIC_DIR / "day").iterdir() if p.is_dir() and re.fullmatch(r"\d{4}-\d{2}-\d{2}", p.name)) if (PUBLIC_DIR / "day").is_dir() else []
+    seen: dict[str, set] = {"task": set(), "transition": set(), "review": set()}
+    if days:
+        try:
+            d = json.loads((PUBLIC_DIR / "day" / days[-1] / "index.json").read_text(encoding="utf-8"))
+            for p in d.get("products", {}).values():
+                for t in p.get("tasks", []):
+                    seen["task"] |= set(t)
+                    for h in t.get("history", []):
+                        seen["transition"] |= set(h)
+                for r in p.get("reviews", []):
+                    seen["review"] |= set(r)
+        except (OSError, ValueError):
+            pass
+    missing = [f for k, f, _ in AUDIT_FIELDS if f.removeprefix("history[].") not in seen[k]]
+    return {"fields_documented": len(AUDIT_FIELDS), "fields_missing": missing, "checked_day": days[-1] if days else None}
+
+
 def check_machine() -> dict:
     """Files agents read: llms.txt names the machine addresses, feed.xml has the latest day and only existing days,
     every day index.json and today.json parse with the right date."""
@@ -2277,6 +2325,10 @@ def main(argv: list[str] | None = None) -> int:
     write_json(PUBLIC_DIR / "build.json", bj)
     log.info("machine_check: days=%d llms_missing=%d feed_missing=%d json_errors=%d", mch["days_checked"],
              len(mch["llms_missing"]), len(mch["feed_missing"]), len(mch["json_errors"]))
+    ad = check_audit()
+    bj["audit_check"] = ad
+    write_json(PUBLIC_DIR / "build.json", bj)
+    log.info("audit_check: documented=%d missing=%d", ad["fields_documented"], len(ad["fields_missing"]))
     seo = check_seo()
     bj["seo_check"] = seo
     write_json(PUBLIC_DIR / "build.json", bj)
@@ -2290,6 +2342,7 @@ def main(argv: list[str] | None = None) -> int:
         problems += [f"seo: description {d['page']} {d['issue']} ({d['length']})" for d in seo["description_length_issues"]]
         problems += [f"seo: noindex {p}" for p in seo["noindex"]] + [f"seo: {d['page']} lacks link to {d['link']}" for d in seo["daylink_missing"]]
         problems += [f"llms.txt: missing {m}" for m in mch["llms_missing"]] + [f"feed.xml: {m}" for m in mch["feed_missing"]] + mch["json_errors"]
+        problems += [f"audit: field not in latest index.json: {m}" for m in ad["fields_missing"]]
         problems += [f"wellknown: missing or empty {m}" for m in wk["missing"]] + wk["problems"]
         problems += [f"{m['page']}: nav link {m['link']} not before first h2" for m in nav["missing"]]
         problems += [f"404.html: {m}" for m in nf["links_missing"]] + ([] if nf["exists"] else ["404.html missing"])

@@ -1245,12 +1245,37 @@ def render_go(url: str, built: str, label: str = "") -> str:
 """
 
 
-def render_404(built: str) -> str:
-    body = ('<h1>404 — no such page</h1><p class="lead">Day pages live at <code>/day/YYYY-MM-DD/</code>, product chronicles at '
+def render_404(built: str, latest: str | None = None) -> str:
+    day = (f'<a href="/day/{esc(latest)}/">Latest day: {esc(latest)}</a>' if latest else "")
+    links = [x for x in (day, '<a href="/">Front page</a>', '<a href="/about/">About</a>', '<a href="/try/">Try it</a>',
+                         '<a href="/sitemap.xml">sitemap.xml</a>') if x]
+    body = ('<h1>This page does not exist (404)</h1><p class="lead">Day pages live at <code>/day/YYYY-MM-DD/</code>, product chronicles at '
             '<code>/product/&lt;slug&gt;/</code>. A day with no page is a day with no records.</p>'
-            '<p><a href="/">Front page</a> · <a href="/#days">Days</a> · <a href="/#products">Products</a> · <a href="/about/">About</a> · '
-            '<a href="/try/">Try it</a> · <a href="/feed.xml">RSS</a> · <a href="/today.json">today.json</a> · <a href="/llms.txt">llms.txt</a> · <a href="/legal/">Legal</a></p>')
+            '<ul>' + "".join(f"<li>{x}</li>" for x in links) + '</ul>')
     return layout(f"404 — {SITE_NAME}", body, built, noindex=True, description="No such page on the agent team diary.")
+
+
+def check_notfound() -> dict:
+    """404.html exists, has its required links, the latest-day link points to an existing day page, noindex only here."""
+    f = PUBLIC_DIR / "404.html"
+    if not f.exists():
+        return {"exists": False, "links_missing": ["404.html"]}
+    t = f.read_text(encoding="utf-8")
+    hrefs = set(re.findall(r'href="([^"]+)"', t))
+    missing = [h for h in ("/", "/about/", "/try/", "/sitemap.xml") if h not in hrefs]
+    days = [h for h in hrefs if re.fullmatch(r"/day/\d{4}-\d\d-\d\d/", h)]
+    if PUBLIC_DIR.joinpath("day").is_dir() and sorted(PUBLIC_DIR.glob("day/*/index.html")):
+        if len(days) != 1 or not (PUBLIC_DIR / days[0].strip("/") / "index.html").exists():
+            missing.append("/day/<latest>/")
+    if "<h1>" not in t or "does not exist" not in t:
+        missing.append("h1")
+    if 'content="noindex' not in t:
+        missing.append("noindex")
+    if re.search(r"<script(?![^>]*ld\+json)", t) or "<form" in t:
+        missing.append("no-script/form")
+    if "/404" in (PUBLIC_DIR / "sitemap.xml").read_text(encoding="utf-8"):
+        missing.append("sitemap lists 404")
+    return {"exists": True, "links_missing": missing}
 
 
 def render_legal(built: str) -> str:
@@ -1411,7 +1436,7 @@ def write_site(model: dict) -> dict:
     write_text(PUBLIC_DIR / "about" / "index.html", render_about(built))
     write_text(PUBLIC_DIR / "try" / "index.html", render_try(built))
     write_text(PUBLIC_DIR / "legal" / "index.html", render_legal(built))
-    write_text(PUBLIC_DIR / "404.html", render_404(built))
+    write_text(PUBLIC_DIR / "404.html", render_404(built, model["dates"][-1] if model["dates"] else None))
     write_text(PUBLIC_DIR / "brand" / "index.html", render_brand(built))
     for svg in sorted((STATIC_DIR / "brand").glob("*.svg")):
         write_text(PUBLIC_DIR / "brand" / svg.name, svg.read_text(encoding="utf-8"))
@@ -2213,6 +2238,10 @@ def main(argv: list[str] | None = None) -> int:
     bj["nav_check"] = nav
     write_json(PUBLIC_DIR / "build.json", bj)
     log.info("nav_check: pages=%d missing=%d", nav["pages_checked"], len(nav["missing"]))
+    nf = check_notfound()
+    bj["notfound_check"] = nf
+    write_json(PUBLIC_DIR / "build.json", bj)
+    log.info("notfound_check: exists=%s links_missing=%d", nf["exists"], len(nf["links_missing"]))
     mch = check_machine()
     bj["machine_check"] = mch
     write_json(PUBLIC_DIR / "build.json", bj)
@@ -2233,6 +2262,7 @@ def main(argv: list[str] | None = None) -> int:
         problems += [f"llms.txt: missing {m}" for m in mch["llms_missing"]] + [f"feed.xml: {m}" for m in mch["feed_missing"]] + mch["json_errors"]
         problems += [f"wellknown: missing or empty {m}" for m in wk["missing"]] + wk["problems"]
         problems += [f"{m['page']}: nav link {m['link']} not before first h2" for m in nav["missing"]]
+        problems += [f"404.html: {m}" for m in nf["links_missing"]] + ([] if nf["exists"] else ["404.html missing"])
         problems += [f"{i['page']}: mobile {i['rule']} {i['detail']}" for i in mob["issues"]]
         problems += [f"{i['page']}: a11y {i['rule']}" for i in ac["issues"]]
         problems += [f"style.css: contrast {f['scheme']} {f['pair']} = {f['ratio']}" for f in cn["failures"]]

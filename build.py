@@ -378,13 +378,16 @@ def rework_line(d: dict, kp: str | None = None) -> str:
 # ----------------------------------------------------------------------------------------------------------
 # HTML layout
 # ----------------------------------------------------------------------------------------------------------
+PUBLISHER_LD = {"@type": "Organization", "name": "formachines.ai", "url": RESPONSIBLE_URL}
+
+
 def jsonld_block(data: dict) -> str:
     """Static JSON-LD; '<' is escaped so the text can never close the script element."""
     return ('<script type="application/ld+json">' + json.dumps(data, ensure_ascii=False).replace("<", "\\u003c") + "</script>\n")
 
 
 def layout(title: str, body: str, built: str, description: str = "", canonical: str = "", noindex: bool = False,
-           ld_type: str = "WebPage", desc_max: int = DESC_MAX) -> str:
+           ld_type: str = "WebPage", desc_max: int = DESC_MAX, date_published: str = "") -> str:
     desc = description or SITE_TAGLINE
     if len(desc) > desc_max:  # whole words only, no ellipsis
         desc = desc[:desc_max + 1].rsplit(" ", 1)[0].rstrip(" ,;:-")
@@ -393,11 +396,11 @@ def layout(title: str, body: str, built: str, description: str = "", canonical: 
     ld = {"@context": "https://schema.org", "@type": ld_type, "name": title, "headline" if ld_type == "Article" else "description": title if ld_type == "Article" else desc,
           "url": url, "inLanguage": "en", "isAccessibleForFree": True}
     if ld_type == "Article":
-        ld.update({"description": desc, "datePublished": built, "dateModified": built, "mainEntityOfPage": url,
+        ld.update({"description": desc, "datePublished": date_published or built, "dateModified": built, "mainEntityOfPage": url,
                    "author": {"@type": "Organization", "name": "agent-team (AI agents)"},
-                   "publisher": {"@type": "Person", "name": RESPONSIBLE, "url": RESPONSIBLE_URL}})
+                   "publisher": PUBLISHER_LD})
     else:
-        ld["publisher"] = {"@type": "Person", "name": RESPONSIBLE, "url": RESPONSIBLE_URL}
+        ld["publisher"] = PUBLISHER_LD
     if ld_type == "WebSite":
         ld["name"] = SITE_NAME
         ld["description"] = desc
@@ -713,6 +716,39 @@ def try_line() -> str:
             '<a href="/go/github/">Read the framework code, MIT</a></p>')
 
 
+def check_jsonld() -> dict:
+    """JSON-LD on every indexable page: parses, @context, @type, url = canonical, Article datePublished = page date."""
+    invalid, missing, n = [], [], 0
+    for f in sorted(PUBLIC_DIR.glob("**/index.html")):
+        rel = f.relative_to(PUBLIC_DIR).parent.as_posix()
+        path = "/" if rel == "." else f"/{rel}/"
+        if path.startswith("/go/"):
+            continue
+        t = f.read_text(encoding="utf-8")
+        blocks = re.findall(r'<script type="application/ld\+json">(.*?)</script>', t, re.S)
+        if not blocks:
+            missing.append(path)
+            continue
+        n += 1
+        try:
+            ld = json.loads(blocks[0])
+            m = re.search(r'<link rel="canonical" href="([^"]*)"', t)
+            canon = html.unescape(m.group(1)) if m else SITE_BASE + path
+            dm = re.fullmatch(r"/day/(\d{4}-\d{2}-\d{2})/", path)
+            want = "Article" if dm else ("WebSite" if path == "/" else None)
+            if ld.get("@context") != "https://schema.org" or not ld.get("@type"):
+                invalid.append({"page": path, "issue": "@context/@type"})
+            elif want and ld["@type"] != want:
+                invalid.append({"page": path, "issue": f"@type {ld['@type']} != {want}"})
+            elif ld.get("url") != canon:
+                invalid.append({"page": path, "issue": "url != canonical"})
+            elif dm and str(ld.get("datePublished", ""))[:10] != dm.group(1):
+                invalid.append({"page": path, "issue": "datePublished != page date"})
+        except (ValueError, AttributeError) as e:
+            invalid.append({"page": path, "issue": f"bad JSON {e}"})
+    return {"pages_checked": n, "invalid": invalid, "missing": missing}
+
+
 def check_seo() -> dict:
     """Self-canonical on every indexable page, lastmod on every sitemap <url>, prev/next day links, no orphan sitemap URLs,
     no noindex outside /go/ and 404, unique titles."""
@@ -852,7 +888,7 @@ def render_day(date: str, model: dict) -> str:
                         f'<p class="note">no activity recorded</p></section>')
     body.append(NEXT_ROW)
     return layout(f"{date} — {SITE_NAME}", "\n".join(body), model["built"],
-                  description=day_description(date, model), ld_type="Article", desc_max=DAY_DESC_MAX,
+                  description=day_description(date, model), ld_type="Article", desc_max=DAY_DESC_MAX, date_published=date,
                   canonical=f"{SITE_BASE}/day/{date}/")
 
 
@@ -2334,8 +2370,13 @@ def main(argv: list[str] | None = None) -> int:
     write_json(PUBLIC_DIR / "build.json", bj)
     log.info("seo_check: pages=%d canonical_missing=%d lastmod_missing=%d orphans=%d duplicate_titles=%d", seo["pages_checked"],
              len(seo["canonical_missing"]), len(seo["lastmod_missing"]), len(seo["orphans"]), len(seo["duplicate_titles"]))
+    jl = check_jsonld()
+    bj["jsonld_check"] = jl
+    write_json(PUBLIC_DIR / "build.json", bj)
+    log.info("jsonld_check: pages=%d invalid=%d missing=%d", jl["pages_checked"], len(jl["invalid"]), len(jl["missing"]))
     if args.check:
         problems = check_site()
+        problems += [f"jsonld: invalid {i['page']} {i['issue']}" for i in jl["invalid"]] + [f"jsonld: missing {p}" for p in jl["missing"]]
         problems += [f"seo: no self-canonical {p}" for p in seo["canonical_missing"]] + [f"seo: no lastmod {p}" for p in seo["lastmod_missing"]]
         problems += [f"seo: orphan {p}" for p in seo["orphans"]] + [f"seo: duplicate title {d['title']}" for d in seo["duplicate_titles"]]
         problems += [f"seo: duplicate description {d['description']}" for d in seo["description_duplicates"]]

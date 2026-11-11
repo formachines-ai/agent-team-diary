@@ -794,6 +794,35 @@ def check_nav() -> dict:
     return {"pages_checked": len(pages), "missing": missing}
 
 
+def shipped_vs_came_block(date: str, model: dict) -> str:
+    """Day page, after 'What did not go to plan': per product tasks accepted and reviews next to human and agent visits.
+    Counts are the day index.json counts.<slug>.* values; a missing field reads 'no data in the export'."""
+    out = ['<section class="shipped-vs-came" id="shipped-section"><h2 id="shipped-vs-came">Shipped vs who came</h2>']
+    present = [(slug, p, p["days"][date]) for slug, p in model["products"].items() if date in p["days"]]
+    if not present:
+        out.append('<p class="note">no activity recorded</p></section>')
+        return "\n".join(out)
+    if all(d.get("fixture") for _, _, d in present):
+        out.append('<p class="note">fixture: sample data in the export format, not a measurement.</p>')
+    out.append('<p class="note">Counts from the export for this day: tasks accepted (distinct tasks that reached an accepted state), '
+               'reviews, human and agent visits from the server log.</p>')
+    out.append('<div class="table-wrap"><table class="table"><thead><tr><th>Product</th><th>Tasks accepted</th><th>Reviews</th>'
+               '<th>Human visits</th><th>Agent visits</th></tr></thead><tbody>')
+    for slug, p, d in present:
+        c = day_counts(d)
+        m = d.get("metrics") or {}
+
+        def cell(field, val, present_ok):
+            return dk(f"counts.{slug}.{field}", val) if present_ok else "no data in the export"
+        out.append(f'<tr><th scope="row"><a href="#{esc(slug)}">{esc(p["product"].get("name") or slug)}</a></th>'
+                   f'<td>{cell("tasks_done_distinct", c["tasks_done_distinct"], True)}</td>'
+                   f'<td>{cell("reviews", c["reviews"], True)}</td>'
+                   f'<td>{cell("humans", c["humans"], c["humans"] is not None)}</td>'
+                   f'<td>{cell("agents", c["agents"], c["agents"] is not None)}</td></tr>')
+    out.append('</tbody></table></div></section>')
+    return "\n".join(out)
+
+
 def render_day(date: str, model: dict) -> str:
     products = model["products"]
     present = [(slug, p) for slug, p in products.items() if date in p["days"]]
@@ -810,6 +839,7 @@ def render_day(date: str, model: dict) -> str:
     body.append(fixture_note([p["days"][date] for _, p in present]))
     anchors = task_anchors(date, model)
     body.append(not_to_plan_block(date, model))
+    body.append(shipped_vs_came_block(date, model))
     if present:
         body.append('<p class="toc">' + " · ".join(f'<a href="#{esc(s)}">{esc(p["product"].get("name") or s)}</a>' for s, p in present) + "</p>")
         for slug, p in present:

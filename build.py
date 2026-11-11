@@ -1889,6 +1889,31 @@ def check_a11y() -> dict:
     return {"pages_checked": len(pages), "issues": issues, "contrast": contrast}
 
 
+def check_contrast() -> dict:
+    """WCAG 2.1 contrast (>= 4.5:1) of body, link, muted, code/table and badge colour pairs parsed from public/style.css,
+    in the light scheme and in @media (prefers-color-scheme: dark)."""
+    css = (PUBLIC_DIR / "style.css").read_text(encoding="utf-8")
+    hexre = r"--([\w-]+):\s*(#[0-9a-fA-F]{3,6})\b"
+    m = re.search(r":root\s*\{([^}]*)\}", css)
+    light = dict(re.findall(hexre, m.group(1))) if m else {}
+    dm = re.search(r"@media\s*\(prefers-color-scheme:\s*dark\)\s*\{\s*:root\s*\{([^}]*)\}", css)
+    schemes = [("light", light)]
+    if dm:
+        schemes.append(("dark", {**light, **dict(re.findall(hexre, dm.group(1)))}))
+    pairs = A11Y_PAIRS + [("muted", "code-bg"), ("muted", "warn-bg"), ("fg", "ok-bg"), ("fg", "warn-bg"), ("fg", "bad-bg")]
+    failures, n = [], 0
+    for scheme, col in schemes:
+        for fg, bg in pairs:
+            if fg in col and bg in col:
+                n += 1
+                r = round(contrast_ratio(col[fg], col[bg]), 2)
+                if r < 4.5:
+                    failures.append({"scheme": scheme, "pair": f"{fg} on {bg}", "ratio": r})
+            else:
+                failures.append({"scheme": scheme, "pair": f"{fg} on {bg}", "ratio": None})
+    return {"schemes_checked": len(schemes), "pairs_checked": n, "failures": failures}
+
+
 def check_mobile() -> dict:
     """Static 375 px check: viewport meta, no fixed width/min-width above 375px outside a max-width media query,
     overflow-wrap on body, tables wrapped or stacked at <=480px, pre/code wrap or scroll."""
@@ -2176,6 +2201,10 @@ def main(argv: list[str] | None = None) -> int:
     bj["mobile_check"] = mob
     write_json(PUBLIC_DIR / "build.json", bj)
     log.info("mobile_check: pages=%d issues=%d", mob["pages_checked"], len(mob["issues"]))
+    cn = check_contrast()
+    bj["contrast_check"] = cn
+    write_json(PUBLIC_DIR / "build.json", bj)
+    log.info("contrast_check: schemes=%d pairs=%d failures=%d", cn["schemes_checked"], cn["pairs_checked"], len(cn["failures"]))
     wk = check_wellknown()
     bj["wellknown_check"] = {"files": wk["files"], "missing": wk["missing"]}
     write_json(PUBLIC_DIR / "build.json", bj)
@@ -2206,6 +2235,9 @@ def main(argv: list[str] | None = None) -> int:
         problems += [f"{m['page']}: nav link {m['link']} not before first h2" for m in nav["missing"]]
         problems += [f"{i['page']}: mobile {i['rule']} {i['detail']}" for i in mob["issues"]]
         problems += [f"{i['page']}: a11y {i['rule']}" for i in ac["issues"]]
+        problems += [f"style.css: contrast {f['scheme']} {f['pair']} = {f['ratio']}" for f in cn["failures"]]
+        if cn["schemes_checked"] != 2:
+            problems.append("style.css: light and dark schemes not both found")
         problems += [f"{p}: footer disclosure missing" for p in cc["footer_missing"]]
         problems += cc["xml_errors"] + cc["latest_day_problems"]
         problems += [f"sitemap.xml: no <loc> for {p}" for p in cc["sitemap_missing"]]

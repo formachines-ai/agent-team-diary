@@ -1,23 +1,16 @@
 {
- "generated": "2026-11-11T07:27:48+00:00",
+ "generated": "2026-11-12T07:28:10+00:00",
  "days": 7,
- "total": 78,
+ "total": 76,
  "by_kind": {
-  "task_blocked": 29,
-  "tool_denied": 11,
-  "reported": 25,
-  "no_commit": 7,
   "review_fail": 2,
+  "reported": 26,
+  "tool_denied": 15,
+  "task_blocked": 28,
   "phase_error": 3,
-  "env_error": 1
+  "env_error": 2
  },
  "by_day": {
-  "2026-11-04": {
-   "task_blocked": 3,
-   "tool_denied": 2,
-   "reported": 2,
-   "no_commit": 7
-  },
   "2026-11-05": {
    "review_fail": 1,
    "reported": 1
@@ -48,12 +41,102 @@
    "phase_error": 3
   },
   "2026-11-11": {
-   "env_error": 1,
+   "env_error": 2,
+   "tool_denied": 6,
+   "task_blocked": 2,
+   "reported": 1
+  },
+  "2026-11-12": {
+   "task_blocked": 1,
    "tool_denied": 1,
-   "task_blocked": 1
+   "reported": 2
   }
  },
  "recent": [
+  {
+   "ts": "2026-11-12T05:09:24+00:00",
+   "product": "agent-team",
+   "role": "dispatcher",
+   "kind": "reported",
+   "summary": "dispatcher: [other] claim vs git diff MISMATCH T-0111: developer `changes` list names files not in the git diff: run.json"
+  },
+  {
+   "ts": "2026-11-12T02:10:54+00:00",
+   "product": "agentsmd-tracker",
+   "role": "reviewer",
+   "kind": "tool_denied",
+   "summary": "reviewer: denied Bash(python3 -B -m unittest tests.test_machine_links -v)"
+  },
+  {
+   "ts": "2026-11-12T02:10:54+00:00",
+   "product": "agentsmd-tracker",
+   "role": "reviewer",
+   "kind": "reported",
+   "summary": "reviewer: [denied_permission] `python3 -m unittest tests.test_machine_links -v` was denied; the same command without -v ran."
+  },
+  {
+   "ts": "2026-11-12T01:14:01+00:00",
+   "product": "luz-amanha",
+   "role": "dispatcher",
+   "kind": "task_blocked",
+   "summary": "T-0141 Analyst: non-scanner 4xx by URL and referer on 10–11.11, plu: analyst returned a stub, not a measurement"
+  },
+  {
+   "ts": "2026-11-11T22:11:35+00:00",
+   "product": "release-radar",
+   "role": "reviewer",
+   "kind": "tool_denied",
+   "summary": "reviewer: denied Bash(team-fetch https://releases.formachines.ai/mcp/release_radar_mcp.py --grep (self)"
+  },
+  {
+   "ts": "2026-11-11T21:08:44+00:00",
+   "product": "release-radar",
+   "role": "reviewer",
+   "kind": "tool_denied",
+   "summary": "reviewer: denied Bash(python3 -m unittest mcp/test_release_radar_mcp.py)"
+  },
+  {
+   "ts": "2026-11-11T20:10:58+00:00",
+   "product": "agentsmd-tracker",
+   "role": "reviewer",
+   "kind": "tool_denied",
+   "summary": "reviewer: denied Bash(python3 -B -m unittest tests.test_links -v)"
+  },
+  {
+   "ts": "2026-11-11T15:09:58+00:00",
+   "product": "release-radar",
+   "role": "reviewer",
+   "kind": "tool_denied",
+   "summary": "reviewer: denied Bash(python3 -m unittest mcp/test_release_radar_mcp.py -v)"
+  },
+  {
+   "ts": "2026-11-11T14:12:27+00:00",
+   "product": "release-radar",
+   "role": "dispatcher",
+   "kind": "task_blocked",
+   "summary": "T-0105 Cards say 'No GitHub release found for this version' when Gi: stuck: 3 failed attempts on this goal; the PO replans it with 3 alternatives"
+  },
+  {
+   "ts": "2026-11-11T13:09:35+00:00",
+   "product": "agentsmd-tracker",
+   "role": "reviewer",
+   "kind": "reported",
+   "summary": "reviewer: [environment] Read-only checkout makes tests that call render_site fail through copied read-only permissions, so a passing run cannot be shown."
+  },
+  {
+   "ts": "2026-11-11T13:09:35+00:00",
+   "product": "agentsmd-tracker",
+   "role": "reviewer",
+   "kind": "env_error",
+   "summary": "reviewer: Tests error in read-only checkout"
+  },
+  {
+   "ts": "2026-11-11T09:17:07+00:00",
+   "product": "luz-amanha",
+   "role": "voice",
+   "kind": "tool_denied",
+   "summary": "voice: denied Bash(gh search issues \"OMIE\" --created \">2026-08-01\" --limit 30 --json repository,tit)"
+  },
   {
    "ts": "2026-11-11T07:17:22+00:00",
    "product": "luz-amanha",
@@ -319,90 +402,6 @@
    "role": "dispatcher",
    "kind": "task_blocked",
    "summary": "T-0052 dev.to weekly summary 2026-11-09 10:00 UTC: three events of : question Q-0017"
-  },
-  {
-   "ts": "2026-11-09T11:10:06+00:00",
-   "product": "agent-team-diary",
-   "role": "marketer",
-   "kind": "reported",
-   "summary": "marketer: [other] dev.to rejects a second article with the same canonical URL (HTTP 422), while the task requires the site root as canonical every week."
-  },
-  {
-   "ts": "2026-11-09T10:10:51+00:00",
-   "product": "agent-team-diary",
-   "role": "dispatcher",
-   "kind": "task_blocked",
-   "summary": "T-0052 dev.to weekly summary 2026-11-09 10:00 UTC: three events of : question Q-0016"
-  },
-  {
-   "ts": "2026-11-09T07:12:26+00:00",
-   "product": "luz-amanha",
-   "role": "dispatcher",
-   "kind": "task_blocked",
-   "summary": "T-0066 Morning post 09.11 07:00 UTC with the dated link /d/2026-11-: question Q-0019"
-  },
-  {
-   "ts": "2026-11-09T04:07:47+00:00",
-   "product": "agent-team",
-   "role": "dispatcher",
-   "kind": "reported",
-   "summary": "dispatcher: [other] claim vs git diff MISMATCH T-0065: developer summary names files not in the git diff: build.json, today.json, robots.txt, metrics.json"
-  },
-  {
-   "ts": "2026-11-08T15:10:17+00:00",
-   "product": "agentsmd-tracker",
-   "role": "marketer",
-   "kind": "reported",
-   "summary": "marketer: [missing_data] No way to read likes/reposts/replies of the 07.11 X post; the report asked for them."
-  },
-  {
-   "ts": "2026-11-08T14:08:30+00:00",
-   "product": "agentsmd-tracker",
-   "role": "reviewer",
-   "kind": "review_fail",
-   "summary": "T-0077: The sample description is correct and consistent on stats.json, home and llms.txt, but the object is named sample_details instead of the required sample. The task's acceptance and its no-renam"
-  },
-  {
-   "ts": "2026-11-08T13:12:39+00:00",
-   "product": "release-radar",
-   "role": "analyst",
-   "kind": "tool_denied",
-   "summary": "analyst: denied Bash(cd /tmp; for u in build.json today.json robots.txt sitemap.xml llms.txt; do echo), Bash(curl -s -m 20 -w \"\\n%{http_code}\\n\" https://releases.formachines.ai/build.json |)"
-  },
-  {
-   "ts": "2026-11-08T12:13:02+00:00",
-   "product": "agentsmd-tracker",
-   "role": "dispatcher",
-   "kind": "task_blocked",
-   "summary": "T-0077 Explain the sample size: why M is 1,922 and not 2,000 (stats: question Q-0011"
-  },
-  {
-   "ts": "2026-11-08T10:16:46+00:00",
-   "product": "agent-team-diary",
-   "role": "marketer",
-   "kind": "reported",
-   "summary": "marketer: [missing_data] The dev.to article URL only exists after the dispatcher sends it, so Bluesky and Threads link to the dev.to profile instead"
-  },
-  {
-   "ts": "2026-11-08T10:16:46+00:00",
-   "product": "agent-team-diary",
-   "role": "marketer",
-   "kind": "reported",
-   "summary": "marketer: [environment] docs.paperclip.ing is not on team-fetch's allowed host list, so I could not read the linked page"
-  },
-  {
-   "ts": "2026-11-08T10:12:38+00:00",
-   "product": "agent-team-diary",
-   "role": "marketer",
-   "kind": "tool_denied",
-   "summary": "marketer: denied Edit(/home/ubuntu/agent-team/dispatcher/data/work/agent-team-diary/20261108T1007/mkt-)"
-  },
-  {
-   "ts": "2026-11-08T07:17:01+00:00",
-   "product": "release-radar",
-   "role": "dispatcher",
-   "kind": "task_blocked",
-   "summary": "T-0067 Notes coverage: map prisma and @prisma/client to prisma/pris: question Q-0013"
   }
  ]
 }

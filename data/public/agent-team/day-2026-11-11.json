@@ -3,17 +3,444 @@
  "name": "agent-team (framework)",
  "site": "",
  "date": "2026-11-11",
- "tasks": [],
+ "tasks": [
+  {
+   "id": "T-0092",
+   "title": "[retro] Voice card: no shell, no gh; use WebSearch/WebFetch only",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-11T10:17:11+00:00",
+   "accepted_at": "2026-11-11T11:09:50+00:00",
+   "released_sha": "1ae00e57b7d0e6a638165780973c0c455a2d0184",
+   "history": [
+    {
+     "ts": "2026-11-11T10:17:11+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-11T11:07:31+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261111T1107-exec-T-0092"
+    },
+    {
+     "ts": "2026-11-11T11:07:31+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-11T11:09:50+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261111T1107-canary of release-radar on a state copy: all phases); merged 1ae00e57b7"
+    },
+    {
+     "ts": "2026-11-11T11:09:50+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0093",
+   "title": "[retro] Voice card: no Bash or gh, use WebSearch/WebFetch on github.com",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-11T13:13:37+00:00",
+   "accepted_at": "2026-11-11T14:10:05+00:00",
+   "released_sha": "fe90fcdb6e1816a6bc82dae5b44d0fea67641565",
+   "history": [
+    {
+     "ts": "2026-11-11T13:13:37+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-11T14:07:36+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261111T1407-exec-T-0093"
+    },
+    {
+     "ts": "2026-11-11T14:07:36+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-11T14:10:05+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261111T1407-canary of release-radar on a state copy: all phases); merged fe90fcdb6e"
+    },
+    {
+     "ts": "2026-11-11T14:10:05+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0094",
+   "title": "[retro] Reviewer repo_only checkout: tests must be able to write to a scratch dir",
+   "type": "feature",
+   "state": "waiting_owner",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-11T13:13:38+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-11T13:13:38+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-11T15:07:22+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261111T1507-exec-T-0094"
+    },
+    {
+     "ts": "2026-11-11T15:07:22+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-11T15:08:41+00:00",
+     "actor": "dispatcher",
+     "to": "waiting_owner",
+     "note": "pull request https://github.com/OOuph/agent-team/pull/163 (tests edited/deleted without a 'tests-change-reason: F-xxxx' line: tests/test_readonly_checkout.py)"
+    }
+   ]
+  },
+  {
+   "id": "T-0095",
+   "title": "[retro] Voice card: no shell, use WebFetch on GitHub URLs/API",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-11T16:13:07+00:00",
+   "accepted_at": "2026-11-11T17:10:08+00:00",
+   "released_sha": "48a44cfa22f3b3408d72b24457b81cf5b481a2c5",
+   "history": [
+    {
+     "ts": "2026-11-11T16:13:07+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-11T17:07:34+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261111T1707-exec-T-0095"
+    },
+    {
+     "ts": "2026-11-11T17:07:34+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-11T17:10:08+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261111T1707-canary of release-radar on a state copy: all phases); merged 48a44cfa22"
+    },
+    {
+     "ts": "2026-11-11T17:10:08+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0096",
+   "title": "[retro] Reviewer card: path-form unittest is denied, give the allowed form",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-11T16:13:08+00:00",
+   "accepted_at": "2026-11-11T18:10:13+00:00",
+   "released_sha": "fab88cc0ec645b510d7ce6f5da334756e6920618",
+   "history": [
+    {
+     "ts": "2026-11-11T16:13:08+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-11T18:07:36+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261111T1807-exec-T-0096"
+    },
+    {
+     "ts": "2026-11-11T18:07:36+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-11T18:10:13+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261111T1807-canary of release-radar on a state copy: all phases); merged fab88cc0ec"
+    },
+    {
+     "ts": "2026-11-11T18:10:13+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0097",
+   "title": "[retro] Voice card: no shell, no gh; use WebFetch on GitHub URLs",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-11T19:16:36+00:00",
+   "accepted_at": "2026-11-11T20:10:22+00:00",
+   "released_sha": "9559cefcd73f1a67e7a373c22fb74a8fcf8d580c",
+   "history": [
+    {
+     "ts": "2026-11-11T19:16:36+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-11T20:07:37+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261111T2007-exec-T-0097"
+    },
+    {
+     "ts": "2026-11-11T20:07:37+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-11T20:10:22+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261111T2007-canary of release-radar on a state copy: all phases); merged 9559cefcd7"
+    },
+    {
+     "ts": "2026-11-11T20:10:22+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0098",
+   "title": "[retro] Reviewer card: how to run repo tests outside tests/ (no path-form unittest)",
+   "type": "feature",
+   "state": "review",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-11T19:16:36+00:00",
+   "accepted_at": null,
+   "released_sha": "9559cefcd73f1a67e7a373c22fb74a8fcf8d580c",
+   "history": [
+    {
+     "ts": "2026-11-11T19:16:36+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-11T21:07:23+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261111T2107-exec-T-0098"
+    },
+    {
+     "ts": "2026-11-11T21:07:23+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-11T21:07:58+00:00",
+     "actor": "dispatcher",
+     "to": "review",
+     "note": "no change needed: T-0096 (commit 3616c21, CHANGELOG 2026-11-11) already added both rules to team/roles/reviewer.md; the card text matches each acceptance criterion."
+    }
+   ]
+  },
+  {
+   "id": "T-0099",
+   "title": "[retro] Reviewer allowlist: accept path-form unittest, -B and -p discover",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-11T21:10:53+00:00",
+   "accepted_at": "2026-11-11T22:10:44+00:00",
+   "released_sha": "a74468d218d6b7fa9c812761775dd44ae5dcbecb",
+   "history": [
+    {
+     "ts": "2026-11-11T21:10:53+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-11T22:07:36+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261111T2207-exec-T-0099"
+    },
+    {
+     "ts": "2026-11-11T22:07:36+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-11T22:10:44+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261111T2207-canary of release-radar on a state copy: all phases); merged a74468d218"
+    },
+    {
+     "ts": "2026-11-11T22:10:44+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0100",
+   "title": "[retro] Voice card: state that gh and shell are denied, use WebFetch/WebSearch",
+   "type": "feature",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-11T21:10:54+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-11T21:10:54+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-11T23:07:39+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Duplicate of T-0102. Both add the same voice.md rule that gh and the shell are denied, backed by the same F-0176 and F-0178. T-0102 stays."
+    }
+   ]
+  },
+  {
+   "id": "T-0101",
+   "title": "[retro] Reviewer allowlist: accept path-form unittest, -B, -p",
+   "type": "feature",
+   "state": "review",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-11T22:13:53+00:00",
+   "accepted_at": null,
+   "released_sha": "a74468d218d6b7fa9c812761775dd44ae5dcbecb",
+   "history": [
+    {
+     "ts": "2026-11-11T22:13:53+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-11T23:07:39+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261111T2307-exec-T-0101"
+    },
+    {
+     "ts": "2026-11-11T23:07:39+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-11T23:08:01+00:00",
+     "actor": "dispatcher",
+     "to": "review",
+     "note": "no change needed: T-0099 already added the -B, path-form `<dir>/<file>.py [-v]` and `discover -s * -p *` forms to REPO_ONLY_REVIEW_TOOLS, the prompt, reviewer.md, SCHEME.md, the test and CHANGELOG (F-"
+    }
+   ]
+  },
+  {
+   "id": "T-0102",
+   "title": "[retro] Voice card: gh and shell are denied",
+   "type": "feature",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-11T22:13:55+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-11T22:13:55+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    }
+   ]
+  }
+ ],
  "reviews": [],
  "posts": [],
  "metrics": null,
- "spend_usd": 1.0,
- "po_digest_md": "**Цикл 11.11 07:07 (agent-team).** Расход за день $0.85 из $10.\n\nРазобрал 5 наблюдений голоса пользователей (OBS-0174..0178). Новых задач нет.\n\n- **P1, жёсткий лимит бюджета до вызова:** отложено. Правка затронет защищённые файлы, а расход команды сейчас около 14% лимита. Вернёмся, если день превысит 80% или проверка покажет, что лимит считается только постфактум.\n- **P2, «готово» без проверки:** связано с T-0084 и T-0068. Блок фактов PR уже строит диспетчер. T-0068 чинит красный базовый тест.\n- **P3, правка тестов самим агентом:** уже частично закрыто. PR с изменёнными тестами помечаются «tests changed without reason» и ждут человека.\n- **P4, параллельные агенты:** отклонено, у нас роли идут последовательно.\n- **P5, дайджест для владельца:** он уже есть в отчёте ретро. Шум от повторных вопросов уберёт T-0091.\n\n**Ждёт владельца:** три PR с защищёнными файлами или изменёнными тестами: #157 (T-0091), #148 (T-0086), #128 (T-0071). Это решает человек.",
+ "spend_usd": 3.0,
+ "po_digest_md": "**Цикл agent-team.** Расход за день $2.84 из $10. Новых задач нет.\n\n- Issues #174 и #175 — это предложения ретро, по которым задачи уже созданы: T-0101 (allowlist ревьюера) и T-0102 (карточка voice). Обе в Ready. Связал их с задачами, дублей не создавал.\n- Закрыл T-0100 как дубль T-0102: та же правка в `voice.md`, те же F-0176 и F-0178.\n- Отклонил OBS-0190. Тест на fnmatch не воспроизводит настоящий разбор `;`, `&&` и `|`. Доказательств в регистре нет, а цепочки команд T-0101 всё равно оставляет запрещёнными.\n- Одно правило для `voice.md` уже закрывали четыре раза подряд (T-0092, T-0093, T-0095, T-0097), и ретро снова пишет, что его в файле нет. Если T-0102 тоже закроется, а правила в `voice.md` не появится, надо смотреть сам процесс слияния, а не ставить пятую задачу.\n- T-0091 и T-0094 стоят в `waiting_owner`: их PR ждут человека из-за правок тестов без указанной причины. То же у PR #148 и #128. Решение за вами, чем эти PR разблокировать.\n- T-0090 (argv too long) застряла и ждёт владельца. Она трогает защищённые файлы.",
  "analyst_md": "",
  "observations": {
-  "new": 5,
+  "new": 20,
   "by_class": {
-   "voice": 5
+   "voice": 5,
+   "feedback": 11,
+   "need_hypothesis": 4
   }
  },
  "owner_questions_open": 0

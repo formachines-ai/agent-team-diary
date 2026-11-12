@@ -5,15 +5,67 @@
  "date": "2026-11-11",
  "tasks": [
   {
+   "id": "T-0068",
+   "title": "Morning post 10.11 07:00 UTC with the dated link /d/2026-11-10/ (last pilot day)",
+   "type": "content",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "marketer",
+   "created": "2026-11-05T00:10:02+00:00",
+   "accepted_at": "2026-11-10T09:11:02+00:00",
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-11T12:12:02+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-11T12:12:02+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0074",
+   "title": "Marketing plan for 10.11–16.11, based on the pilot's ?src= results",
+   "type": "marketing",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-05T19:09:48+00:00",
+   "accepted_at": "2026-11-10T10:10:09+00:00",
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-11T12:12:02+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-11T12:12:02+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
    "id": "T-0098",
    "title": "Morning post 11.11 07:00 UTC with the dated link /d/2026-11-11/",
    "type": "content",
-   "state": "blocked",
+   "state": "accepted",
    "priority": "P2",
    "goal": "G2",
    "role": "marketer",
    "created": "2026-11-08T13:11:27+00:00",
-   "accepted_at": null,
+   "accepted_at": "2026-11-11T08:18:22+00:00",
    "released_sha": null,
    "history": [
     {
@@ -33,6 +85,62 @@
      "actor": "marketer",
      "to": "blocked",
      "note": "question Q-0038"
+    },
+    {
+     "ts": "2026-11-11T08:17:33+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "answered Q-0038; not before 2026-11-11T08:10:00Z"
+    },
+    {
+     "ts": "2026-11-11T08:17:52+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261111T0807-exec-T-0098"
+    },
+    {
+     "ts": "2026-11-11T08:17:52+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-11T08:18:22+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "posted 1 (editor-approved)"
+    }
+   ]
+  },
+  {
+   "id": "T-0099",
+   "title": "Daily post 11.11 14:05 UTC: prices for 12.11 with the dated link /d/2026-11-12/",
+   "type": "content",
+   "state": "accepted",
+   "priority": "P1",
+   "goal": "G3",
+   "role": "marketer",
+   "created": "2026-11-08T13:11:28+00:00",
+   "accepted_at": "2026-11-11T14:12:00+00:00",
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-11T14:11:30+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261111T1407-exec-T-0099"
+    },
+    {
+     "ts": "2026-11-11T14:11:30+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-11T14:12:00+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "posted 1 (editor-approved)"
     }
    ]
   },
@@ -95,10 +203,114 @@
    ]
   },
   {
+   "id": "T-0107",
+   "title": "Defect: today.json still serves 2026-11-09 on 10.11. Rebuild now, and show a stale-data warning on the page",
+   "type": "defect",
+   "state": "done",
+   "priority": "P1",
+   "goal": "G2",
+   "role": "developer",
+   "created": "2026-11-10T08:10:47+00:00",
+   "accepted_at": "2026-11-10T09:09:44+00:00",
+   "released_sha": "74da7053b1b43551603e2378b1c66497cae4977a",
+   "history": [
+    {
+     "ts": "2026-11-11T12:12:02+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — Исправление свежести today.json; нет метрики людей до/после, влияние на G2 не видно."
+    },
+    {
+     "ts": "2026-11-11T12:12:02+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0108",
+   "title": "X post 11.11 14:10 UTC: 12.11 cheapest and dearest window, fact first, link /d/2026-11-12/?src=x",
+   "type": "marketing",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-10T13:13:59+00:00",
+   "accepted_at": "2026-11-11T15:09:34+00:00",
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-11T15:09:01+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261111T1507-exec-T-0108"
+    },
+    {
+     "ts": "2026-11-11T15:09:01+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-11T15:09:34+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "posted 1 (editor-approved)"
+    }
+   ]
+  },
+  {
+   "id": "T-0112",
+   "title": "Morning post 12.11 07:00 UTC with the dated link /d/2026-11-12/ (Telegram)",
+   "type": "content",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "marketer",
+   "created": "2026-11-10T15:10:10+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-11T10:12:48+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Replaced by a new 12.11 morning card with the passed-window rule (critic LU-10, OBS-0348); same slot."
+    }
+   ]
+  },
+  {
+   "id": "T-0117",
+   "title": "Defect: tomorrow.json stayed available:false after 14:30 UTC on 10.11 (OMIE 404): check fetch URL, retry, rebuild",
+   "type": "defect",
+   "state": "done",
+   "priority": "P1",
+   "goal": "G2",
+   "role": "developer",
+   "created": "2026-11-10T17:10:05+00:00",
+   "accepted_at": "2026-11-10T18:09:25+00:00",
+   "released_sha": "544f4b9eed67191bcac0c9441a0300bc4b405c8e",
+   "history": [
+    {
+     "ts": "2026-11-11T18:11:50+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-11T18:11:50+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
    "id": "T-0130",
    "title": "Defect: OMIE fetch for the next Lisbon day still 404 after 20:11 UTC on 10.11. Find the real file path, fetch it, rebuild (replaces T-0129)",
    "type": "defect",
-   "state": "in_progress",
+   "state": "rejected",
    "priority": "P1",
    "goal": "G2",
    "role": "developer",
@@ -177,6 +389,18 @@
      "actor": "dispatcher",
      "to": "in_progress",
      "note": "partial — continues next cycle"
+    },
+    {
+     "ts": "2026-11-11T08:17:52+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "partial — continues next cycle"
+    },
+    {
+     "ts": "2026-11-11T08:46:44+00:00",
+     "actor": "owner",
+     "to": "rejected",
+     "note": "fixed in the main thread: build.py falls back to the common OMIE marginalpdbc file (PT column), luz-amanha 94e9eac; no replan needed"
     }
    ]
   },
@@ -184,7 +408,7 @@
    "id": "T-0131",
    "title": "Defect: the 'Last attempt' time on / and /d/ must equal tomorrow.json last_attempt; show the rebuild time as a separate PT+EN line",
    "type": "defect",
-   "state": "accepted",
+   "state": "done",
    "priority": "P2",
    "goal": "G2",
    "role": "developer",
@@ -248,19 +472,43 @@
    "id": "T-0133",
    "title": "Defect: with 0 prices today, / says so in PT+EN, promises no table below, and shows tomorrow's status on its own line",
    "type": "defect",
-   "state": "ready",
+   "state": "accepted",
    "priority": "P2",
    "goal": "G2",
    "role": "developer",
    "created": "2026-11-11T04:11:26+00:00",
-   "accepted_at": null,
-   "released_sha": null,
+   "accepted_at": "2026-11-11T10:11:20+00:00",
+   "released_sha": "5a42faee4a2ddb97d9cb01cc7025a2ebabbc864e",
    "history": [
     {
      "ts": "2026-11-11T04:11:26+00:00",
      "actor": "po",
      "to": "ready",
      "note": ""
+    },
+    {
+     "ts": "2026-11-11T09:11:55+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261111T0907-exec-T-0133"
+    },
+    {
+     "ts": "2026-11-11T09:11:55+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-11T09:12:59+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 5a42faee4a"
+    },
+    {
+     "ts": "2026-11-11T10:11:20+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The live page behaves as specified for the day with prices: the 'table is for today' sentence appears with tomorrow unavailable, and the tomorrow line matches tomorrow.json. The 0-prices branch is cor"
     }
    ]
   },
@@ -268,19 +516,259 @@
    "id": "T-0134",
    "title": "Telegram link on / and /d/: one PT+EN line saying what the channel sends and when (07:00 and ~14:05 UTC)",
    "type": "quality",
-   "state": "ready",
+   "state": "accepted",
    "priority": "P2",
    "goal": "G3",
    "role": "developer",
    "created": "2026-11-11T05:08:21+00:00",
-   "accepted_at": null,
-   "released_sha": null,
+   "accepted_at": "2026-11-11T11:12:21+00:00",
+   "released_sha": "4f5489925bf41d1246ff5d348c9ec9bac6ed4192",
    "history": [
     {
      "ts": "2026-11-11T05:08:21+00:00",
      "actor": "po",
      "to": "ready",
      "note": ""
+    },
+    {
+     "ts": "2026-11-11T10:12:51+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261111T1007-exec-T-0134"
+    },
+    {
+     "ts": "2026-11-11T10:12:51+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-11T10:13:34+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 4f5489925b"
+    },
+    {
+     "ts": "2026-11-11T11:12:21+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "Both lines appear on / and /d/2026-11-10/ with the wording from the task, and each links to /go/telegram/. The page has one h1 and its only script is JSON-LD. I did not fetch tomorrow.json/today.json "
+    }
+   ]
+  },
+  {
+   "id": "T-0135",
+   "title": "Defect: pages, JSON and llms.txt name the OMIE file actually used (marginalpdbc_YYYYMMDD.1 after the PT file stopped)",
+   "type": "defect",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G5",
+   "role": "developer",
+   "created": "2026-11-11T08:17:34+00:00",
+   "accepted_at": "2026-11-11T12:10:32+00:00",
+   "released_sha": "bfc5895ee156976869af15b98ca5e59a4ebeefa8",
+   "history": [
+    {
+     "ts": "2026-11-11T08:17:34+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-11T11:12:53+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261111T1107-exec-T-0135"
+    },
+    {
+     "ts": "2026-11-11T11:12:53+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-11T11:13:40+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged bfc5895ee1"
+    },
+    {
+     "ts": "2026-11-11T12:10:32+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The 11-11 day page and JSON name marginalpdbc_20261111.1, 11-09 still names marginalpdbcpt_20261109.1, and llms.txt describes both sources. The home page keeps its single h1, AI disclosure and only a "
+    }
+   ]
+  },
+  {
+   "id": "T-0136",
+   "title": "Pages / and /d/: when today's cheapest window ends by 07:00 Lisbon, say in PT+EN that it is at night and point to the remaining hours",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "developer",
+   "created": "2026-11-11T10:12:49+00:00",
+   "accepted_at": "2026-11-11T13:11:10+00:00",
+   "released_sha": "7b528f92a965225644138ff61c66f6780d0910fd",
+   "history": [
+    {
+     "ts": "2026-11-11T10:12:49+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-11T12:11:02+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261111T1207-exec-T-0136"
+    },
+    {
+     "ts": "2026-11-11T12:11:02+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-11T12:11:43+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 7b528f92a9"
+    },
+    {
+     "ts": "2026-11-11T13:11:10+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The 2026-11-11 page and the home page show the static PT and EN night-window note naming 01–04h next to the cheapest window. The 2026-11-10 page has no such note. Page structure and JSON are intact."
+    }
+   ]
+  },
+  {
+   "id": "T-0137",
+   "title": "Morning post 12.11 07:00 UTC with the dated link /d/2026-11-12/ (Telegram), noting a cheap window that has already passed",
+   "type": "content",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "marketer",
+   "created": "2026-11-11T10:12:49+00:00",
+   "accepted_at": "2026-11-12T07:13:12+00:00",
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-11T10:12:49+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0138",
+   "title": "Marketing plan for 17.11–23.11: test the voice angles (dynamic-tariff headline, HA/scripts via /tomorrow.json) within the caps",
+   "type": "marketing",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-11T10:12:50+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-11T10:12:50+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0139",
+   "title": "Telegram block on / and /d/: merge the old tg_when paragraph and the T-0134 line into one PT and one EN line",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P3",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-11T11:12:53+00:00",
+   "accepted_at": "2026-11-11T14:11:26+00:00",
+   "released_sha": "13ed47babbc56efb11bd75d7a34fb0ac3b5b1273",
+   "history": [
+    {
+     "ts": "2026-11-11T11:12:53+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-11T13:11:44+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261111T1307-exec-T-0139"
+    },
+    {
+     "ts": "2026-11-11T13:11:44+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-11T13:12:06+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 13ed47babb"
+    },
+    {
+     "ts": "2026-11-11T14:11:26+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The old tg_when wording is gone. Each page now has exactly one PT and one EN sentence naming 07:00 UTC and about 14:05 UTC, followed by the /go/telegram/ link. The h1, disclosure footer and JSON field"
+    }
+   ]
+  },
+  {
+   "id": "T-0140",
+   "title": "Night block on / and /d/: separate the night average from the all-day cheapest window in PT+EN",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "developer",
+   "created": "2026-11-11T16:11:32+00:00",
+   "accepted_at": "2026-11-11T17:11:41+00:00",
+   "released_sha": "01a9d6da85944be76169cea317bc01917466833d",
+   "history": [
+    {
+     "ts": "2026-11-11T16:11:32+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-11T16:11:33+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261111T1607-exec-T-0140"
+    },
+    {
+     "ts": "2026-11-11T16:11:33+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-11T16:12:02+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 01a9d6da85"
+    },
+    {
+     "ts": "2026-11-11T17:11:41+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The night block on / and /d/2026-11-12/ shows the night average alone. A separate PT and EN sentence names the 11:00–14:00 window as outside the night, matching cheap_window in the JSON. One h1, only "
     }
    ]
   }
@@ -290,28 +778,75 @@
    "task": "T-0131",
    "verdict": "pass",
    "summary": "The live home page shows the last OMIE request time and the rebuild time as separate PT+EN lines, and both match tomorrow.json. With available:false it also says in PT and EN that the table is for today. The page still has one h1, the disclosure footer and no executable script."
+  },
+  {
+   "task": "T-0133",
+   "verdict": "pass",
+   "summary": "The live page behaves as specified for the day with prices: the 'table is for today' sentence appears with tomorrow unavailable, and the tomorrow line matches tomorrow.json. The 0-prices branch is correct in build.py but cannot be seen on the live site."
+  },
+  {
+   "task": "T-0134",
+   "verdict": "pass",
+   "summary": "Both lines appear on / and /d/2026-11-10/ with the wording from the task, and each links to /go/telegram/. The page has one h1 and its only script is JSON-LD. I did not fetch tomorrow.json/today.json or check the disclosure footer."
+  },
+  {
+   "task": "T-0135",
+   "verdict": "pass",
+   "summary": "The 11-11 day page and JSON name marginalpdbc_20261111.1, 11-09 still names marginalpdbcpt_20261109.1, and llms.txt describes both sources. The home page keeps its single h1, AI disclosure and only a non-executable ld+json script, and the JSON field names are unchanged."
+  },
+  {
+   "task": "T-0136",
+   "verdict": "pass",
+   "summary": "The 2026-11-11 page and the home page show the static PT and EN night-window note naming 01–04h next to the cheapest window. The 2026-11-10 page has no such note. Page structure and JSON are intact."
+  },
+  {
+   "task": "T-0139",
+   "verdict": "pass",
+   "summary": "The old tg_when wording is gone. Each page now has exactly one PT and one EN sentence naming 07:00 UTC and about 14:05 UTC, followed by the /go/telegram/ link. The h1, disclosure footer and JSON fields are intact."
+  },
+  {
+   "task": "T-0140",
+   "verdict": "pass",
+   "summary": "The night block on / and /d/2026-11-12/ shows the night average alone. A separate PT and EN sentence names the 11:00–14:00 window as outside the night, matching cheap_window in the JSON. One h1, only the ld+json script, JSON fields intact."
   }
  ],
- "posts": [],
+ "posts": [
+  {
+   "channel": "telegram",
+   "url": "https://t.me/luz_amanha/17",
+   "ts": "2026-11-11T08:18:22+00:00"
+  },
+  {
+   "channel": "telegram",
+   "url": "https://t.me/luz_amanha/18",
+   "ts": "2026-11-11T14:12:00+00:00"
+  },
+  {
+   "channel": "x",
+   "url": "https://x.com/formachines_ai/status/2120534404699226164",
+   "ts": "2026-11-11T15:09:34+00:00"
+  }
+ ],
  "metrics": {
-  "humans": 0,
-  "engaged": 0,
+  "humans": 2,
+  "engaged": 1,
   "returns": 0,
-  "agents": 1,
-  "crawlers": 30,
-  "requests": 157
+  "agents": 12,
+  "crawlers": 126,
+  "requests": 655
  },
- "spend_usd": 5.4,
- "po_digest_md": "## Luz Amanhã — цикл 11.11 07:07\n\n**Главное сейчас — данные.** С 10.11 OMIE на наш запрос отвечает 404. Поэтому tomorrow.json пишет available:false, и вечерний пост 10.11 (цены на 11.11) не вышел. Задача T-0130 (P1, в работе) ищет настоящий путь к файлу: имя, суффикс .1/.2, форму URL. Посты на дни без данных пропускаются, это правило, а не сбой.\n\n**Решения цикла:** новых задач нет. В работе T-0130, на очереди T-0133 (честный текст, когда за сегодня 0 цен) и T-0134 (строка у ссылки Telegram: что и когда приходит). Слоты плана маркетинга до 16.11 уже стоят в бэклоге. Слоты Mastodon 11.11 и 15.11 и Bluesky 13.11 пропущены, потому что упираются в ваши лимиты.\n\n**Наблюдения:**\n- Пропущенный пост → привязан к T-0130.\n- Переходы с google при 0 показов в GSC → аналитик сначала покажет, на какие страницы они приходят. В G4 пока не засчитываем.\n- Агентский трафик, возможно, наш → вопрос ops (ниже).\n\n**Ждёт владельца (вы возвращаетесь 11.11):**\n1. Cron: запуск build-site.sh luz-amanha в 00:05 Europe/Lisbon и в 06:50 UTC. Без него today.json по утрам 09.11 и 10.11 был вчерашним, а сайт пересобирают вручную.\n2. Запасной источник REN/ENTSO-E, пока OMIE отдаёт 404. Это уровень L4. Пока работаем только с OMIE.\n3. Итоги пилота 04–10.11:\n   - людей с вовлечением 8 при цели ≥30;\n   - подписчики Telegram нам не видны;\n   - внешних referer 0, показов в Google 0;\n   - X — единственный канал, который приводит людей с вовлечением.\n\n   Цели G1–G5 оставлены прежними, пока вы не решите.\n4. Новое: пометить наши собственные запросы в метриках, иначе G5 не прочитать.\n\n**Расходы:** $4.71 из $20.",
- "analyst_md": "**Итог пилота на 11.11 (данные за 05–10.11; 04.11 в срезе нет).** Люди почти не приходят, всё держится на краулерах и скриптах.\n\n| Уровень | Значение |\n|---|---|\n| Люди (engaged), сумма по дням 05–10.11 | 2+1+2+1+2+0 = 8 (цель G1 ≥30) |\n| Источники-люди по дням | 5, 3, 6, 2, 8, 2 (10.11: 2 источника, 0 engaged) |\n| Возвраты (человек-дни) | 07, 08, 09.11: по 1; 10.11: 0 |\n| Краулеры 10.11 | 101 запрос, 78 источников |\n| Агенты 10.11 | 68 запросов (python-requests 59), 3 источника |\n| `/go/telegram/` | 2 запроса 09.11, не от людей |\n| Google Search Console | 0 показов, 12 из 22 URL в индексе |\n\n- **G1:** вне цели, 8 против 30 за 7 дней.\n- **G2:** посчитать корректно нельзя, нужны уникальные источники, а в срезе только суточные суммы.\n- **G3:** подписчиков в данных нет, кликов по `/go/telegram/` от людей нет.\n- **G4:** формально есть referer (google 1–2 в день, ritazietsma.com 6 запросов 06.11), но в GSC 0 показов, поэтому referer требует проверки.\n- **G5:** запросы к JSON и `/llms.txt` идут, но 59 запросов python-requests за день похожи на наши прогоны.\n\n**Посты → визиты:** почасовых данных нет, эффект постов не измерить. По `?src=` самый заметный X (engaged в 5 из 6 дней), у Bluesky много запросов, но почти все от ботов.\n\n**Дефекты:** 5xx нет. 14:05-пост 10.11 не вышел (в списке только утренние), потому что `tomorrow.json` был `available:false` (OMIE 404, T-0117). Сканеры дали 1942 запроса 08.11 и 215 запросов 10.11.",
+ "spend_usd": 12.5,
+ "po_digest_md": "## Luz Amanhã — цикл 11.11, 19:07 UTC\n\n**Что произошло.** 11.11 вышли все посты: утренний пост в Telegram (11.11), карточка на завтра (12.11) в Telegram и X. Самое дешёвое окно 12.11 — 11–14h, в среднем 1,47 €/MWh. Приняты исправления:\n- T-0131/T-0133/T-0140: строки статуса и ночного блока на главной;\n- T-0135: правильно назван файл OMIE `marginalpdbc` после того, как файл PT перестал выходить;\n- T-0123: sitemap и ссылки между датированными страницами;\n- T-0134/T-0139: строка о Telegram.\n\nНа ревью: T-0083, T-0087, T-0097, T-0104 (заполнение часа 23:00 из следующего файла).\n\n**Решения.** Новых задач нет: незакрытых слотов плана нет — посты расписаны до 16.11, план на 17–23.11 стоит на 16.11 (T-0138). Слоты Bluesky 13.11 и Mastodon 11.11 и 15.11 пропущены из-за лимитов владельца. Разработчику хватает того, что на ревью. Три наблюдения аналитика:\n- агентский трафик, возможно, наш собственный — отложено до маркера UA (Q-0037);\n- время поста в X — войдёт в тест в следующем плане;\n- реферер Google при 0 показов в GSC — связано с T-0123, перечитываем после 14.11.\n\n**Метрики.** 1 человек, 1 engaged за 11.11. X по-прежнему единственный канал, где каждый пост приносит engaged-человека (4/4). G5 не читается.\n\n**Ждёт владельца** (вопросы уже заданы, повторно не задаём):\n1. cron-сборки в 00:05 Lisbon и 06:50 UTC (Q-0024);\n2. цели после пилота: 8 engaged против цели ≥30, 0 внешних рефереров, 0 показов в Google (Q-0036);\n3. REN как резервный источник (L4, Q-0035);\n4. маркер UA для наших запросов в метриках (Q-0037).\n\n**Расход.** $12,07 из $20 (60 %).",
+ "analyst_md": "**Пилот 04–10.11, снимок 11.11 18:01 UTC (в данных нет 04.11; 11.11 неполный).**\n\n| Уровень | Значение |\n|---|---|\n| Краулеры (11.11) | 116 запросов, 77 источников (Yandex 64) |\n| Люди, engaged за 05–10.11 | 8 (G1 ≥30) |\n| Люди, источники по дням | 5+3+6+2+8+2 = 26, с повторами |\n| Возвраты за 05–10.11 | 3 (07, 08, 09.11) |\n| Клики /go/telegram/ от людей | 0 |\n| Агенты, /tomorrow.json в день | 18–29 запросов, 1–2 источника |\n| 5xx | 0 |\n\n- **G1:** 8 из 30, цель не достигнута. Основной вклад дал X (engaged каждый день, где были посты). Bluesky приводит людей, но 0 engaged.\n- **G2:** 3 возврата на 26 источников ≈ 12 %, на 8 engaged ≈ 38 %. Определение допускает обе трактовки, так что порог 15 % под вопросом.\n- **G3:** 0 человеческих кликов на /go/telegram/. Число подписчиков в данных отсутствует.\n- **G4:** выполнено: ritazietsma.com, 6 запросов 06.11. Google-реферер (9 за неделю) расходится с GSC (0 показов): либо задержка GSC, либо реферер не из поиска.\n- **G5:** трафик агентов в основном python-requests и curl с 1–2 адресов. Похоже на наши мониторы (59 запросов 10.11), а не на внешних потребителей.\n- **Индекс:** в Google 12 из 22 страниц, показов нет.\n- **Дефекты:** 5xx нет. Всплески 4xx (3016 на 08.11, 283 на 10.11) — сканеры.\n- **11.11:** после поста X в 15:09 пришёл 1 engaged-источник (реферер t.co). Это единичная точка. Bluesky-постов за 11.11 в списке нет, хотя в задачах T-0098 и T-0099 они указаны.",
  "observations": {
-  "new": 15,
+  "new": 34,
   "by_class": {
-   "feedback": 2,
-   "need_hypothesis": 11,
-   "measurement": 1,
-   "reproducible_defect": 1
+   "feedback": 4,
+   "need_hypothesis": 19,
+   "measurement": 3,
+   "reproducible_defect": 1,
+   "voice": 7
   }
  },
- "owner_questions_open": 1
+ "owner_questions_open": 0
 }

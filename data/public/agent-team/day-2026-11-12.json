@@ -1,0 +1,394 @@
+{
+ "slug": "agent-team",
+ "name": "agent-team (framework)",
+ "site": "",
+ "date": "2026-11-12",
+ "tasks": [
+  {
+   "id": "T-0102",
+   "title": "[retro] Voice card: gh and shell are denied",
+   "type": "feature",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-11T22:13:55+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-12T00:07:43+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Duplicate of done T-0092/T-0093/T-0095/T-0097 (voice card: no shell, no gh)."
+    }
+   ]
+  },
+  {
+   "id": "T-0103",
+   "title": "[retro] Dedupe new retro tasks against done/merged tasks with the same files and change",
+   "type": "quality",
+   "state": "waiting_owner",
+   "priority": "P2",
+   "goal": "G4",
+   "role": "developer",
+   "created": "2026-11-12T00:07:44+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-12T00:07:44+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-12T00:07:44+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261112T0007-exec-T-0103"
+    },
+    {
+     "ts": "2026-11-12T00:07:44+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-12T00:08:35+00:00",
+     "actor": "dispatcher",
+     "to": "waiting_owner",
+     "note": "pull request https://github.com/OOuph/agent-team/pull/176 (tests edited/deleted without a 'tests-change-reason: F-xxxx' line: tests/test_friction_retro_export.py)"
+    }
+   ]
+  },
+  {
+   "id": "T-0104",
+   "title": "[retro] Reviewer repo_only: allow path-form unittest, -B and -p",
+   "type": "feature",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-12T00:14:32+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-12T00:14:32+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-12T01:07:41+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Duplicate of T-0099 (done) and T-0101 (in review): same files and change on the reviewer allowlist."
+    }
+   ]
+  },
+  {
+   "id": "T-0105",
+   "title": "[retro] Runner: pass agent definition without exceeding argv limit",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-12T00:14:33+00:00",
+   "accepted_at": "2026-11-12T01:10:38+00:00",
+   "released_sha": "e8bd372382c5087231832021682c2b574e75836e",
+   "history": [
+    {
+     "ts": "2026-11-12T00:14:33+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-12T01:07:42+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261112T0107-exec-T-0105"
+    },
+    {
+     "ts": "2026-11-12T01:07:42+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-12T01:10:38+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261112T0107-canary of release-radar on a state copy: all phases); merged e8bd372382"
+    },
+    {
+     "ts": "2026-11-12T01:10:38+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0106",
+   "title": "[retro] Voice card: gh and shell are denied, use WebSearch/WebFetch",
+   "type": "feature",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-12T00:14:33+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-12T00:14:33+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-12T02:07:44+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Дубликат: то же правило для карточки voice уже выполнено в T-0092, T-0093, T-0095, T-0097 (done)."
+    }
+   ]
+  },
+  {
+   "id": "T-0107",
+   "title": "[retro] Stop hourly re-lease of tasks that raise a new question each cycle",
+   "type": "feature",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-12T00:14:34+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-12T00:14:34+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-12T01:07:41+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Duplicate of T-0091 (re-lease of a blocked task until its question is answered): same cause and same files."
+    }
+   ]
+  },
+  {
+   "id": "T-0108",
+   "title": "[retro] Marketing tasks: do not require a repeated dev.to canonical",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-12T00:14:35+00:00",
+   "accepted_at": "2026-11-12T02:10:28+00:00",
+   "released_sha": "7bcb750fa83f44af481768569a7d529b16746fc2",
+   "history": [
+    {
+     "ts": "2026-11-12T00:14:35+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-12T02:07:45+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261112T0207-exec-T-0108"
+    },
+    {
+     "ts": "2026-11-12T02:07:45+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-12T02:10:28+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261112T0207-canary of release-radar on a state copy: all phases); merged 7bcb750fa8"
+    },
+    {
+     "ts": "2026-11-12T02:10:28+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0109",
+   "title": "[retro] Reviewer repo_only: accept -B and path-form unittest",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-12T03:10:42+00:00",
+   "accepted_at": "2026-11-12T04:10:52+00:00",
+   "released_sha": "771e8a83c1a6e97ea0bd10098354881daf1ccef8",
+   "history": [
+    {
+     "ts": "2026-11-12T03:10:42+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-12T04:07:43+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261112T0407-exec-T-0109"
+    },
+    {
+     "ts": "2026-11-12T04:07:43+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-12T04:10:52+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261112T0407-canary of release-radar on a state copy: all phases); merged 771e8a83c1"
+    },
+    {
+     "ts": "2026-11-12T04:10:52+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0110",
+   "title": "[retro] Reviewer repo_only allowlist: accept -B and path-form unittest",
+   "type": "feature",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-12T04:17:44+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-12T04:17:44+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-12T05:07:48+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Duplicate of the merged T-0099 and T-0109. Replaced by a diagnostic task for why the denials persist."
+    }
+   ]
+  },
+  {
+   "id": "T-0111",
+   "title": "Diagnose reviewer allowlist denials that persist after merge (reload check + denial logging)",
+   "type": "defect",
+   "state": "waiting_owner",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-12T05:07:49+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-12T05:07:49+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-12T05:07:49+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261112T0507-exec-T-0111"
+    },
+    {
+     "ts": "2026-11-12T05:07:49+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-12T05:09:26+00:00",
+     "actor": "dispatcher",
+     "to": "waiting_owner",
+     "note": "pull request https://github.com/OOuph/agent-team/pull/187 (tests edited/deleted without a 'tests-change-reason: F-xxxx' line: tests/test_repo_only_tools.py)"
+    }
+   ]
+  },
+  {
+   "id": "T-0112",
+   "title": "[retro] Reviewer allowlist: accept -B, path-form unittest, and verify tests.<module> -v",
+   "type": "feature",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-12T07:14:35+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-12T07:14:35+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    }
+   ]
+  },
+  {
+   "id": "T-0113",
+   "title": "[retro] Voice card: gh and shell are denied; use WebSearch/WebFetch",
+   "type": "feature",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-12T07:14:36+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-12T07:14:36+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    }
+   ]
+  }
+ ],
+ "reviews": [],
+ "posts": [],
+ "metrics": null,
+ "spend_usd": 1.3,
+ "po_digest_md": "**agent-team, цикл 12.11 06:07.** Расход дня $1.19 из $10.\n\n- Новые наблюдения (OBS-0204/0205, от разработчика по T-0111): первое привязано к T-0111, второе отложено до её приёмки.\n- Новых задач нет. Причины: повторные предложения ретро (allowlist ревьюера — T-0101/T-0110 уже покрыты T-0099/T-0109/T-0111; карточка voice — уже сделана в T-0092/93/95/97) дублируют закрытые или открытые задачи. Это и есть суть T-0103 (дедупликация ретро), которая ждёт человека.\n- Ждут человека (PR с изменением тестов без причины): T-0091, T-0094, T-0103, T-0111 (waiting_owner). Это узкое место: пока их не просмотрят, ретро будет предлагать то же самое.\n- T-0068 (красный тест в базе), T-0098, T-0101 в ревью.\n- Голос пользователей (11.11): самые частые боли — бюджет не принуждается до вызова (P1) и «готово» без проверки (P2). H1 (предварительная проверка бюджета) касается защищённых файлов (runner/config), поэтому требует человека; фичу без доказательства-цитаты в бэклог не ставим, пока не пройдём через owner.\n- Вопросов владельцу нет.",
+ "analyst_md": "",
+ "observations": {
+  "new": 12,
+  "by_class": {
+   "feedback": 7,
+   "need_hypothesis": 5
+  }
+ },
+ "owner_questions_open": 0
+}

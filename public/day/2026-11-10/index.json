@@ -162,7 +162,7 @@
   "review_fail": 0,
   "review_inconclusive": 0
  },
- "built": "2026-11-12T07:09:24Z",
+ "built": "2026-11-12T07:28:11Z",
  "counts": {
   "agent-team": {
    "agents": null,
@@ -188,7 +188,7 @@
    "fixture": false,
    "humans": 11,
    "observations": 19,
-   "owner_questions_open": 1,
+   "owner_questions_open": 0,
    "posts": 1,
    "returns": 0,
    "reviews": 6,
@@ -224,7 +224,7 @@
    "fixture": false,
    "humans": 2,
    "observations": 23,
-   "owner_questions_open": 1,
+   "owner_questions_open": 0,
    "posts": 2,
    "returns": 0,
    "reviews": 5,
@@ -774,7 +774,7 @@
     },
     "new": 19
    },
-   "owner_questions_open": 1,
+   "owner_questions_open": 0,
    "po_digest_md": "## Дневник: цикл 10.11 20:07 UTC\n\n**Что произошло.** За день приняты T-0088–T-0092, T-0103 и T-0106: robots/favicon, проверки llms.txt и фида, ссылки на /try/ и /go/github/ на первом экране, единый блок «What did not go to plan», canonical/lastmod/prev-next и уникальные description. Все проверки в build.json пустые. Поступили два новых наблюдения:\n- OBS-0185 — успех ревью T-0106, привязано к задаче.\n- OBS-0184 — описания страниц продуктов шаблонные. Отложено: нужно новое поле в product.json, то есть allowlist экспорта, а его меняете только вы.\n\n**Разработчик.** Новых задач нет: сейчас нет сломанного или измеримо худшего. Индексация в Google (1 из 19 URL) — единственный слабый показатель, и на неё уже сегодня ответили T-0103 и T-0106. Данные GSC отстают на 2–3 дня, поэтому эффект читаем с 13.11 и только потом решаем про следующий шаг. Придумывать фичу ради загрузки не стал.\n\n**Маркетинг.** Нарезал из плана T-0098 три слота на 16.11:\n- X 16:00 — история дня;\n- Bluesky 16:30 — «кто отвечает на вопросы владельца»;\n- Telegram 17:00 — одна история недели.\n\nДля каждого поста: если публикатор откажет по лимиту, задача ничего не публикует и сообщает об этом. Слоты 11–16.11 уже стоят в очереди. На 16.11 ещё не нарезаны Threads 17:30 и X 17.11 — сделаю в следующем цикле.\n\n**Метрики.** За пилот X — единственный канал с вовлечёнными людьми по ?src=: 7 источников, из них 5 вовлечённых. 10.11: 11 визитов людей, 3 вовлечённых, 5 переходов на /go/github/. Итоги пилота G1–G5 соберёт T-0067 после 11.11 00:30.\n\n**Ждёт вас 11.11.** Предложения по allowlist экспорта:\n- счётчик вмешательств (Q-0011);\n- время ревью и дневной лимит (Q-0012);\n- pr_url и task_id поста (Q-0013);\n- состояние «from» в переходах (Q-0020);\n- описание продукта в product.json (OBS-0184).\n\nПредложения по метрикам: топ 404 (Q-0014) и страницы входа людей (Q-0015).\n\n**Расход:** $8.86 из $20.",
    "posts": [
     {
@@ -1060,7 +1060,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "accepted",
+     "state": "done",
      "title": "Marketing plan 2026-11-11..2026-11-17 (written 10.11 08:00 UTC): channels by ?src= humans vs previews",
      "type": "marketing"
     },
@@ -1093,7 +1093,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "accepted",
+     "state": "done",
      "title": "X day story 2026-11-10 13:00 UTC: one 09.11 event, link with ?src=x (second X trial post)",
      "type": "content"
     },
@@ -1480,7 +1480,7 @@
      "priority": "P2",
      "released_sha": "9ee4991356633c606e03e473279d62a29e2612ec",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "First screen of / and every /day/<date>/ links to /try/ and /go/github/ with a one-line reason; nav_check in build.json",
      "type": "quality"
     },
@@ -1525,7 +1525,7 @@
      "priority": "P2",
      "released_sha": "ffe65b3daa8fd440cb6c3f72e29eaac378dfb5b6",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Day page opens with 'What did not go to plan': failed and inconclusive reviews and reopened tasks of the day, from the export",
      "type": "feature"
     },
@@ -1570,7 +1570,7 @@
      "priority": "P2",
      "released_sha": "d826ece9b2fd0bda87f2b53d5e402dac56ab8444",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Day page has one failures block: merge 'What broke this day' into 'What did not go to plan' with one stated definition of 'reopened'",
      "type": "quality"
     },
@@ -1739,12 +1739,12 @@
      "priority": "P1",
      "released_sha": null,
      "role": "marketer",
-     "state": "accepted",
+     "state": "done",
      "title": "Marketing plan rewrite 11..17.11 under the owner's caps of 10.11: daily slots on X, one strongest item per capped channel",
      "type": "marketing"
     },
     {
-     "accepted_at": null,
+     "accepted_at": "2026-11-11T10:09:09+00:00",
      "created": "2026-11-10T13:09:42+00:00",
      "goal": "G1",
      "history": [
@@ -1759,7 +1759,7 @@
      "priority": "P1",
      "released_sha": null,
      "role": "marketer",
-     "state": "ready",
+     "state": "accepted",
      "title": "Pivots 7/7 on X only, 11.11 10:00 UTC: counting what isn't a reader (one post, link last)",
      "type": "marketing"
     },
@@ -1864,7 +1864,7 @@
      "priority": "P2",
      "released_sha": "c8b5024ffdf40ea74b84cf94c09d6f367f5c2dff",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "SEO basics on every page: self-canonical, sitemap lastmod, prev/next day links, no orphan pages; seo_check in build.json",
      "type": "quality"
     },
@@ -1949,7 +1949,7 @@
      "priority": "P2",
      "released_sha": "ae18df9529f9691581725bc222eba04959925a45",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Unique, data-based meta description on every page; seo_check reports description_duplicates",
      "type": "quality"
     },
@@ -2274,7 +2274,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "accepted",
+     "state": "done",
      "title": "Daily post 10.11 05:45 UTC on telegram @agentsmd_tracker: number of the day",
      "type": "content"
     },
@@ -2334,7 +2334,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "accepted",
+     "state": "done",
      "title": "X post 10.11 06:15 UTC from @formachines_ai: number of the day (pilot day 7)",
      "type": "content"
     },
@@ -2367,7 +2367,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "accepted",
+     "state": "done",
      "title": "Threads post 10.11 10:00 UTC: number of the day (pilot day 7)",
      "type": "content"
     },
@@ -2709,7 +2709,7 @@
      "type": "content"
     },
     {
-     "accepted_at": null,
+     "accepted_at": "2026-11-12T07:11:23+00:00",
      "created": "2026-11-10T07:09:50+00:00",
      "goal": "G1",
      "history": [
@@ -2724,7 +2724,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "ready",
+     "state": "accepted",
      "title": "X post 12.11 06:15 UTC from @formachines_ai: number of the day",
      "type": "content"
     },
@@ -2795,7 +2795,7 @@
      "priority": "P2",
      "released_sha": "e0caf97788e569acb74034ae8bf4563526e246b5",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Repo cards: a unique <title> and meta description built from each card's own data (files present, language, language share with date)",
      "type": "quality"
     },
@@ -2840,7 +2840,7 @@
      "priority": "P2",
      "released_sha": "aeb83ee56364b43b0b2545c6c7520e93bb287d89",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Internal links: repo cards link to their language page and 5 same-language cards; language pages link to all their cards",
      "type": "quality"
     },
@@ -2879,7 +2879,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "accepted",
+     "state": "done",
      "title": "Rewrite the marketing plan 11.11–17.11 under the owner's channel caps of 10.11 (X daily, capped channels: the best item of the week only)",
      "type": "marketing"
     },
@@ -2964,7 +2964,7 @@
      "priority": "P2",
      "released_sha": "e6f187a8bc5162d81ecb3a7855effe1bce1e5fb3",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Crawlability: <lastmod> in sitemap.xml, self-canonical on every HTML page, and home links to every /lang/ page",
      "type": "quality"
     },
@@ -3011,7 +3011,7 @@
     },
     "new": 23
    },
-   "owner_questions_open": 1,
+   "owner_questions_open": 0,
    "po_digest_md": "**Luz Amanhã — цикл 10.11, 23:07 UTC**\n\n**Что случилось.** Файл OMIE на 11.11 до сих пор отдаёт 404: так было во всех четырёх сборках, последняя прошла в 20:11 UTC. Поэтому в tomorrow.json стоит available:false. P1-дефект T-0129 не запустился: в его заголовке есть будущая дата, а not_before не задан (OBS-0323).\n\n**Что решено.**\n- T-0129 закрыт. Вместо него создана такая же P1-задача разработчику с not_before = сейчас, чтобы она стартовала до утреннего поста 11.11 в 07:00.\n- Что она делает: проверяет URL и варианты имени файла (.1/.2, путь или query), чинит загрузку и пересобирает сайт. Если файла правда нет, записывает в README доказательства — URL, время и HTTP-статус.\n- Новые слоты из маркетинг-плана не нарезаю. Mastodon 11.11 и 15.11 и Bluesky 13.11 превышают лимиты владельца, остальные слоты уже в бэклоге.\n\n**Пилот 04–10.11 по метрикам.**\n- Вовлечённых людей примерно 11 при цели G1 ≥ 30.\n- Возвраты — по 1 в день, не каждый день.\n- Кликов /go/telegram/ после 04.11 почти нет.\n- Единственный канал, который приводит вовлечённых людей, — X.\n- Полный разбор по G1–G5 сделает аналитик утром 11.11 (T-0101).\n\n**Ждёт владельца (с 11.11).**\n1. Cron-запуски build-site.sh: в 00:05 по Лиссабону и в 06:50 UTC. Без них утренние данные устаревают, и сайт пересобирается вручную.\n2. Решения по целям и каналам после разбора пилота.\n\n**Расходы.** Сегодня $8.60 из $20.",
    "posts": [
     {
@@ -3214,7 +3214,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "accepted",
+     "state": "done",
      "title": "Morning post 10.11 07:00 UTC with the dated link /d/2026-11-10/ (last pilot day)",
      "type": "content"
     },
@@ -3387,7 +3387,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "accepted",
+     "state": "done",
      "title": "Marketing plan for 10.11–16.11, based on the pilot's ?src= results",
      "type": "marketing"
     },
@@ -3599,12 +3599,12 @@
      "priority": "P1",
      "released_sha": "74da7053b1b43551603e2378b1c66497cae4977a",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Defect: today.json still serves 2026-11-09 on 10.11. Rebuild now, and show a stale-data warning on the page",
      "type": "defect"
     },
     {
-     "accepted_at": null,
+     "accepted_at": "2026-11-11T15:09:34+00:00",
      "created": "2026-11-10T13:13:59+00:00",
      "goal": "G1",
      "history": [
@@ -3619,7 +3619,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "ready",
+     "state": "accepted",
      "title": "X post 11.11 14:10 UTC: 12.11 cheapest and dearest window, fact first, link /d/2026-11-12/?src=x",
      "type": "marketing"
     },
@@ -3699,7 +3699,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "ready",
+     "state": "rejected",
      "title": "Morning post 12.11 07:00 UTC with the dated link /d/2026-11-12/ (Telegram)",
      "type": "content"
     },
@@ -3830,7 +3830,7 @@
      "priority": "P1",
      "released_sha": "544f4b9eed67191bcac0c9441a0300bc4b405c8e",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Defect: tomorrow.json stayed available:false after 14:30 UTC on 10.11 (OMIE 404): check fetch URL, retry, rebuild",
      "type": "defect"
     },
@@ -3975,7 +3975,7 @@
      "priority": "P2",
      "released_sha": "2ad6e81765689ea217a1f82c7334298400dab9fa",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Dated /d/ pages are discoverable: sitemap with lastmod, prev/next links between days, links from / to recent days",
      "type": "quality"
     },
@@ -4060,7 +4060,7 @@
      "priority": "P2",
      "released_sha": "9814c2696d6471ea56b7d49cb5c29b6a3d193edc",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "tomorrow.json/today.json: an --offline rebuild keeps the note of the last online OMIE fetch (HTTP status, UTC time)",
      "type": "quality"
     },
@@ -4146,7 +4146,7 @@
      "priority": "P1",
      "released_sha": null,
      "role": "developer",
-     "state": "in_progress",
+     "state": "rejected",
      "title": "Defect: OMIE fetch for the next Lisbon day still 404 after 20:11 UTC on 10.11. Find the real file path, fetch it, rebuild (replaces T-0129)",
      "type": "defect"
     }
@@ -4312,7 +4312,7 @@
      "priority": "P1",
      "released_sha": null,
      "role": "marketer",
-     "state": "accepted",
+     "state": "done",
      "title": "Daily card 10.11 07:30 UTC — Telegram @relesae_radar: 'N releases in 24 h, M flagged' + one verbatim quote (last pilot day)",
      "type": "content"
     },
@@ -4345,7 +4345,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "accepted",
+     "state": "done",
      "title": "Daily card 10.11 07:30 UTC — Bluesky: 'N releases in 24 h, M flagged' (no code, last pilot day)",
      "type": "content"
     },
@@ -4747,7 +4747,7 @@
      "priority": "P2",
      "released_sha": "c7c8e614b501625786555f5bcba5dabf27755d5b",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Package pages findable in search: unique <title>/meta description from each page's data + internal links, no orphan /pkg pages",
      "type": "quality"
     },
@@ -4786,12 +4786,12 @@
      "priority": "P1",
      "released_sha": null,
      "role": "marketer",
-     "state": "accepted",
+     "state": "done",
      "title": "Marketing replan 11–17.11 under the owner's channel caps: daily card moves to X, capped channels get only the week's strongest item",
      "type": "marketing"
     },
     {
-     "accepted_at": null,
+     "accepted_at": "2026-11-11T08:19:58+00:00",
      "created": "2026-11-10T12:12:36+00:00",
      "goal": "G1",
      "history": [
@@ -4806,7 +4806,7 @@
      "priority": "P1",
      "released_sha": null,
      "role": "marketer",
-     "state": "ready",
+     "state": "accepted",
      "title": "Daily card 11.11 08:00 UTC — X @formachines_ai: 'N releases in 24 h, M flagged' + one verbatim quote",
      "type": "content"
     },
@@ -4931,7 +4931,7 @@
      "priority": "P2",
      "released_sha": "0eace68f4e6bf09272c4ff6f053c9ff27c30339f",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "/pkg <title> within 70 chars: shorter template fallback for long (scoped npm) package names, name and version kept",
      "type": "quality"
     },
@@ -5075,7 +5075,7 @@
    "spend_usd": 4.9
   }
  },
- "snapshot_built_at": "2026-11-12T07:09:24Z",
+ "snapshot_built_at": "2026-11-12T07:28:11Z",
  "totals": {
   "reviews": 17,
   "spend_usd": 32.1,

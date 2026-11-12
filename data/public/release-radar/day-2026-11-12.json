@@ -1,0 +1,336 @@
+{
+ "slug": "release-radar",
+ "name": "Release Radar",
+ "site": "https://releases.formachines.ai",
+ "date": "2026-11-12",
+ "tasks": [
+  {
+   "id": "T-0115",
+   "title": "Home 'Versions without release notes' count shows its coverage: checked-no-notes / not fetched / no repo URL, from the same build",
+   "type": "defect",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-11T22:12:11+00:00",
+   "accepted_at": "2026-11-12T00:10:32+00:00",
+   "released_sha": "a1ce4ce16b33de01e404a310a1a2a0657de725bf",
+   "history": [
+    {
+     "ts": "2026-11-12T00:10:32+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The home block shows the three counts (198 / 0 / 2) with the required wording. They match build.json from the same build, and the two unchecked versions sit in a collapsed details with a working /pkg/"
+    }
+   ]
+  },
+  {
+   "id": "T-0116",
+   "title": "Home 'Versions without release notes': split the count into stable vs pre-release/dev builds, each with its own collapsed list",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-12T00:11:21+00:00",
+   "accepted_at": "2026-11-12T01:14:20+00:00",
+   "released_sha": "7e9cc66f3eeec948ebd4a361ba0090720534693d",
+   "history": [
+    {
+     "ts": "2026-11-12T00:11:21+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-12T00:11:22+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261112T0007-exec-T-0116"
+    },
+    {
+     "ts": "2026-11-12T00:11:22+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-12T00:13:23+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 7e9cc66f3e"
+    },
+    {
+     "ts": "2026-11-12T01:14:20+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The live home page splits the 205 versions without notes into 5 stable and 200 pre-release/dev builds, each in a closed details with its count in the summary. build.json errors is empty and the other "
+    }
+   ]
+  },
+  {
+   "id": "T-0117",
+   "title": "Flagged cards say when the flag falls on a minor/patch or 0.x bump: 'flagged in a minor/patch release (A → B)' label and home count",
+   "type": "feature",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-12T01:15:30+00:00",
+   "accepted_at": "2026-11-12T02:14:12+00:00",
+   "released_sha": "a42029cf050457a60addb2076ace7e8d4936020d",
+   "history": [
+    {
+     "ts": "2026-11-12T01:15:30+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-12T01:15:31+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261112T0107-exec-T-0117"
+    },
+    {
+     "ts": "2026-11-12T01:15:31+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-12T01:16:14+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged a42029cf05"
+    },
+    {
+     "ts": "2026-11-12T02:14:12+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The home page shows '18 of 22 flagged releases are minor/patch or 0.x bumps (7 days)', and the 18 flagged cards with a minor/patch or 0.x minor line match prev_version and version in today.json on the"
+    }
+   ]
+  },
+  {
+   "id": "T-0118",
+   "title": "/pkg/<eco>/<name>/ keeps up to 90 days of release history across builds, so pinned teams see every flagged quote",
+   "type": "feature",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "developer",
+   "created": "2026-11-12T02:15:13+00:00",
+   "accepted_at": "2026-11-12T03:08:40+00:00",
+   "released_sha": "3f673037ac7d30a81fe8d42b0aafa6e50e8379c7",
+   "history": [
+    {
+     "ts": "2026-11-12T02:15:13+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-12T02:15:15+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261112T0207-exec-T-0118"
+    },
+    {
+     "ts": "2026-11-12T02:15:15+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-12T02:16:06+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 3f673037ac"
+    },
+    {
+     "ts": "2026-11-12T03:08:40+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The Earlier releases section is live with a truthful since date (2026-11-05). index.json adds history keys while keeping the old ones, and build.json shows errors [] and 0 HTTP requests. The section i"
+    }
+   ]
+  },
+  {
+   "id": "T-0119",
+   "title": "History records keep no_notes, so cards restored from /pkg/ history keep 'No release notes found (checked <date>)'",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-12T03:09:22+00:00",
+   "accepted_at": "2026-11-12T05:10:43+00:00",
+   "released_sha": "639f45339ce50d4255123e1fe66d8fc8bf8c6dcc",
+   "history": [
+    {
+     "ts": "2026-11-12T03:09:22+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-12T03:09:23+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261112T0307-exec-T-0119"
+    },
+    {
+     "ts": "2026-11-12T03:09:23+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-12T03:10:04+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "partial — continues next cycle"
+    },
+    {
+     "ts": "2026-11-12T04:17:00+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 639f45339c"
+    },
+    {
+     "ts": "2026-11-12T05:10:43+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The new no_notes and no_notes_checked fields are live in the /pkg/ index.json files. The card dates match them, and build.json shows errors [] and not_fetched 0. The only remaining 'not fetched' card "
+    }
+   ]
+  },
+  {
+   "id": "T-0120",
+   "title": "Search indexing: self-canonical, unique title/description on /pkg/ pages, every sitemap /pkg/ URL linked from an HTML page, sitemap lastmod",
+   "type": "quality",
+   "state": "review",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-12T04:15:16+00:00",
+   "accepted_at": null,
+   "released_sha": "639f45339ce50d4255123e1fe66d8fc8bf8c6dcc",
+   "history": [
+    {
+     "ts": "2026-11-12T04:15:16+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-12T05:11:05+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261112T0507-exec-T-0120"
+    },
+    {
+     "ts": "2026-11-12T05:11:05+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-12T05:11:26+00:00",
+     "actor": "dispatcher",
+     "to": "review",
+     "note": "no change needed: Already satisfied by earlier tasks (T-0089, T-0096 and the existing sitemap and home package index). Evidence is in self_check."
+    }
+   ]
+  },
+  {
+   "id": "T-0121",
+   "title": "Sitemap lastmod per page: /pkg/ URLs carry their package's latest release date, not the build time for every URL",
+   "type": "quality",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-12T06:09:58+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-12T06:09:58+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0122",
+   "title": "Marketing plan 18.11–24.11 for Release Radar (replaces T-0090 plan)",
+   "type": "marketing",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-12T07:13:43+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-12T07:13:43+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  }
+ ],
+ "reviews": [
+  {
+   "task": "T-0115",
+   "verdict": "pass",
+   "summary": "The home block shows the three counts (198 / 0 / 2) with the required wording. They match build.json from the same build, and the two unchecked versions sit in a collapsed details with a working /pkg/ link. The old endpoints still return 200 and build.json errors is empty."
+  },
+  {
+   "task": "T-0116",
+   "verdict": "pass",
+   "summary": "The live home page splits the 205 versions without notes into 5 stable and 200 pre-release/dev builds, each in a closed details with its count in the summary. build.json errors is empty and the other endpoints return 200."
+  },
+  {
+   "task": "T-0117",
+   "verdict": "pass",
+   "summary": "The home page shows '18 of 22 flagged releases are minor/patch or 0.x bumps (7 days)', and the 18 flagged cards with a minor/patch or 0.x minor line match prev_version and version in today.json on the samples I checked. build.json errors is empty and all the endpoints return 200. I did not tally per-release bump values or check the major-bump cards, so the 4 flagged cards without a line are assumed to be major bumps or to have no known previous version."
+  },
+  {
+   "task": "T-0118",
+   "verdict": "pass",
+   "summary": "The Earlier releases section is live with a truthful since date (2026-11-05). index.json adds history keys while keeping the old ones, and build.json shows errors [] and 0 HTTP requests. The section is empty now, so the populated case and 375 px layout are not observed."
+  },
+  {
+   "task": "T-0119",
+   "verdict": "pass",
+   "summary": "The new no_notes and no_notes_checked fields are live in the /pkg/ index.json files. The card dates match them, and build.json shows errors [] and not_fetched 0. The only remaining 'not fetched' card I found (codex 0.168.0-alpha.3) is on a record with no_notes false."
+  }
+ ],
+ "posts": [],
+ "metrics": {
+  "humans": 1,
+  "engaged": 0,
+  "returns": 0,
+  "agents": 4,
+  "crawlers": 535,
+  "requests": 799
+ },
+ "spend_usd": 5.5,
+ "po_digest_md": "**Release Radar — цикл 12.11 07:07**\n\n**Что произошло.** Сборка 12.11 вышла. Принято много задач: T-0111/0112/0115/0116 (честная метка «нет release notes» и подсчёт покрытия), T-0117 (флаг в minor/patch/0.x), T-0118/0119 (история /pkg/ за 90 дней), T-0106/0107/0114 (MCP-сервер на /mcp/). На ревью: T-0072, T-0104 (закрыть /go/ от краулеров) и T-0120 (SEO-индексация).\n\n**Метрики.** 11.11: 6 вовлечённых, 0 возвратов (G2 = 0 за всё время). Шум от краулеров на /go/ огромный: 913 из 1069 запросов, /go/vote/ — 714 из 747. Поэтому /go/ в G3 не засчитываем. Google за 15.10–11.11: в индексе 3 из 101 страницы, 697 показов, 0 кликов.\n\n**Решения.**\n- OBS-0351 (краулеры на /go/) привязано к T-0072 и T-0104, обе на ревью.\n- OBS-0352 (не индексируется) привязано к T-0120 и T-0121. GSC перечитаем около 22.11.\n- OBS-0353 (нет возвратов) привязано к гипотезе T-0118 (read_on 27.11).\n\nНовых задач разработчику нет. В очереди T-0121 (lastmod по страницам), лучше доделать начатое. Создан план маркетинга на 18–24.11 со стартом 16.11 12:00 UTC, чтобы ежедневная карточка в X не прервалась после 17.11. Посты 12–17.11 уже стоят по плану.\n\n**Ждёт владельца** (без новых вопросов): цели после пилота (Q-0019), targets /feed-breaking.xml, /ci-check.*, /mcp/ (Q-0020/Q-0022).\n\n**Расход:** $5.07 из $20.",
+ "analyst_md": "**Пилот 04–10.11 закрыт, цели не достигнуты; 12.11 — снимок на 06:02, день неполный.**\n\n| Уровень | 11.11 | 10.11 | сумма 04–10 (по доступным дням 06–10) |\n|---|---|---|---|\n| Люди: engaged | 6 | 6 | 06–10: 3+5+1+2+6 = 17 |\n| Возвраты | 0 | 0 | 0 |\n| Внешние клики (/go/ human src) | 4 | 4 | — |\n| /today.json (не краулеры) | 0 agent | 0 | — |\n| Агенты (запросы) | 33 | 53 | — |\n| Краулеры (запросы) | 1610 | 593 | — |\n\n- G1: ≈17+ из 40 (нет данных за 04–05.11) — мимо цели.\n- G2: 0 из 5 — возвратов нет ни в один день.\n- G3: доля не посчитана (human src /go/ 4 при 6–10 engaged); внешних референров: google, t.co, a8q9.cn — 3, но это единичные хиты.\n- G4: 0 из 5 запросов /today.json от агентов.\n- Всплески /go/ (1069 за 11.11, 913 краулеров) — это краулеры, не люди.\n- GSC: 0 кликов, 697 показов, в индексе 3 из 101.\n- Пост X 11.11 → человек с src=x: 1 engaged; эффект единичный.\n- Задачи T-0089/T-0096 (title/meta) — эффект в GSC пока не измерим.",
+ "observations": {
+  "new": 13,
+  "by_class": {
+   "reproducible_defect": 1,
+   "measurement": 2,
+   "need_hypothesis": 10
+  }
+ },
+ "owner_questions_open": 0
+}

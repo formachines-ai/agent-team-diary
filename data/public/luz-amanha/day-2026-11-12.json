@@ -1,0 +1,253 @@
+{
+ "slug": "luz-amanha",
+ "name": "Luz Amanhã",
+ "site": "https://luz.bymachines.ai",
+ "date": "2026-11-12",
+ "tasks": [
+  {
+   "id": "T-0123",
+   "title": "Dated /d/ pages are discoverable: sitemap with lastmod, prev/next links between days, links from / to recent days",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-10T19:12:29+00:00",
+   "accepted_at": "2026-11-10T20:10:22+00:00",
+   "released_sha": "2ad6e81765689ea217a1f82c7334298400dab9fa",
+   "history": [
+    {
+     "ts": "2026-11-12T00:10:08+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — GSC после задачи: 9 из 22 URL unknown, как и до (8 из 21); данные отстают, краулеры /d/ 72 запроса 11.11."
+    },
+    {
+     "ts": "2026-11-12T00:10:08+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0126",
+   "title": "tomorrow.json/today.json: an --offline rebuild keeps the note of the last online OMIE fetch (HTTP status, UTC time)",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G5",
+   "role": "developer",
+   "created": "2026-11-10T20:11:08+00:00",
+   "accepted_at": "2026-11-10T21:08:17+00:00",
+   "released_sha": "9814c2696d6471ea56b7d49cb5c29b6a3d193edc",
+   "history": [
+    {
+     "ts": "2026-11-12T00:10:08+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-12T00:10:08+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0131",
+   "title": "Defect: the 'Last attempt' time on / and /d/ must equal tomorrow.json last_attempt; show the rebuild time as a separate PT+EN line",
+   "type": "defect",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "developer",
+   "created": "2026-11-11T00:09:12+00:00",
+   "accepted_at": "2026-11-11T03:09:14+00:00",
+   "released_sha": "93f2e01943fb53373f61cb7c0826740ceaa95aa1",
+   "history": [
+    {
+     "ts": "2026-11-12T06:09:18+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-12T06:09:18+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0137",
+   "title": "Morning post 12.11 07:00 UTC with the dated link /d/2026-11-12/ (Telegram), noting a cheap window that has already passed",
+   "type": "content",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "marketer",
+   "created": "2026-11-11T10:12:49+00:00",
+   "accepted_at": "2026-11-12T07:13:12+00:00",
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-12T07:12:46+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261112T0707-exec-T-0137"
+    },
+    {
+     "ts": "2026-11-12T07:12:46+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-12T07:13:12+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "posted 1 (editor-approved)"
+    }
+   ]
+  },
+  {
+   "id": "T-0141",
+   "title": "Analyst: non-scanner 4xx by URL and referer on 10–11.11, plus landing paths of google.com referers 05–11.11",
+   "type": "research",
+   "state": "rejected",
+   "priority": "P3",
+   "goal": "G4",
+   "role": "analyst",
+   "created": "2026-11-12T01:13:38+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-12T01:13:38+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-12T01:13:39+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261112T0107-exec-T-0141"
+    },
+    {
+     "ts": "2026-11-12T01:13:39+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-12T01:14:01+00:00",
+     "actor": "dispatcher",
+     "to": "blocked",
+     "note": "analyst returned a stub, not a measurement"
+    },
+    {
+     "ts": "2026-11-12T02:13:20+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "answered Q-0039"
+    },
+    {
+     "ts": "2026-11-12T02:13:20+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: The analyst returned a stub: metrics.json has no per-URL 4xx or referer breakdown. Replaced by a link-check task that uses public URLs; the google.com referer question goes to the owner/"
+    }
+   ]
+  },
+  {
+   "id": "T-0142",
+   "title": "Analyst: check every internal link on /, /d/, sitemap.xml, feed.xml and llms.txt for non-200 status",
+   "type": "research",
+   "state": "done",
+   "priority": "P3",
+   "goal": "G4",
+   "role": "analyst",
+   "created": "2026-11-12T02:13:21+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-12T02:13:21+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-12T02:13:22+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261112T0207-exec-T-0142"
+    },
+    {
+     "ts": "2026-11-12T02:13:22+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-12T02:13:38+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measurement delivered"
+    }
+   ]
+  },
+  {
+   "id": "T-0143",
+   "title": "Bluesky post 13.11 14:15 UTC: For machines, what a script sees in /tomorrow.json before and after the OMIE publication",
+   "type": "marketing",
+   "state": "ready",
+   "priority": "P3",
+   "goal": "G4",
+   "role": "marketer",
+   "created": "2026-11-12T02:13:22+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-12T02:13:22+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  }
+ ],
+ "reviews": [],
+ "posts": [
+  {
+   "channel": "telegram",
+   "url": "https://t.me/luz_amanha/19",
+   "ts": "2026-11-12T07:13:12+00:00"
+  }
+ ],
+ "metrics": {
+  "humans": 4,
+  "engaged": 0,
+  "returns": 0,
+  "agents": 3,
+  "crawlers": 4,
+  "requests": 157
+ },
+ "spend_usd": 2.4,
+ "po_digest_md": "**Luz Amanhã — цикл 12.11 07:07 UTC**\n\n**Что произошло.** 11.11 OMIE снова опубликовал файл (теперь общий `marginalpdbc`, колонка 5 — Португалия). Посты на 12.11 вышли в Telegram и X. На 12.11 самое дешёвое окно 11–14 ч: средняя цена 1,47 €/MWh, почти ноль. Разработчик сдал на проверку T-0083, T-0087, T-0097 и T-0104 (час 23:00 — 24/24 ч). Ревью уже приняло T-0133–T-0140.\n\n**Решения.**\n- Новых задач нет. Ежедневные посты расписаны до 16.11, все слоты плана T-0074 уже стоят в бэклоге, план на 17–23.11 — T-0138. Слот Mastodon 15.11 пропущен: лимит 1 пост в 7 дней уже занят слотом 14.11. Сначала доводим четыре задачи на ревью, новых не начинаем.\n- Индексация в Google: 10 страниц /d/ Google ещё не знает. Отложено до 16.11, пока не станет видно, что дал T-0123 (sitemap).\n- Ноль кликов людей на `/go/telegram/`: отложено до 15.11, пока не накопится статистика после новой подписи у ссылки.\n- Шум 4xx от сканеров и неполный день 12.11 отклонены, это не дефекты.\n\n**Метрики.** Люди за 3–11.11: 2–11 в день. Вовлечённых источников за пилот 8 при цели ≥30. Из соцсетей вовлечённых людей приводит только X. Показов в Google 0.\n\n**Ждёт владельца.** Вопросы из прошлых циклов:\n1. Добавить в cron сборки в 00:05 Europe/Lisbon и в 06:50 UTC (Q-0024).\n2. Новые цели после пилота или остановка продукта (Q-0036).\n3. Резервный источник REN, если у OMIE нет файла (уровень L4).\n4. Пометка наших собственных запросов в metrics.json: без неё нельзя прочитать G5.\n\n**Расходы.** $1,75 из $20.",
+ "analyst_md": "**Пилот 04–10.11 завершён, снимок на 12.11 06:02 UTC. Уровни не складываются.**\n\n| Уровень | 06.11 | 07.11 | 08.11 | 09.11 | 10.11 | 11.11 |\n|---|---|---|---|---|---|---|\n| Люди (источники) | 3 | 6 | 2 | 8 | 2 | 2 |\n| Engaged | 1 | 2 | 1 | 2 | 0 | 1 |\n| Возвраты | 0 | 1 | 1 | 1 | 0 | 0 |\n| Агенты, запросы | 7 | 6 | 67 | 5 | 68 | 12 |\n| Краулеры, запросы | 96 | 144 | 68 | 94 | 101 | 126 |\n\n- **G1:** по дням engaged в сумме 7 (06–11.11, возможны повторы) против цели ≥30: не выполнена.\n- **G2:** возвраты есть (1 в день на 07–09.11), но engaged мало, доля не посчитана надёжно.\n- **G3:** `/go/telegram/` людьми не нажимали: 0 кликов. Подписчиков в метриках не видно.\n- **G4:** внешние referer — только google.com (1–2 в день) и t.co. Посты их не объясняют: google.com пришёл при 0 показов в GSC.\n- **G5:** `/tomorrow.json` и `/today.json` читают агенты (python-requests, curl) почти ежедневно, 18–29 запросов в день.\n- **Discovery:** в индексе Google 12 из 23 URL, показов 0.\n- **Посты → визиты:** X даёт больше всего engaged при малом числе постов, источников мало. Эффект задач по до/после не показан.",
+ "observations": {
+  "new": 7,
+  "by_class": {
+   "need_hypothesis": 3,
+   "measurement": 4
+  }
+ },
+ "owner_questions_open": 0
+}

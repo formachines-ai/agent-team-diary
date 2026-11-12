@@ -898,6 +898,72 @@ def day_lead_block(date: str, model: dict) -> str:
     return "\n".join(out)
 
 
+def what_broke_block(date: str, model: dict) -> str:
+    """Day page, right below #day-lead: per product, each task with a failing event that day (state, role, final state)."""
+    items = broke_items(date, model)
+    out = ['<section id="what-broke" class="what-broke"><h2>What went wrong</h2>']
+    if not any(p["days"].get(date) for p in model["products"].values()):
+        out.append("<p class=\"note\">no activity recorded</p>")
+    elif not items:
+        out.append(f'<p class="note">nothing failed in the records of {esc(date)}</p>')
+    else:
+        c = broke_counts(items)
+        out.append('<p class="note">Events by state, all products: ' + " · ".join(f"{esc(k)} {dk('broke_counts.' + k, v)}" for k, v in sorted(c.items())) + ".</p>")
+        for slug, p in model["products"].items():
+            its = [it for it in items if it["product"] == slug]
+            if not its:
+                continue
+            d = p["days"][date]
+            finals = {str(t.get("id")): ((t.get("history") or [{}])[-1].get("to")) for t in d.get("tasks") or []}
+            n = len({it["task"] for it in its})
+            out.append(f'<h3>{esc(p["product"].get("name") or slug)}: {n} {"task" if n == 1 else "tasks"}</h3><ul class="what-broke-list">')
+            seen = {}
+            for it in its:
+                seen.setdefault(it["task"], []).append(it)
+            for tid, lst in seen.items():
+                first = lst[0]
+                inner = f'<span class="id">{esc(tid)}</span> {esc(first["title"] or "")}'
+                link = f'<a href="#{esc(first["anchor"])}">{inner}</a>' if first["anchor"] else inner
+                parts = ", ".join(f'{esc(i["state"])} ({esc(i["actor"] or "review verdict")})' for i in lst)
+                out.append(f'<li>{link} · state: {parts} · final state: {esc(finals.get(tid) or "not recorded")}</li>')
+            out.append("</ul>")
+    out.append('<p class="note">Failed runs and rate-limit events are not in the export.</p></section>')
+    return "\n".join(out)
+
+
+def check_broke() -> dict:
+    """Every /day/*/: #what-broke listed (task, state) pairs equal the 'broke' list of index.json; anchors exist on the page."""
+    mism, bad, pages = [], [], sorted(PUBLIC_DIR.glob("day/*/index.html"))
+    for f in pages:
+        name = f"/day/{f.parent.name}/"
+        t = f.read_text(encoding="utf-8")
+        i = t.find('id="what-broke"')
+        if i < 0:
+            mism.append({"page": name, "issue": "what-broke missing"})
+            continue
+        sec = t[i:t.find("</section>", i)]
+        if "<h2" not in sec or "not in the export" not in sec:
+            mism.append({"page": name, "issue": "h2 or export line missing"})
+        data = json.loads(f.with_name("index.json").read_text(encoding="utf-8"))
+        want = {(b["task"], b["state"]) for b in data.get("broke") or []}
+        got = set()
+        for li in re.findall(r"<li>(.*?)</li>", sec, re.S):
+            m = re.search(r'<span class="id">([^<]+)</span>', li)
+            if not m:
+                continue
+            tid = html.unescape(m.group(1))
+            for st in re.findall(r"(?:^|, |state: )([A-Za-z_\-]+) \(", html.unescape(re.sub(r"<[^>]+>", "", li.split("state:", 1)[-1])).strip()):
+                got.add((tid, st))
+        if want != got:
+            mism.append({"page": name, "issue": f"listed {sorted(got)} != index.json {sorted(want)}"})
+        if not want and f"nothing failed in the records of {f.parent.name}" not in sec:
+            mism.append({"page": name, "issue": "empty-state sentence missing"})
+        for a in re.findall(r'href="#([^"]+)"', sec):
+            if f'id="{a}"' not in t:
+                bad.append({"page": name, "anchor": a})
+    return {"pages_checked": len(pages), "mismatches": mism, "bad_anchors": bad}
+
+
 def check_lead() -> dict:
     """Every /day/*/: #day-lead exists right after <h1> before the first <h2>; its data-k numbers equal index.json; anchors exist."""
     issues, pages = [], sorted(PUBLIC_DIR.glob("day/*/index.html"))
@@ -952,6 +1018,7 @@ def render_day(date: str, model: dict) -> str:
     body.append(progress_note(date, model["built"]))
     body.append(fixture_note([p["days"][date] for _, p in present]))
     anchors = task_anchors(date, model)
+    body.append(what_broke_block(date, model))
     body.append(not_to_plan_block(date, model))
     body.append(shipped_vs_came_block(date, model))
     if present:
@@ -2627,6 +2694,10 @@ def main(argv: list[str] | None = None) -> int:
     bj["lead_check"] = lcd
     write_json(PUBLIC_DIR / "build.json", bj)
     log.info("lead_check: pages=%d issues=%d", lcd["pages_checked"], len(lcd["issues"]))
+    bkc = check_broke()
+    bj["broke_check"] = bkc
+    write_json(PUBLIC_DIR / "build.json", bj)
+    log.info("broke_check: pages=%d mismatches=%d bad_anchors=%d", bkc["pages_checked"], len(bkc["mismatches"]), len(bkc["bad_anchors"]))
     nav = check_nav()
     bj["nav_check"] = nav
     write_json(PUBLIC_DIR / "build.json", bj)

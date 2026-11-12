@@ -944,6 +944,61 @@ def check_broke() -> dict:
     return {"pages_checked": len(pages), "mismatches": mism, "bad_anchors": bad, "duplicate_blocks": dup}
 
 
+def check_feed() -> dict:
+    """feed.xml items: description starts with the #day-lead text of the day page and ends with a failure line equal to the
+    task count in #what-broke; links are /day/<date>/?src=rss; guid is /day/<date>/ (unchanged)."""
+    import xml.etree.ElementTree as ET
+    lead_mm, bad_links, guid_changed, items = [], [], [], 0
+    try:
+        root = ET.fromstring((PUBLIC_DIR / "feed.xml").read_text(encoding="utf-8"))
+    except (OSError, ET.ParseError) as e:
+        return {"items": 0, "lead_mismatches": [{"item": "feed.xml", "issue": str(e)}], "bad_links": [], "guid_changed": []}
+    for it in root.iter("item"):
+        items += 1
+        link, guid, desc = (it.findtext(k) or "" for k in ("link", "guid", "description"))
+        m = re.fullmatch(re.escape(SITE_BASE) + r"/day/(\d{4}-\d{2}-\d{2})/", guid)
+        if not m:
+            guid_changed.append(guid)
+            continue
+        d = m.group(1)
+        if link != f"{SITE_BASE}/day/{d}/?src=rss":
+            bad_links.append(link)
+        page = PUBLIC_DIR / "day" / d / "index.html"
+        if not page.is_file():
+            lead_mm.append({"item": d, "issue": "day page missing"})
+            continue
+        t = page.read_text(encoding="utf-8")
+        i = t.find('id="day-lead"')
+        i = t.rfind("<section", 0, i) if i >= 0 else i
+        lead = html_text(t[i:t.find("</section>", i)]) if i >= 0 else ""
+        j = t.find('id="what-broke"')
+        sec = t[j:t.find("</section>", j)] if j >= 0 else ""
+        if not lead or not desc.startswith(lead):
+            lead_mm.append({"item": d, "issue": "description does not start with the day-lead text"})
+        if sec:
+            n = sum(int(x) for x in re.findall(r": (\d+) tasks?</h3>", sec))
+            want = f"Nothing failed in the records of {d}." if "nothing failed in the records" in sec else (
+                "No activity recorded." if "no activity recorded" in sec else f"Failed in the records: {n} {'task' if n == 1 else 'tasks'} (see What went wrong).")
+            if not desc.endswith(" " + want):
+                lead_mm.append({"item": d, "issue": f"failure line != {want!r}"})
+        try:
+            data = json.loads(page.with_name("index.json").read_text(encoding="utf-8"))
+            k = _KParser()
+            k.feed(t[i:t.find("</section>", i)])
+            for key, text in k.found:
+                if key.startswith("day/"):
+                    continue
+                src = data
+                for part in key.split("."):
+                    src = src[int(part)] if isinstance(src, list) else src[part]
+                v = f"{src:.1f}" if isinstance(src, float) else str(src)
+                if v not in desc:
+                    lead_mm.append({"item": d, "issue": f"{key}: json {v} not in item"})
+        except (OSError, ValueError, KeyError, IndexError):
+            lead_mm.append({"item": d, "issue": "index.json comparison failed"})
+    return {"items": items, "lead_mismatches": lead_mm, "bad_links": bad_links, "guid_changed": guid_changed}
+
+
 def check_lead() -> dict:
     """Every /day/*/: #day-lead exists right after <h1> before the first <h2>; its data-k numbers equal index.json; anchors exist."""
     issues, pages = [], sorted(PUBLIC_DIR.glob("day/*/index.html"))
@@ -1625,21 +1680,30 @@ def day_summary(date: str, model: dict) -> dict:
             "disclosure": f"{FOOTER_LINE}; responsible: {RESPONSIBLE}."}
 
 
+def html_text(fragment: str) -> str:
+    return re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", "", fragment))).strip()
+
+
+def feed_failure_line(date: str, model: dict) -> str:
+    if not any(p["days"].get(date) for p in model["products"].values()):
+        return "No activity recorded."
+    n = len({(it["product"], it["task"]) for it in broke_items(date, model)})
+    if not n:
+        return f"Nothing failed in the records of {date}."
+    return f"Failed in the records: {n} {'task' if n == 1 else 'tasks'} (see What went wrong)."
+
+
+def feed_description(date: str, model: dict) -> str:
+    """Feed item text: the day page's #day-lead sentences plus one failure line (same functions as the page)."""
+    return html_text(day_lead_block(date, model)) + " " + feed_failure_line(date, model)
+
+
 def render_feed(model: dict) -> str:
     items = []
     for date in reversed(model["dates"][-FEED_MAX_ITEMS:]):
-        parts, fixture = [], False
-        for slug, p in model["products"].items():
-            if date in p["days"]:
-                c = day_counts(p["days"][date])
-                fixture = fixture or c["fixture"]
-                parts.append(f'{p["product"].get("name") or slug}: {c["tasks_done_distinct"]} tasks done, {c["reviews_pass"]} reviews passed, '
-                             f'{c["posts"]} posts, spend ${c["spend_usd"]:.1f}')
-        desc = "; ".join(parts) or "no activity recorded"
-        if fixture:
-            desc += ". Contains fixture (sample) records."
+        desc = feed_description(date, model)
         pub = datetime.strptime(date, "%Y-%m-%d").replace(tzinfo=timezone.utc).strftime("%a, %d %b %Y 00:00:00 +0000")
-        items.append(f"<item><title>{esc(date)} — agent team diary</title><link>{esc(SITE_BASE)}/day/{esc(date)}/</link>"
+        items.append(f"<item><title>{esc(date)} — agent team diary</title><link>{esc(SITE_BASE)}/day/{esc(date)}/?src=rss</link>"
                      f"<guid isPermaLink=\"true\">{esc(SITE_BASE)}/day/{esc(date)}/</guid><pubDate>{pub}</pubDate>"
                      f"<description>{esc(desc)}</description></item>")
     now = datetime.strptime(model["built"], "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc).strftime("%a, %d %b %Y %H:%M:%S +0000")
@@ -2494,10 +2558,10 @@ def check_machine() -> dict:
     except (OSError, ET.ParseError) as e:
         links = []
         feed_missing.append(f"feed.xml unreadable: {e}")
-    if latest and f"{SITE_BASE}/day/{latest}/" not in links:
+    if latest and f"{SITE_BASE}/day/{latest}/?src=rss" not in links:
         feed_missing.append(f"/day/{latest}/")
     for l in links:
-        m = re.fullmatch(re.escape(SITE_BASE) + r"/day/(\d{4}-\d{2}-\d{2})/", l)
+        m = re.fullmatch(re.escape(SITE_BASE) + r"/day/(\d{4}-\d{2}-\d{2})/(?:\?src=rss)?", l)
         if not m or not (PUBLIC_DIR / "day" / m.group(1) / "index.html").is_file():
             feed_missing.append(f"item link without day page: {l}")
     for d in days:
@@ -2673,6 +2737,10 @@ def main(argv: list[str] | None = None) -> int:
     bj["lead_check"] = lcd
     write_json(PUBLIC_DIR / "build.json", bj)
     log.info("lead_check: pages=%d issues=%d", lcd["pages_checked"], len(lcd["issues"]))
+    fcd = check_feed()
+    bj["feed_check"] = fcd
+    write_json(PUBLIC_DIR / "build.json", bj)
+    log.info("feed_check: items=%d lead_mismatches=%d bad_links=%d guid_changed=%d", fcd["items"], len(fcd["lead_mismatches"]), len(fcd["bad_links"]), len(fcd["guid_changed"]))
     bkc = check_broke()
     bj["broke_check"] = bkc
     write_json(PUBLIC_DIR / "build.json", bj)
@@ -2713,6 +2781,9 @@ def main(argv: list[str] | None = None) -> int:
         problems += [f"paths: {m}" for m in pc["missing"]]
         problems += [f"home: {m}" for m in hc["issues"]]
         problems += [f"lead: {i['page']} {i['issue']}" for i in lcd["issues"]]
+        problems += [f"feed: {i}" for i in fcd["lead_mismatches"]] + [f"feed: bad link {l}" for l in fcd["bad_links"]] + [f"feed: guid changed {g}" for g in fcd["guid_changed"]]
+        if not fcd["items"]:
+            problems.append("feed: no items")
         problems += [f"broke: duplicate failure blocks {p}" for p in bkc["duplicate_blocks"]]
         problems += [f"jsonld: invalid {i['page']} {i['issue']}" for i in jl["invalid"]] + [f"jsonld: missing {p}" for p in jl["missing"]]
         problems += [f"seo: no self-canonical {p}" for p in seo["canonical_missing"]] + [f"seo: no lastmod {p}" for p in seo["lastmod_missing"]]

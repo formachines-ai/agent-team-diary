@@ -859,10 +859,88 @@ def shipped_vs_came_block(date: str, model: dict) -> str:
     return "\n".join(out)
 
 
+def day_lead_block(date: str, model: dict) -> str:
+    """Day page, right after <h1>: 2-4 plain sentences from this day's export. Per product: tasks accepted, review
+    verdicts, spend (counts.<slug>.* of index.json, each in data-k), plus one failed or accepted task linked to its anchor."""
+    present = [(slug, p, p["days"][date]) for slug, p in model["products"].items() if date in p["days"]]
+    out = ['<section id="day-lead" class="day-lead">']
+    if not present:
+        out.append(f"<p>What happened on {esc(date)}: no activity recorded.</p></section>")
+        return "\n".join(out)
+    sents = []
+    for slug, p, d in present:
+        c = day_counts(d)
+        k = f"counts.{slug}."
+        name = esc(p["product"].get("name") or slug)
+        sents.append(f'{name}: {dk(k + "tasks_done_distinct", c["tasks_done_distinct"])} tasks accepted, '
+                     f'{dk(k + "reviews_pass", c["reviews_pass"])} reviews passed and {dk(k + "reviews_fail", c["reviews_fail"])} failed, '
+                     f'model spend ${dk(k + "spend_usd", f"{c["spend_usd"]:.1f}")}')
+    fx = all(d.get("fixture") for _, _, d in present)
+    intro = f"What happened on {esc(date)}" + (" (fixture: sample data in the export format, not a measurement)" if fx else "") + ": "
+    events, _ = pick_latest_events(date, model)
+    accepted = []
+    for slug, p, d in present:
+        for i, t in enumerate(d.get("tasks") or []):
+            if any(h.get("to") in DONE_STATES for h in (t.get("history") or [])):
+                accepted.append((slug, p, d, i, t))
+    pool = [(it[0], model["products"][it[0]], model["products"][it[0]]["days"][date],
+             next(i for i, x in enumerate(model["products"][it[0]]["days"][date]["tasks"]) if x is it[2]), it[2]) for it in events] + accepted
+    pool = [x for x in pool if x[4].get("id") and x[4].get("title")]
+    pick = next((x for x in pool if not re.search(r"\d", str(x[4]["title"]))), pool[0] if pool else None)
+    tail = ""
+    if pick:
+        slug, p, d, i, t = pick
+        aid = task_anchors(date, model).get((slug, str(t.get("id"))))
+        failed = any(r.get("verdict") in ("fail", "inconclusive") for r in d.get("reviews") or [] if str(r.get("task")) == str(t.get("id")))
+        tail = (f' One {"task with a failed or inconclusive review" if failed else "accepted task"}: '
+                f'<a href="#{esc(aid)}">{dk(f"day/{date}:products.{slug}.tasks.{i}.title", t.get("title"))}</a>.')
+    out.append("<p>" + intro + "; ".join(sents) + "." + tail + "</p></section>")
+    return "\n".join(out)
+
+
+def check_lead() -> dict:
+    """Every /day/*/: #day-lead exists right after <h1> before the first <h2>; its data-k numbers equal index.json; anchors exist."""
+    issues, pages = [], sorted(PUBLIC_DIR.glob("day/*/index.html"))
+    for f in pages:
+        name = f"/day/{f.parent.name}/"
+        t = f.read_text(encoding="utf-8")
+        i, h2 = t.find('id="day-lead"'), t.find("<h2")
+        if i < 0 or t.find("<h1") > i or (0 <= h2 < i):
+            issues.append({"page": name, "issue": "day-lead missing or not before the first h2"})
+            continue
+        sec = t[i:t.find("</section>", i)]
+        if not re.search(r"[A-Za-z]{3,}[^<]*\.", html.unescape(re.sub(r"<[^>]+>", " ", sec))):
+            issues.append({"page": name, "issue": "no sentence text"})
+        k = _KParser()
+        k.feed(sec)
+        if not k.found and "no activity recorded" not in sec:
+            issues.append({"page": name, "issue": "no data-k numbers"})
+        try:
+            data = json.loads(f.with_name("index.json").read_text(encoding="utf-8"))
+        except (OSError, ValueError):
+            issues.append({"page": name, "issue": "index.json unreadable"})
+            continue
+        for key, text in k.found:
+            try:
+                src, key2 = (json.loads((PUBLIC_DIR / "day" / key[4:].partition(":")[0] / "index.json").read_text(encoding="utf-8")), key.partition(":")[2]) if key.startswith("day/") else (data, key)
+                for part in key2.split("."):
+                    src = src[int(part)] if isinstance(src, list) else src[part]
+            except (KeyError, IndexError, ValueError, OSError):
+                issues.append({"page": name, "issue": f"unknown path {key}"})
+                continue
+            v = f"{src:.1f}" if isinstance(src, float) else str(src)
+            if text != (str(src) if key.startswith("day/") else v):
+                issues.append({"page": name, "issue": f"{key}: html {text} != json {v}"})
+        for a in re.findall(r'href="#([^"]+)"', sec):
+            if f'id="{a}"' not in t:
+                issues.append({"page": name, "issue": f"anchor #{a} not on page"})
+    return {"pages_checked": len(pages), "issues": issues}
+
+
 def render_day(date: str, model: dict) -> str:
     products = model["products"]
     present = [(slug, p) for slug, p in products.items() if date in p["days"]]
-    body = [f"<h1>{esc(date)}</h1>", f'<p class="lead">One day of the agent team, product by product. <a href="/day/{esc(date)}/index.json">index.json</a></p>', try_line()]
+    body = [f"<h1>{esc(date)}</h1>", day_lead_block(date, model), f'<p class="lead">One day of the agent team, product by product. <a href="/day/{esc(date)}/index.json">index.json</a></p>', try_line()]
     prev_d, next_d = neighbours(date, model["dates"])
     nav = []
     if prev_d:
@@ -2545,6 +2623,10 @@ def main(argv: list[str] | None = None) -> int:
     bj["wellknown_check"] = {"files": wk["files"], "missing": wk["missing"]}
     write_json(PUBLIC_DIR / "build.json", bj)
     log.info("wellknown_check: files=%d missing=%d problems=%d", len(wk["files"]), len(wk["missing"]), len(wk["problems"]))
+    lcd = check_lead()
+    bj["lead_check"] = lcd
+    write_json(PUBLIC_DIR / "build.json", bj)
+    log.info("lead_check: pages=%d issues=%d", lcd["pages_checked"], len(lcd["issues"]))
     nav = check_nav()
     bj["nav_check"] = nav
     write_json(PUBLIC_DIR / "build.json", bj)
@@ -2580,6 +2662,7 @@ def main(argv: list[str] | None = None) -> int:
         problems = check_site()
         problems += [f"paths: {m}" for m in pc["missing"]]
         problems += [f"home: {m}" for m in hc["issues"]]
+        problems += [f"lead: {i['page']} {i['issue']}" for i in lcd["issues"]]
         problems += [f"jsonld: invalid {i['page']} {i['issue']}" for i in jl["invalid"]] + [f"jsonld: missing {p}" for p in jl["missing"]]
         problems += [f"seo: no self-canonical {p}" for p in seo["canonical_missing"]] + [f"seo: no lastmod {p}" for p in seo["lastmod_missing"]]
         problems += [f"seo: orphan {p}" for p in seo["orphans"]] + [f"seo: duplicate title {d['title']}" for d in seo["duplicate_titles"]]

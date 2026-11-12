@@ -1586,6 +1586,10 @@ User-agent: ClaudeBot
 Allow: /
 Disallow: /go/
 
+User-agent: PerplexityBot
+Allow: /
+Disallow: /go/
+
 User-agent: Google-Extended
 Allow: /
 
@@ -1593,12 +1597,102 @@ Sitemap: __SITE__/sitemap.xml
 """
 
 
+def _content_dates(obj, out: list) -> None:
+    """Collect YYYY-MM-DD of every ISO timestamp value (ts, created, accepted_at ...) in a day record."""
+    if isinstance(obj, dict):
+        for v in obj.values():
+            _content_dates(v, out)
+    elif isinstance(obj, list):
+        for v in obj:
+            _content_dates(v, out)
+    elif isinstance(obj, str) and re.match(r"^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}", obj):
+        out.append(obj[:10])
+
+
+def sitemap_entries(model: dict) -> list[tuple[str, str]]:
+    """(url, lastmod): lastmod = newest timestamp inside the page's records, within [page date, build date]; static pages
+    use the last commit date of build.py (their text lives there), never later than the build date."""
+    built = model["built"][:10]
+    def day_lastmod(date: str) -> str:
+        ds: list = []
+        for p in model["products"].values():
+            _content_dates(p["days"].get(date) or {}, ds)
+        return min(max([date] + [d for d in ds if d >= date and d <= built]), built)
+    dm = {d: day_lastmod(d) for d in model["dates"]}
+    try:
+        r = subprocess.run(["git", "log", "-1", "--format=%cs", "--", "build.py"], capture_output=True, text=True, timeout=10,
+                           cwd=str(Path(__file__).resolve().parent))
+        static = r.stdout.strip() if re.fullmatch(r"\d{4}-\d{2}-\d{2}", r.stdout.strip()) else built
+    except Exception:
+        static = built
+    static = min(static, built)
+    latest = max(dm.values()) if dm else static
+    out = [(SITE_BASE + "/", max(latest, static))]
+    out += [(f"{SITE_BASE}/{p}/", static) for p in ("about", "try", "legal", "brand")]
+    for slug, p in model["products"].items():
+        out.append((f"{SITE_BASE}/product/{slug}/", max([dm[d] for d in p["days"] if d in dm] + [static])))
+    out += [(f"{SITE_BASE}/day/{d}/", dm[d]) for d in model["dates"]]
+    return out
+
+
 def render_sitemap(model: dict) -> str:
-    urls = [SITE_BASE + "/", SITE_BASE + "/about/", SITE_BASE + "/try/", SITE_BASE + "/legal/", SITE_BASE + "/brand/"]
-    urls += [f"{SITE_BASE}/product/{slug}/" for slug in model["products"]]
-    urls += [f"{SITE_BASE}/day/{d}/" for d in model["dates"]]
     return ('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
-            + "".join(f"<url><loc>{esc(u)}</loc><lastmod>{esc(model['built'][:10])}</lastmod></url>" for u in urls) + "</urlset>\n")
+            + "".join(f"<url><loc>{esc(u)}</loc><lastmod>{esc(lm)}</lastmod></url>" for u, lm in sitemap_entries(model)) + "</urlset>\n")
+
+
+def check_robots_sitemap(built: str) -> tuple[dict, dict]:
+    """robots_check and sitemap_check for build.json."""
+    import xml.etree.ElementTree as ET
+    issues = []
+    txt = (PUBLIC_DIR / "robots.txt").read_text(encoding="utf-8") if (PUBLIC_DIR / "robots.txt").is_file() else ""
+    lines = [ln.strip() for ln in txt.splitlines()]
+    declared = f"Sitemap: {SITE_BASE}/sitemap.xml" in lines
+    if not declared:
+        issues.append("Sitemap line missing")
+    allowed, group, prev = True, [], False
+    for ln in lines:
+        k, _, v = ln.partition(":")
+        k, v = k.strip().lower(), v.strip()
+        if k == "user-agent":
+            group = group + [v.lower()] if prev else [v.lower()]
+            prev = True
+            continue
+        prev = False
+        if k == "disallow" and v == "/":
+            for ua in group:
+                if ua in ("gptbot", "claudebot", "perplexitybot", "*"):
+                    allowed = False
+                    issues.append(f"Disallow: / for {ua}")
+    for bot in ("GPTBot", "ClaudeBot", "PerplexityBot"):
+        if f"User-agent: {bot}" not in lines:
+            allowed = False
+            issues.append(f"{bot} group missing")
+    rc = {"sitemap_declared": declared, "ai_crawlers_allowed": allowed, "issues": issues}
+    missing, bad, locs = [], [], {}
+    try:
+        for u in ET.parse(PUBLIC_DIR / "sitemap.xml").getroot():
+            ns = "{http://www.sitemaps.org/schemas/sitemap/0.9}"
+            locs[(u.findtext(ns + "loc") or "").strip()] = (u.findtext(ns + "lastmod") or "").strip()
+    except Exception as e:
+        bad.append(f"sitemap.xml unreadable: {e}")
+    want = [SITE_BASE + "/"] + [f"{SITE_BASE}/{p}/" for p in ("about", "try", "legal")]
+    want += [f"{SITE_BASE}/product/{d.parent.name}/" for d in PUBLIC_DIR.glob("product/*/index.html") for d in [d]]
+    want += [f"{SITE_BASE}/day/{d.parent.name}/" for d in PUBLIC_DIR.glob("day/*/index.html")]
+    missing = [w for w in want if w not in locs]
+    missing += [f"{w} (listed but noindex/forbidden)" for w in locs if w.endswith("/404.html") or "/open/costs" in w]
+    for loc, lm in locs.items():
+        m = re.fullmatch(r"(\d{4})-(\d{2})-(\d{2})", lm)
+        try:
+            datetime.strptime(lm, "%Y-%m-%d")
+            ok = bool(m) and lm <= built[:10]
+        except ValueError:
+            ok = False
+        dm = re.search(r"/day/(\d{4}-\d{2}-\d{2})/$", loc)
+        if ok and dm and lm < dm.group(1):
+            ok = False
+        if not ok:
+            bad.append(f"{loc} {lm}")
+    return rc, {"urls": len(locs), "missing_pages": sorted(missing), "bad_lastmod": bad}
 
 
 # ----------------------------------------------------------------------------------------------------------
@@ -2464,6 +2558,8 @@ def main(argv: list[str] | None = None) -> int:
     write_json(PUBLIC_DIR / "build.json", bj)
     log.info("machine_check: days=%d llms_missing=%d feed_missing=%d json_errors=%d", mch["days_checked"],
              len(mch["llms_missing"]), len(mch["feed_missing"]), len(mch["json_errors"]))
+    bj["robots_check"], bj["sitemap_check"] = check_robots_sitemap(bj.get("built") or model["built"])
+    write_json(PUBLIC_DIR / "build.json", bj)
     ad = check_audit()
     bj["audit_check"] = ad
     write_json(PUBLIC_DIR / "build.json", bj)
@@ -2503,6 +2599,8 @@ def main(argv: list[str] | None = None) -> int:
         problems += [f"{p}: footer disclosure missing" for p in cc["footer_missing"]]
         problems += cc["xml_errors"] + cc["latest_day_problems"]
         problems += [f"sitemap.xml: no <loc> for {p}" for p in cc["sitemap_missing"]]
+        problems += [f"robots: {i}" for i in bj["robots_check"]["issues"]]
+        problems += [f"sitemap: missing {p}" for p in bj["sitemap_check"]["missing_pages"]] + [f"sitemap: bad lastmod {p}" for p in bj["sitemap_check"]["bad_lastmod"]]
         problems += [f"{m['page']}: number {m['key']} html={m['html']} json={m['json']}" for m in nc["mismatches"]]
         problems += [f"{m['page']}: nested data-k {m['key']}" for m in nc["nested"]]
         if nc["selftest"] != "pass":

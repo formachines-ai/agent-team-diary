@@ -1048,10 +1048,71 @@ def open_threads_block(latest: str, model: dict) -> str:
     return "\n".join(out)
 
 
+def latest_day_top_block(latest: str | None, model: dict) -> str:
+    """Home first screen: <section id="latest-day"> with the latest date linking to /day/<date>/ and, per product,
+    tasks accepted, reviews and spend as today.json names them (data-k). No h2: it stays above every h2 of the page."""
+    if not latest:
+        return '<section id="latest-day" class="latest-day"><p><strong>Latest day:</strong> no activity recorded — the export has no day files yet.</p></section>'
+    out = ['<section id="latest-day" class="latest-day">',
+           f'<p class="latest-day-head"><strong>Latest day:</strong> <a href="/day/{esc(latest)}/">{esc(latest)}</a></p>']
+    rows = [(slug, p["days"][latest]) for slug, p in model["products"].items() if latest in p["days"]]
+    if not rows:
+        out.append('<p class="note">no activity recorded for any product on this day.</p>')
+    else:
+        out.append('<ul class="latest-day-list">')
+        for slug, d in rows:
+            c = day_counts(d)
+            name = model["products"][slug]["product"].get("name") or slug
+            k = f"products.{slug}."
+            fx = ' <span class="badge other">fixture</span>' if c["fixture"] else ""
+            spend = f"{c['spend_usd']:.1f}"
+            out.append(f'<li><a href="/product/{esc(slug)}/">{esc(name)}</a>{fx}: {dk(k + "tasks_done_distinct", c["tasks_done_distinct"])} tasks accepted, '
+                       f'{dk(k + "reviews", c["reviews"])} reviews, ${dk(k + "spend_usd", spend)} model spend</li>')
+        out.append("</ul>")
+        if all(d.get("fixture") for _, d in rows):
+            out.append('<p class="note">fixture: sample data in the export format, not a measurement.</p>')
+    out.append("</section>")
+    return "\n".join(out)
+
+
+def check_home() -> dict:
+    """#latest-day exists before the first other <h2>, links to /day/<latest per today.json>/ (page exists), numbers = today.json."""
+    issues = []
+    ok = False
+    try:
+        t = (PUBLIC_DIR / "index.html").read_text(encoding="utf-8")
+        today = json.loads((PUBLIC_DIR / "today.json").read_text(encoding="utf-8"))
+    except (OSError, ValueError) as e:
+        return {"latest_link_ok": False, "issues": [f"cannot read index.html/today.json: {e}"]}
+    date = today.get("date")
+    i = t.find('id="latest-day"')
+    h2 = t.find("<h2")
+    if i < 0:
+        issues.append("#latest-day missing")
+    else:
+        end = t.find("</section>", i)
+        block = t[i:end]
+        if 0 <= h2 < i:
+            issues.append("#latest-day is after the first <h2>")
+        if date:
+            ok = f'href="/day/{date}/"' in block and (PUBLIC_DIR / "day" / date / "index.html").exists()
+            if not ok:
+                issues.append(f"#latest-day lacks working link to /day/{date}/")
+            for slug in (today.get("products") or {}):
+                for f in ("tasks_done_distinct", "reviews", "spend_usd"):
+                    if f'data-k="products.{slug}.{f}"' not in block:
+                        issues.append(f"#latest-day lacks {slug}.{f}")
+        else:
+            ok = "no activity recorded" in block
+            if not ok:
+                issues.append("today.json has no date but block does not say no activity recorded")
+    return {"latest_link_ok": ok, "issues": issues}
+
+
 def render_index(model: dict) -> str:
     products, dates = model["products"], model["dates"]
     latest = dates[-1] if dates else None
-    body = [f"<h1>{esc(SITE_NAME)}</h1>", f'<p class="lead">{esc(SITE_TAGLINE)}</p>', try_line()]
+    body = [f"<h1>{esc(SITE_NAME)}</h1>", f'<p class="lead">{esc(SITE_TAGLINE)}</p>', try_line(), latest_day_top_block(latest, model)]
     if latest:
         body.append(f'<h2 id="latest">Latest day: <a href="/day/{esc(latest)}/">{esc(latest)}</a></h2>')
         body.append(progress_note(latest, model["built"]))
@@ -2365,6 +2426,10 @@ def main(argv: list[str] | None = None) -> int:
     bj["numbers_check"] = nc
     write_json(PUBLIC_DIR / "build.json", bj)
     log.info("numbers_check: checked=%d mismatches=%d", nc["checked"], len(nc["mismatches"]))
+    hc = check_home()
+    bj["home_check"] = hc
+    write_json(PUBLIC_DIR / "build.json", bj)
+    log.info("home_check: latest_link_ok=%s issues=%d", hc["latest_link_ok"], len(hc["issues"]))
     cc = check_checklist()
     bj["checklist_check"] = cc
     write_json(PUBLIC_DIR / "build.json", bj)
@@ -2418,6 +2483,7 @@ def main(argv: list[str] | None = None) -> int:
     if args.check:
         problems = check_site()
         problems += [f"paths: {m}" for m in pc["missing"]]
+        problems += [f"home: {m}" for m in hc["issues"]]
         problems += [f"jsonld: invalid {i['page']} {i['issue']}" for i in jl["invalid"]] + [f"jsonld: missing {p}" for p in jl["missing"]]
         problems += [f"seo: no self-canonical {p}" for p in seo["canonical_missing"]] + [f"seo: no lastmod {p}" for p in seo["lastmod_missing"]]
         problems += [f"seo: orphan {p}" for p in seo["orphans"]] + [f"seo: duplicate title {d['title']}" for d in seo["duplicate_titles"]]

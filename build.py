@@ -548,12 +548,20 @@ def product_section(d: dict, product: dict, heading_link: bool = True, anchors: 
     out.append(f"<h3>Tasks ({len(tasks)})</h3>")
     if tasks:
         out.append('<ul class="cards">')
+        used_ids: set = set()
         for t in tasks:
             meta = " · ".join(x for x in [esc(t.get("type")), esc(t.get("priority")), esc(t.get("role")),
                                            f"goal {esc(t['goal'])}" if t.get("goal") else "",
                                            f"commit {esc(str(t['released_sha'])[:10])}" if t.get("released_sha") else ""] if x)
-            aid = (anchors or {}).get((slug, str(t.get("id") or "")))
-            out.append(f'<li class="card task" id="{esc(aid)}">' if aid else '<li class="card task">')
+            tid_s = str(t.get("id") or "")
+            aid = (anchors or {}).get((slug, tid_s))
+            if aid in used_ids:  # same (product, task id) twice on one day: only the first carries the anchor
+                aid = None
+            used_ids.add(aid)
+            legacy = ""
+            if aid and sum(1 for (_s, i) in (anchors or {}) if i == tid_s) == 1 and tid_s != slug:
+                legacy = f'<span id="{esc(tid_s)}"></span>'  # old anchor, only where unique on the page
+            out.append(f'<li class="card task" id="{esc(aid)}">{legacy}' if aid else '<li class="card task">')
             out.append(f'<div class="head"><span class="id">{esc(t.get("id"))}</span> <span class="name">{esc(t.get("title"))}</span> {state_badge(t.get("state"))}</div>')
             if meta:
                 out.append(f'<div class="meta">{meta}</div>')
@@ -997,6 +1005,22 @@ def check_feed() -> dict:
         except (OSError, ValueError, KeyError, IndexError):
             lead_mm.append({"item": d, "issue": "index.json comparison failed"})
     return {"items": items, "lead_mismatches": lead_mm, "bad_links": bad_links, "guid_changed": guid_changed}
+
+
+def check_ids() -> dict:
+    """Every html page: no id attribute twice; every #fragment link (same page) has a target."""
+    dup, dang, pages = [], [], sorted(PUBLIC_DIR.rglob("*.html"))
+    for f in pages:
+        t = f.read_text(encoding="utf-8")
+        name = "/" + str(f.relative_to(PUBLIC_DIR))
+        ids = [html.unescape(x) for x in re.findall(r'\sid="([^"]*)"', t)]
+        for i in sorted({x for x in ids if ids.count(x) > 1}):
+            dup.append({"page": name, "id": i, "count": ids.count(i)})
+        have = set(ids)
+        for a in sorted({html.unescape(x) for x in re.findall(r'href="#([^"]*)"', t)}):
+            if a and a not in have:
+                dang.append({"page": name, "link": "#" + a})
+    return {"pages_checked": len(pages), "duplicate_ids": dup, "dangling_links": dang}
 
 
 def check_lead() -> dict:
@@ -2745,6 +2769,10 @@ def main(argv: list[str] | None = None) -> int:
     bj["broke_check"] = bkc
     write_json(PUBLIC_DIR / "build.json", bj)
     log.info("broke_check: pages=%d mismatches=%d bad_anchors=%d", bkc["pages_checked"], len(bkc["mismatches"]), len(bkc["bad_anchors"]))
+    idc = check_ids()
+    bj["id_check"] = idc
+    write_json(PUBLIC_DIR / "build.json", bj)
+    log.info("id_check: pages=%d duplicate_ids=%d dangling_links=%d", idc["pages_checked"], len(idc["duplicate_ids"]), len(idc["dangling_links"]))
     nav = check_nav()
     bj["nav_check"] = nav
     write_json(PUBLIC_DIR / "build.json", bj)
@@ -2785,6 +2813,8 @@ def main(argv: list[str] | None = None) -> int:
         if not fcd["items"]:
             problems.append("feed: no items")
         problems += [f"broke: duplicate failure blocks {p}" for p in bkc["duplicate_blocks"]]
+        problems += [f"ids: duplicate id {x['id']} on {x['page']}" for x in idc["duplicate_ids"]]
+        problems += [f"ids: dangling link {x['link']} on {x['page']}" for x in idc["dangling_links"]]
         problems += [f"jsonld: invalid {i['page']} {i['issue']}" for i in jl["invalid"]] + [f"jsonld: missing {p}" for p in jl["missing"]]
         problems += [f"seo: no self-canonical {p}" for p in seo["canonical_missing"]] + [f"seo: no lastmod {p}" for p in seo["lastmod_missing"]]
         problems += [f"seo: orphan {p}" for p in seo["orphans"]] + [f"seo: duplicate title {d['title']}" for d in seo["duplicate_titles"]]

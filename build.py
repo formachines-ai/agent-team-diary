@@ -1620,9 +1620,11 @@ def render_open_costs(built: str, latest: str | None) -> str:
 def check_paths() -> dict:
     """/favicon.ico and /open/costs/ exist; costs page links /, /about/ and the latest day, has the disclosure, is not in sitemap."""
     missing = []
-    ico = PUBLIC_DIR / "favicon.ico"
-    if not ico.exists() or ico.stat().st_size == 0:
-        missing.append("/favicon.ico")
+    paths = ["/favicon.ico", "/apple-touch-icon.png", "/apple-touch-icon-precomposed.png"]
+    for pth in paths:
+        f0 = PUBLIC_DIR / pth.lstrip("/")
+        if not f0.is_file() or f0.stat().st_size == 0:
+            missing.append(pth)
     f = PUBLIC_DIR / "open" / "costs" / "index.html"
     if not f.exists():
         missing.append("/open/costs/")
@@ -1642,7 +1644,10 @@ def check_paths() -> dict:
     for p in sorted(PUBLIC_DIR.glob("**/index.html")):
         if '<link rel="icon" href="/favicon.ico"' not in p.read_text(encoding="utf-8") and "/go/" not in p.as_posix():
             missing.append(f"icon link in {p.relative_to(PUBLIC_DIR).as_posix()}")
-    return {"missing": missing}
+    for p in sorted(PUBLIC_DIR.glob("**/*.html")):
+        if '<link rel="apple-touch-icon" href="/apple-touch-icon.png">' not in p.read_text(encoding="utf-8"):
+            missing.append(f"apple-touch-icon link in {p.relative_to(PUBLIC_DIR).as_posix()}")
+    return {"paths": paths, "missing": missing}
 
 
 def check_notfound() -> dict:

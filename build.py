@@ -681,35 +681,6 @@ def broke_counts(items: list[dict]) -> dict:
     return c
 
 
-def not_to_plan_block(date: str, model: dict) -> str:
-    """Day page, right after the nav: the one failures block. Fail/inconclusive reviews, transitions to broken states
-    and reopens (see reopen_events), all from export fields, each counted once."""
-    items = broke_items(date, model)
-    out = ['<section class="not-to-plan broke" id="broke"><h2 id="not-to-plan">What did not go to plan</h2>']
-    if not any(d for d in (p["days"].get(date) for p in model["products"].values())):
-        out.append('<p class="note">no activity recorded</p></section>')
-        return "\n".join(out)
-    if not items:
-        out.append('<p class="note">No failed or inconclusive reviews, broken states or reopened tasks in the records of this day.</p></section>')
-        return "\n".join(out)
-    c = broke_counts(items)
-    out.append('<p class="note">Counted here: reviews with verdict fail or inconclusive, tasks moved to a broken state, and reopened tasks, '
-               'where reopened means a task whose history goes from review to ready or in_progress; a reopen is detected only when '
-               'that review is in the same day\'s records.</p>')
-    out.append('<p class="note">Counts by state: ' + " · ".join(f"{esc(k)} {dk('broke_counts.' + k, v)}" for k, v in sorted(c.items())) + ".</p>")
-    out.append('<ul class="cards open-threads">')
-    for it in items:
-        label = (verdict_badge(it["state"]) if it["kind"] == "review" else state_badge(it["state"])) + f' <span class="badge other">{esc(it["kind"])}</span>'
-        inner = f'<span class="id">{esc(it["task"])}</span> {esc(it["title"] or "")}'
-        link = f'<a class="name" href="#{esc(it["anchor"])}">{inner}</a>' if it["anchor"] else f'<span class="name">{inner}</span>'
-        out.append(f'<li class="card"><div class="head"><span class="product-name">{esc(it["product_name"])}</span> '
-                   f'{link} {label}'
-                   + (' <span class="badge other">fixture</span>' if it["fixture"] else "") + "</div>"
-                   + (f'<p class="summary">{esc(it["note"])}</p>' if it["note"] else "") + "</li>")
-    out.append("</ul></section>")
-    return "\n".join(out)
-
-
 def try_line() -> str:
     """One plain line right after the h1 of / and day pages: where to try the team and read the code."""
     return ('<p class="try-line"><a href="/try/">Try this team on your own product</a> · '
@@ -901,13 +872,15 @@ def day_lead_block(date: str, model: dict) -> str:
 def what_broke_block(date: str, model: dict) -> str:
     """Day page, right below #day-lead: per product, each task with a failing event that day (state, role, final state)."""
     items = broke_items(date, model)
-    out = ['<section id="what-broke" class="what-broke"><h2>What went wrong</h2>']
+    out = ['<section id="what-broke" class="what-broke"><h2 id="not-to-plan">What went wrong</h2>']
     if not any(p["days"].get(date) for p in model["products"].values()):
         out.append("<p class=\"note\">no activity recorded</p>")
     elif not items:
         out.append(f'<p class="note">nothing failed in the records of {esc(date)}</p>')
     else:
         c = broke_counts(items)
+        out.append('<p class="note" id="broke">Counted here: reviews with verdict fail or inconclusive, tasks moved to a broken state, and reopened tasks '
+                   '(a task whose history goes from review to ready or in_progress; detected only when that review is in the same day\'s records).</p>')
         out.append('<p class="note">Events by state, all products: ' + " · ".join(f"{esc(k)} {dk('broke_counts.' + k, v)}" for k, v in sorted(c.items())) + ".</p>")
         for slug, p in model["products"].items():
             its = [it for it in items if it["product"] == slug]
@@ -924,8 +897,10 @@ def what_broke_block(date: str, model: dict) -> str:
                 first = lst[0]
                 inner = f'<span class="id">{esc(tid)}</span> {esc(first["title"] or "")}'
                 link = f'<a href="#{esc(first["anchor"])}">{inner}</a>' if first["anchor"] else inner
-                parts = ", ".join(f'{esc(i["state"])} ({esc(i["actor"] or "review verdict")})' for i in lst)
-                out.append(f'<li>{link} · state: {parts} · final state: {esc(finals.get(tid) or "not recorded")}</li>')
+                parts = ", ".join(f'{esc(i["state"])} ({esc(i["actor"] or "review verdict")}{", reopened" if i["kind"] == "reopened" else ""})' for i in lst)
+                fx = ' <span class="badge other">fixture</span>' if any(i["fixture"] for i in lst) else ""
+                notes = "".join(f'<br><span class="summary">{esc(i["note"])}</span>' for i in lst if i["note"])
+                out.append(f'<li>{link} · state: {parts} · final state: {esc(finals.get(tid) or "not recorded")}{fx}{notes}</li>')
             out.append("</ul>")
     out.append('<p class="note">Failed runs and rate-limit events are not in the export.</p></section>')
     return "\n".join(out)
@@ -952,7 +927,7 @@ def check_broke() -> dict:
             if not m:
                 continue
             tid = html.unescape(m.group(1))
-            for st in re.findall(r"(?:^|, |state: )([A-Za-z_\-]+) \(", html.unescape(re.sub(r"<[^>]+>", "", li.split("state:", 1)[-1])).strip()):
+            for st in re.findall(r"(?:^|, |state: )([A-Za-z_\-]+) \(", html.unescape(re.sub(r"<[^>]+>", "", li.split("state:", 1)[-1].split("final state:", 1)[0])).strip()):
                 got.add((tid, st))
         if want != got:
             mism.append({"page": name, "issue": f"listed {sorted(got)} != index.json {sorted(want)}"})
@@ -961,7 +936,12 @@ def check_broke() -> dict:
         for a in re.findall(r'href="#([^"]+)"', sec):
             if f'id="{a}"' not in t:
                 bad.append({"page": name, "anchor": a})
-    return {"pages_checked": len(pages), "mismatches": mism, "bad_anchors": bad}
+    dup = []
+    for f in pages:
+        t = f.read_text(encoding="utf-8")
+        if t.count('id="what-broke"') != 1 or t.count('id="broke"') > 1 or re.search(r"<h2[^>]*>\s*What did not go to plan", t):
+            dup.append(f"/day/{f.parent.name}/")
+    return {"pages_checked": len(pages), "mismatches": mism, "bad_anchors": bad, "duplicate_blocks": dup}
 
 
 def check_lead() -> dict:
@@ -1019,7 +999,6 @@ def render_day(date: str, model: dict) -> str:
     body.append(fixture_note([p["days"][date] for _, p in present]))
     anchors = task_anchors(date, model)
     body.append(what_broke_block(date, model))
-    body.append(not_to_plan_block(date, model))
     body.append(shipped_vs_came_block(date, model))
     if present:
         body.append('<p class="toc">' + " · ".join(f'<a href="#{esc(s)}">{esc(p["product"].get("name") or s)}</a>' for s, p in present) + "</p>")
@@ -2734,6 +2713,7 @@ def main(argv: list[str] | None = None) -> int:
         problems += [f"paths: {m}" for m in pc["missing"]]
         problems += [f"home: {m}" for m in hc["issues"]]
         problems += [f"lead: {i['page']} {i['issue']}" for i in lcd["issues"]]
+        problems += [f"broke: duplicate failure blocks {p}" for p in bkc["duplicate_blocks"]]
         problems += [f"jsonld: invalid {i['page']} {i['issue']}" for i in jl["invalid"]] + [f"jsonld: missing {p}" for p in jl["missing"]]
         problems += [f"seo: no self-canonical {p}" for p in seo["canonical_missing"]] + [f"seo: no lastmod {p}" for p in seo["lastmod_missing"]]
         problems += [f"seo: orphan {p}" for p in seo["orphans"]] + [f"seo: duplicate title {d['title']}" for d in seo["duplicate_titles"]]

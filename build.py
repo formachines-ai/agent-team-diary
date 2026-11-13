@@ -1361,13 +1361,72 @@ def check_home() -> dict:
             ok = "no activity recorded" in block
             if not ok:
                 issues.append("today.json has no date but block does not say no activity recorded")
-    return {"latest_link_ok": ok, "issues": issues}
+    return {"latest_link_ok": ok, "issues": issues, "lead_mismatches": check_home_lead()}
+
+
+def home_lead_block(latest: str | None, model: dict) -> str:
+    """Home first screen, below #latest-day: <section id="home-lead"> with the latest day's #day-lead sentences (same function as
+    the day page, data-k re-pointed at that day's index.json), the failure line and a link to /day/<date>/."""
+    if not latest:
+        return ""
+    lead = day_lead_block(latest, model)
+    m = re.search(r"<p>.*</p>", lead, re.S)
+    para = m.group(0) if m else "<p>no activity recorded.</p>"
+    para = re.sub(r'data-k="(counts\.[^"]*)"', lambda mm: f'data-k="day/{latest}:{mm.group(1)}"', para)
+    para = para.replace('href="#', f'href="/day/{latest}/#')
+    return (f'<section id="home-lead" class="day-lead home-lead"><h2 id="home-lead-h">What happened on <a href="/day/{esc(latest)}/">{esc(latest)}</a></h2>'
+            f'{para}<p>{esc(feed_failure_line(latest, model).replace(" (see What went wrong)", ""))} '
+            f'<a href="/day/{esc(latest)}/#what-broke">Full day: {esc(latest)}</a></p></section>')
+
+
+def check_home_lead() -> list:
+    """#home-lead: exactly one; its lead sentences equal the day page's #day-lead text; failure count equals the tasks in #what-broke."""
+    mm = []
+    try:
+        t = (PUBLIC_DIR / "index.html").read_text(encoding="utf-8")
+        today = json.loads((PUBLIC_DIR / "today.json").read_text(encoding="utf-8"))
+    except (OSError, ValueError) as e:
+        return [{"issue": f"cannot read: {e}"}]
+    date = today.get("date")
+    cnt = t.count('id="home-lead"')
+    if not date:
+        return [] if cnt == 0 else [{"issue": "home-lead present without a date"}]
+    if cnt != 1:
+        return [{"issue": f"home-lead count {cnt}"}]
+    i = t.rfind("<", 0, t.find('id="home-lead"'))
+    blk = t[i:t.find("</section>", i)]
+    try:
+        d = (PUBLIC_DIR / "day" / date / "index.html").read_text(encoding="utf-8")
+    except OSError as e:
+        return [{"issue": f"day page unreadable: {e}"}]
+    a = d.rfind("<", 0, d.find('id="day-lead"'))
+    lead = html_text(d[a:d.find("</section>", a)])
+    if lead not in html_text(blk):
+        mm.append({"issue": "lead text differs from day page", "date": date})
+    b = d.rfind("<", 0, d.find('id="what-broke"'))
+    wb = d[b:d.find("</section>", b)]
+    n = sum(int(x) for x in re.findall(r"<h3>[^<]*: (\d+) tasks?</h3>", wb))
+    want = f"Failed in the records: {n} {'task' if n == 1 else 'tasks'}" if n else f"Nothing failed in the records of {date}"
+    if "no activity recorded" in wb and not n:
+        want = "No activity recorded"
+    if want not in html_text(blk):
+        mm.append({"issue": f"failure line differs, want '{want}'", "date": date})
+    try:
+        idx = json.loads((PUBLIC_DIR / "day" / date / "index.json").read_text(encoding="utf-8"))
+        nb = len({(x.get("product"), x.get("task")) for x in idx.get("broke") or []})
+        if nb != n:
+            mm.append({"issue": f"index.json broke tasks {nb} != page {n}", "date": date})
+    except (OSError, ValueError) as e:
+        mm.append({"issue": f"index.json unreadable: {e}"})
+    if f'href="/day/{date}/"' not in blk:
+        mm.append({"issue": "link to day page missing"})
+    return mm
 
 
 def render_index(model: dict) -> str:
     products, dates = model["products"], model["dates"]
     latest = dates[-1] if dates else None
-    body = [f"<h1>{esc(SITE_NAME)}</h1>", f'<p class="lead">{esc(SITE_TAGLINE)}</p>', try_line(), latest_day_top_block(latest, model)]
+    body = [f"<h1>{esc(SITE_NAME)}</h1>", f'<p class="lead">{esc(SITE_TAGLINE)}</p>', try_line(), latest_day_top_block(latest, model), home_lead_block(latest, model)]
     if latest:
         body.append(f'<h2 id="latest">Latest day: <a href="/day/{esc(latest)}/">{esc(latest)}</a></h2>')
         body.append(progress_note(latest, model["built"]))
@@ -2914,7 +2973,7 @@ def main(argv: list[str] | None = None) -> int:
     if args.check:
         problems = check_site()
         problems += [f"paths: {m}" for m in pc["missing"]]
-        problems += [f"home: {m}" for m in hc["issues"]]
+        problems += [f"home: {m}" for m in hc["issues"]] + [f"home lead: {m}" for m in hc.get("lead_mismatches", [])]
         problems += [f"lead: {i['page']} {i['issue']}" for i in lcd["issues"]]
         problems += [f"feed: {i}" for i in fcd["lead_mismatches"]] + [f"feed: bad link {l}" for l in fcd["bad_links"]] + [f"feed: guid changed {g}" for g in fcd["guid_changed"]]
         if not fcd["items"]:

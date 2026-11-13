@@ -386,6 +386,13 @@ def jsonld_block(data: dict) -> str:
     return ('<script type="application/ld+json">' + json.dumps(data, ensure_ascii=False).replace("<", "\\u003c") + "</script>\n")
 
 
+FOOTER_PRODUCTS: list[tuple[str, str]] = []
+
+
+def footer_products() -> str:
+    return " · ".join(f'<a href="/product/{esc(sl)}/">{esc(nm)}</a>' for sl, nm in FOOTER_PRODUCTS)
+
+
 def layout(title: str, body: str, built: str, description: str = "", canonical: str = "", noindex: bool = False,
            ld_type: str = "WebPage", desc_max: int = DESC_MAX, date_published: str = "") -> str:
     desc = description or SITE_TAGLINE
@@ -437,6 +444,7 @@ def layout(title: str, body: str, built: str, description: str = "", canonical: 
 <footer class="site"><div class="wrap">
 <p>{esc(FOOTER_LINE)} · responsible: <a href="{esc(RESPONSIBLE_URL)}">{esc(RESPONSIBLE)}</a> · updated {esc(built)} UTC</p>
 <p>Source: the team's public export of its own task records (allowlisted fields only). Text: <a href="{esc(LICENSE_URL)}">CC BY 4.0</a> · framework code: <a href="/go/github/" rel="nofollow">{esc(FRAMEWORK_LICENSE)} on GitHub</a> · <a href="/legal/">Legal</a> · <a href="/llms.txt">llms.txt</a> · no cookies, no tracking, no JavaScript.</p>
+<p class="sitelinks">Products: {footer_products()} · <a href="/brand/">Brand</a></p>
 </div></footer>
 </body>
 </html>
@@ -791,7 +799,7 @@ def check_seo() -> dict:
         if d:
             descs.setdefault(d, []).append(path)
     ddup = [{"description": k, "pages": v} for k, v in descs.items() if len(v) > 1]
-    return {"description_duplicates": ddup, "description_length_issues": desc_len, "pages_checked": len(pages), "canonical_missing": canonical_missing, "lastmod_missing": lastmod_missing,
+    return {"pages_in_sitemap": len(locs), "description_duplicates": ddup, "description_length_issues": desc_len, "pages_checked": len(pages), "canonical_missing": canonical_missing, "lastmod_missing": lastmod_missing,
             "orphans": orphans, "duplicate_titles": dup, "noindex": noindex, "daylink_missing": daylink_missing}
 
 
@@ -1069,9 +1077,9 @@ def render_day(date: str, model: dict) -> str:
     prev_d, next_d = neighbours(date, model["dates"])
     nav = []
     if prev_d:
-        nav.append(f'<a href="/day/{esc(prev_d)}/">← {esc(prev_d)}</a>')
+        nav.append(f'<a rel="prev" href="/day/{esc(prev_d)}/">← {esc(prev_d)}</a>')
     if next_d:
-        nav.append(f'<a href="/day/{esc(next_d)}/">{esc(next_d)} →</a>')
+        nav.append(f'<a rel="next" href="/day/{esc(next_d)}/">{esc(next_d)} →</a>')
     if nav:
         body.append('<p class="toc">' + " · ".join(nav) + "</p>")
     body.append(progress_note(date, model["built"]))
@@ -1920,6 +1928,7 @@ def write_site(model: dict) -> dict:
     PUBLIC_DIR.mkdir(parents=True, exist_ok=True)
     # never delete public/ wholesale: addresses must survive; old day pages stay even if a day file disappears.
     written = 0
+    FOOTER_PRODUCTS[:] = [(sl, p["product"].get("name") or sl) for sl, p in model["products"].items()]
     write_text(PUBLIC_DIR / "index.html", render_index(model)); written += 1
     for date in model["dates"]:
         write_text(PUBLIC_DIR / "day" / date / "index.html", render_day(date, model)); written += 1
@@ -2799,6 +2808,7 @@ def main(argv: list[str] | None = None) -> int:
     log.info("audit_check: documented=%d missing=%d", ad["fields_documented"], len(ad["fields_missing"]))
     seo = check_seo()
     bj["seo_check"] = seo
+    bj["orphan_check"] = {"pages_in_sitemap": seo["pages_in_sitemap"], "orphans": seo["orphans"]}
     write_json(PUBLIC_DIR / "build.json", bj)
     log.info("seo_check: pages=%d canonical_missing=%d lastmod_missing=%d orphans=%d duplicate_titles=%d", seo["pages_checked"],
              len(seo["canonical_missing"]), len(seo["lastmod_missing"]), len(seo["orphans"]), len(seo["duplicate_titles"]))
@@ -2825,6 +2835,7 @@ def main(argv: list[str] | None = None) -> int:
         problems += [f"seo: orphan {p}" for p in seo["orphans"]] + [f"seo: duplicate title {d['title']}" for d in seo["duplicate_titles"]]
         problems += [f"seo: duplicate description {d['description']}" for d in seo["description_duplicates"]]
         problems += [f"seo: description {d['page']} {d['issue']} ({d['length']})" for d in seo["description_length_issues"]]
+        problems += [f"orphan: sitemap URL {p} not linked from another page" for p in seo["orphans"]]
         problems += [f"seo: noindex {p}" for p in seo["noindex"]] + [f"seo: {d['page']} lacks link to {d['link']}" for d in seo["daylink_missing"]]
         problems += [f"llms.txt: missing {m}" for m in mch["llms_missing"]] + [f"feed.xml: {m}" for m in mch["feed_missing"]] + mch["json_errors"]
         problems += [f"audit: field not in latest index.json: {m}" for m in ad["fields_missing"]]

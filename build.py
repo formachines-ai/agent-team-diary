@@ -1361,66 +1361,111 @@ def check_home() -> dict:
             ok = "no activity recorded" in block
             if not ok:
                 issues.append("today.json has no date but block does not say no activity recorded")
-    return {"latest_link_ok": ok, "issues": issues, "lead_mismatches": check_home_lead()}
+    return {"latest_link_ok": ok, "issues": issues, **check_home_lead()}
+
+
+def home_lead_data(latest: str, model: dict) -> dict:
+    """What #home-lead names: the first #what-broke task (and how many more), else one accepted task, else nothing."""
+    items = broke_items(latest, model)
+    anchors = task_anchors(latest, model)
+    if items:
+        it = items[0]
+        n = len({(x["product"], x["task"]) for x in items})
+        return {"kind": "failed", "task": it["task"], "title": it["title"] or "", "state": it["state"],
+                "anchor": it["anchor"] or f'{it["product"]}-{it["task"]}', "more": n - 1}
+    for slug, p in model["products"].items():
+        for t in (p["days"].get(latest) or {}).get("tasks") or []:
+            if t.get("id") and any(h.get("to") in DONE_STATES for h in (t.get("history") or [])):
+                aid = anchors.get((slug, str(t["id"])))
+                if aid:
+                    return {"kind": "accepted", "task": str(t["id"]), "title": t.get("title") or "", "state": "accepted", "anchor": aid, "more": 0}
+    return {"kind": "none"}
 
 
 def home_lead_block(latest: str | None, model: dict) -> str:
-    """Home first screen, below #latest-day: <section id="home-lead"> with the latest day's #day-lead sentences (same function as
-    the day page, data-k re-pointed at that day's index.json), the failure line and a link to /day/<date>/."""
+    """Home first screen, below #latest-day: <section id="home-lead">, at most 60 words, no counters: names the first failed
+    (else one accepted) task of the latest day with a link to its anchor, the export caveat and a link to the day page."""
     if not latest:
         return ""
-    lead = day_lead_block(latest, model)
-    m = re.search(r"<p>.*</p>", lead, re.S)
-    para = m.group(0) if m else "<p>no activity recorded.</p>"
-    para = re.sub(r'data-k="(counts\.[^"]*)"', lambda mm: f'data-k="day/{latest}:{mm.group(1)}"', para)
-    para = para.replace('href="#', f'href="/day/{latest}/#')
-    return (f'<section id="home-lead" class="day-lead home-lead"><h2 id="home-lead-h">What happened on <a href="/day/{esc(latest)}/">{esc(latest)}</a></h2>'
-            f'{para}<p>{esc(feed_failure_line(latest, model).replace(" (see What went wrong)", ""))} '
-            f'<a href="/day/{esc(latest)}/#what-broke">Full day: {esc(latest)}</a></p></section>')
+    h = home_lead_data(latest, model)
+    day = f"/day/{esc(latest)}/"
+    if not any(p["days"].get(latest) for p in model["products"].values()):
+        body = "No activity recorded."
+    else:
+        title = h.get("title", "")
+        words = title.split()
+        if len(words) > 18:
+            title = " ".join(words[:18]) + "…"
+        if h["kind"] == "failed":
+            body = (f'Failed: <a href="{day}#{esc(h["anchor"])}"><span class="id">{esc(h["task"])}</span> {esc(title)}</a> ({esc(h["state"])})'
+                    + (f', <a href="{day}#what-broke">and {h["more"]} more</a>' if h["more"] else "") + ".")
+        elif h["kind"] == "accepted":
+            body = (f'Nothing failed in the records. One accepted task: <a href="{day}#{esc(h["anchor"])}">'
+                    f'<span class="id">{esc(h["task"])}</span> {esc(title)}</a>.')
+        else:
+            body = "Nothing failed in the records."
+        body += " Failed runs and rate limits are not in the export."
+    return (f'<section id="home-lead" class="day-lead home-lead"><h2 id="home-lead-h">What happened on {esc(latest)}</h2>'
+            f'<p>{body} <a href="{day}">Full day: {esc(latest)}</a></p></section>')
 
 
-def check_home_lead() -> list:
-    """#home-lead: exactly one; its lead sentences equal the day page's #day-lead text; failure count equals the tasks in #what-broke."""
-    mm = []
+def check_home_lead() -> dict:
+    """#home-lead: exactly one; <= 60 words; no counters; names the first #what-broke task (or an accepted one) whose anchor
+    exists once on the day page; export caveat; link to the day page."""
+    mm, bad, words = [], [], 0
     try:
         t = (PUBLIC_DIR / "index.html").read_text(encoding="utf-8")
         today = json.loads((PUBLIC_DIR / "today.json").read_text(encoding="utf-8"))
     except (OSError, ValueError) as e:
-        return [{"issue": f"cannot read: {e}"}]
+        return {"lead_mismatches": [{"issue": f"cannot read: {e}"}], "bad_anchors": [], "words": 0}
     date = today.get("date")
     cnt = t.count('id="home-lead"')
     if not date:
-        return [] if cnt == 0 else [{"issue": "home-lead present without a date"}]
+        return {"lead_mismatches": [] if cnt == 0 else [{"issue": "home-lead present without a date"}], "bad_anchors": [], "words": 0}
     if cnt != 1:
-        return [{"issue": f"home-lead count {cnt}"}]
+        return {"lead_mismatches": [{"issue": f"home-lead count {cnt}"}], "bad_anchors": [], "words": 0}
     i = t.rfind("<", 0, t.find('id="home-lead"'))
     blk = t[i:t.find("</section>", i)]
+    txt = html_text(blk)
+    words = len(txt.split())
+    if words > 60:
+        mm.append({"issue": f"{words} words > 60"})
+    if "data-k" in blk or "$" in txt:
+        mm.append({"issue": "counters or spend in home-lead"})
     try:
         d = (PUBLIC_DIR / "day" / date / "index.html").read_text(encoding="utf-8")
-    except OSError as e:
-        return [{"issue": f"day page unreadable: {e}"}]
-    a = d.rfind("<", 0, d.find('id="day-lead"'))
-    lead = html_text(d[a:d.find("</section>", a)])
-    if lead not in html_text(blk):
-        mm.append({"issue": "lead text differs from day page", "date": date})
-    b = d.rfind("<", 0, d.find('id="what-broke"'))
-    wb = d[b:d.find("</section>", b)]
-    n = sum(int(x) for x in re.findall(r"<h3>[^<]*: (\d+) tasks?</h3>", wb))
-    want = f"Failed in the records: {n} {'task' if n == 1 else 'tasks'}" if n else f"Nothing failed in the records of {date}"
-    if "no activity recorded" in wb and not n:
-        want = "No activity recorded"
-    if want not in html_text(blk):
-        mm.append({"issue": f"failure line differs, want '{want}'", "date": date})
-    try:
         idx = json.loads((PUBLIC_DIR / "day" / date / "index.json").read_text(encoding="utf-8"))
-        nb = len({(x.get("product"), x.get("task")) for x in idx.get("broke") or []})
-        if nb != n:
-            mm.append({"issue": f"index.json broke tasks {nb} != page {n}", "date": date})
     except (OSError, ValueError) as e:
-        mm.append({"issue": f"index.json unreadable: {e}"})
+        return {"lead_mismatches": [{"issue": f"day page unreadable: {e}"}], "bad_anchors": [], "words": words}
+    if "no activity recorded" in d.lower() and "No activity recorded" in txt:
+        pass
+    else:
+        if "are not in the export" not in txt:
+            mm.append({"issue": "export caveat missing"})
+        b = d.rfind("<", 0, d.find('id="what-broke"'))
+        wb = d[b:d.find("</section>", b)]
+        first = re.search(r'<li><a href="#([^"]+)"><span class="id">([^<]+)</span> ([^<]*)</a> · state: ([a-z_]+)', wb)
+        if first:
+            want = f'Failed: {html.unescape(first.group(2))}'
+            if want not in txt or f"({first.group(4)})" not in txt:
+                mm.append({"issue": f"first failed task not named, want '{want}' ({first.group(4)})"})
+            if f'href="/day/{date}/#{first.group(1)}"' not in blk:
+                mm.append({"issue": "link to first failed task missing"})
+            n = sum(int(x) for x in re.findall(r"<h3>[^<]*: (\d+) tasks?</h3>", wb))
+            if (n > 1) != ("more" in txt):
+                mm.append({"issue": f"'and N more' vs {n} failed tasks"})
+        elif "nothing failed in the records" not in txt.lower():
+            mm.append({"issue": "nothing-failed line missing"})
+        elif "One accepted task" not in txt and idx.get("counts") and any((c or {}).get("tasks_done_distinct") for c in idx["counts"].values()):
+            mm.append({"issue": "accepted task not named"})
+    for a in re.findall(r'href="/day/[^"#]+/#([^"]+)"', blk):
+        if a != "what-broke" and d.count(f'id="{a}"') != 1:
+            bad.append(a)
+        elif a == "what-broke" and d.count('id="what-broke"') != 1:
+            bad.append(a)
     if f'href="/day/{date}/"' not in blk:
         mm.append({"issue": "link to day page missing"})
-    return mm
+    return {"lead_mismatches": mm, "bad_anchors": bad, "words": words}
 
 
 def render_index(model: dict) -> str:

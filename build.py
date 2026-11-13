@@ -817,35 +817,6 @@ def check_nav() -> dict:
     return {"pages_checked": len(pages), "missing": missing}
 
 
-def shipped_vs_came_block(date: str, model: dict) -> str:
-    """Day page, after 'What did not go to plan': per product tasks accepted and reviews next to human and agent visits.
-    Counts are the day index.json counts.<slug>.* values; a missing field reads 'no data in the export'."""
-    out = ['<section class="shipped-vs-came" id="shipped-section"><h2 id="shipped-vs-came">Shipped vs who came</h2>']
-    present = [(slug, p, p["days"][date]) for slug, p in model["products"].items() if date in p["days"]]
-    if not present:
-        out.append('<p class="note">no activity recorded</p></section>')
-        return "\n".join(out)
-    if all(d.get("fixture") for _, _, d in present):
-        out.append('<p class="note">fixture: sample data in the export format, not a measurement.</p>')
-    out.append('<p class="note">Counts from the export for this day: tasks accepted (distinct tasks that reached an accepted state), '
-               'reviews, human and agent visits from the server log.</p>')
-    out.append('<div class="table-wrap"><table class="table"><thead><tr><th>Product</th><th>Tasks accepted</th><th>Reviews</th>'
-               '<th>Human visits</th><th>Agent visits</th></tr></thead><tbody>')
-    for slug, p, d in present:
-        c = day_counts(d)
-        m = d.get("metrics") or {}
-
-        def cell(field, val, present_ok):
-            return dk(f"counts.{slug}.{field}", val) if present_ok else "no data in the export"
-        out.append(f'<tr><th scope="row"><a href="#{esc(slug)}">{esc(p["product"].get("name") or slug)}</a></th>'
-                   f'<td>{cell("tasks_done_distinct", c["tasks_done_distinct"], True)}</td>'
-                   f'<td>{cell("reviews", c["reviews"], True)}</td>'
-                   f'<td>{cell("humans", c["humans"], c["humans"] is not None)}</td>'
-                   f'<td>{cell("agents", c["agents"], c["agents"] is not None)}</td></tr>')
-    out.append('</tbody></table></div></section>')
-    return "\n".join(out)
-
-
 def day_lead_block(date: str, model: dict) -> str:
     """Day page, right after <h1>: 2-4 plain sentences from this day's export. Per product: tasks accepted, review
     verdicts, spend (counts.<slug>.* of index.json, each in data-k), plus one failed or accepted task linked to its anchor."""
@@ -932,10 +903,10 @@ def work_vs_people_block(date: str, model: dict) -> str:
         return "\n".join(out)
     if all(d.get("fixture") for _, _, d in present):
         out.append('<p class="note">fixture: sample data in the export format, not a measurement.</p>')
-    out.append('<p class="note">Per product, this day, from the export: tasks accepted next to the <code>humans</code> and <code>engaged</code> '
-               'values of the visit log. A cell reads "not in the export" when the export has no such field.</p>')
-    out.append('<div class="table-wrap"><table class="table"><thead><tr><th>Product</th><th>Tasks accepted</th>'
-               '<th>humans</th><th>engaged</th></tr></thead><tbody>')
+    out.append('<p class="note" id="shipped-vs-came">Per product, this day, from the export: tasks accepted, reviews, and the <code>humans</code>, <code>engaged</code> '
+               'and agent values of the visit log. A cell reads "not in the export" when the export has no such field.</p>')
+    out.append('<div class="table-wrap" id="shipped-section"><table class="table"><thead><tr><th>Product</th><th>Tasks accepted</th><th>Reviews</th>'
+               '<th>humans</th><th>engaged</th><th>Agent visits</th></tr></thead><tbody>')
     for slug, p, d in present:
         c = day_counts(d)
         m = d.get("metrics") or {}
@@ -945,7 +916,9 @@ def work_vs_people_block(date: str, model: dict) -> str:
             return dk(f"products.{slug}.metrics.{field}", v) if v is not None else "not in the export"
         out.append(f'<tr><th scope="row"><a href="#{esc(slug)}">{esc(p["product"].get("name") or slug)}</a></th>'
                    f'<td>{dk(f"counts.{slug}.tasks_done_distinct", c["tasks_done_distinct"])}</td>'
-                   f'<td>{mc("humans")}</td><td>{mc("engaged")}</td></tr>')
+                   f'<td>{dk(f"counts.{slug}.reviews", c["reviews"])}</td>'
+                   f'<td>{mc("humans")}</td><td>{mc("engaged")}</td>'
+                   f'<td>{dk(f"counts.{slug}.agents", c["agents"]) if c["agents"] is not None else "not in the export"}</td></tr>')
     out.append('</tbody></table></div></section>')
     return "\n".join(out)
 
@@ -985,7 +958,12 @@ def check_outcome() -> dict:
             for cell in cells[1:]:
                 if "data-k" not in cell and "not in the export" not in cell:
                     mism.append({"page": name, "issue": f"bare cell {cell}"})
-    return {"pages_checked": len(pages), "mismatches": mism}
+    dup = []
+    for f in pages:
+        t = f.read_text(encoding="utf-8")
+        if t.count('id="work-vs-people"') != 1 or re.search(r"<h2[^>]*>\s*Shipped vs", t):
+            dup.append(f"/day/{f.parent.name}/")
+    return {"pages_checked": len(pages), "mismatches": mism, "duplicate_blocks": dup}
 
 
 def check_broke() -> dict:
@@ -1153,7 +1131,6 @@ def render_day(date: str, model: dict) -> str:
     anchors = task_anchors(date, model)
     body.append(what_broke_block(date, model))
     body.append(work_vs_people_block(date, model))
-    body.append(shipped_vs_came_block(date, model))
     if present:
         body.append('<p class="toc">' + " · ".join(f'<a href="#{esc(s)}">{esc(p["product"].get("name") or s)}</a>' for s, p in present) + "</p>")
         for slug, p in present:
@@ -2943,7 +2920,7 @@ def main(argv: list[str] | None = None) -> int:
         if not fcd["items"]:
             problems.append("feed: no items")
         problems += [f"broke: duplicate failure blocks {p}" for p in bkc["duplicate_blocks"]]
-        problems += [f"outcome: {m}" for m in ocd["mismatches"]]
+        problems += [f"outcome: {m}" for m in ocd["mismatches"]] + [f"outcome: duplicate block {d}" for d in ocd["duplicate_blocks"]]
         problems += [f"ids: duplicate id {x['id']} on {x['page']}" for x in idc["duplicate_ids"]]
         problems += [f"ids: dangling link {x['link']} on {x['page']}" for x in idc["dangling_links"]]
         problems += [f"jsonld: invalid {i['page']} {i['issue']}" for i in jl["invalid"]] + [f"jsonld: missing {p}" for p in jl["missing"]]

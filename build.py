@@ -922,6 +922,72 @@ def what_broke_block(date: str, model: dict) -> str:
     return "\n".join(out)
 
 
+def work_vs_people_block(date: str, model: dict) -> str:
+    """Day page, below #what-broke: per product tasks accepted next to human and engaged visits, as index.json names them
+    (counts.<slug>.tasks_done_distinct, products.<slug>.metrics.humans / .engaged). Missing field = 'not in the export'."""
+    out = ['<section id="work-vs-people" class="work-vs-people"><h2 id="work-vs-people-h">Work vs. people</h2>']
+    present = [(slug, p, p["days"][date]) for slug, p in model["products"].items() if date in p["days"]]
+    if not present:
+        out.append('<p class="note">no activity recorded</p></section>')
+        return "\n".join(out)
+    if all(d.get("fixture") for _, _, d in present):
+        out.append('<p class="note">fixture: sample data in the export format, not a measurement.</p>')
+    out.append('<p class="note">Per product, this day, from the export: tasks accepted next to the <code>humans</code> and <code>engaged</code> '
+               'values of the visit log. A cell reads "not in the export" when the export has no such field.</p>')
+    out.append('<div class="table-wrap"><table class="table"><thead><tr><th>Product</th><th>Tasks accepted</th>'
+               '<th>humans</th><th>engaged</th></tr></thead><tbody>')
+    for slug, p, d in present:
+        c = day_counts(d)
+        m = d.get("metrics") or {}
+
+        def mc(field):
+            v = n(m.get(field)) if m.get(field) is not None else None
+            return dk(f"products.{slug}.metrics.{field}", v) if v is not None else "not in the export"
+        out.append(f'<tr><th scope="row"><a href="#{esc(slug)}">{esc(p["product"].get("name") or slug)}</a></th>'
+                   f'<td>{dk(f"counts.{slug}.tasks_done_distinct", c["tasks_done_distinct"])}</td>'
+                   f'<td>{mc("humans")}</td><td>{mc("engaged")}</td></tr>')
+    out.append('</tbody></table></div></section>')
+    return "\n".join(out)
+
+
+def check_outcome() -> dict:
+    """Every /day/*/: numbers in #work-vs-people equal index.json; a row per product of the page; absent field = 'not in the export'."""
+    mism, pages = [], sorted(PUBLIC_DIR.glob("day/*/index.html"))
+    for f in pages:
+        name = f"/day/{f.parent.name}/"
+        t = f.read_text(encoding="utf-8")
+        i = t.find('id="work-vs-people"')
+        if i < 0:
+            mism.append({"page": name, "issue": "work-vs-people missing"})
+            continue
+        sec = t[i:t.find("</section>", i)]
+        if "<h2" not in sec:
+            mism.append({"page": name, "issue": "h2 missing"})
+        data = json.loads(f.with_name("index.json").read_text(encoding="utf-8"))
+        rows = re.findall(r"<tr><th scope=\"row\">.*?</tr>", sec, re.S)
+        shown = [s for s, pr in (data.get("products") or {}).items() if pr]
+        if not rows and "no activity recorded" not in sec:
+            mism.append({"page": name, "issue": "no rows and no empty-state sentence"})
+        if rows and len(rows) != len(shown):
+            mism.append({"page": name, "issue": f"{len(rows)} rows != {len(shown)} products in index.json"})
+        for row in rows:
+            cells = re.findall(r"<td>(.*?)</td>", row, re.S)
+            for key, val in re.findall(r'data-k="([^"]+)">([^<]*)<', row):
+                cur = data
+                try:
+                    for part in key.split("."):
+                        cur = cur[part]
+                except (KeyError, TypeError):
+                    mism.append({"page": name, "key": key, "issue": "unknown path"})
+                    continue
+                if html.unescape(val) != str(cur):
+                    mism.append({"page": name, "key": key, "html": val, "json": cur})
+            for cell in cells[1:]:
+                if "data-k" not in cell and "not in the export" not in cell:
+                    mism.append({"page": name, "issue": f"bare cell {cell}"})
+    return {"pages_checked": len(pages), "mismatches": mism}
+
+
 def check_broke() -> dict:
     """Every /day/*/: #what-broke listed (task, state) pairs equal the 'broke' list of index.json; anchors exist on the page."""
     mism, bad, pages = [], [], sorted(PUBLIC_DIR.glob("day/*/index.html"))
@@ -1086,6 +1152,7 @@ def render_day(date: str, model: dict) -> str:
     body.append(fixture_note([p["days"][date] for _, p in present]))
     anchors = task_anchors(date, model)
     body.append(what_broke_block(date, model))
+    body.append(work_vs_people_block(date, model))
     body.append(shipped_vs_came_block(date, model))
     if present:
         body.append('<p class="toc">' + " · ".join(f'<a href="#{esc(s)}">{esc(p["product"].get("name") or s)}</a>' for s, p in present) + "</p>")
@@ -2825,6 +2892,10 @@ def main(argv: list[str] | None = None) -> int:
     bj["broke_check"] = bkc
     write_json(PUBLIC_DIR / "build.json", bj)
     log.info("broke_check: pages=%d mismatches=%d bad_anchors=%d", bkc["pages_checked"], len(bkc["mismatches"]), len(bkc["bad_anchors"]))
+    ocd = check_outcome()
+    bj["outcome_check"] = ocd
+    write_json(PUBLIC_DIR / "build.json", bj)
+    log.info("outcome_check: pages=%d mismatches=%d", ocd["pages_checked"], len(ocd["mismatches"]))
     idc = check_ids()
     bj["id_check"] = idc
     write_json(PUBLIC_DIR / "build.json", bj)
@@ -2872,6 +2943,7 @@ def main(argv: list[str] | None = None) -> int:
         if not fcd["items"]:
             problems.append("feed: no items")
         problems += [f"broke: duplicate failure blocks {p}" for p in bkc["duplicate_blocks"]]
+        problems += [f"outcome: {m}" for m in ocd["mismatches"]]
         problems += [f"ids: duplicate id {x['id']} on {x['page']}" for x in idc["duplicate_ids"]]
         problems += [f"ids: dangling link {x['link']} on {x['page']}" for x in idc["dangling_links"]]
         problems += [f"jsonld: invalid {i['page']} {i['issue']}" for i in jl["invalid"]] + [f"jsonld: missing {p}" for p in jl["missing"]]

@@ -1539,7 +1539,7 @@ def render_about(built: str, latest: str | None = None) -> str:
             '<h2 id="audit-trail">Audit trail</h2>',
             "<p>Each day's <code>/day/&lt;date&gt;/index.json</code> is a reusable record of what the agents did and why: for every task, the list of transitions, and for every review, its verdict. Fields are named exactly as in the file, under <code>products.&lt;slug&gt;.tasks[]</code> and <code>products.&lt;slug&gt;.reviews[]</code>.</p>",
             "<ul>" + "".join(f"<li><code>{esc(f)}</code> ({k}): {esc(d)}</li>" for k, f, d in AUDIT_FIELDS) + "</ul>",
-            (f'<p>Latest: <a href="/day/{esc(latest)}/index.json">/day/{esc(latest)}/index.json</a></p>' if latest else "<p>No day recorded yet.</p>"),
+            (f'<p>Latest: <a href="/day/{esc(latest)}/index.json">/day/{esc(latest)}/index.json</a> · summary: <a href="/today.json">/today.json</a> · for agents: <a href="/llms.txt">/llms.txt</a>. Not in the export: questions to the owner, feedback texts, failed runs, rate limits.</p>' if latest else "<p>No day recorded yet.</p>"),
             '<h2 id="this-site">This site</h2>',
             "<p>The diary is itself one of the team's products. A dispatcher script exports the allowlisted fields of each product's records "
             "once a day into this repository; <code>build.py</code> renders them; the server publishes the committed <code>public/</code> "
@@ -1777,11 +1777,13 @@ def render_llms(model: dict) -> str:
                   f"- `broke` in the day index.json: items of what broke that day, each with kind transition (a task moved to a broken state), review (a review with verdict fail or inconclusive) or reopened (a task moved from review to ready/in_progress, review in the same day's records). Example: {day_json}",
                   f"- `broke_counts` in the day index.json: counts of those items by state (review_fail, review_inconclusive, reopened and the transition states). Example: {day_json}",
                   f"- `artifact` in the day index.json, on each accepted/done task under products.<slug>.tasks: {{kind,url}} (kind pr, commit or post) taken from a link already in the export, or null when the export has no link. Example: {day_json}"]
-    lines += ["", "## Audit trail", "",
+    lines += ["", "## Audit trail per day", "",
               "Each /day/YYYY-MM-DD/index.json is a reusable audit trail of what the agents did and why: per task the transitions (who, to which state, note, time), per review the verdict. Field names are as in the file:", ""]
     lines += audit_lines(latest)
     if latest:
-        lines += ["", f"- [Latest day {latest} index.json]({SITE_BASE}/day/{latest}/index.json): example with all fields above"]
+        lines += ["", f"- [Latest day {latest} index.json]({SITE_BASE}/day/{latest}/index.json): example with all fields above",
+                  f"- [today.json]({SITE_BASE}/today.json): summary of the latest day (counts only, no transitions)"]
+    lines += ["", "Not in the export: questions to the owner, feedback texts, failed runs, rate limits."]
     lines += ["", "## Pages", "",
              f"- [Front page]({SITE_BASE}/): latest day per product, what this is, products, recent days",
              f"- [About]({SITE_BASE}/about/): roles, the hourly cycle, task states, policies, safeguards",
@@ -2572,6 +2574,46 @@ def check_audit() -> dict:
     return {"fields_documented": len(AUDIT_FIELDS), "fields_missing": missing, "checked_day": days[-1] if days else None}
 
 
+def check_llms() -> dict:
+    """Fields named in the llms.txt section 'Audit trail per day' must be keys in the latest index.json; its links and
+    the /about/ links to the same index.json and /llms.txt must exist."""
+    try:
+        txt = (PUBLIC_DIR / "llms.txt").read_text(encoding="utf-8")
+        about = (PUBLIC_DIR / "about" / "index.html").read_text(encoding="utf-8")
+    except OSError:
+        return {"fields_named": 0, "missing_fields": ["llms.txt/about unreadable"], "bad_links": []}
+    m = re.search(r"^## Audit trail per day\n(.*?)(?=^## )", txt, re.M | re.S)
+    sec = m.group(1) if m else ""
+    names = re.findall(r"^- `products\.<slug>\.(?:tasks|reviews)\[\]\.([^`]+)`", sec, re.M)
+    ad = check_audit()
+    seen: set = set()
+    day = ad["checked_day"]
+    try:
+        d = json.loads((PUBLIC_DIR / "day" / day / "index.json").read_text(encoding="utf-8"))
+        for p in d.get("products", {}).values():
+            for t in p.get("tasks", []):
+                seen |= set(t)
+                for h in t.get("history", []):
+                    seen |= {"history[]." + k for k in h}
+            for r in p.get("reviews", []):
+                seen |= set(r)
+    except (OSError, ValueError, TypeError):
+        pass
+    missing = [n for n in names if n not in seen]
+    links = re.findall(re.escape(SITE_BASE) + r"(/[^\s)]*)", sec)
+    links += [l for l in re.findall(r'href="(/[^"#]*)"', about.split('id="audit-trail"')[-1].split("<h2")[0])]
+    for need in ("/today.json", f"/day/{day}/index.json"):
+        if need not in links:
+            links.append(need)
+    bad = sorted({l for l in links if not (PUBLIC_DIR / l.lstrip("/")).is_file() and not (PUBLIC_DIR / l.lstrip("/") / "index.html").is_file()})
+    if not m:
+        missing.append("section 'Audit trail per day'")
+    for need in (f"/day/{day}/index.json", "/llms.txt"):
+        if f'href="{need}"' not in about:
+            bad.append("about:" + need)
+    return {"fields_named": len(names), "missing_fields": missing, "bad_links": bad}
+
+
 def check_machine() -> dict:
     """Files agents read: llms.txt names the machine addresses, feed.xml has the latest day and only existing days,
     every day index.json and today.json parse with the right date."""
@@ -2804,6 +2846,8 @@ def main(argv: list[str] | None = None) -> int:
     write_json(PUBLIC_DIR / "build.json", bj)
     ad = check_audit()
     bj["audit_check"] = ad
+    lk = check_llms()
+    bj["llms_check"] = lk
     write_json(PUBLIC_DIR / "build.json", bj)
     log.info("audit_check: documented=%d missing=%d", ad["fields_documented"], len(ad["fields_missing"]))
     seo = check_seo()
@@ -2838,6 +2882,9 @@ def main(argv: list[str] | None = None) -> int:
         problems += [f"orphan: sitemap URL {p} not linked from another page" for p in seo["orphans"]]
         problems += [f"seo: noindex {p}" for p in seo["noindex"]] + [f"seo: {d['page']} lacks link to {d['link']}" for d in seo["daylink_missing"]]
         problems += [f"llms.txt: missing {m}" for m in mch["llms_missing"]] + [f"feed.xml: {m}" for m in mch["feed_missing"]] + mch["json_errors"]
+        problems += [f"llms_check: field {m}" for m in lk["missing_fields"]] + [f"llms_check: bad link {m}" for m in lk["bad_links"]]
+        if not lk["fields_named"]:
+            problems.append("llms_check: no fields named")
         problems += [f"audit: field not in latest index.json: {m}" for m in ad["fields_missing"]]
         problems += [f"wellknown: missing or empty {m}" for m in wk["missing"]] + wk["problems"]
         problems += [f"{m['page']}: nav link {m['link']} not before first h2" for m in nav["missing"]]

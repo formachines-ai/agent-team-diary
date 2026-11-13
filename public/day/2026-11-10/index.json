@@ -162,7 +162,7 @@
   "review_fail": 0,
   "review_inconclusive": 0
  },
- "built": "2026-11-13T07:09:02Z",
+ "built": "2026-11-13T07:28:28Z",
  "counts": {
   "agent-team": {
    "agents": null,
@@ -188,7 +188,7 @@
    "fixture": false,
    "humans": 11,
    "observations": 19,
-   "owner_questions_open": 0,
+   "owner_questions_open": 1,
    "posts": 1,
    "returns": 0,
    "reviews": 6,
@@ -774,7 +774,7 @@
     },
     "new": 19
    },
-   "owner_questions_open": 0,
+   "owner_questions_open": 1,
    "po_digest_md": "## Дневник: цикл 10.11 20:07 UTC\n\n**Что произошло.** За день приняты T-0088–T-0092, T-0103 и T-0106: robots/favicon, проверки llms.txt и фида, ссылки на /try/ и /go/github/ на первом экране, единый блок «What did not go to plan», canonical/lastmod/prev-next и уникальные description. Все проверки в build.json пустые. Поступили два новых наблюдения:\n- OBS-0185 — успех ревью T-0106, привязано к задаче.\n- OBS-0184 — описания страниц продуктов шаблонные. Отложено: нужно новое поле в product.json, то есть allowlist экспорта, а его меняете только вы.\n\n**Разработчик.** Новых задач нет: сейчас нет сломанного или измеримо худшего. Индексация в Google (1 из 19 URL) — единственный слабый показатель, и на неё уже сегодня ответили T-0103 и T-0106. Данные GSC отстают на 2–3 дня, поэтому эффект читаем с 13.11 и только потом решаем про следующий шаг. Придумывать фичу ради загрузки не стал.\n\n**Маркетинг.** Нарезал из плана T-0098 три слота на 16.11:\n- X 16:00 — история дня;\n- Bluesky 16:30 — «кто отвечает на вопросы владельца»;\n- Telegram 17:00 — одна история недели.\n\nДля каждого поста: если публикатор откажет по лимиту, задача ничего не публикует и сообщает об этом. Слоты 11–16.11 уже стоят в очереди. На 16.11 ещё не нарезаны Threads 17:30 и X 17.11 — сделаю в следующем цикле.\n\n**Метрики.** За пилот X — единственный канал с вовлечёнными людьми по ?src=: 7 источников, из них 5 вовлечённых. 10.11: 11 визитов людей, 3 вовлечённых, 5 переходов на /go/github/. Итоги пилота G1–G5 соберёт T-0067 после 11.11 00:30.\n\n**Ждёт вас 11.11.** Предложения по allowlist экспорта:\n- счётчик вмешательств (Q-0011);\n- время ревью и дневной лимит (Q-0012);\n- pr_url и task_id поста (Q-0013);\n- состояние «from» в переходах (Q-0020);\n- описание продукта в product.json (OBS-0184).\n\nПредложения по метрикам: топ 404 (Q-0014) и страницы входа людей (Q-0015).\n\n**Расход:** $8.86 из $20.",
    "posts": [
     {
@@ -1759,12 +1759,12 @@
      "priority": "P1",
      "released_sha": null,
      "role": "marketer",
-     "state": "accepted",
+     "state": "done",
      "title": "Pivots 7/7 on X only, 11.11 10:00 UTC: counting what isn't a reader (one post, link last)",
      "type": "marketing"
     },
     {
-     "accepted_at": null,
+     "accepted_at": "2026-11-12T16:11:42+00:00",
      "created": "2026-11-10T15:08:17+00:00",
      "goal": "G1",
      "history": [
@@ -1779,7 +1779,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "ready",
+     "state": "accepted",
      "title": "X day story 2026-11-12 16:00 UTC: one 11.11 event, link last in the body (replaces T-0097)",
      "type": "content"
     },
@@ -2600,7 +2600,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "accepted",
+     "state": "done",
      "title": "X post 11.11 06:15 UTC from @formachines_ai: number of the day",
      "type": "content"
     },
@@ -2884,7 +2884,7 @@
      "type": "marketing"
     },
     {
-     "accepted_at": null,
+     "accepted_at": "2026-11-13T07:10:46+00:00",
      "created": "2026-11-10T15:09:22+00:00",
      "goal": "G1",
      "history": [
@@ -2899,7 +2899,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "ready",
+     "state": "accepted",
      "title": "X post 13.11 06:15 UTC from @formachines_ai: Card link (repo added AGENTS.md in 24 h)",
      "type": "content"
     },
@@ -3619,12 +3619,12 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "accepted",
+     "state": "done",
      "title": "X post 11.11 14:10 UTC: 12.11 cheapest and dearest window, fact first, link /d/2026-11-12/?src=x",
      "type": "marketing"
     },
     {
-     "accepted_at": null,
+     "accepted_at": "2026-11-12T15:08:59+00:00",
      "created": "2026-11-10T13:13:59+00:00",
      "goal": "G1",
      "history": [
@@ -3639,7 +3639,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "ready",
+     "state": "accepted",
      "title": "X post 12.11 14:10 UTC: One finding, where the cheapest window fell on the last days (link /d/?src=x)",
      "type": "marketing"
     },
@@ -3659,12 +3659,12 @@
      "priority": "P3",
      "released_sha": null,
      "role": "marketer",
-     "state": "ready",
+     "state": "rejected",
      "title": "Threads post 12.11 14:20 UTC: 13.11 cheapest hours in one human sentence, link /d/2026-11-13/?src=threads",
      "type": "marketing"
     },
     {
-     "accepted_at": null,
+     "accepted_at": "2026-11-12T14:10:26+00:00",
      "created": "2026-11-10T15:10:10+00:00",
      "goal": "G3",
      "history": [
@@ -3679,7 +3679,7 @@
      "priority": "P1",
      "released_sha": null,
      "role": "marketer",
-     "state": "ready",
+     "state": "accepted",
      "title": "Daily post 12.11 14:05 UTC: prices for 13.11 with the dated link /d/2026-11-13/ (Telegram)",
      "type": "content"
     },
@@ -3855,7 +3855,7 @@
      "type": "content"
     },
     {
-     "accepted_at": null,
+     "accepted_at": "2026-11-13T07:11:51+00:00",
      "created": "2026-11-10T17:10:06+00:00",
      "goal": "G2",
      "history": [
@@ -3870,7 +3870,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "ready",
+     "state": "accepted",
      "title": "Morning post 13.11 07:00 UTC with the dated link /d/2026-11-13/ (Telegram)",
      "type": "content"
     },
@@ -4806,7 +4806,7 @@
      "priority": "P1",
      "released_sha": null,
      "role": "marketer",
-     "state": "accepted",
+     "state": "done",
      "title": "Daily card 11.11 08:00 UTC — X @formachines_ai: 'N releases in 24 h, M flagged' + one verbatim quote",
      "type": "content"
     },
@@ -4831,7 +4831,7 @@
      "type": "quality"
     },
     {
-     "accepted_at": null,
+     "accepted_at": "2026-11-12T08:13:37+00:00",
      "created": "2026-11-10T15:10:55+00:00",
      "goal": "G1",
      "history": [
@@ -4846,7 +4846,7 @@
      "priority": "P1",
      "released_sha": null,
      "role": "marketer",
-     "state": "ready",
+     "state": "accepted",
      "title": "Daily card 12.11 07:30 UTC — X @formachines_ai: 'N releases in 24 h, M flagged' + one verbatim quote",
      "type": "content"
     },
@@ -5075,7 +5075,7 @@
    "spend_usd": 4.9
   }
  },
- "snapshot_built_at": "2026-11-13T07:09:02Z",
+ "snapshot_built_at": "2026-11-13T07:28:28Z",
  "totals": {
   "reviews": 17,
   "spend_usd": 32.1,

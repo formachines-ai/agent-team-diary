@@ -1,0 +1,330 @@
+{
+ "slug": "agent-team",
+ "name": "agent-team (framework)",
+ "site": "",
+ "date": "2026-11-13",
+ "tasks": [
+  {
+   "id": "T-0126",
+   "title": "[retro] Test: every allowlist example from the card/scheme matches REPO_ONLY_REVIEW_TOOLS",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-12T22:10:56+00:00",
+   "accepted_at": "2026-11-13T00:11:01+00:00",
+   "released_sha": "95324bfcce6af282ca089b1787336385b4310111",
+   "history": [
+    {
+     "ts": "2026-11-13T00:07:39+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261113T0007-exec-T-0126"
+    },
+    {
+     "ts": "2026-11-13T00:07:39+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-13T00:11:01+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261113T0007-canary of release-radar on a state copy: all phases); merged 95324bfcce"
+    },
+    {
+     "ts": "2026-11-13T00:11:01+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0127",
+   "title": "[retro] Reviewer allowlist: accept `python3 -B -m unittest ...` (reviewers keep using -B)",
+   "type": "feature",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-12T23:13:32+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-13T01:07:36+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Duplicate of done T-0109/T-0120, which already added -B to the allowlist (OBS-0226). The persisting denials are being diagnosed in T-0111."
+    }
+   ]
+  },
+  {
+   "id": "T-0128",
+   "title": "[retro] Reviewer card: --grep cannot contain double quotes, `=`, or HTML entities",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-12T23:13:33+00:00",
+   "accepted_at": "2026-11-13T01:10:39+00:00",
+   "released_sha": "09cc95b980f52c9fdfa17d66c73dcb9ca34f772e",
+   "history": [
+    {
+     "ts": "2026-11-13T01:07:37+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261113T0107-exec-T-0128"
+    },
+    {
+     "ts": "2026-11-13T01:07:37+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-13T01:10:39+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261113T0107-canary of release-radar on a state copy: all phases); merged 09cc95b980"
+    },
+    {
+     "ts": "2026-11-13T01:10:39+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0129",
+   "title": "[retro] Reviewer prompt: tell it not to use -B or other flags outside the allowlist",
+   "type": "feature",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-13T00:14:35+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-13T00:14:35+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-13T01:07:36+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Duplicate of done T-0125/T-0121 (the card already forbids -B and extra flags). It also contradicts T-0127."
+    }
+   ]
+  },
+  {
+   "id": "T-0130",
+   "title": "[retro] Reviewer repo_only allowlist: accept -B, and tell the reviewer the allowed forms",
+   "type": "feature",
+   "state": "waiting_owner",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-13T01:19:51+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-13T01:19:51+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-13T02:07:44+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261113T0207-exec-T-0130"
+    },
+    {
+     "ts": "2026-11-13T02:07:44+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-13T02:08:33+00:00",
+     "actor": "dispatcher",
+     "to": "waiting_owner",
+     "note": "pull request https://github.com/OOuph/agent-team/pull/218 (tests edited/deleted without a 'tests-change-reason: F-xxxx' line: tests/test_repo_only_tools.py)"
+    }
+   ]
+  },
+  {
+   "id": "T-0131",
+   "title": "[retro] team-fetch --grep: accept plain words and parentheses, and document the denied characters",
+   "type": "feature",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-13T01:19:52+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-13T01:19:52+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-13T02:07:44+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Duplicate of T-0124 (same --grep problem, F-0194/F-0185). The scope of T-0131 lacks team/bin/team-fetch, so its criteria cannot be met. T-0124 has that file in scope and PR #206."
+    }
+   ]
+  },
+  {
+   "id": "T-0132",
+   "title": "[retro] Developer changes list: derive it from git diff in the dispatcher",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-13T01:19:53+00:00",
+   "accepted_at": "2026-11-13T03:10:35+00:00",
+   "released_sha": "12d25d677999df674be4a0c453e1e474b024eeab",
+   "history": [
+    {
+     "ts": "2026-11-13T01:19:53+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-13T03:07:23+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261113T0307-exec-T-0132"
+    },
+    {
+     "ts": "2026-11-13T03:07:23+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-13T03:10:35+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261113T0307-canary of release-radar on a state copy: all phases); merged 12d25d6779"
+    },
+    {
+     "ts": "2026-11-13T03:10:35+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0133",
+   "title": "[retro] Reviewer repo_only: allow `-B` unittest forms and stop bytecode writes",
+   "type": "feature",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-13T03:13:18+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-13T03:13:18+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-13T04:07:42+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Duplicate of T-0130 (the same -B unittest allowlist change). The PR for T-0130 already exists, and a second PR would conflict with it."
+    }
+   ]
+  },
+  {
+   "id": "T-0134",
+   "title": "[retro] Reviewer repo_only checkout: writable scratch for tests that render the site",
+   "type": "feature",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-13T03:13:19+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-13T03:13:19+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-13T04:07:42+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Duplicate of T-0094 (writable scratch dir for the repo_only reviewer checkout). The PR for T-0094 already exists."
+    }
+   ]
+  },
+  {
+   "id": "T-0135",
+   "title": "[retro] team-fetch --grep: accept plain words such as 'not' and document denied characters in the reviewer card",
+   "type": "feature",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-13T03:13:20+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-13T03:13:20+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-13T04:07:42+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Duplicate of T-0124 (team-fetch --grep plain words). The PR for T-0124 already exists."
+    }
+   ]
+  }
+ ],
+ "reviews": [],
+ "posts": [],
+ "metrics": null,
+ "spend_usd": 0.9,
+ "po_digest_md": "**Цикл 13.11.** Расход $0.70 из $10.\n\nТри новых issue (#220, #221, #222) повторяют задачи, у которых уже есть PR. Новых задач нет.\n\n- #220 (разрешить `-B` для unittest) дублирует T-0130 (PR #218). T-0133 закрыта.\n- #221 (записываемый scratch-каталог в read-only чекауте) дублирует T-0094 (PR #163). T-0134 закрыта.\n- #222 (`team-fetch --grep` с обычными словами) дублирует T-0124 (PR #206). T-0135 закрыта.\n\nРетро предлагает одно и то же уже около 10 раз. Причина не в отсутствии задач: PR #218, #206, #187, #176, #163 и #157 стоят с пометкой «tests changed without reason». По Q-0009 разработчик должен либо добавить строку `tests-change-reason: F-xxxx` со ссылкой на реальную запись регистра, либо откатить правки тестов. Пока этого нет, `-B`-отказы ревьюера (F-0188…F-0202) продолжаются.\n\nОт владельца ничего не требуется. Если эти PR и дальше будут стоять, стоит проверить, доходит ли до разработчика возврат по Q-0009.",
+ "analyst_md": "",
+ "observations": {
+  "new": 11,
+  "by_class": {
+   "feedback": 9,
+   "need_hypothesis": 2
+  }
+ },
+ "owner_questions_open": 0
+}

@@ -1,0 +1,264 @@
+{
+ "slug": "release-radar",
+ "name": "Release Radar",
+ "site": "https://releases.formachines.ai",
+ "date": "2026-11-13",
+ "tasks": [
+  {
+   "id": "T-0107",
+   "title": "One MCP server: fold the older mcp/server.py into release_radar_mcp.py so /mcp/ offers a single server",
+   "type": "quality",
+   "state": "done",
+   "priority": "P3",
+   "goal": "G4",
+   "role": "developer",
+   "created": "2026-11-11T15:10:43+00:00",
+   "accepted_at": "2026-11-11T21:08:44+00:00",
+   "released_sha": "763fd82bcde9168a411ff116ba6f021f6127b5fd",
+   "history": [
+    {
+     "ts": "2026-11-13T00:14:04+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-13T00:14:04+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0111",
+   "title": "Honest 'no release notes found' label: card label + home block when neither GitHub Releases nor CHANGELOG.md mention the version",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-11T18:12:52+00:00",
+   "accepted_at": "2026-11-11T19:11:15+00:00",
+   "released_sha": "76903b555f0f71c5872128f62e51c2752d2769d5",
+   "history": [
+    {
+     "ts": "2026-11-13T00:14:04+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-13T00:14:04+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0112",
+   "title": "Home 'Versions without release notes' block collapsed into <details> with N in the summary, so release cards stay near the top",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-11T19:12:00+00:00",
+   "accepted_at": "2026-11-11T20:11:52+00:00",
+   "released_sha": "0fdfd95fe12d4207c50ea0c8e037fcea6f6da7b5",
+   "history": [
+    {
+     "ts": "2026-11-13T00:14:04+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-13T00:14:04+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0114",
+   "title": "/mcp/ page lists every tool the published server has (adds releases_today), with the list generated from release_radar_mcp.py",
+   "type": "defect",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G4",
+   "role": "developer",
+   "created": "2026-11-11T21:09:30+00:00",
+   "accepted_at": "2026-11-11T22:11:35+00:00",
+   "released_sha": "5b3ea590ee3f6af19a86189b64b20de142df472b",
+   "history": [
+    {
+     "ts": "2026-11-13T00:14:04+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-13T00:14:04+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0115",
+   "title": "Home 'Versions without release notes' count shows its coverage: checked-no-notes / not fetched / no repo URL, from the same build",
+   "type": "defect",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-11T22:12:11+00:00",
+   "accepted_at": "2026-11-12T00:10:32+00:00",
+   "released_sha": "a1ce4ce16b33de01e404a310a1a2a0657de725bf",
+   "history": [
+    {
+     "ts": "2026-11-13T00:14:04+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-13T00:14:04+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0116",
+   "title": "Home 'Versions without release notes': split the count into stable vs pre-release/dev builds, each with its own collapsed list",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-12T00:11:21+00:00",
+   "accepted_at": "2026-11-12T01:14:20+00:00",
+   "released_sha": "7e9cc66f3eeec948ebd4a361ba0090720534693d",
+   "history": [
+    {
+     "ts": "2026-11-13T06:12:33+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-13T06:12:33+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0117",
+   "title": "Flagged cards say when the flag falls on a minor/patch or 0.x bump: 'flagged in a minor/patch release (A → B)' label and home count",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-12T01:15:30+00:00",
+   "accepted_at": "2026-11-12T02:14:12+00:00",
+   "released_sha": "a42029cf050457a60addb2076ace7e8d4936020d",
+   "history": [
+    {
+     "ts": "2026-11-13T06:12:33+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — Принята 12.11, чтение 26.11; нет данных по минорным флагам."
+    },
+    {
+     "ts": "2026-11-13T06:12:33+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0118",
+   "title": "/pkg/<eco>/<name>/ keeps up to 90 days of release history across builds, so pinned teams see every flagged quote",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "developer",
+   "created": "2026-11-12T02:15:13+00:00",
+   "accepted_at": "2026-11-12T03:08:40+00:00",
+   "released_sha": "3f673037ac7d30a81fe8d42b0aafa6e50e8379c7",
+   "history": [
+    {
+     "ts": "2026-11-13T06:12:33+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — Принята 12.11; returns всё ещё 0 на 12.11, история ещё не накопилась; чтение 27.11."
+    },
+    {
+     "ts": "2026-11-13T06:12:33+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0119",
+   "title": "History records keep no_notes, so cards restored from /pkg/ history keep 'No release notes found (checked <date>)'",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-12T03:09:22+00:00",
+   "accepted_at": "2026-11-12T05:10:43+00:00",
+   "released_sha": "639f45339ce50d4255123e1fe66d8fc8bf8c6dcc",
+   "history": [
+    {
+     "ts": "2026-11-13T06:12:33+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-13T06:12:33+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  }
+ ],
+ "reviews": [],
+ "posts": [],
+ "metrics": {
+  "humans": 2,
+  "engaged": 0,
+  "returns": 0,
+  "agents": 42,
+  "crawlers": 90,
+  "requests": 202
+ },
+ "spend_usd": 1.0,
+ "po_digest_md": "**Release Radar — цикл 13.11 07:07 UTC**\n\n**Что произошло.** Сборки идут каждый день. Посты в X 11.11 и 12.11 вышли (79 релизов, 4 с флагом). Карточка 13.11 (T-0094) стоит на 07:30, Mastodon (T-0095) — на 12:00.\n\n**Новые наблюдения аналитика (5), без новых задач:**\n- Боты кликают по ссылкам /go/vote/ (714 запросов 11.11, 228 — 12.11). Это уже исправляют T-0104 (nofollow) и T-0072 (robots и noindex), обе на ревью. Эти запросы мы по-прежнему не засчитываем в G3.\n- 12.11: 711 «человеческих» запросов, но engaged только 1, а 131 из них пришлись на /pkg/npm/@openai/codex/. Похоже на скрейпер, которого фильтр ботов принял за человека. Классы запросов настраивают ops, поэтому отложено до владельца. Считаем людей консервативно, по engaged.\n- В индексе Google 3 из 101 страницы, кликов 0. Связано с T-0120 (canonical, title, ссылки на все /pkg/; на ревью) и T-0121 (честный lastmod; готова).\n- Гипотеза о спаде показов и запросы вида «astro latest version» отложены: смотрим GSC после 20.11 и 27.11.\n\n**Решение.** Новых задач не ставим: у разработчика уже есть T-0121 и три задачи на ревью, у маркетолога расписаны слоты до 17.11 и план T-0122 с 16.11. Сначала доводим начатое.\n\n**Ждёт владельца** (вопросы уже заданы): цели после пилота, targets /feed-breaking.xml, /ci-check.*, /mcp/, классификация /go/vote/ и скрейпера.\n\n**Расходы:** $0.66 из $20.",
+ "analyst_md": "**Итог (данные до 13.11 06:02 UTC; 13.11 — неполный день).** Пилот 04–10.11 закрыт ниже порогов; в снимке нет 04–06.11, поэтому суммы по людям — нижняя оценка.\n\n| Уровень | Значение |\n|---|---|\n| Люди (engaged, 07–10.11) | 5+1+2+6 = 14 (цель ≥40) |\n| Возвраты | 0 во всех днях (цель ≥5) |\n| Внешний клик /go/ (human src) | 4 (10.11), 4 (11.11), 1 (12.11) |\n| Внешние referer-домены | google, t.co, a8q9.cn |\n| /today.json от агентов | 0 agent src за все дни (цель ≥5) |\n| Discovery (12.11) | краулеры 696 запр., 293 источника |\n| Google | 0 кликов, 697 показов, в индексе 3 из 101 |\n\n**Посты → визиты.** X 11.11 и 12.11 дали по 1 engaged-источнику с `?src=x` (12.11 — referer t.co 1). Это один источник в день, до/после по часам недоступно. Bluesky/Telegram после 10.11 не публиковались. devto-визиты (4–10 в день) — 0 людей, вероятно превью/боты.\n\n**Аномалия:** 12.11 «люди» = 711 запросов от 20 источников, из них 228 на /go/vote/ с одного human-источника и 131 на /pkg/npm/@openai/codex/. Похоже на нераспознанный бот или наш прогон, а не 711 людей.\n\nКраулеры (meta-externalagent, 11.11 — 1015 запр.) массово ходят по /go/ и /go/vote/*.",
+ "observations": {
+  "new": 9,
+  "by_class": {
+   "need_hypothesis": 3,
+   "reproducible_defect": 3,
+   "measurement": 3
+  }
+ },
+ "owner_questions_open": 0
+}

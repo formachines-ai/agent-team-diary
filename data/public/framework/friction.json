@@ -1,24 +1,19 @@
 {
- "generated": "2026-11-12T07:28:10+00:00",
+ "generated": "2026-11-13T07:28:28+00:00",
  "days": 7,
- "total": 76,
+ "total": 87,
  "by_kind": {
+  "task_blocked": 30,
+  "reported": 27,
+  "tool_denied": 23,
   "review_fail": 2,
-  "reported": 26,
-  "tool_denied": 15,
-  "task_blocked": 28,
   "phase_error": 3,
   "env_error": 2
  },
  "by_day": {
-  "2026-11-05": {
-   "review_fail": 1,
-   "reported": 1
-  },
   "2026-11-06": {
-   "tool_denied": 1,
-   "reported": 3,
-   "task_blocked": 3
+   "task_blocked": 3,
+   "reported": 2
   },
   "2026-11-07": {
    "task_blocked": 2,
@@ -47,12 +42,122 @@
    "reported": 1
   },
   "2026-11-12": {
-   "task_blocked": 1,
-   "tool_denied": 1,
-   "reported": 2
+   "task_blocked": 2,
+   "tool_denied": 6,
+   "reported": 5,
+   "review_fail": 1
+  },
+  "2026-11-13": {
+   "tool_denied": 4,
+   "task_blocked": 1
   }
  },
  "recent": [
+  {
+   "ts": "2026-11-13T07:09:56+00:00",
+   "product": "agentsmd-tracker",
+   "role": "dispatcher",
+   "kind": "task_blocked",
+   "summary": "T-0138 Scan accuracy: resolve each repo's current default branch at: stuck: 3 failed attempts on this goal; the PO replans it with 3 alternatives"
+  },
+  {
+   "ts": "2026-11-13T04:08:14+00:00",
+   "product": "agentsmd-tracker",
+   "role": "reviewer",
+   "kind": "tool_denied",
+   "summary": "reviewer: denied Bash(python3 -B -m unittest tests.test_check_path -v)"
+  },
+  {
+   "ts": "2026-11-13T03:10:59+00:00",
+   "product": "agentsmd-tracker",
+   "role": "reviewer",
+   "kind": "tool_denied",
+   "summary": "reviewer: denied Bash(python3 -B -m unittest tests.test_mobile_a11y -v)"
+  },
+  {
+   "ts": "2026-11-13T02:09:35+00:00",
+   "product": "agentsmd-tracker",
+   "role": "reviewer",
+   "kind": "tool_denied",
+   "summary": "reviewer: denied Bash(python3 -B -m unittest tests.test_fallback -v)"
+  },
+  {
+   "ts": "2026-11-13T00:12:00+00:00",
+   "product": "agentsmd-tracker",
+   "role": "reviewer",
+   "kind": "tool_denied",
+   "summary": "reviewer: denied Bash(team-fetch https://agentsmd.formachines.ai/ --grep under 300 bytes) --around 100), Bash(team-fetch https://agentsmd.formachines.ai/ --grep (under)"
+  },
+  {
+   "ts": "2026-11-12T22:08:14+00:00",
+   "product": "agentsmd-tracker",
+   "role": "reviewer",
+   "kind": "tool_denied",
+   "summary": "reviewer: denied Bash(python3 -B -m unittest tests.test_go_pages -v)"
+  },
+  {
+   "ts": "2026-11-12T22:08:14+00:00",
+   "product": "agentsmd-tracker",
+   "role": "reviewer",
+   "kind": "reported",
+   "summary": "reviewer: [denied_permission] python3 -m unittest tests.test_go_pages -v was listed as allowed but required approval, so the test could not be run."
+  },
+  {
+   "ts": "2026-11-12T21:11:05+00:00",
+   "product": "agentsmd-tracker",
+   "role": "reviewer",
+   "kind": "tool_denied",
+   "summary": "reviewer: denied Bash(python3 -B -m unittest tests.test_go_pages -v)"
+  },
+  {
+   "ts": "2026-11-12T21:11:05+00:00",
+   "product": "agentsmd-tracker",
+   "role": "reviewer",
+   "kind": "review_fail",
+   "summary": "T-0131: The /go/<id>/ pages now carry noindex, nofollow, all 8939 /go/ links are nofollow, the offline test passes, and build.json has data_delayed false. The only /go/ pages linked from /repo/3b1b/ma"
+  },
+  {
+   "ts": "2026-11-12T21:09:07+00:00",
+   "product": "agent-team-diary",
+   "role": "reviewer",
+   "kind": "tool_denied",
+   "summary": "reviewer: denied Bash(team-fetch https://agentteam.formachines.ai/day/2026-11-11/ --grep id=&quot;agen)"
+  },
+  {
+   "ts": "2026-11-12T19:08:21+00:00",
+   "product": "agent-team-diary",
+   "role": "reviewer",
+   "kind": "reported",
+   "summary": "reviewer: [other] team-fetch rejected --grep patterns containing the word 'not' (usage error), so the exact old heading text could not be searched directly."
+  },
+  {
+   "ts": "2026-11-12T16:12:20+00:00",
+   "product": "luz-amanha",
+   "role": "dispatcher",
+   "kind": "task_blocked",
+   "summary": "T-0110 Threads post 12.11 14:20 UTC: 13.11 cheapest hours in one hu: question Q-0041"
+  },
+  {
+   "ts": "2026-11-12T15:07:47+00:00",
+   "product": "agentsmd-tracker",
+   "role": "reviewer",
+   "kind": "tool_denied",
+   "summary": "reviewer: denied Bash(python3 -B -m unittest tests.test_head -v)"
+  },
+  {
+   "ts": "2026-11-12T15:07:47+00:00",
+   "product": "agentsmd-tracker",
+   "role": "reviewer",
+   "kind": "reported",
+   "summary": "reviewer: [denied_permission] The allowed command `python3 -B -m unittest tests.test_head -v` required approval, so the test could not be run."
+  },
+  {
+   "ts": "2026-11-12T14:08:42+00:00",
+   "product": "agentsmd-tracker",
+   "role": "reviewer",
+   "kind": "tool_denied",
+   "summary": "reviewer: denied Bash(python3 -B -m unittest tests.test_sitemap -v)"
+  },
   {
    "ts": "2026-11-12T05:09:24+00:00",
    "product": "agent-team",
@@ -297,111 +402,6 @@
    "role": "marketer",
    "kind": "reported",
    "summary": "marketer: [other] dev.to rejects a repeated canonical URL (422), but the task requires the bare site root as canonical every week."
-  },
-  {
-   "ts": "2026-11-09T16:09:43+00:00",
-   "product": "agent-team-diary",
-   "role": "marketer",
-   "kind": "tool_denied",
-   "summary": "marketer: denied Edit(/home/ubuntu/agent-team/dispatcher/data/work/agent-team-diary/20261109T1607-mkt-)"
-  },
-  {
-   "ts": "2026-11-09T15:11:58+00:00",
-   "product": "agentsmd-tracker",
-   "role": "marketer",
-   "kind": "reported",
-   "summary": "marketer: [missing_data] No way to read likes/reposts/replies of earlier X posts, which the task asks for."
-  },
-  {
-   "ts": "2026-11-09T15:08:02+00:00",
-   "product": "agent-team",
-   "role": "dispatcher",
-   "kind": "reported",
-   "summary": "dispatcher: [other] claim vs git diff MISMATCH T-0066: developer summary names files not in the git diff: po.md"
-  },
-  {
-   "ts": "2026-11-09T14:10:42+00:00",
-   "product": "agent-team-diary",
-   "role": "dispatcher",
-   "kind": "task_blocked",
-   "summary": "T-0052 dev.to weekly summary 2026-11-09 10:00 UTC: three events of : question Q-0019"
-  },
-  {
-   "ts": "2026-11-09T14:10:42+00:00",
-   "product": "agent-team-diary",
-   "role": "marketer",
-   "kind": "reported",
-   "summary": "marketer: [other] dev.to rejects a repeated canonical URL (422), but the task requires the site root every week."
-  },
-  {
-   "ts": "2026-11-09T14:10:13+00:00",
-   "product": "agent-team-diary",
-   "role": "marketer",
-   "kind": "tool_denied",
-   "summary": "marketer: denied Edit(/home/ubuntu/agent-team/dispatcher/data/work/agent-team-diary/20261109T1407/mkt-)"
-  },
-  {
-   "ts": "2026-11-09T13:13:38+00:00",
-   "product": "release-radar",
-   "role": "marketer",
-   "kind": "reported",
-   "summary": "marketer: [denied_permission] The Edit tool was denied on my own article.md, so I could not fix the closing line before publishing."
-  },
-  {
-   "ts": "2026-11-09T13:13:15+00:00",
-   "product": "release-radar",
-   "role": "marketer",
-   "kind": "tool_denied",
-   "summary": "marketer: denied Edit(/home/ubuntu/agent-team/dispatcher/data/work/release-radar/20261109T1307/mkt-T-0)"
-  },
-  {
-   "ts": "2026-11-09T13:10:59+00:00",
-   "product": "agent-team-diary",
-   "role": "editor",
-   "kind": "tool_denied",
-   "summary": "editor: denied Bash(team-fetch https://agentteam.formachines.ai/day/2026-11-08/index.json --grep fai)"
-  },
-  {
-   "ts": "2026-11-09T13:10:59+00:00",
-   "product": "agent-team-diary",
-   "role": "dispatcher",
-   "kind": "task_blocked",
-   "summary": "T-0052 dev.to weekly summary 2026-11-09 10:00 UTC: three events of : question Q-0018"
-  },
-  {
-   "ts": "2026-11-09T13:10:59+00:00",
-   "product": "agent-team-diary",
-   "role": "marketer",
-   "kind": "reported",
-   "summary": "marketer: [other] dev.to returns HTTP 422 when a canonical URL is reused, and the task requires the site root as canonical every week. I used a query suffix to get around it."
-  },
-  {
-   "ts": "2026-11-09T12:11:28+00:00",
-   "product": "agentsmd-tracker",
-   "role": "marketer",
-   "kind": "reported",
-   "summary": "marketer: [missing_data] Could not get likes/reposts/replies of the 08.11 post: the Bluesky public API returned HTTP 500 and the memory has no engagement numbers."
-  },
-  {
-   "ts": "2026-11-09T11:10:40+00:00",
-   "product": "luz-amanha",
-   "role": "dispatcher",
-   "kind": "task_blocked",
-   "summary": "T-0103 Bluesky reply to the 09.11 'For machines' post: 24 hourly re: question Q-0022"
-  },
-  {
-   "ts": "2026-11-09T11:10:40+00:00",
-   "product": "luz-amanha",
-   "role": "marketer",
-   "kind": "reported",
-   "summary": "marketer: [other] The daily limit of 2 Bluesky posts blocks a small critic-driven reply (G5) that is not a daily card. Replies should probably not count against the limit."
-  },
-  {
-   "ts": "2026-11-09T11:10:06+00:00",
-   "product": "agent-team-diary",
-   "role": "dispatcher",
-   "kind": "task_blocked",
-   "summary": "T-0052 dev.to weekly summary 2026-11-09 10:00 UTC: three events of : question Q-0017"
   }
  ]
 }

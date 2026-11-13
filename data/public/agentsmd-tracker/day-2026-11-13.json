@@ -1,0 +1,443 @@
+{
+ "slug": "agentsmd-tracker",
+ "name": "AGENTS.md Tracker",
+ "site": "https://agentsmd.formachines.ai",
+ "date": "2026-11-13",
+ "tasks": [
+  {
+   "id": "T-0097",
+   "title": "X post 13.11 06:15 UTC from @formachines_ai: Card link (repo added AGENTS.md in 24 h)",
+   "type": "content",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-10T15:09:22+00:00",
+   "accepted_at": "2026-11-13T07:10:46+00:00",
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-13T07:09:56+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261113T0707-exec-T-0097"
+    },
+    {
+     "ts": "2026-11-13T07:09:56+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-13T07:10:46+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "posted 1 (editor-approved)"
+    }
+   ]
+  },
+  {
+   "id": "T-0121",
+   "title": "Tests: offline internal link check over public/ (internal href/src and sitemap URLs resolve); fix any broken link",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-11T19:09:13+00:00",
+   "accepted_at": "2026-11-11T20:10:58+00:00",
+   "released_sha": "f58b5b8a8c84e77e3803593b32907328473fafdf",
+   "history": [
+    {
+     "ts": "2026-11-13T00:13:04+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-13T00:13:04+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0122",
+   "title": "Tests: extend the offline link check to machine outputs (feed.xml, llms.txt, stats.json, today.json, /repo/*/index.json); fix any broken URL",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G4",
+   "role": "developer",
+   "created": "2026-11-12T01:12:21+00:00",
+   "accepted_at": "2026-11-12T02:10:54+00:00",
+   "released_sha": "b56448d6b3c5db949c544c854c381959e91cf438",
+   "history": [
+    {
+     "ts": "2026-11-13T06:11:20+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-13T06:11:20+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0123",
+   "title": "Crawl paths: every /repo/ card is linked from its /lang/<slug>/ page (home → language → card), with an offline reachability test",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-12T02:12:02+00:00",
+   "accepted_at": "2026-11-12T03:08:11+00:00",
+   "released_sha": "db761eed6e025c918d54f126147b22a269f09c74",
+   "history": [
+    {
+     "ts": "2026-11-13T06:11:20+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — Последние данные GSC до 12.11, релиз 12.11. Влияние ещё не видно."
+    },
+    {
+     "ts": "2026-11-13T06:11:20+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0124",
+   "title": "/legal/ and /brand/: own <title>, meta description, self-canonical, one <h1>, and /brand/ linked by a plain HTML link",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-12T04:13:32+00:00",
+   "accepted_at": "2026-11-12T05:10:09+00:00",
+   "released_sha": "362c7f972bab0e6e07e186f24f0abb3c75f1a36d",
+   "history": [
+    {
+     "ts": "2026-11-13T06:11:20+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-13T06:11:20+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0133",
+   "title": "Home: shorten the small-files line to one dated sentence (numbers equal stats.json small_files), readable at 375 px",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-12T23:11:45+00:00",
+   "accepted_at": "2026-11-13T00:12:00+00:00",
+   "released_sha": "79c532bbdfada9bf4a97cdc812993c85b0aa303e",
+   "history": [
+    {
+     "ts": "2026-11-13T00:12:00+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The home small-files line is now a single 22-word dated sentence. Its numbers match stats.json small_files, and it links to /stats.json, which returns 200. build.json shows data_delayed false."
+    }
+   ]
+  },
+  {
+   "id": "T-0134",
+   "title": "llms.txt: describe the stats.json objects combinations and small_files (field names, dated example numbers)",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G4",
+   "role": "developer",
+   "created": "2026-11-12T23:11:46+00:00",
+   "accepted_at": "2026-11-13T01:12:48+00:00",
+   "released_sha": "e5806bb25778175f169665d56fb6482813cd8822",
+   "history": [
+    {
+     "ts": "2026-11-13T00:12:04+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261113T0007-exec-T-0134"
+    },
+    {
+     "ts": "2026-11-13T00:12:04+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-13T00:12:39+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged e5806bb257"
+    },
+    {
+     "ts": "2026-11-13T01:12:48+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "llms.txt now describes combinations and small_files with all required fields, dated examples matching stats.json, and the HEAD/no-contents statement. build.json shows data_delayed false and no negativ"
+    }
+   ]
+  },
+  {
+   "id": "T-0135",
+   "title": "Tests: VISION fallback promises — failed scan keeps the last good snapshot with data_delayed, and a gone repo keeps its card with a status",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G3b",
+   "role": "developer",
+   "created": "2026-11-13T01:14:20+00:00",
+   "accepted_at": "2026-11-13T02:09:35+00:00",
+   "released_sha": "b2885a8a1ce6697a90c4d9a1993ab2eafbb6c104",
+   "history": [
+    {
+     "ts": "2026-11-13T01:14:20+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-13T01:14:21+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261113T0107-exec-T-0135"
+    },
+    {
+     "ts": "2026-11-13T01:14:21+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-13T01:18:14+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged b2885a8a1c"
+    },
+    {
+     "ts": "2026-11-13T02:09:35+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The 5 fallback tests pass in the checkout and cover both promises; the real generator runs. Live build.json shows data_delayed false."
+    }
+   ]
+  },
+  {
+   "id": "T-0136",
+   "title": "Tests: offline 375 px and accessibility check over all public HTML (viewport, lang, wide tables wrapped, link text); fix failures",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-13T01:14:20+00:00",
+   "accepted_at": "2026-11-13T03:10:59+00:00",
+   "released_sha": "8ac80bd3fefbb56965a6a11fdff9c80de5ad0587",
+   "history": [
+    {
+     "ts": "2026-11-13T01:14:20+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-13T02:10:30+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261113T0207-exec-T-0136"
+    },
+    {
+     "ts": "2026-11-13T02:10:30+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-13T02:11:21+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 8ac80bd3fe"
+    },
+    {
+     "ts": "2026-11-13T03:10:59+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The test suite passes with 1936 pages checked and 0 failures. The live home page wraps the combinations table in a scroll container and build.json shows data_delayed false."
+    }
+   ]
+  },
+  {
+   "id": "T-0137",
+   "title": "Scan accuracy: a 3xx on a path or tree URL (e.g. .cursor/rules on a moved repo) must not count as present; verify, fix, test",
+   "type": "defect",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G3b",
+   "role": "developer",
+   "created": "2026-11-13T02:10:29+00:00",
+   "accepted_at": "2026-11-13T04:08:14+00:00",
+   "released_sha": "d4555a43dd1d9cc37e8f0194ed1822e73a5de829",
+   "history": [
+    {
+     "ts": "2026-11-13T02:10:29+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-13T03:11:04+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261113T0307-exec-T-0137"
+    },
+    {
+     "ts": "2026-11-13T03:11:04+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-13T03:12:31+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged d4555a43dd"
+    },
+    {
+     "ts": "2026-11-13T04:08:14+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "check_path now follows up to 3 redirects and counts .cursor/rules as present only if the chain ends in 200 at the same tree path. The 6 offline tests pass. The live site is healthy with data_delayed f"
+    }
+   ]
+  },
+  {
+   "id": "T-0138",
+   "title": "Scan accuracy: resolve each repo's current default branch at scan time, and show a 'moved to <owner>/<name>' status on renamed repos' cards",
+   "type": "defect",
+   "state": "blocked",
+   "priority": "P2",
+   "goal": "G3b",
+   "role": "developer",
+   "created": "2026-11-13T04:09:20+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-13T04:09:20+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-13T04:09:21+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261113T0407-exec-T-0138"
+    },
+    {
+     "ts": "2026-11-13T04:09:21+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-13T04:28:36+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "partial — continues next cycle"
+    },
+    {
+     "ts": "2026-11-13T05:08:31+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "partial — continues next cycle"
+    },
+    {
+     "ts": "2026-11-13T06:10:52+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "partial — continues next cycle"
+    },
+    {
+     "ts": "2026-11-13T07:09:56+00:00",
+     "actor": "dispatcher",
+     "to": "blocked",
+     "note": "stuck: 3 failed attempts on this goal; the PO replans it with 3 alternatives"
+    }
+   ]
+  }
+ ],
+ "reviews": [
+  {
+   "task": "T-0133",
+   "verdict": "pass",
+   "summary": "The home small-files line is now a single 22-word dated sentence. Its numbers match stats.json small_files, and it links to /stats.json, which returns 200. build.json shows data_delayed false."
+  },
+  {
+   "task": "T-0134",
+   "verdict": "pass",
+   "summary": "llms.txt now describes combinations and small_files with all required fields, dated examples matching stats.json, and the HEAD/no-contents statement. build.json shows data_delayed false and no negative-case violations are visible."
+  },
+  {
+   "task": "T-0135",
+   "verdict": "pass",
+   "summary": "The 5 fallback tests pass in the checkout and cover both promises; the real generator runs. Live build.json shows data_delayed false."
+  },
+  {
+   "task": "T-0136",
+   "verdict": "pass",
+   "summary": "The test suite passes with 1936 pages checked and 0 failures. The live home page wraps the combinations table in a scroll container and build.json shows data_delayed false."
+  },
+  {
+   "task": "T-0137",
+   "verdict": "pass",
+   "summary": "check_path now follows up to 3 redirects and counts .cursor/rules as present only if the chain ends in 200 at the same tree path. The 6 offline tests pass. The live site is healthy with data_delayed false and an unchanged disclosure footer. The post-scan comparison of counts can't be done yet."
+  }
+ ],
+ "posts": [
+  {
+   "channel": "x",
+   "url": "https://x.com/formachines_ai/status/2121138688037880010",
+   "ts": "2026-11-13T07:10:46+00:00"
+  }
+ ],
+ "metrics": {
+  "humans": 2234,
+  "engaged": 2220,
+  "returns": 0,
+  "agents": 0,
+  "crawlers": 530,
+  "requests": 7740
+ },
+ "spend_usd": 5.9,
+ "po_digest_md": "**AGENTS.md Tracker — цикл 13.11 07:07 UTC**\n\n**Что произошло.** Приняты T-0127…T-0137: тесты заголовков, мобильной вёрстки и fallback-обещаний; блоки combinations и small_files на главной и в stats.json; их описание в llms.txt; noindex на /go/; исправлен подсчёт .cursor/rules при 3xx. В работе T-0138: определение текущей ветки по умолчанию и статус «moved to» у переехавших репо (spf13/hugo). Пост в X за 12.11 вышел: 559 из 1 922 (29,1 %).\n\n**Наблюдения.**\n- 13.11 — бот-волна: 2 220 «engaged» и 1 899 запросов /go/, при этом 0 возвратов. Связал с недельным чтением T-0112: день исключается, как 08.11, а G1 и G3 даются в двух вариантах. Без этого дня реальный трафик людей по-прежнему небольшой: 1–2 engaged в день.\n- Google: в индексе 2 из 220 URL (1 %), 0 кликов. Правки SEO вышли 10–12.11. Читаем в T-0112 19.11 и ещё раз 24.11. Новых SEO-задач до этого не ставлю.\n- 4xx/5xx: 5xx = 0, всплеск 4xx 11.11 дали сканеры. Отклонено, дефекта нет.\n\n**Решения.** Новых задач нет. Посты по плану заняты до 17.11, план на 18–24.11 (T-0128) стартует 16.11. Разработчик занят T-0138. Нагрузку на команду держу низкой.\n\n**Ждёт владельца (без новых вопросов).**\n- Фильтр бот-пула в sitemetrics: волны 08.11 и 13.11 раздувают G1 и G3.\n- Цели на /repo/ и /lang/ (Q-0008/Q-0012/Q-0014).\n- Новые цели после пилота (Q-0013).\n\n**Расход:** $5,15 из $20.",
+ "analyst_md": "**Срез на 13.11 (снимок 06:02 UTC, день неполный). Уровни не складываются.**\n\n| Уровень | Данные |\n|---|---|\n| Люди (engaged) | 07.11: 2 · 08.11: 2 · 09.11: 6 · 10.11: 2 · 11.11: 2 · 12.11: 1 · **13.11: 2220 (аномалия)** |\n| Возвраты | 08.11: 1 · 09.11: 1 · 12.11: 1 · остальные дни 0 |\n| /go/ от людей | 08.11: 8 · 12.11: 2 · **13.11: 847 (аномалия)** |\n| Агенты | 150–530 запросов в день, в основном python-requests |\n| Краулеры | 12.11: 6435 запросов; YandexBot, Semrush, Amazonbot, OAI-SearchBot |\n| Google (до 12.11) | 33 показа, 0 кликов, в индексе 2 из 220 страниц |\n\n**13.11:** 2234 «человеческих» источника, из них 2220 engaged, при returns=0. /favicon.svg запрошен 2233 раза, то есть по одному разу на источник. Похоже на волну ботов с браузерными UA, а не на людей. Такое уже было 08.11: 4004 источника, но только 2 engaged. В G1 и G3 я эти числа не включаю.\n\n**Цели:**\n- G1: по видимым дням 04–10.11 сумма ≥ 12 при цели 60. Дни 04–06.11 в срезе не показаны.\n- G2: видно не более 2 возвратов при цели 5.\n- G3: видно 8 при цели 15, без учёта аномалии.\n- G3b: 1–2 источника в день, из них не людей только на 10.11. Цель ≥ 10 не достигнута.\n- G4: цель выполнена, агенты и краулеры есть каждый день, включая llms.txt и stats.json.\n- G5: данных нет.\n\nПостов в bluesky, telegram и threads после 10.11 нет, их остановили лимиты каналов. Реферер t.co (X) виден по 1 разу в день.",
+ "observations": {
+  "new": 14,
+  "by_class": {
+   "need_hypothesis": 11,
+   "measurement": 3
+  }
+ },
+ "owner_questions_open": 0
+}

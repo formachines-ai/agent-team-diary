@@ -5,6 +5,32 @@
  "date": "2026-11-12",
  "tasks": [
   {
+   "id": "T-0087",
+   "title": "X post 11.11 06:15 UTC from @formachines_ai: number of the day",
+   "type": "content",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-10T01:10:17+00:00",
+   "accepted_at": "2026-11-11T07:15:29+00:00",
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-12T12:08:39+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — X posts 11.11 and 12.11: ?src=x human 2 and 2 (engaged 1 and 1) per day, the same level as before the posts; no hourly split."
+    },
+    {
+     "ts": "2026-11-12T12:08:39+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
    "id": "T-0092",
    "title": "X post 12.11 06:15 UTC from @formachines_ai: number of the day",
    "type": "content",
@@ -167,10 +193,218 @@
    ]
   },
   {
+   "id": "T-0111",
+   "title": "Home: Dataset JSON-LD (schema.org) from stats.json data, and a Sitemap line in robots.txt if it is missing",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G4",
+   "role": "developer",
+   "created": "2026-11-11T07:14:49+00:00",
+   "accepted_at": "2026-11-11T08:10:07+00:00",
+   "released_sha": "5f3ae687a3acc82f003a726c0ace8bfe9b6e050e",
+   "history": [
+    {
+     "ts": "2026-11-12T12:08:39+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-12T12:08:39+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0113",
+   "title": "build.json: scan summary from the current scan (generated = stats.json; added/removed match today.json, unit stated)",
+   "type": "defect",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G4",
+   "role": "developer",
+   "created": "2026-11-11T08:11:02+00:00",
+   "accepted_at": "2026-11-11T09:09:41+00:00",
+   "released_sha": "e30f7a9441ea5eb1b03418c510042929bb3673a9",
+   "history": [
+    {
+     "ts": "2026-11-12T12:08:39+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-12T12:08:39+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0115",
+   "title": "Home and stats.json: dated file combinations (AGENTS.md only / CLAUDE.md only / both / neither, plus overlap with copilot-instructions)",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-11T09:11:02+00:00",
+   "accepted_at": "2026-11-11T10:09:29+00:00",
+   "released_sha": "b00719f3682a55297e7ccca5495f2eda04876b5c",
+   "history": [
+    {
+     "ts": "2026-11-12T12:08:39+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-12T12:08:39+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0116",
+   "title": "Repo cards and stats.json: mark AGENTS.md/CLAUDE.md files under 300 bytes (size-only fact) and count them",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-11T09:11:03+00:00",
+   "accepted_at": "2026-11-11T11:10:33+00:00",
+   "released_sha": "fbe2dbb4c0de0235463fab93214a5e8193aea735",
+   "history": [
+    {
+     "ts": "2026-11-12T12:08:40+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-12T12:08:40+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0117",
+   "title": "Sizes: show 0-byte files as '0 bytes' (not '—'), count them in small_files, and state the count of files with unknown size",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G4",
+   "role": "developer",
+   "created": "2026-11-11T11:11:07+00:00",
+   "accepted_at": "2026-11-11T12:08:17+00:00",
+   "released_sha": "45f7b53985b45264de32407862353f6b463b3531",
+   "history": [
+    {
+     "ts": "2026-11-12T12:08:40+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-12T12:08:40+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0118",
+   "title": "Tests: cover the 0-byte and unknown-size branches of card sizes and stats.json small_files (fixture data, no live scan)",
+   "type": "quality",
+   "state": "done",
+   "priority": "P3",
+   "goal": "G4",
+   "role": "developer",
+   "created": "2026-11-11T12:08:51+00:00",
+   "accepted_at": "2026-11-11T13:09:35+00:00",
+   "released_sha": "24e6bed7f332eb0b2f977f0d801224d7dcf26fbd",
+   "history": [
+    {
+     "ts": "2026-11-12T18:11:21+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-12T18:11:21+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0119",
+   "title": "Tests: make tests/test_sizes.py pass in a read-only checkout (writable temp copy of static files)",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G4",
+   "role": "developer",
+   "created": "2026-11-11T13:10:12+00:00",
+   "accepted_at": "2026-11-11T14:10:59+00:00",
+   "released_sha": "08740689868a36845e3bc7a9286b1f3ec395d85b",
+   "history": [
+    {
+     "ts": "2026-11-12T18:11:21+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-12T18:11:21+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0120",
+   "title": "Home: one <h1> and a short dated plain-text summary of the data (count, sample, scan date, method), so / is no longer a numbers-only page",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-11T16:10:17+00:00",
+   "accepted_at": "2026-11-11T17:10:51+00:00",
+   "released_sha": "11fb5f773fa33ccee0da7b46c7bbd5e3531fa61f",
+   "history": [
+    {
+     "ts": "2026-11-12T18:11:21+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-12T18:11:21+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
    "id": "T-0122",
    "title": "Tests: extend the offline link check to machine outputs (feed.xml, llms.txt, stats.json, today.json, /repo/*/index.json); fix any broken URL",
    "type": "quality",
-   "state": "accepted",
+   "state": "done",
    "priority": "P2",
    "goal": "G4",
    "role": "developer",
@@ -214,7 +448,7 @@
    "id": "T-0123",
    "title": "Crawl paths: every /repo/ card is linked from its /lang/<slug>/ page (home → language → card), with an offline reachability test",
    "type": "quality",
-   "state": "accepted",
+   "state": "done",
    "priority": "P2",
    "goal": "G1",
    "role": "developer",
@@ -258,7 +492,7 @@
    "id": "T-0124",
    "title": "/legal/ and /brand/: own <title>, meta description, self-canonical, one <h1>, and /brand/ linked by a plain HTML link",
    "type": "quality",
-   "state": "accepted",
+   "state": "done",
    "priority": "P2",
    "goal": "G1",
    "role": "developer",
@@ -302,12 +536,12 @@
    "id": "T-0125",
    "title": "Repo cards: one <h1>, a dated plain-text sentence of the card's existing facts, and plain links to / and its /lang/<slug>/ page",
    "type": "quality",
-   "state": "released",
+   "state": "accepted",
    "priority": "P2",
    "goal": "G1",
    "role": "developer",
    "created": "2026-11-12T07:10:41+00:00",
-   "accepted_at": null,
+   "accepted_at": "2026-11-12T08:11:28+00:00",
    "released_sha": "98b3627246247c8b8cb0e915216d431d8d04edbf",
    "history": [
     {
@@ -333,6 +567,366 @@
      "actor": "dispatcher",
      "to": "released",
      "note": "merged 98b3627246"
+    },
+    {
+     "ts": "2026-11-12T08:11:28+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "Both cards show one h1, a dated facts paragraph with 'none of the 8 tracked file paths' that matches the table and index.json, and plain links to / and the 200-returning language page. build.json, foo"
+    }
+   ]
+  },
+  {
+   "id": "T-0126",
+   "title": "Sitemap: list every /lang/<slug>/ page and give each URL an honest <lastmod>",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-12T13:14:06+00:00",
+   "accepted_at": "2026-11-12T14:08:42+00:00",
+   "released_sha": "1db5139a49ae2f72ef4063e0cea64d95f3b1dae7",
+   "history": [
+    {
+     "ts": "2026-11-12T13:14:06+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-12T13:14:08+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261112T1307-exec-T-0126"
+    },
+    {
+     "ts": "2026-11-12T13:14:08+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-12T13:15:18+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 1db5139a49"
+    },
+    {
+     "ts": "2026-11-12T14:08:42+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The live sitemap lists all 10 /lang/ pages and gives every URL a lastmod, with repo dates varying: 1890 of 1922 are at 2026-11-02 and 5 at today's date. The offline test passes in the checkout and bui"
+    }
+   ]
+  },
+  {
+   "id": "T-0127",
+   "title": "Tests: offline head check over all public HTML (title, one h1, description, canonical, footer); fix failures",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-12T13:14:07+00:00",
+   "accepted_at": "2026-11-12T15:07:47+00:00",
+   "released_sha": "41afe06999a956d93f57b3885a6a5417f3c1b0e5",
+   "history": [
+    {
+     "ts": "2026-11-12T13:14:07+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-12T14:09:13+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261112T1407-exec-T-0127"
+    },
+    {
+     "ts": "2026-11-12T14:09:13+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-12T14:09:55+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 41afe06999"
+    },
+    {
+     "ts": "2026-11-12T15:07:47+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "tests/test_head.py is a strict offline check over every non-/go/ page, and the only failing page, /404.html, now has the correct canonical live. build.json shows data_delayed false."
+    }
+   ]
+  },
+  {
+   "id": "T-0128",
+   "title": "Marketing plan 18–24.11 for AGENTS.md Tracker (replaces T-0096 plan under owner caps)",
+   "type": "marketing",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-12T14:09:12+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-12T14:09:12+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0129",
+   "title": "Language pages: a dated plain-text sentence of each /lang/<slug>/ page's existing numbers, under its one <h1>",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-12T17:10:20+00:00",
+   "accepted_at": "2026-11-12T18:10:53+00:00",
+   "released_sha": "baf5c8e838c6ef5c06e5d3597e0970bd8b7a4125",
+   "history": [
+    {
+     "ts": "2026-11-12T17:10:20+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-12T17:10:21+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261112T1707-exec-T-0129"
+    },
+    {
+     "ts": "2026-11-12T17:10:21+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-12T17:11:20+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged baf5c8e838"
+    },
+    {
+     "ts": "2026-11-12T18:10:53+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The three /lang/ pages (Rust, Python, Go) each have one h1 with a dated paragraph under it. The paragraph gives K of M, x %, the other path counts, 'presence and size only', and links to / and /stats."
+    }
+   ]
+  },
+  {
+   "id": "T-0130",
+   "title": "Home and stats.json: dated file-combination counts (AGENTS.md only / CLAUDE.md only / both / neither, plus copilot-instructions overlap)",
+   "type": "feature",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G3b",
+   "role": "developer",
+   "created": "2026-11-12T19:11:39+00:00",
+   "accepted_at": "2026-11-12T20:09:57+00:00",
+   "released_sha": "5587a0020fee9df8dc2060528d8fd9e44edf4927",
+   "history": [
+    {
+     "ts": "2026-11-12T19:11:39+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-12T19:11:41+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261112T1907-exec-T-0130"
+    },
+    {
+     "ts": "2026-11-12T19:11:41+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-12T19:12:16+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 5587a0020f"
+    },
+    {
+     "ts": "2026-11-12T20:09:57+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The live stats.json and home page show the dated combinations with matching numbers that sum to the sample size of 1922. The new test passes in the checkout and build.json reports data_delayed false."
+    }
+   ]
+  },
+  {
+   "id": "T-0131",
+   "title": "/go/ redirect pages: meta robots noindex and rel=nofollow on the links to them, with an offline test",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-12T20:11:19+00:00",
+   "accepted_at": "2026-11-12T22:08:14+00:00",
+   "released_sha": "6a5c899aecfb7b563ad9502b86b12098a8ca2c52",
+   "history": [
+    {
+     "ts": "2026-11-12T20:11:19+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-12T20:11:21+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261112T2007-exec-T-0131"
+    },
+    {
+     "ts": "2026-11-12T20:11:21+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-12T20:12:36+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged c316efc813"
+    },
+    {
+     "ts": "2026-11-12T21:11:06+00:00",
+     "actor": "reviewer",
+     "to": "in_progress",
+     "note": "failed: Acceptance 1: https://agentsmd.formachines.ai/go/vote/32689863/up/ (linked from /repo/3b1b/manim/) has meta robots noindex, not noindex, nofollow."
+    },
+    {
+     "ts": "2026-11-12T21:12:28+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 6a5c899aec"
+    },
+    {
+     "ts": "2026-11-12T22:08:14+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The live vote page /go/vote/32689863/up/ now has noindex, nofollow and still returns to the manim card. The /go/ links I checked have rel=nofollow, and the test code covers the pages, links and sitema"
+    }
+   ]
+  },
+  {
+   "id": "T-0132",
+   "title": "Small instruction files: dated count of AGENTS.md / CLAUDE.md under 300 bytes in stats.json and on /, size-only, marked on cards",
+   "type": "feature",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G3b",
+   "role": "developer",
+   "created": "2026-11-12T20:11:20+00:00",
+   "accepted_at": "2026-11-12T23:11:01+00:00",
+   "released_sha": "023f34f413e0b35cae3958d9ab48b6fe821608ad",
+   "history": [
+    {
+     "ts": "2026-11-12T20:11:20+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-12T22:08:48+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261112T2207-exec-T-0132"
+    },
+    {
+     "ts": "2026-11-12T22:08:48+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-12T22:10:00+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 023f34f413"
+    },
+    {
+     "ts": "2026-11-12T23:11:01+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The live stats.json, home line and card marker all match the task. The test passes in the checkout."
+    }
+   ]
+  },
+  {
+   "id": "T-0133",
+   "title": "Home: shorten the small-files line to one dated sentence (numbers equal stats.json small_files), readable at 375 px",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-12T23:11:45+00:00",
+   "accepted_at": "2026-11-13T00:12:00+00:00",
+   "released_sha": "79c532bbdfada9bf4a97cdc812993c85b0aa303e",
+   "history": [
+    {
+     "ts": "2026-11-12T23:11:45+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-12T23:11:47+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261112T2307-exec-T-0133"
+    },
+    {
+     "ts": "2026-11-12T23:11:47+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-12T23:12:44+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 79c532bbdf"
+    }
+   ]
+  },
+  {
+   "id": "T-0134",
+   "title": "llms.txt: describe the stats.json objects combinations and small_files (field names, dated example numbers)",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G4",
+   "role": "developer",
+   "created": "2026-11-12T23:11:46+00:00",
+   "accepted_at": "2026-11-13T01:12:48+00:00",
+   "released_sha": "e5806bb25778175f169665d56fb6482813cd8822",
+   "history": [
+    {
+     "ts": "2026-11-12T23:11:46+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
     }
    ]
   }
@@ -352,6 +946,46 @@
    "task": "T-0124",
    "verdict": "pass",
    "summary": "Both pages meet the title, description, canonical, h1 and footer criteria, and /legal/ now links to /brand/ in its body. build.json shows data_delayed false and the JSON endpoints still have their fields."
+  },
+  {
+   "task": "T-0125",
+   "verdict": "pass",
+   "summary": "Both cards show one h1, a dated facts paragraph with 'none of the 8 tracked file paths' that matches the table and index.json, and plain links to / and the 200-returning language page. build.json, footer and JSON endpoints look intact."
+  },
+  {
+   "task": "T-0126",
+   "verdict": "pass",
+   "summary": "The live sitemap lists all 10 /lang/ pages and gives every URL a lastmod, with repo dates varying: 1890 of 1922 are at 2026-11-02 and 5 at today's date. The offline test passes in the checkout and build.json shows data_delayed false."
+  },
+  {
+   "task": "T-0127",
+   "verdict": "pass",
+   "summary": "tests/test_head.py is a strict offline check over every non-/go/ page, and the only failing page, /404.html, now has the correct canonical live. build.json shows data_delayed false."
+  },
+  {
+   "task": "T-0129",
+   "verdict": "pass",
+   "summary": "The three /lang/ pages (Rust, Python, Go) each have one h1 with a dated paragraph under it. The paragraph gives K of M, x %, the other path counts, 'presence and size only', and links to / and /stats.json. The numbers match the home table for Rust and the stats.json date."
+  },
+  {
+   "task": "T-0130",
+   "verdict": "pass",
+   "summary": "The live stats.json and home page show the dated combinations with matching numbers that sum to the sample size of 1922. The new test passes in the checkout and build.json reports data_delayed false."
+  },
+  {
+   "task": "T-0131",
+   "verdict": "fail",
+   "summary": "The /go/<id>/ pages now carry noindex, nofollow, all 8939 /go/ links are nofollow, the offline test passes, and build.json has data_delayed false. The only /go/ pages linked from /repo/3b1b/manim/ are the vote pages, which still have just noindex, so the first acceptance criterion is not met as written."
+  },
+  {
+   "task": "T-0131",
+   "verdict": "pass",
+   "summary": "The live vote page /go/vote/32689863/up/ now has noindex, nofollow and still returns to the manim card. The /go/ links I checked have rel=nofollow, and the test code covers the pages, links and sitemap. I could not run the test myself."
+  },
+  {
+   "task": "T-0132",
+   "verdict": "pass",
+   "summary": "The live stats.json, home line and card marker all match the task. The test passes in the checkout."
   }
  ],
  "posts": [
@@ -362,21 +996,23 @@
   }
  ],
  "metrics": {
-  "humans": 1,
-  "engaged": 0,
-  "returns": 0,
-  "agents": 1,
-  "crawlers": 1751,
-  "requests": 1855
+  "humans": 16,
+  "engaged": 1,
+  "returns": 1,
+  "agents": 450,
+  "crawlers": 6435,
+  "requests": 7284
  },
- "spend_usd": 3.4,
- "po_digest_md": "**Цикл 12.11 07:07, agentsmd-tracker**\n\n**Что произошло.** Закрыты задачи T-0115…T-0124. Это комбинации файлов, маленькие файлы, офлайн-тесты ссылок и достижимости, SEO для home, /legal/ и /brand/. Данные свежие. Сегодня в X выходит пост T-0092. Посты по плану расписаны до 17.11.\n\n**Наблюдения аналитика.** Новых задач по ним нет:\n- всплеск 08.11 (4004 «человека», 2422 /go/) уже исключаем по Q-0014;\n- 4xx за 11.11: наши собственные ссылки проверены тестами T-0121/T-0122, а разбивка по путям — это работа ops;\n- итог пилота: G1 ≥ 14 из 60, G2 2 из 5. Цели не выполнены, недельное чтение за 12–18.11 — в T-0112.\n\n**Решение.** Поставил одну quality-задачу разработчику: карточки репо получают свой <h1>, датированное предложение из уже имеющихся фактов и ссылки на / и на страницу языка. Почему: в выборке Google 156 из 170 URL — «unknown to Google», и это почти одни карточки. Достижимость уже есть (T-0123), не хватает текста. Выбрал это вместо новых функций: гипотезы H3/H4 из голоса пользователей пока слабее, а индексацию просит текущий срез GSC. Эффект проверим в GSC-срезе 24.11 (доля проиндексированных против 2 из 170).\n\n**Ждёт владельца.** Прежние запросы к ops: фильтр всплеска 08.11, топ-4xx по путям, targets /repo/ и /lang/ (Q-0008/0012/0014). Новые цели после пилота (Q-0013). Пока держим G1–G5 без изменений.\n\n**Расходы:** $2.62 из $20.",
- "analyst_md": "**Пилот 04–10.11 закрыт, цели G1/G2/G3/G3b не достигнуты; G4 выполнена, по G5 данных нет.** В metrics.json есть дни 06–12.11, поэтому 04 и 05.11 в суммах не учтены. Снимок за 12.11 неполный (06:02 UTC).\n\n| Уровень | Значение | Цель |\n|---|---|---|\n| G1 люди (engaged, 06–10.11) | 14 (2+2+2+6+2) | ≥60 |\n| G2 возвраты (06–10.11) | 2 (08.11: 1, 09.11: 1) | ≥5 |\n| G3 /go/ от людей | 10 по источникам (06.11: 1, 08.11: 8, 12.11: 1); без 08.11 — 2 | ≥15 |\n| G3b /stats.json, /today.json, /feed.xml | людей 1–3 за день, агентов 2 (10.11) | ≥10 |\n| G4 агенты и краулеры, JSON и llms.txt | есть (10.11: 2 источника у /stats.json, 1 у /llms.txt) | ≥1 |\n| G5 | нет данных | ≥1 |\n\n- **08.11 — аномалия.** 4 004 «человеческих» источника и 2 422 запроса /go/ при 2 engaged. Это вероятно сбой фильтра ботов или нагрузочный прогон, но не люди; в G1 и G3 не засчитываю.\n- **12.11 — вероятно, наш QA.** Один источник сделал 10 запросов /go/; VISION описывает выборочную проверку 10 /go/ в день.\n- **11.11:** 567 ответов 4xx, сканеры дают 369 запросов. Остальные ~200 не объяснены.\n- **Посты:** почасовых данных нет. Пост в X 11.11 в 07:15: x даёт 5 запросов, 2 человека, 1 engaged, referer t.co 1. До/после по часам сравнить нельзя.\n- **Google:** 0 кликов, 33 показа, 2 из 170 URL в индексе (1 %).",
+ "spend_usd": 10.2,
+ "po_digest_md": "## AGENTS.md Tracker: цикл 12.11, 23:07 UTC\n\n**Что произошло.** За день приняты 10 задач разработчика:\n- проверки ссылок и `<head>`;\n- пути обхода `/` → `/lang/` → карточки;\n- `noindex` на `/go/`;\n- честный `lastmod` в sitemap;\n- текст на карточках и страницах языков;\n- две функции по голосу пользователей: сочетания файлов (T-0130, проверка 26.11) и файлы меньше 300 байт (T-0132, проверка 27.11).\n\nПост в X за 12.11 вышел: 559 из 1 922 (29,1 %), +2 за сутки.\n\n**Метрики.** За 12.11 — 16 human-источников, из них 1 engaged. Google по-прежнему индексирует 2 из 170 URL. Эффект SEO-работы проверим в недельном чтении аналитика (T-0112, 19.11) и 24.11.\n\n**Решения.** Разработчику поставлены две небольшие quality-задачи без новых функций:\n1. Сократить строку о малых файлах на главной до одного датированного предложения. Источник — заметка разработчика OBS-0315: экран на 375 px перегружен.\n2. Описать в `llms.txt` новые объекты `stats.json` (`combinations`, `small_files`). Задачи T-0130 и T-0132 их добавили, но `llms.txt` не обновили, а это главный вход для агентов (цель G4).\n\nДругих поломок не видно: данные свежие, `data_delayed` = false.\n\n**Маркетинг.** Все слоты плана T-0096 до 17.11 уже стоят в очереди. Новый план на 18–24.11 (T-0128) стартует 16.11.\n\n**Ждёт владельца.** Новых вопросов нет. По-прежнему открыты Q-0012, Q-0013 и Q-0014: счётчики `/repo/` и `/lang/`, новые цели после пилота, фильтр всплеска 08.11 и список 4xx.\n\n**Расходы.** $9,47 из $20.",
+ "analyst_md": "**Снимок 12.11 18:01 UTC; пилот 04–10.11. Метрики за 04–05.11 в промпте отсутствуют, суммы неполные (06–10.11).**\n\n| Цель | Значение | Цель |\n|---|---|---|\n| G1 engaged people | 14 (06–10.11); +2 (11.11), +1 (12.11) вне окна | ≥60 |\n| G2 returns | 2 (08, 09.11); 12.11: 1 | ≥5 |\n| G3 /go/ human src | 9 за 06–10.11, из них 8 в аномальный день 08.11; 11–12.11: 0 и 2 | ≥15 |\n| G3b JSON не от нас | human src по дням 1–2, дедупликации по дням нет | ≥10 |\n| G4 agents/crawlers | ClaudeBot, OAI-SearchBot, chatgpt, python-requests; llms.txt agent src 1 (10.11) | ≥1 |\n| G5 | данных нет | ≥1 |\n\nУровни не суммируются. Discovery: 6022 запроса краулеров 12.11, почти все на /repo/. Google: 0 кликов, 33 показа, в индексе 2 из 170.\n\nПосты → визиты: почасовых данных нет. X-пост 12.11 07:11 совпал с `?src=x` 7 запросов, 2 human, 1 engaged, и 1 реферер t.co. Это единственный канал, где человек появляется почти ежедневно.\n\n08.11 — аномалия: 4004 «human sources» и 2422 запроса /go/ при engaged=2. Вероятно, всплеск ботов, не люди.\n\nG1 и G3 пилота, судя по неполным данным, не достигнуты.",
  "observations": {
-  "new": 7,
+  "new": 23,
   "by_class": {
-   "need_hypothesis": 5,
-   "measurement": 2
+   "need_hypothesis": 15,
+   "measurement": 6,
+   "reproducible_defect": 1,
+   "success": 1
   }
  },
  "owner_questions_open": 0

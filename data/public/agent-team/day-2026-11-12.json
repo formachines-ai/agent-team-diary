@@ -340,7 +340,7 @@
    "id": "T-0112",
    "title": "[retro] Reviewer allowlist: accept -B, path-form unittest, and verify tests.<module> -v",
    "type": "feature",
-   "state": "ready",
+   "state": "rejected",
    "priority": "P2",
    "goal": "framework",
    "role": "developer",
@@ -353,6 +353,12 @@
      "actor": "framework-retro",
      "to": "ready",
      "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-12T08:07:51+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Duplicate of T-0101 (in review) and T-0111 (diagnosis of the persistent denials), which cover the same files and the same F-ids. The retro keeps re-proposing the change."
     }
    ]
   },
@@ -360,16 +366,514 @@
    "id": "T-0113",
    "title": "[retro] Voice card: gh and shell are denied; use WebSearch/WebFetch",
    "type": "feature",
-   "state": "ready",
+   "state": "done",
    "priority": "P2",
    "goal": "framework",
    "role": "developer",
    "created": "2026-11-12T07:14:36+00:00",
+   "accepted_at": "2026-11-12T08:10:36+00:00",
+   "released_sha": "1c0994bb77251ed3d2ba6f34462c8a69098a6645",
+   "history": [
+    {
+     "ts": "2026-11-12T07:14:36+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-12T08:07:51+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261112T0807-exec-T-0113"
+    },
+    {
+     "ts": "2026-11-12T08:07:51+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-12T08:10:36+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261112T0807-canary of release-radar on a state copy: all phases); merged 1c0994bb77"
+    },
+    {
+     "ts": "2026-11-12T08:10:36+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0114",
+   "title": "[retro] Reviewer allowlist: add -B and path-form unittest entries",
+   "type": "feature",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-12T09:08:44+00:00",
    "accepted_at": null,
    "released_sha": null,
    "history": [
     {
-     "ts": "2026-11-12T07:14:36+00:00",
+     "ts": "2026-11-12T09:08:44+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-12T10:08:00+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Duplicate of T-0099, T-0109 (merged) and T-0101 (in review). The allowlist change is already in code, so the remaining question is why denials persist, which T-0111 covers."
+    }
+   ]
+  },
+  {
+   "id": "T-0115",
+   "title": "[retro] Derive developer `changes` from git diff instead of trusting the claim",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-12T09:08:44+00:00",
+   "accepted_at": "2026-11-12T10:11:17+00:00",
+   "released_sha": "54a394087987ae271da502f9f3b539b3fb12865f",
+   "history": [
+    {
+     "ts": "2026-11-12T09:08:44+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-12T10:08:00+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261112T1007-exec-T-0115"
+    },
+    {
+     "ts": "2026-11-12T10:08:00+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-12T10:11:17+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261112T1007-canary of release-radar on a state copy: all phases); merged 54a3940879"
+    },
+    {
+     "ts": "2026-11-12T10:11:17+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0116",
+   "title": "[retro] Reviewer repo_only allowlist: add -B and path-form unittest",
+   "type": "feature",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-12T10:12:37+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-12T10:12:37+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-12T11:07:49+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Duplicate of T-0101 and T-0109 (merged). T-0111 is diagnosing why the denials persist."
+    }
+   ]
+  },
+  {
+   "id": "T-0117",
+   "title": "[retro] Fix argv overflow in the measure phase (T-0090 is stuck)",
+   "type": "feature",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-12T10:12:38+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-12T10:12:38+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-12T11:07:50+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Duplicate of T-0105 (done): no E2BIG records after the fix."
+    }
+   ]
+  },
+  {
+   "id": "T-0118",
+   "title": "[retro] Developer changes list: derive from git diff in the dispatcher",
+   "type": "feature",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-12T10:12:38+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-12T10:12:38+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-12T11:07:50+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Duplicate of T-0115 (done): the git diff already supplies `changes`."
+    }
+   ]
+  },
+  {
+   "id": "T-0119",
+   "title": "[retro] Reviewer and editor card: team-fetch --grep accepts neither parentheses nor quotes",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-12T10:12:40+00:00",
+   "accepted_at": "2026-11-12T11:10:41+00:00",
+   "released_sha": "c980253e342651fdc228c6ad152ef2d5934e703d",
+   "history": [
+    {
+     "ts": "2026-11-12T10:12:40+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-12T11:07:50+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261112T1107-exec-T-0119"
+    },
+    {
+     "ts": "2026-11-12T11:07:50+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-12T11:10:41+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261112T1107-canary of release-radar on a state copy: all phases); merged c980253e34"
+    },
+    {
+     "ts": "2026-11-12T11:10:41+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0120",
+   "title": "[retro] Reviewer repo_only allowlist: add -B and path-form unittest (still denied)",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-12T12:10:06+00:00",
+   "accepted_at": "2026-11-12T13:10:47+00:00",
+   "released_sha": "fa80b198b437e3c3eb9b85b5bb303042a691a366",
+   "history": [
+    {
+     "ts": "2026-11-12T12:10:06+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-12T13:07:45+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261112T1307-exec-T-0120"
+    },
+    {
+     "ts": "2026-11-12T13:07:45+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-12T13:10:47+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261112T1307-canary of release-radar on a state copy: all phases); merged fa80b198b4"
+    },
+    {
+     "ts": "2026-11-12T13:10:47+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0121",
+   "title": "[retro] Reviewer card: forbid -B and path-form unittest until the allowlist is widened",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-12T15:09:40+00:00",
+   "accepted_at": "2026-11-12T16:10:52+00:00",
+   "released_sha": "6e1f8e7a6e7dbd509d0a59a84f4c0af59ec5f7e3",
+   "history": [
+    {
+     "ts": "2026-11-12T15:09:40+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-12T16:07:35+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261112T1607-exec-T-0121"
+    },
+    {
+     "ts": "2026-11-12T16:07:35+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-12T16:10:52+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261112T1607-canary of release-radar on a state copy: all phases); merged 6e1f8e7a6e"
+    },
+    {
+     "ts": "2026-11-12T16:10:52+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0122",
+   "title": "[retro] Reviewer repo_only checkout: writable scratch for tests",
+   "type": "feature",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-12T18:14:22+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-12T18:14:22+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-12T19:07:31+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Duplicate of T-0094 (same files and evidence F-0179/F-0180, same change). T-0094 already has PR #163 in progress."
+    }
+   ]
+  },
+  {
+   "id": "T-0123",
+   "title": "[retro] Reviewer repo_only allowlist: add -B and path-form unittest (still open)",
+   "type": "feature",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-12T20:13:40+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-12T20:13:40+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-12T21:07:33+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Duplicate of the allowlist change merged in T-0099, T-0109 and T-0120 and still open in T-0101. The cause is being diagnosed in T-0111. Chosen: wait for the diagnosis over a fifth identi"
+    }
+   ]
+  },
+  {
+   "id": "T-0124",
+   "title": "[retro] team-fetch: do not reject --grep patterns that contain plain words like 'not' or '('",
+   "type": "feature",
+   "state": "waiting_owner",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-12T20:13:41+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-12T20:13:41+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-12T21:07:34+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261112T2107-exec-T-0124"
+    },
+    {
+     "ts": "2026-11-12T21:07:34+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-12T21:08:26+00:00",
+     "actor": "dispatcher",
+     "to": "waiting_owner",
+     "note": "pull request https://github.com/OOuph/agent-team/pull/206 (tests edited/deleted without a 'tests-change-reason: F-xxxx' line: tests/test_fetch.py)"
+    }
+   ]
+  },
+  {
+   "id": "T-0125",
+   "title": "[retro] Reviewer card: forbid -B/-p and other extra flags in test commands",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-12T22:10:55+00:00",
+   "accepted_at": "2026-11-12T23:10:31+00:00",
+   "released_sha": "ca4c1ef6302fe33b68fe02ae6fabe942859edabf",
+   "history": [
+    {
+     "ts": "2026-11-12T22:10:55+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-12T23:07:33+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261112T2307-exec-T-0125"
+    },
+    {
+     "ts": "2026-11-12T23:07:33+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-12T23:10:31+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261112T2307-canary of release-radar on a state copy: all phases); merged ca4c1ef630"
+    },
+    {
+     "ts": "2026-11-12T23:10:31+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0126",
+   "title": "[retro] Test: every allowlist example from the card/scheme matches REPO_ONLY_REVIEW_TOOLS",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-12T22:10:56+00:00",
+   "accepted_at": "2026-11-13T00:11:01+00:00",
+   "released_sha": "95324bfcce6af282ca089b1787336385b4310111",
+   "history": [
+    {
+     "ts": "2026-11-12T22:10:56+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    }
+   ]
+  },
+  {
+   "id": "T-0127",
+   "title": "[retro] Reviewer allowlist: accept `python3 -B -m unittest ...` (reviewers keep using -B)",
+   "type": "feature",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-12T23:13:32+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-12T23:13:32+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    }
+   ]
+  },
+  {
+   "id": "T-0128",
+   "title": "[retro] Reviewer card: --grep cannot contain double quotes, `=`, or HTML entities",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-12T23:13:33+00:00",
+   "accepted_at": "2026-11-13T01:10:39+00:00",
+   "released_sha": "09cc95b980f52c9fdfa17d66c73dcb9ca34f772e",
+   "history": [
+    {
+     "ts": "2026-11-12T23:13:33+00:00",
      "actor": "framework-retro",
      "to": "ready",
      "note": "low-risk retro proposal"
@@ -380,14 +884,14 @@
  "reviews": [],
  "posts": [],
  "metrics": null,
- "spend_usd": 1.3,
- "po_digest_md": "**agent-team, цикл 12.11 06:07.** Расход дня $1.19 из $10.\n\n- Новые наблюдения (OBS-0204/0205, от разработчика по T-0111): первое привязано к T-0111, второе отложено до её приёмки.\n- Новых задач нет. Причины: повторные предложения ретро (allowlist ревьюера — T-0101/T-0110 уже покрыты T-0099/T-0109/T-0111; карточка voice — уже сделана в T-0092/93/95/97) дублируют закрытые или открытые задачи. Это и есть суть T-0103 (дедупликация ретро), которая ждёт человека.\n- Ждут человека (PR с изменением тестов без причины): T-0091, T-0094, T-0103, T-0111 (waiting_owner). Это узкое место: пока их не просмотрят, ретро будет предлагать то же самое.\n- T-0068 (красный тест в базе), T-0098, T-0101 в ревью.\n- Голос пользователей (11.11): самые частые боли — бюджет не принуждается до вызова (P1) и «готово» без проверки (P2). H1 (предварительная проверка бюджета) касается защищённых файлов (runner/config), поэтому требует человека; фичу без доказательства-цитаты в бэклог не ставим, пока не пройдём через owner.\n- Вопросов владельцу нет.",
+ "spend_usd": 3.7,
+ "po_digest_md": "**Цикл PO, agent-team.** Расход за сегодня $3.51 из $10.\n\n- Новых наблюдений два: issues #207 и #208. Они уже превращены в задачи T-0125 (в карточке ревьюера запретить `-B`) и T-0126 (тест на соответствие примеров из карточки списку разрешённых команд). Обе в Ready. Я привязал наблюдения к ним, новых задач не создавал.\n- T-0126 пересекается с T-0111: обе разбираются, почему `unittest tests.test_machine_links -v` отклонили (F-0188). T-0111 сейчас ждёт владельца в PR #187. Ничего не закрываю, пока оба PR не пройдут.\n- Главная причина шума в реестре: команды тестов в repo_only-запусках ревьюера отклоняются (20 записей `tool_denied`). После T-0125 и T-0126 это должно прекратиться. Проверим по реестру: новые F-записи про `-B` и `unittest -v` не должны появляться.\n- Ждут человека: PR #187, #176, #163, #157 и #206 с пометкой «tests changed without reason». Владелец (через заместителя) уже ответил в Q-0009: разработчик либо добавляет `tests-change-reason: F-xxxx`, либо откатывает правки тестов. Повторно не спрашиваю.\n- Вопросов владельцу нет. Бюджет в норме, лимит 80 % не превышен.",
  "analyst_md": "",
  "observations": {
-  "new": 12,
+  "new": 29,
   "by_class": {
-   "feedback": 7,
-   "need_hypothesis": 5
+   "feedback": 23,
+   "need_hypothesis": 6
   }
  },
  "owner_questions_open": 0

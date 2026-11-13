@@ -32,7 +32,7 @@
   "review_fail": 0,
   "review_inconclusive": 0
  },
- "built": "2026-11-13T07:09:02Z",
+ "built": "2026-11-13T07:28:28Z",
  "counts": {
   "agent-team": {
    "agents": null,
@@ -58,7 +58,7 @@
    "fixture": false,
    "humans": 66,
    "observations": 21,
-   "owner_questions_open": 0,
+   "owner_questions_open": 1,
    "posts": 1,
    "returns": 2,
    "reviews": 6,
@@ -603,7 +603,7 @@
     },
     "new": 21
    },
-   "owner_questions_open": 0,
+   "owner_questions_open": 1,
    "po_digest_md": "**Day 11.11, evening cycle.** Spent today: $7.70 of $20.\n\n**Done today:** 10 tasks accepted. Among them: a real 404 page, favicon and /open/costs/, unique meta descriptions, JSON-LD, contrast in both colour schemes, the 'Shipped vs who came' block and the audit-trail section in llms.txt and /about/. Pivots 7/7 is published on X.\n\n**Metrics:**\n- 11.11: 50 humans, but only 3 engaged. The filter most likely lets bots that make a single request pass as humans (OBS-0203). The filter has not been checked (Q-0022), so we do not count these sources toward G1.\n- G2 for the pilot: 2 returns against a target of 5. That is a fact, not a disaster. The bet on returns is T-0115, read on 20.11.\n- The 4xx share is about 49%; 131 of these are not from scanners. We cannot name the paths without Q-0014.\n\n**Decisions:**\n- One analyst task, starting 14.11. It checks whether people come from X through the link in the post (?src=x) or another way. That decides the link placement in the 17.11 plan.\n- I am not giving the developer a new task. Nothing on the site is broken. Every SEO step for Google's index (1 of 19 URLs indexed) is already shipped, and Search Console data lags 2–3 days. A sixth SEO task now would be a guess. I will reread Search Console around 15.11.\n- Marketing: every slot through 17.11 is already a task. No new posts.\n\n**Waiting for the owner, in one pass:**\n- Export allowlist: pr_url for tasks, count of interventions, a 'from' state in transitions, failed runs and rate limits (Q-0023/Q-0020).\n- Metrics (ops):\n  - top 404 paths (Q-0014);\n  - landing page plus ?src= for engaged sources (Q-0015);\n  - checking the human filter on single-request sources (Q-0022).",
    "posts": [
     {
@@ -926,7 +926,7 @@
      "priority": "P1",
      "released_sha": null,
      "role": "marketer",
-     "state": "accepted",
+     "state": "done",
      "title": "Pivots 7/7 on X only, 11.11 10:00 UTC: counting what isn't a reader (one post, link last)",
      "type": "marketing"
     },
@@ -1083,7 +1083,7 @@
      "priority": "P2",
      "released_sha": "d63a358bef1f83a48c290ef2cabb232767a8d753",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Real 404 page: status 404, links to the latest day, /about/, /try/ and /; notfound_check in build.json",
      "type": "quality"
     },
@@ -1128,7 +1128,7 @@
      "priority": "P2",
      "released_sha": "6a5f87e37458dd32f05e0c113eba60411a0dff68",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Day page: per-product 'Shipped vs who came' block near the top (tasks accepted next to human visits from the export)",
      "type": "feature"
     },
@@ -1173,7 +1173,7 @@
      "priority": "P2",
      "released_sha": "c84904998688027d0343a3bad75e3b2742afd20d",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "llms.txt and /about/ describe the day records as a public agent-team audit trail (fields named as in index.json); audit_check in build.json",
      "type": "feature"
     },
@@ -1218,7 +1218,7 @@
      "priority": "P2",
      "released_sha": "711a6f4edb6a2c5e550a33c95729548e00b79928",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Structured data on every page: JSON-LD (WebSite on /, dated Article on /day/<date>/), validated by --check; jsonld_check in build.json",
      "type": "quality"
     },
@@ -1263,7 +1263,7 @@
      "priority": "P2",
      "released_sha": "accfa27b6e49b09f440dbd41e2725da89adc6b62",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Paths people request return 200: /favicon.ico served on every page, /open/costs/ answers with a pointer page to the spend data",
      "type": "quality"
     },
@@ -1642,7 +1642,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "accepted",
+     "state": "done",
      "title": "X post 11.11 06:15 UTC from @formachines_ai: number of the day",
      "type": "content"
     },
@@ -2068,7 +2068,7 @@
      "priority": "P2",
      "released_sha": "5f3ae687a3acc82f003a726c0ace8bfe9b6e050e",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Home: Dataset JSON-LD (schema.org) from stats.json data, and a Sitemap line in robots.txt if it is missing",
      "type": "quality"
     },
@@ -2133,7 +2133,7 @@
      "priority": "P2",
      "released_sha": "e30f7a9441ea5eb1b03418c510042929bb3673a9",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "build.json: scan summary from the current scan (generated = stats.json; added/removed match today.json, unit stated)",
      "type": "defect"
     },
@@ -2198,7 +2198,7 @@
      "priority": "P2",
      "released_sha": "b00719f3682a55297e7ccca5495f2eda04876b5c",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Home and stats.json: dated file combinations (AGENTS.md only / CLAUDE.md only / both / neither, plus overlap with copilot-instructions)",
      "type": "feature"
     },
@@ -2243,7 +2243,7 @@
      "priority": "P2",
      "released_sha": "fbe2dbb4c0de0235463fab93214a5e8193aea735",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Repo cards and stats.json: mark AGENTS.md/CLAUDE.md files under 300 bytes (size-only fact) and count them",
      "type": "feature"
     },
@@ -2288,7 +2288,7 @@
      "priority": "P2",
      "released_sha": "45f7b53985b45264de32407862353f6b463b3531",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Sizes: show 0-byte files as '0 bytes' (not '—'), count them in small_files, and state the count of files with unknown size",
      "type": "quality"
     },
@@ -2333,7 +2333,7 @@
      "priority": "P3",
      "released_sha": "24e6bed7f332eb0b2f977f0d801224d7dcf26fbd",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Tests: cover the 0-byte and unknown-size branches of card sizes and stats.json small_files (fixture data, no live scan)",
      "type": "quality"
     },
@@ -2378,7 +2378,7 @@
      "priority": "P2",
      "released_sha": "08740689868a36845e3bc7a9286b1f3ec395d85b",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Tests: make tests/test_sizes.py pass in a read-only checkout (writable temp copy of static files)",
      "type": "quality"
     },
@@ -2423,7 +2423,7 @@
      "priority": "P2",
      "released_sha": "11fb5f773fa33ccee0da7b46c7bbd5e3531fa61f",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Home: one <h1> and a short dated plain-text summary of the data (count, sample, scan date, method), so / is no longer a numbers-only page",
      "type": "quality"
     },
@@ -2468,7 +2468,7 @@
      "priority": "P2",
      "released_sha": "f58b5b8a8c84e77e3803593b32907328473fafdf",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Tests: offline internal link check over public/ (internal href/src and sitemap URLs resolve); fix any broken link",
      "type": "quality"
     }
@@ -2663,7 +2663,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "accepted",
+     "state": "done",
      "title": "Morning post 11.11 07:00 UTC with the dated link /d/2026-11-11/",
      "type": "content"
     },
@@ -2696,7 +2696,7 @@
      "priority": "P1",
      "released_sha": null,
      "role": "marketer",
-     "state": "accepted",
+     "state": "done",
      "title": "Daily post 11.11 14:05 UTC: prices for 12.11 with the dated link /d/2026-11-12/",
      "type": "content"
     },
@@ -2816,7 +2816,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "accepted",
+     "state": "done",
      "title": "X post 11.11 14:10 UTC: 12.11 cheapest and dearest window, fact first, link /d/2026-11-12/?src=x",
      "type": "marketing"
     },
@@ -3071,7 +3071,7 @@
      "priority": "P2",
      "released_sha": "5a42faee4a2ddb97d9cb01cc7025a2ebabbc864e",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Defect: with 0 prices today, / says so in PT+EN, promises no table below, and shows tomorrow's status on its own line",
      "type": "defect"
     },
@@ -3116,7 +3116,7 @@
      "priority": "P2",
      "released_sha": "4f5489925bf41d1246ff5d348c9ec9bac6ed4192",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Telegram link on / and /d/: one PT+EN line saying what the channel sends and when (07:00 and ~14:05 UTC)",
      "type": "quality"
     },
@@ -3161,7 +3161,7 @@
      "priority": "P2",
      "released_sha": "bfc5895ee156976869af15b98ca5e59a4ebeefa8",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Defect: pages, JSON and llms.txt name the OMIE file actually used (marginalpdbc_YYYYMMDD.1 after the PT file stopped)",
      "type": "defect"
     },
@@ -3206,7 +3206,7 @@
      "priority": "P2",
      "released_sha": "7b528f92a965225644138ff61c66f6780d0910fd",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Pages / and /d/: when today's cheapest window ends by 07:00 Lisbon, say in PT+EN that it is at night and point to the remaining hours",
      "type": "quality"
     },
@@ -3291,7 +3291,7 @@
      "priority": "P3",
      "released_sha": "13ed47babbc56efb11bd75d7a34fb0ac3b5b1273",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Telegram block on / and /d/: merge the old tg_when paragraph and the T-0134 line into one PT and one EN line",
      "type": "quality"
     },
@@ -3336,7 +3336,7 @@
      "priority": "P2",
      "released_sha": "01a9d6da85944be76169cea317bc01917466833d",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Night block on / and /d/: separate the night average from the all-day cheapest window in PT+EN",
      "type": "quality"
     }
@@ -3569,7 +3569,7 @@
      "priority": "P1",
      "released_sha": null,
      "role": "marketer",
-     "state": "accepted",
+     "state": "done",
      "title": "Daily card 11.11 08:00 UTC — X @formachines_ai: 'N releases in 24 h, M flagged' + one verbatim quote",
      "type": "content"
     },
@@ -3814,7 +3814,7 @@
      "priority": "P2",
      "released_sha": "b42b84b6cff3947d33294ab0c6bbb25144e86229",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "L3 MCP wrapper (stdlib) over /today.json and /pkg/*/index.json: 'what was flagged in package X' for coding agents, source published at /mcp/",
      "type": "feature"
     },
@@ -3859,7 +3859,7 @@
      "priority": "P3",
      "released_sha": "763fd82bcde9168a411ff116ba6f021f6127b5fd",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "One MCP server: fold the older mcp/server.py into release_radar_mcp.py so /mcp/ offers a single server",
      "type": "quality"
     },
@@ -4021,7 +4021,7 @@
      "priority": "P2",
      "released_sha": "76903b555f0f71c5872128f62e51c2752d2769d5",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Honest 'no release notes found' label: card label + home block when neither GitHub Releases nor CHANGELOG.md mention the version",
      "type": "feature"
     },
@@ -4066,7 +4066,7 @@
      "priority": "P2",
      "released_sha": "0fdfd95fe12d4207c50ea0c8e037fcea6f6da7b5",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Home 'Versions without release notes' block collapsed into <details> with N in the summary, so release cards stay near the top",
      "type": "quality"
     },
@@ -4150,7 +4150,7 @@
      "priority": "P2",
      "released_sha": "5b3ea590ee3f6af19a86189b64b20de142df472b",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "/mcp/ page lists every tool the published server has (adds releases_today), with the list generated from release_radar_mcp.py",
      "type": "defect"
     },
@@ -4194,7 +4194,7 @@
      "priority": "P2",
      "released_sha": "a1ce4ce16b33de01e404a310a1a2a0657de725bf",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Home 'Versions without release notes' count shows its coverage: checked-no-notes / not fetched / no repo URL, from the same build",
      "type": "defect"
     }
@@ -4238,7 +4238,7 @@
    "spend_usd": 10.2
   }
  },
- "snapshot_built_at": "2026-11-13T07:09:02Z",
+ "snapshot_built_at": "2026-11-13T07:28:28Z",
  "totals": {
   "reviews": 31,
   "spend_usd": 45.9,

@@ -2295,6 +2295,46 @@ def check_robots_sitemap(built: str) -> tuple[dict, dict]:
     return rc, {"urls": len(locs), "missing_pages": sorted(missing), "bad_lastmod": bad}
 
 
+def check_crawl(built: str) -> dict:
+    """crawl_check: every sitemap URL is reachable from / by following <a href> links (BFS depth), robots names the sitemap."""
+    import xml.etree.ElementTree as ET
+    from urllib.parse import urlparse
+    ns = "{http://www.sitemaps.org/schemas/sitemap/0.9}"
+    locs: dict[str, str] = {}
+    try:
+        for u in ET.parse(PUBLIC_DIR / "sitemap.xml").getroot():
+            locs[(u.findtext(ns + "loc") or "").strip()] = (u.findtext(ns + "lastmod") or "").strip()
+    except Exception:
+        pass
+    def path_of(url: str) -> str:
+        return urlparse(url).path or "/"
+    def file_of(path: str) -> Path | None:
+        f = PUBLIC_DIR / path.lstrip("/")
+        f = f / "index.html" if path.endswith("/") else f
+        return f if f.is_file() and f.suffix == ".html" else None
+    depth, queue = {"/": 0}, ["/"]
+    while queue:
+        cur = queue.pop(0)
+        f = file_of(cur)
+        if not f:
+            continue
+        for h in re.findall(r'<a [^>]*href="([^"#?]+)"', f.read_text(encoding="utf-8")):
+            if h.startswith(SITE_BASE):
+                h = h[len(SITE_BASE):] or "/"
+            if h.startswith("/") and h not in depth and not h.startswith("/go/"):
+                depth[h] = depth[cur] + 1
+                queue.append(h)
+    paths = {path_of(u): u for u in locs}
+    unreachable = sorted(u for p, u in paths.items() if p not in depth)
+    max_depth = max([depth[p] for p in paths if p in depth] or [0])
+    txt = (PUBLIC_DIR / "robots.txt").read_text(encoding="utf-8") if (PUBLIC_DIR / "robots.txt").is_file() else ""
+    sm_lines = [ln.strip() for ln in txt.splitlines() if ln.strip().lower().startswith("sitemap:")]
+    return {"sitemap_urls": len(locs), "missing_in_sitemap": sorted(w for w in (f"{SITE_BASE}/{d.parent.relative_to(PUBLIC_DIR).as_posix()}/" for d in PUBLIC_DIR.glob("*/index.html") if d.parent.name not in ("go", "open")) if w not in locs) + sorted(f"{SITE_BASE}/day/{d.parent.name}/" for d in PUBLIC_DIR.glob("day/*/index.html") if f"{SITE_BASE}/day/{d.parent.name}/" not in locs) + sorted(f"{SITE_BASE}/product/{d.parent.name}/" for d in PUBLIC_DIR.glob("product/*/index.html") if f"{SITE_BASE}/product/{d.parent.name}/" not in locs),
+            "unreachable": unreachable, "max_depth": max_depth,
+            "lastmod_after_build": sorted(u for u, lm in locs.items() if lm > built[:10]),
+            "robots_sitemap": sm_lines == [f"Sitemap: {SITE_BASE}/sitemap.xml"]}
+
+
 # ----------------------------------------------------------------------------------------------------------
 # Write public/
 # ----------------------------------------------------------------------------------------------------------
@@ -3284,6 +3324,7 @@ def main(argv: list[str] | None = None) -> int:
     bj["seo_check"] = seo
     bj["snippet_check"] = seo.pop("snippet_check")
     bj["orphan_check"] = {"pages_in_sitemap": seo["pages_in_sitemap"], "orphans": seo["orphans"]}
+    bj["crawl_check"] = check_crawl(bj.get("built") or model["built"])
     write_json(PUBLIC_DIR / "build.json", bj)
     log.info("seo_check: pages=%d canonical_missing=%d lastmod_missing=%d orphans=%d duplicate_titles=%d", seo["pages_checked"],
              len(seo["canonical_missing"]), len(seo["lastmod_missing"]), len(seo["orphans"]), len(seo["duplicate_titles"]))
@@ -3341,6 +3382,10 @@ def main(argv: list[str] | None = None) -> int:
         problems += cc["xml_errors"] + cc["latest_day_problems"]
         problems += [f"sitemap.xml: no <loc> for {p}" for p in cc["sitemap_missing"]]
         problems += [f"robots: {i}" for i in bj["robots_check"]["issues"]]
+        cr = bj["crawl_check"]
+        problems += [f"crawl: {k} {cr[k]}" for k in ("missing_in_sitemap", "unreachable", "lastmod_after_build") if cr[k]]
+        if not cr["robots_sitemap"] or cr["max_depth"] > 3 or cr["sitemap_urls"] < 1:
+            problems.append(f"crawl: robots_sitemap={cr['robots_sitemap']} max_depth={cr['max_depth']}")
         problems += [f"sitemap: missing {p}" for p in bj["sitemap_check"]["missing_pages"]] + [f"sitemap: bad lastmod {p}" for p in bj["sitemap_check"]["bad_lastmod"]]
         problems += [f"{m['page']}: number {m['key']} html={m['html']} json={m['json']}" for m in nc["mismatches"]]
         problems += [f"{m['page']}: nested data-k {m['key']}" for m in nc["nested"]]

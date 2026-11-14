@@ -722,6 +722,35 @@ def try_block(pid: str) -> str:
             '<a href="/try/">Try it with your product</a> · <a href="/go/github/">Read the code on GitHub</a></p>')
 
 
+def follow_block(pid: str) -> str:
+    """<p id="home-follow"> / <p id="day-follow">: how to come back, links to the existing feed and Telegram redirect."""
+    return (f'<p id="{pid}" class="follow-next">Follow the diary: <a href="/feed.xml">RSS</a> · '
+            '<a href="/go/telegram/">Telegram</a></p>')
+
+
+def check_follow() -> dict:
+    """/ and every /day/<date>/: exactly one follow element right after the try element, with links to /feed.xml and /go/telegram/."""
+    pages = [("/", PUBLIC_DIR / "index.html", "home-follow", "home-try")]
+    for f in sorted((PUBLIC_DIR / "day").glob("*/index.html")):
+        pages.append((f"/day/{f.parent.name}/", f, "day-follow", "day-try"))
+    missing = []
+    for name, f, pid, after in pages:
+        t = f.read_text(encoding="utf-8") if f.exists() else ""
+        n = t.count(f'id="{pid}"')
+        if n != 1:
+            missing.append({"page": name, "issue": f"{pid} count {n}"})
+            continue
+        i = t.find(f'id="{pid}"')
+        j = t.find(f'id="{after}"')
+        if j < 0 or j > i:
+            missing.append({"page": name, "issue": f"{pid} not after {after}"})
+        seg = t[i:t.find("</p>", i)]
+        for tgt in ("/feed.xml", "/go/telegram/"):
+            if f'href="{tgt}"' not in seg:
+                missing.append({"page": name, "issue": f"link {tgt} missing"})
+    return {"pages_checked": len(pages), "missing": missing}
+
+
 def check_try() -> dict:
     """/ and every /day/<date>/: exactly one try element with links to /try/ and /go/github/, placed after its anchor section."""
     pages = [("/", PUBLIC_DIR / "index.html", "home-try", "home-lead")]
@@ -1296,6 +1325,7 @@ def render_day(date: str, model: dict) -> str:
     body.append(what_broke_block(date, model))
     body.append(work_vs_people_block(date, model))
     body.append(try_block("day-try"))
+    body.append(follow_block("day-follow"))
     if present:
         body.append('<p class="toc">' + " · ".join(f'<a href="#{esc(s)}">{esc(p["product"].get("name") or s)}</a>' for s, p in present) + "</p>")
         for slug, p in present:
@@ -1760,7 +1790,7 @@ def check_home_lead() -> dict:
 def render_index(model: dict) -> str:
     products, dates = model["products"], model["dates"]
     latest = dates[-1] if dates else None
-    body = [f"<h1>{esc(SITE_NAME)}</h1>", f'<p class="lead">{esc(SITE_TAGLINE)}</p>', try_line(), latest_day_top_block(latest, model), home_lead_block(latest, model), try_block("home-try")]
+    body = [f"<h1>{esc(SITE_NAME)}</h1>", f'<p class="lead">{esc(SITE_TAGLINE)}</p>', try_line(), latest_day_top_block(latest, model), home_lead_block(latest, model), try_block("home-try"), follow_block("home-follow")]
     if latest:
         body.append(f'<h2 id="latest">Latest day: <a href="/day/{esc(latest)}/">{esc(latest)}</a></h2>')
         body.append(progress_note(latest, model["built"]))
@@ -3345,6 +3375,10 @@ def main(argv: list[str] | None = None) -> int:
     bj["try_check"] = tc
     write_json(PUBLIC_DIR / "build.json", bj)
     log.info("try_check: pages=%d missing=%d", tc["pages_checked"], len(tc["missing"]))
+    fc = check_follow()
+    bj["follow_check"] = fc
+    write_json(PUBLIC_DIR / "build.json", bj)
+    log.info("follow_check: pages=%d missing=%d", fc["pages_checked"], len(fc["missing"]))
     cc = check_checklist()
     bj["checklist_check"] = cc
     write_json(PUBLIC_DIR / "build.json", bj)
@@ -3475,6 +3509,7 @@ def main(argv: list[str] | None = None) -> int:
         problems += [f"{i['page']}: mobile {i['rule']} {i['detail']}" for i in mob["issues"]]
         problems += [f"{i['page']}: a11y {i['rule']}" for i in ac["issues"]]
         problems += [f"{m['page']}: try_check {m['issue']}" for m in tc["missing"]]
+        problems += [f"{m['page']}: follow_check {m['issue']}" for m in fc["missing"]]
         problems += [f"style.css: contrast {f['scheme']} {f['pair']} = {f['ratio']}" for f in cn["failures"]]
         if cn["schemes_checked"] != 2:
             problems.append("style.css: light and dark schemes not both found")

@@ -705,6 +705,36 @@ def try_line() -> str:
             '<a href="/go/github/">Read the framework code, MIT</a></p>')
 
 
+def try_block(pid: str) -> str:
+    """<p id="home-try"> / <p id="day-try">: one plain line with links to /try/ and /go/github/."""
+    return (f'<p id="{pid}" class="try-next">Want a team like this for your own product? '
+            '<a href="/try/">Try it with your product</a> · <a href="/go/github/">Read the code on GitHub</a></p>')
+
+
+def check_try() -> dict:
+    """/ and every /day/<date>/: exactly one try element with links to /try/ and /go/github/, placed after its anchor section."""
+    pages = [("/", PUBLIC_DIR / "index.html", "home-try", "home-lead")]
+    for f in sorted((PUBLIC_DIR / "day").glob("*/index.html")):
+        pages.append((f"/day/{f.parent.name}/", f, "day-try", "work-vs-people"))
+    missing = []
+    for name, f, pid, after in pages:
+        t = f.read_text(encoding="utf-8") if f.exists() else ""
+        if t.count(f'id="{pid}"') != 1:
+            missing.append({"page": name, "issue": f"{pid} count {t.count(f'id=\"{pid}\"')}"})
+            continue
+        i = t.find(f'id="{pid}"')
+        j = t.find(f'id="{after}"')
+        if after == "home-lead" and j < 0 and name == "/":
+            j = i  # home without a latest day has no home-lead
+        if j < 0 or j > i:
+            missing.append({"page": name, "issue": f"{pid} not after {after}"})
+        seg = t[i:t.find("</p>", i)]
+        for tgt in ("/try/", "/go/github/"):
+            if f'href="{tgt}"' not in seg:
+                missing.append({"page": name, "issue": f"link {tgt} missing"})
+    return {"pages_checked": len(pages), "missing": missing}
+
+
 def check_jsonld() -> dict:
     """JSON-LD on every indexable page: parses, @context, @type, url = canonical, Article datePublished = page date."""
     invalid, missing, n = [], [], 0
@@ -1133,6 +1163,7 @@ def render_day(date: str, model: dict) -> str:
     anchors = task_anchors(date, model)
     body.append(what_broke_block(date, model))
     body.append(work_vs_people_block(date, model))
+    body.append(try_block("day-try"))
     if present:
         body.append('<p class="toc">' + " · ".join(f'<a href="#{esc(s)}">{esc(p["product"].get("name") or s)}</a>' for s, p in present) + "</p>")
         for slug, p in present:
@@ -1473,7 +1504,7 @@ def check_home_lead() -> dict:
 def render_index(model: dict) -> str:
     products, dates = model["products"], model["dates"]
     latest = dates[-1] if dates else None
-    body = [f"<h1>{esc(SITE_NAME)}</h1>", f'<p class="lead">{esc(SITE_TAGLINE)}</p>', try_line(), latest_day_top_block(latest, model), home_lead_block(latest, model)]
+    body = [f"<h1>{esc(SITE_NAME)}</h1>", f'<p class="lead">{esc(SITE_TAGLINE)}</p>', try_line(), latest_day_top_block(latest, model), home_lead_block(latest, model), try_block("home-try")]
     if latest:
         body.append(f'<h2 id="latest">Latest day: <a href="/day/{esc(latest)}/">{esc(latest)}</a></h2>')
         body.append(progress_note(latest, model["built"]))
@@ -2969,6 +3000,10 @@ def main(argv: list[str] | None = None) -> int:
     bj["home_check"] = hc
     write_json(PUBLIC_DIR / "build.json", bj)
     log.info("home_check: latest_link_ok=%s issues=%d", hc["latest_link_ok"], len(hc["issues"]))
+    tc = check_try()
+    bj["try_check"] = tc
+    write_json(PUBLIC_DIR / "build.json", bj)
+    log.info("try_check: pages=%d missing=%d", tc["pages_checked"], len(tc["missing"]))
     cc = check_checklist()
     bj["checklist_check"] = cc
     write_json(PUBLIC_DIR / "build.json", bj)
@@ -3077,6 +3112,7 @@ def main(argv: list[str] | None = None) -> int:
         problems += [f"404.html: {m}" for m in nf["links_missing"]] + ([] if nf["exists"] else ["404.html missing"])
         problems += [f"{i['page']}: mobile {i['rule']} {i['detail']}" for i in mob["issues"]]
         problems += [f"{i['page']}: a11y {i['rule']}" for i in ac["issues"]]
+        problems += [f"{m['page']}: try_check {m['issue']}" for m in tc["missing"]]
         problems += [f"style.css: contrast {f['scheme']} {f['pair']} = {f['ratio']}" for f in cn["failures"]]
         if cn["schemes_checked"] != 2:
             problems.append("style.css: light and dark schemes not both found")

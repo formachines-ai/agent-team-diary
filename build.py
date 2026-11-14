@@ -394,7 +394,7 @@ def footer_products() -> str:
 
 
 def layout(title: str, body: str, built: str, description: str = "", canonical: str = "", noindex: bool = False,
-           ld_type: str = "WebPage", desc_max: int = DESC_MAX, date_published: str = "") -> str:
+           ld_type: str = "WebPage", desc_max: int = DESC_MAX, date_published: str = "", alt_json: str = "") -> str:
     desc = description or SITE_TAGLINE
     if len(desc) > desc_max:  # whole words only, no ellipsis
         desc = desc[:desc_max + 1].rsplit(" ", 1)[0].rstrip(" ,;:-")
@@ -420,6 +420,7 @@ def layout(title: str, body: str, built: str, description: str = "", canonical: 
           f'<meta name="twitter:card" content="summary">\n<meta name="twitter:title" content="{esc(title)}">\n'
           f'<meta name="twitter:description" content="{esc(desc)}">\n') + jsonld_block(ld)
     robots = '<meta name="robots" content="noindex">\n' if noindex else ""
+    alt_json_link = (f'<link rel="alternate" type="application/json" title="{esc(alt_json)} as JSON" href="{esc(alt_json)}">\n' if alt_json else "")
     canon = f'<link rel="canonical" href="{esc(canonical)}">\n' if canonical else ""
     return f"""<!doctype html>
 <html lang="en">
@@ -432,7 +433,8 @@ def layout(title: str, body: str, built: str, description: str = "", canonical: 
 {robots}{canon}{og}<link rel="icon" href="/brand/avatar.svg" type="image/svg+xml"><link rel="icon" href="/favicon.ico" sizes="16x16"><link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="/style.css">
 <link rel="alternate" type="application/rss+xml" title="{esc(SITE_NAME)} RSS" href="/feed.xml">
-</head>
+<link rel="alternate" type="text/plain" title="llms.txt" href="/llms.txt">
+{alt_json_link}</head>
 <body>
 <header class="site"><div class="wrap">
 <a class="brand" href="/">{esc(SITE_NAME)}</a>
@@ -1144,7 +1146,7 @@ def render_day(date: str, model: dict) -> str:
     body.append(NEXT_ROW)
     return layout(f"{date} — {SITE_NAME}", "\n".join(body), model["built"],
                   description=day_description(date, model), ld_type="Article", desc_max=DAY_DESC_MAX, date_published=date,
-                  canonical=f"{SITE_BASE}/day/{date}/")
+                  canonical=f"{SITE_BASE}/day/{date}/", alt_json=f"/day/{date}/index.json")
 
 
 DAY_DESC_MAX = DESC_MAX
@@ -1743,6 +1745,8 @@ def render_go(url: str, built: str, label: str = "") -> str:
 <title>Redirecting — {esc(SITE_NAME)}</title>
 <link rel="icon" href="/brand/avatar.svg" type="image/svg+xml"><link rel="icon" href="/favicon.ico" sizes="16x16"><link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="/style.css">
+<link rel="alternate" type="application/rss+xml" title="{esc(SITE_NAME)} RSS" href="/feed.xml">
+<link rel="alternate" type="text/plain" title="llms.txt" href="/llms.txt">
 </head>
 <body><main><div class="wrap">
 <h1>Redirecting</h1>
@@ -2602,6 +2606,31 @@ def check_contrast() -> dict:
     return {"schemes_checked": len(schemes), "pairs_checked": n, "failures": failures}
 
 
+def check_alternate() -> dict:
+    """Every public/**/*.html: exactly one rel=alternate to /feed.xml and /llms.txt; day pages also one to their index.json
+    and a visible body link to it; every target exists in public/."""
+    missing: list[str] = []
+    bad: list[str] = []
+    pages = sorted(PUBLIC_DIR.rglob("*.html"))
+    for f in pages:
+        name = "/" + f.relative_to(PUBLIC_DIR).as_posix()
+        txt = f.read_text(encoding="utf-8")
+        head = txt.split("</head>", 1)[0]
+        want = {"/feed.xml": "application/rss+xml", "/llms.txt": "text/plain"}
+        m = re.match(r"/day/(\d{4}-\d{2}-\d{2})/index\.html$", name)
+        if m:
+            want[f"/day/{m.group(1)}/index.json"] = "application/json"
+        for href, typ in want.items():
+            n = len(re.findall(r'<link rel="alternate" type="%s"[^>]*href="%s"' % (re.escape(typ), re.escape(href)), head))
+            if n != 1:
+                missing.append(f"{name} {href} x{n}")
+            if not (PUBLIC_DIR / href.lstrip("/")).is_file():
+                bad.append(f"{name} {href}")
+            if typ == "application/json" and f'<a href="{href}"' not in txt.split("</head>", 1)[1]:
+                missing.append(f"{name} body link {href}")
+    return {"pages_checked": len(pages), "missing": missing, "bad_targets": sorted(set(bad))}
+
+
 def check_mobile() -> dict:
     """Static 375 px check: viewport meta, no fixed width/min-width above 375px outside a max-width media query,
     overflow-wrap on body, tables wrapped or stacked at <=480px, pre/code wrap or scroll."""
@@ -3002,6 +3031,9 @@ def main(argv: list[str] | None = None) -> int:
     bj["llms_check"] = lk
     write_json(PUBLIC_DIR / "build.json", bj)
     log.info("audit_check: documented=%d missing=%d", ad["fields_documented"], len(ad["fields_missing"]))
+    al = check_alternate()
+    bj["alternate_check"] = al
+    write_json(PUBLIC_DIR / "build.json", bj)
     seo = check_seo()
     bj["seo_check"] = seo
     bj["orphan_check"] = {"pages_in_sitemap": seo["pages_in_sitemap"], "orphans": seo["orphans"]}
@@ -3028,6 +3060,7 @@ def main(argv: list[str] | None = None) -> int:
         problems += [f"ids: duplicate id {x['id']} on {x['page']}" for x in idc["duplicate_ids"]]
         problems += [f"ids: dangling link {x['link']} on {x['page']}" for x in idc["dangling_links"]]
         problems += [f"jsonld: invalid {i['page']} {i['issue']}" for i in jl["invalid"]] + [f"jsonld: missing {p}" for p in jl["missing"]]
+        problems += [f"alternate: missing {m}" for m in al["missing"]] + [f"alternate: bad target {m}" for m in al["bad_targets"]]
         problems += [f"seo: no self-canonical {p}" for p in seo["canonical_missing"]] + [f"seo: no lastmod {p}" for p in seo["lastmod_missing"]]
         problems += [f"seo: orphan {p}" for p in seo["orphans"]] + [f"seo: duplicate title {d['title']}" for d in seo["duplicate_titles"]]
         problems += [f"seo: duplicate description {d['description']}" for d in seo["description_duplicates"]]

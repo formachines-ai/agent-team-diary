@@ -1211,6 +1211,32 @@ def check_ids() -> dict:
     return {"pages_checked": len(pages), "duplicate_ids": dup, "dangling_links": dang}
 
 
+def check_latest_link() -> dict:
+    """Older /day/*/: exactly one #latest-day before #day-lead, linking to /day/<today.json date>/ (page exists); latest day: none."""
+    missing, wrong = [], []
+    pages = sorted(PUBLIC_DIR.glob("day/*/index.html"))
+    try:
+        latest = json.loads((PUBLIC_DIR / "today.json").read_text(encoding="utf-8")).get("date")
+    except (OSError, ValueError):
+        latest = None
+    for f in pages:
+        d = f.parent.name
+        t = f.read_text(encoding="utf-8")
+        n = t.count('id="latest-day"')
+        if d == latest:
+            if n:
+                wrong.append(d)
+            continue
+        i = t.find('id="latest-day"')
+        if n != 1 or not (0 <= i < t.find('id="day-lead"')):
+            missing.append(d)
+            continue
+        m = re.search(r'id="latest-day"[^>]*>.*?href="([^"]*)"', t[i:i + 400])
+        if not latest or not m or m.group(1) != f"/day/{latest}/" or not (PUBLIC_DIR / "day" / latest / "index.html").is_file():
+            wrong.append(d)
+    return {"pages_checked": len(pages), "missing": missing, "wrong_target": wrong}
+
+
 def check_lead() -> dict:
     """Every /day/*/: #day-lead exists right after <h1> before the first <h2>; its data-k numbers equal index.json; anchors exist."""
     issues, pages = [], sorted(PUBLIC_DIR.glob("day/*/index.html"))
@@ -1253,7 +1279,9 @@ def check_lead() -> dict:
 def render_day(date: str, model: dict) -> str:
     products = model["products"]
     present = [(slug, p) for slug, p in products.items() if date in p["days"]]
-    body = [f"<h1>{esc(date)}</h1>", day_lead_block(date, model), f'<p class="lead">One day of the agent team, product by product. <a href="/day/{esc(date)}/index.json">index.json</a></p>', try_line()]
+    newest = model["dates"][-1] if model["dates"] else None
+    latest_p = [f'<p id="latest-day">Latest day: <a href="/day/{esc(newest)}/">{esc(newest)}</a></p>'] if newest and newest != date else []
+    body = [f"<h1>{esc(date)}</h1>", *latest_p, day_lead_block(date, model), f'<p class="lead">One day of the agent team, product by product. <a href="/day/{esc(date)}/index.json">index.json</a></p>', try_line()]
     prev_d, next_d = neighbours(date, model["dates"])
     nav = []
     if prev_d:
@@ -3338,6 +3366,10 @@ def main(argv: list[str] | None = None) -> int:
     bj["wellknown_check"] = {"files": wk["files"], "missing": wk["missing"]}
     write_json(PUBLIC_DIR / "build.json", bj)
     log.info("wellknown_check: files=%d missing=%d problems=%d", len(wk["files"]), len(wk["missing"]), len(wk["problems"]))
+    llc = check_latest_link()
+    bj["latest_link_check"] = llc
+    write_json(PUBLIC_DIR / "build.json", bj)
+    log.info("latest_link_check: pages=%d missing=%d wrong=%d", llc["pages_checked"], len(llc["missing"]), len(llc["wrong_target"]))
     lcd = check_lead()
     bj["lead_check"] = lcd
     write_json(PUBLIC_DIR / "build.json", bj)
@@ -3407,6 +3439,7 @@ def main(argv: list[str] | None = None) -> int:
         problems = check_site()
         problems += [f"paths: {m}" for m in pc["missing"]]
         problems += [f"home: {m}" for m in hc["issues"]] + [f"home lead: {m}" for m in hc.get("lead_mismatches", [])]
+        problems += [f"latest-day missing: {d}" for d in llc["missing"]] + [f"latest-day wrong target: {d}" for d in llc["wrong_target"]]
         problems += [f"lead: {i['page']} {i['issue']}" for i in lcd["issues"]]
         problems += [f"feed: {i}" for i in fcd["lead_mismatches"]] + [f"feed: bad link {l}" for l in fcd["bad_links"]] + [f"feed: guid changed {g}" for g in fcd["guid_changed"]]
         if not fcd["items"]:

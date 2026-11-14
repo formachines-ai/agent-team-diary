@@ -816,6 +816,8 @@ def check_seo() -> dict:
                 daylink_missing.append({"page": p, "link": days[j]})
     dup = [{"title": k, "pages": v} for k, v in titles.items() if len(v) > 1]
     descs, desc_len = {}, []
+    too_long = [{"page": p, "title": k, "length": len(html.unescape(k))} for k, v in titles.items() for p in v
+                if p.startswith("/day/") and len(html.unescape(k)) > DAY_TITLE_MAX]
     for path, t in pages.items():
         if path.startswith("/go/") or path == "/404/":
             continue
@@ -831,8 +833,13 @@ def check_seo() -> dict:
         if d:
             descs.setdefault(d, []).append(path)
     ddup = [{"description": k, "pages": v} for k, v in descs.items() if len(v) > 1]
+    too_long += [{"page": p, "description": k, "length": len(k)} for k, v in descs.items() for p in v if len(k) > DESC_MAX]
+    snippet = {"pages_checked": len([p for p in pages if p.startswith("/day/")]),
+               "duplicate_titles": [d for d in dup if any(p.startswith("/day/") for p in d["pages"])],
+               "duplicate_descriptions": [d for d in ddup if any(p.startswith("/day/") for p in d["pages"])],
+               "too_long": too_long}
     return {"pages_in_sitemap": len(locs), "description_duplicates": ddup, "description_length_issues": desc_len, "pages_checked": len(pages), "canonical_missing": canonical_missing, "lastmod_missing": lastmod_missing,
-            "orphans": orphans, "duplicate_titles": dup, "noindex": noindex, "daylink_missing": daylink_missing}
+            "orphans": orphans, "duplicate_titles": dup, "noindex": noindex, "daylink_missing": daylink_missing, "snippet_check": snippet}
 
 
 def check_nav() -> dict:
@@ -1175,12 +1182,31 @@ def render_day(date: str, model: dict) -> str:
             body.append(f'<section class="product"><h2><a href="/product/{esc(slug)}/">{esc(p["product"].get("name") or slug)}</a></h2>'
                         f'<p class="note">no activity recorded</p></section>')
     body.append(NEXT_ROW)
-    return layout(f"{date} — {SITE_NAME}", "\n".join(body), model["built"],
-                  description=day_description(date, model), ld_type="Article", desc_max=DAY_DESC_MAX, date_published=date,
+    lead = day_lead_text(date, model)
+    return layout(day_title(date, lead), "\n".join(body), model["built"],
+                  description=lead, ld_type="Article", desc_max=DAY_DESC_MAX, date_published=date,
                   canonical=f"{SITE_BASE}/day/{date}/", alt_json=f"/day/{date}/index.json")
 
 
 DAY_DESC_MAX = DESC_MAX
+DAY_TITLE_MAX = 70
+
+
+def day_lead_text(date: str, model: dict) -> str:
+    """Plain text of the #day-lead paragraph (tags removed), as built by day_lead_block."""
+    t = re.sub(r"<[^>]+>", "", day_lead_block(date, model))
+    return re.sub(r"\s+", " ", html.unescape(t)).strip()
+
+
+def day_title(date: str, lead: str) -> str:
+    """'<date>: <first lead sentence, cut at a word> · agent team diary', at most DAY_TITLE_MAX characters."""
+    first = re.split(r"(?<=[.!?])\s", lead, maxsplit=1)[0]
+    first = re.sub(r"^What happened on \d{4}-\d\d-\d\d(?: \((fixture)[^)]*\))?: ", lambda m: "fixture: " if m.group(1) else "", first).rstrip(".")
+    suffix = " · agent team diary"
+    room = DAY_TITLE_MAX - len(f"{date}: ") - len(suffix)
+    if len(first) > room:
+        first = first[:room + 1].rsplit(" ", 1)[0].rstrip(" ,;:-")
+    return f"{date}: {first}{suffix}"
 
 
 def day_totals(date: str, model: dict) -> dict:
@@ -3071,6 +3097,7 @@ def main(argv: list[str] | None = None) -> int:
     write_json(PUBLIC_DIR / "build.json", bj)
     seo = check_seo()
     bj["seo_check"] = seo
+    bj["snippet_check"] = seo.pop("snippet_check")
     bj["orphan_check"] = {"pages_in_sitemap": seo["pages_in_sitemap"], "orphans": seo["orphans"]}
     write_json(PUBLIC_DIR / "build.json", bj)
     log.info("seo_check: pages=%d canonical_missing=%d lastmod_missing=%d orphans=%d duplicate_titles=%d", seo["pages_checked"],
@@ -3100,6 +3127,9 @@ def main(argv: list[str] | None = None) -> int:
         problems += [f"seo: orphan {p}" for p in seo["orphans"]] + [f"seo: duplicate title {d['title']}" for d in seo["duplicate_titles"]]
         problems += [f"seo: duplicate description {d['description']}" for d in seo["description_duplicates"]]
         problems += [f"seo: description {d['page']} {d['issue']} ({d['length']})" for d in seo["description_length_issues"]]
+        sn = bj["snippet_check"]
+        problems += [f"snippet: duplicate title {d['title']}" for d in sn["duplicate_titles"]] + [f"snippet: duplicate description {d['description']}" for d in sn["duplicate_descriptions"]]
+        problems += [f"snippet: too long {d['page']} ({d['length']})" for d in sn["too_long"]]
         problems += [f"orphan: sitemap URL {p} not linked from another page" for p in seo["orphans"]]
         problems += [f"seo: noindex {p}" for p in seo["noindex"]] + [f"seo: {d['page']} lacks link to {d['link']}" for d in seo["daylink_missing"]]
         problems += [f"llms.txt: missing {m}" for m in mch["llms_missing"]] + [f"feed.xml: {m}" for m in mch["feed_missing"]] + mch["json_errors"]

@@ -773,6 +773,25 @@ def check_jsonld() -> dict:
     return {"pages_checked": n, "invalid": invalid, "missing": missing}
 
 
+def fallback_selftest() -> dict:
+    """Synthetic in-memory days (nothing is written): a fixture day and a day without records must get no event title."""
+    out = {}
+    for key, day in (("fixture", {"fixture": True, "tasks": [{"id": "T-1", "title": "Synthetic task title that is long enough",
+                                                              "history": [{"to": "done"}]}]}),
+                     ("no_activity", None)):
+        try:
+            date = "2099-01-01"
+            model = {"products": {"x": {"product": {"name": "X"}, "days": ({date: day} if day else {})}}}
+            t = [day_title(date, day_lead_text(date, model)), home_title(date, model)]
+            ok = all(re.sub(r"\s*·\s*[^·]*$", "", x).partition(": ")[2] in FALLBACK_EVENTS for x in t)
+            if day:
+                ok = ok and "Synthetic" not in "".join(t) and product_event(model["products"]["x"])[1] in FALLBACK_EVENTS
+            out[key] = "ok" if ok else "fail: " + " | ".join(t)
+        except Exception as e:  # report, never crash the build
+            out[key] = f"fail: {type(e).__name__}: {e}"
+    return out
+
+
 def check_seo() -> dict:
     """Self-canonical on every indexable page, lastmod on every sitemap <url>, prev/next day links, no orphan sitemap URLs,
     no noindex outside /go/ and 404, unique titles."""
@@ -844,7 +863,14 @@ def check_seo() -> dict:
             descs.setdefault(d, []).append(path)
     ddup = [{"description": k, "pages": v} for k, v in descs.items() if len(v) > 1]
     too_long += [{"page": p, "description": k, "length": len(k)} for k, v in descs.items() for p in v if len(k) > DESC_MAX]
-    snippet = {"pages_checked": len(pages), "duplicate_titles": dup, "duplicate_descriptions": ddup,
+    short = []
+    for k, v in titles.items():
+        for p in v:
+            if p.startswith("/day/") or p == "/" or p.startswith("/product/"):
+                ev = re.sub(r"\s*·\s*[^·]*$", "", html.unescape(k)).partition(": ")[2]
+                if ev and ev not in FALLBACK_EVENTS and event_len(ev) < EVENT_MIN:
+                    short.append({"page": p, "title": k, "event_length": event_len(ev)})
+    snippet = {"pages_checked": len(pages), "short_titles": short, "fallback_selftest": fallback_selftest(), "duplicate_titles": dup, "duplicate_descriptions": ddup,
                "too_long": too_long, "counter_only_titles": counter_only, "dangling_titles": dangling}
     return {"pages_in_sitemap": len(locs), "description_duplicates": ddup, "description_length_issues": desc_len, "pages_checked": len(pages), "canonical_missing": canonical_missing, "lastmod_missing": lastmod_missing,
             "orphans": orphans, "duplicate_titles": dup, "noindex": noindex, "daylink_missing": daylink_missing, "snippet_check": snippet}
@@ -1217,16 +1243,26 @@ def _dangles(text: str) -> bool:
     return bool(w) and w[-1].lower() in DANGLING
 
 
+EVENT_MIN = 25  # characters of event text after "<date>: ", not counting a leading [tag]
+FALLBACK_EVENTS = ("no activity recorded", "fixture: sample data in the export format", "no accepted or failed task recorded", "no task event recorded")
+
+
+def event_len(text: str) -> int:
+    """Length of an event text without a leading [tag] and a trailing ellipsis."""
+    return len(re.sub(r"^\s*\[[^\]]*\]\s*", "", text).rstrip("…").strip())
+
+
 def cut_phrase(text: str, room: int) -> str:
-    """Cut text to at most room characters: at the last clause boundary (, : ; —) that fits, else at a word with '…'.
-    The result never ends on a word of DANGLING and never leaves a bracket open."""
+    """Cut text to at most room characters: at the last clause boundary (, ; — or ': ') that fits and leaves an event text of
+    EVENT_MIN characters (a leading [tag] not counted), else at a word with '…'. The result never ends on a word of DANGLING
+    and never leaves a bracket open. Fallback texts (no event) are returned as they are."""
     text = text.strip().rstrip(".")
     if len(text) <= room and not _dangles(text):
         return text
     head = text[:room + 1]
-    for m in reversed(list(re.finditer(r"\s*[,:;—]", head))):
+    for m in reversed(list(re.finditer(r"\s*(?:[,;—]|:(?=\s))", head))):
         cand = text[:m.start()].rstrip(" ,;:—-")
-        if len(cand) >= 12 and len(cand) <= room and not _dangles(cand) and cand.count("(") == cand.count(")"):
+        if event_len(cand) >= EVENT_MIN and len(cand) <= room and not _dangles(cand) and cand.count("(") == cand.count(")"):
             return cand
     room -= 1  # the ellipsis
     cut = text[:room + 1].rsplit(" ", 1)[0] if len(text) > room else text
@@ -1279,24 +1315,37 @@ def home_title(latest: str | None, model: dict) -> str:
     return fit_title(prefix, txt or "no task event recorded")
 
 
-def product_event(p: dict) -> tuple[str | None, str]:
-    """(latest day, event text) of one product: first task with a failing review verdict, else first accepted task, from its latest day."""
+def product_events(p: dict) -> tuple[str | None, list[str]]:
+    """(latest day, candidate event texts) of one product: tasks with a failing review verdict first, then accepted tasks, from its latest day."""
     dates = sorted(p["days"])
     if not dates:
-        return None, "no activity recorded"
+        return None, ["no activity recorded"]
     date = dates[-1]
     d = p["days"][date]
     if d.get("fixture"):
-        return date, "fixture: sample data in the export format"
+        return date, ["fixture: sample data in the export format"]
     bad = {str(r.get("task")) for r in d.get("reviews") or [] if r.get("verdict") in ("fail", "inconclusive")}
     tasks = [t for t in d.get("tasks") or [] if t.get("id") and t.get("title")]
-    pick = (next((t for t in tasks if str(t["id"]) in bad), None)
-            or next((t for t in tasks if any(h.get("to") in DONE_STATES for h in (t.get("history") or []))), None))
-    return date, (str(pick["title"]) if pick else "no accepted or failed task recorded")
+    pick = ([t for t in tasks if str(t["id"]) in bad]
+            + [t for t in tasks if str(t["id"]) not in bad and any(h.get("to") in DONE_STATES for h in (t.get("history") or []))])
+    return date, [str(t["title"]) for t in pick] or ["no accepted or failed task recorded"]
+
+
+def product_event(p: dict) -> tuple[str | None, str]:
+    date, ev = product_events(p)
+    return date, ev[0]
 
 
 def product_title(name: str, p: dict) -> str:
-    return fit_title(f"{name}: ", re.sub(r"\s+", " ", product_event(p)[1]))
+    """'<name>: <event> · AI diary'. The first candidate task whose cut keeps EVENT_MIN characters of event text wins; if the name
+    is too long a parenthetical in it is dropped; else the first candidate is cut as it is."""
+    cands = [re.sub(r"\s+", " ", e) for e in product_events(p)[1]]
+    for nm in dict.fromkeys((name, re.sub(r"\s*\([^)]*\)", "", name).strip() or name)):
+        for e in cands:
+            t = fit_title(f"{nm}: ", e)
+            if e in FALLBACK_EVENTS or event_len(t.partition(": ")[2][: -len(TITLE_SUFFIX)]) >= EVENT_MIN:
+                return t
+    return fit_title(f"{name}: ", cands[0])
 
 
 def day_totals(date: str, model: dict) -> dict:
@@ -3246,6 +3295,8 @@ def main(argv: list[str] | None = None) -> int:
         sn = bj["snippet_check"]
         problems += [f"snippet: duplicate title {d['title']}" for d in sn["duplicate_titles"]] + [f"snippet: duplicate description {d['description']}" for d in sn["duplicate_descriptions"]]
         problems += [f"snippet: too long {d['page']} ({d['length']})" for d in sn["too_long"]]
+        problems += [f"snippet: short title {d['page']} {d['title']}" for d in sn["short_titles"]]
+        problems += [f"snippet: fallback_selftest {k}: {v}" for k, v in sn["fallback_selftest"].items() if v != "ok"]
         problems += [f"snippet: dangling title {d['page']} {d['title']}" for d in sn["dangling_titles"]]
         problems += [f"grammar: {b['file']} {b['text']}" for b in bj["grammar_check"]["bad_plurals"]]
         problems += [f"orphan: sitemap URL {p} not linked from another page" for p in seo["orphans"]]

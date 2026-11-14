@@ -817,7 +817,10 @@ def check_seo() -> dict:
     dup = [{"title": k, "pages": v} for k, v in titles.items() if len(v) > 1]
     descs, desc_len = {}, []
     too_long = [{"page": p, "title": k, "length": len(html.unescape(k))} for k, v in titles.items() for p in v
-                if p.startswith("/day/") and len(html.unescape(k)) > DAY_TITLE_MAX]
+                if len(html.unescape(k)) > DAY_TITLE_MAX]
+    counter_only = [{"page": p, "title": k} for k, v in titles.items() for p in v
+                    if p.startswith(("/day/", "/product/")) or p == "/"
+                    if re.search(r"\b\d+ (?:tasks?|reviews?)\b", html.unescape(k))]
     for path, t in pages.items():
         if path.startswith("/go/") or path == "/404/":
             continue
@@ -834,10 +837,8 @@ def check_seo() -> dict:
             descs.setdefault(d, []).append(path)
     ddup = [{"description": k, "pages": v} for k, v in descs.items() if len(v) > 1]
     too_long += [{"page": p, "description": k, "length": len(k)} for k, v in descs.items() for p in v if len(k) > DESC_MAX]
-    snippet = {"pages_checked": len([p for p in pages if p.startswith("/day/")]),
-               "duplicate_titles": [d for d in dup if any(p.startswith("/day/") for p in d["pages"])],
-               "duplicate_descriptions": [d for d in ddup if any(p.startswith("/day/") for p in d["pages"])],
-               "too_long": too_long}
+    snippet = {"pages_checked": len(pages), "duplicate_titles": dup, "duplicate_descriptions": ddup,
+               "too_long": too_long, "counter_only_titles": counter_only}
     return {"pages_in_sitemap": len(locs), "description_duplicates": ddup, "description_length_issues": desc_len, "pages_checked": len(pages), "canonical_missing": canonical_missing, "lastmod_missing": lastmod_missing,
             "orphans": orphans, "duplicate_titles": dup, "noindex": noindex, "daylink_missing": daylink_missing, "snippet_check": snippet}
 
@@ -1198,15 +1199,70 @@ def day_lead_text(date: str, model: dict) -> str:
     return re.sub(r"\s+", " ", html.unescape(t)).strip()
 
 
+TITLE_SUFFIX = " · AI diary"  # 11 characters
+
+
+def fit_title(prefix: str, text: str) -> str:
+    """prefix + text + TITLE_SUFFIX within DAY_TITLE_MAX; text is cut at a word (never extended)."""
+    room = DAY_TITLE_MAX - len(prefix) - len(TITLE_SUFFIX)
+    text = text.strip().rstrip(".")
+    if len(text) > room:
+        text = text[:room + 1].rsplit(" ", 1)[0].rstrip(" ,;:-")
+    return f"{prefix}{text}{TITLE_SUFFIX}"
+
+
 def day_title(date: str, lead: str) -> str:
-    """'<date>: <first lead sentence, cut at a word> · agent team diary', at most DAY_TITLE_MAX characters."""
+    """'<date>: <task title named in the #day-lead> · AI diary', at most DAY_TITLE_MAX characters. The text after the date is a
+    cut of the #day-lead text itself; fixture and empty days name no event."""
+    prefix = f"{date}: "
+    if "(fixture" in lead:
+        return fit_title(prefix, "fixture: sample data in the export format")
+    if "no activity recorded" in lead:
+        return fit_title(prefix, "no activity recorded")
+    m = re.search(r"One (?:accepted task|task with a failed or inconclusive review): (.+?)\.?$", lead)
+    if m:
+        return fit_title(prefix, m.group(1))
     first = re.split(r"(?<=[.!?])\s", lead, maxsplit=1)[0]
-    first = re.sub(r"^What happened on \d{4}-\d\d-\d\d(?: \((fixture)[^)]*\))?: ", lambda m: "fixture: " if m.group(1) else "", first).rstrip(".")
-    suffix = " · agent team diary"
-    room = DAY_TITLE_MAX - len(f"{date}: ") - len(suffix)
-    if len(first) > room:
-        first = first[:room + 1].rsplit(" ", 1)[0].rstrip(" ,;:-")
-    return f"{date}: {first}{suffix}"
+    first = re.sub(r"^What happened on \d{4}-\d\d-\d\d: ", "", first)
+    return fit_title(prefix, first)
+
+
+def home_title(latest: str | None, model: dict) -> str:
+    """'<latest date>: <#home-lead event> · AI diary'; no event text for fixture or empty days."""
+    if not latest:
+        return f"{SITE_NAME} — the site that writes itself"
+    ds = [p["days"][latest] for p in model["products"].values() if latest in p["days"]]
+    prefix = f"{latest}: "
+    if not ds:
+        return fit_title(prefix, "no activity recorded")
+    if all(d.get("fixture") for d in ds):
+        return fit_title(prefix, "fixture: sample data in the export format")
+    m = re.search(r"<p>(.*?)</p>", home_lead_block(latest, model), re.S)
+    txt = re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", "", m.group(1)))).strip() if m else ""
+    txt = txt.split(" Failed runs and rate limits")[0]
+    txt = re.sub(r"^Nothing failed in the records\.\s*(One )?", "", txt)
+    txt = re.sub(r"\s*\([a-z_]+\)(?=[,.]|$)", "", txt)
+    return fit_title(prefix, txt or "no task event recorded")
+
+
+def product_event(p: dict) -> tuple[str | None, str]:
+    """(latest day, event text) of one product: first task with a failing review verdict, else first accepted task, from its latest day."""
+    dates = sorted(p["days"])
+    if not dates:
+        return None, "no activity recorded"
+    date = dates[-1]
+    d = p["days"][date]
+    if d.get("fixture"):
+        return date, "fixture: sample data in the export format"
+    bad = {str(r.get("task")) for r in d.get("reviews") or [] if r.get("verdict") in ("fail", "inconclusive")}
+    tasks = [t for t in d.get("tasks") or [] if t.get("id") and t.get("title")]
+    pick = (next((t for t in tasks if str(t["id"]) in bad), None)
+            or next((t for t in tasks if any(h.get("to") in DONE_STATES for h in (t.get("history") or []))), None))
+    return date, (str(pick["title"]) if pick else "no accepted or failed task recorded")
+
+
+def product_title(name: str, p: dict) -> str:
+    return fit_title(f"{name}: ", re.sub(r"\s+", " ", product_event(p)[1]))
 
 
 def day_totals(date: str, model: dict) -> dict:
@@ -1600,7 +1656,7 @@ def render_index(model: dict) -> str:
             body.append(f'<p class="note">{len(dates) - FRONT_DAYS} earlier days are listed on the product pages and in <a href="/sitemap.xml">sitemap.xml</a>.</p>')
     else:
         body.append('<p class="note">no activity recorded</p>')
-    return layout(f"{SITE_NAME} — the site that writes itself", "\n".join(body), model["built"], canonical=SITE_BASE + "/",
+    return layout(home_title(latest, model), "\n".join(body), model["built"], canonical=SITE_BASE + "/",
                   description=home_description(latest, model), ld_type="WebSite", desc_max=DAY_DESC_MAX)
 
 
@@ -1647,8 +1703,14 @@ def render_product(slug: str, p: dict, model: dict) -> str:
                     f'{totals["reviews_pass"]} reviews passed, {totals["posts"]} posts, {esc(fmt_usd(totals["spend_usd"]))} spent.</p>')
     else:
         body.append('<p class="note">no activity recorded</p>')
-    return layout(f"{name} — {SITE_NAME}", "\n".join(body), model["built"],
-                  description=f"Day-by-day chronicle of {name} as kept by the agent team: tasks, reviews, posts, metrics, spend.",
+    pdate = product_event(p)[0]
+    pdesc = f"Day-by-day chronicle of {name} as kept by the agent team: tasks, reviews, posts, metrics, spend."
+    if pdate:
+        c = day_counts(p["days"][pdate])
+        pdesc = (f"{name} chronicle by AI agents. Latest day {pdate}: {c['tasks_done_distinct']} tasks accepted, {c['reviews']} reviews, "
+                 f"{fmt_usd(c['spend_usd'])} model spend" + (" (fixture sample data)." if c["fixture"] else "."))
+    return layout(product_title(name, p), "\n".join(body), model["built"],
+                  description=pdesc,
                   canonical=f"{SITE_BASE}/product/{slug}/")
 
 

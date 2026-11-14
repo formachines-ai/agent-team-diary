@@ -178,6 +178,11 @@ def dk(key: str | None, text: object) -> str:
     return f'<span data-k="{esc(key)}">{esc(text)}</span>' if key else esc(text)
 
 
+def nn(n: object, one: str, many: str | None = None) -> str:
+    """Noun for a count: singular when the count is 1, else plural (default: one + 's')."""
+    return one if str(n).strip() == "1" else (many or one + "s")
+
+
 def fmt_usd(v: object) -> str:
     try:
         return f"${float(v):.1f}"
@@ -815,6 +820,8 @@ def check_seo() -> dict:
             if 0 <= j < len(days) and f'href="{days[j]}"' not in t:
                 daylink_missing.append({"page": p, "link": days[j]})
     dup = [{"title": k, "pages": v} for k, v in titles.items() if len(v) > 1]
+    dangling = [{"page": p, "title": k} for k, v in titles.items() for p in v
+                if _dangles(re.sub(r"\s*·\s*[^·]*$", "", html.unescape(k)).rstrip("…"))]
     descs, desc_len = {}, []
     too_long = [{"page": p, "title": k, "length": len(html.unescape(k))} for k, v in titles.items() for p in v
                 if len(html.unescape(k)) > DAY_TITLE_MAX]
@@ -838,7 +845,7 @@ def check_seo() -> dict:
     ddup = [{"description": k, "pages": v} for k, v in descs.items() if len(v) > 1]
     too_long += [{"page": p, "description": k, "length": len(k)} for k, v in descs.items() for p in v if len(k) > DESC_MAX]
     snippet = {"pages_checked": len(pages), "duplicate_titles": dup, "duplicate_descriptions": ddup,
-               "too_long": too_long, "counter_only_titles": counter_only}
+               "too_long": too_long, "counter_only_titles": counter_only, "dangling_titles": dangling}
     return {"pages_in_sitemap": len(locs), "description_duplicates": ddup, "description_length_issues": desc_len, "pages_checked": len(pages), "canonical_missing": canonical_missing, "lastmod_missing": lastmod_missing,
             "orphans": orphans, "duplicate_titles": dup, "noindex": noindex, "daylink_missing": daylink_missing, "snippet_check": snippet}
 
@@ -870,8 +877,8 @@ def day_lead_block(date: str, model: dict) -> str:
         c = day_counts(d)
         k = f"counts.{slug}."
         name = esc(p["product"].get("name") or slug)
-        sents.append(f'{name}: {dk(k + "tasks_done_distinct", c["tasks_done_distinct"])} tasks accepted, '
-                     f'{dk(k + "reviews_pass", c["reviews_pass"])} reviews passed and {dk(k + "reviews_fail", c["reviews_fail"])} failed, '
+        sents.append(f'{name}: {dk(k + "tasks_done_distinct", c["tasks_done_distinct"])} {nn(c["tasks_done_distinct"], "task")} accepted, '
+                     f'{dk(k + "reviews_pass", c["reviews_pass"])} {nn(c["reviews_pass"], "review")} passed and {dk(k + "reviews_fail", c["reviews_fail"])} failed, '
                      f'model spend ${dk(k + "spend_usd", f"{c["spend_usd"]:.1f}")}')
     fx = all(d.get("fixture") for _, _, d in present)
     intro = f"What happened on {esc(date)}" + (" (fixture: sample data in the export format, not a measurement)" if fx else "") + ": "
@@ -1202,13 +1209,40 @@ def day_lead_text(date: str, model: dict) -> str:
 TITLE_SUFFIX = " · AI diary"  # 11 characters
 
 
-def fit_title(prefix: str, text: str) -> str:
-    """prefix + text + TITLE_SUFFIX within DAY_TITLE_MAX; text is cut at a word (never extended)."""
-    room = DAY_TITLE_MAX - len(prefix) - len(TITLE_SUFFIX)
+DANGLING = ("a", "an", "the", "each", "to", "of", "for", "with", "in", "on", "and", "or", "by", "from", "at", "as")
+
+
+def _dangles(text: str) -> bool:
+    w = re.findall(r"[A-Za-z']+", text)
+    return bool(w) and w[-1].lower() in DANGLING
+
+
+def cut_phrase(text: str, room: int) -> str:
+    """Cut text to at most room characters: at the last clause boundary (, : ; —) that fits, else at a word with '…'.
+    The result never ends on a word of DANGLING and never leaves a bracket open."""
     text = text.strip().rstrip(".")
-    if len(text) > room:
-        text = text[:room + 1].rsplit(" ", 1)[0].rstrip(" ,;:-")
-    return f"{prefix}{text}{TITLE_SUFFIX}"
+    if len(text) <= room and not _dangles(text):
+        return text
+    head = text[:room + 1]
+    for m in reversed(list(re.finditer(r"\s*[,:;—]", head))):
+        cand = text[:m.start()].rstrip(" ,;:—-")
+        if len(cand) >= 12 and len(cand) <= room and not _dangles(cand) and cand.count("(") == cand.count(")"):
+            return cand
+    room -= 1  # the ellipsis
+    cut = text[:room + 1].rsplit(" ", 1)[0] if len(text) > room else text
+    cut = cut.rstrip(" ,;:-—")
+    while cut and (_dangles(cut) or cut.count("(") != cut.count(")")):
+        if cut.count("(") != cut.count(")") and "(" in cut:
+            cut = cut[:cut.rindex("(")].rstrip(" ,;:-—")
+        else:
+            cut = cut.rsplit(" ", 1)[0].rstrip(" ,;:-—") if " " in cut else ""
+    return cut + "…" if cut else text[:room].rstrip() + "…"
+
+
+def fit_title(prefix: str, text: str) -> str:
+    """prefix + text + TITLE_SUFFIX within DAY_TITLE_MAX; text is cut at a clause or word (never extended, never ends on a dangling word)."""
+    room = DAY_TITLE_MAX - len(prefix) - len(TITLE_SUFFIX)
+    return f"{prefix}{cut_phrase(text, room)}{TITLE_SUFFIX}"
 
 
 def day_title(date: str, lead: str) -> str:
@@ -1281,8 +1315,8 @@ def day_description(date: str, model: dict) -> str:
     t = day_totals(date, model)
     if all(d.get("fixture") for d in ps):
         return (f"Agent team diary, {date}: fixture sample data in the export format, not a measurement. "
-                f"{t['tasks_done_distinct']} tasks accepted, {t['reviews']} reviews, {fmt_usd(t['spend_usd'])} model spend.")
-    return (f"Agent team diary, {date}: {t['tasks_done_distinct']} tasks accepted, {t['reviews']} reviews, "
+                f"{t['tasks_done_distinct']} {nn(t['tasks_done_distinct'], 'task')} accepted, {t['reviews']} {nn(t['reviews'], 'review')}, {fmt_usd(t['spend_usd'])} model spend.")
+    return (f"Agent team diary, {date}: {t['tasks_done_distinct']} {nn(t['tasks_done_distinct'], 'task')} accepted, {t['reviews']} {nn(t['reviews'], 'review')}, "
             f"{fmt_usd(t['spend_usd'])} model spend, from the team's own export.")
 
 
@@ -1290,8 +1324,8 @@ def home_description(latest: str, model: dict) -> str:
     if not latest:
         return SITE_TAGLINE
     t = day_totals(latest, model)
-    return (f"A diary written by AI agents from their own task records. Latest day {latest}: {t['tasks_done_distinct']} tasks accepted, "
-            f"{t['reviews']} reviews, {fmt_usd(t['spend_usd'])} model spend.")
+    return (f"A diary written by AI agents from their own task records. Latest day {latest}: {t['tasks_done_distinct']} {nn(t['tasks_done_distinct'], 'task')} accepted, "
+            f"{t['reviews']} {nn(t['reviews'], 'review')}, {fmt_usd(t['spend_usd'])} model spend.")
 
 
 def neighbours(date: str, dates: list[str]) -> tuple[str | None, str | None]:
@@ -1436,8 +1470,8 @@ def latest_day_top_block(latest: str | None, model: dict) -> str:
             k = f"products.{slug}."
             fx = ' <span class="badge other">fixture</span>' if c["fixture"] else ""
             spend = f"{c['spend_usd']:.1f}"
-            out.append(f'<li><a href="/product/{esc(slug)}/">{esc(name)}</a>{fx}: {dk(k + "tasks_done_distinct", c["tasks_done_distinct"])} tasks accepted, '
-                       f'{dk(k + "reviews", c["reviews"])} reviews, ${dk(k + "spend_usd", spend)} model spend</li>')
+            out.append(f'<li><a href="/product/{esc(slug)}/">{esc(name)}</a>{fx}: {dk(k + "tasks_done_distinct", c["tasks_done_distinct"])} {nn(c["tasks_done_distinct"], "task")} accepted, '
+                       f'{dk(k + "reviews", c["reviews"])} {nn(c["reviews"], "review")}, ${dk(k + "spend_usd", spend)} model spend</li>')
         out.append("</ul>")
         if all(d.get("fixture") for _, d in rows):
             out.append('<p class="note">fixture: sample data in the export format, not a measurement.</p>')
@@ -1649,7 +1683,7 @@ def render_index(model: dict) -> str:
                     c = day_counts(p["days"][date])
                     ck = lambda f, date=date, slug=slug: f"day/{date}:counts.{slug}.{f}"
                     parts.append(f'{esc(p["product"].get("name") or slug)}: {dk(ck("tasks_done_distinct"), c["tasks_done_distinct"])} done, '
-                                 f'{dk(ck("reviews_pass"), c["reviews_pass"])} passed, {dk(ck("posts"), c["posts"])} posts')
+                                 f'{dk(ck("reviews_pass"), c["reviews_pass"])} passed, {dk(ck("posts"), c["posts"])} {nn(c["posts"], "post")}')
             body.append(f'<li><a href="/day/{esc(date)}/">{esc(date)}</a> — ' + ("; ".join(parts) if parts else "no activity recorded") + "</li>")
         body.append("</ul>")
         if len(dates) > FRONT_DAYS:
@@ -1694,20 +1728,20 @@ def render_product(slug: str, p: dict, model: dict) -> str:
             body.append('<li class="card">'
                         f'<div class="head"><span class="name"><a href="/day/{esc(date)}/#{esc(slug)}">{esc(date)}</a></span>'
                         + (' <span class="badge state side">fixture</span>' if c["fixture"] else "") + "</div>"
-                        f'<div class="meta">{dk(ck("tasks_touched"), c["tasks_touched"])} tasks touched · {dk(ck("tasks_done_distinct"), c["tasks_done_distinct"])} done ({dk(ck("tasks_done"), c["tasks_done"])} state transitions) · '
-                        f'{dk(ck("reviews"), c["reviews"])} reviews ({dk(ck("reviews_pass"), c["reviews_pass"])} passed) · '
-                        f'{dk(ck("posts"), c["posts"])} posts · people (estimated) {dk(ck("humans") if c["humans"] is not None else None, people)} · ${dk(ck("spend_usd"), f"{c['spend_usd']:.1f}")}</div>'
+                        f'<div class="meta">{dk(ck("tasks_touched"), c["tasks_touched"])} {nn(c["tasks_touched"], "task")} touched · {dk(ck("tasks_done_distinct"), c["tasks_done_distinct"])} done ({dk(ck("tasks_done"), c["tasks_done"])} state {nn(c["tasks_done"], "transition")}) · '
+                        f'{dk(ck("reviews"), c["reviews"])} {nn(c["reviews"], "review")} ({dk(ck("reviews_pass"), c["reviews_pass"])} passed) · '
+                        f'{dk(ck("posts"), c["posts"])} {nn(c["posts"], "post")} · people (estimated) {dk(ck("humans") if c["humans"] is not None else None, people)} · ${dk(ck("spend_usd"), f"{c['spend_usd']:.1f}")}</div>'
                         + (f'<p class="summary">{esc(excerpt)}</p>' if excerpt else '<p class="note">no digest recorded</p>') + "</li>")
         body.append("</ul>")
-        body.append(f'<p class="note">Over {len(dates)} day{"s" if len(dates) != 1 else ""}: {totals["tasks_done_distinct"]} tasks done (summed per day; {totals["tasks_done"]} state transitions), '
-                    f'{totals["reviews_pass"]} reviews passed, {totals["posts"]} posts, {esc(fmt_usd(totals["spend_usd"]))} spent.</p>')
+        body.append(f'<p class="note">Over {len(dates)} day{"s" if len(dates) != 1 else ""}: {totals["tasks_done_distinct"]} {nn(totals["tasks_done_distinct"], "task")} done (summed per day; {totals["tasks_done"]} state {nn(totals["tasks_done"], "transition")}), '
+                    f'{totals["reviews_pass"]} {nn(totals["reviews_pass"], "review")} passed, {totals["posts"]} {nn(totals["posts"], "post")}, {esc(fmt_usd(totals["spend_usd"]))} spent.</p>')
     else:
         body.append('<p class="note">no activity recorded</p>')
     pdate = product_event(p)[0]
     pdesc = f"Day-by-day chronicle of {name} as kept by the agent team: tasks, reviews, posts, metrics, spend."
     if pdate:
         c = day_counts(p["days"][pdate])
-        pdesc = (f"{name} chronicle by AI agents. Latest day {pdate}: {c['tasks_done_distinct']} tasks accepted, {c['reviews']} reviews, "
+        pdesc = (f"{name} chronicle by AI agents. Latest day {pdate}: {c['tasks_done_distinct']} {nn(c['tasks_done_distinct'], 'task')} accepted, {c['reviews']} {nn(c['reviews'], 'review')}, "
                  f"{fmt_usd(c['spend_usd'])} model spend" + (" (fixture sample data)." if c["fixture"] else "."))
     return layout(product_title(name, p), "\n".join(body), model["built"],
                   description=pdesc,
@@ -1894,6 +1928,25 @@ def render_open_costs(built: str, latest: str | None) -> str:
             f'<ul>{day}<li><a href="/about/">About</a></li><li><a href="/">Front page</a></li></ul>')
     return layout(f"Model spend — {SITE_NAME}", body, built, canonical=SITE_BASE + "/open/costs/",
                   description="Where to find the daily model spend of each product: it is listed on every day page of the agent team diary.")
+
+
+BAD_PLURAL = re.compile(r"(?<![\w.$/-])1 (tasks|reviews|posts|days|products|transitions|visits|runs|failures|sources|humans|people)\b")
+
+
+def check_grammar() -> dict:
+    """A count of 1 must take the singular noun: scan the text of every HTML file, feed.xml and llms.txt."""
+    files = sorted(PUBLIC_DIR.rglob("*.html")) + [PUBLIC_DIR / "feed.xml", PUBLIC_DIR / "llms.txt"]
+    bad, n = [], 0
+    for f in files:
+        if not f.exists():
+            continue
+        n += 1
+        t = f.read_text(encoding="utf-8")
+        t = re.sub(r"<(script|style)\b.*?</\1>", " ", t, flags=re.S)
+        t = html.unescape(re.sub(r"<[^>]+>", "", t))
+        for m in BAD_PLURAL.finditer(t):
+            bad.append({"file": str(f.relative_to(PUBLIC_DIR)), "text": t[max(0, m.start() - 20):m.end() + 10].replace("\n", " ")})
+    return {"files_checked": n, "bad_plurals": bad}
 
 
 def check_paths() -> dict:
@@ -3170,6 +3223,7 @@ def main(argv: list[str] | None = None) -> int:
     log.info("jsonld_check: pages=%d invalid=%d missing=%d", jl["pages_checked"], len(jl["invalid"]), len(jl["missing"]))
     pc = check_paths()
     bj["paths_check"] = pc
+    bj["grammar_check"] = check_grammar()
     write_json(PUBLIC_DIR / "build.json", bj)
     if args.check:
         problems = check_site()
@@ -3192,6 +3246,8 @@ def main(argv: list[str] | None = None) -> int:
         sn = bj["snippet_check"]
         problems += [f"snippet: duplicate title {d['title']}" for d in sn["duplicate_titles"]] + [f"snippet: duplicate description {d['description']}" for d in sn["duplicate_descriptions"]]
         problems += [f"snippet: too long {d['page']} ({d['length']})" for d in sn["too_long"]]
+        problems += [f"snippet: dangling title {d['page']} {d['title']}" for d in sn["dangling_titles"]]
+        problems += [f"grammar: {b['file']} {b['text']}" for b in bj["grammar_check"]["bad_plurals"]]
         problems += [f"orphan: sitemap URL {p} not linked from another page" for p in seo["orphans"]]
         problems += [f"seo: noindex {p}" for p in seo["noindex"]] + [f"seo: {d['page']} lacks link to {d['link']}" for d in seo["daylink_missing"]]
         problems += [f"llms.txt: missing {m}" for m in mch["llms_missing"]] + [f"feed.xml: {m}" for m in mch["feed_missing"]] + mch["json_errors"]

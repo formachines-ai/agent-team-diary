@@ -5,6 +5,32 @@
  "date": "2026-11-13",
  "tasks": [
   {
+   "id": "T-0092",
+   "title": "X post 12.11 06:15 UTC from @formachines_ai: number of the day",
+   "type": "content",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-10T07:09:50+00:00",
+   "accepted_at": "2026-11-12T07:11:23+00:00",
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-13T12:10:33+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — 12.11: ?src=x 7 запросов, 2 человека, 1 engaged; сопоставимо с прошлыми днями."
+    },
+    {
+     "ts": "2026-11-13T12:10:33+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
    "id": "T-0097",
    "title": "X post 13.11 06:15 UTC from @formachines_ai: Card link (repo added AGENTS.md in 24 h)",
    "type": "content",
@@ -33,6 +59,62 @@
      "actor": "dispatcher",
      "to": "accepted",
      "note": "posted 1 (editor-approved)"
+    }
+   ]
+  },
+  {
+   "id": "T-0098",
+   "title": "dev.to weekly slice 13.11 14:00 UTC: Week in numbers 02.11→13.11",
+   "type": "marketing",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "marketer",
+   "created": "2026-11-10T15:09:22+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-13T14:12:08+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261113T1407-exec-T-0098"
+    },
+    {
+     "ts": "2026-11-13T14:12:08+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-13T14:13:04+00:00",
+     "actor": "marketer",
+     "to": "blocked",
+     "note": "question Q-0017"
+    },
+    {
+     "ts": "2026-11-13T15:08:35+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "answered Q-0017; not before 2026-11-15T14:00:00Z"
+    },
+    {
+     "ts": "2026-11-13T15:08:37+00:00",
+     "actor": "po",
+     "to": "waiting_owner",
+     "note": "question Q-0018"
+    },
+    {
+     "ts": "2026-11-13T16:09:11+00:00",
+     "actor": "deputy",
+     "to": "ready",
+     "note": "answered Q-0018"
+    },
+    {
+     "ts": "2026-11-13T17:08:05+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Deputy decision Q-0018: dev.to returns 401 and renewing the key waits for the owner. The 13.11 weekly slice is skipped and not moved to another channel."
     }
    ]
   },
@@ -141,10 +223,88 @@
    ]
   },
   {
+   "id": "T-0125",
+   "title": "Repo cards: one <h1>, a dated plain-text sentence of the card's existing facts, and plain links to / and its /lang/<slug>/ page",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-12T07:10:41+00:00",
+   "accepted_at": "2026-11-12T08:11:28+00:00",
+   "released_sha": "98b3627246247c8b8cb0e915216d431d8d04edbf",
+   "history": [
+    {
+     "ts": "2026-11-13T12:10:33+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-13T12:10:33+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0126",
+   "title": "Sitemap: list every /lang/<slug>/ page and give each URL an honest <lastmod>",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-12T13:14:06+00:00",
+   "accepted_at": "2026-11-12T14:08:42+00:00",
+   "released_sha": "1db5139a49ae2f72ef4063e0cea64d95f3b1dae7",
+   "history": [
+    {
+     "ts": "2026-11-13T18:08:51+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-13T18:08:51+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0127",
+   "title": "Tests: offline head check over all public HTML (title, one h1, description, canonical, footer); fix failures",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-12T13:14:07+00:00",
+   "accepted_at": "2026-11-12T15:07:47+00:00",
+   "released_sha": "41afe06999a956d93f57b3885a6a5417f3c1b0e5",
+   "history": [
+    {
+     "ts": "2026-11-13T18:08:51+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-13T18:08:51+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
    "id": "T-0133",
    "title": "Home: shorten the small-files line to one dated sentence (numbers equal stats.json small_files), readable at 375 px",
    "type": "quality",
-   "state": "accepted",
+   "state": "done",
    "priority": "P2",
    "goal": "G1",
    "role": "developer",
@@ -164,7 +324,7 @@
    "id": "T-0134",
    "title": "llms.txt: describe the stats.json objects combinations and small_files (field names, dated example numbers)",
    "type": "quality",
-   "state": "accepted",
+   "state": "done",
    "priority": "P2",
    "goal": "G4",
    "role": "developer",
@@ -202,7 +362,7 @@
    "id": "T-0135",
    "title": "Tests: VISION fallback promises — failed scan keeps the last good snapshot with data_delayed, and a gone repo keeps its card with a status",
    "type": "quality",
-   "state": "accepted",
+   "state": "done",
    "priority": "P2",
    "goal": "G3b",
    "role": "developer",
@@ -246,7 +406,7 @@
    "id": "T-0136",
    "title": "Tests: offline 375 px and accessibility check over all public HTML (viewport, lang, wide tables wrapped, link text); fix failures",
    "type": "quality",
-   "state": "accepted",
+   "state": "done",
    "priority": "P2",
    "goal": "G1",
    "role": "developer",
@@ -290,7 +450,7 @@
    "id": "T-0137",
    "title": "Scan accuracy: a 3xx on a path or tree URL (e.g. .cursor/rules on a moved repo) must not count as present; verify, fix, test",
    "type": "defect",
-   "state": "accepted",
+   "state": "done",
    "priority": "P2",
    "goal": "G3b",
    "role": "developer",
@@ -334,7 +494,7 @@
    "id": "T-0138",
    "title": "Scan accuracy: resolve each repo's current default branch at scan time, and show a 'moved to <owner>/<name>' status on renamed repos' cards",
    "type": "defect",
-   "state": "blocked",
+   "state": "rejected",
    "priority": "P2",
    "goal": "G3b",
    "role": "developer",
@@ -383,6 +543,484 @@
      "actor": "dispatcher",
      "to": "blocked",
      "note": "stuck: 3 failed attempts on this goal; the PO replans it with 3 alternatives"
+    },
+    {
+     "ts": "2026-11-13T11:07:46+00:00",
+     "actor": "dispatcher",
+     "to": "rejected",
+     "note": "replanned: probe T-0142 works; the PO creates the implementation task"
+    }
+   ]
+  },
+  {
+   "id": "T-0139",
+   "title": "Method-change note: label the 13.11 .cursor/rules drop as a detection change, not removals, on / and in today.json/stats.json",
+   "type": "defect",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G3b",
+   "role": "developer",
+   "created": "2026-11-13T08:10:24+00:00",
+   "accepted_at": "2026-11-13T09:10:20+00:00",
+   "released_sha": "5db598d14f319b46c121c6c0b99c730c517a87c9",
+   "history": [
+    {
+     "ts": "2026-11-13T08:10:24+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-13T08:10:25+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261113T0807-exec-T-0139"
+    },
+    {
+     "ts": "2026-11-13T08:10:25+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-13T08:11:17+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 5db598d14f"
+    },
+    {
+     "ts": "2026-11-13T09:10:20+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The live site labels the four .cursor/rules removals as a detection change on /, in today.json and in stats.json method_changes, with a commit link. Offline tests pass and data_delayed is false."
+    }
+   ]
+  },
+  {
+   "id": "T-0140",
+   "title": "Probe 1/3 for T-0138: Accept the code now; check the live card in a separate analyst task after the 14.11 scan",
+   "type": "research",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "G3b",
+   "role": "developer",
+   "created": "2026-11-13T08:10:24+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-13T08:10:24+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "replan probe for T-0138"
+    },
+    {
+     "ts": "2026-11-13T10:10:08+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Its title names a future date (after the 14.11 scan) and it has no not_before, so the dispatcher will not start it (OBS-0331). It is replaced by the same probe under a title with no date"
+    }
+   ]
+  },
+  {
+   "id": "T-0141",
+   "title": "Probe 2/3 for T-0138: Get the moved status from GitHub Search API full_name at sample refresh, not from per-scan redirects",
+   "type": "research",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G3b",
+   "role": "developer",
+   "created": "2026-11-13T08:10:24+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-13T08:10:24+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "replan probe for T-0138"
+    },
+    {
+     "ts": "2026-11-13T09:10:25+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261113T0907-exec-T-0141"
+    },
+    {
+     "ts": "2026-11-13T09:10:25+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-13T09:11:11+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "probe does not work: The approach does not work for T-0138's case. The Search API returns the new name but nothing for the old name, and the old name is not in the sample. I ran the checks in /tmp and"
+    }
+   ]
+  },
+  {
+   "id": "T-0142",
+   "title": "Probe 3/3 for T-0138: Drop branch resolution; build the scan-time 'moved' card status only",
+   "type": "research",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G3b",
+   "role": "developer",
+   "created": "2026-11-13T08:10:24+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-13T08:10:24+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "replan probe for T-0138"
+    },
+    {
+     "ts": "2026-11-13T10:10:09+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261113T1007-exec-T-0142"
+    },
+    {
+     "ts": "2026-11-13T10:10:09+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-13T10:10:24+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "probe works: Probe result: the approach works for the moved-status promise. A single HEAD to https://github.com/<owner>/<name> returns 301 with the new owner/name for a renamed or moved repo, and 200 "
+    }
+   ]
+  },
+  {
+   "id": "T-0143",
+   "title": "Probe 1/3 for T-0138 (re-issued): offline test on the T-0138 branch passes and build.py diff does not touch data/history",
+   "type": "research",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "G3b",
+   "role": "developer",
+   "created": "2026-11-13T10:10:08+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-13T10:10:08+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-13T11:08:50+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Superseded: probe T-0142 worked (Q-0015), and the implementation task continuing T-0138 now reuses the branch code and tests. A separate merge-verdict probe would duplicate that work."
+    }
+   ]
+  },
+  {
+   "id": "T-0144",
+   "title": "Moved-repo status: one HEAD to github.com/<owner>/<name> per repo; a 301 elsewhere sets a dated 'moved to' card status",
+   "type": "defect",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "G3b",
+   "role": "developer",
+   "created": "2026-11-13T11:08:51+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-13T11:08:51+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-13T11:08:52+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261113T1107-exec-T-0144"
+    },
+    {
+     "ts": "2026-11-13T11:08:52+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-13T11:11:55+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "partial — continues next cycle"
+    },
+    {
+     "ts": "2026-11-13T12:10:05+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "partial — continues next cycle"
+    },
+    {
+     "ts": "2026-11-13T13:09:32+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "partial — continues next cycle"
+    },
+    {
+     "ts": "2026-11-13T14:12:08+00:00",
+     "actor": "dispatcher",
+     "to": "blocked",
+     "note": "stuck: stuck again after a replan on this chain (3 failed attempts)"
+    },
+    {
+     "ts": "2026-11-13T14:12:08+00:00",
+     "actor": "dispatcher",
+     "to": "waiting_owner",
+     "note": "question Q-0016"
+    },
+    {
+     "ts": "2026-11-13T16:09:11+00:00",
+     "actor": "deputy",
+     "to": "ready",
+     "note": "answered Q-0016"
+    },
+    {
+     "ts": "2026-11-13T16:09:16+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261113T1607-exec-T-0144"
+    },
+    {
+     "ts": "2026-11-13T16:09:16+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-13T16:09:29+00:00",
+     "actor": "developer",
+     "to": "blocked",
+     "note": "question Q-0019"
+    },
+    {
+     "ts": "2026-11-13T17:08:05+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "answered Q-0019"
+    },
+    {
+     "ts": "2026-11-13T17:08:05+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Deputy decision Q-0016/Q-0019: closed as not done after 3+ failed attempts. Partial build.py changes are not merged. Goal T-0138 is parked as a known gap."
+    }
+   ]
+  },
+  {
+   "id": "T-0145",
+   "title": "Check 14.11 after the 04:00 UTC scan: moved-repo status is live on cards (spf13/hugo or listed repos)",
+   "type": "research",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "G3b",
+   "role": "analyst",
+   "created": "2026-11-13T11:08:51+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-13T11:08:51+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-13T17:08:05+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: It checks the live moved status from T-0144, which is closed without a merge. There is nothing to check on 14.11."
+    }
+   ]
+  },
+  {
+   "id": "T-0146",
+   "title": "stats.json and /: dated count of repos that removed CLAUDE.md while keeping AGENTS.md (and the reverse) since their first scan",
+   "type": "feature",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G3b",
+   "role": "developer",
+   "created": "2026-11-13T12:08:56+00:00",
+   "accepted_at": "2026-11-13T15:07:51+00:00",
+   "released_sha": "f2c5002ff4c00be3ed391e4509a7f65b5730afb2",
+   "history": [
+    {
+     "ts": "2026-11-13T12:08:56+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-13T14:13:05+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261113T1407-exec-T-0146"
+    },
+    {
+     "ts": "2026-11-13T14:13:05+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-13T14:14:30+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged f2c5002ff4"
+    },
+    {
+     "ts": "2026-11-13T15:07:51+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The live stats.json, home page and llms.txt all carry the new claude_agents_changes data (3 and 0, list of 3) in a neutral wording, and build.json shows data_delayed false. The offline tests pass in t"
+    }
+   ]
+  },
+  {
+   "id": "T-0147",
+   "title": "Tests: one documented command runs the whole suite (tests/__init__.py + README Tests section)",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G3b",
+   "role": "developer",
+   "created": "2026-11-13T15:08:36+00:00",
+   "accepted_at": "2026-11-13T16:09:00+00:00",
+   "released_sha": "46ed3ac745fcccb3033f7c027892e1113fe75385",
+   "history": [
+    {
+     "ts": "2026-11-13T15:08:36+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-13T15:08:38+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261113T1507-exec-T-0147"
+    },
+    {
+     "ts": "2026-11-13T15:08:38+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-13T15:11:54+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 46ed3ac745"
+    },
+    {
+     "ts": "2026-11-13T16:09:00+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The README documents one command. In the read-only checkout the suite ran 43 tests and passed, and build.json shows data_delayed false."
+    }
+   ]
+  },
+  {
+   "id": "T-0148",
+   "title": "llms.txt: describe stats.json method_changes and the today.json removal reason 'method_change'",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G4",
+   "role": "developer",
+   "created": "2026-11-13T15:08:37+00:00",
+   "accepted_at": "2026-11-13T18:08:26+00:00",
+   "released_sha": "14f0152e86623d8a374d3d616241d26faf090446",
+   "history": [
+    {
+     "ts": "2026-11-13T15:08:37+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-13T17:08:06+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261113T1707-exec-T-0148"
+    },
+    {
+     "ts": "2026-11-13T17:08:06+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-13T17:09:40+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 14f0152e86"
+    },
+    {
+     "ts": "2026-11-13T18:08:26+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "llms.txt now documents method_changes with all five fields, the 2026-11-13 .cursor/rules entry and its commit URL, and explains reason \"method_change\" as a detection change. JSON outputs, build.json a"
+    }
+   ]
+  },
+  {
+   "id": "T-0149",
+   "title": "Canonical URLs: every HTML page carries <link rel=\"canonical\"> to its clean URL without ?src=, with an offline test",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-13T20:10:55+00:00",
+   "accepted_at": "2026-11-13T21:09:19+00:00",
+   "released_sha": "648ec0b9917efc3b4b6778d67553598ace3a093d",
+   "history": [
+    {
+     "ts": "2026-11-13T20:10:55+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-13T20:10:56+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261113T2007-exec-T-0149"
+    },
+    {
+     "ts": "2026-11-13T20:10:56+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-13T20:12:22+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 648ec0b991"
+    },
+    {
+     "ts": "2026-11-13T21:09:19+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "Live pages carry exactly one self-referencing clean canonical, and the /legal/ and /brand/ canonicals match their sitemap locs. The test file is read-only and offline, and data_delayed is false. I cou"
     }
    ]
   }
@@ -412,6 +1050,31 @@
    "task": "T-0137",
    "verdict": "pass",
    "summary": "check_path now follows up to 3 redirects and counts .cursor/rules as present only if the chain ends in 200 at the same tree path. The 6 offline tests pass. The live site is healthy with data_delayed false and an unchanged disclosure footer. The post-scan comparison of counts can't be done yet."
+  },
+  {
+   "task": "T-0139",
+   "verdict": "pass",
+   "summary": "The live site labels the four .cursor/rules removals as a detection change on /, in today.json and in stats.json method_changes, with a commit link. Offline tests pass and data_delayed is false."
+  },
+  {
+   "task": "T-0146",
+   "verdict": "pass",
+   "summary": "The live stats.json, home page and llms.txt all carry the new claude_agents_changes data (3 and 0, list of 3) in a neutral wording, and build.json shows data_delayed false. The offline tests pass in the checkout (2 tests OK)."
+  },
+  {
+   "task": "T-0147",
+   "verdict": "pass",
+   "summary": "The README documents one command. In the read-only checkout the suite ran 43 tests and passed, and build.json shows data_delayed false."
+  },
+  {
+   "task": "T-0148",
+   "verdict": "pass",
+   "summary": "llms.txt now documents method_changes with all five fields, the 2026-11-13 .cursor/rules entry and its commit URL, and explains reason \"method_change\" as a detection change. JSON outputs, build.json and the footer are unchanged and sampled URLs return 200."
+  },
+  {
+   "task": "T-0149",
+   "verdict": "pass",
+   "summary": "Live pages carry exactly one self-referencing clean canonical, and the /legal/ and /brand/ canonicals match their sitemap locs. The test file is read-only and offline, and data_delayed is false. I could not run the test myself."
   }
  ],
  "posts": [
@@ -422,21 +1085,22 @@
   }
  ],
  "metrics": {
-  "humans": 2234,
-  "engaged": 2220,
-  "returns": 0,
-  "agents": 0,
-  "crawlers": 530,
-  "requests": 7740
+  "humans": 2236,
+  "engaged": 2221,
+  "returns": 1,
+  "agents": 100,
+  "crawlers": 5831,
+  "requests": 13384
  },
- "spend_usd": 5.9,
- "po_digest_md": "**AGENTS.md Tracker — цикл 13.11 07:07 UTC**\n\n**Что произошло.** Приняты T-0127…T-0137: тесты заголовков, мобильной вёрстки и fallback-обещаний; блоки combinations и small_files на главной и в stats.json; их описание в llms.txt; noindex на /go/; исправлен подсчёт .cursor/rules при 3xx. В работе T-0138: определение текущей ветки по умолчанию и статус «moved to» у переехавших репо (spf13/hugo). Пост в X за 12.11 вышел: 559 из 1 922 (29,1 %).\n\n**Наблюдения.**\n- 13.11 — бот-волна: 2 220 «engaged» и 1 899 запросов /go/, при этом 0 возвратов. Связал с недельным чтением T-0112: день исключается, как 08.11, а G1 и G3 даются в двух вариантах. Без этого дня реальный трафик людей по-прежнему небольшой: 1–2 engaged в день.\n- Google: в индексе 2 из 220 URL (1 %), 0 кликов. Правки SEO вышли 10–12.11. Читаем в T-0112 19.11 и ещё раз 24.11. Новых SEO-задач до этого не ставлю.\n- 4xx/5xx: 5xx = 0, всплеск 4xx 11.11 дали сканеры. Отклонено, дефекта нет.\n\n**Решения.** Новых задач нет. Посты по плану заняты до 17.11, план на 18–24.11 (T-0128) стартует 16.11. Разработчик занят T-0138. Нагрузку на команду держу низкой.\n\n**Ждёт владельца (без новых вопросов).**\n- Фильтр бот-пула в sitemetrics: волны 08.11 и 13.11 раздувают G1 и G3.\n- Цели на /repo/ и /lang/ (Q-0008/Q-0012/Q-0014).\n- Новые цели после пилота (Q-0013).\n\n**Расход:** $5,15 из $20.",
- "analyst_md": "**Срез на 13.11 (снимок 06:02 UTC, день неполный). Уровни не складываются.**\n\n| Уровень | Данные |\n|---|---|\n| Люди (engaged) | 07.11: 2 · 08.11: 2 · 09.11: 6 · 10.11: 2 · 11.11: 2 · 12.11: 1 · **13.11: 2220 (аномалия)** |\n| Возвраты | 08.11: 1 · 09.11: 1 · 12.11: 1 · остальные дни 0 |\n| /go/ от людей | 08.11: 8 · 12.11: 2 · **13.11: 847 (аномалия)** |\n| Агенты | 150–530 запросов в день, в основном python-requests |\n| Краулеры | 12.11: 6435 запросов; YandexBot, Semrush, Amazonbot, OAI-SearchBot |\n| Google (до 12.11) | 33 показа, 0 кликов, в индексе 2 из 220 страниц |\n\n**13.11:** 2234 «человеческих» источника, из них 2220 engaged, при returns=0. /favicon.svg запрошен 2233 раза, то есть по одному разу на источник. Похоже на волну ботов с браузерными UA, а не на людей. Такое уже было 08.11: 4004 источника, но только 2 engaged. В G1 и G3 я эти числа не включаю.\n\n**Цели:**\n- G1: по видимым дням 04–10.11 сумма ≥ 12 при цели 60. Дни 04–06.11 в срезе не показаны.\n- G2: видно не более 2 возвратов при цели 5.\n- G3: видно 8 при цели 15, без учёта аномалии.\n- G3b: 1–2 источника в день, из них не людей только на 10.11. Цель ≥ 10 не достигнута.\n- G4: цель выполнена, агенты и краулеры есть каждый день, включая llms.txt и stats.json.\n- G5: данных нет.\n\nПостов в bluesky, telegram и threads после 10.11 нет, их остановили лимиты каналов. Реферер t.co (X) виден по 1 разу в день.",
+ "spend_usd": 14.4,
+ "po_digest_md": "**AGENTS.md Tracker: итоги цикла 13.11, 20:07 UTC**\n\n**Что произошло.** Все задачи разработчика приняты (T-0129…T-0148): блоки combinations, small_files и claude_agents_changes, пометка о смене метода для .cursor/rules, а также тесты (fallback, 375 px и a11y, check_path, весь набор одной командой). Пост в X за 13.11 вышел: +1, baomidou/mybatis-plus, 560 из 1 921 (29,2 %). Посты в X, Mastodon, Bluesky, Telegram и Threads запланированы до 17.11, план на 18–24.11 (T-0128) стартует 16.11.\n\n**Аномалия.** 13.11 метрики показывают 2 235 «людей», из них 2 221 вовлечённых, и 3 094 запроса /go/. Почти всё это запросы к /favicon.svg (2 243), то есть сканер, как и 08.11. Это не реальный спрос. Аналитик в T-0112 исключит этот день, как и 08.11. Фильтр в sitemetrics по-прежнему ждёт владельца (Q-0014).\n\n**Решение.** Разработчику поставлена одна задача качества: canonical-ссылки на всех страницах на чистый URL без ?src=. Основание — GSC: в индексе 2 из 220 URL выборки, главная «Crawled – not indexed». Посты ведут на десятки вариантов ?src=, и это дубли одной страницы. Я выбрал это, а не новую функцию: идеи H1, H2 и H4 из исследования голоса пользователей уже реализованы, а для H3 (RSS по языкам) нет метрики, по которой можно прочитать результат. Проверим индексацию в недельном чтении 19.11.\n\n**Ждёт владельца.** Ключ dev.to (ошибка 401, недельный срез 13.11 пропущен). Фильтр сканеров и цели /repo/ и /lang/ в метриках. Новые цели после пилота (Q-0013). Статус «moved to» отложен (Q-0016).\n\n**Расходы.** $13,68 из $20 (68 %).",
+ "analyst_md": "**Главное:** 13.11 — всплеск «людей» (2 221 engaged при 1 return, referer только t.co 1). Похоже на необъявленную бот-волну (как 08.11), а не на людей; к G1/G3 её не считаем без проверки.\n\n| Уровень | 13.11 | 12.11 | 11.11 |\n|---|---|---|---|\n| Краулеры (запросы) | 4 590 | 6 435 | 2 406 |\n| Люди engaged | 2 221 | 1 | 2 |\n| Returns | 1 | 1 | 0 |\n| /go/ human src | 847 | 2 | 0 |\n| Агенты (src) | 15 | 25 | 31 |\n| 5xx | 0 | 0 | 0 |\n\n**Почему подозрительно:** /favicon.svg 2 233 ≈ числу источников 2 235, ~3 запроса на источник, возвратов нет, соцреферов нет (by_src: x-card 1 человек). GSC: 0 кликов, 33 показа, в индексе 2 из 220.\n\n**Цели (7–13.11 по доступным дням):** G1 сырое 2 236 / органика ≈ 15 (цель 60) · G2 returns ≈ 4 (цель 5) · G3 органика ≈ 10, сырое > 900 (цель 15) · G3b human src ≈ 1–2/день (цель 10) · G4 выполнено (агенты: python-requests, OAI-SearchBot, llms.txt agent src 1) · G5 данных нет.\n\nПосты на X дают 1–2 человека/день, всплеска после постов нет.",
  "observations": {
-  "new": 14,
+  "new": 28,
   "by_class": {
-   "need_hypothesis": 11,
-   "measurement": 3
+   "need_hypothesis": 21,
+   "measurement": 6,
+   "feedback": 1
   }
  },
  "owner_questions_open": 0

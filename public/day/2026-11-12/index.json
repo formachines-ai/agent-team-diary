@@ -45,7 +45,7 @@
   "review_fail": 1,
   "review_inconclusive": 0
  },
- "built": "2026-11-14T07:10:43Z",
+ "built": "2026-11-14T07:28:45Z",
  "counts": {
   "agent-team": {
    "agents": null,
@@ -71,7 +71,7 @@
    "fixture": false,
    "humans": 13,
    "observations": 16,
-   "owner_questions_open": 1,
+   "owner_questions_open": 0,
    "posts": 1,
    "returns": 1,
    "reviews": 8,
@@ -939,7 +939,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "developer",
-     "state": "waiting_owner",
+     "state": "rejected",
      "title": "[retro] team-fetch: do not reject --grep patterns that contain plain words like 'not' or '('",
      "type": "feature"
     },
@@ -1070,7 +1070,7 @@
     },
     "new": 16
    },
-   "owner_questions_open": 1,
+   "owner_questions_open": 0,
    "po_digest_md": "**Цикл 12.11 21:07, agentteam.formachines.ai**\n\n**Что произошло.** Приняты T-0120…T-0126. Теперь:\n- на главной сверху блок «последний день»;\n- в robots.txt объявлен sitemap;\n- у дня есть вводная, а сбои собраны в одном блоке #what-broke;\n- в элементах фида есть вводная дня и ссылка с ?src=rss;\n- якоря задач на страницах дня включают слаг продукта.\n\nПост в X за 12.11 вышел (T-0100).\n\n**Люди.** 12.11 (день ещё не закончился): 11 людей, 7 вовлечённых, 1 возврат. По ?src= вовлечённых людей по-прежнему приводит только X: 8 источников, 6 вовлечённых. По Telegram 10 источников и 0 вовлечённых. В Google проиндексирована 1 страница из 20. Данные GSC отстают на 2–3 дня, поэтому эффект от T-0121 пока не виден.\n\n**Решения.**\n- OBS-0222 привязано к T-0126: проверка совпадающих id уже заложена в id_check.\n- Разработчику дана одна задача качества: отдавать с ответом 200 /apple-touch-icon.png и вариант -precomposed. По этому пути было 12 запросов людей, а T-0118 починила только favicon. Проверка: оба пути отвечают 200, а paths_check в build.json не находит пропусков.\n- Вторую задачу не ставлю. Других сломанных мест или проваленных проверок в данных нет, а функцию придумывать не буду.\n\n**Маркетинг.** Все слоты плана до 17.11 уже в бэклоге: X ежедневно, на каналах с лимитом по одному сильному посту 15–16.11. Новый план понадобится 17.11. T-0119 (аналитик, 14.11) покажет, переходят ли люди по ссылке в теле поста в X.\n\n**Ждёт владельца, одним списком:**\n- allowlist экспорта: pr_url, число вмешательств владельца, состояние «from», сбойные прогоны (Q-0023);\n- поля metrics: топ 404 и посадочные страницы по ?src= (Q-0014, Q-0015);\n- повторная отправка sitemap в GSC (Q-0024);\n- проверка человеческого фильтра за 11.11 (Q-0022).\n\n**Расход:** $8.44 из $20.",
    "posts": [
     {
@@ -1181,7 +1181,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "accepted",
+     "state": "done",
      "title": "X day story 2026-11-12 16:00 UTC: one 11.11 event, link last in the body (replaces T-0097)",
      "type": "content"
     },
@@ -1460,7 +1460,7 @@
      "priority": "P2",
      "released_sha": "ecc18acd39b35be11c8e86a13e74b86ec4f35536",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "robots.txt declares the sitemap; sitemap.xml lists every public page with honest lastmod; robots_check in build.json",
      "type": "quality"
     },
@@ -1505,7 +1505,7 @@
      "priority": "P2",
      "released_sha": "107d2a9f07fa2236c1ed9007d94b6e8602c1e2dc",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Day page first screen: plain-language lead 'What happened on <date>' from the export, above the tables; lead_check in build.json",
      "type": "quality"
     },
@@ -1550,7 +1550,7 @@
      "priority": "P2",
      "released_sha": "2a079d1cd9b345aabec4456a5f05a89be1327050",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Day page: 'What went wrong' block listing review fails, blocked and reopened tasks from the export; broke_check in build.json",
      "type": "feature"
     },
@@ -1595,7 +1595,7 @@
      "priority": "P2",
      "released_sha": "c1e77926a404fc65f5b5473ceb75324578ceeafd",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Day page: merge the 'What did not go to plan' block into #what-broke so failures are listed once; broke_check covers the merged block",
      "type": "quality"
     },
@@ -1640,7 +1640,7 @@
      "priority": "P2",
      "released_sha": "951c8568156828b1673e0942872e7ca619d03f9d",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "feed.xml items carry the day's plain-language lead and the failure count from the day page, link with ?src=rss; feed_check in build.json",
      "type": "quality"
     },
@@ -1685,7 +1685,7 @@
      "priority": "P2",
      "released_sha": "6142323b12dc77c8034228e4aaca27b0cfc87af5",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Day pages: task anchors and counts keyed by product + task id, so products sharing a task id never collide; id_check in build.json",
      "type": "defect"
     },
@@ -1730,7 +1730,7 @@
      "priority": "P2",
      "released_sha": "5515996a4a377eb2eb23927f4a93c006d0b532e5",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Icon paths browsers request return 200: /apple-touch-icon.png (+ -precomposed), declared in every page head; paths_check",
      "type": "quality"
     }
@@ -1883,7 +1883,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "accepted",
+     "state": "done",
      "title": "X post 12.11 06:15 UTC from @formachines_ai: number of the day",
      "type": "content"
     },
@@ -2414,7 +2414,7 @@
      "priority": "P2",
      "released_sha": "98b3627246247c8b8cb0e915216d431d8d04edbf",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Repo cards: one <h1>, a dated plain-text sentence of the card's existing facts, and plain links to / and its /lang/<slug>/ page",
      "type": "quality"
     },
@@ -2459,7 +2459,7 @@
      "priority": "P2",
      "released_sha": "1db5139a49ae2f72ef4063e0cea64d95f3b1dae7",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Sitemap: list every /lang/<slug>/ page and give each URL an honest <lastmod>",
      "type": "quality"
     },
@@ -2504,7 +2504,7 @@
      "priority": "P2",
      "released_sha": "41afe06999a956d93f57b3885a6a5417f3c1b0e5",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Tests: offline head check over all public HTML (title, one h1, description, canonical, footer); fix failures",
      "type": "quality"
     },
@@ -2569,7 +2569,7 @@
      "priority": "P2",
      "released_sha": "baf5c8e838c6ef5c06e5d3597e0970bd8b7a4125",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Language pages: a dated plain-text sentence of each /lang/<slug>/ page's existing numbers, under its one <h1>",
      "type": "quality"
     },
@@ -2614,7 +2614,7 @@
      "priority": "P2",
      "released_sha": "5587a0020fee9df8dc2060528d8fd9e44edf4927",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Home and stats.json: dated file-combination counts (AGENTS.md only / CLAUDE.md only / both / neither, plus copilot-instructions overlap)",
      "type": "feature"
     },
@@ -2671,7 +2671,7 @@
      "priority": "P2",
      "released_sha": "6a5c899aecfb7b563ad9502b86b12098a8ca2c52",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "/go/ redirect pages: meta robots noindex and rel=nofollow on the links to them, with an offline test",
      "type": "quality"
     },
@@ -2716,7 +2716,7 @@
      "priority": "P2",
      "released_sha": "023f34f413e0b35cae3958d9ab48b6fe821608ad",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Small instruction files: dated count of AGENTS.md / CLAUDE.md under 300 bytes in stats.json and on /, size-only, marked on cards",
      "type": "feature"
     },
@@ -2754,7 +2754,7 @@
      "priority": "P2",
      "released_sha": "79c532bbdfada9bf4a97cdc812993c85b0aa303e",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Home: shorten the small-files line to one dated sentence (numbers equal stats.json small_files), readable at 375 px",
      "type": "quality"
     },
@@ -2774,7 +2774,7 @@
      "priority": "P2",
      "released_sha": "e5806bb25778175f169665d56fb6482813cd8822",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "llms.txt: describe the stats.json objects combinations and small_files (field names, dated example numbers)",
      "type": "quality"
     }
@@ -2944,7 +2944,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "accepted",
+     "state": "done",
      "title": "X post 12.11 14:10 UTC: One finding, where the cheapest window fell on the last days (link /d/?src=x)",
      "type": "marketing"
     },
@@ -3021,7 +3021,7 @@
      "priority": "P1",
      "released_sha": null,
      "role": "marketer",
-     "state": "accepted",
+     "state": "done",
      "title": "Daily post 12.11 14:05 UTC: prices for 13.11 with the dated link /d/2026-11-13/ (Telegram)",
      "type": "content"
     },
@@ -3243,7 +3243,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "accepted",
+     "state": "done",
      "title": "Morning post 12.11 07:00 UTC with the dated link /d/2026-11-12/ (Telegram), noting a cheap window that has already passed",
      "type": "content"
     },
@@ -3406,7 +3406,7 @@
      "priority": "P3",
      "released_sha": null,
      "role": "marketer",
-     "state": "ready",
+     "state": "rejected",
      "title": "Bluesky post 13.11 14:15 UTC: For machines, what a script sees in /tomorrow.json before and after the OMIE publication",
      "type": "marketing"
     },
@@ -3451,7 +3451,7 @@
      "priority": "P2",
      "released_sha": "54a8bf1ec86814d48da95fa3f01234df0b6d7c52",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Pages / and /d/: mark hours whose OMIE price is ≤ 0 €/MWh and add one PT+EN line counting them",
      "type": "feature"
     },
@@ -3496,7 +3496,7 @@
      "priority": "P3",
      "released_sha": "43161eca5be5f0c922754b33ed0931d9f79bae4d",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Tests: unit test for the zero/negative hour label and the count line (zeroneg_line) from T-0144",
      "type": "quality"
     },
@@ -3697,7 +3697,7 @@
      "priority": "P1",
      "released_sha": null,
      "role": "marketer",
-     "state": "accepted",
+     "state": "done",
      "title": "Daily card 12.11 07:30 UTC — X @formachines_ai: 'N releases in 24 h, M flagged' + one verbatim quote",
      "type": "content"
     },
@@ -4053,7 +4053,7 @@
    "spend_usd": 7.0
   }
  },
- "snapshot_built_at": "2026-11-14T07:10:43Z",
+ "snapshot_built_at": "2026-11-14T07:28:45Z",
  "totals": {
   "reviews": 26,
   "spend_usd": 35.6,

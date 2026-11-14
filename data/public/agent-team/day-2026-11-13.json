@@ -5,6 +5,26 @@
  "date": "2026-11-13",
  "tasks": [
   {
+   "id": "T-0124",
+   "title": "[retro] team-fetch: do not reject --grep patterns that contain plain words like 'not' or '('",
+   "type": "feature",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-12T20:13:41+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-13T11:07:34+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Superseded by T-0137, which covers the same team-fetch --grep fix with clearer acceptance."
+    }
+   ]
+  },
+  {
    "id": "T-0126",
    "title": "[retro] Test: every allowlist example from the card/scheme matches REPO_ONLY_REVIEW_TOOLS",
    "type": "feature",
@@ -130,7 +150,7 @@
    "id": "T-0130",
    "title": "[retro] Reviewer repo_only allowlist: accept -B, and tell the reviewer the allowed forms",
    "type": "feature",
-   "state": "waiting_owner",
+   "state": "rejected",
    "priority": "P2",
    "goal": "framework",
    "role": "developer",
@@ -161,6 +181,12 @@
      "actor": "dispatcher",
      "to": "waiting_owner",
      "note": "pull request https://github.com/OOuph/agent-team/pull/218 (tests edited/deleted without a 'tests-change-reason: F-xxxx' line: tests/test_repo_only_tools.py)"
+    },
+    {
+     "ts": "2026-11-13T11:07:34+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Superseded by T-0136, which covers -B and -v in any order with the same files."
     }
    ]
   },
@@ -311,19 +337,299 @@
      "note": "closed by PO: Duplicate of T-0124 (team-fetch --grep plain words). The PR for T-0124 already exists."
     }
    ]
+  },
+  {
+   "id": "T-0136",
+   "title": "[retro] Reviewer allowlist: match unittest by normalized argv (-B, -v in any position)",
+   "type": "feature",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-13T08:13:39+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-13T08:13:39+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-13T09:07:35+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261113T0907-exec-T-0136"
+    },
+    {
+     "ts": "2026-11-13T09:07:35+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-13T09:09:21+00:00",
+     "actor": "dispatcher",
+     "to": "waiting_owner",
+     "note": "pull request https://github.com/OOuph/agent-team/pull/225 (tests edited/deleted without a 'tests-change-reason: F-xxxx' line: tests/test_repo_only_tools.py)"
+    },
+    {
+     "ts": "2026-11-13T22:07:41+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Дубликат T-0143: то же изменение (разбор argv для unittest с -B/-v), те же записи регистра. T-0143 уже в работе."
+    }
+   ]
+  },
+  {
+   "id": "T-0137",
+   "title": "[retro] team-fetch --grep: accept plain words and document the denied characters in the reviewer card",
+   "type": "feature",
+   "state": "waiting_owner",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-13T08:13:41+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-13T08:13:41+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-13T10:07:44+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261113T1007-exec-T-0137"
+    },
+    {
+     "ts": "2026-11-13T10:07:44+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-13T10:09:05+00:00",
+     "actor": "dispatcher",
+     "to": "waiting_owner",
+     "note": "pull request https://github.com/OOuph/agent-team/pull/226 (tests edited/deleted without a 'tests-change-reason: F-xxxx' line: tests/test_fetch.py)"
+    }
+   ]
+  },
+  {
+   "id": "T-0138",
+   "title": "[retro] Reviewer repo_only: match unittest by normalized argv instead of glob strings",
+   "type": "feature",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-13T10:11:15+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-13T10:11:15+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-13T11:07:34+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Duplicate of T-0136 (same normalized-argv allowlist change, PR #225 already open). Not started, so close it to save a developer run."
+    }
+   ]
+  },
+  {
+   "id": "T-0139",
+   "title": "[retro] Reviewer repo_only allowlist: accept `-B` unittest forms and tell the reviewer",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-13T13:11:43+00:00",
+   "accepted_at": "2026-11-13T14:11:30+00:00",
+   "released_sha": "b1d5e142d58993b76c9d1d5eb3a6ca4066ac833a",
+   "history": [
+    {
+     "ts": "2026-11-13T13:11:43+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-13T14:07:46+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261113T1407-exec-T-0139"
+    },
+    {
+     "ts": "2026-11-13T14:07:46+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-13T14:11:30+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261113T1407-canary of release-radar on a state copy: all phases); merged b1d5e142d5"
+    },
+    {
+     "ts": "2026-11-13T14:11:30+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0140",
+   "title": "[retro] Reviewer repo_only: accept `-B` unittest forms (ship the long-open fix)",
+   "type": "feature",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-13T18:10:26+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-13T18:10:26+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-13T19:07:34+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Duplicate of T-0139 (done, merged as #229) and of T-0136 and T-0111, which are in review. Check for new -B denials after the merge. If they still appear, T-0111 (stale process) is the pl"
+    }
+   ]
+  },
+  {
+   "id": "T-0141",
+   "title": "[retro] Reviewer repo_only: match unittest by normalized argv, accept -B",
+   "type": "feature",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-13T19:12:42+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-13T19:12:42+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-13T20:07:40+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Duplicate of T-0136 (same argv-normalised unittest allowlist, PR #225 already open)."
+    }
+   ]
+  },
+  {
+   "id": "T-0142",
+   "title": "[retro] team-fetch --grep: accept plain words like 'not' and parentheses; list denied characters in the reviewer card",
+   "type": "feature",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-13T19:12:43+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-13T19:12:43+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-13T20:07:40+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Duplicate of T-0137 (same team-fetch --grep change, PR #226 already open)."
+    }
+   ]
+  },
+  {
+   "id": "T-0143",
+   "title": "[retro] Reviewer repo_only: accept `python3 -B -m unittest` and tell the reviewer the exact forms",
+   "type": "feature",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-13T20:13:11+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-13T20:13:11+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-13T21:07:32+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261113T2107-exec-T-0143"
+    },
+    {
+     "ts": "2026-11-13T21:07:32+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-13T21:08:28+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "partial — continues next cycle"
+    },
+    {
+     "ts": "2026-11-13T22:08:09+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "partial — continues next cycle"
+    },
+    {
+     "ts": "2026-11-13T23:07:48+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "partial — continues next cycle"
+    }
+   ]
   }
  ],
  "reviews": [],
  "posts": [],
  "metrics": null,
- "spend_usd": 0.9,
- "po_digest_md": "**Цикл 13.11.** Расход $0.70 из $10.\n\nТри новых issue (#220, #221, #222) повторяют задачи, у которых уже есть PR. Новых задач нет.\n\n- #220 (разрешить `-B` для unittest) дублирует T-0130 (PR #218). T-0133 закрыта.\n- #221 (записываемый scratch-каталог в read-only чекауте) дублирует T-0094 (PR #163). T-0134 закрыта.\n- #222 (`team-fetch --grep` с обычными словами) дублирует T-0124 (PR #206). T-0135 закрыта.\n\nРетро предлагает одно и то же уже около 10 раз. Причина не в отсутствии задач: PR #218, #206, #187, #176, #163 и #157 стоят с пометкой «tests changed without reason». По Q-0009 разработчик должен либо добавить строку `tests-change-reason: F-xxxx` со ссылкой на реальную запись регистра, либо откатить правки тестов. Пока этого нет, `-B`-отказы ревьюера (F-0188…F-0202) продолжаются.\n\nОт владельца ничего не требуется. Если эти PR и дальше будут стоять, стоит проверить, доходит ли до разработчика возврат по Q-0009.",
+ "spend_usd": 2.9,
+ "po_digest_md": "**Цикл 13.11 22:07.** Потрачено $2.65 из $10.\n\n- Новая заметка OBS-0243 (разработчик по T-0143: ужесточить glob-ы, чтобы CLI сам отклонял неизвестные флаги) привязана к T-0143. Это та же правка: проверка нормализованного argv вместо glob-строк.\n- T-0136 закрыта как дубликат T-0143. Ретро снова предложило ту же правку allowlist рецензента (-B, -v). Тема повторяется уже в T-0101, T-0120, T-0125, T-0139 и T-0143. Развязка идёт через T-0143 и диагностику T-0111.\n- Новых задач нет, чтобы не плодить дубли. Ждём T-0143, T-0068, T-0098 и T-0101.\n- Владельцу вопросов нет. Решение по Q-0009 остаётся в силе: PR с изменёнными тестами возвращаются разработчику за строкой `tests-change-reason`.",
  "analyst_md": "",
  "observations": {
-  "new": 11,
+  "new": 21,
   "by_class": {
-   "feedback": 9,
-   "need_hypothesis": 2
+   "feedback": 17,
+   "need_hypothesis": 4
   }
  },
  "owner_questions_open": 0

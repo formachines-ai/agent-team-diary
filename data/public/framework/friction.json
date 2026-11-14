@@ -1,22 +1,17 @@
 {
- "generated": "2026-11-13T07:28:28+00:00",
+ "generated": "2026-11-14T07:28:45+00:00",
  "days": 7,
- "total": 87,
+ "total": 93,
  "by_kind": {
+  "reported": 25,
   "task_blocked": 30,
-  "reported": 27,
-  "tool_denied": 23,
+  "tool_denied": 31,
   "review_fail": 2,
   "phase_error": 3,
   "env_error": 2
  },
  "by_day": {
-  "2026-11-06": {
-   "task_blocked": 3,
-   "reported": 2
-  },
   "2026-11-07": {
-   "task_blocked": 2,
    "reported": 3
   },
   "2026-11-08": {
@@ -48,11 +43,106 @@
    "review_fail": 1
   },
   "2026-11-13": {
-   "tool_denied": 4,
-   "task_blocked": 1
+   "tool_denied": 9,
+   "task_blocked": 5
+  },
+  "2026-11-14": {
+   "task_blocked": 1,
+   "tool_denied": 3
   }
  },
  "recent": [
+  {
+   "ts": "2026-11-14T03:10:38+00:00",
+   "product": "agentsmd-tracker",
+   "role": "reviewer",
+   "kind": "tool_denied",
+   "summary": "reviewer: denied Bash(python3 -B -m unittest tests.test_jsonld -v)"
+  },
+  {
+   "ts": "2026-11-14T02:10:58+00:00",
+   "product": "agentsmd-tracker",
+   "role": "reviewer",
+   "kind": "tool_denied",
+   "summary": "reviewer: denied Bash(python3 -B -m unittest discover -s tests -t .)"
+  },
+  {
+   "ts": "2026-11-14T01:10:39+00:00",
+   "product": "agentsmd-tracker",
+   "role": "reviewer",
+   "kind": "tool_denied",
+   "summary": "reviewer: denied Bash(python3 -B -m unittest tests.test_sitemap -v), Bash(team-fetch https://agentsmd.formachines.ai/sitemap.xml --tail 0 --grep ai/</loc>)"
+  },
+  {
+   "ts": "2026-11-14T00:07:28+00:00",
+   "product": "agent-team",
+   "role": "dispatcher",
+   "kind": "task_blocked",
+   "summary": "T-0143 [retro] Reviewer repo_only: accept `python3 -B -m unittest` : stuck: 3 failed attempts on this goal; the PO replans it with 3 alternatives"
+  },
+  {
+   "ts": "2026-11-13T21:09:19+00:00",
+   "product": "agentsmd-tracker",
+   "role": "reviewer",
+   "kind": "tool_denied",
+   "summary": "reviewer: denied Bash(python3 -B -m unittest tests.test_canonical -v), Bash(python3 -B -m unittest discover -s tests -t .)"
+  },
+  {
+   "ts": "2026-11-13T21:08:51+00:00",
+   "product": "agent-team-diary",
+   "role": "reviewer",
+   "kind": "tool_denied",
+   "summary": "reviewer: denied Bash(team-fetch https://agentteam.formachines.ai/day/2026-11-13/ --grep id=&#34;agent)"
+  },
+  {
+   "ts": "2026-11-13T16:09:56+00:00",
+   "product": "luz-amanha",
+   "role": "dispatcher",
+   "kind": "task_blocked",
+   "summary": "T-0143 Bluesky post 13.11 14:15 UTC: For machines, what a script se: question Q-0042"
+  },
+  {
+   "ts": "2026-11-13T16:09:29+00:00",
+   "product": "agentsmd-tracker",
+   "role": "dispatcher",
+   "kind": "task_blocked",
+   "summary": "T-0144 Moved-repo status: one HEAD to github.com/<owner>/<name> per: question Q-0019"
+  },
+  {
+   "ts": "2026-11-13T16:09:00+00:00",
+   "product": "agentsmd-tracker",
+   "role": "reviewer",
+   "kind": "tool_denied",
+   "summary": "reviewer: denied Bash(python3 -B -m unittest discover -s tests -t .)"
+  },
+  {
+   "ts": "2026-11-13T15:07:51+00:00",
+   "product": "agentsmd-tracker",
+   "role": "reviewer",
+   "kind": "tool_denied",
+   "summary": "reviewer: denied Bash(python3 -B -m unittest tests.test_transitions -v)"
+  },
+  {
+   "ts": "2026-11-13T14:13:04+00:00",
+   "product": "agentsmd-tracker",
+   "role": "dispatcher",
+   "kind": "task_blocked",
+   "summary": "T-0098 dev.to weekly slice 13.11 14:00 UTC: Week in numbers 02.11→1: question Q-0017"
+  },
+  {
+   "ts": "2026-11-13T14:12:08+00:00",
+   "product": "agentsmd-tracker",
+   "role": "dispatcher",
+   "kind": "task_blocked",
+   "summary": "T-0144 Moved-repo status: one HEAD to github.com/<owner>/<name> per: stuck: stuck again after a replan on this chain (3 failed attempts)"
+  },
+  {
+   "ts": "2026-11-13T09:10:20+00:00",
+   "product": "agentsmd-tracker",
+   "role": "reviewer",
+   "kind": "tool_denied",
+   "summary": "reviewer: denied Bash(python3 -B -m unittest tests.test_method_changes -v)"
+  },
   {
    "ts": "2026-11-13T07:09:56+00:00",
    "product": "agentsmd-tracker",
@@ -311,97 +401,6 @@
    "role": "dispatcher",
    "kind": "task_blocked",
    "summary": "T-0105 X post 10.11 14:10 UTC: tomorrow's (11.11) cheapest window, : question Q-0028"
-  },
-  {
-   "ts": "2026-11-10T15:10:20+00:00",
-   "product": "luz-amanha",
-   "role": "dispatcher",
-   "kind": "task_blocked",
-   "summary": "T-0070 Daily post 10.11 14:05 UTC: prices for 11.11 with the dated : question Q-0027"
-  },
-  {
-   "ts": "2026-11-10T14:11:15+00:00",
-   "product": "luz-amanha",
-   "role": "dispatcher",
-   "kind": "task_blocked",
-   "summary": "T-0070 Daily post 10.11 14:05 UTC: prices for 11.11 with the dated : question Q-0026"
-  },
-  {
-   "ts": "2026-11-10T14:10:27+00:00",
-   "product": "agent-team-diary",
-   "role": "dispatcher",
-   "kind": "phase_error",
-   "summary": "phase measure: [Errno 7] Argument list too long: '/home/ubuntu/agent-team/node_modules/.bin/claude'"
-  },
-  {
-   "ts": "2026-11-10T13:10:48+00:00",
-   "product": "agent-team-diary",
-   "role": "dispatcher",
-   "kind": "phase_error",
-   "summary": "phase measure: [Errno 7] Argument list too long: '/home/ubuntu/agent-team/node_modules/.bin/claude'"
-  },
-  {
-   "ts": "2026-11-10T12:08:13+00:00",
-   "product": "agent-team-diary",
-   "role": "dispatcher",
-   "kind": "phase_error",
-   "summary": "phase measure: [Errno 7] Argument list too long: '/home/ubuntu/agent-team/node_modules/.bin/claude'"
-  },
-  {
-   "ts": "2026-11-10T12:08:12+00:00",
-   "product": "agent-team-diary",
-   "role": "dispatcher",
-   "kind": "task_blocked",
-   "summary": "T-0054 Bluesky day story 2026-11-10 12:00 UTC: one event from 09.11: question Q-0021"
-  },
-  {
-   "ts": "2026-11-10T08:11:47+00:00",
-   "product": "luz-amanha",
-   "role": "dispatcher",
-   "kind": "task_blocked",
-   "summary": "T-0068 Morning post 10.11 07:00 UTC with the dated link /d/2026-11-: question Q-0025"
-  },
-  {
-   "ts": "2026-11-10T08:08:34+00:00",
-   "product": "agent-team-diary",
-   "role": "marketer",
-   "kind": "reported",
-   "summary": "marketer: [missing_data] The prompt's channel table (bluesky 5 human sources, x 6) differs from by_src in metrics.json (bluesky 1, x 5). I used metrics.json. The previous plan was cut off in the promp"
-  },
-  {
-   "ts": "2026-11-10T07:11:24+00:00",
-   "product": "luz-amanha",
-   "role": "dispatcher",
-   "kind": "task_blocked",
-   "summary": "T-0068 Morning post 10.11 07:00 UTC with the dated link /d/2026-11-: question Q-0023"
-  },
-  {
-   "ts": "2026-11-09T20:08:12+00:00",
-   "product": "agent-team",
-   "role": "dispatcher",
-   "kind": "reported",
-   "summary": "dispatcher: [other] claim vs git diff MISMATCH T-0077: developer summary names files not in the git diff: article.md"
-  },
-  {
-   "ts": "2026-11-09T17:13:25+00:00",
-   "product": "agent-team-diary",
-   "role": "marketer",
-   "kind": "reported",
-   "summary": "marketer: [missing_tool] A reply thread on X/Threads needs --reply-to with a live post URL, but drafts have no URL until approved, so a multi-post thread can't be submitted in one task."
-  },
-  {
-   "ts": "2026-11-09T17:11:36+00:00",
-   "product": "agent-team-diary",
-   "role": "editor",
-   "kind": "tool_denied",
-   "summary": "editor: denied Bash(team-fetch https://dev.to/api/articles?username=formachines&per_page=5 --grep \"o)"
-  },
-  {
-   "ts": "2026-11-09T16:10:08+00:00",
-   "product": "agent-team-diary",
-   "role": "marketer",
-   "kind": "reported",
-   "summary": "marketer: [other] dev.to rejects a repeated canonical URL (422), but the task requires the bare site root as canonical every week."
   }
  ]
 }

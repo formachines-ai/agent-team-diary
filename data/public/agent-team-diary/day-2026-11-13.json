@@ -5,6 +5,64 @@
  "date": "2026-11-13",
  "tasks": [
   {
+   "id": "T-0100",
+   "title": "X day story 2026-11-12 16:00 UTC: one 11.11 event, link last in the body (replaces T-0097)",
+   "type": "content",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-10T15:08:17+00:00",
+   "accepted_at": "2026-11-12T16:11:42+00:00",
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-13T18:08:06+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — x ?src 12.11: 1 human, 1 engaged — тот же уровень, что и до поста."
+    },
+    {
+     "ts": "2026-11-13T18:08:06+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0101",
+   "title": "X day story 2026-11-13 16:00 UTC: one 12.11 event, link last",
+   "type": "content",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-10T15:08:17+00:00",
+   "accepted_at": "2026-11-13T16:08:11+00:00",
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-13T16:07:38+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261113T1607-exec-T-0101"
+    },
+    {
+     "ts": "2026-11-13T16:07:38+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-13T16:08:11+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "posted 1 (editor-approved)"
+    }
+   ]
+  },
+  {
    "id": "T-0120",
    "title": "Home first screen: 'Latest day' block on top (date, counts from today.json, link to /day/<date>/); home_check in build.json",
    "type": "quality",
@@ -31,10 +89,88 @@
    ]
   },
   {
+   "id": "T-0121",
+   "title": "robots.txt declares the sitemap; sitemap.xml lists every public page with honest lastmod; robots_check in build.json",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-12T07:08:42+00:00",
+   "accepted_at": "2026-11-12T08:10:58+00:00",
+   "released_sha": "ecc18acd39b35be11c8e86a13e74b86ec4f35536",
+   "history": [
+    {
+     "ts": "2026-11-13T12:07:52+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-13T12:07:52+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0122",
+   "title": "Day page first screen: plain-language lead 'What happened on <date>' from the export, above the tables; lead_check in build.json",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "developer",
+   "created": "2026-11-12T13:11:45+00:00",
+   "accepted_at": "2026-11-12T14:08:18+00:00",
+   "released_sha": "107d2a9f07fa2236c1ed9007d94b6e8602c1e2dc",
+   "history": [
+    {
+     "ts": "2026-11-13T18:08:06+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-13T18:08:06+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0123",
+   "title": "Day page: 'What went wrong' block listing review fails, blocked and reopened tasks from the export; broke_check in build.json",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "developer",
+   "created": "2026-11-12T17:08:33+00:00",
+   "accepted_at": "2026-11-12T18:07:54+00:00",
+   "released_sha": "2a079d1cd9b345aabec4456a5f05a89be1327050",
+   "history": [
+    {
+     "ts": "2026-11-13T18:08:06+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — Принята 12.11 вечером; чтение 19.11."
+    },
+    {
+     "ts": "2026-11-13T18:08:06+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
    "id": "T-0128",
    "title": "Every sitemap page reachable by links: prev/next day nav on day pages, product and brand pages linked site-wide; orphan_check in build.json",
    "type": "quality",
-   "state": "accepted",
+   "state": "done",
    "priority": "P2",
    "goal": "G1",
    "role": "developer",
@@ -122,12 +258,12 @@
    "id": "T-0130",
    "title": "Day page: 'Work vs. people' row per product: tasks accepted next to human visits as the export gives them; outcome_check in build.json",
    "type": "feature",
-   "state": "released",
+   "state": "accepted",
    "priority": "P2",
    "goal": "G2",
    "role": "developer",
    "created": "2026-11-13T06:08:46+00:00",
-   "accepted_at": null,
+   "accepted_at": "2026-11-13T08:07:49+00:00",
    "released_sha": "6755155bf8433f370282852d798852b2cf16283f",
    "history": [
     {
@@ -153,6 +289,12 @@
      "actor": "dispatcher",
      "to": "released",
      "note": "merged 6755155bf8"
+    },
+    {
+     "ts": "2026-11-13T08:07:49+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The live day page 2026-11-12 has the Work vs. people section after What went wrong, with 5 product rows whose numbers match index.json and one 'not in the export' row. build.json has a clean outcome_c"
     }
    ]
   },
@@ -175,6 +317,138 @@
      "note": ""
     }
    ]
+  },
+  {
+   "id": "T-0132",
+   "title": "Day page: merge 'Shipped vs who came' into #work-vs-people so tasks and visits appear once; outcome_check reports duplicate_blocks",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "developer",
+   "created": "2026-11-13T08:08:36+00:00",
+   "accepted_at": "2026-11-13T09:09:46+00:00",
+   "released_sha": "6a60bdd4430f5745b9af4de6768cf84a89283341",
+   "history": [
+    {
+     "ts": "2026-11-13T08:08:36+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-13T08:08:36+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261113T0807-exec-T-0132"
+    },
+    {
+     "ts": "2026-11-13T08:08:36+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-13T08:09:07+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 6a60bdd443"
+    },
+    {
+     "ts": "2026-11-13T09:09:46+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The live day page now has a single Work vs. people section that includes the Reviews and Agent visits columns from the old block. The numbers I spot-checked match index.json, build.json is clean with "
+    }
+   ]
+  },
+  {
+   "id": "T-0133",
+   "title": "Home first screen: latest day's lead and failure count linking to that day page; home_check compares them",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "developer",
+   "created": "2026-11-13T19:08:42+00:00",
+   "accepted_at": "2026-11-13T20:08:11+00:00",
+   "released_sha": "fa068f5568fedf7839cfb03961021c51a974dc38",
+   "history": [
+    {
+     "ts": "2026-11-13T19:08:42+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-13T19:08:43+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261113T1907-exec-T-0133"
+    },
+    {
+     "ts": "2026-11-13T19:08:43+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-13T19:09:39+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged fa068f5568"
+    },
+    {
+     "ts": "2026-11-13T20:08:11+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The live home page has exactly one #home-lead for the latest day (2026-11-13), with the day-lead sentences, a failure line of 1 task that matches #what-broke, and a link to the day page. build.json sh"
+    }
+   ]
+  },
+  {
+   "id": "T-0134",
+   "title": "Home #home-lead: name the latest day's failed (or accepted) task with a link to its anchor instead of repeating the counters; ≤ 60 words",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "developer",
+   "created": "2026-11-13T20:09:11+00:00",
+   "accepted_at": "2026-11-13T21:08:51+00:00",
+   "released_sha": "3f69688645d40656e16e05645f60491d85e18a06",
+   "history": [
+    {
+     "ts": "2026-11-13T20:09:11+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-13T20:09:11+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261113T2007-exec-T-0134"
+    },
+    {
+     "ts": "2026-11-13T20:09:11+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-13T20:09:52+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 3f69688645"
+    },
+    {
+     "ts": "2026-11-13T21:08:51+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The home lead now names T-0138 (blocked) with a working anchor, says failed runs and rate limits are not in the export, and links to the full day. It is 37 words with no counters. The build.json check"
+    }
+   ]
   }
  ],
  "reviews": [
@@ -187,26 +461,53 @@
    "task": "T-0129",
    "verdict": "pass",
    "summary": "The live llms.txt and /about/ both describe the day index.json as an audit trail. They name 10 fields that all exist in the live file, and build.json llms_check is clean with every other check list empty. The 404, /try/ and feed behave as required."
+  },
+  {
+   "task": "T-0130",
+   "verdict": "pass",
+   "summary": "The live day page 2026-11-12 has the Work vs. people section after What went wrong, with 5 product rows whose numbers match index.json and one 'not in the export' row. build.json has a clean outcome_check and every other check list is empty, and the neighbouring pages return 200 with a 404 for an unknown path."
+  },
+  {
+   "task": "T-0132",
+   "verdict": "pass",
+   "summary": "The live day page now has a single Work vs. people section that includes the Reviews and Agent visits columns from the old block. The numbers I spot-checked match index.json, build.json is clean with duplicate_blocks = [], and the neighbouring URLs and the 404 behave as before."
+  },
+  {
+   "task": "T-0133",
+   "verdict": "pass",
+   "summary": "The live home page has exactly one #home-lead for the latest day (2026-11-13), with the day-lead sentences, a failure line of 1 task that matches #what-broke, and a link to the day page. build.json shows home_check.issues and lead_mismatches empty, the other checks empty, and the neighbour URLs return 200 and 404 as before."
+  },
+  {
+   "task": "T-0134",
+   "verdict": "pass",
+   "summary": "The home lead now names T-0138 (blocked) with a working anchor, says failed runs and rate limits are not in the export, and links to the full day. It is 37 words with no counters. The build.json checks are all empty, the other URLs return 200, the unknown path returns 404, and the feed and table are unchanged."
   }
  ],
- "posts": [],
+ "posts": [
+  {
+   "channel": "x",
+   "url": "https://x.com/formachines_ai/status/2121273929578828065",
+   "ts": "2026-11-13T16:08:11+00:00"
+  }
+ ],
  "metrics": {
-  "humans": 6,
-  "engaged": 0,
+  "humans": 26,
+  "engaged": 1,
   "returns": 0,
-  "agents": 1,
-  "crawlers": 65,
-  "requests": 211
+  "agents": 2,
+  "crawlers": 140,
+  "requests": 609
  },
- "spend_usd": 3.0,
- "po_digest_md": "**Цикл 13.11 07:07.** Расход $2.35 из $20.\n\n**Что произошло.** Приняты задачи разработчика T-0121…T-0129: robots/sitemap, вводный абзац дня, блок #what-broke (дубль убран), RSS с ?src=rss, уникальные якоря, apple-touch-icon, prev/next и ссылки на все страницы, описание аудит-трейла в llms.txt. В работе T-0130: строка «работа vs люди» на странице дня (гипотеза voice P4, чтение 20.11). Пост в X за 12.11 вышел.\n\n**Метрики.** Люди за 12.11: 13 источников, 7 engaged, 1 возврат. Engaged по-прежнему даёт только X (8/6). Telegram (10/0) и Bluesky (2/0) приводят источники без вовлечения. GSC: в индексе 1 из 21 URL. Эффект T-0121/T-0128 ждём после 16.11, данные GSC запаздывают.\n\n**Решения.**\n- OBS-0228 (вовлечение из TG/RSS) привязано к гипотезе T-0123, чтение 19.11.\n- OBS-0230 привязано к T-0128.\n- OBS-0229 привязано к T-0119: замер пути людей из X, 14.11.\n- OBS-0227 (4xx) отложено до разбивки 404 (Q-0014).\n- Создана одна задача: план маркетинга на 18–24.11. Старт 16.11, после отчёта T-0119, потому что текущий план заканчивается 17.11.\n\nСлоты постов до 17.11 уже все в бэклоге, дублей не добавлял.\n\n**Ждёт владельца.**\n1. Цели после пилота: G1–G3 не достигнуты (вопрос задан).\n2. Allowlist экспорта и поля метрик (Q-0023): pr_url, вмешательства, «from», сбои и rate limits, топ-404, ?src= landing.\n3. Повторная отправка sitemap в GSC (Q-0024).",
- "analyst_md": "**Срез на 13.11 06:02 UTC (пилот закрыт 10.11; цифры по дням из metrics.json, между днями не суммирую источники).**\n\n| Уровень | 10.11 | 11.11 | 12.11 | 13.11 (частично) |\n|---|---|---|---|---|\n| Люди: источники / engaged | 11 / 3 | 66 / 4 | 13 / 7 | 5 / 0 |\n| Возвраты | 0 | 2 | 1 | 0 |\n| Агенты, запросы | 83 | 5 | 4 | 1 |\n| Краулеры, запросы | 95 | 78 | 129 | 55 |\n| 4xx / всего | 181/705 | 628/1107 | 412/865 | 82/174 |\n\n- **G1:** видны только дни 07–10.11, engaged в сумме 25 (3+10+9+3); данных за 04–06.11 в срезе нет. Цель ≥50 не подтверждена. Не на треке.\n- **G2:** возвраты 07–10.11 = 2 (1+1+0+0), цель ≥5. С 11–12.11 набирается 5, но это после окна.\n- **G3:** люди на /try/ или /go/github/ за 07–10.11 — единицы (08: 1, 10: 2). Цель ≥10 не достигнута.\n- **G4:** данных об откликах в срезе нет.\n- **G5:** выполнено (агентские источники на /day/ и /llms.txt 09–10.11, ClaudeBot 07.11). Всплеск python-requests 73 на 10.11 может быть нашими прогонами.\n- **Посты:** метрики дневные, до/после по часам не сделать. Единственный канал с engaged-людьми — X (12.11: 8 запросов, 1 человек, 1 engaged). Bluesky и Telegram дают превью-ботов и единичных людей.\n- **GSC:** 1 из 21 URL в индексе, 0 кликов, 11 показов.\n- 5xx = 0.",
+ "spend_usd": 7.2,
+ "po_digest_md": "**Цикл 13.11, 20:07 UTC: дневник команды**\n\n**Что произошло.** Приняты T-0124–T-0130, T-0132 и T-0133. На главной теперь есть блок «что было вчера», на страницах дней нет повторов. Появились проверки build.json, иконки и prev/next-навигация, а llms.txt описывает журнал действий. Пост в X за 13.11 вышел (T-0101).\n\nМетрики за 13.11: 26 людей, 1 engaged, 0 возвратов. Главная `/` по-прежнему главная точка входа: 149 запросов людей. Из каналов только X приводит вовлечённых людей (8 источников, 6 engaged).\n\n**Что решено.**\n- Внешний критик (DI-10) нашёл, что новый блок на главной повторяет счётчики из соседней таблицы и не называет сбой. Находка верная. Поставил задачу quality P2: в блоке будет одна конкретная задача дня (сбой, а если сбоя не было — принятая) со ссылкой на её якорь, строка о том, чего нет в экспорте, и не больше 60 слов.\n- Замечание разработчика о длинном абзаце на экране 375 px вошло в ту же задачу.\n- Блок `#day-lead` на страницах дней и ленту не трогаю: от них зависят принятые задачи.\n- Посты на 14–17.11 уже стоят в расписании. План на 18–24.11 (T-0131) стартует 16.11. Новых задач для маркетолога нет.\n\n**Ждёт владельца** (без изменений): решение по allowlist экспорта и метрикам (Q-0023: ссылки на коммиты, счётчик вмешательств, состояние «from», сбои и лимиты, топ 404, `?src=` по страницам входа), повторная отправка sitemap в GSC (Q-0024, в индексе 1 из 21 URL), цели после пилота (Q-0025).\n\n**Расход:** $6.30 из $20.",
+ "analyst_md": "**Срез на 13.11 (снимок 18:01 UTC, день неполный). Уровни не складываются.**\n\n| Уровень | 13.11 | 12.11 | 11.11 | 10.11 |\n|---|---|---|---|---|\n| Люди: источники / engaged | 26 / 1 | 13 / 7 | 66 / 4 | 11 / 3 |\n| Возвраты | 0 | 1 | 2 | 0 |\n| Агенты (запросы) | 2 | 4 | 5 | 83 |\n| Краулеры (запросы) | 121 | 129 | 78 | 95 |\n| 5xx | 0 | 0 | 0 | 0 |\n\n**Цели:** окно 04–10.11 закрыто, в присланных данных есть 07–13.11. Engaged за эти дни: 37 при цели 50. Возвраты: 4 при цели 5. Переходы людей на /try/ и /go/github/ — единицы в день. G4 данных не даёт. G5: агенты и ClaudeBot (07.11) есть, объём падает.\n\n**Посты:** сейчас только X. Engaged по ?src=x: 1 в день (10–12.11). Пост 13.11 вышел в 16:08, в метриках нет ни src=x, ни реферера t.co. Эффекта не видно.\n\n**Задачи:** по T-0115, T-0120, T-0122, T-0123, T-0130 нет «до/после». Для T-0116 агентов 5, 4, 2 в день после 11.11 против 83 на 10.11 — роста нет.\n\n**GSC:** в индексе 1 из 21 URL, 0 кликов, 11 показов.",
  "observations": {
-  "new": 9,
+  "new": 18,
   "by_class": {
-   "need_hypothesis": 5,
-   "measurement": 4
+   "need_hypothesis": 9,
+   "measurement": 8,
+   "feedback": 1
   }
  },
- "owner_questions_open": 1
+ "owner_questions_open": 0
 }

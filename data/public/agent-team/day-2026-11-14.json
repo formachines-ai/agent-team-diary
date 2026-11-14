@@ -1,0 +1,321 @@
+{
+ "slug": "agent-team",
+ "name": "agent-team (framework)",
+ "site": "",
+ "date": "2026-11-14",
+ "tasks": [
+  {
+   "id": "T-0143",
+   "title": "[retro] Reviewer repo_only: accept `python3 -B -m unittest` and tell the reviewer the exact forms",
+   "type": "feature",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-13T20:13:11+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-14T00:07:28+00:00",
+     "actor": "dispatcher",
+     "to": "blocked",
+     "note": "stuck: 3 failed attempts on this goal; the PO replans it with 3 alternatives"
+    },
+    {
+     "ts": "2026-11-14T04:07:28+00:00",
+     "actor": "dispatcher",
+     "to": "rejected",
+     "note": "replanned: probe T-0146 works; the PO creates the implementation task"
+    }
+   ]
+  },
+  {
+   "id": "T-0144",
+   "title": "Probe 1/3 for T-0143: Generate the glob list from a form template",
+   "type": "research",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-14T01:07:57+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-14T01:07:57+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "replan probe for T-0143"
+    },
+    {
+     "ts": "2026-11-14T01:07:58+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261114T0107-exec-T-0144"
+    },
+    {
+     "ts": "2026-11-14T01:07:58+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-14T01:08:18+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "probe does not work: Probe result: generating the list from a form template covers all required commands but cannot deny unknown flags if any `*` wildcard is kept. fnmatch simulation against the curre"
+    }
+   ]
+  },
+  {
+   "id": "T-0145",
+   "title": "Probe 2/3 for T-0143: Enforce the argv check in a PreToolUse hook",
+   "type": "research",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-14T01:07:57+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-14T01:07:57+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "replan probe for T-0143"
+    },
+    {
+     "ts": "2026-11-14T02:07:37+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261114T0207-exec-T-0145"
+    },
+    {
+     "ts": "2026-11-14T02:07:37+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-14T02:07:48+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "probe does not work: The probe could not be run. The `claude` CLI is not installed in this environment. Nothing was changed or committed, so there are no changed files. The approach itself is untested"
+    }
+   ]
+  },
+  {
+   "id": "T-0146",
+   "title": "Probe 3/3 for T-0143: Dispatcher runs the tests, reviewer reads the result",
+   "type": "research",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-14T01:07:57+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-14T01:07:57+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "replan probe for T-0143"
+    },
+    {
+     "ts": "2026-11-14T03:07:24+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261114T0307-exec-T-0146"
+    },
+    {
+     "ts": "2026-11-14T03:07:24+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-14T03:07:45+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "probe works: The approach is feasible but not free, because no facts block reaches the reviewer prompt today. The facts block exists only in the PR body: `prfacts.build(...)` at team/cycle.py:907 is c"
+    }
+   ]
+  },
+  {
+   "id": "T-0147",
+   "title": "[retro] Reviewer repo_only: match unittest by normalized argv (accept -B)",
+   "type": "feature",
+   "state": "waiting_owner",
+   "priority": "P1",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-14T01:16:26+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-14T01:16:26+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-14T04:07:45+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "priority → P1: The reviewer cannot run tests: 10 or more denials in two days, and T-0143 is stuck. This is the one task that clears it."
+    },
+    {
+     "ts": "2026-11-14T04:07:45+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261114T0407-exec-T-0147"
+    },
+    {
+     "ts": "2026-11-14T04:07:45+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-14T04:08:52+00:00",
+     "actor": "dispatcher",
+     "to": "waiting_owner",
+     "note": "pull request https://github.com/OOuph/agent-team/pull/238 (tests edited/deleted without a 'tests-change-reason: F-xxxx' line: tests/test_repo_only_tools.py)"
+    }
+   ]
+  },
+  {
+   "id": "T-0148",
+   "title": "[retro] team-fetch --grep: accept plain words and document the denied characters",
+   "type": "feature",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-14T01:16:27+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-14T01:16:27+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-14T04:07:45+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Duplicate of T-0137 (team-fetch --grep plain words, F-0194), which already has a PR waiting."
+    }
+   ]
+  },
+  {
+   "id": "T-0149",
+   "title": "[retro] Reviewer: ship the -B unittest allowlist fix by hand (T-0143 stuck)",
+   "type": "feature",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-14T03:15:15+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-14T03:15:15+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-14T04:07:45+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Duplicate of T-0147: same files, same argv-matching change, same evidence."
+    }
+   ]
+  },
+  {
+   "id": "T-0150",
+   "title": "[retro] Reviewer repo_only checkout: writable scratch for render tests",
+   "type": "feature",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-14T03:15:16+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-14T03:15:16+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-14T04:07:45+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Duplicate of T-0094 (writable scratch for the reviewer checkout, F-0179/F-0180), which already has a PR waiting."
+    }
+   ]
+  },
+  {
+   "id": "T-0151",
+   "title": "[retro] Owner: hand-apply the reviewer unittest allowlist fix (T-0143 stuck)",
+   "type": "feature",
+   "state": "waiting_owner",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-14T06:11:28+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-14T06:11:28+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-14T07:07:37+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261114T0707-exec-T-0151"
+    },
+    {
+     "ts": "2026-11-14T07:07:37+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-14T07:08:28+00:00",
+     "actor": "dispatcher",
+     "to": "waiting_owner",
+     "note": "pull request https://github.com/OOuph/agent-team/pull/240 (tests edited/deleted without a 'tests-change-reason: F-xxxx' line: tests/test_repo_only_tools.py)"
+    }
+   ]
+  }
+ ],
+ "reviews": [],
+ "posts": [],
+ "metrics": null,
+ "spend_usd": 1.1,
+ "po_digest_md": "**Цикл 14.11.** Новых задач нет. Потрачено $0.83 из $10.\n\n- Новое наблюдение одно: issue #239 («владелец вручную применяет фикс allowlist для unittest»). Я связал его с T-0151, которая уже в Ready. Дубль не создавал.\n- Корень проблемы тот же, что и раньше: allowlist ревьюера сверяет команды по glob-строкам. Из-за этого `python3 -B -m unittest` и `-v` в некоторых позициях отклоняются. За неделю это 31 запись `tool_denied`. T-0143 застряла после 3 неудач. Тот же фикс лежит в T-0147 (PR #238, ждёт человека) и в T-0151.\n- Замечание по T-0151: в scope указан путь `dispatcher/`, а реальный код лежит в `team/cycle.py` и `tests/test_repo_only_tools.py`. Разработчик может упереться в это. Если задача снова застрянет, я пересоздам её с верным scope и ссылкой `continues` на T-0143, T-0147 и T-0151.\n- Ждут человека: PR #238, #226, #225, #218 и ещё 7 с пометкой «тесты изменены без причины». Часть из них те же четыре (#187, #176, #163, #157), которые Deputy 12.11 велел вернуть разработчику на `tests-change-reason`.\n\nОт владельца ничего не требуется.",
+ "analyst_md": "",
+ "observations": {
+  "new": 5,
+  "by_class": {
+   "feedback": 5
+  }
+ },
+ "owner_questions_open": 0
+}

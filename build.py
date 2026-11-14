@@ -17,6 +17,7 @@ from __future__ import annotations
 import argparse
 import html
 import json
+import statistics
 import logging
 import os
 import re
@@ -1305,12 +1306,113 @@ def check_lead() -> dict:
     return {"pages_checked": len(pages), "issues": issues}
 
 
+BASELINE_DAYS, BASELINE_MIN = 7, 3
+BASELINE_FIELDS = (("accepted", "Tasks accepted", "tasks_done_distinct"), ("review_fails", "Review fails", "review_fail"), ("spend", "Spend", "spend_usd"))
+
+
+def day_index_map(model: dict) -> dict:
+    """date -> the fields of day/<date>/index.json the baseline reads (counts, totals, broke_counts), memoised per model."""
+    if "_bidx" not in model:
+        model["_bidx"] = {d: {"counts": {sl: day_counts(p["days"][d]) for sl, p in model["products"].items() if d in p["days"]},
+                              "totals": day_totals(d, model), "broke_counts": broke_counts(broke_items(d, model))} for d in model["dates"]}
+    return model["_bidx"]
+
+
+def baseline_values(idx: dict) -> dict | None:
+    """The three baseline numbers of one day as day/<date>/index.json names them (totals.tasks_done_distinct, broke_counts.review_fail,
+    totals.spend_usd). None for a fixture day or a day without records."""
+    counts = idx.get("counts") or {}
+    if not counts or all((c or {}).get("fixture") for c in counts.values()):
+        return None
+    return {"accepted": idx["totals"]["tasks_done_distinct"], "review_fails": (idx.get("broke_counts") or {}).get("review_fail", 0), "spend": idx["totals"]["spend_usd"]}
+
+
+def baseline_stats(today: dict, earlier: list[dict]) -> dict:
+    """Per field: today, and (when >= BASELINE_MIN earlier days) median, min, max of the last BASELINE_DAYS of them, unusual flag."""
+    out = {}
+    prev = earlier[-BASELINE_DAYS:]
+    for key, _, _ in BASELINE_FIELDS:
+        row = {"today": today[key]}
+        if len(prev) >= BASELINE_MIN:
+            vals = sorted(v[key] for v in prev)
+            row.update(median=round(statistics.median(vals), 2), min=vals[0], max=vals[-1], unusual=not (vals[0] <= today[key] <= vals[-1]))
+        out[key] = row
+    return out
+
+
+def baseline_fmt(key: str, v: float) -> str:
+    return f"${v:.2f}" if key == "spend" else (str(int(v)) if float(v).is_integer() else f"{v:g}")
+
+
+def day_baseline_block(date: str, model: dict, idx_by_date: dict) -> str:
+    out = ['<section id="day-baseline" class="day-baseline"><h3 id="day-baseline-h">Against the previous 7 days</h3>']
+    today = baseline_values(idx_by_date[date]) if date in idx_by_date else None
+    if today is None:
+        out.append('<p class="note">no activity recorded, or fixture sample data: no baseline.</p></section>')
+        return "\n".join(out)
+    earlier = [v for d in sorted(idx_by_date) if d < date for v in [baseline_values(idx_by_date[d])] if v]
+    st = baseline_stats(today, earlier)
+    enough = len(earlier) >= BASELINE_MIN
+    out.append(f'<p class="note">Day-wide sums over all products, from the export; median and min\u2013max of up to the previous {BASELINE_DAYS} '
+               'days with records (fixture days left out; earlier days found: {min(len(earlier), BASELINE_DAYS)}).' + ('' if enough else ' not enough earlier days') + '</p>')
+    out.append('<div class="table-wrap"><table class="table"><thead><tr><th>Measure</th><th>Today</th><th>Median</th><th>Min\u2013max</th><th>Mark</th></tr></thead><tbody>')
+    for key, label, _ in BASELINE_FIELDS:
+        r = st[key]
+        if enough:
+            cells = (f'<td data-b="median">{baseline_fmt(key, r["median"])}</td><td data-b="range">{baseline_fmt(key, r["min"])}\u2013{baseline_fmt(key, r["max"])}</td>'
+                     f'<td>{"<strong>unusual today</strong>" if r["unusual"] else ""}</td>')
+        else:
+            cells = '<td colspan="3">not enough earlier days</td>'
+        out.append(f'<tr data-field="{key}"><th scope="row">{label}</th><td data-b="today">{baseline_fmt(key, r["today"])}</td>{cells}</tr>')
+    out.append('</tbody></table></div></section>')
+    return "\n".join(out)
+
+
+def check_baseline() -> dict:
+    """Every /day/*/: #day-baseline once, after #day-lead; today/median/min-max/mark recomputed from the index.json files."""
+    mism, few, pages = [], [], sorted(PUBLIC_DIR.glob("day/*/index.html"))
+    idx = {f.parent.name: json.loads(f.read_text(encoding="utf-8")) for f in sorted(PUBLIC_DIR.glob("day/*/index.json"))}
+    for f in pages:
+        date, name = f.parent.name, f"/day/{f.parent.name}/"
+        t = f.read_text(encoding="utf-8")
+        i = t.find('id="day-baseline"')
+        if t.count('id="day-baseline"') != 1 or i < t.find('id="day-lead"') or t.find('id="day-lead"') < 0:
+            mism.append({"page": name, "issue": "day-baseline not exactly once after day-lead"})
+            continue
+        sec = t[i:t.find("</section>", i)]
+        today = baseline_values(idx[date]) if date in idx else None
+        if today is None:
+            continue
+        earlier = [v for d in sorted(idx) if d < date for v in [baseline_values(idx[d])] if v]
+        st = baseline_stats(today, earlier)
+        if len(earlier) < BASELINE_MIN:
+            few.append(date)
+            if "not enough earlier days" not in sec or "data-b=\"median\"" in sec:
+                mism.append({"page": name, "issue": "few earlier days but median shown or sentence missing"})
+        for key, _, _ in BASELINE_FIELDS:
+            m = re.search(rf'<tr data-field="{key}">(.*?)</tr>', sec, re.S)
+            if not m:
+                mism.append({"page": name, "field": key, "issue": "row missing"})
+                continue
+            row, r = m.group(1), st[key]
+            want = {"today": baseline_fmt(key, r["today"])}
+            if "median" in r:
+                want |= {"median": baseline_fmt(key, r["median"]), "range": f'{baseline_fmt(key, r["min"])}\u2013{baseline_fmt(key, r["max"])}'}
+            for k, v in want.items():
+                g = re.search(rf'data-b="{k}">([^<]*)<', row)
+                if not g or html.unescape(g.group(1)) != v:
+                    mism.append({"page": name, "field": key, "cell": k, "html": g.group(1) if g else None, "want": v})
+            if ("unusual today" in row) != bool(r.get("unusual")):
+                mism.append({"page": name, "field": key, "issue": "unusual mark wrong"})
+    return {"pages_checked": len(pages), "mismatches": mism, "too_few_days": few}
+
+
 def render_day(date: str, model: dict) -> str:
     products = model["products"]
     present = [(slug, p) for slug, p in products.items() if date in p["days"]]
     newest = model["dates"][-1] if model["dates"] else None
     latest_p = [f'<p id="latest-day">Latest day: <a href="/day/{esc(newest)}/">{esc(newest)}</a></p>'] if newest and newest != date else []
-    body = [f"<h1>{esc(date)}</h1>", *latest_p, day_lead_block(date, model), f'<p class="lead">One day of the agent team, product by product. <a href="/day/{esc(date)}/index.json">index.json</a></p>', try_line()]
+    body = [f"<h1>{esc(date)}</h1>", *latest_p, day_lead_block(date, model), day_baseline_block(date, model, day_index_map(model)), f'<p class="lead">One day of the agent team, product by product. <a href="/day/{esc(date)}/index.json">index.json</a></p>', try_line()]
     prev_d, next_d = neighbours(date, model["dates"])
     nav = []
     if prev_d:
@@ -3444,6 +3546,10 @@ def main(argv: list[str] | None = None) -> int:
     bj["outcome_check"] = ocd
     write_json(PUBLIC_DIR / "build.json", bj)
     log.info("outcome_check: pages=%d mismatches=%d", ocd["pages_checked"], len(ocd["mismatches"]))
+    blc = check_baseline()
+    bj["baseline_check"] = blc
+    write_json(PUBLIC_DIR / "build.json", bj)
+    log.info("baseline_check: pages=%d mismatches=%d too_few_days=%d", blc["pages_checked"], len(blc["mismatches"]), len(blc["too_few_days"]))
     idc = check_ids()
     bj["id_check"] = idc
     write_json(PUBLIC_DIR / "build.json", bj)

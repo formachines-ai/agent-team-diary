@@ -1354,7 +1354,7 @@ def day_baseline_block(date: str, model: dict, idx_by_date: dict) -> str:
     st = baseline_stats(today, earlier)
     enough = len(earlier) >= BASELINE_MIN
     out.append(f'<p class="note">Day-wide sums over all products, from the export; median and min\u2013max of up to the previous {BASELINE_DAYS} '
-               'days with records (fixture days left out; earlier days found: {min(len(earlier), BASELINE_DAYS)}).' + ('' if enough else ' not enough earlier days') + '</p>')
+               f'days with records (fixture days left out; earlier days found: {min(len(earlier), BASELINE_DAYS)}).' + ('' if enough else ' not enough earlier days') + '</p>')
     out.append('<div class="table-wrap"><table class="table"><thead><tr><th>Measure</th><th>Today</th><th>Median</th><th>Min\u2013max</th><th>Mark</th></tr></thead><tbody>')
     for key, label, _ in BASELINE_FIELDS:
         r = st[key]
@@ -1366,6 +1366,25 @@ def day_baseline_block(date: str, model: dict, idx_by_date: dict) -> str:
         out.append(f'<tr data-field="{key}"><th scope="row">{label}</th><td data-b="today">{baseline_fmt(key, r["today"])}</td>{cells}</tr>')
     out.append('</tbody></table></div></section>')
     return "\n".join(out)
+
+
+PLACEHOLDER_RE = re.compile(r"\{\s*[A-Za-z_][\w.]*\s*(?:\([^{}]*\))?\s*\}")
+
+
+def check_placeholders() -> dict:
+    """placeholder_check: unrendered template patterns such as {min(...)} or {date} in visible text of *.html, feed.xml, llms.txt."""
+    hits, n = [], 0
+    for p in sorted(PUBLIC_DIR.rglob("*")):
+        if p.suffix != ".html" and p.name not in ("feed.xml", "llms.txt"):
+            continue
+        n += 1
+        t = p.read_text(encoding="utf-8")
+        if p.suffix == ".html":
+            t = re.sub(r"(?is)<(script|style)\b.*?</\1>", " ", t)
+            t = re.sub(r"(?s)<[^>]*>", " ", t)
+        for m in PLACEHOLDER_RE.finditer(t):
+            hits.append({"file": str(p.relative_to(PUBLIC_DIR)), "text": m.group(0)[:80]})
+    return {"files_checked": n, "hits": hits}
 
 
 def check_baseline() -> dict:
@@ -3550,6 +3569,10 @@ def main(argv: list[str] | None = None) -> int:
     bj["baseline_check"] = blc
     write_json(PUBLIC_DIR / "build.json", bj)
     log.info("baseline_check: pages=%d mismatches=%d too_few_days=%d", blc["pages_checked"], len(blc["mismatches"]), len(blc["too_few_days"]))
+    phc = check_placeholders()
+    bj["placeholder_check"] = phc
+    write_json(PUBLIC_DIR / "build.json", bj)
+    log.info("placeholder_check: files=%d hits=%d", phc["files_checked"], len(phc["hits"]))
     idc = check_ids()
     bj["id_check"] = idc
     write_json(PUBLIC_DIR / "build.json", bj)
@@ -3611,6 +3634,7 @@ def main(argv: list[str] | None = None) -> int:
         if not fcd["items"]:
             problems.append("feed: no items")
         problems += [f"broke: duplicate failure blocks {p}" for p in bkc["duplicate_blocks"]]
+        problems += [f"placeholder: {h['file']} {h['text']}" for h in phc["hits"]]
         problems += [f"outcome: {m}" for m in ocd["mismatches"]] + [f"outcome: duplicate block {d}" for d in ocd["duplicate_blocks"]]
         problems += [f"ids: duplicate id {x['id']} on {x['page']}" for x in idc["duplicate_ids"]]
         problems += [f"ids: dangling link {x['link']} on {x['page']}" for x in idc["dangling_links"]]

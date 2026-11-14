@@ -2852,6 +2852,26 @@ def check_alternate() -> dict:
     return {"pages_checked": len(pages), "missing": missing, "bad_targets": sorted(set(bad))}
 
 
+def check_icon() -> dict:
+    """Every public/**/*.html has exactly one rel=icon to /favicon.ico and one rel=apple-touch-icon to
+    /apple-touch-icon.png in <head>; both files exist, are images and are under 20 KB."""
+    missing_files: list[str] = []
+    missing_links: list[str] = []
+    for href, magic in (("/favicon.ico", b"\x00\x00\x01\x00"), ("/apple-touch-icon.png", b"\x89PNG")):
+        p = PUBLIC_DIR / href.lstrip("/")
+        if not p.is_file() or p.stat().st_size >= 20480 or not p.read_bytes().startswith(magic):
+            missing_files.append(href)
+    pages = sorted(PUBLIC_DIR.rglob("*.html"))
+    for f in pages:
+        name = "/" + f.relative_to(PUBLIC_DIR).as_posix()
+        head = f.read_text(encoding="utf-8").split("</head>", 1)[0]
+        for rel, href in (("icon", "/favicon.ico"), ("apple-touch-icon", "/apple-touch-icon.png")):
+            n = len(re.findall(r'<link rel="%s" href="%s"' % (re.escape(rel), re.escape(href)), head))
+            if n != 1:
+                missing_links.append(f"{name} {href} x{n}")
+    return {"pages_checked": len(pages), "missing_files": missing_files, "missing_links": missing_links}
+
+
 def check_mobile() -> dict:
     """Static 375 px check: viewport meta, no fixed width/min-width above 375px outside a max-width media query,
     overflow-wrap on body, tables wrapped or stacked at <=480px, pre/code wrap or scroll."""
@@ -3258,6 +3278,7 @@ def main(argv: list[str] | None = None) -> int:
     log.info("audit_check: documented=%d missing=%d", ad["fields_documented"], len(ad["fields_missing"]))
     al = check_alternate()
     bj["alternate_check"] = al
+    bj["icon_check"] = check_icon()
     write_json(PUBLIC_DIR / "build.json", bj)
     seo = check_seo()
     bj["seo_check"] = seo
@@ -3287,6 +3308,7 @@ def main(argv: list[str] | None = None) -> int:
         problems += [f"ids: duplicate id {x['id']} on {x['page']}" for x in idc["duplicate_ids"]]
         problems += [f"ids: dangling link {x['link']} on {x['page']}" for x in idc["dangling_links"]]
         problems += [f"jsonld: invalid {i['page']} {i['issue']}" for i in jl["invalid"]] + [f"jsonld: missing {p}" for p in jl["missing"]]
+        problems += [f"icon: missing file {m}" for m in bj["icon_check"]["missing_files"]] + [f"icon: missing link {m}" for m in bj["icon_check"]["missing_links"]]
         problems += [f"alternate: missing {m}" for m in al["missing"]] + [f"alternate: bad target {m}" for m in al["bad_targets"]]
         problems += [f"seo: no self-canonical {p}" for p in seo["canonical_missing"]] + [f"seo: no lastmod {p}" for p in seo["lastmod_missing"]]
         problems += [f"seo: orphan {p}" for p in seo["orphans"]] + [f"seo: duplicate title {d['title']}" for d in seo["duplicate_titles"]]

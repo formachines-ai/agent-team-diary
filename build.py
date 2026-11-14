@@ -2083,9 +2083,9 @@ def render_go(url: str, built: str, label: str = "") -> str:
 
 def render_404(built: str, latest: str | None = None) -> str:
     day = (f'<a href="/day/{esc(latest)}/">Latest day: {esc(latest)}</a>' if latest else "")
-    links = [x for x in (day, '<a href="/">Front page</a>', '<a href="/about/">About</a>', '<a href="/try/">Try it</a>',
-                         '<a href="/sitemap.xml">sitemap.xml</a>') if x]
-    body = ('<h1>This page does not exist (404)</h1><p class="lead">Day pages live at <code>/day/YYYY-MM-DD/</code>, product chronicles at '
+    links = [x for x in (day, '<a href="/">Front page</a>', '<a href="/about/">About</a>', '<a href="/feed.xml">RSS feed</a>',
+                         '<a href="/try/">Try it</a>', '<a href="/sitemap.xml">sitemap.xml</a>') if x]
+    body = ('<h1>Page not found</h1><p class="lead">This page does not exist. Day pages live at <code>/day/YYYY-MM-DD/</code>, product chronicles at '
             '<code>/product/&lt;slug&gt;/</code>. A day with no page is a day with no records.</p>'
             '<ul>' + "".join(f"<li>{x}</li>" for x in links) + '</ul>')
     return layout(f"404 — {SITE_NAME}", body, built, noindex=True, description="No such page on the agent team diary.")
@@ -2164,7 +2164,7 @@ def check_notfound() -> dict:
     if PUBLIC_DIR.joinpath("day").is_dir() and sorted(PUBLIC_DIR.glob("day/*/index.html")):
         if len(days) != 1 or not (PUBLIC_DIR / days[0].strip("/") / "index.html").exists():
             missing.append("/day/<latest>/")
-    if "<h1>" not in t or "does not exist" not in t:
+    if "<h1>Page not found</h1>" not in t or "does not exist" not in t:
         missing.append("h1")
     if 'content="noindex' not in t:
         missing.append("noindex")
@@ -2173,6 +2173,30 @@ def check_notfound() -> dict:
     if "/404" in (PUBLIC_DIR / "sitemap.xml").read_text(encoding="utf-8"):
         missing.append("sitemap lists 404")
     return {"exists": True, "links_missing": missing}
+
+
+def check_not_found() -> dict:
+    """not_found_check: 404.html links to /, the latest day, /about/ and /feed.xml; each target exists in public/."""
+    f = PUBLIC_DIR / "404.html"
+    out = {"file": "404.html", "links": [], "missing": []}
+    if not f.exists():
+        out["missing"].append("404.html")
+        return out
+    hrefs = re.findall(r'href="([^"]+)"', f.read_text(encoding="utf-8"))
+    try:
+        latest = json.loads((PUBLIC_DIR / "today.json").read_text(encoding="utf-8")).get("date")
+    except (OSError, ValueError):
+        latest = None
+    want = ["/", f"/day/{latest}/" if latest else "/day/<today.json date>/", "/about/", "/feed.xml"]
+    for w in want:
+        out["links"].append(w)
+        if w not in hrefs:
+            out["missing"].append(w)
+        else:
+            p = PUBLIC_DIR / w.strip("/")
+            if not (p / "index.html" if w.endswith("/") else p).exists():
+                out["missing"].append(f"{w} (target file)")
+    return out
 
 
 def render_legal(built: str) -> str:
@@ -3436,6 +3460,8 @@ def main(argv: list[str] | None = None) -> int:
     bj["notfound_check"] = nf
     write_json(PUBLIC_DIR / "build.json", bj)
     log.info("notfound_check: exists=%s links_missing=%d", nf["exists"], len(nf["links_missing"]))
+    bj["not_found_check"] = check_not_found()
+    write_json(PUBLIC_DIR / "build.json", bj)
     mch = check_machine()
     bj["machine_check"] = mch
     write_json(PUBLIC_DIR / "build.json", bj)
@@ -3506,6 +3532,7 @@ def main(argv: list[str] | None = None) -> int:
         problems += [f"wellknown: missing or empty {m}" for m in wk["missing"]] + wk["problems"]
         problems += [f"{m['page']}: nav link {m['link']} not before first h2" for m in nav["missing"]]
         problems += [f"404.html: {m}" for m in nf["links_missing"]] + ([] if nf["exists"] else ["404.html missing"])
+        problems += [f"404.html: not_found_check {m}" for m in bj["not_found_check"]["missing"]]
         problems += [f"{i['page']}: mobile {i['rule']} {i['detail']}" for i in mob["issues"]]
         problems += [f"{i['page']}: a11y {i['rule']}" for i in ac["issues"]]
         problems += [f"{m['page']}: try_check {m['issue']}" for m in tc["missing"]]

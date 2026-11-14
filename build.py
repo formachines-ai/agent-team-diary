@@ -497,19 +497,24 @@ ARTIFACT_STATES = ("accepted", "done")
 URL_RE = re.compile(r"https?://[^\s<>\"'()\[\]]+")
 
 
+def is_accepted(t: dict) -> bool:
+    """Task in an accepted/done state, by the 'state' field of the export (what index.json shows)."""
+    return str(t.get("state")) in ARTIFACT_STATES
+
+
 def task_artifact(t: dict, posts: list) -> dict | None:
     """Artifact of a task whose last transition of the day is accepted/done, only from URLs already in the export:
     a github.com URL in the task's own notes, or a note URL that is also a post URL of that day. Else None."""
     hist = t.get("history") or []
-    if not hist or str(hist[-1].get("to")) not in ARTIFACT_STATES:
+    if not is_accepted(t):
         return None
     post_urls = {str(p.get("url") or "") for p in posts}
     for h in reversed(hist):
         for u in URL_RE.findall(str(h.get("note") or "")):
             u = u.rstrip(".,;:!?")
             host = u.split("/")[2].lower() if u.count("/") >= 2 else ""
-            if host == "github.com" and re.search(r"/(pull|commit)/[0-9A-Za-z]+$", u):
-                return {"kind": "pr" if "/pull/" in u else "commit", "url": u}
+            if host == "github.com" and re.search(r"/(pull|commit)/[0-9A-Za-z]+$|/blob/[0-9A-Za-z]+/\S+$", u):
+                return {"kind": "pr" if "/pull/" in u else "blob" if "/blob/" in u else "commit", "url": u}
             if u in post_urls:
                 return {"kind": "post", "url": u}
     return None
@@ -521,8 +526,7 @@ def with_artifacts(d: dict) -> dict:
     tasks = []
     for t in d.get("tasks") or []:
         t2 = dict(t)
-        hist = t.get("history") or []
-        if hist and str(hist[-1].get("to")) in ARTIFACT_STATES:
+        if is_accepted(t):
             t2["artifact"] = task_artifact(t, d.get("posts") or [])
         tasks.append(t2)
     if "tasks" in d:
@@ -581,11 +585,11 @@ def product_section(d: dict, product: dict, heading_link: bool = True, anchors: 
             if meta:
                 out.append(f'<div class="meta">{meta}</div>')
             hist = t.get("history") or []
-            if hist and str(hist[-1].get("to")) in ARTIFACT_STATES:
+            if is_accepted(t):
                 art = task_artifact(t, d.get("posts") or [])
                 out.append('<div class="meta artifact">artifact: ' + (
                     f'<a href="{esc(art["url"])}" rel="nofollow">{esc(art["kind"])} {esc(art["url"])}</a>' if art
-                    else "no artifact in export") + "</div>")
+                    else "no artifact link in the export") + "</div>")
             if hist:
                 out.append('<ol class="history">')
                 for h in hist:
@@ -929,6 +933,47 @@ def day_lead_block(date: str, model: dict) -> str:
     return "\n".join(out)
 
 
+def artifact_counts(days: list) -> tuple:
+    """(accepted/done tasks with an artifact link, accepted/done tasks) over day records."""
+    w = m = 0
+    for d in days:
+        for t in d.get("tasks") or []:
+            if is_accepted(t):
+                m += 1
+                w += 1 if task_artifact(t, d.get("posts") or []) else 0
+    return w, m
+
+
+def check_artifacts() -> dict:
+    """Every /day/*/: the 'Accepted with an artifact link: N of M' line equals index.json; each task card of an accepted/done task
+    has an artifact link present in index.json (artifact.url) or the text 'no artifact link in the export'; links are http(s)."""
+    mism, pages, tot, withart = [], sorted(PUBLIC_DIR.glob("day/*/index.html")), 0, 0
+    for f in pages:
+        name = f"/day/{f.parent.name}/"
+        t = f.read_text(encoding="utf-8")
+        data = json.loads(f.with_name("index.json").read_text(encoding="utf-8"))
+        tasks = [x for p in (data.get("products") or {}).values() for x in p.get("tasks") or [] if is_accepted(x)]
+        urls = [x["artifact"]["url"] for x in tasks if x.get("artifact")]
+        for u in urls:
+            if not re.match(r"https?://", u) or f'href="{esc(u)}"' not in t:
+                mism.append({"page": name, "issue": f"artifact url not linked or not http(s): {u}"})
+        m = re.search(r'id="artifact-line">Accepted with an artifact link: (\d+) of (\d+)<', t)
+        if not m:
+            if tasks or "what-broke" in t:
+                mism.append({"page": name, "issue": "artifact line missing"})
+            continue
+        if (int(m.group(1)), int(m.group(2))) != (len(urls), len(tasks)):
+            mism.append({"page": name, "issue": f"line {m.groups()} != index.json {(len(urls), len(tasks))}"})
+        cards = t.count('class="meta artifact">artifact: ')
+        if cards != len(tasks):
+            mism.append({"page": name, "issue": f"{cards} artifact lines != {len(tasks)} accepted/done tasks"})
+        if t.count("no artifact link in the export") < len(tasks) - len(urls):
+            mism.append({"page": name, "issue": "'no artifact link in the export' text missing"})
+        tot += len(tasks)
+        withart += len(urls)
+    return {"pages_checked": len(pages), "accepted_total": tot, "with_artifact": withart, "mismatches": mism}
+
+
 def what_broke_block(date: str, model: dict) -> str:
     """Day page, right below #day-lead: per product, each task with a failing event that day (state, role, final state)."""
     items = broke_items(date, model)
@@ -962,7 +1007,11 @@ def what_broke_block(date: str, model: dict) -> str:
                 notes = "".join(f'<br><span class="summary">{esc(i["note"])}</span>' for i in lst if i["note"])
                 out.append(f'<li>{link} · state: {parts} · final state: {esc(finals.get(tid) or "not recorded")}{fx}{notes}</li>')
             out.append("</ul>")
-    out.append('<p class="note">Failed runs and rate-limit events are not in the export.</p></section>')
+    out.append('<p class="note">Failed runs and rate-limit events are not in the export.</p>')
+    if any(p["days"].get(date) for p in model["products"].values()):
+        w, m = artifact_counts([p["days"][date] for p in model["products"].values() if date in p["days"]])
+        out.append(f'<p class="note" id="artifact-line">Accepted with an artifact link: {w} of {m}</p>')
+    out.append("</section>")
     return "\n".join(out)
 
 
@@ -3295,6 +3344,10 @@ def main(argv: list[str] | None = None) -> int:
     bj["id_check"] = idc
     write_json(PUBLIC_DIR / "build.json", bj)
     log.info("id_check: pages=%d duplicate_ids=%d dangling_links=%d", idc["pages_checked"], len(idc["duplicate_ids"]), len(idc["dangling_links"]))
+    ac2 = check_artifacts()
+    bj["artifact_check"] = ac2
+    write_json(PUBLIC_DIR / "build.json", bj)
+    log.info("artifact_check: pages=%d accepted=%d with_artifact=%d mismatches=%d", ac2["pages_checked"], ac2["accepted_total"], ac2["with_artifact"], len(ac2["mismatches"]))
     nav = check_nav()
     bj["nav_check"] = nav
     write_json(PUBLIC_DIR / "build.json", bj)
@@ -3381,6 +3434,7 @@ def main(argv: list[str] | None = None) -> int:
         problems += [f"{p}: footer disclosure missing" for p in cc["footer_missing"]]
         problems += cc["xml_errors"] + cc["latest_day_problems"]
         problems += [f"sitemap.xml: no <loc> for {p}" for p in cc["sitemap_missing"]]
+        problems += [f"artifact: {i}" for i in bj["artifact_check"]["mismatches"]]
         problems += [f"robots: {i}" for i in bj["robots_check"]["issues"]]
         cr = bj["crawl_check"]
         problems += [f"crawl: {k} {cr[k]}" for k in ("missing_in_sitemap", "unreachable", "lastmod_after_build") if cr[k]]

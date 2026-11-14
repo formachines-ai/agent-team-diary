@@ -571,7 +571,7 @@ def product_section(d: dict, product: dict, heading_link: bool = True, anchors: 
         for t in tasks:
             meta = " · ".join(x for x in [esc(t.get("type")), esc(t.get("priority")), esc(t.get("role")),
                                            f"goal {esc(t['goal'])}" if t.get("goal") else "",
-                                           f"commit {esc(str(t['released_sha'])[:10])}" if t.get("released_sha") else ""] if x)
+                                           f"commit {esc(str(t['released_sha'])[:10])}" if t.get("released_sha") and not is_accepted(t) else ""] if x)
             tid_s = str(t.get("id") or "")
             aid = (anchors or {}).get((slug, tid_s))
             if aid in used_ids:  # same (product, task id) twice on one day: only the first carries the anchor
@@ -587,9 +587,11 @@ def product_section(d: dict, product: dict, heading_link: bool = True, anchors: 
             hist = t.get("history") or []
             if is_accepted(t):
                 art = task_artifact(t, d.get("posts") or [])
-                out.append('<div class="meta artifact">artifact: ' + (
-                    f'<a href="{esc(art["url"])}" rel="nofollow">{esc(art["kind"])} {esc(art["url"])}</a>' if art
-                    else "no artifact link in the export") + "</div>")
+                sha = str(t.get("released_sha") or "")[:12]
+                if art:
+                    out.append(f'<div class="meta artifact">artifact: <a href="{esc(art["url"])}" rel="nofollow">{esc(art["kind"])} {esc(art["url"])}</a></div>')
+                elif sha:
+                    out.append(f'<div class="meta artifact"><code>commit {esc(sha)}</code></div>')
             if hist:
                 out.append('<ol class="history">')
                 for h in hist:
@@ -934,20 +936,21 @@ def day_lead_block(date: str, model: dict) -> str:
 
 
 def artifact_counts(days: list) -> tuple:
-    """(accepted/done tasks with an artifact link, accepted/done tasks) over day records."""
-    w = m = 0
+    """(accepted/done tasks with an artifact link, accepted/done tasks, accepted/done tasks with a released_sha)."""
+    w = m = k = 0
     for d in days:
         for t in d.get("tasks") or []:
             if is_accepted(t):
                 m += 1
                 w += 1 if task_artifact(t, d.get("posts") or []) else 0
-    return w, m
+                k += 1 if t.get("released_sha") else 0
+    return w, m, k
 
 
 def check_artifacts() -> dict:
     """Every /day/*/: the 'Accepted with an artifact link: N of M' line equals index.json; each task card of an accepted/done task
     has an artifact link present in index.json (artifact.url) or the text 'no artifact link in the export'; links are http(s)."""
-    mism, pages, tot, withart = [], sorted(PUBLIC_DIR.glob("day/*/index.html")), 0, 0
+    mism, sha_mism, withsha, pages, tot, withart = [], [], 0, sorted(PUBLIC_DIR.glob("day/*/index.html")), 0, 0
     for f in pages:
         name = f"/day/{f.parent.name}/"
         t = f.read_text(encoding="utf-8")
@@ -964,14 +967,23 @@ def check_artifacts() -> dict:
             continue
         if (int(m.group(1)), int(m.group(2))) != (len(urls), len(tasks)):
             mism.append({"page": name, "issue": f"line {m.groups()} != index.json {(len(urls), len(tasks))}"})
-        cards = t.count('class="meta artifact">artifact: ')
-        if cards != len(tasks):
-            mism.append({"page": name, "issue": f"{cards} artifact lines != {len(tasks)} accepted/done tasks"})
-        if t.count("no artifact link in the export") < len(tasks) - len(urls):
-            mism.append({"page": name, "issue": "'no artifact link in the export' text missing"})
+        shas = [str(x.get("released_sha")) for x in tasks if x.get("released_sha")]
+        ms = re.search(r'id="sha-line">with a commit SHA: (\d+) of (\d+) ', t)
+        if not ms or (int(ms.group(1)), int(ms.group(2))) != (len(shas), len(tasks)):
+            mism.append({"page": name, "issue": f"sha line {ms.groups() if ms else None} != index.json {(len(shas), len(tasks))}"})
+        allsha = {str(x.get("released_sha")) for p in (data.get("products") or {}).values() for x in p.get("tasks") or [] if x.get("released_sha")}
+        shown = re.findall(r"<code>commit ([0-9A-Za-z]+)</code>", t)
+        for c in shown:
+            if not any(a.startswith(c) for a in allsha):
+                sha_mism.append({"page": name, "issue": f"commit text {c} is not a prefix of a released_sha"})
+        if re.search(r'<a [^>]*>\s*(<code>)?commit [0-9a-f]{7,}', t):
+            sha_mism.append({"page": name, "issue": "commit sha inside a link"})
+        if t.count('class="meta artifact">') > len(tasks):
+            mism.append({"page": name, "issue": "more artifact lines than accepted/done tasks"})
+        withsha += len(shas)
         tot += len(tasks)
         withart += len(urls)
-    return {"pages_checked": len(pages), "accepted_total": tot, "with_artifact": withart, "mismatches": mism}
+    return {"pages_checked": len(pages), "accepted_total": tot, "with_artifact": withart, "with_sha": withsha, "mismatches": mism, "sha_mismatches": sha_mism}
 
 
 def what_broke_block(date: str, model: dict) -> str:
@@ -1009,8 +1021,10 @@ def what_broke_block(date: str, model: dict) -> str:
             out.append("</ul>")
     out.append('<p class="note">Failed runs and rate-limit events are not in the export.</p>')
     if any(p["days"].get(date) for p in model["products"].values()):
-        w, m = artifact_counts([p["days"][date] for p in model["products"].values() if date in p["days"]])
+        w, m, k = artifact_counts([p["days"][date] for p in model["products"].values() if date in p["days"]])
         out.append(f'<p class="note" id="artifact-line">Accepted with an artifact link: {w} of {m}</p>')
+        out.append(f'<p class="note" id="sha-line">with a commit SHA: {k} of {m} · commit links need a repo URL the export does not carry · '
+                   'cards without an artifact link or commit SHA have nothing to show: no artifact link in the export</p>')
     out.append("</section>")
     return "\n".join(out)
 
@@ -3434,7 +3448,7 @@ def main(argv: list[str] | None = None) -> int:
         problems += [f"{p}: footer disclosure missing" for p in cc["footer_missing"]]
         problems += cc["xml_errors"] + cc["latest_day_problems"]
         problems += [f"sitemap.xml: no <loc> for {p}" for p in cc["sitemap_missing"]]
-        problems += [f"artifact: {i}" for i in bj["artifact_check"]["mismatches"]]
+        problems += [f"artifact: {i}" for i in bj["artifact_check"]["mismatches"] + bj["artifact_check"]["sha_mismatches"]]
         problems += [f"robots: {i}" for i in bj["robots_check"]["issues"]]
         cr = bj["crawl_check"]
         problems += [f"crawl: {k} {cr[k]}" for k in ("missing_in_sitemap", "unreachable", "lastmod_after_build") if cr[k]]

@@ -2556,10 +2556,7 @@ def sitemap_entries(model: dict) -> list[tuple[str, str]]:
     use the last commit date of build.py (their text lives there), never later than the build date."""
     built = model["built"][:10]
     def day_lastmod(date: str) -> str:
-        ds: list = []
-        for p in model["products"].values():
-            _content_dates(p["days"].get(date) or {}, ds)
-        return min(max([date] + [d for d in ds if d >= date and d <= built]), built)
+        return min(date, built)  # the date of the page's data
     dm = {d: day_lastmod(d) for d in model["dates"]}
     try:
         r = subprocess.run(["git", "log", "-1", "--format=%cs", "--", "build.py"], capture_output=True, text=True, timeout=10,
@@ -2634,7 +2631,11 @@ def check_robots_sitemap(built: str) -> tuple[dict, dict]:
             ok = False
         if not ok:
             bad.append(f"{loc} {lm}")
-    return rc, {"urls": len(locs), "missing_pages": sorted(missing), "bad_lastmod": bad}
+    depths = check_crawl(built).pop("depths", {})
+    return rc, {"urls": len(locs), "missing_pages": sorted(missing), "bad_lastmod": bad,
+                "lastmod_missing": sorted(u for u, lm in locs.items() if not lm),
+                "unreachable_within_3": sorted(u for u in locs if depths.get(u, 99) > 3),
+                "max_depth": max([depths[u] for u in locs if u in depths] or [0])}
 
 
 def check_crawl(built: str) -> dict:
@@ -2672,7 +2673,7 @@ def check_crawl(built: str) -> dict:
     txt = (PUBLIC_DIR / "robots.txt").read_text(encoding="utf-8") if (PUBLIC_DIR / "robots.txt").is_file() else ""
     sm_lines = [ln.strip() for ln in txt.splitlines() if ln.strip().lower().startswith("sitemap:")]
     return {"sitemap_urls": len(locs), "missing_in_sitemap": sorted(w for w in (f"{SITE_BASE}/{d.parent.relative_to(PUBLIC_DIR).as_posix()}/" for d in PUBLIC_DIR.glob("*/index.html") if d.parent.name not in ("go", "open")) if w not in locs) + sorted(f"{SITE_BASE}/day/{d.parent.name}/" for d in PUBLIC_DIR.glob("day/*/index.html") if f"{SITE_BASE}/day/{d.parent.name}/" not in locs) + sorted(f"{SITE_BASE}/product/{d.parent.name}/" for d in PUBLIC_DIR.glob("product/*/index.html") if f"{SITE_BASE}/product/{d.parent.name}/" not in locs),
-            "unreachable": unreachable, "max_depth": max_depth,
+            "unreachable": unreachable, "max_depth": max_depth, "depths": {u: depth[p] for p, u in paths.items() if p in depth},
             "lastmod_after_build": sorted(u for u, lm in locs.items() if lm > built[:10]),
             "robots_sitemap": sm_lines == [f"Sitemap: {SITE_BASE}/sitemap.xml"]}
 
@@ -3716,6 +3717,7 @@ def main(argv: list[str] | None = None) -> int:
     bj["snippet_check"] = seo.pop("snippet_check")
     bj["orphan_check"] = {"pages_in_sitemap": seo["pages_in_sitemap"], "orphans": seo["orphans"]}
     bj["crawl_check"] = check_crawl(bj.get("built") or model["built"])
+    bj["crawl_check"].pop("depths", None)
     write_json(PUBLIC_DIR / "build.json", bj)
     log.info("seo_check: pages=%d canonical_missing=%d lastmod_missing=%d orphans=%d duplicate_titles=%d", seo["pages_checked"],
              len(seo["canonical_missing"]), len(seo["lastmod_missing"]), len(seo["orphans"]), len(seo["duplicate_titles"]))

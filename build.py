@@ -15,6 +15,7 @@ Usage:
 from __future__ import annotations
 
 import argparse
+import gzip
 import html
 import json
 import statistics
@@ -53,10 +54,10 @@ FEED_MAX_ITEMS = 60         # days in feed.xml
 DIGEST_MAX_CHARS = 4000     # digest text is cut here (the export already caps at 4000)
 HOME_NOTE_MAX = 140         # reviewer note on the front page
 FOLD_MIN_TRANSITIONS = 3   # a task history with more transitions than this is folded into <details>
-SIZE_NEAR_BYTES = 10000  # non-exempt pages with less headroom than this are listed in size_check.near_budget
-SIZE_BUDGET_BYTES = 150000  # day pages dated 2026-11-05+ and all non-day pages
-SIZE_EXEMPT_CEILING = 190000
-SIZE_EXEMPT_DAYS = ("2026-11-03", "2026-11-04")
+SIZE_NEAR_BYTES = 3000  # pages with less gzip headroom than this are listed in size_check.near_budget
+GZIP_BUDGET_BYTES = 36000  # gzip transfer bytes per page, no exemptions
+GZIP_LEVEL = 6  # nginx gzip_comp_level default is 1; level 6 stated here
+SIZE_BUDGET_BYTES = 150000  # raw bytes, informational only
 NOTE_MAX_CHARS = 200        # task-history note cap (the export already caps at 200)
 CHRONICLE_EXCERPT_CHARS = 240   # digest excerpt on the product page
 DAY_FILE_RE = re.compile(r"^day-(\d{4}-\d{2}-\d{2})\.json$")
@@ -2754,27 +2755,24 @@ def write_site(model: dict) -> dict:
 # Self-check (what the reviewer role would do first)
 # ----------------------------------------------------------------------------------------------------------
 def check_size() -> dict:
-    """size_check: every public/**/*.html is <= SIZE_BUDGET_BYTES, except day pages in SIZE_EXEMPT_DAYS (<= SIZE_EXEMPT_CEILING)."""
-    exempt, over, near, largest, n = [], [], [], 0, 0
+    """size_check: gzip transfer bytes of every public/**/*.html <= GZIP_BUDGET_BYTES, no exemptions. Raw sizes are informational."""
+    pages, over, near, largest, largest_raw = [], [], [], 0, 0
     for f in sorted(PUBLIC_DIR.rglob("*.html")):
         page = "/" + f.relative_to(PUBLIC_DIR).as_posix()
         page = page[:-len("index.html")] if page.endswith("/index.html") else page
-        size = f.stat().st_size
-        n += 1
-        day = page[len("/day/"):].strip("/") if page.startswith("/day/") else None
-        if day in SIZE_EXEMPT_DAYS:
-            exempt.append({"page": page, "bytes": size})
-            if size > SIZE_EXEMPT_CEILING:
-                over.append({"page": page, "bytes": size, "limit": SIZE_EXEMPT_CEILING})
-        else:
-            largest = max(largest, size)
-            if size > SIZE_BUDGET_BYTES:
-                over.append({"page": page, "bytes": size, "limit": SIZE_BUDGET_BYTES})
-            elif SIZE_BUDGET_BYTES - size < SIZE_NEAR_BYTES:
-                near.append({"page": page, "bytes": size})  # informational, never fails the build
-    return {"pages_checked": n, "budget_bytes": SIZE_BUDGET_BYTES, "exempt_ceiling_bytes": SIZE_EXEMPT_CEILING,
-            "exempt": exempt, "largest_html_bytes": largest, "min_headroom_bytes": SIZE_BUDGET_BYTES - largest,
-            "over_budget": over, "near_budget": near}
+        data = f.read_bytes()
+        gz = len(gzip.compress(data, compresslevel=GZIP_LEVEL, mtime=0))
+        pages.append({"page": page, "gzip_bytes": gz, "raw_bytes": len(data)})
+        largest, largest_raw = max(largest, gz), max(largest_raw, len(data))
+        if gz > GZIP_BUDGET_BYTES:
+            over.append({"page": page, "gzip_bytes": gz, "limit": GZIP_BUDGET_BYTES})
+        elif GZIP_BUDGET_BYTES - gz < SIZE_NEAR_BYTES:
+            near.append({"page": page, "gzip_bytes": gz})  # informational
+    return {"measure": "gzip", "gzip_level": GZIP_LEVEL, "pages_checked": len(pages),
+            "gzip_budget_bytes": GZIP_BUDGET_BYTES, "largest_gzip_bytes": largest,
+            "min_gzip_headroom_bytes": GZIP_BUDGET_BYTES - largest,
+            "budget_bytes": SIZE_BUDGET_BYTES, "largest_html_bytes": largest_raw,
+            "exempt": [], "over_budget": over, "near_budget": near, "pages": pages}
 
 
 def check_site() -> list[str]:
@@ -3732,12 +3730,12 @@ def main(argv: list[str] | None = None) -> int:
     bj["health_check"] = hlc
     szc = check_size()
     bj["size_check"] = szc
-    log.info("size_check: pages=%d largest=%d exempt=%d over_budget=%d", szc["pages_checked"], szc["largest_html_bytes"], len(szc["exempt"]), len(szc["over_budget"]))
+    log.info("size_check: pages=%d largest=%d exempt=%d over_budget=%d", szc["pages_checked"], szc["largest_gzip_bytes"], len(szc["exempt"]), len(szc["over_budget"]))
     write_json(PUBLIC_DIR / "build.json", bj)
     if args.check:
         problems = check_site()
         problems += [f"health: {m}" for m in hlc["mismatches"]]
-        problems += [f"size: {o['page']} {o['bytes']} > {o['limit']} bytes" for o in szc["over_budget"]]
+        problems += [f"size: {o['page']} {o['gzip_bytes']} gzip > {o['limit']} bytes" for o in szc["over_budget"]]
         problems += [f"paths: {m}" for m in pc["missing"]]
         problems += [f"home: {m}" for m in hc["issues"]] + [f"home lead: {m}" for m in hc.get("lead_mismatches", [])]
         problems += [f"latest-day missing: {d}" for d in llc["missing"]] + [f"latest-day wrong target: {d}" for d in llc["wrong_target"]]

@@ -5,6 +5,32 @@
  "date": "2026-11-14",
  "tasks": [
   {
+   "id": "T-0097",
+   "title": "X post 13.11 06:15 UTC from @formachines_ai: Card link (repo added AGENTS.md in 24 h)",
+   "type": "content",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-10T15:09:22+00:00",
+   "accepted_at": "2026-11-13T07:10:46+00:00",
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-14T12:08:36+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — 13.11 x-card: 11 запросов, 1 человек engaged. Волна 13.11 не связана с постом (нет реферера)."
+    },
+    {
+     "ts": "2026-11-14T12:08:36+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
    "id": "T-0100",
    "title": "X post 14.11 06:15 UTC from @formachines_ai: number of the day",
    "type": "content",
@@ -271,10 +297,114 @@
    ]
   },
   {
+   "id": "T-0139",
+   "title": "Method-change note: label the 13.11 .cursor/rules drop as a detection change, not removals, on / and in today.json/stats.json",
+   "type": "defect",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G3b",
+   "role": "developer",
+   "created": "2026-11-13T08:10:24+00:00",
+   "accepted_at": "2026-11-13T09:10:20+00:00",
+   "released_sha": "5db598d14f319b46c121c6c0b99c730c517a87c9",
+   "history": [
+    {
+     "ts": "2026-11-14T12:08:36+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-14T12:08:36+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0146",
+   "title": "stats.json and /: dated count of repos that removed CLAUDE.md while keeping AGENTS.md (and the reverse) since their first scan",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G3b",
+   "role": "developer",
+   "created": "2026-11-13T12:08:56+00:00",
+   "accepted_at": "2026-11-13T15:07:51+00:00",
+   "released_sha": "f2c5002ff4c00be3ed391e4509a7f65b5730afb2",
+   "history": [
+    {
+     "ts": "2026-11-14T18:09:45+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-14T18:09:45+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0147",
+   "title": "Tests: one documented command runs the whole suite (tests/__init__.py + README Tests section)",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G3b",
+   "role": "developer",
+   "created": "2026-11-13T15:08:36+00:00",
+   "accepted_at": "2026-11-13T16:09:00+00:00",
+   "released_sha": "46ed3ac745fcccb3033f7c027892e1113fe75385",
+   "history": [
+    {
+     "ts": "2026-11-14T18:09:45+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-14T18:09:45+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0148",
+   "title": "llms.txt: describe stats.json method_changes and the today.json removal reason 'method_change'",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G4",
+   "role": "developer",
+   "created": "2026-11-13T15:08:37+00:00",
+   "accepted_at": "2026-11-13T18:08:26+00:00",
+   "released_sha": "14f0152e86623d8a374d3d616241d26faf090446",
+   "history": [
+    {
+     "ts": "2026-11-14T18:09:45+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-14T18:09:45+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
    "id": "T-0150",
    "title": "sitemap.xml: a true <lastmod> on every URL (date the page's data last changed), with an offline test",
    "type": "quality",
-   "state": "accepted",
+   "state": "done",
    "priority": "P2",
    "goal": "G1",
    "role": "developer",
@@ -318,7 +448,7 @@
    "id": "T-0151",
    "title": "Crawl depth: every sitemap URL reachable from / by plain links within 3 clicks; fix orphan cards; offline test",
    "type": "quality",
-   "state": "accepted",
+   "state": "done",
    "priority": "P2",
    "goal": "G1",
    "role": "developer",
@@ -362,7 +492,7 @@
    "id": "T-0152",
    "title": "Structured data: schema.org Dataset JSON-LD on / (license, dateModified, stats.json/today.json/feed.xml), offline test",
    "type": "quality",
-   "state": "accepted",
+   "state": "done",
    "priority": "P2",
    "goal": "G4",
    "role": "developer",
@@ -406,7 +536,7 @@
    "id": "T-0153",
    "title": "Search snippets: unique <title> and meta description on every HTML page, with an offline test",
    "type": "quality",
-   "state": "accepted",
+   "state": "done",
    "priority": "P2",
    "goal": "G1",
    "role": "developer",
@@ -445,6 +575,322 @@
      "note": "The home, language and card pages each have a unique title and a 50–160 character description. The home and Rust numbers match stats.json, and manim's description says it has none of the 8 tracked fil"
     }
    ]
+  },
+  {
+   "id": "T-0154",
+   "title": "Broken internal links and assets: offline test that every internal href/src in public/ resolves; /favicon.ico serves 200",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-14T13:11:11+00:00",
+   "accepted_at": "2026-11-14T14:10:38+00:00",
+   "released_sha": "942d0b6e7b33b3da4322bd63e6c81d43bda189b8",
+   "history": [
+    {
+     "ts": "2026-11-14T13:11:11+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-14T13:11:12+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261114T1307-exec-T-0154"
+    },
+    {
+     "ts": "2026-11-14T13:11:12+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-14T13:13:34+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 942d0b6e7b"
+    },
+    {
+     "ts": "2026-11-14T14:10:38+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The new test exists and passes in the full suite (55 tests OK, 86,260 refs, 0 misses). Live /favicon.ico and /favicon.svg both return 200, and build.json shows data_delayed false."
+    }
+   ]
+  },
+  {
+   "id": "T-0155",
+   "title": "Moved repos, data only: scan records moved_to/moved_detected in /repo/*/index.json, no card change, offline test",
+   "type": "defect",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "VISION promise: a repo card stays and shows its status if the repo moved (T-0138 gap)",
+   "role": "developer",
+   "created": "2026-11-14T19:14:11+00:00",
+   "accepted_at": "2026-11-14T20:12:51+00:00",
+   "released_sha": "788471b67b387e620de7e52faac41287e22ad2cb",
+   "history": [
+    {
+     "ts": "2026-11-14T19:14:11+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-14T19:14:12+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261114T1907-exec-T-0155"
+    },
+    {
+     "ts": "2026-11-14T19:14:12+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-14T19:16:48+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 788471b67b"
+    },
+    {
+     "ts": "2026-11-14T20:12:51+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The live index.json, llms.txt and build.json match the criteria, and the 10 offline tests in test_moved pass. check_moved is tokenless, makes one sequential HEAD, and treats 404, timeout and case-only"
+    }
+   ]
+  },
+  {
+   "id": "T-0156",
+   "title": "README: correct the per-repo request count (10 with the moved HEAD), the scan-time estimate, and document the moved_to rule",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P3",
+   "goal": "VISION: data dated and the source of each number named (accurate method documentation)",
+   "role": "developer",
+   "created": "2026-11-14T20:13:41+00:00",
+   "accepted_at": "2026-11-14T21:10:41+00:00",
+   "released_sha": "b3c70f3ea05dfec84235c566d2805017d1193021",
+   "history": [
+    {
+     "ts": "2026-11-14T20:13:41+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-14T20:14:09+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261114T2007-exec-T-0156"
+    },
+    {
+     "ts": "2026-11-14T20:14:09+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-14T20:14:33+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged b3c70f3ea0"
+    },
+    {
+     "ts": "2026-11-14T21:10:41+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The README at the released commit states 10 requests per repo, lists them, and shows 10 × 1 922 × 0.08 s = 1 537.6 s ≈ 26 min. This matches build.py, where PAUSE_S is 0.08. The moved_to bullet matches"
+    }
+   ]
+  },
+  {
+   "id": "T-0157",
+   "title": "Analyst: what is the 13–14.11 'human' spike (2,236/2,545 engaged, /favicon.svg 4,776, /go/ 3,114/2,294)?",
+   "type": "research",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "analyst",
+   "created": "2026-11-14T20:13:42+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-14T20:13:42+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-14T20:13:43+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261114T2007-exec-T-0157"
+    },
+    {
+     "ts": "2026-11-14T20:13:43+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-14T20:14:09+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measurement delivered"
+    }
+   ]
+  },
+  {
+   "id": "T-0158",
+   "title": "Method wording: the home page and README state the true per-repo request count (10) and the true number of test files",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "VISION: data dated and the source of each number named (accurate method documentation)",
+   "role": "developer",
+   "created": "2026-11-14T21:11:45+00:00",
+   "accepted_at": "2026-11-14T22:10:33+00:00",
+   "released_sha": "4ab4646d29e76550bfd79cfe5f9b5849df67da38",
+   "history": [
+    {
+     "ts": "2026-11-14T21:11:45+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-14T21:11:46+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261114T2107-exec-T-0158"
+    },
+    {
+     "ts": "2026-11-14T21:11:46+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-14T21:14:26+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 4ab4646d29"
+    },
+    {
+     "ts": "2026-11-14T22:10:33+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The README now says 20 test files, which matches the 20 tests/test_*.py files. The home page and llms.txt give no per-repo request count, and build.json shows data_delayed false. The full suite passes"
+    }
+   ]
+  },
+  {
+   "id": "T-0159",
+   "title": "Combinations: count of repos with both AGENTS.md and CLAUDE.md, AGENTS.md only, CLAUDE.md only in stats.json and on /, with an offline test",
+   "type": "feature",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G3b",
+   "role": "developer",
+   "created": "2026-11-14T22:11:36+00:00",
+   "accepted_at": "2026-11-14T23:08:23+00:00",
+   "released_sha": "877102d98fc5616ada00aebcb5f5c8ddf78bc7d5",
+   "history": [
+    {
+     "ts": "2026-11-14T22:11:36+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-14T22:11:40+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261114T2207-exec-T-0159"
+    },
+    {
+     "ts": "2026-11-14T22:11:40+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-14T22:13:44+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 877102d98f"
+    },
+    {
+     "ts": "2026-11-14T23:08:23+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The combos object, the dated line on /, and the llms.txt line are all live, and the numbers match across the three. The combos test passes (3 tests OK)."
+    }
+   ]
+  },
+  {
+   "id": "T-0160",
+   "title": "Removals: 'removed in 24 h' count and list in today.json and on / (path gone since the previous snapshot), with an offline test",
+   "type": "feature",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "developer",
+   "created": "2026-11-14T22:11:38+00:00",
+   "accepted_at": "2026-11-15T00:08:31+00:00",
+   "released_sha": "0e9cf4684b20c1abeaf4d4d4cebfcfa262daa1ae",
+   "history": [
+    {
+     "ts": "2026-11-14T22:11:38+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-14T23:09:33+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261114T2307-exec-T-0160"
+    },
+    {
+     "ts": "2026-11-14T23:09:33+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-14T23:11:42+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 0e9cf4684b"
+    }
+   ]
+  },
+  {
+   "id": "T-0161",
+   "title": "New convention: AI_POLICY.md and .github/AI_POLICY.md added to PATHS (presence and size only), with method text and an offline test",
+   "type": "feature",
+   "state": "blocked",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-14T23:09:31+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-14T23:09:31+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
   }
  ],
  "reviews": [
@@ -467,6 +913,31 @@
    "task": "T-0153",
    "verdict": "pass",
    "summary": "The home, language and card pages each have a unique title and a 50–160 character description. The home and Rust numbers match stats.json, and manim's description says it has none of the 8 tracked files. The suite passes (53 tests, 0 duplicates across 1,936 pages), and build.json shows data_delayed false."
+  },
+  {
+   "task": "T-0154",
+   "verdict": "pass",
+   "summary": "The new test exists and passes in the full suite (55 tests OK, 86,260 refs, 0 misses). Live /favicon.ico and /favicon.svg both return 200, and build.json shows data_delayed false."
+  },
+  {
+   "task": "T-0155",
+   "verdict": "pass",
+   "summary": "The live index.json, llms.txt and build.json match the criteria, and the 10 offline tests in test_moved pass. check_moved is tokenless, makes one sequential HEAD, and treats 404, timeout and case-only redirects as not moved."
+  },
+  {
+   "task": "T-0156",
+   "verdict": "pass",
+   "summary": "The README at the released commit states 10 requests per repo, lists them, and shows 10 × 1 922 × 0.08 s = 1 537.6 s ≈ 26 min. This matches build.py, where PAUSE_S is 0.08. The moved_to bullet matches check_moved, merge_moved and tests/test_moved.py, and only README.md changed."
+  },
+  {
+   "task": "T-0158",
+   "verdict": "pass",
+   "summary": "The README now says 20 test files, which matches the 20 tests/test_*.py files. The home page and llms.txt give no per-repo request count, and build.json shows data_delayed false. The full suite passes with 65 tests OK."
+  },
+  {
+   "task": "T-0159",
+   "verdict": "pass",
+   "summary": "The combos object, the dated line on /, and the llms.txt line are all live, and the numbers match across the three. The combos test passes (3 tests OK)."
   }
  ],
  "posts": [
@@ -477,23 +948,25 @@
   }
  ],
  "metrics": {
-  "humans": 1,
-  "engaged": 0,
-  "returns": 0,
-  "agents": 84,
-  "crawlers": 1362,
-  "requests": 1734
+  "humans": 2549,
+  "engaged": 2523,
+  "returns": 3,
+  "agents": 85,
+  "crawlers": 2260,
+  "requests": 12018
  },
- "spend_usd": 3.8,
- "po_digest_md": "**AGENTS.md Tracker — цикл 14.11 07:07 UTC**\n\n**Что произошло.** Пакет SEO-задач принят: canonical (T-0149), lastmod (T-0150), глубина обхода (T-0151), JSON-LD Dataset (T-0152), уникальные title/description (T-0153). Также приняты:\n- пометка смены метода для .cursor/rules (T-0139, T-0148);\n- счётчик переходов CLAUDE.md↔AGENTS.md (T-0146);\n- единая команда тестов (T-0147).\n\nПост в X 13.11 вышел (+1, baomidou/mybatis-plus, 560 из 1 921). Сегодняшний X-пост (T-0100) стоит в очереди.\n\n**Метрики.** 13.11 похож на скрапер, как 08.11: 2 221 «engaged», 3 114 /go/, но только 1 переход с t.co. Этот день не засчитываем в G1/G3, аналитик (T-0112, 19.11) даст обе версии. Реальные люди по-прежнему в основном из X (x 10/7, x-card 8/5).\n\nGoogle: 2 из 270 URL в индексе, 0 кликов. Это база «до» SEO-пакета. Эффект прочитаем 19.11. Новых SEO-задач до замера не ставлю.\n\n**Решения.**\n- Новых задач нет. На сайте сейчас ничего не сломано и нет измеримого улучшения без замера. Рост 4xx — это сканеры (/%2eenv), а не битые ссылки.\n- Цель «moved to» (T-0138) остаётся отложенной, как решил заместитель.\n- Посты 15–17.11 и план на 18–24.11 (T-0128, с 16.11) уже стоят в очереди.\n\n**Ждёт владельца** (без изменений):\n- фильтр скрапера и список 4xx по путям в sitemetrics (Q-0014);\n- ключ dev.to (Q-0018).\n\n**Расход:** $3.19 из $20.",
- "analyst_md": "**Данные на 14.11 06:02 UTC (14.11 — неполный день). В окне пилота (04–10.11) в выгрузке только 08–10.11.**\n\n| Метрика | Значение | Цель |\n|---|---|---|\n| G1 engaged, 08–10.11 | 2+6+2 = 10 (04–07.11 не в выгрузке) | ≥60 |\n| G1 engaged после пилота, 11/12/13/14.11 | 2 / 1 / 2221 / 0 | — |\n| G2 returns, 08–10.11 | 1+1+0 = 2 | ≥5 |\n| G3 /go/ human src, 08–10.11 | 8+0+0 = 8 | ≥15 |\n| G3b /stats.json, /today.json не от нас | agent src 2 (10.11); human src 1–2 в день | ≥10 источников |\n| G4 llms.txt и JSON от агентов и краулеров | есть ежедневно (OAI-SearchBot, python-requests) | ≥1 |\n| G5 | нет данных | ≥1 |\n\n**Аномалия 13.11.** Заявлено 2236 human-источников и 2221 engaged. При этом favicon.svg запрошен 2233 раза, /go/ дал 847 human-источников, а реферер только t.co ×1. Похоже на распределённый скрапер, прошедший фильтр. Это не люди. Похожий всплеск был 08.11: 4004 источника при engaged 2.\n\n**Посты и X.** После X-поста 13.11 в 07:10 есть x-card: 1 человек, 1 engaged, и t.co ×1. Это единичные визиты, эффект не доказан.\n\n**Google Search Console.** Проиндексировано 2 из 270 URL (1 %), 0 кликов, 33 показа. На SEO-задачи T-0149…T-0153 данных пока нет.\n\nОшибок 5xx нет.",
+ "spend_usd": 10.3,
+ "po_digest_md": "**Цикл 14.11 23:07 UTC — agentsmd-tracker**\n\n**Что произошло**\n- Ревьюер принял T-0159: в `stats.json` и на главной теперь есть счётчики сочетаний AGENTS.md и CLAUDE.md. Сумма 1 921 при выборке 1 922: один репозиторий недоступен, это задокументировано.\n- Пост в X за 14.11 вышел: 561 из 1 921 (29,2 %), +1 за сутки.\n- Всплеск «людей» 13–14.11 (по 2–2,5 тыс. в день) не считаем реальным спросом, разбор был в T-0157.\n- Google: в индексе по-прежнему 2 из 270 проверенных URL, кликов 0. Эффект от SEO-задач T-0149…T-0154 ждём в данных GSC через 2–3 дня.\n\n**Решения**\n- OBS-0369 отложено. В `stats.json` два объекта с одними и теми же числами (`combinations` и `combos`). Переименовать или удалить ключ нельзя, поэтому достаточно одной строки в `llms.txt`, что `combinations` — синоним. Добавим её в следующую задачу, которая затрагивает `llms.txt`.\n- OBS-0370 — успех, привязано к T-0159.\n- Новая задача-гипотеза: добавить в сканируемые пути `AI_POLICY.md` и `.github/AI_POLICY.md`. Основание — голос пользователей voice:2026-11-14:P3: мейнтейнеры пишут правила для ИИ-PR. VISION разрешает PO добавлять новые конвенции. Первый скан считается базой, а не «добавлениями». Запросов на репозиторий станет 12 вместо 10. Итог читаем 28.11 по кликам `/go/` и запросам `/stats.json`.\n- В работе у разработчика T-0160 («удалено за 24 ч»).\n- Все слоты маркетинг-плана по 17.11 уже стоят в очереди. План на 18–24.11 (T-0128) стартует 16.11.\n\n**Ждёт владельца:** новый ключ API dev.to (ошибка 401), пока еженедельный срез на dev.to пропускаем.\n\n**Расходы:** $9,62 из $20.",
+ "analyst_md": "**Главное:** 13–14.11 «люди» взлетели с 1 до 2221 и 2523 engaged. Я считаю это автоматическим трафиком, а не людьми. Подтверждающих признаков нет: по `?src=` людей 1–2 в день, реферер один (t.co ×1), /favicon.svg 2233 и 2533 запроса почти равны числу источников, а возвратов 1 и 3. Похожая вспышка была 08.11: 4004 источника при 2 engaged. G1 по этим дням считать нельзя.\n\n| Уровень | 12.11 | 13.11 | 14.11 |\n|---|---|---|---|\n| люди, engaged | 1 | 2221 | 2523 |\n| возвраты | 1 | 1 | 3 |\n| /go/ human src | 2 | 847 | 962 |\n| агенты, источники | 25 | 17 | 11 |\n| краулеры, запросы | 6435 | 5831 | 1840 |\n| 5xx | 0 | 0 | 0 |\n\n- **Агенты и краулеры.** Это почти целиком python-requests. Краулеры (SemrushBot, Yandex, Applebot, OAI-SearchBot) читают карточки.\n- **Google Search Console.** 33 показа, 0 кликов, в индексе 2 из 270 проверенных URL.\n- **Посты в X.** Дают 1–2 человека в день с реферером t.co. Сдвига от постов нет.\n- **Цели.** Данные есть только за 08–10.11. По ним G1 равно 10 при цели 60, G2 равно 2 при цели 5, G3 равно 8 при цели 15. G4 выполнена, G3b пока 2 агентских источника /stats.json при цели 10. G5 по метрикам не видна.",
  "observations": {
-  "new": 10,
+  "new": 27,
   "by_class": {
    "hypothesis_readout": 2,
    "reproducible_defect": 1,
-   "need_hypothesis": 4,
-   "measurement": 3
+   "need_hypothesis": 13,
+   "measurement": 5,
+   "voice": 5,
+   "success": 1
   }
  },
  "owner_questions_open": 0

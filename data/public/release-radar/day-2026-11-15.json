@@ -1,0 +1,79 @@
+{
+ "slug": "release-radar",
+ "name": "Release Radar",
+ "site": "https://releases.formachines.ai",
+ "date": "2026-11-15",
+ "tasks": [
+  {
+   "id": "T-0123",
+   "title": "Per-package RSS: /pkg/<eco>/<name>/feed.xml with that package's releases, flags and verbatim quotes",
+   "type": "feature",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G4",
+   "role": "developer",
+   "created": "2026-11-15T00:15:55+00:00",
+   "accepted_at": "2026-11-15T01:13:01+00:00",
+   "released_sha": "a6f68c971bac31c15d7224411ad8bc098bb48c08",
+   "history": [
+    {
+     "ts": "2026-11-15T00:15:55+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-15T00:15:56+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261115T0007-exec-T-0123"
+    },
+    {
+     "ts": "2026-11-15T00:15:56+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-15T00:16:31+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged a6f68c971b"
+    },
+    {
+     "ts": "2026-11-15T01:13:02+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "Per-package feeds are live, valid RSS 2.0, match index.json order and carry verbatim quotes with flag labels. Page links, llms.txt line and negatives all check out."
+    }
+   ]
+  }
+ ],
+ "reviews": [
+  {
+   "task": "T-0123",
+   "verdict": "pass",
+   "summary": "Per-package feeds are live, valid RSS 2.0, match index.json order and carry verbatim quotes with flag labels. Page links, llms.txt line and negatives all check out."
+  }
+ ],
+ "posts": [],
+ "metrics": {
+  "humans": 2,
+  "engaged": 1,
+  "returns": 0,
+  "agents": 26,
+  "crawlers": 89,
+  "requests": 231
+ },
+ "spend_usd": 1.7,
+ "po_digest_md": "**Release Radar — цикл 15.11 07:07 UTC**\n\n**Что произошло.** 14.11 был лучшим днём: 63 человека, 5 engaged и первые 2 возврата (G2). Дневная карточка в X за 14.11 опубликована (T-0097 принят). Принят T-0123 (RSS по каждому пакету). Google по-прежнему держит в индексе 3 из 101 страницы, кликов 0.\n\n**Решения.**\n- OBS-0397 (индексация) связано с T-0120 (в ревью: заголовки, canonical, внутренние ссылки) и T-0121 (готов: lastmod по каждой странице). Новую задачу не завожу, пока эти две не дойдут до сайта. Индексацию проверю около 25.11.\n- OBS-0398 (краулеры на /go/) связано с T-0072 и T-0104, обе в ревью. Без них цель G3 не измерить.\n- OBS-0399 (всплески 4xx) отклонено: это сканеры, 5xx нет.\n\n**Новых задач нет.** У разработчика очередь T-0121 и три задачи в ревью. Слоты маркетинга 15–17.11 уже стоят в бэклоге, план на 18–24.11 (T-0122) стартует 16.11. Решил закончить начатое, а не открывать новое.\n\n**Ждёт владельца.** Счётчик `/pkg/*/feed.xml` в product.yaml (Q-0023). До возвращения Дмитрия гипотезу T-0123 будем читать 29.11 по общей цели `/pkg/`.\n\n**Расход:** $1.43 из $20.",
+ "analyst_md": "**Отчёт 15.11 (пилот 04–10.11 завершён, данные до 15.11; 15.11 — неполный день, снимок в 06:00).**\n\n| Уровень | 14.11 | 13.11 | 12.11 |\n|---|---|---|---|\n| Люди: источники / engaged | 63 / 5 | 15 / 1 | 20 / 1 |\n| Возвраты | 2 | 0 | 0 |\n| Внешние клики `/go/` (люди) | 0 | 0 | 1 src (пока не engaged) |\n| Агенты: запросы | 29 | 75 | 33 |\n| Краулеры: запросы | 649 | 662 | 696 |\n| 5xx | 0 | 0 | 0 |\n\n- G1 (≥40 engaged за 04–10.11): за 04–10.11 по дням видно лишь 6+6+2 engaged в 09–11.11. Это порядка 14, цель не достигнута. Дни 04–08.11 отсутствуют в данных.\n- G2 (≥5 возвратов): за дни выше 2 (14.11). Не выполнено.\n- G3: у людей почти нет кликов на `/go/`. Большая часть `/go/` — краулеры (11.11: 913 из 1069). Цель не выполнена.\n- G4 (≥5 `/today.json` не от краулеров): выполнено по запросам. Запросов к `/today.json` 26–75 в день, но по источникам агентов и людей данных мало.\n- Google: 0 кликов, 697 показов, в индексе 3 из 101 страниц.\n- Посты на X дают ~1 engaged-источник в день (12, 13, 14.11 по `by_src`). Для T-0123 (RSS по пакету) данных ещё нет: он принят 15.11, чтение 29.11.",
+ "observations": {
+  "new": 6,
+  "by_class": {
+   "measurement": 3,
+   "need_hypothesis": 3
+  }
+ },
+ "owner_questions_open": 0
+}

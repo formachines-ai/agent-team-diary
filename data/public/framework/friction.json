@@ -1,23 +1,20 @@
 {
- "generated": "2026-11-14T07:28:45+00:00",
+ "generated": "2026-11-15T07:28:58+00:00",
  "days": 7,
- "total": 93,
+ "total": 95,
  "by_kind": {
-  "reported": 25,
-  "task_blocked": 30,
-  "tool_denied": 31,
+  "tool_denied": 32,
+  "reported": 24,
+  "task_blocked": 32,
   "review_fail": 2,
   "phase_error": 3,
   "env_error": 2
  },
  "by_day": {
-  "2026-11-07": {
-   "reported": 3
-  },
   "2026-11-08": {
-   "task_blocked": 2,
    "tool_denied": 2,
    "reported": 3,
+   "task_blocked": 1,
    "review_fail": 1
   },
   "2026-11-09": {
@@ -47,11 +44,57 @@
    "task_blocked": 5
   },
   "2026-11-14": {
-   "task_blocked": 1,
-   "tool_denied": 3
+   "task_blocked": 2,
+   "tool_denied": 4,
+   "reported": 2
+  },
+  "2026-11-15": {
+   "task_blocked": 2
   }
  },
  "recent": [
+  {
+   "ts": "2026-11-15T07:10:14+00:00",
+   "product": "agent-team-diary",
+   "role": "dispatcher",
+   "kind": "task_blocked",
+   "summary": "T-0152 Day pages: long task histories folded into <details>, each d: question Q-0028"
+  },
+  {
+   "ts": "2026-11-15T03:07:50+00:00",
+   "product": "agentsmd-tracker",
+   "role": "dispatcher",
+   "kind": "task_blocked",
+   "summary": "T-0161 New convention: AI_POLICY.md and .github/AI_POLICY.md added : stuck: 3 failed attempts on this goal; the PO replans it with 3 alternatives"
+  },
+  {
+   "ts": "2026-11-14T23:07:53+00:00",
+   "product": "agent-team-diary",
+   "role": "reviewer",
+   "kind": "tool_denied",
+   "summary": "reviewer: denied Bash(team-fetch https://agentteam.formachines.ai/day/2026-11-14/ --grep len(earlier -)"
+  },
+  {
+   "ts": "2026-11-14T22:08:26+00:00",
+   "product": "agent-team-diary",
+   "role": "reviewer",
+   "kind": "reported",
+   "summary": "reviewer: [missing_data] The rendered note with the literal placeholder is not an acceptance criterion, so it cannot change the verdict. It is reported as an observation only."
+  },
+  {
+   "ts": "2026-11-14T17:08:03+00:00",
+   "product": "luz-amanha",
+   "role": "dispatcher",
+   "kind": "task_blocked",
+   "summary": "T-0150 Bluesky post 14.11 14:20 UTC: For machines, what a script se: question Q-0044"
+  },
+  {
+   "ts": "2026-11-14T17:08:03+00:00",
+   "product": "luz-amanha",
+   "role": "marketer",
+   "kind": "reported",
+   "summary": "marketer: [other] The task was booked as allowed (only 1 post in the window), but the publisher counts 5 Bluesky posts in 7 days against the cap of 2. The cap check in task planning does not match the"
+  },
   {
    "ts": "2026-11-14T03:10:38+00:00",
    "product": "agentsmd-tracker",
@@ -359,48 +402,6 @@
    "role": "dispatcher",
    "kind": "task_blocked",
    "summary": "T-0070 Daily post 10.11 14:05 UTC: prices for 11.11 with the dated : question Q-0033"
-  },
-  {
-   "ts": "2026-11-10T21:07:45+00:00",
-   "product": "agent-team",
-   "role": "dispatcher",
-   "kind": "task_blocked",
-   "summary": "T-0090 [retro] Runner: keep single argv entries under the OS limit : partial repeated with the same summary: stuck"
-  },
-  {
-   "ts": "2026-11-10T20:11:18+00:00",
-   "product": "luz-amanha",
-   "role": "dispatcher",
-   "kind": "task_blocked",
-   "summary": "T-0105 X post 10.11 14:10 UTC: tomorrow's (11.11) cheapest window, : question Q-0032"
-  },
-  {
-   "ts": "2026-11-10T19:12:44+00:00",
-   "product": "luz-amanha",
-   "role": "dispatcher",
-   "kind": "task_blocked",
-   "summary": "T-0070 Daily post 10.11 14:05 UTC: prices for 11.11 with the dated : question Q-0031"
-  },
-  {
-   "ts": "2026-11-10T18:10:18+00:00",
-   "product": "luz-amanha",
-   "role": "dispatcher",
-   "kind": "task_blocked",
-   "summary": "T-0105 X post 10.11 14:10 UTC: tomorrow's (11.11) cheapest window, : question Q-0030"
-  },
-  {
-   "ts": "2026-11-10T17:10:18+00:00",
-   "product": "luz-amanha",
-   "role": "dispatcher",
-   "kind": "task_blocked",
-   "summary": "T-0070 Daily post 10.11 14:05 UTC: prices for 11.11 with the dated : question Q-0029"
-  },
-  {
-   "ts": "2026-11-10T16:13:07+00:00",
-   "product": "luz-amanha",
-   "role": "dispatcher",
-   "kind": "task_blocked",
-   "summary": "T-0105 X post 10.11 14:10 UTC: tomorrow's (11.11) cheapest window, : question Q-0028"
   }
  ]
 }

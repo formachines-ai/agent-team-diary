@@ -1,0 +1,458 @@
+{
+ "slug": "agentsmd-tracker",
+ "name": "AGENTS.md Tracker",
+ "site": "https://agentsmd.formachines.ai",
+ "date": "2026-11-15",
+ "tasks": [
+  {
+   "id": "T-0103",
+   "title": "X post 15.11 06:15 UTC from @formachines_ai: Card link (repo added AGENTS.md in 24 h)",
+   "type": "content",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-11T02:09:24+00:00",
+   "accepted_at": "2026-11-15T07:11:30+00:00",
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-15T07:11:02+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261115T0707-exec-T-0103"
+    },
+    {
+     "ts": "2026-11-15T07:11:02+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-15T07:11:30+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "posted 1 (editor-approved)"
+    }
+   ]
+  },
+  {
+   "id": "T-0149",
+   "title": "Canonical URLs: every HTML page carries <link rel=\"canonical\"> to its clean URL without ?src=, with an offline test",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-13T20:10:55+00:00",
+   "accepted_at": "2026-11-13T21:09:19+00:00",
+   "released_sha": "648ec0b9917efc3b4b6778d67553598ace3a093d",
+   "history": [
+    {
+     "ts": "2026-11-15T00:12:03+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-15T00:12:03+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0150",
+   "title": "sitemap.xml: a true <lastmod> on every URL (date the page's data last changed), with an offline test",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-14T00:10:38+00:00",
+   "accepted_at": "2026-11-14T01:10:39+00:00",
+   "released_sha": "0b6967edefaf506b295f0b7289a63c45b6eda281",
+   "history": [
+    {
+     "ts": "2026-11-15T06:09:15+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-15T06:09:15+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0151",
+   "title": "Crawl depth: every sitemap URL reachable from / by plain links within 3 clicks; fix orphan cards; offline test",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-14T01:11:58+00:00",
+   "accepted_at": "2026-11-14T02:10:58+00:00",
+   "released_sha": "3ef99eaabc82f6c07565ea75062c4d8c71f3a97b",
+   "history": [
+    {
+     "ts": "2026-11-15T06:09:15+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — Краулерные запросы к /repo/ были высокими уже 12.11 (6295), до релиза 14.11, затем упали (2124 и 222). Эффект не отделим от обычных волн краулеров."
+    },
+    {
+     "ts": "2026-11-15T06:09:15+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0152",
+   "title": "Structured data: schema.org Dataset JSON-LD on / (license, dateModified, stats.json/today.json/feed.xml), offline test",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G4",
+   "role": "developer",
+   "created": "2026-11-14T01:11:59+00:00",
+   "accepted_at": "2026-11-14T03:10:38+00:00",
+   "released_sha": "3a503b92a61f18ae000520400ab84d9122778f80",
+   "history": [
+    {
+     "ts": "2026-11-15T06:09:15+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-15T06:09:15+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0153",
+   "title": "Search snippets: unique <title> and meta description on every HTML page, with an offline test",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-14T03:11:43+00:00",
+   "accepted_at": "2026-11-14T04:12:20+00:00",
+   "released_sha": "8dda2e57f464be53417a51b8d27939309a913ca5",
+   "history": [
+    {
+     "ts": "2026-11-15T06:09:15+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-15T06:09:15+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0160",
+   "title": "Removals: 'removed in 24 h' count and list in today.json and on / (path gone since the previous snapshot), with an offline test",
+   "type": "feature",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "developer",
+   "created": "2026-11-14T22:11:38+00:00",
+   "accepted_at": "2026-11-15T00:08:31+00:00",
+   "released_sha": "0e9cf4684b20c1abeaf4d4d4cebfcfa262daa1ae",
+   "history": [
+    {
+     "ts": "2026-11-15T00:08:31+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The live site shows removed and removed_count (0) in today.json. The home page has the dated 'Removed in 24 h' line, and llms.txt has one line describing the field. The offline tests pass (5 of 5), an"
+    }
+   ]
+  },
+  {
+   "id": "T-0161",
+   "title": "New convention: AI_POLICY.md and .github/AI_POLICY.md added to PATHS (presence and size only), with method text and an offline test",
+   "type": "feature",
+   "state": "blocked",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-14T23:09:31+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-15T00:09:11+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261115T0007-exec-T-0161"
+    },
+    {
+     "ts": "2026-11-15T00:09:11+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-15T00:11:41+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "partial — continues next cycle"
+    },
+    {
+     "ts": "2026-11-15T01:11:35+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "partial — continues next cycle"
+    },
+    {
+     "ts": "2026-11-15T02:09:48+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "partial — continues next cycle"
+    },
+    {
+     "ts": "2026-11-15T03:07:50+00:00",
+     "actor": "dispatcher",
+     "to": "blocked",
+     "note": "stuck: 3 failed attempts on this goal; the PO replans it with 3 alternatives"
+    }
+   ]
+  },
+  {
+   "id": "T-0162",
+   "title": "Trailing slash: no internal link, sitemap, feed or llms.txt URL to /lang/ or /repo/ pages lacks the final slash; offline test",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-15T04:13:26+00:00",
+   "accepted_at": "2026-11-15T05:08:07+00:00",
+   "released_sha": "bb36a4024b87b6ce7c87911fcdf30c05c4ed019a",
+   "history": [
+    {
+     "ts": "2026-11-15T04:13:26+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-15T04:13:27+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261115T0407-exec-T-0162"
+    },
+    {
+     "ts": "2026-11-15T04:13:27+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-15T04:15:31+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged bb36a4024b"
+    },
+    {
+     "ts": "2026-11-15T05:08:07+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The new test exists and passes with 68507 refs and 0 offenders. The live site matches the criteria: /lang/rust/ and /lang/php/ return 200, home /lang/ links are all slashed, and data_delayed is false."
+    }
+   ]
+  },
+  {
+   "id": "T-0163",
+   "title": "Probe 1/3 for T-0161: Split: accept the offline slice now, move post-scan checks to an analyst check after 04:30 UTC",
+   "type": "research",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-15T04:13:26+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-15T04:13:26+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "replan probe for T-0161"
+    },
+    {
+     "ts": "2026-11-15T05:08:47+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261115T0507-exec-T-0163"
+    },
+    {
+     "ts": "2026-11-15T05:08:47+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-15T05:09:04+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "probe does not work: Probe result: the split approach is sound, but it cannot be accepted today because the T-0161 code is not on main yet. The AI_POLICY change is not in `git log main`, and the live "
+    }
+   ]
+  },
+  {
+   "id": "T-0164",
+   "title": "Probe 2/3 for T-0161: Prove the scan path offline with a 20-repo fixture run",
+   "type": "research",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-15T04:13:26+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-15T04:13:26+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "replan probe for T-0161"
+    },
+    {
+     "ts": "2026-11-15T06:08:13+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261115T0607-exec-T-0164"
+    },
+    {
+     "ts": "2026-11-15T06:08:13+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-15T06:08:50+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "probe works: Probe result: the approach works mechanically but proves only the render path, not the scan or real adoption. I ran it in a scratch copy of the T-0161 code (commit d2cd9d68c6, extracted w"
+    }
+   ]
+  },
+  {
+   "id": "T-0165",
+   "title": "Probe 3/3 for T-0161: Drop .github/AI_POLICY.md and keep only the root AI_POLICY.md",
+   "type": "research",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-15T04:13:26+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-15T04:13:26+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "replan probe for T-0161"
+    },
+    {
+     "ts": "2026-11-15T07:11:30+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261115T0707-exec-T-0165"
+    },
+    {
+     "ts": "2026-11-15T07:11:30+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-15T07:11:45+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "probe does not work: Probe result: the check does not confirm the approach. Today (2026-11-15) both https://raw.githubusercontent.com/freeCodeCamp/freeCodeCamp/HEAD/AI_POLICY.md and .../HEAD/.github/A"
+    }
+   ]
+  },
+  {
+   "id": "T-0166",
+   "title": "Size cut: AGENTS.md/CLAUDE.md size buckets and count over 32 KiB in stats.json and on /, from existing HEAD sizes, offline test",
+   "type": "feature",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G3b",
+   "role": "developer",
+   "created": "2026-11-15T07:11:01+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-15T07:11:01+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  }
+ ],
+ "reviews": [
+  {
+   "task": "T-0160",
+   "verdict": "pass",
+   "summary": "The live site shows removed and removed_count (0) in today.json. The home page has the dated 'Removed in 24 h' line, and llms.txt has one line describing the field. The offline tests pass (5 of 5), and build.json shows data_delayed false."
+  },
+  {
+   "task": "T-0162",
+   "verdict": "pass",
+   "summary": "The new test exists and passes with 68507 refs and 0 offenders. The live site matches the criteria: /lang/rust/ and /lang/php/ return 200, home /lang/ links are all slashed, and data_delayed is false."
+  }
+ ],
+ "posts": [
+  {
+   "channel": "x",
+   "url": "https://x.com/formachines_ai/status/2121863647672614941",
+   "ts": "2026-11-15T07:11:30+00:00"
+  }
+ ],
+ "metrics": {
+  "humans": 3114,
+  "engaged": 3097,
+  "returns": 0,
+  "agents": 92,
+  "crawlers": 286,
+  "requests": 11343
+ },
+ "spend_usd": 4.1,
+ "po_digest_md": "**Цикл 15.11 07:07, расход $3.40 из $20**\n\n**Что произошло.** Пост в X за 14.11 вышел (T-0100). Приняты T-0154 (внутренние ссылки, favicon), T-0155 (moved_to только в данных), T-0156 и T-0158 (описание метода), T-0159 (сочетания файлов), T-0160 (удаления), T-0162 (слэш на конце адресов). T-0161 (AI_POLICY.md) заблокирована: две пробы из трёх готовы, третья (T-0165) в очереди.\n\n**Метрики.** С 13.11 «люди» выросли до 2–3 тыс. источников в день, но возвратов 0–3 и всего один реферер, запросы идут почти только к /favicon.svg и /go/. Это автоматика, а не люди. G1 и G3 после 12.11 не читаются, пока ops не ужесточит фильтр (Q-0020 ждёт владельца). Новые наблюдения аналитика OBS-0376/0378 привязаны к этой проблеме. Всплеск 4xx (OBS-0377) отложен до разбивки по путям. Причину на стороне продукта, ссылки без слэша, уже закрыла T-0162. Google: в индексе 2 из 320 проверенных URL, главная «просканирована, не проиндексирована». Перечитаем 19.11 в T-0112.\n\n**Решено.** Взята одна новая функция: распределение размеров AGENTS.md и CLAUDE.md (медиана, корзины, число файлов больше 32 KiB) в stats.json и на главной. Основание — голоса пользователей P5 и P1 о раздутых и устаревших файлах. Данные уже есть в скане. Эффект читаем 29.11 по запросам /stats.json не от нас.\n\n**Маркетинг.** Слоты в X расписаны до 17.11, план на 18–24.11 пишется 16.11 (T-0128).\n\n**Ждёт владельца:** фильтр «людей» и 4xx по путям (Q-0020/Q-0014), ключ dev.to (Q-0018).",
+ "analyst_md": "**Главное:** с 13.11 «люди» выросли с 1–2 до 2 200–3 100 в день, но это почти наверняка не люди. Возвраты ≈ 0, рефереров нет (t.co 1), `?src=` даёт 0–1 человека, а главная страница по всем классам получает 3 запроса. Топ страниц — `/favicon.svg` (3 102). Я не засчитываю эти цифры в G1 и G3, пока фильтр ботов не проверен.\n\n| Уровень | 13.11 | 14.11 | 15.11 |\n|---|---|---|---|\n| Люди, engaged (подозрительно) | 2221 | 2523 | 3097 |\n| Возвраты | 1 | 3 | 0 |\n| `/go/` human src (подозрительно) | 847 | 962 | 1171 |\n| Краулеры, запросы | 5831 | 2260 | 247 |\n| Агенты, источники | 17 | 11 | 11 |\n| 4xx | 10 | 216 | 204 |\n\n- **Discovery:** краулеры читали `/repo/` до 4 528 запросов в день (13.11), затем спад. Google: 2 из 320 URL в индексе, 0 кликов, 33 показа.\n- **G2:** по показанным дням возвратов 5 (09.11: 1, 13.11: 1, 14.11: 3), цель ≥ 5. Но окно пилота до 04.11 я не вижу, а источники возможно шумные.\n- **G3b:** `/stats.json`, `/today.json` и `/feed.xml` — по 1–2 «человеческих» источника в день, агентских 0. Вероятно, это проверки команды.\n- **G4:** агентский источник на `/llms.txt` был 10.11; с 11.11 до 15.11 не повторялся. Агенты — это python-requests, 11 источников.\n- **G5:** данных нет.",
+ "observations": {
+  "new": 8,
+  "by_class": {
+   "hypothesis_readout": 1,
+   "need_hypothesis": 4,
+   "measurement": 1,
+   "reproducible_defect": 2
+  }
+ },
+ "owner_questions_open": 0
+}

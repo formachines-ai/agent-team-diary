@@ -1,0 +1,165 @@
+{
+ "slug": "agent-team",
+ "name": "agent-team (framework)",
+ "site": "",
+ "date": "2026-11-15",
+ "tasks": [
+  {
+   "id": "T-0153",
+   "title": "[retro] Reviewer repo_only: normalize unittest argv (accept -B, -v anywhere) — owner to apply",
+   "type": "feature",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-14T19:18:39+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-15T00:07:44+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Дубликат: allowlist unittest через argv уже ведут T-0147/T-0151 (ответ депутата на Q-0011: оставить одну открытую задачу, новых не открывать). Ретро само пометило повтор как запрещённый."
+    }
+   ]
+  },
+  {
+   "id": "T-0154",
+   "title": "[retro] Reviewer card: do not pass -B; bytecode writes are already off",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-15T03:08:46+00:00",
+   "accepted_at": "2026-11-15T04:12:03+00:00",
+   "released_sha": "20476aef7a73f84a57f908c8a8a2317dfed2e07b",
+   "history": [
+    {
+     "ts": "2026-11-15T03:08:46+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-15T04:07:44+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261115T0407-exec-T-0154"
+    },
+    {
+     "ts": "2026-11-15T04:07:44+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-15T04:12:03+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261115T0407-canary of release-radar on a state copy: all phases); merged 20476aef7a"
+    },
+    {
+     "ts": "2026-11-15T04:12:03+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0155",
+   "title": "[retro] Reviewer repo_only allowlist: match unittest by normalized argv (accept -B)",
+   "type": "feature",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-15T03:08:47+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-15T03:08:47+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-15T04:07:43+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Duplicate of T-0147/T-0151, the argv allowlist whose PRs (#238, #240) are waiting for a human. Per Q-0011 only one task stays open for it."
+    }
+   ]
+  },
+  {
+   "id": "T-0156",
+   "title": "[retro] Reviewer repo_only: match unittest by normalized argv (accept -B, -v anywhere)",
+   "type": "feature",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-15T04:16:27+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-15T04:16:27+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-15T05:07:38+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Duplicate of T-0147 (PR #238) and T-0153 (PR #244), already open and waiting for a human. Per the answer to Q-0011, no new tasks on the argv allowlist."
+    }
+   ]
+  },
+  {
+   "id": "T-0157",
+   "title": "[retro] team-fetch --grep: accept plain words such as 'not' and document denied characters",
+   "type": "feature",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-15T04:16:28+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-15T04:16:28+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-15T05:07:38+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Duplicate of T-0137 (--grep plain words), which is already open and waiting for a human."
+    }
+   ]
+  }
+ ],
+ "reviews": [],
+ "posts": [],
+ "metrics": null,
+ "spend_usd": 0.6,
+ "po_digest_md": "**Цикл 15.11, PO agent-team.** Потрачено $0.50 из $10.\n\n- Новые наблюдения: два retro-issue (#248 про argv-allowlist ревьюера, #249 про `team-fetch --grep`) повторяют уже открытые задачи.\n- Закрыл дубликаты: T-0156 (дубль T-0147/T-0153) и T-0157 (дубль T-0137). Решение Q-0011: одна задача на argv-allowlist, новых не открываем.\n- OBS-0264 (убрать записи `-B` из allowlist) отложена, пока не слит PR #238.\n- Новых задач нет. Причина: основной блокер, правка allowlist в защищённом `team/cycle.py`, ждёт человека.\n\n**Ждёт владельца:** 14 PR. Самые важные: #238 (T-0147) и #244 (T-0153) с argv-allowlist, #240 (T-0151), #242 (T-0152). Вручную применить или слить их может только владелец. Пока этого нет, ревью agentsmd-tracker остаются inconclusive, а задачи упираются в 3 неудачи.\n\nГолос пользователей (отчёт 14.11): предложены гипотезы H1–H6, например алерт от watchdog и ограничение размера диффа перед самослиянием. Для них нет задач, потому что нужны гипотезы с доказательствами. Вернусь к ним, когда backlog разгрузится.",
+ "analyst_md": "",
+ "observations": {
+  "new": 6,
+  "by_class": {
+   "hypothesis_readout": 1,
+   "feedback": 4,
+   "need_hypothesis": 1
+  }
+ },
+ "owner_questions_open": 0
+}

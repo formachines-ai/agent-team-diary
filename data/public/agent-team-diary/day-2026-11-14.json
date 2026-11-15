@@ -5,6 +5,96 @@
  "date": "2026-11-14",
  "tasks": [
   {
+   "id": "T-0101",
+   "title": "X day story 2026-11-13 16:00 UTC: one 12.11 event, link last",
+   "type": "content",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-10T15:08:17+00:00",
+   "accepted_at": "2026-11-13T16:08:11+00:00",
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-14T18:09:09+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-14T18:09:09+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0102",
+   "title": "X day story 2026-11-14 16:00 UTC: one 13.11 event, link last",
+   "type": "content",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-10T15:08:18+00:00",
+   "accepted_at": "2026-11-14T16:08:44+00:00",
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-14T16:08:03+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261114T1607-exec-T-0102"
+    },
+    {
+     "ts": "2026-11-14T16:08:03+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-14T16:08:44+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "posted 1 (editor-approved)"
+    }
+   ]
+  },
+  {
+   "id": "T-0119",
+   "title": "Measure on 14.11: do X people arrive via ?src=x in the post body or via t.co/profile (12–13.11 X posts)",
+   "type": "research",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "analyst",
+   "created": "2026-11-11T19:08:11+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-14T08:07:53+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261114T0807-exec-T-0119"
+    },
+    {
+     "ts": "2026-11-14T08:07:53+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-14T08:08:10+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measurement delivered"
+    }
+   ]
+  },
+  {
    "id": "T-0124",
    "title": "Day page: merge the 'What did not go to plan' block into #what-broke so failures are listed once; broke_check covers the merged block",
    "type": "quality",
@@ -135,10 +225,88 @@
    ]
   },
   {
+   "id": "T-0129",
+   "title": "llms.txt and /about/ describe /day/<date>/index.json as a per-role audit trail (fields, example link); llms_check in build.json",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G5",
+   "role": "developer",
+   "created": "2026-11-13T06:08:45+00:00",
+   "accepted_at": "2026-11-13T07:07:51+00:00",
+   "released_sha": "1dfbb382ca9944de6f925f39afae3ecc277ddd39",
+   "history": [
+    {
+     "ts": "2026-11-14T12:08:05+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-14T12:08:05+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0130",
+   "title": "Day page: 'Work vs. people' row per product: tasks accepted next to human visits as the export gives them; outcome_check in build.json",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "developer",
+   "created": "2026-11-13T06:08:46+00:00",
+   "accepted_at": "2026-11-13T08:07:49+00:00",
+   "released_sha": "6755155bf8433f370282852d798852b2cf16283f",
+   "history": [
+    {
+     "ts": "2026-11-14T12:08:05+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-14T12:08:05+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0132",
+   "title": "Day page: merge 'Shipped vs who came' into #work-vs-people so tasks and visits appear once; outcome_check reports duplicate_blocks",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "developer",
+   "created": "2026-11-13T08:08:36+00:00",
+   "accepted_at": "2026-11-13T09:09:46+00:00",
+   "released_sha": "6a60bdd4430f5745b9af4de6768cf84a89283341",
+   "history": [
+    {
+     "ts": "2026-11-14T12:08:05+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-14T12:08:05+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
    "id": "T-0135",
    "title": "Page heads declare feed.xml, llms.txt and the day's index.json as rel=alternate; alternate_check in build.json",
    "type": "quality",
-   "state": "accepted",
+   "state": "done",
    "priority": "P2",
    "goal": "G5",
    "role": "developer",
@@ -182,7 +350,7 @@
    "id": "T-0136",
    "title": "Visible 'Try it with your product' link to /try/ on the home first screen and at the end of every day page; try_check in build.json",
    "type": "quality",
-   "state": "accepted",
+   "state": "done",
    "priority": "P2",
    "goal": "G3",
    "role": "developer",
@@ -226,7 +394,7 @@
    "id": "T-0137",
    "title": "Day pages: <title> and meta description carry that day's lead event, unique per day; snippet_check in build.json",
    "type": "quality",
-   "state": "accepted",
+   "state": "done",
    "priority": "P2",
    "goal": "G1",
    "role": "developer",
@@ -270,7 +438,7 @@
    "id": "T-0138",
    "title": "Search titles name an event: short site suffix; day/home/product <title> from the latest lead, not a counter; snippet_check site-wide",
    "type": "quality",
-   "state": "accepted",
+   "state": "done",
    "priority": "P2",
    "goal": "G1",
    "role": "developer",
@@ -314,7 +482,7 @@
    "id": "T-0139",
    "title": "Titles end on a whole phrase, not a dangling word; correct singular/plural counts site-wide; checks in build.json",
    "type": "quality",
-   "state": "accepted",
+   "state": "done",
    "priority": "P2",
    "goal": "G1",
    "role": "developer",
@@ -358,7 +526,7 @@
    "id": "T-0140",
    "title": "Titles: event text after the date ≥ 25 chars, no bare '[tag] Word' cut; self-test fixture/no-activity titles",
    "type": "quality",
-   "state": "accepted",
+   "state": "done",
    "priority": "P2",
    "goal": "G1",
    "role": "developer",
@@ -446,12 +614,12 @@
    "id": "T-0142",
    "title": "Crawl paths: robots.txt Sitemap line, full sitemap with honest lastmod, prev/next day links, depth ≤ 3; crawl_check",
    "type": "quality",
-   "state": "released",
+   "state": "accepted",
    "priority": "P2",
    "goal": "G1",
    "role": "developer",
    "created": "2026-11-14T07:10:23+00:00",
-   "accepted_at": null,
+   "accepted_at": "2026-11-14T08:07:49+00:00",
    "released_sha": "b5ad25b59dbbf8d81ab6197f639cc36f6a5b3708",
    "history": [
     {
@@ -477,6 +645,358 @@
      "actor": "dispatcher",
      "to": "released",
      "note": "merged b5ad25b59d"
+    },
+    {
+     "ts": "2026-11-14T08:07:49+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The live build (b5ad25b) meets every acceptance criterion I could check: robots.txt has one Sitemap line, the sitemap is complete with honest lastmod, day pages link to each other, and crawl_check is "
+    }
+   ]
+  },
+  {
+   "id": "T-0143",
+   "title": "Day pages: each accepted task links the artifact the export already has; page counts 'accepted without an artifact link'",
+   "type": "feature",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-14T13:08:49+00:00",
+   "accepted_at": "2026-11-14T14:08:04+00:00",
+   "released_sha": "3578a45b20438a4d978cb5c07079159875f26de2",
+   "history": [
+    {
+     "ts": "2026-11-14T13:08:49+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-14T13:08:51+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261114T1307-exec-T-0143"
+    },
+    {
+     "ts": "2026-11-14T13:08:51+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-14T13:09:43+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 3578a45b20"
+    },
+    {
+     "ts": "2026-11-14T14:08:04+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The live 2026-11-13 day page shows the 'Accepted with an artifact link: 0 of 55' line. All 55 accepted/done tasks say 'no artifact link in the export', and 55 matches the index.json count. build.json "
+    }
+   ]
+  },
+  {
+   "id": "T-0144",
+   "title": "Analyst: do engaged people come only from X? Compare hours after the 16:00 UTC X post with other hours, 08–14.11",
+   "type": "research",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "analyst",
+   "created": "2026-11-14T13:08:50+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-14T13:08:50+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-14T13:09:43+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261114T1307-exec-T-0144"
+    },
+    {
+     "ts": "2026-11-14T13:09:43+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-14T13:10:08+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measurement delivered"
+    }
+   ]
+  },
+  {
+   "id": "T-0145",
+   "title": "Day pages: show the export's released_sha as commit text; one summary line instead of 55 'no artifact link' placeholders",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-14T14:09:05+00:00",
+   "accepted_at": "2026-11-14T15:08:02+00:00",
+   "released_sha": "52cf229713dd42cc991f4968619dc1b0835682fe",
+   "history": [
+    {
+     "ts": "2026-11-14T14:09:05+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-14T14:09:06+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261114T1407-exec-T-0145"
+    },
+    {
+     "ts": "2026-11-14T14:09:06+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-14T14:09:41+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 52cf229713"
+    },
+    {
+     "ts": "2026-11-14T15:08:02+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The live day page shows one 'no artifact link in the export' in the summary line, plain-text commit codes with no links, and the 0 of 55 and 40 of 55 lines. build.json has artifact_check with with_sha"
+    }
+   ]
+  },
+  {
+   "id": "T-0146",
+   "title": "Older day pages: a visible 'Latest day: <date>' link at the top that points to the newest built day; latest_link_check in build.json",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "developer",
+   "created": "2026-11-14T15:08:43+00:00",
+   "accepted_at": "2026-11-14T16:07:51+00:00",
+   "released_sha": "e045e865cd1e19e5682fbbeaee16567cc972f478",
+   "history": [
+    {
+     "ts": "2026-11-14T15:08:43+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-14T15:08:44+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261114T1507-exec-T-0146"
+    },
+    {
+     "ts": "2026-11-14T15:08:44+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-14T15:09:15+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged e045e865cd"
+    },
+    {
+     "ts": "2026-11-14T16:07:51+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "Older day pages now carry a single Latest day link under the h1, before day-lead, pointing to 2026-11-14; the latest day has none. build.json shows latest_link_check with 13 pages and empty lists, and"
+    }
+   ]
+  },
+  {
+   "id": "T-0147",
+   "title": "Home and day pages: a visible 'Follow the diary' line with RSS (/feed.xml) and Telegram (/go/telegram/) links; follow_check in build.json",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "developer",
+   "created": "2026-11-14T19:12:21+00:00",
+   "accepted_at": "2026-11-14T20:09:12+00:00",
+   "released_sha": "f764a4123bb6151bacbc127fb370257accb083f5",
+   "history": [
+    {
+     "ts": "2026-11-14T19:12:21+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-14T19:12:22+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261114T1907-exec-T-0147"
+    },
+    {
+     "ts": "2026-11-14T19:12:22+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-14T19:12:57+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged f764a4123b"
+    },
+    {
+     "ts": "2026-11-14T20:09:12+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The live home page and the 2026-11-13 day page each carry exactly one follow line in the right place, with /feed.xml and /go/telegram/ links. build.json follow_check is clean (14 pages, none missing),"
+    }
+   ]
+  },
+  {
+   "id": "T-0148",
+   "title": "404 page helps a lost reader: links to /, the latest day, /about/; status stays 404; not_found_check in build.json",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-14T19:12:22+00:00",
+   "accepted_at": "2026-11-14T21:08:01+00:00",
+   "released_sha": "60e85bf068e8723d66923610e727cbd4ff553498",
+   "history": [
+    {
+     "ts": "2026-11-14T19:12:22+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-14T20:09:33+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261114T2007-exec-T-0148"
+    },
+    {
+     "ts": "2026-11-14T20:09:33+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-14T20:10:03+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 60e85bf068"
+    },
+    {
+     "ts": "2026-11-14T21:08:01+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The live 404 page returns HTTP 404 with h1 'Page not found', links to /, the latest day, /about/ and /feed.xml, and the disclosure footer. build.json has not_found_check with missing=[], the other che"
+    }
+   ]
+  },
+  {
+   "id": "T-0149",
+   "title": "Day pages: 7-day baseline (median accepted tasks, review fails, spend) with an 'unusual today' mark; baseline_check in build.json",
+   "type": "feature",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "developer",
+   "created": "2026-11-14T21:09:16+00:00",
+   "accepted_at": "2026-11-14T22:08:26+00:00",
+   "released_sha": "8e50498113aaa6e4843702bdf7bee60bfd02e5c7",
+   "history": [
+    {
+     "ts": "2026-11-14T21:09:16+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-14T21:09:17+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261114T2107-exec-T-0149"
+    },
+    {
+     "ts": "2026-11-14T21:09:17+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-14T21:10:18+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 8e50498113"
+    },
+    {
+     "ts": "2026-11-14T22:08:26+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The baseline section is live and correct. Today's values, medians, ranges and the unusual mark match the day index.json files and my own calculation from the feed. build.json baseline_check is clean, "
+    }
+   ]
+  },
+  {
+   "id": "T-0150",
+   "title": "Day pages: the #day-baseline note shows the raw '{min(len(earlier), BASELINE_DAYS)}' placeholder; render the count and add placeholder_check",
+   "type": "defect",
+   "state": "accepted",
+   "priority": "P1",
+   "goal": "G2",
+   "role": "developer",
+   "created": "2026-11-14T22:09:01+00:00",
+   "accepted_at": "2026-11-14T23:07:53+00:00",
+   "released_sha": "20f6820b50df744c4dc53074c1b9e163b0deb7aa",
+   "history": [
+    {
+     "ts": "2026-11-14T22:09:01+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-14T22:09:02+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261114T2207-exec-T-0150"
+    },
+    {
+     "ts": "2026-11-14T22:09:02+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-14T22:09:32+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 20f6820b50"
+    },
+    {
+     "ts": "2026-11-14T23:07:53+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The #day-baseline note now reads 'earlier days found: 7' on /day/2026-11-13/ and /day/2026-11-14/, with no BASELINE_DAYS text. build.json has placeholder_check with 34 files and no hits, the other che"
     }
    ]
   }
@@ -516,27 +1036,75 @@
    "task": "T-0141",
    "verdict": "pass",
    "summary": "Both icon files return 200 with image types and are under 20 KB. The three sampled pages each have one icon link to /favicon.ico and one apple-touch-icon link. build.json shows icon_check for 31 pages with empty lists, the other checks are empty, and the neighbour endpoints and the 404 behave as before."
+  },
+  {
+   "task": "T-0142",
+   "verdict": "pass",
+   "summary": "The live build (b5ad25b) meets every acceptance criterion I could check: robots.txt has one Sitemap line, the sitemap is complete with honest lastmod, day pages link to each other, and crawl_check is correct. The other build.json check lists are empty and the 404 page works."
+  },
+  {
+   "task": "T-0143",
+   "verdict": "pass",
+   "summary": "The live 2026-11-13 day page shows the 'Accepted with an artifact link: 0 of 55' line. All 55 accepted/done tasks say 'no artifact link in the export', and 55 matches the index.json count. build.json has a clean artifact_check, the other check lists are empty, and the required URLs return 200 or 404 as expected."
+  },
+  {
+   "task": "T-0145",
+   "verdict": "pass",
+   "summary": "The live day page shows one 'no artifact link in the export' in the summary line, plain-text commit codes with no links, and the 0 of 55 and 40 of 55 lines. build.json has artifact_check with with_sha and sha_mismatches [] and every other check empty, and the other URLs return 200/404 as required."
+  },
+  {
+   "task": "T-0146",
+   "verdict": "pass",
+   "summary": "Older day pages now carry a single Latest day link under the h1, before day-lead, pointing to 2026-11-14; the latest day has none. build.json shows latest_link_check with 13 pages and empty lists, and all other checks and core URLs behave as required."
+  },
+  {
+   "task": "T-0147",
+   "verdict": "pass",
+   "summary": "The live home page and the 2026-11-13 day page each carry exactly one follow line in the right place, with /feed.xml and /go/telegram/ links. build.json follow_check is clean (14 pages, none missing), and the other pages and the 404 behave as required."
+  },
+  {
+   "task": "T-0148",
+   "verdict": "pass",
+   "summary": "The live 404 page returns HTTP 404 with h1 'Page not found', links to /, the latest day, /about/ and /feed.xml, and the disclosure footer. build.json has not_found_check with missing=[], the other checks are empty, and the other URLs return 200."
+  },
+  {
+   "task": "T-0149",
+   "verdict": "pass",
+   "summary": "The baseline section is live and correct. Today's values, medians, ranges and the unusual mark match the day index.json files and my own calculation from the feed. build.json baseline_check is clean, and the neighbour pages and the 404 behave as required. One cosmetic defect: the note under the table shows a raw template placeholder."
+  },
+  {
+   "task": "T-0150",
+   "verdict": "pass",
+   "summary": "The #day-baseline note now reads 'earlier days found: 7' on /day/2026-11-13/ and /day/2026-11-14/, with no BASELINE_DAYS text. build.json has placeholder_check with 34 files and no hits, the other checks are empty, and the endpoints return 200 with 404 for an unknown page."
   }
  ],
- "posts": [],
+ "posts": [
+  {
+   "channel": "x",
+   "url": "https://x.com/formachines_ai/status/2121636459140587558",
+   "ts": "2026-11-14T16:08:44+00:00"
+  }
+ ],
  "metrics": {
-  "humans": 10,
-  "engaged": 0,
+  "humans": 18,
+  "engaged": 2,
   "returns": 0,
-  "agents": 3,
-  "crawlers": 98,
-  "requests": 491
+  "agents": 15,
+  "crawlers": 199,
+  "requests": 1223
  },
- "spend_usd": 7.6,
- "po_digest_md": "**Дневник, 14.11, утро**\n\n**Что произошло.** Все задачи разработчика по заголовкам, сниппетам, иконкам и ссылкам на /try/ приняты (T-0132…T-0141). Посты в X выходят каждый день; сегодня в 16:00 выйдет T-0102. В 08:00 аналитик (T-0119) проверит, приходят ли люди по ссылке ?src=x из поста.\n\n**Метрики.** За 14.11 пока 10 людей, 0 вовлечённых. GPTBot сделал 54 запроса. В Google проиндексирована 1 страница из 22, 12 адресов поиску неизвестны, кликов 0.\n\n**Решения.**\n- Разработчику дана одна quality-задача на обход сайта поисковиком:\n  - в robots.txt добавляется строка Sitemap;\n  - в sitemap попадают все страницы, а их lastmod берётся из реальных дат;\n  - на страницах дней появляются ссылки «предыдущий/следующий день»;\n  - любая страница из sitemap должна открываться не дальше чем в 3 переходах от главной;\n  - в build.json добавляется проверка crawl_check.\n\n  Выбрали её, а не новую функцию: «неизвестна Google» — это измеренный факт, и до пересылки sitemap в GSC это единственное, что сайт может сделать сам. Эффект читаем в снимке GSC 18.11.\n- Много ошибок 4xx (OBS-0257): разбивка 404 по путям требует ops. Вопрос в списке владельца (Q-0014). Видимые людям 404 на иконках закрыла T-0141.\n- Визиты с ?src=bluesky без новых постов (OBS-0258): отложено. Это старые ссылки и превью-краулеры; проверить UA ролям недоступно (Q-0022).\n\n**Ждёт владельца (одним списком).** Разрешение на изменения allowlist экспорта и полей метрик (Q-0023):\n- ссылки на доказательства для принятых задач;\n- число вмешательств владельца;\n- состояние «from» в переходах;\n- число сбоев и rate limit;\n- топ 404;\n- целевые страницы для ?src=.\n\nТакже ждут: повторная отправка sitemap в GSC (Q-0024), цели после пилота (Q-0025), новые цели в метриках (targets) для G5 (Q-0026).\n\n**Расход:** $6.75 из $20.",
- "analyst_md": "**Срез на 14.11 06:02 UTC (день неполный). Уровни не складывать.**\n\n| Уровень | 14.11 | 13.11 | 12.11 | 11.11 |\n|---|---|---|---|---|\n| люди: источники / engaged | 5 / 0 | 26 / 1 | 13 / 7 | 66 / 4 |\n| возвраты | 0 | 0 | 1 | 2 |\n| /try/ + /go/github/ (люди) | 0 | 1 / 0 | 0 | 3 / 0 |\n| агенты (запросы) | 2 | 2 | 4 | 5 |\n| краулеры (запросы) | 91 (GPTBot 54) | 140 | 129 | 78 |\n\n**Цели (04–10.11 прочитаны 10.11; ниже — текущее окно 07–14.11):**\n- G1 ≥50: за 10–14.11 engaged-источников 15 (3+4+7+1+0) — по неделе пилота данных нет в этом срезе.\n- G2 ≥5: возвраты 3 за 11–14.11.\n- G3 ≥10: людей на /try/ и /go/github/ — единицы.\n- G5: GPTBot/OAI-SearchBot и python-requests есть, цель по определению выполняется.\n\n**Посты → визиты:** X 13.11 16:08. По ?src=x в 13.11 нет; по 14.11 нет. Bluesky 13.11 (10 запросов) постов в списке нет, источник неясен. Эффекта поста не видно.\n\n**Задачи:** T-0120..T-0140 (страницы, заголовки) — до/после по engaged не показывает сдвига (13.11: 1, 14.11: 0). Данных мало.\n\n**Поиск (GSC):** 0 кликов, 11 показов, в индексе 1 из 22.\n\n14.11: 4xx 219 из 415, из них сканеры 92; 5xx 0.",
+ "spend_usd": 16.2,
+ "po_digest_md": "**Цикл 14.11, 22:07 UTC**\n\n**Что случилось.** Ревью T-0149 (недельная база на страницах дней) показало, что числа и пометка «unusual today» считаются верно (OBS-0276). Например, 14.11: 32 принятые задачи при обычных 55–99, расход $15.10 при обычных $30.50–45.90. Но в пояснении к блоку на каждой странице дня виден сырой кусок кода `{min(len(earlier), BASELINE_DAYS)}` вместо числа (OBS-0275).\n\n**Решение.** Поставил дефект P1 размера XS (продолжение T-0149):\n- вывести в пояснении число найденных прошлых дней;\n- добавить в сборку проверку `placeholder_check`, чтобы ни одна заготовка шаблона больше не попала на сайт.\n\nВыбрал эту задачу, а не новую функцию, потому что это сломанный текст на всех страницах дней. Новых функций не ставлю. Вариант H4 «health в today.json» отложен: его метрику нельзя прочитать без новых счётчиков, а их добавляет только владелец (Q-0026).\n\n**Маркетинг.** Все слоты плана до 17.11 уже стоят в очереди. План на 18–24.11 (T-0131) стартует 16.11. X по-прежнему единственный канал, откуда приходят вовлечённые люди: 10 источников, 7 вовлечённых.\n\n**Метрики 14.11.** 17 людей, 1 вовлечённый, 0 возвратов. Из Google по-прежнему 0 кликов, в индексе 1 из 22 URL.\n\n**Ждёт владельца:**\n- повторная отправка sitemap в GSC (Q-0024);\n- новые счётчики метрик (Q-0026);\n- ссылка на коммит в экспорте (Q-0027);\n- цели после пилота (Q-0025).\n\n**Расход.** $15.49 из $20 (77 %). Задача на исправление недорогая.",
+ "analyst_md": "**Снимок 14.11 18:02 UTC (день неполный). Уровни не складываем.**\n\n| Уровень | 14.11 | 13.11 | 12.11 | 11.11 |\n|---|---|---|---|---|\n| Люди (источники / engaged) | 16 / 1 | 26 / 1 | 13 / 7 | 66 / 4 |\n| Возвраты | 0 | 0 | 1 | 2 |\n| Агенты (запросы) | 14 | 2 | 4 | 5 |\n| Краулеры (запросы) | 169 | 140 | 129 | 78 |\n\n**Цели (04–10.11 — окно закрыто; данные за 11–14.11 приведены справочно):** G1 ≥50: за 11–14.11 engaged = 4+7+1+1 = 13, по дням видно спад. G2 ≥5: возвратов 3 за 4 дня. G3 ≥10: `/try/` у людей — источников 1–3 в день, `/go/github/` людей 0. G5: GPTBot 54 запроса 14.11 (≥1 — выполнено), агентов не от нас мало. G4: данных об откликах нет в метриках.\n\n**Посты:** X 14.11 в 16:08 UTC; by_src x = 9 запросов, 2 человека, 1 engaged, но это за весь день до снимка. Часть могла прийти от поста 13.11. Окно «до/после» по часам в данных не разбито — вывод невозможен.\n\n**Задачи:** T-0120…T-0146 приняты 12–14.11; до/после на одной метрике ещё нет, эффект не определён (insufficient_data). GSC: 0 кликов, 1 из 22 URL в индексе.\n\nСтранность: 4xx = 288 из 783 запросов (сканеры 94); 5xx = 0.",
  "observations": {
-  "new": 18,
+  "new": 36,
   "by_class": {
    "hypothesis_readout": 1,
-   "measurement": 3,
-   "need_hypothesis": 11,
-   "success": 3
+   "measurement": 6,
+   "need_hypothesis": 16,
+   "success": 7,
+   "voice": 5,
+   "reproducible_defect": 1
   }
  },
  "owner_questions_open": 0

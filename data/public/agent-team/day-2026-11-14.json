@@ -148,7 +148,7 @@
    "id": "T-0147",
    "title": "[retro] Reviewer repo_only: match unittest by normalized argv (accept -B)",
    "type": "feature",
-   "state": "waiting_owner",
+   "state": "rejected",
    "priority": "P1",
    "goal": "framework",
    "role": "developer",
@@ -185,6 +185,12 @@
      "actor": "dispatcher",
      "to": "waiting_owner",
      "note": "pull request https://github.com/OOuph/agent-team/pull/238 (tests edited/deleted without a 'tests-change-reason: F-xxxx' line: tests/test_repo_only_tools.py)"
+    },
+    {
+     "ts": "2026-11-14T20:07:49+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Duplicate of T-0153, which is Ready and has the same files and change (unittest argv normalization, accept -B)."
     }
    ]
   },
@@ -270,7 +276,7 @@
    "id": "T-0151",
    "title": "[retro] Owner: hand-apply the reviewer unittest allowlist fix (T-0143 stuck)",
    "type": "feature",
-   "state": "waiting_owner",
+   "state": "rejected",
    "priority": "P2",
    "goal": "framework",
    "role": "developer",
@@ -301,6 +307,88 @@
      "actor": "dispatcher",
      "to": "waiting_owner",
      "note": "pull request https://github.com/OOuph/agent-team/pull/240 (tests edited/deleted without a 'tests-change-reason: F-xxxx' line: tests/test_repo_only_tools.py)"
+    },
+    {
+     "ts": "2026-11-14T20:07:49+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Duplicate of T-0153, which is Ready and has the same files and change. T-0153's own text says the owner applies it."
+    }
+   ]
+  },
+  {
+   "id": "T-0152",
+   "title": "[retro] Marketer task planning: use the publisher's cap count",
+   "type": "feature",
+   "state": "waiting_owner",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-14T17:08:44+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-14T17:08:44+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-14T18:07:41+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261114T1807-exec-T-0152"
+    },
+    {
+     "ts": "2026-11-14T18:07:41+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-14T18:08:42+00:00",
+     "actor": "dispatcher",
+     "to": "waiting_owner",
+     "note": "pull request https://github.com/OOuph/agent-team/pull/242 (tests edited/deleted without a 'tests-change-reason: F-xxxx' line: tests/test_publish.py)"
+    }
+   ]
+  },
+  {
+   "id": "T-0153",
+   "title": "[retro] Reviewer repo_only: normalize unittest argv (accept -B, -v anywhere) — owner to apply",
+   "type": "feature",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-14T19:18:39+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-14T19:18:39+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-14T20:07:50+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261114T2007-exec-T-0153"
+    },
+    {
+     "ts": "2026-11-14T20:07:50+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-14T20:08:39+00:00",
+     "actor": "dispatcher",
+     "to": "waiting_owner",
+     "note": "pull request https://github.com/OOuph/agent-team/pull/244 (tests edited/deleted without a 'tests-change-reason: F-xxxx' line: tests/test_repo_only_tools.py)"
     }
    ]
   }
@@ -308,13 +396,15 @@
  "reviews": [],
  "posts": [],
  "metrics": null,
- "spend_usd": 1.1,
- "po_digest_md": "**Цикл 14.11.** Новых задач нет. Потрачено $0.83 из $10.\n\n- Новое наблюдение одно: issue #239 («владелец вручную применяет фикс allowlist для unittest»). Я связал его с T-0151, которая уже в Ready. Дубль не создавал.\n- Корень проблемы тот же, что и раньше: allowlist ревьюера сверяет команды по glob-строкам. Из-за этого `python3 -B -m unittest` и `-v` в некоторых позициях отклоняются. За неделю это 31 запись `tool_denied`. T-0143 застряла после 3 неудач. Тот же фикс лежит в T-0147 (PR #238, ждёт человека) и в T-0151.\n- Замечание по T-0151: в scope указан путь `dispatcher/`, а реальный код лежит в `team/cycle.py` и `tests/test_repo_only_tools.py`. Разработчик может упереться в это. Если задача снова застрянет, я пересоздам её с верным scope и ссылкой `continues` на T-0143, T-0147 и T-0151.\n- Ждут человека: PR #238, #226, #225, #218 и ещё 7 с пометкой «тесты изменены без причины». Часть из них те же четыре (#187, #176, #163, #157), которые Deputy 12.11 велел вернуть разработчику на `tests-change-reason`.\n\nОт владельца ничего не требуется.",
+ "spend_usd": 3.1,
+ "po_digest_md": "**Цикл 20261114T2107.** Потрачено $3.04 из $10.\n\n- Новых задач нет. Владелец (через заместителя, Q-0011) просил не открывать задачи и PR, которые зависят от argv-allowlist ревьюера.\n- OBS-0260 (разработчик, T-0153): `repo_only_unittest_allowed` не вызывается, ревьюер по-прежнему проверяет список glob, который передаётся в CLI. Связал с T-0153 и новую задачу не создавал. Возможные варианты: подключить проверку через hook или сократить список glob. Это нужно учесть тому, кто будет применять патч.\n- Ждут человека: 13 PR, среди них #238, #240, #242, #226. Часть помечена «tests changed without reason». Все они не трогаются, пока владелец не вернётся.\n- Из голоса пользователей: предложены H1 (оповещение сторожа владельцу), H2 (учёт расходов по ролям), H4 (проверка размера диффа и положительного результата канарейки). Для фич нужны данные о реальных людях. Сейчас такие данные есть только в отчёте voice, поэтому в этом цикле я их не запускаю. Вернусь к ним, когда освободится очередь.\n- Вопросов к владельцу нет.",
  "analyst_md": "",
  "observations": {
-  "new": 5,
+  "new": 17,
   "by_class": {
-   "feedback": 5
+   "feedback": 7,
+   "need_hypothesis": 3,
+   "voice": 7
   }
  },
  "owner_questions_open": 0

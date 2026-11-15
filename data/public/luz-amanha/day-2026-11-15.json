@@ -1,0 +1,182 @@
+{
+ "slug": "luz-amanha",
+ "name": "Luz Amanhã",
+ "site": "https://luz.bymachines.ai",
+ "date": "2026-11-15",
+ "tasks": [
+  {
+   "id": "T-0124",
+   "title": "Morning post 15.11 07:00 UTC with the dated link /d/2026-11-15/ (Telegram)",
+   "type": "content",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "marketer",
+   "created": "2026-11-10T19:12:30+00:00",
+   "accepted_at": "2026-11-15T07:13:04+00:00",
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-15T07:12:20+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261115T0707-exec-T-0124"
+    },
+    {
+     "ts": "2026-11-15T07:12:20+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-15T07:13:04+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "posted 1 (editor-approved)"
+    }
+   ]
+  },
+  {
+   "id": "T-0155",
+   "title": "JSON: timezone Europe/Lisbon and per-hour ISO start times with UTC offset, plus a PT+EN source/timezone line under the table",
+   "type": "feature",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G5",
+   "role": "developer",
+   "created": "2026-11-14T23:12:55+00:00",
+   "accepted_at": "2026-11-15T00:12:30+00:00",
+   "released_sha": "ed911a6b406d4b6f5e263ddabd403478504a40ab",
+   "history": [
+    {
+     "ts": "2026-11-15T00:12:30+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The new fields and the PT/EN source line are live on /, the dated pages, the JSON files and llms.txt. Existing fields are unchanged and null hours are not filled. start_utc uses a +00:00 suffix instea"
+    }
+   ]
+  },
+  {
+   "id": "T-0156",
+   "title": "Defect: source_file, the source/timezone line and llms.txt name the OMIE file actually parsed (marginalpdbc_ vs marginalpdbcpt_)",
+   "type": "defect",
+   "state": "accepted",
+   "priority": "P1",
+   "goal": "G5",
+   "role": "developer",
+   "created": "2026-11-15T00:13:23+00:00",
+   "accepted_at": "2026-11-15T01:11:53+00:00",
+   "released_sha": "0d3bbdfe18a2486f0ad30675fe406501decdb8e9",
+   "history": [
+    {
+     "ts": "2026-11-15T00:13:23+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-15T00:13:24+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261115T0007-exec-T-0156"
+    },
+    {
+     "ts": "2026-11-15T00:13:24+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-15T00:14:06+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 0d3bbdfe18"
+    },
+    {
+     "ts": "2026-11-15T01:11:53+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The page lines and source_file agree on the days I checked (2026-11-10, 2026-11-11 and /), and the marginalpdbc day names the right file. llms.txt now names the file behind /, and the new unit tests p"
+    }
+   ]
+  },
+  {
+   "id": "T-0157",
+   "title": "Morning post 20.11 07:00 UTC with the dated link /d/2026-11-20/ (Telegram)",
+   "type": "content",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "marketer",
+   "created": "2026-11-15T01:12:35+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-15T01:12:35+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0158",
+   "title": "Daily post 20.11 14:05 UTC: prices for 21.11 with the dated link /d/2026-11-21/ (Telegram)",
+   "type": "content",
+   "state": "ready",
+   "priority": "P1",
+   "goal": "G3",
+   "role": "marketer",
+   "created": "2026-11-15T01:12:36+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-15T01:12:36+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  }
+ ],
+ "reviews": [
+  {
+   "task": "T-0155",
+   "verdict": "pass",
+   "summary": "The new fields and the PT/EN source line are live on /, the dated pages, the JSON files and llms.txt. Existing fields are unchanged and null hours are not filled. start_utc uses a +00:00 suffix instead of Z, which is still ISO 8601 and equal to start."
+  },
+  {
+   "task": "T-0156",
+   "verdict": "pass",
+   "summary": "The page lines and source_file agree on the days I checked (2026-11-10, 2026-11-11 and /), and the marginalpdbc day names the right file. llms.txt now names the file behind /, and the new unit tests pass."
+  }
+ ],
+ "posts": [
+  {
+   "channel": "telegram",
+   "url": "https://t.me/luz_amanha/25",
+   "ts": "2026-11-15T07:13:04+00:00"
+  }
+ ],
+ "metrics": {
+  "humans": 3,
+  "engaged": 0,
+  "returns": 0,
+  "agents": 1,
+  "crawlers": 7,
+  "requests": 285
+ },
+ "spend_usd": 2.0,
+ "po_digest_md": "**Luz Amanhã — цикл 15.11 07:07 UTC**\n\n**Что произошло.** 14.11 вышли все посты по плану: утро и завтра в Telegram (t.me/luz_amanha/23, /24), X про 15.11 и Mastodon про feed.xml. Принято: T-0155 (timezone Europe/Lisbon и время начала каждого часа в ISO в JSON) и T-0156 (правильное имя файла OMIE в source_file).\n\n**Наблюдения.**\n- 60 запросов /go/vote/ от одного источника 14.11 — это цикл или наш собственный прогон, а не спрос. Отклонено. Людей за 14.11 считаем без них: 4 человека, 1 engaged, 1 возврат.\n- Индексация Google: в индексе 12 из 26 URL, показов 0. Связано с T-0149 (sitemap с lastmod, ссылки на последние 7 дней, ссылки на предыдущий и следующий день). Задача на ревью; проверим по следующему отчёту GSC.\n\n**Решение: новых задач нет.**\n- Посты 07:00 и 14:05 в Telegram запланированы по 20.11, X — по 16.11.\n- План маркетинга на 17–23.11 (T-0138) стартует 16.11 09:00.\n- Слот плана «Mastodon 15.11, итоги недели» пропускаем: лимит 1 пост в 7 дней, последний был 14.11.\n- На ревью у разработчика 5 задач (T-0083, T-0087, T-0097, T-0104, T-0149). Лучше закончить их, чем начинать новые.\n- Гипотезу H2 из исследования голоса пользователя (формула итоговой цены поставщика) не берём: она близка к оценке с надбавками, а это решение владельца от 02.11.\n\n**Ждёт владельца.** Добавить путь /ha/ в targets в product.yaml (вопрос Q-0043). Без этого гипотезу T-0089 28.11 не прочитать.\n\n**Расходы.** $1.51 из $20.",
+ "analyst_md": "**Пилот 04–10.11 закончился; данные до 15.11 (15.11 — частичный день, снимок в 06:00 UTC).**\n\n| Уровень | 15.11 | 14.11 | 13.11 | 12.11 | 11.11 |\n|---|---|---|---|---|---|\n| люди (источники / engaged) | 3 / 0 | 4 / 1 | 3 / 1 | 10 / 2 | 2 / 1 |\n| возвраты | 0 | 1 | 0 | 0 | 0 |\n| агенты (запросы) | 1 | 5 | 4 | 5 | 12 |\n| краулеры (запросы) | 7 | 109 | 73 | 64 | 126 |\n| 5xx | 0 | 0 | 0 | 0 | 0 |\n\n- G1: engaged за 09–14.11 ≈ 7 (в 04–08.11 данных в промпте нет) при цели ≥30 — не выполняется.\n- G2: возврат 1 (14.11), доля мала; читать полностью 10.11 — данных за 04–08.11 нет.\n- G3: клики `/go/telegram/` 14.11 = 2 (1 человек); число подписчиков в промпте нет.\n- G4: внешние referer'ы: t.co (X, наш пост), nomorevibe.com 14.11 (1), google.com 09–10.11 (3). Это единственные не-наши источники.\n- G5: агенты — python-requests/curl/aiohttp, 4–12 запросов/день; всплеск 68 на 10.11 (один источник python-requests, вероятно, скрипт).\n- GSC: 0 кликов, 12 из 26 URL в индексе.\n- Посты → визиты: X-пост ≈14:10–15:10 приводит ~1 engaged-человека в день (by_src x). Telegram и Bluesky: человеческие визиты есть, engaged нет.\n- 14.11: 60 запросов `/go/vote/` от одного человеческого источника — похоже на тестирование или на одного пользователя.",
+ "observations": {
+  "new": 8,
+  "by_class": {
+   "need_hypothesis": 6,
+   "measurement": 2
+  }
+ },
+ "owner_questions_open": 0
+}

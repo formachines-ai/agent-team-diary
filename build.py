@@ -23,7 +23,7 @@ import os
 import re
 import subprocess
 import sys
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 # ----------------------------------------------------------------------------------------------------------
@@ -727,6 +727,66 @@ def follow_block(pid: str) -> str:
     """<p id="home-follow"> / <p id="day-follow">: how to come back, links to the existing feed and Telegram redirect."""
     return (f'<p id="{pid}" class="follow-next">Follow the diary: <a href="/feed.xml">RSS</a> · '
             '<a href="/go/telegram/">Telegram</a></p>')
+
+
+def health_obj(model: dict) -> dict:
+    """today.json "health": build time, newest exported day, fixture days (as in build.json), deadline after which the rebuild failed."""
+    built = model["built"]
+    stale = iso(datetime.strptime(built, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc) + timedelta(hours=30))
+    return {"built_at": built, "latest_export_day": model["dates"][-1] if model["dates"] else None,
+            "fixture_days": sum(1 for p in model["products"].values() for d in p["days"].values() if d.get("fixture")),
+            "stale_after": stale}
+
+
+def health_block(model: dict) -> str:
+    h = health_obj(model)
+    return (f'<p id="home-health" class="health-next">Built <span data-h="built_at">{esc(h["built_at"])}</span> UTC from records up to '
+            f'<span data-h="latest_export_day">{esc(h["latest_export_day"] or "none")}</span>; if this is older than '
+            f'<span data-h="stale_after">{esc(h["stale_after"])}</span>, the rebuild failed. '
+            'Machine-readable: <a href="/today.json">health in today.json</a>.</p>')
+
+
+def check_health() -> dict:
+    """today.json health vs build.json, the day file, / and llms.txt."""
+    mism, fields = [], []
+    try:
+        t = json.loads((PUBLIC_DIR / "today.json").read_text(encoding="utf-8"))
+        b = json.loads((PUBLIC_DIR / "build.json").read_text(encoding="utf-8"))
+        h = t.get("health") or {}
+        fields = [k for k in ("built_at", "latest_export_day", "fixture_days", "stale_after") if k in h]
+        for k in ("built_at", "latest_export_day", "fixture_days", "stale_after"):
+            if k not in h:
+                mism.append(f"health.{k} missing")
+        if h.get("built_at") != b.get("built"):
+            mism.append("health.built_at != build.json built")
+        if h.get("fixture_days") != b.get("fixture_days"):
+            mism.append("health.fixture_days != build.json fixture_days")
+        if h.get("latest_export_day") != b.get("latest_day"):
+            mism.append("health.latest_export_day != build.json latest_day")
+        try:
+            want = iso(datetime.strptime(h["built_at"], "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc) + timedelta(hours=30))
+            if h.get("stale_after") != want:
+                mism.append("health.stale_after != built_at + 30 h")
+        except (KeyError, ValueError, TypeError) as e:
+            mism.append(f"health.built_at unreadable: {e}")
+        if h.get("latest_export_day") and not (PUBLIC_DIR / "day" / h["latest_export_day"] / "index.html").exists():
+            mism.append("day page of latest_export_day missing")
+        html_t = (PUBLIC_DIR / "index.html").read_text(encoding="utf-8")
+        if html_t.count('id="home-health"') != 1:
+            mism.append("home-health count != 1")
+        else:
+            i = html_t.find('id="home-health"')
+            if i < html_t.find('id="home-follow"'):
+                mism.append("home-health not after home-follow")
+            seg = html_t[i:html_t.find("</p>", i)]
+            for k in ("built_at", "latest_export_day", "stale_after"):
+                if f'data-h="{k}">{h.get(k)}<' not in seg:
+                    mism.append(f"home-health {k} differs from today.json")
+        if "health" not in (PUBLIC_DIR / "llms.txt").read_text(encoding="utf-8"):
+            mism.append("llms.txt does not mention health")
+    except (OSError, ValueError) as e:
+        mism.append(f"cannot read: {e}")
+    return {"fields_present": fields, "mismatches": mism}
 
 
 def check_follow() -> dict:
@@ -1911,7 +1971,7 @@ def check_home_lead() -> dict:
 def render_index(model: dict) -> str:
     products, dates = model["products"], model["dates"]
     latest = dates[-1] if dates else None
-    body = [f"<h1>{esc(SITE_NAME)}</h1>", f'<p class="lead">{esc(SITE_TAGLINE)}</p>', try_line(), latest_day_top_block(latest, model), home_lead_block(latest, model), try_block("home-try"), follow_block("home-follow")]
+    body = [f"<h1>{esc(SITE_NAME)}</h1>", f'<p class="lead">{esc(SITE_TAGLINE)}</p>', try_line(), latest_day_top_block(latest, model), home_lead_block(latest, model), try_block("home-try"), follow_block("home-follow"), health_block(model)]
     if latest:
         body.append(f'<h2 id="latest">Latest day: <a href="/day/{esc(latest)}/">{esc(latest)}</a></h2>')
         body.append(progress_note(latest, model["built"]))
@@ -2422,6 +2482,7 @@ def render_llms(model: dict) -> str:
     if latest:
         lines += ["", f"- [Latest day {latest} index.json]({SITE_BASE}/day/{latest}/index.json): example with all fields above",
                   f"- [today.json]({SITE_BASE}/today.json): summary of the latest day (counts only, no transitions)"]
+    lines += [f"- `health` in today.json: built_at (build time, UTC), latest_export_day, fixture_days and stale_after (built_at + 30 h); if the current time is past stale_after, the rebuild failed. Example: {SITE_BASE}/today.json"]
     lines += ["", "Not in the export: questions to the owner, feedback texts, failed runs, rate limits."]
     lines += ["", "## Pages", "",
              f"- [Front page]({SITE_BASE}/): latest day per product, what this is, products, recent days",
@@ -2644,6 +2705,7 @@ def write_site(model: dict) -> dict:
     today["built"] = built
     today["day_complete"] = bool(latest) and not day_in_progress(latest, built)
     today["snapshot_built_at"] = built
+    today["health"] = health_obj(model)
     write_json(PUBLIC_DIR / "today.json", today)
     write_text(PUBLIC_DIR / "feed.xml", render_feed(model))
     write_text(PUBLIC_DIR / "llms.txt", render_llms(model))
@@ -3623,9 +3685,12 @@ def main(argv: list[str] | None = None) -> int:
     pc = check_paths()
     bj["paths_check"] = pc
     bj["grammar_check"] = check_grammar()
+    hlc = check_health()
+    bj["health_check"] = hlc
     write_json(PUBLIC_DIR / "build.json", bj)
     if args.check:
         problems = check_site()
+        problems += [f"health: {m}" for m in hlc["mismatches"]]
         problems += [f"paths: {m}" for m in pc["missing"]]
         problems += [f"home: {m}" for m in hc["issues"]] + [f"home lead: {m}" for m in hc.get("lead_mismatches", [])]
         problems += [f"latest-day missing: {d}" for d in llc["missing"]] + [f"latest-day wrong target: {d}" for d in llc["wrong_target"]]

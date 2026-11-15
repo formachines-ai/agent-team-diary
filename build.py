@@ -52,6 +52,10 @@ FRONT_DAYS = 14             # day links shown on the front page
 FEED_MAX_ITEMS = 60         # days in feed.xml
 DIGEST_MAX_CHARS = 4000     # digest text is cut here (the export already caps at 4000)
 HOME_NOTE_MAX = 140         # reviewer note on the front page
+FOLD_MIN_TRANSITIONS = 3   # a task history with more transitions than this is folded into <details>
+SIZE_BUDGET_BYTES = 150000  # day pages dated 2026-11-05+ and all non-day pages
+SIZE_EXEMPT_CEILING = 190000
+SIZE_EXEMPT_DAYS = ("2026-11-03", "2026-11-04")
 NOTE_MAX_CHARS = 200        # task-history note cap (the export already caps at 200)
 CHRONICLE_EXCERPT_CHARS = 240   # digest excerpt on the product page
 DAY_FILE_RE = re.compile(r"^day-(\d{4}-\d{2}-\d{2})\.json$")
@@ -567,6 +571,7 @@ def product_section(d: dict, product: dict, heading_link: bool = True, anchors: 
     tasks = d.get("tasks") or []
     out.append(f"<h3>Tasks ({len(tasks)})</h3>")
     if tasks:
+        out.append('<p class="note">Transition times are UTC.</p>')
         out.append('<ul class="cards">')
         used_ids: set = set()
         for t in tasks:
@@ -582,7 +587,7 @@ def product_section(d: dict, product: dict, heading_link: bool = True, anchors: 
             if aid and sum(1 for (_s, i) in (anchors or {}) if i == tid_s) == 1 and tid_s != slug:
                 legacy = f'<span id="{esc(tid_s)}"></span>'  # old anchor, only where unique on the page
             out.append(f'<li class="card task" id="{esc(aid)}">{legacy}' if aid else '<li class="card task">')
-            out.append(f'<div class="head"><span class="id">{esc(t.get("id"))}</span> <span class="name">{esc(t.get("title"))}</span> {state_badge(t.get("state"))}</div>')
+            out.append(f'<div class="head"><span class="id">{esc(t.get("id"))}</span> <strong>{esc(t.get("title"))}</strong> {state_badge(t.get("state"))}</div>')
             if meta:
                 out.append(f'<div class="meta">{meta}</div>')
             hist = t.get("history") or []
@@ -594,12 +599,17 @@ def product_section(d: dict, product: dict, heading_link: bool = True, anchors: 
                 elif sha:
                     out.append(f'<div class="meta artifact"><code>commit {esc(sha)}</code></div>')
             if hist:
-                out.append('<ol class="history">')
+                items = []
                 for h in hist:
                     note = str(h.get("note") or "")[:NOTE_MAX_CHARS]
-                    out.append(f'<li><span class="when">{fmt_ts(h.get("ts"))}</span> <span class="actor">{esc(h.get("actor"))}</span> → '
-                               f'<span class="to">{esc(h.get("to"))}</span>' + (f' <span class="note">{esc(note)}</span>' if note else "") + "</li>")
-                out.append("</ol>")
+                    items.append(f'<li><time>{fmt_ts(h.get("ts")).removesuffix(" UTC")}</time> <b>{esc(h.get("actor"))}</b> '
+                                 f'<code>{esc(h.get("to"))}</code>' + (f' <i>{esc(note)}</i>' if note else "") + "</li>")
+                ol = "<ol>" + "".join(items) + "</ol>"
+                if len(hist) > FOLD_MIN_TRANSITIONS:
+                    last = esc(hist[-1].get("to"))
+                    out.append(f'<details class="fold"><summary>{len(hist)} transitions · last: {last}</summary>{ol}</details>')
+                else:
+                    out.append(ol)
             out.append("</li>")
         out.append("</ul>")
     else:
@@ -1434,6 +1444,8 @@ PLACEHOLDER_RE = re.compile(r"\{\s*[A-Za-z_][\w.]*\s*(?:\([^{}]*\))?\s*\}")
 def check_placeholders() -> dict:
     """placeholder_check: unrendered template patterns such as {min(...)} or {date} in visible text of *.html, feed.xml, llms.txt."""
     hits, n = [], 0
+    # a pattern quoted verbatim in the export (e.g. a task title about a placeholder bug) is data, not an unrendered template
+    exported = "".join(f.read_text(encoding="utf-8") for f in sorted(DATA_DIR.rglob("*.json"))) if DATA_DIR.exists() else ""
     for p in sorted(PUBLIC_DIR.rglob("*")):
         if p.suffix != ".html" and p.name not in ("feed.xml", "llms.txt"):
             continue
@@ -1443,6 +1455,8 @@ def check_placeholders() -> dict:
             t = re.sub(r"(?is)<(script|style)\b.*?</\1>", " ", t)
             t = re.sub(r"(?s)<[^>]*>", " ", t)
         for m in PLACEHOLDER_RE.finditer(t):
+            if html.unescape(m.group(0)) in exported:
+                continue
             hits.append({"file": str(p.relative_to(PUBLIC_DIR)), "text": m.group(0)[:80]})
     return {"files_checked": n, "hits": hits}
 
@@ -2737,6 +2751,27 @@ def write_site(model: dict) -> dict:
 # ----------------------------------------------------------------------------------------------------------
 # Self-check (what the reviewer role would do first)
 # ----------------------------------------------------------------------------------------------------------
+def check_size() -> dict:
+    """size_check: every public/**/*.html is <= SIZE_BUDGET_BYTES, except day pages in SIZE_EXEMPT_DAYS (<= SIZE_EXEMPT_CEILING)."""
+    exempt, over, largest, n = [], [], 0, 0
+    for f in sorted(PUBLIC_DIR.rglob("*.html")):
+        page = "/" + f.relative_to(PUBLIC_DIR).as_posix()
+        page = page[:-len("index.html")] if page.endswith("/index.html") else page
+        size = f.stat().st_size
+        n += 1
+        day = page[len("/day/"):].strip("/") if page.startswith("/day/") else None
+        if day in SIZE_EXEMPT_DAYS:
+            exempt.append({"page": page, "bytes": size})
+            if size > SIZE_EXEMPT_CEILING:
+                over.append({"page": page, "bytes": size, "limit": SIZE_EXEMPT_CEILING})
+        else:
+            largest = max(largest, size)
+            if size > SIZE_BUDGET_BYTES:
+                over.append({"page": page, "bytes": size, "limit": SIZE_BUDGET_BYTES})
+    return {"pages_checked": n, "budget_bytes": SIZE_BUDGET_BYTES, "exempt_ceiling_bytes": SIZE_EXEMPT_CEILING,
+            "exempt": exempt, "largest_html_bytes": largest, "over_budget": over}
+
+
 def check_site() -> list[str]:
     import html.parser
     import xml.etree.ElementTree as ET
@@ -3687,10 +3722,14 @@ def main(argv: list[str] | None = None) -> int:
     bj["grammar_check"] = check_grammar()
     hlc = check_health()
     bj["health_check"] = hlc
+    szc = check_size()
+    bj["size_check"] = szc
+    log.info("size_check: pages=%d largest=%d exempt=%d over_budget=%d", szc["pages_checked"], szc["largest_html_bytes"], len(szc["exempt"]), len(szc["over_budget"]))
     write_json(PUBLIC_DIR / "build.json", bj)
     if args.check:
         problems = check_site()
         problems += [f"health: {m}" for m in hlc["mismatches"]]
+        problems += [f"size: {o['page']} {o['bytes']} > {o['limit']} bytes" for o in szc["over_budget"]]
         problems += [f"paths: {m}" for m in pc["missing"]]
         problems += [f"home: {m}" for m in hc["issues"]] + [f"home lead: {m}" for m in hc.get("lead_mismatches", [])]
         problems += [f"latest-day missing: {d}" for d in llc["missing"]] + [f"latest-day wrong target: {d}" for d in llc["wrong_target"]]

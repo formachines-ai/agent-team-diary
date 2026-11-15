@@ -3717,6 +3717,7 @@ def main(argv: list[str] | None = None) -> int:
     bj["snippet_check"] = seo.pop("snippet_check")
     bj["orphan_check"] = {"pages_in_sitemap": seo["pages_in_sitemap"], "orphans": seo["orphans"]}
     bj["crawl_check"] = check_crawl(bj.get("built") or model["built"])
+    bj["crawl_check"].pop("depths", None)
     write_json(PUBLIC_DIR / "build.json", bj)
     log.info("seo_check: pages=%d canonical_missing=%d lastmod_missing=%d orphans=%d duplicate_titles=%d", seo["pages_checked"],
              len(seo["canonical_missing"]), len(seo["lastmod_missing"]), len(seo["orphans"]), len(seo["duplicate_titles"]))

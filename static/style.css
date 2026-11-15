@@ -73,7 +73,7 @@ h4 { font-size: 1rem; margin: 0.8rem 0 0.2rem; }
 .stats span { color: var(--muted); font-size: 0.85rem; }
 .cards { list-style: none; margin: 0; padding: 0; }
 .cards.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: 0.7rem; }
-.card {
+.card, .tasks > li {
   background: var(--card);
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -82,13 +82,13 @@ h4 { font-size: 1rem; margin: 0.8rem 0 0.2rem; }
   min-width: 0;
 }
 .cards.grid .card { margin: 0; }
-.card .head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.3rem 0.6rem; overflow-wrap: anywhere; }
-.card .name, .card .head > strong { font-weight: 600; font-size: 1.02rem; }
-.card .id { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; color: var(--muted); font-size: 0.9rem; }
-.card .meta { color: var(--muted); font-size: 0.88rem; margin-top: 0.15rem; }
-.card .links { margin-top: 0.35rem; font-size: 0.92rem; overflow-wrap: anywhere; }
-.card .links a { margin-right: 0.9rem; }
-.card .summary { margin: 0.4rem 0 0; font-size: 0.95rem; overflow-wrap: anywhere; }
+.card .head, .tasks > li .head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.3rem 0.6rem; overflow-wrap: anywhere; }
+.card .name, .tasks > li .name, .card .head > strong, .tasks > li .head > strong { font-weight: 600; font-size: 1.02rem; }
+.card .id, .tasks > li .id, .card .head > span:first-child:not(.product-name):not(.name), .tasks > li .head > span:first-child:not(.product-name):not(.name) { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; color: var(--muted); font-size: 0.9rem; }
+.card .meta, .tasks > li .meta { color: var(--muted); font-size: 0.88rem; margin-top: 0.15rem; }
+.card .links, .tasks > li .links { margin-top: 0.35rem; font-size: 0.92rem; overflow-wrap: anywhere; }
+.card .links a, .tasks > li .links a { margin-right: 0.9rem; }
+.card .summary, .tasks > li .summary { margin: 0.4rem 0 0; font-size: 0.95rem; overflow-wrap: anywhere; }
 .badge {
   display: inline-block;
   font-size: 0.78rem;
@@ -104,12 +104,12 @@ h4 { font-size: 1rem; margin: 0.8rem 0 0.2rem; }
 .badge.state.done, .badge.verdict.pass { background: var(--ok-bg); color: var(--ok-fg); border-color: var(--ok-line); }
 .badge.state.side, .badge.verdict.inconclusive { background: var(--warn-bg); color: var(--warn-fg); border-color: var(--warn-line); }
 .badge.verdict.fail { background: var(--bad-bg); color: var(--bad-fg); border-color: var(--bad-line); }
-li.task ol { margin: 0.4rem 0 0; padding-left: 1.2rem; font-size: 0.9rem; }
-li.task ol li { margin: 0.1rem 0; overflow-wrap: anywhere; }
-li.task ol time { color: var(--muted); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.85em; }
-li.task ol b { font-weight: 600; }
-li.task ol code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
-li.task ol i { color: var(--muted); }
+li.card ol, .tasks > li ol { margin: 0.4rem 0 0; padding-left: 1.2rem; font-size: 0.9rem; }
+li.card ol li, .tasks > li ol li { margin: 0.1rem 0; overflow-wrap: anywhere; }
+li.card ol time, .tasks > li ol time { color: var(--muted); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.85em; }
+li.card ol b, .tasks > li ol b { font-weight: 600; }
+li.card ol code, .tasks > li ol code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+li.card ol i, .tasks > li ol i { color: var(--muted); }
 .when { color: var(--muted); font-size: 0.9rem; }
 .digest { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 0.6rem 0.9rem; overflow-wrap: anywhere; }
 .digest p { margin: 0.4rem 0; }
@@ -160,5 +160,5 @@ footer.site p { margin: 0.2rem 0; }
 
 details.fold { margin-top: 0.4rem; }
 details.fold > summary { cursor: pointer; font-size: 0.9rem; color: var(--muted); }
-li.task ol i { font-style: normal; }
-li.task ol code { background: none; padding: 0; }
+li.card ol i, .tasks > li ol i { font-style: normal; }
+li.card ol code, .tasks > li ol code { background: none; padding: 0; }

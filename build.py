@@ -53,6 +53,7 @@ FEED_MAX_ITEMS = 60         # days in feed.xml
 DIGEST_MAX_CHARS = 4000     # digest text is cut here (the export already caps at 4000)
 HOME_NOTE_MAX = 140         # reviewer note on the front page
 FOLD_MIN_TRANSITIONS = 3   # a task history with more transitions than this is folded into <details>
+SIZE_NEAR_BYTES = 10000  # non-exempt pages with less headroom than this are listed in size_check.near_budget
 SIZE_BUDGET_BYTES = 150000  # day pages dated 2026-11-05+ and all non-day pages
 SIZE_EXEMPT_CEILING = 190000
 SIZE_EXEMPT_DAYS = ("2026-11-03", "2026-11-04")
@@ -427,8 +428,7 @@ def layout(title: str, body: str, built: str, description: str = "", canonical: 
           f'<meta property="og:image" content="{SITE_BASE}/apple-touch-icon.png">\n'
           f'<meta property="og:image:alt" content="{esc(OG_IMAGE_ALT)}">\n'
           f'<meta name="twitter:image" content="{SITE_BASE}/apple-touch-icon.png">\n'
-          f'<meta name="twitter:card" content="summary">\n<meta name="twitter:title" content="{esc(title)}">\n'
-          f'<meta name="twitter:description" content="{esc(desc)}">\n') + jsonld_block(ld)
+          f'<meta name="twitter:card" content="summary">\n') + jsonld_block(ld)
     robots = '<meta name="robots" content="noindex">\n' if noindex else ""
     alt_json_link = (f'<link rel="alternate" type="application/json" title="{esc(alt_json)} as JSON" href="{esc(alt_json)}">\n' if alt_json else "")
     canon = f'<link rel="canonical" href="{esc(canonical)}">\n' if canonical else ""
@@ -572,7 +572,7 @@ def product_section(d: dict, product: dict, heading_link: bool = True, anchors: 
     out.append(f"<h3>Tasks ({len(tasks)})</h3>")
     if tasks:
         out.append('<p class="note">Transition times are UTC.</p>')
-        out.append('<ul class="cards">')
+        out.append('<ul class="cards tasks">')
         used_ids: set = set()
         for t in tasks:
             meta = " · ".join(x for x in [esc(t.get("type")), esc(t.get("priority")), esc(t.get("role")),
@@ -587,8 +587,8 @@ def product_section(d: dict, product: dict, heading_link: bool = True, anchors: 
             legacy = ""
             if aid and sum(1 for (_s, i) in (anchors or {}) if i == tid_s) == 1 and tid_s != slug:
                 legacy = f'<span id="{esc(tid_s)}"></span>'  # old anchor, only where unique on the page
-            out.append(f'<li class="card task" id="{esc(aid)}">{legacy}' if aid else '<li class="card task">')
-            out.append(f'<div class="head"><span class="id">{esc(t.get("id"))}</span> <strong>{esc(t.get("title"))}</strong> {state_badge(t.get("state"))}</div>')
+            out.append(f'<li id="{esc(aid)}">{legacy}' if aid else '<li>')
+            out.append(f'<div class="head"><span>{esc(t.get("id"))}</span> <strong>{esc(t.get("title"))}</strong> {state_badge(t.get("state"))}</div>')
             if meta:
                 out.append(f'<div class="meta">{meta}</div>')
             hist = t.get("history") or []
@@ -621,7 +621,7 @@ def product_section(d: dict, product: dict, heading_link: bool = True, anchors: 
     if reviews:
         out.append('<ul class="cards">')
         for r in reviews:
-            out.append(f'<li class="card review"><div class="head"><span class="id">{esc(r.get("task"))}</span> {verdict_badge(r.get("verdict"))}</div>'
+            out.append(f'<li class="card review"><div class="head"><span>{esc(r.get("task"))}</span> {verdict_badge(r.get("verdict"))}</div>'
                        f'<p class="summary">{esc(r.get("summary"))}</p>')
         out.append("</ul>")
     else:
@@ -999,7 +999,7 @@ def check_nav() -> dict:
 
 def day_lead_block(date: str, model: dict) -> str:
     """Day page, right after <h1>: 2-4 plain sentences from this day's export. Per product: tasks accepted, review
-    verdicts, spend (counts.<slug>.* of index.json, each in data-k), plus one failed or accepted task linked to its anchor."""
+    verdicts (reviews in data-k; tasks and spend are marked once, in #work-vs-people and the product section), plus one failed or accepted task linked to its anchor."""
     present = [(slug, p, p["days"][date]) for slug, p in model["products"].items() if date in p["days"]]
     out = ['<section id="day-lead" class="day-lead">']
     if not present:
@@ -1010,9 +1010,9 @@ def day_lead_block(date: str, model: dict) -> str:
         c = day_counts(d)
         k = f"counts.{slug}."
         name = esc(p["product"].get("name") or slug)
-        sents.append(f'{name}: {dk(k + "tasks_done_distinct", c["tasks_done_distinct"])} {nn(c["tasks_done_distinct"], "task")} accepted, '
+        sents.append(f'{name}: {c["tasks_done_distinct"]} {nn(c["tasks_done_distinct"], "task")} accepted, '
                      f'{dk(k + "reviews_pass", c["reviews_pass"])} {nn(c["reviews_pass"], "review")} passed and {dk(k + "reviews_fail", c["reviews_fail"])} failed, '
-                     f'model spend ${dk(k + "spend_usd", f"{c["spend_usd"]:.1f}")}')
+                     f'model spend ${c["spend_usd"]:.1f}')
     fx = all(d.get("fixture") for _, _, d in present)
     intro = f"What happened on {esc(date)}" + (" (fixture: sample data in the export format, not a measurement)" if fx else "") + ": "
     events, _ = pick_latest_events(date, model)
@@ -2754,7 +2754,7 @@ def write_site(model: dict) -> dict:
 # ----------------------------------------------------------------------------------------------------------
 def check_size() -> dict:
     """size_check: every public/**/*.html is <= SIZE_BUDGET_BYTES, except day pages in SIZE_EXEMPT_DAYS (<= SIZE_EXEMPT_CEILING)."""
-    exempt, over, largest, n = [], [], 0, 0
+    exempt, over, near, largest, n = [], [], [], 0, 0
     for f in sorted(PUBLIC_DIR.rglob("*.html")):
         page = "/" + f.relative_to(PUBLIC_DIR).as_posix()
         page = page[:-len("index.html")] if page.endswith("/index.html") else page
@@ -2769,9 +2769,11 @@ def check_size() -> dict:
             largest = max(largest, size)
             if size > SIZE_BUDGET_BYTES:
                 over.append({"page": page, "bytes": size, "limit": SIZE_BUDGET_BYTES})
+            elif SIZE_BUDGET_BYTES - size < SIZE_NEAR_BYTES:
+                near.append({"page": page, "bytes": size})  # informational, never fails the build
     return {"pages_checked": n, "budget_bytes": SIZE_BUDGET_BYTES, "exempt_ceiling_bytes": SIZE_EXEMPT_CEILING,
             "exempt": exempt, "largest_html_bytes": largest, "min_headroom_bytes": SIZE_BUDGET_BYTES - largest,
-            "over_budget": over}
+            "over_budget": over, "near_budget": near}
 
 
 def check_site() -> list[str]:
@@ -3039,9 +3041,11 @@ def check_numbers() -> dict:
             cache[path] = json.loads(path.read_text(encoding="utf-8")) if path.exists() else None
         return cache[path]
 
+    pages_n = 0
     for kind, page, jf in pairs:
         if not page.exists() or (jf is not None and not jf.exists()):
             continue
+        pages_n += 1
         name = "/" + page.relative_to(PUBLIC_DIR).parent.as_posix().strip(".") 
         name = name.rstrip("/") + "/"
         k = _KParser()
@@ -3069,7 +3073,7 @@ def check_numbers() -> dict:
                 continue
             if text != v:
                 mism.append({"page": name, "key": key, "html": text, "json": v})
-    return {"checked": checked, "by_kind": kinds, "mismatches": mism, "nested": nested, "selftest": numbers_selftest()}
+    return {"pages_checked": pages_n, "checked": checked, "by_kind": kinds, "mismatches": mism, "nested": nested, "selftest": numbers_selftest()}
 
 
 def check_checklist() -> dict:

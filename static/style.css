@@ -83,7 +83,7 @@ h4 { font-size: 1rem; margin: 0.8rem 0 0.2rem; }
 }
 .cards.grid .card { margin: 0; }
 .card .head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.3rem 0.6rem; overflow-wrap: anywhere; }
-.card .name { font-weight: 600; font-size: 1.02rem; }
+.card .name, .card .head > strong { font-weight: 600; font-size: 1.02rem; }
 .card .id { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; color: var(--muted); font-size: 0.9rem; }
 .card .meta { color: var(--muted); font-size: 0.88rem; margin-top: 0.15rem; }
 .card .links { margin-top: 0.35rem; font-size: 0.92rem; overflow-wrap: anywhere; }
@@ -104,12 +104,12 @@ h4 { font-size: 1rem; margin: 0.8rem 0 0.2rem; }
 .badge.state.done, .badge.verdict.pass { background: var(--ok-bg); color: var(--ok-fg); border-color: var(--ok-line); }
 .badge.state.side, .badge.verdict.inconclusive { background: var(--warn-bg); color: var(--warn-fg); border-color: var(--warn-line); }
 .badge.verdict.fail { background: var(--bad-bg); color: var(--bad-fg); border-color: var(--bad-line); }
-ol.history { margin: 0.4rem 0 0; padding-left: 1.2rem; font-size: 0.9rem; }
-ol.history li { margin: 0.1rem 0; overflow-wrap: anywhere; }
-ol.history .when { color: var(--muted); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.85em; }
-ol.history .actor { font-weight: 600; }
-ol.history .to { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
-ol.history .note { color: var(--muted); }
+li.task ol { margin: 0.4rem 0 0; padding-left: 1.2rem; font-size: 0.9rem; }
+li.task ol li { margin: 0.1rem 0; overflow-wrap: anywhere; }
+li.task ol time { color: var(--muted); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.85em; }
+li.task ol b { font-weight: 600; }
+li.task ol code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+li.task ol i { color: var(--muted); }
 .when { color: var(--muted); font-size: 0.9rem; }
 .digest { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 0.6rem 0.9rem; overflow-wrap: anywhere; }
 .digest p { margin: 0.4rem 0; }
@@ -157,3 +157,9 @@ footer.site p { margin: 0.2rem 0; }
 .follow-next { margin: 0 0 1rem; overflow-wrap: anywhere; }
 .try-next { margin: 0 0 1rem; overflow-wrap: anywhere; }
 .day-baseline { margin: 0 0 1rem; overflow-wrap: anywhere; }
+
+details.fold { margin-top: 0.4rem; }
+details.fold > summary { cursor: pointer; font-size: 0.9rem; color: var(--muted); }
+li.task ol i { font-style: normal; }
+li.task ol code { background: none; padding: 0; }
+li.task ol code::before { content: "\2192\00a0"; font-family: inherit; }

@@ -551,13 +551,13 @@ def product_section(d: dict, product: dict, heading_link: bool = True, anchors: 
         out.append('<p class="note fixture">fixture — sample record, not a measurement</p>')
     stats = [("tasks_done_distinct", "tasks done"), ("tasks_done", "state transitions"), ("reviews_pass", "reviews passed"),
              ("posts", "posts")]
-    html_stats = "".join(f"<li><b>{dk(cp + '.' + f, c[f])}</b><span>{esc(k)}</span></li>" for f, k in stats)
-    html_stats += ('<li><b>' + dk(f"{cp}.humans" if c["humans"] is not None else None, c["humans"] if c["humans"] is not None else "—") +
+    html_stats = "".join(f"<li><b>{esc(c[f])}</b><span>{esc(k)}</span></li>" for f, k in stats)
+    html_stats += ('<li><b>' + esc(c["humans"] if c["humans"] is not None else "—") +
                    '</b><span>people (estimated log sources, <a href="/about/#method">method</a>)</span></li>')
     spent = f"{c['spend_usd']:.1f}"
-    html_stats += f"<li><b>${dk(cp + '.spend_usd', spent)}</b><span>spent</span></li>"
+    html_stats += f"<li><b>${esc(spent)}</b><span>spent</span></li>"
     out.append('<ul class="stats">' + html_stats + "</ul>")
-    out.append(rework_line(d, f"rework.{slug}"))
+    out.append(rework_line(d))
 
     digest = (d.get("po_digest_md") or "").strip()
     out.append("<h3>Manager's digest</h3>")
@@ -583,6 +583,7 @@ def product_section(d: dict, product: dict, heading_link: bool = True, anchors: 
             if aid in used_ids:  # same (product, task id) twice on one day: only the first carries the anchor
                 aid = None
             used_ids.add(aid)
+            card_start = len(out)
             legacy = ""
             if aid and sum(1 for (_s, i) in (anchors or {}) if i == tid_s) == 1 and tid_s != slug:
                 legacy = f'<span id="{esc(tid_s)}"></span>'  # old anchor, only where unique on the page
@@ -603,14 +604,14 @@ def product_section(d: dict, product: dict, heading_link: bool = True, anchors: 
                 for h in hist:
                     note = str(h.get("note") or "")[:NOTE_MAX_CHARS]
                     items.append(f'<li><time>{fmt_ts(h.get("ts")).removesuffix(" UTC")}</time> <b>{esc(h.get("actor"))}</b> '
-                                 f'<code>{esc(h.get("to"))}</code>' + (f' <i>{esc(note)}</i>' if note else "") + "</li>")
+                                 f'→ <code>{esc(h.get("to"))}</code>' + (f' <i>{esc(note)}</i>' if note else ""))
                 ol = "<ol>" + "".join(items) + "</ol>"
                 if len(hist) > FOLD_MIN_TRANSITIONS:
                     last = esc(hist[-1].get("to"))
                     out.append(f'<details class="fold"><summary>{len(hist)} transitions · last: {last}</summary>{ol}</details>')
                 else:
                     out.append(ol)
-            out.append("</li>")
+            out[card_start:] = ["".join(out[card_start:])]  # one line per card: saves the newlines
         out.append("</ul>")
     else:
         out.append('<p class="note">no task transitions recorded</p>')
@@ -621,7 +622,7 @@ def product_section(d: dict, product: dict, heading_link: bool = True, anchors: 
         out.append('<ul class="cards">')
         for r in reviews:
             out.append(f'<li class="card review"><div class="head"><span class="id">{esc(r.get("task"))}</span> {verdict_badge(r.get("verdict"))}</div>'
-                       f'<p class="summary">{esc(r.get("summary"))}</p></li>')
+                       f'<p class="summary">{esc(r.get("summary"))}</p>')
         out.append("</ul>")
     else:
         out.append('<p class="note">no reviews recorded</p>')
@@ -2769,7 +2770,8 @@ def check_size() -> dict:
             if size > SIZE_BUDGET_BYTES:
                 over.append({"page": page, "bytes": size, "limit": SIZE_BUDGET_BYTES})
     return {"pages_checked": n, "budget_bytes": SIZE_BUDGET_BYTES, "exempt_ceiling_bytes": SIZE_EXEMPT_CEILING,
-            "exempt": exempt, "largest_html_bytes": largest, "over_budget": over}
+            "exempt": exempt, "largest_html_bytes": largest, "min_headroom_bytes": SIZE_BUDGET_BYTES - largest,
+            "over_budget": over}
 
 
 def check_site() -> list[str]:

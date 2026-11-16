@@ -87,7 +87,7 @@ DESC_MAX = 160  # meta/og description limit (seocheck: 50-160)
 
 
 def esc(s: object) -> str:
-    return html.escape(str(s if s is not None else ""), quote=True)
+    return html.escape(str(s if s is not None else ""), quote=False).replace('"', "&quot;")  # ' stays literal: every attribute is double-quoted
 
 
 def read_json(path: Path) -> dict | list | None:
@@ -475,13 +475,13 @@ def fixture_note(days: list[dict]) -> str:
 def state_badge(state: str | None, key: str | None = None) -> str:
     s = str(state or "unknown")
     cls = "done" if s in DONE_STATES else ("side" if s in SIDE_STATES else "open")
-    return f'<span class="badge state {cls}"' + (f' data-k="{esc(key)}"' if key else "") + f'>{esc(s)}</span>'
+    return f'<span class="badge {cls}"' + (f' data-k="{esc(key)}"' if key else "") + f'>{esc(s)}</span>'
 
 
 def verdict_badge(v: str | None, key: str | None = None) -> str:
     s = str(v or "unknown")
     cls = s if s in ("pass", "fail", "inconclusive") else "other"
-    return f'<span class="badge verdict {cls}"' + (f' data-k="{esc(key)}"' if key else "") + f'>{esc(s)}</span>'
+    return f'<span class="badge {cls}"' + (f' data-k="{esc(key)}"' if key else "") + f'>{esc(s)}</span>'
 
 
 # ----------------------------------------------------------------------------------------------------------
@@ -589,29 +589,29 @@ def product_section(d: dict, product: dict, heading_link: bool = True, anchors: 
             if aid and sum(1 for (_s, i) in (anchors or {}) if i == tid_s) == 1 and tid_s != slug:
                 legacy = f'<span id="{esc(tid_s)}"></span>'  # old anchor, only where unique on the page
             out.append(f'<li id="{esc(aid)}">{legacy}' if aid else '<li>')
-            out.append(f'<div class="head"><span>{esc(t.get("id"))}</span> <strong>{esc(t.get("title"))}</strong> {state_badge(t.get("state"))}</div>')
+            out.append(f'<div class=h><span>{esc(t.get("id"))}</span> <b>{esc(t.get("title"))}</b> {state_badge(t.get("state"))}</div>')
             if meta:
-                out.append(f'<div class="meta">{meta}</div>')
+                out.append(f'<div class=m>{meta}</div>')
             hist = t.get("history") or []
             if is_accepted(t):
                 art = task_artifact(t, d.get("posts") or [])
                 sha = str(t.get("released_sha") or "")[:12]
                 if art:
-                    out.append(f'<div class="meta artifact">artifact: <a href="{esc(art["url"])}" rel="nofollow">{esc(art["kind"])} {esc(art["url"])}</a></div>')
+                    out.append(f'<div class="m a">artifact: <a href="{esc(art["url"])}" rel="nofollow">{esc(art["kind"])} {esc(art["url"])}</a></div>')
                 elif sha:
-                    out.append(f'<div class="meta artifact"><code>commit {esc(sha)}</code></div>')
+                    out.append(f'<div class="m a"><code>commit {esc(sha)}</code></div>')
             if is_accepted(t):
                 out.append(evidence_line(t, d))
             if hist:
                 items = []
                 for h in hist:
                     note = str(h.get("note") or "")[:NOTE_MAX_CHARS]
-                    items.append(f'<li><time>{fmt_ts(h.get("ts")).removesuffix(" UTC")}</time> <b>{esc(h.get("actor"))}</b> '
-                                 f'→ <code>{esc(h.get("to"))}</code>' + (f' <i>{esc(note)}</i>' if note else ""))
+                    items.append(f'<li><b>{fmt_ts(h.get("ts")).removesuffix(" UTC")} {esc(h.get("actor"))} → {esc(h.get("to"))}</b>'
+                                 + (f' <i>{esc(note)}</i>' if note else ""))
                 ol = "<ol>" + "".join(items) + "</ol>"
                 if len(hist) > FOLD_MIN_TRANSITIONS:
                     last = esc(hist[-1].get("to"))
-                    out.append(f'<details class="fold"><summary>{len(hist)} transitions · last: {last}</summary>{ol}</details>')
+                    out.append(f'<details><summary>{len(hist)} transitions · last: {last}</summary>{ol}</details>')
                 else:
                     out.append(ol)
             out[card_start:] = ["".join(out[card_start:])]  # one line per card: saves the newlines
@@ -624,8 +624,8 @@ def product_section(d: dict, product: dict, heading_link: bool = True, anchors: 
     if reviews:
         out.append('<ul class="cards">')
         for r in reviews:
-            out.append(f'<li class="card review"><div class="head"><span>{esc(r.get("task"))}</span> {verdict_badge(r.get("verdict"))}</div>'
-                       f'<p class="summary">{esc(r.get("summary"))}</p>')
+            out.append(f'<li class=card><div class=h><span>{esc(r.get("task"))}</span> {verdict_badge(r.get("verdict"))}</div>'
+                       f'<p class=summary>{esc(r.get("summary"))}</p>')
         out.append("</ul>")
     else:
         out.append('<p class="note">no reviews recorded</p>')
@@ -637,7 +637,7 @@ def product_section(d: dict, product: dict, heading_link: bool = True, anchors: 
         for p in posts:
             url = str(p.get("url") or "")
             link = f'<a href="{esc(url)}" rel="nofollow">{esc(url)}</a>' if url.startswith("http") else esc(url or "(no link)")
-            out.append(f'<li><span class="when">{fmt_ts(p.get("ts"))}</span> {esc(p.get("channel"))}: {link}</li>')
+            out.append(f'<li><span class=when>{fmt_ts(p.get("ts"))}</span> {esc(p.get("channel"))}: {link}</li>')
         out.append("</ul>")
     else:
         out.append('<p class="note">no posts recorded</p>')
@@ -1129,7 +1129,7 @@ def evidence_line(t: dict, d: dict) -> str:
         parts.append(f'<a href="{esc(e["art"]["url"])}" rel="nofollow">{esc(e["art"]["kind"])} link</a>')
     if e["claim"]:
         parts.append("claim only")
-    return '<div class="meta evidence">evidence: ' + " · ".join(parts) + "</div>"
+    return '<div class="m e">evidence: ' + " · ".join(parts) + "</div>"
 
 
 def day_evidence_block(date: str, model: dict) -> str:
@@ -1166,14 +1166,14 @@ def check_evidence() -> dict:
             mism.append({"page": name, "issue": "day-evidence not exactly once after day-lead"})
         elif tuple(map(int, mm.groups())) != (n, m, k):
             mism.append({"page": name, "issue": f"line {mm.groups()} != index.json {(n, m, k)}"})
-        cards = re.findall(r'<div class="meta evidence">evidence: (.*?)</div>', t)
+        cards = re.findall(r'<div class="m e">evidence: (.*?)</div>', t)
         if len(cards) != m:
             mism.append({"page": name, "issue": f"{len(cards)} evidence lines for {m} accepted tasks"})
         for c in cards:
             if not re.search(r"review: pass|review: not passed|sha [0-9a-f]+|<a |claim only", c):
                 mism.append({"page": name, "issue": "evidence line empty"})
         urls = {x["artifact"]["url"] for p in prods for x in p.get("tasks") or [] if x.get("artifact")}
-        for u in re.findall(r'<div class="meta evidence">[^<]*<a href="([^"]+)"', t):
+        for u in re.findall(r'<div class="m e">[^<]*<a href="([^"]+)"', t):
             if html.unescape(u) not in urls:
                 mism.append({"page": name, "issue": f"evidence link not in index.json: {u}"})
     return {"pages_checked": len(pages), "mismatches": mism}
@@ -1210,7 +1210,7 @@ def check_artifacts() -> dict:
                 sha_mism.append({"page": name, "issue": f"commit text {c} is not a prefix of a released_sha"})
         if re.search(r'<a [^>]*>\s*(<code>)?commit [0-9a-f]{7,}', t):
             sha_mism.append({"page": name, "issue": "commit sha inside a link"})
-        if t.count('class="meta artifact">') > len(tasks):
+        if t.count('class="m a">') > len(tasks):
             mism.append({"page": name, "issue": "more artifact lines than accepted/done tasks"})
         withsha += len(shas)
         tot += len(tasks)
@@ -1248,7 +1248,7 @@ def what_broke_block(date: str, model: dict) -> str:
                 link = f'<a href="#{esc(first["anchor"])}">{inner}</a>' if first["anchor"] else inner
                 parts = ", ".join(f'{esc(i["state"])} ({esc(i["actor"] or "review verdict")}{", reopened" if i["kind"] == "reopened" else ""})' for i in lst)
                 fx = ' <span class="badge other">fixture</span>' if any(i["fixture"] for i in lst) else ""
-                notes = "".join(f'<br><span class="summary">{esc(i["note"])}</span>' for i in lst if i["note"])
+                notes = "".join(f'<br><span class=summary>{esc(i["note"])}</span>' for i in lst if i["note"])
                 out.append(f'<li>{link} · state: {parts} · final state: {esc(finals.get(tid) or "not recorded")}{fx}{notes}</li>')
             out.append("</ul>")
     out.append('<p class="note">Failed runs and rate-limit events are not in the export.</p>')
@@ -1945,7 +1945,7 @@ def latest_day_block(latest: str, model: dict) -> str:
                 seq.append([v, 1, f"{pre}reviews.{ri}.verdict" if ri is not None else None])
         verdicts = " → ".join(verdict_badge(v, k) + (f" ×{c}" if c > 1 else "") for v, c, k in seq) if seq else state_badge(t.get("state"))
         note = cut_words(rs[-1].get("summary")) if rs else ""
-        out.append(f'<li class="card"><div class="head"><span class="product-name">{esc(pname)}</span> '
+        out.append(f'<li class="card"><div class=h><span class="product-name">{esc(pname)}</span> '
                    f'<a class="name" href="/day/{esc(latest)}/#{esc(aid)}">{title_html}</a> {verdicts}'
                    + (' <span class="badge other">fixture sample</span>' if fx else "") + "</div>"
                    + (f'<p class="summary">{esc(note)}</p>' if note else "") + "</li>")
@@ -1989,7 +1989,7 @@ def open_threads_block(latest: str, model: dict) -> str:
            f'<p class="note">{esc(defn)}</p>',
            '<ul class="cards open-threads">']
     for i, it in enumerate(items):
-        out.append(f'<li class="card"><div class="head"><span class="product-name">{dk(f"open_threads.{i}.product_name", it["product_name"])}</span> '
+        out.append(f'<li class="card"><div class=h><span class="product-name">{dk(f"open_threads.{i}.product_name", it["product_name"])}</span> '
                    f'<a class="name" href="{esc(it["_href"])}"><span class="id">{dk(f"open_threads.{i}.task", it["task"])}</span> {dk(f"open_threads.{i}.title", it["title"])}</a> '
                    f'{state_badge(it["state"], f"open_threads.{i}.state")}' + (' <span class="badge other">fixture</span>' if it["fixture"] else "") + "</div>"
                    + (f'<p class="summary">{esc(it["note"])}</p>' if it["note"] else "") + "</li>")
@@ -2213,7 +2213,7 @@ def render_index(model: dict) -> str:
         name, site = prod.get("name") or slug, prod.get("site") or ""
         ndays = len(p["days"])
         body.append('<li class="card">'
-                    f'<div class="head"><span class="name"><a href="/product/{esc(slug)}/">{esc(name)}</a></span></div>'
+                    f'<div class=h><span class="name"><a href="/product/{esc(slug)}/">{esc(name)}</a></span></div>'
                     f'<div class="links"><a href="/go/site/{esc(slug)}/" rel="nofollow">{esc(site.replace("https://", "")) or "site"}</a> '
                     f'<a href="/product/{esc(slug)}/">chronicle ({ndays} day{"s" if ndays != 1 else ""})</a></div></li>')
     if not products:
@@ -2273,9 +2273,9 @@ def render_product(slug: str, p: dict, model: dict) -> str:
             if len(excerpt) > CHRONICLE_EXCERPT_CHARS:
                 excerpt = excerpt[:CHRONICLE_EXCERPT_CHARS].rsplit(" ", 1)[0] + "…"
             body.append('<li class="card">'
-                        f'<div class="head"><span class="name"><a href="/day/{esc(date)}/#{esc(slug)}">{esc(date)}</a></span>'
-                        + (' <span class="badge state side">fixture</span>' if c["fixture"] else "") + "</div>"
-                        f'<div class="meta">{dk(ck("tasks_touched"), c["tasks_touched"])} {nn(c["tasks_touched"], "task")} touched · {dk(ck("tasks_done_distinct"), c["tasks_done_distinct"])} done ({dk(ck("tasks_done"), c["tasks_done"])} state {nn(c["tasks_done"], "transition")}) · '
+                        f'<div class=h><span class="name"><a href="/day/{esc(date)}/#{esc(slug)}">{esc(date)}</a></span>'
+                        + (' <span class="badge side">fixture</span>' if c["fixture"] else "") + "</div>"
+                        f'<div class=m>{dk(ck("tasks_touched"), c["tasks_touched"])} {nn(c["tasks_touched"], "task")} touched · {dk(ck("tasks_done_distinct"), c["tasks_done_distinct"])} done ({dk(ck("tasks_done"), c["tasks_done"])} state {nn(c["tasks_done"], "transition")}) · '
                         f'{dk(ck("reviews"), c["reviews"])} {nn(c["reviews"], "review")} ({dk(ck("reviews_pass"), c["reviews_pass"])} passed) · '
                         f'{dk(ck("posts"), c["posts"])} {nn(c["posts"], "post")} · people (estimated) {dk(ck("humans") if c["humans"] is not None else None, people)} · ${dk(ck("spend_usd"), f"{c['spend_usd']:.1f}")}</div>'
                         + (f'<p class="summary">{esc(excerpt)}</p>' if excerpt else '<p class="note">no digest recorded</p>') + "</li>")

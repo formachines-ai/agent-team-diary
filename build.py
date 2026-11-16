@@ -1000,6 +1000,45 @@ def check_nav() -> dict:
     return {"pages_checked": len(pages), "missing": missing}
 
 
+def task_outcome(date: str, model: dict, slug: str, tid: str) -> dict | None:
+    """Export-only outcome of a task that failed that day (a #what-broke event): when it first failed, and whether a later
+    accepted/done transition or passed review of the same day followed. None when the task has no failure event that day."""
+    ev = [it for it in broke_items(date, model) if it["product"] == slug and it["task"] == tid]
+    d = (model["products"][slug]["days"].get(date) or {})
+    t = next((x for x in d.get("tasks") or [] if str(x.get("id")) == tid), None)
+    if not ev or not t:
+        return None
+    timed = [i for i in ev if i.get("ts")]
+    rev = next((i for i in ev if i["kind"] == "review"), None)  # review records carry no timestamp in the export
+    first = min(timed, key=lambda i: str(i["ts"])) if timed else None
+    last_ts = max((str(i["ts"]) for i in timed), default="")
+    src = rev or first
+    if src["kind"] == "review":
+        what = "inconclusive review" if src["state"] == "inconclusive" else "failed review"
+    elif src["kind"] == "reopened":
+        what = "reopened"
+    else:
+        what = f'moved to {src["state"]}'
+    hist = t.get("history") or []
+    hhmm = lambda ts: str(ts)[11:16] + " UTC"
+    when = f" at {hhmm(first['ts'])}" if first else ""
+    ok = [r for r in d.get("reviews") or [] if str(r.get("task")) == tid and r.get("verdict") == "pass"]
+    # a failure without a timestamp (review records have none) can only be followed by a done transition when a passed review is recorded too
+    done = [h for h in hist if h.get("to") in DONE_STATES and ((last_ts and str(h.get("ts")) > last_ts) or (not last_ts and ok))]
+    final = str(hist[-1].get("to")) if hist else ""
+    if done:
+        then = f'then {done[-1]["to"]} at {hhmm(done[-1]["ts"])}'
+    else:
+        then = "still open at end of day"
+    return {"text": f'{what}{when}, {then}', "final": final, "resolved": bool(done or ok)}
+
+
+def outcome_html(o: dict | None) -> str:
+    if not o:
+        return ""
+    return f', {esc(o["text"])} (final state: {esc(o["final"] or "not recorded")})'
+
+
 def day_lead_block(date: str, model: dict) -> str:
     """Day page, right after <h1>: 2-4 plain sentences from this day's export. Per product: tasks accepted, review
     verdicts (reviews in data-k; tasks and spend are marked once, in #work-vs-people and the product section), plus one failed or accepted task linked to its anchor."""
@@ -1032,9 +1071,11 @@ def day_lead_block(date: str, model: dict) -> str:
     if pick:
         slug, p, d, i, t = pick
         aid = task_anchors(date, model).get((slug, str(t.get("id"))))
-        failed = any(r.get("verdict") in ("fail", "inconclusive") for r in d.get("reviews") or [] if str(r.get("task")) == str(t.get("id")))
+        oc = task_outcome(date, model, slug, str(t.get("id")))
+        failed = bool(oc) or any(r.get("verdict") in ("fail", "inconclusive") for r in d.get("reviews") or [] if str(r.get("task")) == str(t.get("id")))
         tail = (f' One {"task with a failed or inconclusive review" if failed else "accepted task"}: '
-                f'<a href="#{esc(aid)}">{dk(f"day/{date}:products.{slug}.tasks.{i}.title", t.get("title"))}</a>.')
+                f'<a href="#{esc(aid)}">{dk(f"day/{date}:products.{slug}.tasks.{i}.title", t.get("title"))}</a> '
+                f'({esc(t.get("id"))}){outcome_html(oc)}.')
     out.append("<p>" + intro + "; ".join(sents) + "." + tail + "</p></section>")
     return "\n".join(out)
 
@@ -1464,7 +1505,54 @@ def check_lead() -> dict:
         for a in re.findall(r'href="#([^"]+)"', sec):
             if f'id="{a}"' not in t:
                 issues.append({"page": name, "issue": f"anchor #{a} not on page"})
-    return {"pages_checked": len(pages), "issues": issues}
+    mism = lead_outcome_mismatches(pages)
+    return {"pages_checked": len(pages) + 1, "mismatches": mism, "issues": issues}
+
+
+def lead_outcome_mismatches(pages: list) -> list:
+    """Every task a lead (#day-lead of each day page, #home-lead of the front page) names as failed: its sentence carries an
+    outcome ('then ...' or 'still open at end of day') and a final state equal to the task's last transition in index.json."""
+    mism = []
+
+    def verify(name: str, sec: str, data: dict) -> None:
+        txt = html_text(sec)
+        m = re.search(r"\(([A-Za-z]+-\d+)\), ((?:failed|inconclusive) review|reopened|moved to \S+)(?: at \d\d:\d\d UTC)?, (then [^()]*?|still open at end of day) \(final state: ([a-z_]+|not recorded)\)", txt)
+        failed_named = "Failed:" in txt or "failed or inconclusive review:" in txt
+        if not m:
+            if failed_named:
+                mism.append({"page": name, "issue": "failed task named without outcome sentence"})
+            return
+        tid, outcome, final = m.group(1), m.group(3), m.group(4)
+        cands = [(pr, t.get("history") or []) for pr in (data.get("products") or {}).values() for t in (pr or {}).get("tasks") or [] if str(t.get("id")) == tid]
+        if not cands:
+            mism.append({"page": name, "task": tid, "issue": "task not in index.json"})
+            return
+        times = set(re.findall(r"\d\d:\d\d", outcome))
+        good = False
+        for pr, hist in cands:  # the same task id can exist in two products; one matching task is enough
+            ok_times = {str(h.get("ts"))[11:16] for h in hist}
+            if hist and str(hist[-1].get("to")) == final and times <= ok_times and not (outcome.startswith("still open") and final in DONE_STATES):
+                good = True
+        if not good:
+            mism.append({"page": name, "task": tid, "final": final, "outcome": outcome, "issue": "outcome or final state differs from the last transition in index.json"})
+
+    for f in pages:
+        t = f.read_text(encoding="utf-8")
+        i = t.find('id="day-lead"')
+        if i >= 0:
+            try:
+                verify(f"/day/{f.parent.name}/", t[i:t.find("</section>", i)], json.loads(f.with_name("index.json").read_text(encoding="utf-8")))
+            except (OSError, ValueError):
+                pass
+    try:
+        t = (PUBLIC_DIR / "index.html").read_text(encoding="utf-8")
+        date = json.loads((PUBLIC_DIR / "today.json").read_text(encoding="utf-8")).get("date")
+        i = t.find('id="home-lead"')
+        if i >= 0 and date:
+            verify("/", t[i:t.find("</section>", i)], json.loads((PUBLIC_DIR / "day" / date / "index.json").read_text(encoding="utf-8")))
+    except (OSError, ValueError):
+        pass
+    return mism
 
 
 BASELINE_DAYS, BASELINE_MIN = 7, 3
@@ -1696,7 +1784,7 @@ def day_title(date: str, lead: str) -> str:
         return fit_title(prefix, "fixture: sample data in the export format")
     if "no activity recorded" in lead:
         return fit_title(prefix, "no activity recorded")
-    m = re.search(r"One (?:accepted task|task with a failed or inconclusive review): (.+?)\.?$", lead)
+    m = re.search(r"One (?:accepted task|task with a failed or inconclusive review): (.+?)(?: \([A-Za-z]+-\d+\)(?:,.*)?)?\.?$", lead)
     if m:
         return fit_title(prefix, m.group(1))
     first = re.split(r"(?<=[.!?])\s", lead, maxsplit=1)[0]
@@ -1719,6 +1807,7 @@ def home_title(latest: str | None, model: dict) -> str:
     txt = txt.split(" Failed runs and rate limits")[0]
     txt = re.sub(r"^Nothing failed in the records\.\s*(One )?", "", txt)
     txt = re.sub(r"\s*\([a-z_]+\)(?=[,.]|$)", "", txt)
+    txt = re.sub(r"^Failed: (.+?) \(([A-Za-z]+-\d+)\)(?:,.*)?$", r"\2 \1", txt)
     return fit_title(prefix, txt or "no task event recorded")
 
 
@@ -1976,7 +2065,7 @@ def home_lead_data(latest: str, model: dict) -> dict:
     if items:
         it = items[0]
         n = len({(x["product"], x["task"]) for x in items})
-        return {"kind": "failed", "task": it["task"], "title": it["title"] or "", "state": it["state"],
+        return {"kind": "failed", "product": it["product"], "task": it["task"], "title": it["title"] or "", "state": it["state"],
                 "anchor": it["anchor"] or f'{it["product"]}-{it["task"]}', "more": n - 1}
     for slug, p in model["products"].items():
         for t in (p["days"].get(latest) or {}).get("tasks") or []:
@@ -1999,10 +2088,12 @@ def home_lead_block(latest: str | None, model: dict) -> str:
     else:
         title = h.get("title", "")
         words = title.split()
-        if len(words) > 18:
-            title = " ".join(words[:18]) + "…"
+        if len(words) > 12:
+            title = " ".join(words[:12]) + "…"
         if h["kind"] == "failed":
-            body = (f'Failed: <a href="{day}#{esc(h["anchor"])}"><span class="id">{esc(h["task"])}</span> {esc(title)}</a> ({esc(h["state"])})'
+            oc = task_outcome(latest, model, h["product"], h["task"])
+            body = (f'Failed: <a href="{day}#{esc(h["anchor"])}">{esc(title)}</a> (<span class="id">{esc(h["task"])}</span>)'
+                    + (outcome_html(oc) if oc else f' ({esc(h["state"])})')
                     + (f', <a href="{day}#what-broke">and {h["more"]} more</a>' if h["more"] else "") + ".")
         elif h["kind"] == "accepted":
             body = (f'Nothing failed in the records. One accepted task: <a href="{day}#{esc(h["anchor"])}">'
@@ -2051,9 +2142,9 @@ def check_home_lead() -> dict:
         wb = d[b:d.find("</section>", b)]
         first = re.search(r'<li><a href="#([^"]+)"><span class="id">([^<]+)</span> ([^<]*)</a> · state: ([a-z_]+)', wb)
         if first:
-            want = f'Failed: {html.unescape(first.group(2))}'
-            if want not in txt or f"({first.group(4)})" not in txt:
-                mm.append({"issue": f"first failed task not named, want '{want}' ({first.group(4)})"})
+            want = f'({html.unescape(first.group(2))})'
+            if not txt.startswith("What happened on") or "Failed:" not in txt or want not in txt or "final state:" not in txt:
+                mm.append({"issue": f"first failed task not named with its outcome, want '{want}'"})
             if f'href="/day/{date}/#{first.group(1)}"' not in blk:
                 mm.append({"issue": "link to first failed task missing"})
             n = sum(int(x) for x in re.findall(r"<h3>[^<]*: (\d+) tasks?</h3>", wb))
@@ -3743,7 +3834,7 @@ def main(argv: list[str] | None = None) -> int:
     lcd = check_lead()
     bj["lead_check"] = lcd
     write_json(PUBLIC_DIR / "build.json", bj)
-    log.info("lead_check: pages=%d issues=%d", lcd["pages_checked"], len(lcd["issues"]))
+    log.info("lead_check: pages=%d issues=%d mismatches=%d", lcd["pages_checked"], len(lcd["issues"]), len(lcd["mismatches"]))
     fcd = check_feed()
     bj["feed_check"] = fcd
     write_json(PUBLIC_DIR / "build.json", bj)
@@ -3831,7 +3922,7 @@ def main(argv: list[str] | None = None) -> int:
         problems += [f"paths: {m}" for m in pc["missing"]]
         problems += [f"home: {m}" for m in hc["issues"]] + [f"home lead: {m}" for m in hc.get("lead_mismatches", [])]
         problems += [f"latest-day missing: {d}" for d in llc["missing"]] + [f"latest-day wrong target: {d}" for d in llc["wrong_target"]]
-        problems += [f"lead: {i['page']} {i['issue']}" for i in lcd["issues"]]
+        problems += [f"lead: {i['page']} {i['issue']}" for i in lcd["issues"]] + [f"lead outcome: {m}" for m in lcd["mismatches"]]
         problems += [f"feed: {i}" for i in fcd["lead_mismatches"]] + [f"feed: bad link {l}" for l in fcd["bad_links"]] + [f"feed: guid changed {g}" for g in fcd["guid_changed"]]
         if not fcd["items"]:
             problems.append("feed: no items")

@@ -600,6 +600,8 @@ def product_section(d: dict, product: dict, heading_link: bool = True, anchors: 
                     out.append(f'<div class="meta artifact">artifact: <a href="{esc(art["url"])}" rel="nofollow">{esc(art["kind"])} {esc(art["url"])}</a></div>')
                 elif sha:
                     out.append(f'<div class="meta artifact"><code>commit {esc(sha)}</code></div>')
+            if is_accepted(t):
+                out.append(evidence_line(t, d))
             if hist:
                 items = []
                 for h in hist:
@@ -1047,6 +1049,93 @@ def artifact_counts(days: list) -> tuple:
                 w += 1 if task_artifact(t, d.get("posts") or []) else 0
                 k += 1 if t.get("released_sha") else 0
     return w, m, k
+
+
+def task_evidence(t: dict, d: dict) -> dict:
+    """Evidence of an accepted/done task from export fields only: a passed review verdict of this product-day, released_sha,
+    artifact URL. 'claim' = none of them."""
+    tid = str(t.get("id"))
+    rev = any(r.get("verdict") == "pass" and str(r.get("task")) == tid for r in d.get("reviews") or [])
+    anyv = any(str(r.get("task")) == tid for r in d.get("reviews") or [])
+    sha = str(t.get("released_sha") or "")[:12]
+    art = task_artifact(t, d.get("posts") or [])
+    return {"pass": rev, "verdict": anyv, "sha": sha, "art": art, "claim": not (anyv or sha or art)}
+
+
+def evidence_counts(days: list) -> tuple:
+    """(accepted tasks with a passed review, accepted tasks, accepted tasks that are claim only)."""
+    n = m = k = 0
+    for d in days:
+        for t in d.get("tasks") or []:
+            if is_accepted(t):
+                e = task_evidence(t, d)
+                m += 1
+                n += 1 if e["pass"] else 0
+                k += 1 if e["claim"] else 0
+    return n, m, k
+
+
+def evidence_line(t: dict, d: dict) -> str:
+    e = task_evidence(t, d)
+    parts = []
+    if e["pass"]:
+        parts.append("review: pass")
+    elif e["verdict"]:
+        parts.append("review: not passed")
+    if e["sha"]:
+        parts.append(f"sha {esc(e['sha'])}")
+    if e["art"]:
+        parts.append(f'<a href="{esc(e["art"]["url"])}" rel="nofollow">{esc(e["art"]["kind"])} link</a>')
+    if e["claim"]:
+        parts.append("claim only")
+    return '<div class="meta evidence">evidence: ' + " · ".join(parts) + "</div>"
+
+
+def day_evidence_block(date: str, model: dict) -> str:
+    days = [p["days"][date] for p in model["products"].values() if date in p["days"]]
+    if not days:
+        return ""
+    n, m, k = evidence_counts(days)
+    return f'<p id="day-evidence" class="note">{n} of {m} accepted tasks have a passed review; {k} are claim only</p>'
+
+
+def check_evidence() -> dict:
+    """Every /day/*/ with data: one #day-evidence after #day-lead; N, M, K equal index.json; every accepted task card shows
+    a review, sha, artifact link or 'claim only'; links only where index.json has a URL."""
+    mism, pages = [], sorted(PUBLIC_DIR.glob("day/*/index.html"))
+    for f in pages:
+        name = f"/day/{f.parent.name}/"
+        t = f.read_text(encoding="utf-8")
+        data = json.loads(f.with_name("index.json").read_text(encoding="utf-8"))
+        prods = (data.get("products") or {}).values()
+        if not prods:
+            continue
+        n = m = k = 0
+        for p in prods:
+            revs = p.get("reviews") or []
+            for x in p.get("tasks") or []:
+                if is_accepted(x):
+                    m += 1
+                    ids = [str(r.get("task")) for r in revs]
+                    ok = any(r.get("verdict") == "pass" and str(r.get("task")) == str(x.get("id")) for r in revs)
+                    n += ok
+                    k += not (str(x.get("id")) in ids or x.get("released_sha") or x.get("artifact"))
+        mm = re.search(r'id="day-evidence"[^>]*>(\d+) of (\d+) accepted tasks have a passed review; (\d+) are claim only<', t)
+        if t.count('id="day-evidence"') != 1 or not mm or t.find('id="day-evidence"') < t.find('id="day-lead"'):
+            mism.append({"page": name, "issue": "day-evidence not exactly once after day-lead"})
+        elif tuple(map(int, mm.groups())) != (n, m, k):
+            mism.append({"page": name, "issue": f"line {mm.groups()} != index.json {(n, m, k)}"})
+        cards = re.findall(r'<div class="meta evidence">evidence: (.*?)</div>', t)
+        if len(cards) != m:
+            mism.append({"page": name, "issue": f"{len(cards)} evidence lines for {m} accepted tasks"})
+        for c in cards:
+            if not re.search(r"review: pass|review: not passed|sha [0-9a-f]+|<a |claim only", c):
+                mism.append({"page": name, "issue": "evidence line empty"})
+        urls = {x["artifact"]["url"] for p in prods for x in p.get("tasks") or [] if x.get("artifact")}
+        for u in re.findall(r'<div class="meta evidence">[^<]*<a href="([^"]+)"', t):
+            if html.unescape(u) not in urls:
+                mism.append({"page": name, "issue": f"evidence link not in index.json: {u}"})
+    return {"pages_checked": len(pages), "mismatches": mism}
 
 
 def check_artifacts() -> dict:
@@ -1507,7 +1596,7 @@ def render_day(date: str, model: dict) -> str:
     present = [(slug, p) for slug, p in products.items() if date in p["days"]]
     newest = model["dates"][-1] if model["dates"] else None
     latest_p = [f'<p id="latest-day">Latest day: <a href="/day/{esc(newest)}/">{esc(newest)}</a></p>'] if newest and newest != date else []
-    body = [f"<h1>{esc(date)}</h1>", *latest_p, day_lead_block(date, model), day_baseline_block(date, model, day_index_map(model)), f'<p class="lead">One day of the agent team, product by product. <a href="/day/{esc(date)}/index.json">index.json</a></p>', try_line()]
+    body = [f"<h1>{esc(date)}</h1>", *latest_p, day_lead_block(date, model), day_evidence_block(date, model), day_baseline_block(date, model, day_index_map(model)), f'<p class="lead">One day of the agent team, product by product. <a href="/day/{esc(date)}/index.json">index.json</a></p>', try_line()]
     prev_d, next_d = neighbours(date, model["dates"])
     nav = []
     if prev_d:
@@ -3679,6 +3768,9 @@ def main(argv: list[str] | None = None) -> int:
     bj["id_check"] = idc
     write_json(PUBLIC_DIR / "build.json", bj)
     log.info("id_check: pages=%d duplicate_ids=%d dangling_links=%d", idc["pages_checked"], len(idc["duplicate_ids"]), len(idc["dangling_links"]))
+    ev = check_evidence()
+    bj["evidence_check"] = ev
+    log.info("evidence_check: pages=%d mismatches=%d", ev["pages_checked"], len(ev["mismatches"]))
     ac2 = check_artifacts()
     bj["artifact_check"] = ac2
     write_json(PUBLIC_DIR / "build.json", bj)
@@ -3783,6 +3875,7 @@ def main(argv: list[str] | None = None) -> int:
         problems += [f"{p}: footer disclosure missing" for p in cc["footer_missing"]]
         problems += cc["xml_errors"] + cc["latest_day_problems"]
         problems += [f"sitemap.xml: no <loc> for {p}" for p in cc["sitemap_missing"]]
+        problems += [f"evidence: {i}" for i in bj["evidence_check"]["mismatches"]]
         problems += [f"artifact: {i}" for i in bj["artifact_check"]["mismatches"] + bj["artifact_check"]["sha_mismatches"]]
         problems += [f"robots: {i}" for i in bj["robots_check"]["issues"]]
         cr = bj["crawl_check"]

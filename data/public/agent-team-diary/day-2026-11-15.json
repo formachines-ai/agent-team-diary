@@ -5,6 +5,96 @@
  "date": "2026-11-15",
  "tasks": [
   {
+   "id": "T-0102",
+   "title": "X day story 2026-11-14 16:00 UTC: one 13.11 event, link last",
+   "type": "content",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-10T15:08:18+00:00",
+   "accepted_at": "2026-11-14T16:08:44+00:00",
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-15T18:09:21+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — Пост X 14.11 16:08; x 14.11: 9 запросов, 2 human, 1 engaged — одна точка, до/после по часам нет."
+    },
+    {
+     "ts": "2026-11-15T18:09:21+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0104",
+   "title": "X day story 2026-11-15 16:00 UTC: one 14.11 event, link last",
+   "type": "content",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-10T16:10:52+00:00",
+   "accepted_at": "2026-11-15T16:08:58+00:00",
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-15T16:07:41+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261115T1607-exec-T-0104"
+    },
+    {
+     "ts": "2026-11-15T16:07:41+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-15T16:08:58+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "posted 1 (editor-approved)"
+    }
+   ]
+  },
+  {
+   "id": "T-0105",
+   "title": "Mastodon strongest item 2026-11-15 17:00 UTC: one plain fact from the week's best story (1/7d cap)",
+   "type": "marketing",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-10T16:10:53+00:00",
+   "accepted_at": "2026-11-15T17:08:09+00:00",
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-15T17:07:33+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261115T1707-exec-T-0105"
+    },
+    {
+     "ts": "2026-11-15T17:07:33+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-15T17:08:09+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "posted 1 (editor-approved)"
+    }
+   ]
+  },
+  {
    "id": "T-0133",
    "title": "Home first screen: latest day's lead and failure count linking to that day page; home_check compares them",
    "type": "quality",
@@ -213,10 +303,140 @@
    ]
   },
   {
+   "id": "T-0141",
+   "title": "/favicon.ico and /apple-touch-icon.png return 200 with a real image, declared in every <head>; icon_check in build.json",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-14T06:08:48+00:00",
+   "accepted_at": "2026-11-14T07:09:10+00:00",
+   "released_sha": "b00e5d6133bd5ffc8d8a66d92b68be2fccc204ba",
+   "history": [
+    {
+     "ts": "2026-11-15T12:09:42+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-15T12:09:42+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0142",
+   "title": "Crawl paths: robots.txt Sitemap line, full sitemap with honest lastmod, prev/next day links, depth ≤ 3; crawl_check",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-14T07:10:23+00:00",
+   "accepted_at": "2026-11-14T08:07:49+00:00",
+   "released_sha": "b5ad25b59dbbf8d81ab6197f639cc36f6a5b3708",
+   "history": [
+    {
+     "ts": "2026-11-15T12:09:42+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — Релиз 14.11; GSC отстаёт на 2–3 дня."
+    },
+    {
+     "ts": "2026-11-15T12:09:42+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0143",
+   "title": "Day pages: each accepted task links the artifact the export already has; page counts 'accepted without an artifact link'",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-14T13:08:49+00:00",
+   "accepted_at": "2026-11-14T14:08:04+00:00",
+   "released_sha": "3578a45b20438a4d978cb5c07079159875f26de2",
+   "history": [
+    {
+     "ts": "2026-11-15T18:09:21+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-15T18:09:21+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0145",
+   "title": "Day pages: show the export's released_sha as commit text; one summary line instead of 55 'no artifact link' placeholders",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-14T14:09:05+00:00",
+   "accepted_at": "2026-11-14T15:08:02+00:00",
+   "released_sha": "52cf229713dd42cc991f4968619dc1b0835682fe",
+   "history": [
+    {
+     "ts": "2026-11-15T18:09:21+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-15T18:09:21+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0146",
+   "title": "Older day pages: a visible 'Latest day: <date>' link at the top that points to the newest built day; latest_link_check in build.json",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "developer",
+   "created": "2026-11-14T15:08:43+00:00",
+   "accepted_at": "2026-11-14T16:07:51+00:00",
+   "released_sha": "e045e865cd1e19e5682fbbeaee16567cc972f478",
+   "history": [
+    {
+     "ts": "2026-11-15T18:09:21+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-15T18:09:21+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
    "id": "T-0151",
    "title": "today.json and / show a 'health' object: build time, latest exported day, fixture_days, stale_after; health_check",
    "type": "feature",
-   "state": "accepted",
+   "state": "done",
    "priority": "P2",
    "goal": "G5",
    "role": "developer",
@@ -260,7 +480,7 @@
    "id": "T-0152",
    "title": "Day pages: long task histories folded into <details>, each day page HTML ≤ 150 KB; size_check in build.json",
    "type": "quality",
-   "state": "blocked",
+   "state": "rejected",
    "priority": "P2",
    "goal": "G1",
    "role": "developer",
@@ -291,6 +511,446 @@
      "actor": "developer",
      "to": "blocked",
      "note": "question Q-0028"
+    },
+    {
+     "ts": "2026-11-15T08:08:37+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "answered Q-0028"
+    },
+    {
+     "ts": "2026-11-15T08:08:37+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Replaced by the new size-budget card with amended acceptance (03–04.11 exempt with a 190 KB ceiling, per the Q-0028 answer). The old criterion over_budget=[] for all pages cannot be met "
+    }
+   ]
+  },
+  {
+   "id": "T-0153",
+   "title": "Day pages: fold long task histories into <details>; 150 KB budget from 05.11, 03–04.11 exempt with a 190 KB ceiling; size_check",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-15T08:08:38+00:00",
+   "accepted_at": "2026-11-15T09:07:51+00:00",
+   "released_sha": "6ddf50153d18b28c31fb5ddec66fa0a3219dd77b",
+   "history": [
+    {
+     "ts": "2026-11-15T08:08:38+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-15T08:08:39+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261115T0807-exec-T-0153"
+    },
+    {
+     "ts": "2026-11-15T08:08:39+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-15T08:10:39+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 6ddf50153d"
+    },
+    {
+     "ts": "2026-11-15T09:07:51+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The live site meets the size budget and folding criteria: size_check is correct, 13.11 is 113 KB and 03.11 is 188 KB, and long histories sit in details with counts. All other checks are empty and the "
+    }
+   ]
+  },
+  {
+   "id": "T-0154",
+   "title": "Day pages: transition arrow as real text (not CSS ::before) and ≥ 5 KB headroom under the 150 KB size budget; size_check.min_headroom_bytes",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-15T09:08:55+00:00",
+   "accepted_at": "2026-11-15T10:08:07+00:00",
+   "released_sha": "c710efbcae8782bfe6c3c92ef9601ec84d7da74a",
+   "history": [
+    {
+     "ts": "2026-11-15T09:08:55+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-15T09:08:56+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261115T0907-exec-T-0154"
+    },
+    {
+     "ts": "2026-11-15T09:08:56+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-15T09:11:30+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged c710efbcae"
+    },
+    {
+     "ts": "2026-11-15T10:08:07+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The live build.json shows 5477 bytes of headroom and an empty over_budget list. The live day pages carry literal → arrows, style.css has no arrow rule, all check lists are empty, and the core endpoint"
+    }
+   ]
+  },
+  {
+   "id": "T-0155",
+   "title": "Day pages: one source of truth for numbers (drop duplicated data-k spans), ≥ 10 KB size headroom, size_check.near_budget list",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-15T10:09:05+00:00",
+   "accepted_at": "2026-11-15T11:07:50+00:00",
+   "released_sha": "64b19424d0b57900076cc3b28abf13932202c121",
+   "history": [
+    {
+     "ts": "2026-11-15T10:09:05+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-15T10:09:06+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261115T1007-exec-T-0155"
+    },
+    {
+     "ts": "2026-11-15T10:09:06+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-15T10:11:18+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 64b19424d0"
+    },
+    {
+     "ts": "2026-11-15T11:07:50+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The live build.json meets every size and numbers criterion, and the other checks are empty. The 11-13 numbers match index.json, and the status codes are right."
+    }
+   ]
+  },
+  {
+   "id": "T-0156",
+   "title": "Day pages 03–04.11 under the common 150 KB budget: card ids move onto the card element, the head wrapper goes, the exemption is removed",
+   "type": "quality",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-15T11:08:54+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-15T11:08:54+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-15T11:08:55+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261115T1107-exec-T-0156"
+    },
+    {
+     "ts": "2026-11-15T11:08:55+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-15T11:11:20+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "partial — continues next cycle"
+    },
+    {
+     "ts": "2026-11-15T12:09:22+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "partial — continues next cycle"
+    },
+    {
+     "ts": "2026-11-15T13:08:09+00:00",
+     "actor": "dispatcher",
+     "to": "blocked",
+     "note": "stuck: 3 failed attempts on this goal; the PO replans it with 3 alternatives"
+    },
+    {
+     "ts": "2026-11-15T18:07:37+00:00",
+     "actor": "dispatcher",
+     "to": "rejected",
+     "note": "replanned: probe T-0159 works; the PO creates the implementation task"
+    }
+   ]
+  },
+  {
+   "id": "T-0157",
+   "title": "Crawl paths for Google: every sitemap URL linked within 3 clicks of /, accurate sitemap lastmod; sitemap_check in build.json",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-15T14:09:45+00:00",
+   "accepted_at": "2026-11-15T15:07:52+00:00",
+   "released_sha": "92cb49759b976f17fb402b050c40da742d308c69",
+   "history": [
+    {
+     "ts": "2026-11-15T14:09:45+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-15T14:09:46+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261115T1407-exec-T-0157"
+    },
+    {
+     "ts": "2026-11-15T14:09:46+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-15T14:10:20+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 92cb49759b"
+    },
+    {
+     "ts": "2026-11-15T15:07:52+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The live build.json and sitemap.xml match the acceptance criteria. Sitemap_check has 24 urls, which equals the 24 sitemap entries, with no missing lastmod, nothing unreachable, and max_depth 1. The /d"
+    }
+   ]
+  },
+  {
+   "id": "T-0158",
+   "title": "Probe 1/3 for T-0156: Accept the fallback as the goal and verify it live",
+   "type": "research",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-15T14:09:45+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-15T14:09:45+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "replan probe for T-0156"
+    },
+    {
+     "ts": "2026-11-15T15:07:57+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261115T1507-exec-T-0158"
+    },
+    {
+     "ts": "2026-11-15T15:07:57+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-15T15:08:11+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "probe does not work: Probe result: accepting the fallback does not work as a \"close with no further code change\" path. Commit c0a804c (the 03.11 fix, size 159629) exists only on branch task/T-0156 and"
+    }
+   ]
+  },
+  {
+   "id": "T-0159",
+   "title": "Probe 2/3 for T-0156: Measure the budget as transfer (gzip) size",
+   "type": "research",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-15T14:09:45+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-15T14:09:45+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "replan probe for T-0156"
+    },
+    {
+     "ts": "2026-11-15T16:08:58+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261115T1607-exec-T-0159"
+    },
+    {
+     "ts": "2026-11-15T16:08:58+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-15T16:09:10+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "probe works: The gzip measure works. A gzip budget of about 36000 bytes would let the exemption go entirely. Nothing was changed or committed. Compressed, 03.11 is 33213 bytes (raw 177748), the larges"
+    }
+   ]
+  },
+  {
+   "id": "T-0160",
+   "title": "Probe 3/3 for T-0156: Whitespace and attribute minification at build time",
+   "type": "research",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-15T14:09:45+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-15T14:09:45+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "replan probe for T-0156"
+    },
+    {
+     "ts": "2026-11-15T17:08:09+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261115T1707-exec-T-0160"
+    },
+    {
+     "ts": "2026-11-15T17:08:09+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-15T17:08:20+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "probe does not work: Probe result: whitespace minification does NOT work. On this branch public/day/2026-11-03/index.html is 177748 bytes. After the acceptance regex (>\\s+< to ><) it is 175928 bytes, "
+    }
+   ]
+  },
+  {
+   "id": "T-0161",
+   "title": "size_check measures gzip transfer bytes: one 36000-byte gzip budget for every page, exemption for 03–04.11 removed",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-15T18:08:34+00:00",
+   "accepted_at": "2026-11-15T19:08:08+00:00",
+   "released_sha": "76e3bd388cea586e493d1db51c442ba6fb5d7535",
+   "history": [
+    {
+     "ts": "2026-11-15T18:08:34+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-15T18:08:35+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261115T1807-exec-T-0161"
+    },
+    {
+     "ts": "2026-11-15T18:08:35+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-15T18:09:01+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 76e3bd388c"
+    },
+    {
+     "ts": "2026-11-15T19:08:08+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The live build.json shows size_check measuring gzip against one 36000 B budget, with no exemptions and nothing over budget. The largest page is 03.11 at 33578 B, which leaves 2422 B of headroom, and a"
+    }
+   ]
+  },
+  {
+   "id": "T-0162",
+   "title": "Auto-requested files answer 200: /favicon.ico, /apple-touch-icon.png, /robots.txt with Sitemap line; wellknown_check in build.json",
+   "type": "quality",
+   "state": "review",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-15T19:09:11+00:00",
+   "accepted_at": null,
+   "released_sha": "76e3bd388cea586e493d1db51c442ba6fb5d7535",
+   "history": [
+    {
+     "ts": "2026-11-15T19:09:11+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-15T19:09:12+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261115T1907-exec-T-0162"
+    },
+    {
+     "ts": "2026-11-15T19:09:12+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-15T19:09:31+00:00",
+     "actor": "dispatcher",
+     "to": "review",
+     "note": "no change needed: The live site already serves all three files with 200 and the right content types. build.py already has check_wellknown and writes wellknown_check into build.json. public/ already co"
     }
    ]
   }
@@ -300,25 +960,62 @@
    "task": "T-0151",
    "verdict": "pass",
    "summary": "The live site shows the health object in today.json, the single p#home-health on /, the llms.txt line and health_check with no mismatches. All other checks stay empty and the 200/404 responses are as expected."
+  },
+  {
+   "task": "T-0153",
+   "verdict": "pass",
+   "summary": "The live site meets the size budget and folding criteria: size_check is correct, 13.11 is 113 KB and 03.11 is 188 KB, and long histories sit in details with counts. All other checks are empty and the endpoints return 200, with 404 for the missing page."
+  },
+  {
+   "task": "T-0154",
+   "verdict": "pass",
+   "summary": "The live build.json shows 5477 bytes of headroom and an empty over_budget list. The live day pages carry literal → arrows, style.css has no arrow rule, all check lists are empty, and the core endpoints return 200 with a 404 for the missing page."
+  },
+  {
+   "task": "T-0155",
+   "verdict": "pass",
+   "summary": "The live build.json meets every size and numbers criterion, and the other checks are empty. The 11-13 numbers match index.json, and the status codes are right."
+  },
+  {
+   "task": "T-0157",
+   "verdict": "pass",
+   "summary": "The live build.json and sitemap.xml match the acceptance criteria. Sitemap_check has 24 urls, which equals the 24 sitemap entries, with no missing lastmod, nothing unreachable, and max_depth 1. The /day/2026-11-02/ lastmod is 2026-11-02, the home page links the products and /brand/, and the other pages return the expected statuses."
+  },
+  {
+   "task": "T-0161",
+   "verdict": "pass",
+   "summary": "The live build.json shows size_check measuring gzip against one 36000 B budget, with no exemptions and nothing over budget. The largest page is 03.11 at 33578 B, which leaves 2422 B of headroom, and all the other checks and URLs behave as required."
   }
  ],
- "posts": [],
+ "posts": [
+  {
+   "channel": "x",
+   "url": "https://x.com/formachines_ai/status/2121998905147604997",
+   "ts": "2026-11-15T16:08:58+00:00"
+  },
+  {
+   "channel": "mastodon",
+   "url": "https://mastodon.social/@formachines/117621554475296200",
+   "ts": "2026-11-15T17:08:09+00:00"
+  }
+ ],
  "metrics": {
-  "humans": 58,
-  "engaged": 0,
-  "returns": 0,
+  "humans": 63,
+  "engaged": 1,
+  "returns": 1,
   "agents": 0,
-  "crawlers": 19,
-  "requests": 385
+  "crawlers": 134,
+  "requests": 847
  },
- "spend_usd": 2.3,
- "po_digest_md": "**Дневник, 15.11 (07 UTC)**\n\n**Что произошло.** Вчера приняты T-0145…T-0151: на страницах дней теперь показан SHA коммита, есть ссылка «Latest day», строка «Follow», недельная база с отметкой «unusual today», на страница 404 стоят ссылки обратно, в today.json добавлен объект health. Дефект T-0150 (сырой плейсхолдер в базе) исправлен, и в сборку добавлена проверка placeholder_check.\n\n**Цифры недели 09–15.11** (пороги прежние, по ответу Q-0025): engaged 26 из ≥50, возвратов 2 из ≥5, переходов на /try/ и /go/github/ около 11 из ≥10. Откликов (G4) нет. По G5 данных нет. Всплеск 15.11 (58 «людей», 0 engaged, у каждого по одному запросу) спросом не считаем: скорее всего, это боты. Google: в индексе 1 страница из 23, кликов 0.\n\n**Решения.**\n- OBS-0280: нужна разбивка источников по UA и referer. Это делает ops, а ops недоступен.\n- OBS-0281: связано со страницей 404 (T-0148). Список путей 404 по-прежнему ждёт ops (Q-0026).\n- OBS-0282: отложено, пока владелец не задаст цели после пилота.\n- Разработчику дана одна задача quality: свернуть длинные истории задач в `<details>`, ограничить страницу дня 150 КБ и добавить в сборку size_check. Выбрал её, потому что люди приходят именно на старые страницы дней, а на 375 px читателю приходится долго листать до #what-broke. Других сломанных мест на сайте не нашёл, новых функций не придумывал. Проверим по size_check в build.json и по числу engaged на /day/.\n- Маркетинг идёт по плану: сегодня пост в X и пост в Mastodon, 16.11 — свод для dev.to и новый план (T-0131).\n\n**Ждёт владельца:** цели после пилота (Q-0025), targets метрик (Q-0026), URL коммитов в экспорте (Q-0027).\n\n**Расход:** $1.39 из $20.",
- "analyst_md": "**Данные 09–15.11. 15.11 — неполный день (срез 06:00 UTC). Окно пилота 04–10.11 в метриках есть только за 09–10.11, поэтому итоги пилота неполные.**\n\n| Уровень | 09 | 10 | 11 | 12 | 13 | 14 | 15* |\n|---|---|---|---|---|---|---|---|\n| люди: источники | 18 | 11 | 66 | 13 | 26 | 18 | 58 |\n| engaged | 9 | 3 | 4 | 7 | 1 | 2 | 0 |\n| возвраты | 0 | 0 | 1 | 1 | 0 | 0 | 0 |\n| агенты: источники | 23 | 13 | 3 | 3 | 2 | 7 | 0 |\n| краулеры: запросы | 170 | 95 | 78 | 129 | 140 | 199 | 19 |\n\n- Engaged за 09–15.11: 26. Возвраты: 2. Цель G2 — 5.\n- Люди на `/try/` или `/go/github/` (источники по дням, сумма): около 11. В окне пилота 09–10.11 — 2.\n- Агенты: GPTBot сделал 54 запроса 14.11. Это краулер, а не фид-ридер.\n- 5xx нет. 4xx — 30–60% запросов в день.\n- Google: 0 кликов, проиндексирована 1 страница из 23.\n- X-пост 14.11 в 16:08. Дневные данные дают `x` 9 запросов, 2 человека, 1 engaged. Почасовых данных нет, до/после сравнить нельзя.\n\nРост engaged 12.11 (7) сменился падением до 1–2. Связать это с задачами T-0122…T-0150 нельзя: вклада по метрике до/после не видно.",
+ "spend_usd": 11.5,
+ "po_digest_md": "**Цикл 15.11, 19:07 UTC (агент-команда-дневник)**\n\n**Что произошло.** Принята пачка задач по качеству:\n- `<details>` в днях;\n- бюджет размера страниц теперь считается в gzip (T-0161), исключение для 03–04.11 снято;\n- ссылки для обхода Google и точные даты в sitemap (T-0157);\n- объект health в today.json (T-0151);\n- базовая линия за 7 дней (T-0149) и исправление её шаблона (T-0150).\n\nПосты 15.11 вышли в X и Mastodon. Слоты 16–17.11 и новый план (T-0131, 16.11) уже в очереди.\n\n**Решения по наблюдениям:**\n- **OBS-0299** (около 200 ответов 4xx в день не от сканеров) → новая задача качества для разработчика. Сайт будет отдавать /favicon.ico, /apple-touch-icon.png и /robots.txt со строкой Sitemap, наличие файлов проверит build.json. Обычно именно эти файлы браузеры и краулеры запрашивают сами. Через 3 дня после выкладки сравним долю 4xx в metrics.\n- **OBS-0300** (63 «человека» при одном engaged) → отложено. Это превью-боты после постов, а не спрос, и классификация трафика — дело фреймворка.\n- **OBS-0301** (G5 выполнена 14.11: GPTBot и 7 агентских источников; 15.11 агентов 0) → привязано к гипотезе T-0151, читаем её 29.11.\n\n**Спрос.** Engaged по-прежнему 1–2 в день, возвратов почти нет. Единственный канал с вовлечёнными людьми — X. Google: 0 кликов, проиндексирован 1 URL из 23.\n\n**Ждёт владельца:** цели после пилота (Q-0025), метрики по путям и per-day by_src (Q-0026), ссылки на коммиты в экспорте (Q-0027). Повторно не спрашиваю.\n\n**Расход:** $10.86 из $20.",
+ "analyst_md": "**Срез на 15.11 18:00 UTC (дни пилота 04–10.11 закончились; данные — по metrics.json).** Базы нет, цифры без оценок.\n\n| Уровень | 15.11 | 14.11 | 13.11 |\n|---|---|---|---|\n| Люди (источники) | 63 | 18 | 26 |\n| Engaged | 1 | 2 | 1 |\n| Возвраты | 1 | 0 | 0 |\n| Агенты (запросы) | 0 | 15 | 2 |\n| Краулеры (запросы) | 128 | 199 | 140 |\n| /try/ люди | 2 | 2 | 1 |\n| /go/github/ люди | 0 | 1 | 0 |\n\n- 15.11: 63 человека, но 54 запроса Mastodon-превью и 63 social previews — это превью-боты, а не люди. Скорее всего, часть «людей» — это разовые переходы без вовлечения (engaged 1).\n- Пост в X 14.11 16:08 → в ту же дату by_src x: 9 запросов, 2 human, 1 engaged; 15.11 x: 1 запрос. Эффект постов на X слабый и единичный.\n- Mastodon-пост 15.11 17:08: by_src mastodon 28 запросов, 0 human — это превью-боты.\n- 5xx = 0. 4xx 305 из 737 (101 — сканеры); остальное не объяснено, метрики не дают списка 404-путей.\n- GSC: 0 кликов, 11 показов, в индексе 1 из 23 URL.\n- Эффекты задач по before/after на одной метрике определить нельзя: выборка мала.",
  "observations": {
-  "new": 7,
+  "new": 25,
   "by_class": {
-   "need_hypothesis": 5,
-   "measurement": 2
+   "need_hypothesis": 19,
+   "measurement": 4,
+   "success": 2
   }
  },
  "owner_questions_open": 0

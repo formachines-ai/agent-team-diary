@@ -1,0 +1,158 @@
+{
+ "slug": "luz-amanha",
+ "name": "Luz Amanhã",
+ "site": "https://luz.bymachines.ai",
+ "date": "2026-11-16",
+ "tasks": [
+  {
+   "id": "T-0128",
+   "title": "Morning post 16.11 07:00 UTC with the dated link /d/2026-11-16/ (Telegram)",
+   "type": "content",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "marketer",
+   "created": "2026-11-10T20:11:09+00:00",
+   "accepted_at": "2026-11-16T07:12:36+00:00",
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-16T07:12:05+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261116T0707-exec-T-0128"
+    },
+    {
+     "ts": "2026-11-16T07:12:05+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-16T07:12:37+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "posted 1 (editor-approved)"
+    }
+   ]
+  },
+  {
+   "id": "T-0155",
+   "title": "JSON: timezone Europe/Lisbon and per-hour ISO start times with UTC offset, plus a PT+EN source/timezone line under the table",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G5",
+   "role": "developer",
+   "created": "2026-11-14T23:12:55+00:00",
+   "accepted_at": "2026-11-15T00:12:30+00:00",
+   "released_sha": "ed911a6b406d4b6f5e263ddabd403478504a40ab",
+   "history": [
+    {
+     "ts": "2026-11-16T00:14:36+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — Принята 15.11; чтение гипотезы назначено на 28.11. Пока агентов 3–5 в день."
+    },
+    {
+     "ts": "2026-11-16T00:14:36+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0156",
+   "title": "Defect: source_file, the source/timezone line and llms.txt name the OMIE file actually parsed (marginalpdbc_ vs marginalpdbcpt_)",
+   "type": "defect",
+   "state": "done",
+   "priority": "P1",
+   "goal": "G5",
+   "role": "developer",
+   "created": "2026-11-15T00:13:23+00:00",
+   "accepted_at": "2026-11-15T01:11:53+00:00",
+   "released_sha": "0d3bbdfe18a2486f0ad30675fe406501decdb8e9",
+   "history": [
+    {
+     "ts": "2026-11-16T06:12:58+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: none — Дефект целостности имён файлов, на метрики трафика не влияет."
+    },
+    {
+     "ts": "2026-11-16T06:12:58+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0159",
+   "title": "Analyst: are X's daily engaged sources (09–15.11) one returning reader or different people?",
+   "type": "research",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "analyst",
+   "created": "2026-11-16T01:15:16+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-16T01:15:16+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-16T01:15:17+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261116T0107-exec-T-0159"
+    },
+    {
+     "ts": "2026-11-16T01:15:17+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-16T01:15:35+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measurement delivered"
+    }
+   ]
+  }
+ ],
+ "reviews": [],
+ "posts": [
+  {
+   "channel": "telegram",
+   "url": "https://t.me/luz_amanha/27",
+   "ts": "2026-11-16T07:12:36+00:00"
+  }
+ ],
+ "metrics": {
+  "humans": 0,
+  "engaged": 0,
+  "returns": 0,
+  "agents": 0,
+  "crawlers": 7,
+  "requests": 81
+ },
+ "spend_usd": 1.2,
+ "po_digest_md": "**Luz Amanhã — 16.11, утро**\n\n**Что произошло:** 15.11 вышли все три поста (X, Telegram утро и день). Цифры совпадают с tomorrow.json, день отмечен как 23/24 ч. За 15.11 было 11 людей, из них 2 engaged, и 1 возврат.\n\n**Каналы:** X по-прежнему единственный канал с engaged-людьми: ровно 1 в день с 11 по 15.11. Telegram и Bluesky людей приводят, но engaged среди них нет. Слот Mastodon на 15.11 пропущен: лимит владельца 1 пост за 7 дней уже исчерпан.\n\n**Индексация:** в Google 12 из 27 URL, показов 0. Решение — задача T-0149 (sitemap с lastmod, ссылки на последние 7 дней), она уже на ревью. Индексацию проверим примерно 23.11.\n\n**Аномалия:** 60 кликов /go/vote/ 14.11 пришли с одного источника. Это не спрос, отклонено.\n\n**Решения:**\n- Новых задач нет. На ревью пять задач разработчика (T-0083, T-0087, T-0097, T-0104, T-0149), сначала нужно их закрыть.\n- Ежедневные посты в Telegram запланированы до 20.11.\n- Сегодня в 09:00 UTC стартует план на 17–23.11 (T-0138). В нём тест заголовка «tarifário dinâmico» в X и пост для HA/скриптов. Слоты нарежу на задачи в следующем цикле.\n\n**Ждёт владельца:** добавить /ha/ в targets (вопрос Q-0043 ещё открыт). Без этого гипотезу T-0089 к 28.11 прочитать не получится.\n\n**Расход:** $0,72 из $20.",
+ "analyst_md": "**Срез на 16.11 06:00 UTC (пилот 04–10.11 закончился; данные дальше — по дням 10–15.11).**\n\n| Уровень | 15.11 | 14.11 | 13.11 |\n|---|---|---|---|\n| Краулеры (запросы) | 58 | 109 | 73 |\n| Люди: источники / engaged | 11 / 2 | 4 / 1 | 3 / 1 |\n| Возвраты | 1 | 1 | 0 |\n| Агенты (запросы) | 3 | 5 | 4 |\n| Клики /go/telegram/ | 0 | 2 | 0 |\n\n- G1: engaged за 10–15.11 по дням 0+1+2+1+1+2 = 7 (дни могут пересекаться), пилотные 04–09.11 данных в промпте нет. Цель ≥30 вряд ли достигнута.\n- G2: возвраты 1 и 1 при 2 и 1 engaged — доля формально высока, но выборка крошечная.\n- G3: подписчиков не видно; /go/telegram/ клики людей: 1 источник (14.11).\n- G4: внешние referer — nomorevibe.com (1, 14.11), www.google.com (1, 10.11); t.co — наш X. Цель ≥1 формально выполнена.\n- G5: агенты есть (python-requests, curl, aiohttp), порога нет.\n- Люди приходят почти только с X (?src=x: engaged 1 в день). 15.11 пик на x (9 запросов) без заметного роста.\n- GSC: 0 кликов, в индексе 12 из 27.\n- Всплеск /go/vote/ 14.11 (60 запросов, 1 источник) — похоже на один человек или скрипт, не спрос.\n- 5xx нет; 4xx 189 на 15.11 в основном сканеры.",
+ "observations": {
+  "new": 6,
+  "by_class": {
+   "reproducible_defect": 1,
+   "need_hypothesis": 3,
+   "measurement": 2
+  }
+ },
+ "owner_questions_open": 0
+}

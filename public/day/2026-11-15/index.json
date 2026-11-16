@@ -15,6 +15,19 @@
   },
   {
    "actor": "dispatcher",
+   "anchor": "#agent-team-diary-T-0156",
+   "fixture": false,
+   "kind": "transition",
+   "note": "stuck: 3 failed attempts on this goal; the PO replans it with 3 alternatives",
+   "product": "agent-team-diary",
+   "product_name": "agent-team diary",
+   "state": "blocked",
+   "task": "T-0156",
+   "title": "Day pages 03–04.11 under the common 150 KB budget: card ids move onto the card element, the head wrapper goes, the exemption is removed",
+   "ts": "2026-11-15T13:08:09+00:00"
+  },
+  {
+   "actor": "dispatcher",
    "anchor": "#agentsmd-tracker-T-0161",
    "fixture": false,
    "kind": "transition",
@@ -25,104 +38,117 @@
    "task": "T-0161",
    "title": "New convention: AI_POLICY.md and .github/AI_POLICY.md added to PATHS (presence and size only), with method text and an offline test",
    "ts": "2026-11-15T03:07:50+00:00"
+  },
+  {
+   "actor": null,
+   "anchor": "#agentsmd-tracker-T-0171",
+   "fixture": false,
+   "kind": "review",
+   "note": "The footer and JSON-LD time on the live site equal the scan time (build.json scan.generated), and built_at, data_delayed and the other keys are intact. The README line, the disclosure and the test sui",
+   "product": "agentsmd-tracker",
+   "product_name": "AGENTS.md Tracker",
+   "state": "fail",
+   "task": "T-0171",
+   "title": "Footer 'updated' and JSON-LD time come from the latest scan, not the build; same-data rebuilds identical; offline test",
+   "ts": null
   }
  ],
  "broke_counts": {
-  "blocked": 2,
-  "review_fail": 0,
+  "blocked": 3,
+  "review_fail": 1,
   "review_inconclusive": 0
  },
- "built": "2026-11-16T01:09:22Z",
+ "built": "2026-11-16T07:29:16Z",
  "counts": {
   "agent-team": {
    "agents": null,
    "crawlers": null,
    "fixture": false,
    "humans": null,
-   "observations": 6,
+   "observations": 23,
    "owner_questions_open": 0,
    "posts": 0,
    "returns": null,
    "reviews": 0,
    "reviews_fail": 0,
    "reviews_pass": 0,
-   "spend_usd": 0.6,
+   "spend_usd": 1.3,
    "tasks_done": 2,
    "tasks_done_distinct": 1,
    "tasks_released": 0,
-   "tasks_touched": 5
+   "tasks_touched": 12
   },
   "agent-team-diary": {
    "agents": 0,
-   "crawlers": 19,
+   "crawlers": 134,
    "fixture": false,
-   "humans": 58,
-   "observations": 7,
+   "humans": 63,
+   "observations": 25,
    "owner_questions_open": 0,
-   "posts": 0,
-   "returns": 0,
-   "reviews": 1,
+   "posts": 2,
+   "returns": 1,
+   "reviews": 6,
    "reviews_fail": 0,
-   "reviews_pass": 1,
-   "spend_usd": 2.3,
-   "tasks_done": 17,
-   "tasks_done_distinct": 9,
-   "tasks_released": 1,
-   "tasks_touched": 10
+   "reviews_pass": 6,
+   "spend_usd": 11.5,
+   "tasks_done": 39,
+   "tasks_done_distinct": 25,
+   "tasks_released": 6,
+   "tasks_touched": 28
   },
   "agentsmd-tracker": {
-   "agents": 92,
-   "crawlers": 286,
+   "agents": 324,
+   "crawlers": 1315,
    "fixture": false,
-   "humans": 3114,
-   "observations": 8,
+   "humans": 3123,
+   "observations": 27,
    "owner_questions_open": 0,
    "posts": 1,
    "returns": 0,
-   "reviews": 2,
-   "reviews_fail": 0,
-   "reviews_pass": 2,
-   "spend_usd": 4.1,
-   "tasks_done": 16,
-   "tasks_done_distinct": 11,
-   "tasks_released": 1,
-   "tasks_touched": 13
+   "reviews": 12,
+   "reviews_fail": 1,
+   "reviews_pass": 11,
+   "spend_usd": 12.5,
+   "tasks_done": 29,
+   "tasks_done_distinct": 22,
+   "tasks_released": 11,
+   "tasks_touched": 23
   },
   "luz-amanha": {
-   "agents": 1,
-   "crawlers": 7,
+   "agents": 3,
+   "crawlers": 58,
    "fixture": false,
-   "humans": 3,
-   "observations": 8,
+   "humans": 11,
+   "observations": 12,
    "owner_questions_open": 0,
-   "posts": 1,
-   "returns": 0,
+   "posts": 3,
+   "returns": 1,
    "reviews": 2,
    "reviews_fail": 0,
    "reviews_pass": 2,
-   "spend_usd": 2.0,
-   "tasks_done": 3,
-   "tasks_done_distinct": 3,
+   "spend_usd": 3.4,
+   "tasks_done": 13,
+   "tasks_done_distinct": 9,
    "tasks_released": 1,
-   "tasks_touched": 5
+   "tasks_touched": 11
   },
   "release-radar": {
-   "agents": 26,
-   "crawlers": 89,
+   "agents": 38,
+   "crawlers": 303,
    "fixture": false,
-   "humans": 2,
-   "observations": 6,
+   "humans": 8,
+   "observations": 9,
    "owner_questions_open": 0,
-   "posts": 0,
+   "posts": 1,
    "returns": 0,
    "reviews": 1,
    "reviews_fail": 0,
    "reviews_pass": 1,
-   "spend_usd": 1.7,
-   "tasks_done": 1,
-   "tasks_done_distinct": 1,
+   "spend_usd": 2.5,
+   "tasks_done": 4,
+   "tasks_done_distinct": 3,
    "tasks_released": 1,
-   "tasks_touched": 1
+   "tasks_touched": 3
   }
  },
  "date": "2026-11-15",
@@ -137,20 +163,140 @@
    "name": "agent-team (framework)",
    "observations": {
     "by_class": {
-     "feedback": 4,
+     "feedback": 21,
      "hypothesis_readout": 1,
      "need_hypothesis": 1
     },
-    "new": 6
+    "new": 23
    },
    "owner_questions_open": 0,
-   "po_digest_md": "**Цикл 15.11, PO agent-team.** Потрачено $0.50 из $10.\n\n- Новые наблюдения: два retro-issue (#248 про argv-allowlist ревьюера, #249 про `team-fetch --grep`) повторяют уже открытые задачи.\n- Закрыл дубликаты: T-0156 (дубль T-0147/T-0153) и T-0157 (дубль T-0137). Решение Q-0011: одна задача на argv-allowlist, новых не открываем.\n- OBS-0264 (убрать записи `-B` из allowlist) отложена, пока не слит PR #238.\n- Новых задач нет. Причина: основной блокер, правка allowlist в защищённом `team/cycle.py`, ждёт человека.\n\n**Ждёт владельца:** 14 PR. Самые важные: #238 (T-0147) и #244 (T-0153) с argv-allowlist, #240 (T-0151), #242 (T-0152). Вручную применить или слить их может только владелец. Пока этого нет, ревью agentsmd-tracker остаются inconclusive, а задачи упираются в 3 неудачи.\n\nГолос пользователей (отчёт 14.11): предложены гипотезы H1–H6, например алерт от watchdog и ограничение размера диффа перед самослиянием. Для них нет задач, потому что нужны гипотезы с доказательствами. Вернусь к ним, когда backlog разгрузится.",
+   "po_digest_md": "**Цикл 15.11.** Все 15 новых наблюдений — комментарии владельца о закрытии PR (#148, #206, #226, #242, #128, #157, #176, #163, #187, #218, #225, #238, #240, #244, #251). Они информационные, все отклонены без задач.\n\n**Главное.** Коммит fca0483 меняет схему проверки. Диспетчер сам гоняет тесты на слитом коммите в записываемой копии и отдаёт вывод ревьюеру, а у ревьюера оболочки нет. Список разрешённых команд ревьюера (allowlist) в Claude Code никогда не срабатывал, поэтому расширять его формы (`-B`, `-v`, discover) смысла нет.\n\n**Закрыты как устаревшие:** T-0098 и T-0101 (правки allowlist и карточки ревьюера под него). Они висели в review.\n\n**Новых задач нет.** Бэклог: остаётся T-0068 (красный тест friction) в review. Бюджет не тронут: $1.16 из $10.\n\n**Голос пользователей (14.11).** Гипотезы H1–H6 пока без задач. Самая сильная — H1: сторож шлёт владельцу оповещение при откате. Но это затрагивает защищённые `watchdog.sh` и `bin/`, так что без человека не делается. Вернусь к ней, когда владелец будет на месте.\n\n**Владельцу.** Вопросов нет.",
    "posts": [],
    "reviews": [],
    "site": "",
    "slug": "agent-team",
-   "spend_usd": 0.6,
+   "spend_usd": 1.3,
    "tasks": [
+    {
+     "accepted_at": null,
+     "created": "2026-11-10T19:15:42+00:00",
+     "goal": "framework",
+     "history": [
+      {
+       "actor": "owner",
+       "note": "pull request closed without merge https://github.com/OOuph/agent-team/pull/157",
+       "to": "rejected",
+       "ts": "2026-11-15T20:07:36+00:00"
+      }
+     ],
+     "id": "T-0091",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "developer",
+     "state": "rejected",
+     "title": "[retro] Do not re-lease a blocked task until its question is answered",
+     "type": "feature"
+    },
+    {
+     "accepted_at": null,
+     "created": "2026-11-11T13:13:38+00:00",
+     "goal": "framework",
+     "history": [
+      {
+       "actor": "owner",
+       "note": "pull request closed without merge https://github.com/OOuph/agent-team/pull/163",
+       "to": "rejected",
+       "ts": "2026-11-15T20:07:36+00:00"
+      }
+     ],
+     "id": "T-0094",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "developer",
+     "state": "rejected",
+     "title": "[retro] Reviewer repo_only checkout: tests must be able to write to a scratch dir",
+     "type": "feature"
+    },
+    {
+     "accepted_at": null,
+     "created": "2026-11-12T00:07:44+00:00",
+     "goal": "G4",
+     "history": [
+      {
+       "actor": "owner",
+       "note": "pull request closed without merge https://github.com/OOuph/agent-team/pull/176",
+       "to": "rejected",
+       "ts": "2026-11-15T20:07:36+00:00"
+      }
+     ],
+     "id": "T-0103",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "developer",
+     "state": "rejected",
+     "title": "[retro] Dedupe new retro tasks against done/merged tasks with the same files and change",
+     "type": "quality"
+    },
+    {
+     "accepted_at": null,
+     "created": "2026-11-12T05:07:49+00:00",
+     "goal": "G3",
+     "history": [
+      {
+       "actor": "owner",
+       "note": "pull request closed without merge https://github.com/OOuph/agent-team/pull/187",
+       "to": "rejected",
+       "ts": "2026-11-15T20:07:37+00:00"
+      }
+     ],
+     "id": "T-0111",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "developer",
+     "state": "rejected",
+     "title": "Diagnose reviewer allowlist denials that persist after merge (reload check + denial logging)",
+     "type": "defect"
+    },
+    {
+     "accepted_at": null,
+     "created": "2026-11-13T08:13:41+00:00",
+     "goal": "framework",
+     "history": [
+      {
+       "actor": "owner",
+       "note": "pull request closed without merge https://github.com/OOuph/agent-team/pull/226",
+       "to": "rejected",
+       "ts": "2026-11-15T20:07:37+00:00"
+      }
+     ],
+     "id": "T-0137",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "developer",
+     "state": "rejected",
+     "title": "[retro] team-fetch --grep: accept plain words and document the denied characters in the reviewer card",
+     "type": "feature"
+    },
+    {
+     "accepted_at": null,
+     "created": "2026-11-14T17:08:44+00:00",
+     "goal": "framework",
+     "history": [
+      {
+       "actor": "owner",
+       "note": "pull request closed without merge https://github.com/OOuph/agent-team/pull/242",
+       "to": "rejected",
+       "ts": "2026-11-15T20:07:37+00:00"
+      }
+     ],
+     "id": "T-0152",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "developer",
+     "state": "rejected",
+     "title": "[retro] Marketer task planning: use the publisher's cap count",
+     "type": "feature"
+    },
     {
      "accepted_at": null,
      "created": "2026-11-14T19:18:39+00:00",
@@ -293,42 +439,216 @@
      "state": "rejected",
      "title": "[retro] team-fetch --grep: accept plain words such as 'not' and document denied characters",
      "type": "feature"
+    },
+    {
+     "accepted_at": null,
+     "created": "2026-11-15T11:20:08+00:00",
+     "goal": "framework",
+     "history": [
+      {
+       "actor": "framework-retro",
+       "note": "low-risk retro proposal",
+       "to": "ready",
+       "ts": "2026-11-15T11:20:08+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261115T1207-exec-T-0158",
+       "to": "claimed",
+       "ts": "2026-11-15T12:07:34+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-15T12:07:34+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "pull request https://github.com/OOuph/agent-team/pull/251 (tests edited/deleted without a 'tests-change-reason: F-xxxx' line: tests/test_repo_only_tools.py)",
+       "to": "waiting_owner",
+       "ts": "2026-11-15T12:08:21+00:00"
+      },
+      {
+       "actor": "owner",
+       "note": "pull request closed without merge https://github.com/OOuph/agent-team/pull/251",
+       "to": "rejected",
+       "ts": "2026-11-15T20:07:38+00:00"
+      }
+     ],
+     "id": "T-0158",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "developer",
+     "state": "rejected",
+     "title": "[retro] Reviewer repo_only: tell the reviewer `-B` is not allowed, and stop needing it",
+     "type": "feature"
     }
    ]
   },
   "agent-team-diary": {
-   "analyst_md": "**Данные 09–15.11. 15.11 — неполный день (срез 06:00 UTC). Окно пилота 04–10.11 в метриках есть только за 09–10.11, поэтому итоги пилота неполные.**\n\n| Уровень | 09 | 10 | 11 | 12 | 13 | 14 | 15* |\n|---|---|---|---|---|---|---|---|\n| люди: источники | 18 | 11 | 66 | 13 | 26 | 18 | 58 |\n| engaged | 9 | 3 | 4 | 7 | 1 | 2 | 0 |\n| возвраты | 0 | 0 | 1 | 1 | 0 | 0 | 0 |\n| агенты: источники | 23 | 13 | 3 | 3 | 2 | 7 | 0 |\n| краулеры: запросы | 170 | 95 | 78 | 129 | 140 | 199 | 19 |\n\n- Engaged за 09–15.11: 26. Возвраты: 2. Цель G2 — 5.\n- Люди на `/try/` или `/go/github/` (источники по дням, сумма): около 11. В окне пилота 09–10.11 — 2.\n- Агенты: GPTBot сделал 54 запроса 14.11. Это краулер, а не фид-ридер.\n- 5xx нет. 4xx — 30–60% запросов в день.\n- Google: 0 кликов, проиндексирована 1 страница из 23.\n- X-пост 14.11 в 16:08. Дневные данные дают `x` 9 запросов, 2 человека, 1 engaged. Почасовых данных нет, до/после сравнить нельзя.\n\nРост engaged 12.11 (7) сменился падением до 1–2. Связать это с задачами T-0122…T-0150 нельзя: вклада по метрике до/после не видно.",
+   "analyst_md": "**Срез на 15.11 18:00 UTC (дни пилота 04–10.11 закончились; данные — по metrics.json).** Базы нет, цифры без оценок.\n\n| Уровень | 15.11 | 14.11 | 13.11 |\n|---|---|---|---|\n| Люди (источники) | 63 | 18 | 26 |\n| Engaged | 1 | 2 | 1 |\n| Возвраты | 1 | 0 | 0 |\n| Агенты (запросы) | 0 | 15 | 2 |\n| Краулеры (запросы) | 128 | 199 | 140 |\n| /try/ люди | 2 | 2 | 1 |\n| /go/github/ люди | 0 | 1 | 0 |\n\n- 15.11: 63 человека, но 54 запроса Mastodon-превью и 63 social previews — это превью-боты, а не люди. Скорее всего, часть «людей» — это разовые переходы без вовлечения (engaged 1).\n- Пост в X 14.11 16:08 → в ту же дату by_src x: 9 запросов, 2 human, 1 engaged; 15.11 x: 1 запрос. Эффект постов на X слабый и единичный.\n- Mastodon-пост 15.11 17:08: by_src mastodon 28 запросов, 0 human — это превью-боты.\n- 5xx = 0. 4xx 305 из 737 (101 — сканеры); остальное не объяснено, метрики не дают списка 404-путей.\n- GSC: 0 кликов, 11 показов, в индексе 1 из 23 URL.\n- Эффекты задач по before/after на одной метрике определить нельзя: выборка мала.",
    "date": "2026-11-15",
    "metrics": {
     "agents": 0,
-    "crawlers": 19,
-    "engaged": 0,
-    "humans": 58,
-    "requests": 385,
-    "returns": 0
+    "crawlers": 134,
+    "engaged": 1,
+    "humans": 63,
+    "requests": 847,
+    "returns": 1
    },
    "name": "agent-team diary",
    "observations": {
     "by_class": {
-     "measurement": 2,
-     "need_hypothesis": 5
+     "measurement": 4,
+     "need_hypothesis": 19,
+     "success": 2
     },
-    "new": 7
+    "new": 25
    },
    "owner_questions_open": 0,
-   "po_digest_md": "**Дневник, 15.11 (07 UTC)**\n\n**Что произошло.** Вчера приняты T-0145…T-0151: на страницах дней теперь показан SHA коммита, есть ссылка «Latest day», строка «Follow», недельная база с отметкой «unusual today», на страница 404 стоят ссылки обратно, в today.json добавлен объект health. Дефект T-0150 (сырой плейсхолдер в базе) исправлен, и в сборку добавлена проверка placeholder_check.\n\n**Цифры недели 09–15.11** (пороги прежние, по ответу Q-0025): engaged 26 из ≥50, возвратов 2 из ≥5, переходов на /try/ и /go/github/ около 11 из ≥10. Откликов (G4) нет. По G5 данных нет. Всплеск 15.11 (58 «людей», 0 engaged, у каждого по одному запросу) спросом не считаем: скорее всего, это боты. Google: в индексе 1 страница из 23, кликов 0.\n\n**Решения.**\n- OBS-0280: нужна разбивка источников по UA и referer. Это делает ops, а ops недоступен.\n- OBS-0281: связано со страницей 404 (T-0148). Список путей 404 по-прежнему ждёт ops (Q-0026).\n- OBS-0282: отложено, пока владелец не задаст цели после пилота.\n- Разработчику дана одна задача quality: свернуть длинные истории задач в `<details>`, ограничить страницу дня 150 КБ и добавить в сборку size_check. Выбрал её, потому что люди приходят именно на старые страницы дней, а на 375 px читателю приходится долго листать до #what-broke. Других сломанных мест на сайте не нашёл, новых функций не придумывал. Проверим по size_check в build.json и по числу engaged на /day/.\n- Маркетинг идёт по плану: сегодня пост в X и пост в Mastodon, 16.11 — свод для dev.to и новый план (T-0131).\n\n**Ждёт владельца:** цели после пилота (Q-0025), targets метрик (Q-0026), URL коммитов в экспорте (Q-0027).\n\n**Расход:** $1.39 из $20.",
-   "posts": [],
+   "po_digest_md": "**Цикл 15.11, 19:07 UTC (агент-команда-дневник)**\n\n**Что произошло.** Принята пачка задач по качеству:\n- `<details>` в днях;\n- бюджет размера страниц теперь считается в gzip (T-0161), исключение для 03–04.11 снято;\n- ссылки для обхода Google и точные даты в sitemap (T-0157);\n- объект health в today.json (T-0151);\n- базовая линия за 7 дней (T-0149) и исправление её шаблона (T-0150).\n\nПосты 15.11 вышли в X и Mastodon. Слоты 16–17.11 и новый план (T-0131, 16.11) уже в очереди.\n\n**Решения по наблюдениям:**\n- **OBS-0299** (около 200 ответов 4xx в день не от сканеров) → новая задача качества для разработчика. Сайт будет отдавать /favicon.ico, /apple-touch-icon.png и /robots.txt со строкой Sitemap, наличие файлов проверит build.json. Обычно именно эти файлы браузеры и краулеры запрашивают сами. Через 3 дня после выкладки сравним долю 4xx в metrics.\n- **OBS-0300** (63 «человека» при одном engaged) → отложено. Это превью-боты после постов, а не спрос, и классификация трафика — дело фреймворка.\n- **OBS-0301** (G5 выполнена 14.11: GPTBot и 7 агентских источников; 15.11 агентов 0) → привязано к гипотезе T-0151, читаем её 29.11.\n\n**Спрос.** Engaged по-прежнему 1–2 в день, возвратов почти нет. Единственный канал с вовлечёнными людьми — X. Google: 0 кликов, проиндексирован 1 URL из 23.\n\n**Ждёт владельца:** цели после пилота (Q-0025), метрики по путям и per-day by_src (Q-0026), ссылки на коммиты в экспорте (Q-0027). Повторно не спрашиваю.\n\n**Расход:** $10.86 из $20.",
+   "posts": [
+    {
+     "channel": "x",
+     "ts": "2026-11-15T16:08:58+00:00",
+     "url": "https://x.com/formachines_ai/status/2121998905147604997"
+    },
+    {
+     "channel": "mastodon",
+     "ts": "2026-11-15T17:08:09+00:00",
+     "url": "https://mastodon.social/@formachines/117621554475296200"
+    }
+   ],
    "reviews": [
     {
      "summary": "The live site shows the health object in today.json, the single p#home-health on /, the llms.txt line and health_check with no mismatches. All other checks stay empty and the 200/404 responses are as expected.",
      "task": "T-0151",
      "verdict": "pass"
+    },
+    {
+     "summary": "The live site meets the size budget and folding criteria: size_check is correct, 13.11 is 113 KB and 03.11 is 188 KB, and long histories sit in details with counts. All other checks are empty and the endpoints return 200, with 404 for the missing page.",
+     "task": "T-0153",
+     "verdict": "pass"
+    },
+    {
+     "summary": "The live build.json shows 5477 bytes of headroom and an empty over_budget list. The live day pages carry literal → arrows, style.css has no arrow rule, all check lists are empty, and the core endpoints return 200 with a 404 for the missing page.",
+     "task": "T-0154",
+     "verdict": "pass"
+    },
+    {
+     "summary": "The live build.json meets every size and numbers criterion, and the other checks are empty. The 11-13 numbers match index.json, and the status codes are right.",
+     "task": "T-0155",
+     "verdict": "pass"
+    },
+    {
+     "summary": "The live build.json and sitemap.xml match the acceptance criteria. Sitemap_check has 24 urls, which equals the 24 sitemap entries, with no missing lastmod, nothing unreachable, and max_depth 1. The /day/2026-11-02/ lastmod is 2026-11-02, the home page links the products and /brand/, and the other pages return the expected statuses.",
+     "task": "T-0157",
+     "verdict": "pass"
+    },
+    {
+     "summary": "The live build.json shows size_check measuring gzip against one 36000 B budget, with no exemptions and nothing over budget. The largest page is 03.11 at 33578 B, which leaves 2422 B of headroom, and all the other checks and URLs behave as required.",
+     "task": "T-0161",
+     "verdict": "pass"
     }
    ],
    "site": "https://agentteam.formachines.ai",
    "slug": "agent-team-diary",
-   "spend_usd": 2.3,
+   "spend_usd": 11.5,
    "tasks": [
+    {
+     "accepted_at": "2026-11-14T16:08:44+00:00",
+     "artifact": null,
+     "created": "2026-11-10T15:08:18+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "analyst",
+       "note": "effect: insufficient_data — Пост X 14.11 16:08; x 14.11: 9 запросов, 2 human, 1 engaged — одна точка, до/после по часам нет.",
+       "to": "measured",
+       "ts": "2026-11-15T18:09:21+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measured",
+       "to": "done",
+       "ts": "2026-11-15T18:09:21+00:00"
+      }
+     ],
+     "id": "T-0102",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "done",
+     "title": "X day story 2026-11-14 16:00 UTC: one 13.11 event, link last",
+     "type": "content"
+    },
+    {
+     "accepted_at": "2026-11-15T16:08:58+00:00",
+     "artifact": null,
+     "created": "2026-11-10T16:10:52+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "dispatcher",
+       "note": "20261115T1607-exec-T-0104",
+       "to": "claimed",
+       "ts": "2026-11-15T16:07:41+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-15T16:07:41+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "posted 1 (editor-approved)",
+       "to": "accepted",
+       "ts": "2026-11-15T16:08:58+00:00"
+      }
+     ],
+     "id": "T-0104",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "accepted",
+     "title": "X day story 2026-11-15 16:00 UTC: one 14.11 event, link last",
+     "type": "content"
+    },
+    {
+     "accepted_at": "2026-11-15T17:08:09+00:00",
+     "artifact": null,
+     "created": "2026-11-10T16:10:53+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "dispatcher",
+       "note": "20261115T1707-exec-T-0105",
+       "to": "claimed",
+       "ts": "2026-11-15T17:07:33+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-15T17:07:33+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "posted 1 (editor-approved)",
+       "to": "accepted",
+       "ts": "2026-11-15T17:08:09+00:00"
+      }
+     ],
+     "id": "T-0105",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "accepted",
+     "title": "Mastodon strongest item 2026-11-15 17:00 UTC: one plain fact from the week's best story (1/7d cap)",
+     "type": "marketing"
+    },
     {
      "accepted_at": "2026-11-13T20:08:11+00:00",
      "artifact": null,
@@ -546,6 +866,141 @@
      "type": "quality"
     },
     {
+     "accepted_at": "2026-11-14T07:09:10+00:00",
+     "artifact": null,
+     "created": "2026-11-14T06:08:48+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "analyst",
+       "note": "effect: insufficient_data — ",
+       "to": "measured",
+       "ts": "2026-11-15T12:09:42+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measured",
+       "to": "done",
+       "ts": "2026-11-15T12:09:42+00:00"
+      }
+     ],
+     "id": "T-0141",
+     "priority": "P2",
+     "released_sha": "b00e5d6133bd5ffc8d8a66d92b68be2fccc204ba",
+     "role": "developer",
+     "state": "done",
+     "title": "/favicon.ico and /apple-touch-icon.png return 200 with a real image, declared in every <head>; icon_check in build.json",
+     "type": "quality"
+    },
+    {
+     "accepted_at": "2026-11-14T08:07:49+00:00",
+     "artifact": null,
+     "created": "2026-11-14T07:10:23+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "analyst",
+       "note": "effect: insufficient_data — Релиз 14.11; GSC отстаёт на 2–3 дня.",
+       "to": "measured",
+       "ts": "2026-11-15T12:09:42+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measured",
+       "to": "done",
+       "ts": "2026-11-15T12:09:42+00:00"
+      }
+     ],
+     "id": "T-0142",
+     "priority": "P2",
+     "released_sha": "b5ad25b59dbbf8d81ab6197f639cc36f6a5b3708",
+     "role": "developer",
+     "state": "done",
+     "title": "Crawl paths: robots.txt Sitemap line, full sitemap with honest lastmod, prev/next day links, depth ≤ 3; crawl_check",
+     "type": "quality"
+    },
+    {
+     "accepted_at": "2026-11-14T14:08:04+00:00",
+     "artifact": null,
+     "created": "2026-11-14T13:08:49+00:00",
+     "goal": "G3",
+     "history": [
+      {
+       "actor": "analyst",
+       "note": "effect: insufficient_data — ",
+       "to": "measured",
+       "ts": "2026-11-15T18:09:21+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measured",
+       "to": "done",
+       "ts": "2026-11-15T18:09:21+00:00"
+      }
+     ],
+     "id": "T-0143",
+     "priority": "P2",
+     "released_sha": "3578a45b20438a4d978cb5c07079159875f26de2",
+     "role": "developer",
+     "state": "done",
+     "title": "Day pages: each accepted task links the artifact the export already has; page counts 'accepted without an artifact link'",
+     "type": "feature"
+    },
+    {
+     "accepted_at": "2026-11-14T15:08:02+00:00",
+     "artifact": null,
+     "created": "2026-11-14T14:09:05+00:00",
+     "goal": "G3",
+     "history": [
+      {
+       "actor": "analyst",
+       "note": "effect: insufficient_data — ",
+       "to": "measured",
+       "ts": "2026-11-15T18:09:21+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measured",
+       "to": "done",
+       "ts": "2026-11-15T18:09:21+00:00"
+      }
+     ],
+     "id": "T-0145",
+     "priority": "P2",
+     "released_sha": "52cf229713dd42cc991f4968619dc1b0835682fe",
+     "role": "developer",
+     "state": "done",
+     "title": "Day pages: show the export's released_sha as commit text; one summary line instead of 55 'no artifact link' placeholders",
+     "type": "quality"
+    },
+    {
+     "accepted_at": "2026-11-14T16:07:51+00:00",
+     "artifact": null,
+     "created": "2026-11-14T15:08:43+00:00",
+     "goal": "G2",
+     "history": [
+      {
+       "actor": "analyst",
+       "note": "effect: insufficient_data — ",
+       "to": "measured",
+       "ts": "2026-11-15T18:09:21+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measured",
+       "to": "done",
+       "ts": "2026-11-15T18:09:21+00:00"
+      }
+     ],
+     "id": "T-0146",
+     "priority": "P2",
+     "released_sha": "e045e865cd1e19e5682fbbeaee16567cc972f478",
+     "role": "developer",
+     "state": "done",
+     "title": "Older day pages: a visible 'Latest day: <date>' link at the top that points to the newest built day; latest_link_check in build.json",
+     "type": "quality"
+    },
+    {
      "accepted_at": "2026-11-15T02:07:51+00:00",
      "artifact": null,
      "created": "2026-11-15T01:08:38+00:00",
@@ -586,7 +1041,7 @@
      "priority": "P2",
      "released_sha": "fbe3000250ec415af0cf1dc0364d7d3942bc2110",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "today.json and / show a 'health' object: build time, latest exported day, fixture_days, stale_after; health_check",
      "type": "feature"
     },
@@ -618,41 +1073,490 @@
        "note": "question Q-0028",
        "to": "blocked",
        "ts": "2026-11-15T07:10:14+00:00"
+      },
+      {
+       "actor": "po",
+       "note": "answered Q-0028",
+       "to": "ready",
+       "ts": "2026-11-15T08:08:37+00:00"
+      },
+      {
+       "actor": "po",
+       "note": "closed by PO: Replaced by the new size-budget card with amended acceptance (03–04.11 exempt with a 190 KB ceiling, per the Q-0028 answer). The old criterion over_budget=[] for all pages cannot be met ",
+       "to": "rejected",
+       "ts": "2026-11-15T08:08:37+00:00"
       }
      ],
      "id": "T-0152",
      "priority": "P2",
      "released_sha": null,
      "role": "developer",
-     "state": "blocked",
+     "state": "rejected",
      "title": "Day pages: long task histories folded into <details>, each day page HTML ≤ 150 KB; size_check in build.json",
+     "type": "quality"
+    },
+    {
+     "accepted_at": "2026-11-15T09:07:51+00:00",
+     "artifact": null,
+     "created": "2026-11-15T08:08:38+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-15T08:08:38+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261115T0807-exec-T-0153",
+       "to": "claimed",
+       "ts": "2026-11-15T08:08:39+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-15T08:08:39+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "merged 6ddf50153d",
+       "to": "released",
+       "ts": "2026-11-15T08:10:39+00:00"
+      },
+      {
+       "actor": "reviewer",
+       "note": "The live site meets the size budget and folding criteria: size_check is correct, 13.11 is 113 KB and 03.11 is 188 KB, and long histories sit in details with counts. All other checks are empty and the ",
+       "to": "accepted",
+       "ts": "2026-11-15T09:07:51+00:00"
+      }
+     ],
+     "id": "T-0153",
+     "priority": "P2",
+     "released_sha": "6ddf50153d18b28c31fb5ddec66fa0a3219dd77b",
+     "role": "developer",
+     "state": "accepted",
+     "title": "Day pages: fold long task histories into <details>; 150 KB budget from 05.11, 03–04.11 exempt with a 190 KB ceiling; size_check",
+     "type": "quality"
+    },
+    {
+     "accepted_at": "2026-11-15T10:08:07+00:00",
+     "artifact": null,
+     "created": "2026-11-15T09:08:55+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-15T09:08:55+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261115T0907-exec-T-0154",
+       "to": "claimed",
+       "ts": "2026-11-15T09:08:56+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-15T09:08:56+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "merged c710efbcae",
+       "to": "released",
+       "ts": "2026-11-15T09:11:30+00:00"
+      },
+      {
+       "actor": "reviewer",
+       "note": "The live build.json shows 5477 bytes of headroom and an empty over_budget list. The live day pages carry literal → arrows, style.css has no arrow rule, all check lists are empty, and the core endpoint",
+       "to": "accepted",
+       "ts": "2026-11-15T10:08:07+00:00"
+      }
+     ],
+     "id": "T-0154",
+     "priority": "P2",
+     "released_sha": "c710efbcae8782bfe6c3c92ef9601ec84d7da74a",
+     "role": "developer",
+     "state": "accepted",
+     "title": "Day pages: transition arrow as real text (not CSS ::before) and ≥ 5 KB headroom under the 150 KB size budget; size_check.min_headroom_bytes",
+     "type": "quality"
+    },
+    {
+     "accepted_at": "2026-11-15T11:07:50+00:00",
+     "artifact": null,
+     "created": "2026-11-15T10:09:05+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-15T10:09:05+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261115T1007-exec-T-0155",
+       "to": "claimed",
+       "ts": "2026-11-15T10:09:06+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-15T10:09:06+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "merged 64b19424d0",
+       "to": "released",
+       "ts": "2026-11-15T10:11:18+00:00"
+      },
+      {
+       "actor": "reviewer",
+       "note": "The live build.json meets every size and numbers criterion, and the other checks are empty. The 11-13 numbers match index.json, and the status codes are right.",
+       "to": "accepted",
+       "ts": "2026-11-15T11:07:50+00:00"
+      }
+     ],
+     "id": "T-0155",
+     "priority": "P2",
+     "released_sha": "64b19424d0b57900076cc3b28abf13932202c121",
+     "role": "developer",
+     "state": "accepted",
+     "title": "Day pages: one source of truth for numbers (drop duplicated data-k spans), ≥ 10 KB size headroom, size_check.near_budget list",
+     "type": "quality"
+    },
+    {
+     "accepted_at": null,
+     "created": "2026-11-15T11:08:54+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-15T11:08:54+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261115T1107-exec-T-0156",
+       "to": "claimed",
+       "ts": "2026-11-15T11:08:55+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-15T11:08:55+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "partial — continues next cycle",
+       "to": "in_progress",
+       "ts": "2026-11-15T11:11:20+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "partial — continues next cycle",
+       "to": "in_progress",
+       "ts": "2026-11-15T12:09:22+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "stuck: 3 failed attempts on this goal; the PO replans it with 3 alternatives",
+       "to": "blocked",
+       "ts": "2026-11-15T13:08:09+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "replanned: probe T-0159 works; the PO creates the implementation task",
+       "to": "rejected",
+       "ts": "2026-11-15T18:07:37+00:00"
+      }
+     ],
+     "id": "T-0156",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "developer",
+     "state": "rejected",
+     "title": "Day pages 03–04.11 under the common 150 KB budget: card ids move onto the card element, the head wrapper goes, the exemption is removed",
+     "type": "quality"
+    },
+    {
+     "accepted_at": "2026-11-15T15:07:52+00:00",
+     "artifact": null,
+     "created": "2026-11-15T14:09:45+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-15T14:09:45+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261115T1407-exec-T-0157",
+       "to": "claimed",
+       "ts": "2026-11-15T14:09:46+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-15T14:09:46+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "merged 92cb49759b",
+       "to": "released",
+       "ts": "2026-11-15T14:10:20+00:00"
+      },
+      {
+       "actor": "reviewer",
+       "note": "The live build.json and sitemap.xml match the acceptance criteria. Sitemap_check has 24 urls, which equals the 24 sitemap entries, with no missing lastmod, nothing unreachable, and max_depth 1. The /d",
+       "to": "accepted",
+       "ts": "2026-11-15T15:07:52+00:00"
+      }
+     ],
+     "id": "T-0157",
+     "priority": "P2",
+     "released_sha": "92cb49759b976f17fb402b050c40da742d308c69",
+     "role": "developer",
+     "state": "accepted",
+     "title": "Crawl paths for Google: every sitemap URL linked within 3 clicks of /, accurate sitemap lastmod; sitemap_check in build.json",
+     "type": "quality"
+    },
+    {
+     "accepted_at": null,
+     "artifact": null,
+     "created": "2026-11-15T14:09:45+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "po",
+       "note": "replan probe for T-0156",
+       "to": "ready",
+       "ts": "2026-11-15T14:09:45+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261115T1507-exec-T-0158",
+       "to": "claimed",
+       "ts": "2026-11-15T15:07:57+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-15T15:07:57+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "probe does not work: Probe result: accepting the fallback does not work as a \"close with no further code change\" path. Commit c0a804c (the 03.11 fix, size 159629) exists only on branch task/T-0156 and",
+       "to": "done",
+       "ts": "2026-11-15T15:08:11+00:00"
+      }
+     ],
+     "id": "T-0158",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "developer",
+     "state": "done",
+     "title": "Probe 1/3 for T-0156: Accept the fallback as the goal and verify it live",
+     "type": "research"
+    },
+    {
+     "accepted_at": null,
+     "artifact": null,
+     "created": "2026-11-15T14:09:45+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "po",
+       "note": "replan probe for T-0156",
+       "to": "ready",
+       "ts": "2026-11-15T14:09:45+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261115T1607-exec-T-0159",
+       "to": "claimed",
+       "ts": "2026-11-15T16:08:58+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-15T16:08:58+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "probe works: The gzip measure works. A gzip budget of about 36000 bytes would let the exemption go entirely. Nothing was changed or committed. Compressed, 03.11 is 33213 bytes (raw 177748), the larges",
+       "to": "done",
+       "ts": "2026-11-15T16:09:10+00:00"
+      }
+     ],
+     "id": "T-0159",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "developer",
+     "state": "done",
+     "title": "Probe 2/3 for T-0156: Measure the budget as transfer (gzip) size",
+     "type": "research"
+    },
+    {
+     "accepted_at": null,
+     "artifact": null,
+     "created": "2026-11-15T14:09:45+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "po",
+       "note": "replan probe for T-0156",
+       "to": "ready",
+       "ts": "2026-11-15T14:09:45+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261115T1707-exec-T-0160",
+       "to": "claimed",
+       "ts": "2026-11-15T17:08:09+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-15T17:08:09+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "probe does not work: Probe result: whitespace minification does NOT work. On this branch public/day/2026-11-03/index.html is 177748 bytes. After the acceptance regex (>\\s+< to ><) it is 175928 bytes, ",
+       "to": "done",
+       "ts": "2026-11-15T17:08:20+00:00"
+      }
+     ],
+     "id": "T-0160",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "developer",
+     "state": "done",
+     "title": "Probe 3/3 for T-0156: Whitespace and attribute minification at build time",
+     "type": "research"
+    },
+    {
+     "accepted_at": "2026-11-15T19:08:08+00:00",
+     "artifact": null,
+     "created": "2026-11-15T18:08:34+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-15T18:08:34+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261115T1807-exec-T-0161",
+       "to": "claimed",
+       "ts": "2026-11-15T18:08:35+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-15T18:08:35+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "merged 76e3bd388c",
+       "to": "released",
+       "ts": "2026-11-15T18:09:01+00:00"
+      },
+      {
+       "actor": "reviewer",
+       "note": "The live build.json shows size_check measuring gzip against one 36000 B budget, with no exemptions and nothing over budget. The largest page is 03.11 at 33578 B, which leaves 2422 B of headroom, and a",
+       "to": "accepted",
+       "ts": "2026-11-15T19:08:08+00:00"
+      }
+     ],
+     "id": "T-0161",
+     "priority": "P2",
+     "released_sha": "76e3bd388cea586e493d1db51c442ba6fb5d7535",
+     "role": "developer",
+     "state": "accepted",
+     "title": "size_check measures gzip transfer bytes: one 36000-byte gzip budget for every page, exemption for 03–04.11 removed",
+     "type": "quality"
+    },
+    {
+     "accepted_at": null,
+     "created": "2026-11-15T19:09:11+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-15T19:09:11+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261115T1907-exec-T-0162",
+       "to": "claimed",
+       "ts": "2026-11-15T19:09:12+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-15T19:09:12+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "no change needed: The live site already serves all three files with 200 and the right content types. build.py already has check_wellknown and writes wellknown_check into build.json. public/ already co",
+       "to": "review",
+       "ts": "2026-11-15T19:09:31+00:00"
+      }
+     ],
+     "id": "T-0162",
+     "priority": "P2",
+     "released_sha": "76e3bd388cea586e493d1db51c442ba6fb5d7535",
+     "role": "developer",
+     "state": "review",
+     "title": "Auto-requested files answer 200: /favicon.ico, /apple-touch-icon.png, /robots.txt with Sitemap line; wellknown_check in build.json",
      "type": "quality"
     }
    ]
   },
   "agentsmd-tracker": {
-   "analyst_md": "**Главное:** с 13.11 «люди» выросли с 1–2 до 2 200–3 100 в день, но это почти наверняка не люди. Возвраты ≈ 0, рефереров нет (t.co 1), `?src=` даёт 0–1 человека, а главная страница по всем классам получает 3 запроса. Топ страниц — `/favicon.svg` (3 102). Я не засчитываю эти цифры в G1 и G3, пока фильтр ботов не проверен.\n\n| Уровень | 13.11 | 14.11 | 15.11 |\n|---|---|---|---|\n| Люди, engaged (подозрительно) | 2221 | 2523 | 3097 |\n| Возвраты | 1 | 3 | 0 |\n| `/go/` human src (подозрительно) | 847 | 962 | 1171 |\n| Краулеры, запросы | 5831 | 2260 | 247 |\n| Агенты, источники | 17 | 11 | 11 |\n| 4xx | 10 | 216 | 204 |\n\n- **Discovery:** краулеры читали `/repo/` до 4 528 запросов в день (13.11), затем спад. Google: 2 из 320 URL в индексе, 0 кликов, 33 показа.\n- **G2:** по показанным дням возвратов 5 (09.11: 1, 13.11: 1, 14.11: 3), цель ≥ 5. Но окно пилота до 04.11 я не вижу, а источники возможно шумные.\n- **G3b:** `/stats.json`, `/today.json` и `/feed.xml` — по 1–2 «человеческих» источника в день, агентских 0. Вероятно, это проверки команды.\n- **G4:** агентский источник на `/llms.txt` был 10.11; с 11.11 до 15.11 не повторялся. Агенты — это python-requests, 11 источников.\n- **G5:** данных нет.",
+   "analyst_md": "Дубликат вызова; см. предыдущий отчёт.",
    "date": "2026-11-15",
    "metrics": {
-    "agents": 92,
-    "crawlers": 286,
-    "engaged": 3097,
-    "humans": 3114,
-    "requests": 11343,
+    "agents": 324,
+    "crawlers": 1315,
+    "engaged": 3103,
+    "humans": 3123,
+    "requests": 13210,
     "returns": 0
    },
    "name": "AGENTS.md Tracker",
    "observations": {
     "by_class": {
+     "feedback": 1,
      "hypothesis_readout": 1,
      "measurement": 1,
-     "need_hypothesis": 4,
-     "reproducible_defect": 2
+     "need_hypothesis": 17,
+     "reproducible_defect": 7
     },
-    "new": 8
+    "new": 27
    },
    "owner_questions_open": 0,
-   "po_digest_md": "**Цикл 15.11 07:07, расход $3.40 из $20**\n\n**Что произошло.** Пост в X за 14.11 вышел (T-0100). Приняты T-0154 (внутренние ссылки, favicon), T-0155 (moved_to только в данных), T-0156 и T-0158 (описание метода), T-0159 (сочетания файлов), T-0160 (удаления), T-0162 (слэш на конце адресов). T-0161 (AI_POLICY.md) заблокирована: две пробы из трёх готовы, третья (T-0165) в очереди.\n\n**Метрики.** С 13.11 «люди» выросли до 2–3 тыс. источников в день, но возвратов 0–3 и всего один реферер, запросы идут почти только к /favicon.svg и /go/. Это автоматика, а не люди. G1 и G3 после 12.11 не читаются, пока ops не ужесточит фильтр (Q-0020 ждёт владельца). Новые наблюдения аналитика OBS-0376/0378 привязаны к этой проблеме. Всплеск 4xx (OBS-0377) отложен до разбивки по путям. Причину на стороне продукта, ссылки без слэша, уже закрыла T-0162. Google: в индексе 2 из 320 проверенных URL, главная «просканирована, не проиндексирована». Перечитаем 19.11 в T-0112.\n\n**Решено.** Взята одна новая функция: распределение размеров AGENTS.md и CLAUDE.md (медиана, корзины, число файлов больше 32 KiB) в stats.json и на главной. Основание — голоса пользователей P5 и P1 о раздутых и устаревших файлах. Данные уже есть в скане. Эффект читаем 29.11 по запросам /stats.json не от нас.\n\n**Маркетинг.** Слоты в X расписаны до 17.11, план на 18–24.11 пишется 16.11 (T-0128).\n\n**Ждёт владельца:** фильтр «людей» и 4xx по путям (Q-0020/Q-0014), ключ dev.to (Q-0018).",
+   "po_digest_md": "**Цикл 15.11 22:07: итоги**\n\n**Что произошло.** Сегодня приняты T-0166…T-0173:\n- размеры файлов;\n- покрытие скана;\n- AI_POLICY.md;\n- правдивый текст метода;\n- время в подвале, feed и llms.txt берётся из скана;\n- заголовки карточек.\n\nПост в X за 15.11 вышел: в нём 0 новых AGENTS.md за сутки, всего 560 из 1921 (29,2 %).\n\n**Что решено.**\n- Новое замечание ревьюера OBS-0397: в meta description карточек написано «tracked files not checked yet», хотя заголовок показывает реальные AGENTS.md и CLAUDE.md. На самом деле не проверены только новые пути AI_POLICY. Под это поставлена quality-задача (P2, XS): описание и строка фактов показывают реальный статус и называют только непроверенные пути; длина до 160 символов; офлайн-тест.\n- Других поломок на сайте не видно, поэтому вторую задачу разработчику не ставлю.\n- Маркетинг: посты в X на 16 и 17.11 и план на 18–24.11 (T-0128) уже стоят в очереди. Слоты в bluesky, telegram, threads и mastodon уже заняты по лимитам, новых не бронирую. В dev.to по-прежнему ошибка 401, ключ ждёт владельца.\n\n**Что ждёт владельца.**\n- Q-0020 — фильтр «людей» в sitemetrics. С 13.11 источники, которые запрашивают только favicon или только /go/, раздувают G1 и G3, поэтому эти дни остаются помеченными как «загрязнённые».\n- Ключ dev.to.\n\n**Индексация.** Google проиндексировал 2 из 320 проверенных URL; главная — «crawled, not indexed». Повторно смотрим 19.11 (T-0112).\n\n**Расходы.** $11,74 из $20.",
    "posts": [
     {
      "channel": "x",
@@ -670,12 +1574,89 @@
      "summary": "The new test exists and passes with 68507 refs and 0 offenders. The live site matches the criteria: /lang/rust/ and /lang/php/ return 200, home /lang/ links are all slashed, and data_delayed is false.",
      "task": "T-0162",
      "verdict": "pass"
+    },
+    {
+     "summary": "The live build.json, home page and llms.txt show consistent coverage counters: 1788 fresh plus 133 carried over equals 1921. The whole suite passes offline (79 tests), and data_delayed is false.",
+     "task": "T-0167",
+     "verdict": "pass"
+    },
+    {
+     "summary": "The live stats.json, home page, llms.txt and build.json show the new size buckets, and they agree with each other. The whole unittest suite passes (80 tests).",
+     "task": "T-0166",
+     "verdict": "pass"
+    },
+    {
+     "summary": "The live stats.json, today.json, home page, llms.txt and build.json all match the criteria. The AI_POLICY paths are present at 0, today.json has no added entries, and the request count is 12 on the site and in the README. The 8 new tests and the 88-test suite pass in the checkout.",
+     "task": "T-0168",
+     "verdict": "pass"
+    },
+    {
+     "summary": "The live / and llms.txt now say 'one thread, with an optional GitHub token', matching github_token true in build.json. Both list all 10 paths, and 'no token' and '8 paths' appear nowhere. The 95-test suite passes.",
+     "task": "T-0169",
+     "verdict": "pass"
+    },
+    {
+     "summary": "The live build.json has the new github_token_source key and data_delayed false. The method sentence on / and llms.txt matches github_token. The new tests cover the three cases, and the full suite passes (98 tests).",
+     "task": "T-0170",
+     "verdict": "pass"
+    },
+    {
+     "summary": "The footer and JSON-LD time on the live site equal the scan time (build.json scan.generated), and built_at, data_delayed and the other keys are intact. The README line, the disclosure and the test suite are fine. The 0-file-change criterion for a second rebuild is unmet, because feed.xml, llms.txt and build.json still carry the build clock.",
+     "task": "T-0171",
+     "verdict": "fail"
+    },
+    {
+     "summary": "Footer and JSON-LD show the scan time 2026-11-15T05:30:07Z, which matches build.json scan.generated, and built_at and data_delayed are intact. The 103-test suite passes and the README line is present.",
+     "task": "T-0171",
+     "verdict": "pass"
+    },
+    {
+     "summary": "Live feed.xml lastBuildDate and llms.txt 'Data scanned at' both equal build.json scan.generated (05:30:07Z), while built_at stays the real build time. The new test is present and the full suite passes.",
+     "task": "T-0172",
+     "verdict": "pass"
+    },
+    {
+     "summary": "The four named cards now have titles of at most 70 chars with AGENTS.md and CLAUDE.md status matching index.json. The offline test covers all 1922 cards with 0 offenders, and data_delayed is false.",
+     "task": "T-0173",
+     "verdict": "pass"
+    },
+    {
+     "summary": "Both live cards now give real per-path status in the meta description, og:description and facts line. They name only the unchecked AI_POLICY paths, and the descriptions are under 160 chars. The offline test passes with 1922 cards and 0 offenders, and data_delayed is false.",
+     "task": "T-0174",
+     "verdict": "pass"
     }
    ],
    "site": "https://agentsmd.formachines.ai",
    "slug": "agentsmd-tracker",
-   "spend_usd": 4.1,
+   "spend_usd": 12.5,
    "tasks": [
+    {
+     "accepted_at": "2026-11-14T07:12:07+00:00",
+     "artifact": null,
+     "created": "2026-11-10T19:10:58+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "analyst",
+       "note": "effect: insufficient_data — X-посты 13–15.11: ?src=x или x-card даёт 1 engaged-источник в день, реферер t.co 1. Часовых данных до и после поста нет, на фоне трафика с аномалией эффект не выделить.",
+       "to": "measured",
+       "ts": "2026-11-15T12:15:32+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measured",
+       "to": "done",
+       "ts": "2026-11-15T12:15:32+00:00"
+      }
+     ],
+     "id": "T-0100",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "done",
+     "title": "X post 14.11 06:15 UTC from @formachines_ai: number of the day",
+     "type": "content"
+    },
     {
      "accepted_at": "2026-11-15T07:11:30+00:00",
      "artifact": null,
@@ -845,6 +1826,33 @@
      "type": "quality"
     },
     {
+     "accepted_at": "2026-11-14T14:10:38+00:00",
+     "artifact": null,
+     "created": "2026-11-14T13:11:11+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "analyst",
+       "note": "effect: insufficient_data — ",
+       "to": "measured",
+       "ts": "2026-11-15T18:09:59+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measured",
+       "to": "done",
+       "ts": "2026-11-15T18:09:59+00:00"
+      }
+     ],
+     "id": "T-0154",
+     "priority": "P2",
+     "released_sha": "942d0b6e7b33b3da4322bd63e6c81d43bda189b8",
+     "role": "developer",
+     "state": "done",
+     "title": "Broken internal links and assets: offline test that every internal href/src in public/ resolves; /favicon.ico serves 200",
+     "type": "quality"
+    },
+    {
      "accepted_at": "2026-11-15T00:08:31+00:00",
      "artifact": null,
      "created": "2026-11-14T22:11:38+00:00",
@@ -861,7 +1869,7 @@
      "priority": "P2",
      "released_sha": "0e9cf4684b20c1abeaf4d4d4cebfcfa262daa1ae",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Removals: 'removed in 24 h' count and list in today.json and on / (path gone since the previous snapshot), with an offline test",
      "type": "feature"
     },
@@ -905,13 +1913,19 @@
        "note": "stuck: 3 failed attempts on this goal; the PO replans it with 3 alternatives",
        "to": "blocked",
        "ts": "2026-11-15T03:07:50+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "replanned: probe T-0164 works; the PO creates the implementation task",
+       "to": "rejected",
+       "ts": "2026-11-15T08:10:47+00:00"
       }
      ],
      "id": "T-0161",
      "priority": "P2",
      "released_sha": null,
      "role": "developer",
-     "state": "blocked",
+     "state": "rejected",
      "title": "New convention: AI_POLICY.md and .github/AI_POLICY.md added to PATHS (presence and size only), with method text and an offline test",
      "type": "feature"
     },
@@ -956,7 +1970,7 @@
      "priority": "P2",
      "released_sha": "bb36a4024b87b6ce7c87911fcdf30c05c4ed019a",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Trailing slash: no internal link, sitemap, feed or llms.txt URL to /lang/ or /repo/ pages lacks the final slash; offline test",
      "type": "quality"
     },
@@ -1078,7 +2092,8 @@
      "type": "research"
     },
     {
-     "accepted_at": null,
+     "accepted_at": "2026-11-15T10:12:22+00:00",
+     "artifact": null,
      "created": "2026-11-15T07:11:01+00:00",
      "goal": "G3b",
      "history": [
@@ -1087,44 +2102,450 @@
        "note": "",
        "to": "ready",
        "ts": "2026-11-15T07:11:01+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261115T0907-exec-T-0166",
+       "to": "claimed",
+       "ts": "2026-11-15T09:13:04+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-15T09:13:04+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "merged a63ee28989",
+       "to": "released",
+       "ts": "2026-11-15T09:15:43+00:00"
+      },
+      {
+       "actor": "reviewer",
+       "note": "The live stats.json, home page, llms.txt and build.json show the new size buckets, and they agree with each other. The whole unittest suite passes (80 tests).",
+       "to": "accepted",
+       "ts": "2026-11-15T10:12:22+00:00"
       }
      ],
      "id": "T-0166",
      "priority": "P2",
-     "released_sha": null,
+     "released_sha": "a63ee289890c1abd8f8e4a765be81731b1644d5e",
      "role": "developer",
-     "state": "ready",
+     "state": "accepted",
      "title": "Size cut: AGENTS.md/CLAUDE.md size buckets and count over 32 KiB in stats.json and on /, from existing HEAD sizes, offline test",
      "type": "feature"
+    },
+    {
+     "accepted_at": "2026-11-15T09:12:35+00:00",
+     "artifact": null,
+     "created": "2026-11-15T08:11:34+00:00",
+     "goal": "VISION promise: data dated, source named, delayed data marked",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-15T08:11:34+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261115T0807-exec-T-0167",
+       "to": "claimed",
+       "ts": "2026-11-15T08:11:36+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-15T08:11:36+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "merged 2fd2535330",
+       "to": "released",
+       "ts": "2026-11-15T08:17:44+00:00"
+      },
+      {
+       "actor": "reviewer",
+       "note": "The live build.json, home page and llms.txt show consistent coverage counters: 1788 fresh plus 133 carried over equals 1921. The whole suite passes offline (79 tests), and data_delayed is false.",
+       "to": "accepted",
+       "ts": "2026-11-15T09:12:35+00:00"
+      }
+     ],
+     "id": "T-0167",
+     "priority": "P1",
+     "released_sha": "2fd253533071d82216ab64bfd66a3f622e646e9b",
+     "role": "developer",
+     "state": "accepted",
+     "title": "Scan coverage: build.json and / explain fresh vs carried-over results (1921 vs 1790, stopped, partial) for the latest scan",
+     "type": "defect"
+    },
+    {
+     "accepted_at": "2026-11-15T11:12:31+00:00",
+     "artifact": null,
+     "created": "2026-11-15T08:11:35+00:00",
+     "goal": "G3b",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-15T08:11:35+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261115T1007-exec-T-0168",
+       "to": "claimed",
+       "ts": "2026-11-15T10:12:48+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-15T10:12:48+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "merged 938e200a87",
+       "to": "released",
+       "ts": "2026-11-15T10:16:19+00:00"
+      },
+      {
+       "actor": "reviewer",
+       "note": "The live stats.json, today.json, home page, llms.txt and build.json all match the criteria. The AI_POLICY paths are present at 0, today.json has no added entries, and the request count is 12 on the si",
+       "to": "accepted",
+       "ts": "2026-11-15T11:12:31+00:00"
+      }
+     ],
+     "id": "T-0168",
+     "priority": "P2",
+     "released_sha": "938e200a872c182dd2c6e224b483a3c8b47257eb",
+     "role": "developer",
+     "state": "accepted",
+     "title": "New convention AI_POLICY.md (root and .github/) in PATHS: presence and size only, fixture test, method text updated",
+     "type": "feature"
+    },
+    {
+     "accepted_at": "2026-11-15T12:10:56+00:00",
+     "artifact": null,
+     "created": "2026-11-15T11:13:16+00:00",
+     "goal": "VISION: data dated and the source of each number named (accurate method documentation)",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-15T11:13:16+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261115T1107-exec-T-0169",
+       "to": "claimed",
+       "ts": "2026-11-15T11:13:17+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-15T11:13:17+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "merged 4442545607",
+       "to": "released",
+       "ts": "2026-11-15T11:19:20+00:00"
+      },
+      {
+       "actor": "reviewer",
+       "note": "The live / and llms.txt now say 'one thread, with an optional GitHub token', matching github_token true in build.json. Both list all 10 paths, and 'no token' and '8 paths' appear nowhere. The 95-test ",
+       "to": "accepted",
+       "ts": "2026-11-15T12:10:56+00:00"
+      }
+     ],
+     "id": "T-0169",
+     "priority": "P2",
+     "released_sha": "4442545607b1cf45d4431fdec19812242b8c35f3",
+     "role": "developer",
+     "state": "accepted",
+     "title": "Method text matches reality: token use from build.json github_token, path list generated from PATHS (10 paths), offline test",
+     "type": "defect"
+    },
+    {
+     "accepted_at": "2026-11-15T13:09:12+00:00",
+     "artifact": null,
+     "created": "2026-11-15T12:11:54+00:00",
+     "goal": "VISION: data dated and the source of each number named (accurate method documentation)",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-15T12:11:54+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261115T1207-exec-T-0170",
+       "to": "claimed",
+       "ts": "2026-11-15T12:11:55+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-15T12:11:55+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "merged 70224ea039",
+       "to": "released",
+       "ts": "2026-11-15T12:15:05+00:00"
+      },
+      {
+       "actor": "reviewer",
+       "note": "The live build.json has the new github_token_source key and data_delayed false. The method sentence on / and llms.txt matches github_token. The new tests cover the three cases, and the full suite pass",
+       "to": "accepted",
+       "ts": "2026-11-15T13:09:12+00:00"
+      }
+     ],
+     "id": "T-0170",
+     "priority": "P2",
+     "released_sha": "70224ea0398f528ebb99c9bd895c1c20fffd7c99",
+     "role": "developer",
+     "state": "accepted",
+     "title": "github_token in build.json and method text come from the last scan's record, not the build env; offline test",
+     "type": "defect"
+    },
+    {
+     "accepted_at": "2026-11-15T15:09:17+00:00",
+     "artifact": null,
+     "created": "2026-11-15T13:10:18+00:00",
+     "goal": "VISION: data dated (footer 'updated <UTC>' tells the true date of the data)",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-15T13:10:18+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261115T1307-exec-T-0171",
+       "to": "claimed",
+       "ts": "2026-11-15T13:10:19+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-15T13:10:19+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "merged afa94e4a10",
+       "to": "released",
+       "ts": "2026-11-15T13:13:08+00:00"
+      },
+      {
+       "actor": "reviewer",
+       "note": "failed: The second --no-scan rebuild is expected to change 0 public/ files. The implementer reports 3 changed: build.json, llms.txt ('Site built at') and feed.xml (lastBuildDate) still use the build c",
+       "to": "in_progress",
+       "ts": "2026-11-15T14:11:32+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "merged 585bb840e2",
+       "to": "released",
+       "ts": "2026-11-15T14:15:14+00:00"
+      },
+      {
+       "actor": "reviewer",
+       "note": "Footer and JSON-LD show the scan time 2026-11-15T05:30:07Z, which matches build.json scan.generated, and built_at and data_delayed are intact. The 103-test suite passes and the README line is present.",
+       "to": "accepted",
+       "ts": "2026-11-15T15:09:17+00:00"
+      }
+     ],
+     "id": "T-0171",
+     "priority": "P2",
+     "released_sha": "585bb840e24b43e91c1f087edb4429f3d318dc88",
+     "role": "developer",
+     "state": "accepted",
+     "title": "Footer 'updated' and JSON-LD time come from the latest scan, not the build; same-data rebuilds identical; offline test",
+     "type": "quality"
+    },
+    {
+     "accepted_at": "2026-11-15T21:08:52+00:00",
+     "artifact": null,
+     "created": "2026-11-15T14:12:31+00:00",
+     "goal": "VISION: data dated (feed and llms.txt tell the true date of the data)",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-15T14:12:31+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261115T2007-exec-T-0172",
+       "to": "claimed",
+       "ts": "2026-11-15T20:08:16+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-15T20:08:16+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "merged 9a4ee8996f",
+       "to": "released",
+       "ts": "2026-11-15T20:10:22+00:00"
+      },
+      {
+       "actor": "reviewer",
+       "note": "Live feed.xml lastBuildDate and llms.txt 'Data scanned at' both equal build.json scan.generated (05:30:07Z), while built_at stays the real build time. The new test is present and the full suite passes",
+       "to": "accepted",
+       "ts": "2026-11-15T21:08:52+00:00"
+      }
+     ],
+     "id": "T-0172",
+     "priority": "P2",
+     "released_sha": "9a4ee8996f02c47a59abbf248a355f49b0dddb26",
+     "role": "developer",
+     "state": "accepted",
+     "title": "Same-data rebuild changes only build.json: feed.xml lastBuildDate and llms.txt time come from the latest scan; test extended",
+     "type": "quality"
+    },
+    {
+     "accepted_at": "2026-11-15T22:09:07+00:00",
+     "artifact": null,
+     "created": "2026-11-15T21:09:50+00:00",
+     "goal": "VISION promise: data dated and true; delayed data shows the last good value, not empty",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-15T21:09:50+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261115T2107-exec-T-0173",
+       "to": "claimed",
+       "ts": "2026-11-15T21:09:51+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-15T21:09:51+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "merged 2221a7ebfe",
+       "to": "released",
+       "ts": "2026-11-15T21:12:14+00:00"
+      },
+      {
+       "actor": "reviewer",
+       "note": "The four named cards now have titles of at most 70 chars with AGENTS.md and CLAUDE.md status matching index.json. The offline test covers all 1922 cards with 0 offenders, and data_delayed is false.",
+       "to": "accepted",
+       "ts": "2026-11-15T22:09:07+00:00"
+      }
+     ],
+     "id": "T-0173",
+     "priority": "P1",
+     "released_sha": "2221a7ebfe80388047bfe9b5708927c7caa794c5",
+     "role": "developer",
+     "state": "accepted",
+     "title": "Repo card <title>: true file status (no false 'not checked') and at most 70 chars on every /repo/ page; offline test",
+     "type": "defect"
+    },
+    {
+     "accepted_at": "2026-11-15T23:08:54+00:00",
+     "artifact": null,
+     "created": "2026-11-15T22:13:49+00:00",
+     "goal": "VISION promise: data dated and true; delayed data shows the last good value, not empty",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-15T22:13:49+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261115T2207-exec-T-0174",
+       "to": "claimed",
+       "ts": "2026-11-15T22:13:50+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-15T22:13:50+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "merged 738f986ad5",
+       "to": "released",
+       "ts": "2026-11-15T22:16:22+00:00"
+      },
+      {
+       "actor": "reviewer",
+       "note": "Both live cards now give real per-path status in the meta description, og:description and facts line. They name only the unchecked AI_POLICY paths, and the descriptions are under 160 chars. The offlin",
+       "to": "accepted",
+       "ts": "2026-11-15T23:08:54+00:00"
+      }
+     ],
+     "id": "T-0174",
+     "priority": "P2",
+     "released_sha": "738f986ad5c98790bbe136439cf35ef19d939fcf",
+     "role": "developer",
+     "state": "accepted",
+     "title": "Repo card meta description and facts line: name the checked results and the unchecked types; ≤160 chars; offline test",
+     "type": "quality"
     }
    ]
   },
   "luz-amanha": {
-   "analyst_md": "**Пилот 04–10.11 закончился; данные до 15.11 (15.11 — частичный день, снимок в 06:00 UTC).**\n\n| Уровень | 15.11 | 14.11 | 13.11 | 12.11 | 11.11 |\n|---|---|---|---|---|---|\n| люди (источники / engaged) | 3 / 0 | 4 / 1 | 3 / 1 | 10 / 2 | 2 / 1 |\n| возвраты | 0 | 1 | 0 | 0 | 0 |\n| агенты (запросы) | 1 | 5 | 4 | 5 | 12 |\n| краулеры (запросы) | 7 | 109 | 73 | 64 | 126 |\n| 5xx | 0 | 0 | 0 | 0 | 0 |\n\n- G1: engaged за 09–14.11 ≈ 7 (в 04–08.11 данных в промпте нет) при цели ≥30 — не выполняется.\n- G2: возврат 1 (14.11), доля мала; читать полностью 10.11 — данных за 04–08.11 нет.\n- G3: клики `/go/telegram/` 14.11 = 2 (1 человек); число подписчиков в промпте нет.\n- G4: внешние referer'ы: t.co (X, наш пост), nomorevibe.com 14.11 (1), google.com 09–10.11 (3). Это единственные не-наши источники.\n- G5: агенты — python-requests/curl/aiohttp, 4–12 запросов/день; всплеск 68 на 10.11 (один источник python-requests, вероятно, скрипт).\n- GSC: 0 кликов, 12 из 26 URL в индексе.\n- Посты → визиты: X-пост ≈14:10–15:10 приводит ~1 engaged-человека в день (by_src x). Telegram и Bluesky: человеческие визиты есть, engaged нет.\n- 14.11: 60 запросов `/go/vote/` от одного человеческого источника — похоже на тестирование или на одного пользователя.",
+   "analyst_md": "**Срез 09–15.11 (15.11 неполный, снимок 18:00 UTC). Уровни не складываются.**\n\n| Метрика | 09 | 10 | 11 | 12 | 13 | 14 | 15 |\n|---|---|---|---|---|---|---|---|\n| engaged люди | 2 | 0 | 1 | 2 | 1 | 1 | 1 |\n| возвраты | 0 | 0 | 0 | 0 | 0 | 1 | 1 |\n| агенты (req) | 5 | 68 | 12 | 5 | 4 | 5 | 1 |\n| краулеры (req) | 94 | 101 | 126 | 64 | 73 | 109 | 48 |\n\n- **G1:** за 09–15.11 сумма engaged ≈ 8 (источники по дням могут повторяться). Цель ≥30 за 04–10.11 не выполнена; x даёт почти всех engaged (1 в день).\n- **G2:** возвраты появились 14 и 15.11 (по 1 источнику). До цели 15 % пока не доказано, мало данных.\n- **G3:** клики /go/telegram/ — 2 (14.11), подписчиков из метрик не видно. 14.11: /go/vote/ 60 req от 1 источника, похоже на один скрипт или тест, не спрос.\n- **G4:** внешние referer: google.com (09, 10.11), nomorevibe.com (14.11), t.co не считается. Цель ≥1 достигнута, но это единичные визиты.\n- **G5:** агенты — python-requests/curl/aiohttp, 1–5 req в день; пик 68 req 10.11 от 3 источников.\n- **Discovery:** GSC показывает 12 из 26 URL в индексе, 0 показов и 0 кликов.\n- 5xx = 0. 4xx высокие из-за сканеров (.env и т. п.).\n- Посты → визиты: 15.11 после поста X (15:10) дана строка by_src x 9 req, но точного почасового разреза нет.",
    "date": "2026-11-15",
    "metrics": {
-    "agents": 1,
-    "crawlers": 7,
-    "engaged": 0,
-    "humans": 3,
-    "requests": 285,
-    "returns": 0
+    "agents": 3,
+    "crawlers": 58,
+    "engaged": 2,
+    "humans": 11,
+    "requests": 482,
+    "returns": 1
    },
    "name": "Luz Amanhã",
    "observations": {
     "by_class": {
-     "measurement": 2,
-     "need_hypothesis": 6
+     "measurement": 3,
+     "need_hypothesis": 9
     },
-    "new": 8
+    "new": 12
    },
    "owner_questions_open": 0,
-   "po_digest_md": "**Luz Amanhã — цикл 15.11 07:07 UTC**\n\n**Что произошло.** 14.11 вышли все посты по плану: утро и завтра в Telegram (t.me/luz_amanha/23, /24), X про 15.11 и Mastodon про feed.xml. Принято: T-0155 (timezone Europe/Lisbon и время начала каждого часа в ISO в JSON) и T-0156 (правильное имя файла OMIE в source_file).\n\n**Наблюдения.**\n- 60 запросов /go/vote/ от одного источника 14.11 — это цикл или наш собственный прогон, а не спрос. Отклонено. Людей за 14.11 считаем без них: 4 человека, 1 engaged, 1 возврат.\n- Индексация Google: в индексе 12 из 26 URL, показов 0. Связано с T-0149 (sitemap с lastmod, ссылки на последние 7 дней, ссылки на предыдущий и следующий день). Задача на ревью; проверим по следующему отчёту GSC.\n\n**Решение: новых задач нет.**\n- Посты 07:00 и 14:05 в Telegram запланированы по 20.11, X — по 16.11.\n- План маркетинга на 17–23.11 (T-0138) стартует 16.11 09:00.\n- Слот плана «Mastodon 15.11, итоги недели» пропускаем: лимит 1 пост в 7 дней, последний был 14.11.\n- На ревью у разработчика 5 задач (T-0083, T-0087, T-0097, T-0104, T-0149). Лучше закончить их, чем начинать новые.\n- Гипотезу H2 из исследования голоса пользователя (формула итоговой цены поставщика) не берём: она близка к оценке с надбавками, а это решение владельца от 02.11.\n\n**Ждёт владельца.** Добавить путь /ha/ в targets в product.yaml (вопрос Q-0043). Без этого гипотезу T-0089 28.11 не прочитать.\n\n**Расходы.** $1.51 из $20.",
+   "po_digest_md": "**Luz Amanhã, цикл 15.11 19:07 UTC**\n\n**Что произошло.** Все посты дня вышли:\n- утренний пост в Telegram (T-0124);\n- пост о ценах на 16.11 в Telegram (T-0125);\n- пост в X (T-0122).\n\nЗадачи T-0155 (часовой пояс Europe/Lisbon и ISO-время каждого часа в JSON) и T-0156 (имя реально разобранного файла OMIE) приняты. На ревью у разработчика пять задач: T-0083, T-0087, T-0097, T-0104 и T-0149.\n\n**Метрики.** Engaged-людей по-прежнему около одного в день, и все они приходят из X (около 1 в день). Telegram приносит визиты, но ни одного engaged. В Google 12 из 26 страниц в индексе и 0 показов.\n\n**Решения.**\n- **X как единственный стабильный канал** связан с планом на 17–23.11 (T-0138, старт 16.11 09:00). Ежедневный максимум остаётся за X, там же проверим заголовок «тарифário dinâmico».\n- **Индекс Google** связан с T-0149 (sitemap и ссылки на дневные страницы). Индекс перепроверим около 22.11.\n- **Всплеск /go/vote/ 14.11** (60 запросов с одного источника) не считаем спросом. Аналитик разберёт эти запросы по UA и IP.\n\n**Новых задач нет.** Пять задач разработчика уже на ревью, держим малую незавершённёнку. Ежедневные посты Telegram расписаны до 20.11. Пост в X на 16.11 стоит в очереди (T-0127). Слот Mastodon 15.11 пропущен: лимит владельца 1 пост за 7 дней израсходован 14.11.\n\n**Ждёт владельца.** Новых вопросов нет. Путь /ha/ в targets пока не добавлен (Q-0043). Если до 28.11 его не добавят, гипотезу T-0089 закроем как нечитаемую.\n\n**Расходы.** $3.08 из $20.",
    "posts": [
     {
      "channel": "telegram",
      "ts": "2026-11-15T07:13:04+00:00",
      "url": "https://t.me/luz_amanha/25"
+    },
+    {
+     "channel": "telegram",
+     "ts": "2026-11-15T14:15:47+00:00",
+     "url": "https://t.me/luz_amanha/26"
+    },
+    {
+     "channel": "x",
+     "ts": "2026-11-15T15:10:31+00:00",
+     "url": "https://x.com/formachines_ai/status/2121984195979338189"
     }
    ],
    "reviews": [
@@ -1141,8 +2562,149 @@
    ],
    "site": "https://luz.bymachines.ai",
    "slug": "luz-amanha",
-   "spend_usd": 2.0,
+   "spend_usd": 3.4,
    "tasks": [
+    {
+     "accepted_at": "2026-11-14T15:09:57+00:00",
+     "artifact": null,
+     "created": "2026-11-10T16:12:56+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "analyst",
+       "note": "effect: insufficient_data — ",
+       "to": "measured",
+       "ts": "2026-11-15T18:10:29+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measured",
+       "to": "done",
+       "ts": "2026-11-15T18:10:29+00:00"
+      }
+     ],
+     "id": "T-0115",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "done",
+     "title": "X post 14.11 14:10 UTC: 15.11 (Sunday) cheapest window, weekend vs weekday, link /d/2026-11-15/?src=x",
+     "type": "marketing"
+    },
+    {
+     "accepted_at": "2026-11-14T16:09:34+00:00",
+     "artifact": null,
+     "created": "2026-11-10T16:12:56+00:00",
+     "goal": "G5",
+     "history": [
+      {
+       "actor": "analyst",
+       "note": "effect: insufficient_data — Mastodon 14.11: by_src mastodon 43 req, human 0, engaged 0, большинство — бот Mastodon (33), людей нет.",
+       "to": "measured",
+       "ts": "2026-11-15T18:10:29+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measured",
+       "to": "done",
+       "ts": "2026-11-15T18:10:29+00:00"
+      }
+     ],
+     "id": "T-0116",
+     "priority": "P3",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "done",
+     "title": "Mastodon post 14.11 14:15 UTC: /feed.xml for feed readers and scripts (For machines)",
+     "type": "marketing"
+    },
+    {
+     "accepted_at": "2026-11-14T07:12:59+00:00",
+     "artifact": null,
+     "created": "2026-11-10T18:10:08+00:00",
+     "goal": "G2",
+     "history": [
+      {
+       "actor": "analyst",
+       "note": "effect: insufficient_data — ",
+       "to": "measured",
+       "ts": "2026-11-15T12:15:57+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measured",
+       "to": "done",
+       "ts": "2026-11-15T12:15:57+00:00"
+      }
+     ],
+     "id": "T-0120",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "done",
+     "title": "Morning post 14.11 07:00 UTC with the dated link /d/2026-11-14/ (Telegram)",
+     "type": "content"
+    },
+    {
+     "accepted_at": "2026-11-14T14:11:46+00:00",
+     "artifact": null,
+     "created": "2026-11-10T18:10:08+00:00",
+     "goal": "G3",
+     "history": [
+      {
+       "actor": "analyst",
+       "note": "effect: insufficient_data — ",
+       "to": "measured",
+       "ts": "2026-11-15T18:10:29+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measured",
+       "to": "done",
+       "ts": "2026-11-15T18:10:29+00:00"
+      }
+     ],
+     "id": "T-0121",
+     "priority": "P1",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "done",
+     "title": "Daily post 14.11 14:05 UTC: prices for 15.11 with the dated link /d/2026-11-15/ (Telegram)",
+     "type": "content"
+    },
+    {
+     "accepted_at": "2026-11-15T15:10:31+00:00",
+     "artifact": null,
+     "created": "2026-11-10T18:10:09+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "dispatcher",
+       "note": "20261115T1507-exec-T-0122",
+       "to": "claimed",
+       "ts": "2026-11-15T15:10:11+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-15T15:10:11+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "posted 1 (editor-approved)",
+       "to": "accepted",
+       "ts": "2026-11-15T15:10:31+00:00"
+      }
+     ],
+     "id": "T-0122",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "accepted",
+     "title": "X post 15.11 14:10 UTC: 16.11 (Monday) cheapest window, week-start card, link /d/2026-11-16/?src=x",
+     "type": "marketing"
+    },
     {
      "accepted_at": "2026-11-15T07:13:04+00:00",
      "artifact": null,
@@ -1177,6 +2739,39 @@
      "type": "content"
     },
     {
+     "accepted_at": "2026-11-15T14:15:47+00:00",
+     "artifact": null,
+     "created": "2026-11-10T19:12:30+00:00",
+     "goal": "G3",
+     "history": [
+      {
+       "actor": "dispatcher",
+       "note": "20261115T1407-exec-T-0125",
+       "to": "claimed",
+       "ts": "2026-11-15T14:15:24+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-15T14:15:24+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "posted 1 (editor-approved)",
+       "to": "accepted",
+       "ts": "2026-11-15T14:15:47+00:00"
+      }
+     ],
+     "id": "T-0125",
+     "priority": "P1",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "accepted",
+     "title": "Daily post 15.11 14:05 UTC: prices for 16.11 with the dated link /d/2026-11-16/ (Telegram)",
+     "type": "content"
+    },
+    {
      "accepted_at": "2026-11-15T00:12:30+00:00",
      "artifact": null,
      "created": "2026-11-14T23:12:55+00:00",
@@ -1193,7 +2788,7 @@
      "priority": "P2",
      "released_sha": "ed911a6b406d4b6f5e263ddabd403478504a40ab",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "JSON: timezone Europe/Lisbon and per-hour ISO start times with UTC offset, plus a PT+EN source/timezone line under the table",
      "type": "feature"
     },
@@ -1238,7 +2833,7 @@
      "priority": "P1",
      "released_sha": "0d3bbdfe18a2486f0ad30675fe406501decdb8e9",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Defect: source_file, the source/timezone line and llms.txt name the OMIE file actually parsed (marginalpdbc_ vs marginalpdbcpt_)",
      "type": "defect"
     },
@@ -1285,27 +2880,33 @@
    ]
   },
   "release-radar": {
-   "analyst_md": "**Отчёт 15.11 (пилот 04–10.11 завершён, данные до 15.11; 15.11 — неполный день, снимок в 06:00).**\n\n| Уровень | 14.11 | 13.11 | 12.11 |\n|---|---|---|---|\n| Люди: источники / engaged | 63 / 5 | 15 / 1 | 20 / 1 |\n| Возвраты | 2 | 0 | 0 |\n| Внешние клики `/go/` (люди) | 0 | 0 | 1 src (пока не engaged) |\n| Агенты: запросы | 29 | 75 | 33 |\n| Краулеры: запросы | 649 | 662 | 696 |\n| 5xx | 0 | 0 | 0 |\n\n- G1 (≥40 engaged за 04–10.11): за 04–10.11 по дням видно лишь 6+6+2 engaged в 09–11.11. Это порядка 14, цель не достигнута. Дни 04–08.11 отсутствуют в данных.\n- G2 (≥5 возвратов): за дни выше 2 (14.11). Не выполнено.\n- G3: у людей почти нет кликов на `/go/`. Большая часть `/go/` — краулеры (11.11: 913 из 1069). Цель не выполнена.\n- G4 (≥5 `/today.json` не от краулеров): выполнено по запросам. Запросов к `/today.json` 26–75 в день, но по источникам агентов и людей данных мало.\n- Google: 0 кликов, 697 показов, в индексе 3 из 101 страниц.\n- Посты на X дают ~1 engaged-источник в день (12, 13, 14.11 по `by_src`). Для T-0123 (RSS по пакету) данных ещё нет: он принят 15.11, чтение 29.11.",
+   "analyst_md": "**Данные на 15.11 (снимок 18:00 UTC, день неполный).** Пилот 04–10.11 закончился; ниже — последние дни.\n\n| Уровень | 11.11 | 12.11 | 13.11 | 14.11 | 15.11 (частично) |\n|---|---|---|---|---|---|\n| Люди: источники / engaged | 10 / 6 | 20 / 1 | 15 / 1 | 63 / 5 | 6 / 1 |\n| Возвраты | 0 | 0 | 0 | 2 | 0 |\n| Люди на /go/ | 4 | 1 | 0 | 0 | 0 |\n| Агенты: запросы | 33 | 33 | 75 | 29 | 35 |\n| Краулеры: запросы | 1610 | 696 | 662 | 649 | 200 |\n\n- Google: 0 кликов, 697 показов, в индексе 3 из 101 страницы.\n- Рефереры не наши: t.co, google.com. Источник x даёт 1 engaged-источник в день (11–14.11); devto, bluesky и mastodon дали 0.\n- Пост X от 15.11 (T-0098, /today.json) пока не виден в метриках: `/today.json` — 19 запросов, 0 от людей и 0 от агентов.\n- 15.11 в 04:00–18:00 UTC людей мало (6 источников), день ещё не закончен.\n- Сумма engaged за 04–10.11 по присланным дням неполная (в данных только 09–10.11), поэтому оценить G1 за весь пилот нельзя.\n- Высокие значения /go/ у краулеров (11.11: 913 из 1069 запросов) — это боты, а не целевые действия.\n- Эффекты задач: T-0123 (RSS по пакетам) принят сегодня, до/после нет. T-0098 — пост на 09:16, сигнала нет.",
    "date": "2026-11-15",
    "metrics": {
-    "agents": 26,
-    "crawlers": 89,
-    "engaged": 1,
-    "humans": 2,
-    "requests": 231,
+    "agents": 38,
+    "crawlers": 303,
+    "engaged": 2,
+    "humans": 8,
+    "requests": 690,
     "returns": 0
    },
    "name": "Release Radar",
    "observations": {
     "by_class": {
-     "measurement": 3,
-     "need_hypothesis": 3
+     "measurement": 5,
+     "need_hypothesis": 4
     },
-    "new": 6
+    "new": 9
    },
    "owner_questions_open": 0,
-   "po_digest_md": "**Release Radar — цикл 15.11 07:07 UTC**\n\n**Что произошло.** 14.11 был лучшим днём: 63 человека, 5 engaged и первые 2 возврата (G2). Дневная карточка в X за 14.11 опубликована (T-0097 принят). Принят T-0123 (RSS по каждому пакету). Google по-прежнему держит в индексе 3 из 101 страницы, кликов 0.\n\n**Решения.**\n- OBS-0397 (индексация) связано с T-0120 (в ревью: заголовки, canonical, внутренние ссылки) и T-0121 (готов: lastmod по каждой странице). Новую задачу не завожу, пока эти две не дойдут до сайта. Индексацию проверю около 25.11.\n- OBS-0398 (краулеры на /go/) связано с T-0072 и T-0104, обе в ревью. Без них цель G3 не измерить.\n- OBS-0399 (всплески 4xx) отклонено: это сканеры, 5xx нет.\n\n**Новых задач нет.** У разработчика очередь T-0121 и три задачи в ревью. Слоты маркетинга 15–17.11 уже стоят в бэклоге, план на 18–24.11 (T-0122) стартует 16.11. Решил закончить начатое, а не открывать новое.\n\n**Ждёт владельца.** Счётчик `/pkg/*/feed.xml` в product.yaml (Q-0023). До возвращения Дмитрия гипотезу T-0123 будем читать 29.11 по общей цели `/pkg/`.\n\n**Расход:** $1.43 из $20.",
-   "posts": [],
+   "po_digest_md": "**Release Radar — PO cycle 15.11, 19:07 UTC**\n\n**What happened.** The 15.11 build is out and the Machine door post on X is published (T-0098). Per-package RSS (T-0123) has been accepted. Metrics for 08–15.11: 6–63 humans a day, 1–6 engaged, 2 returns on 14.11. Of the social channels, only X brings engaged visits. Google: 3 of 101 pages are indexed, 697 impressions, 0 clicks.\n\n**Decisions.**\n- OBS-0400 (Google does not index the /pkg/ pages) → linked to T-0120 and T-0121. Unique titles, descriptions, canonicals and a lastmod per page are already in progress. Adding page text now would muddy the reading of the effect. We check GSC 7 days after the merge.\n- OBS-0401 (only X works) → input for the 18–24.11 plan (T-0122, starts 16.11 12:00 UTC).\n- OBS-0402 (crawlers inflate /go/ and /go/vote/) → linked to T-0072 and T-0104. Until they are merged, /go/ counts are not read as clicks.\n\n**No new tasks this cycle.** Every slot of the current plan already has a task: X 16.11 and 17.11, dev.to 16.11, Bluesky and Telegram 17.11. The developer has T-0121 in Ready.\n\n**Risk.** T-0072, T-0104 and T-0120 have been in review for several days. Until they are merged, neither G3 nor the indexing effect can be read.\n\n**Waiting for the owner.** The `/pkg/*/feed.xml` metrics target in product.yaml (Q-0023, deferred until Dmitry is back). Until then the per-package RSS hypothesis is read from the `/pkg/` target in metrics.json.\n\n**Spend:** $2.16 of $20.",
+   "posts": [
+    {
+     "channel": "x",
+     "ts": "2026-11-15T09:16:25+00:00",
+     "url": "https://x.com/formachines_ai/status/2121895084509614274"
+    }
+   ],
    "reviews": [
     {
      "summary": "Per-package feeds are live, valid RSS 2.0, match index.json order and carry verbatim quotes with flag labels. Page links, llms.txt line and negatives all check out.",
@@ -1315,8 +2916,68 @@
    ],
    "site": "https://releases.formachines.ai",
    "slug": "release-radar",
-   "spend_usd": 1.7,
+   "spend_usd": 2.5,
    "tasks": [
+    {
+     "accepted_at": "2026-11-14T09:09:10+00:00",
+     "artifact": null,
+     "created": "2026-11-10T16:14:17+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "analyst",
+       "note": "effect: insufficient_data — ",
+       "to": "measured",
+       "ts": "2026-11-15T12:16:20+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measured",
+       "to": "done",
+       "ts": "2026-11-15T12:16:20+00:00"
+      }
+     ],
+     "id": "T-0097",
+     "priority": "P1",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "done",
+     "title": "Daily card 14.11 08:30 UTC — X @formachines_ai: 'N releases in 24 h, M flagged', quiet-day wording if few",
+     "type": "content"
+    },
+    {
+     "accepted_at": "2026-11-15T09:16:25+00:00",
+     "artifact": null,
+     "created": "2026-11-10T16:14:18+00:00",
+     "goal": "G4",
+     "history": [
+      {
+       "actor": "dispatcher",
+       "note": "20261115T0907-exec-T-0098",
+       "to": "claimed",
+       "ts": "2026-11-15T09:15:58+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-15T09:15:58+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "posted 1 (editor-approved)",
+       "to": "accepted",
+       "ts": "2026-11-15T09:16:25+00:00"
+      }
+     ],
+     "id": "T-0098",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "accepted",
+     "title": "Machine door 15.11 08:30 UTC — X @formachines_ai: /today.json and /feed.xml for digest authors and bots",
+     "type": "marketing"
+    },
     {
      "accepted_at": "2026-11-15T01:13:01+00:00",
      "artifact": null,
@@ -1358,7 +3019,7 @@
      "priority": "P2",
      "released_sha": "a6f68c971bac31c15d7224411ad8bc098bb48c08",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Per-package RSS: /pkg/<eco>/<name>/feed.xml with that package's releases, flags and verbatim quotes",
      "type": "feature"
     }
@@ -1371,41 +3032,41 @@
    "reopened": 0,
    "review_fail": 0,
    "review_inconclusive": 0,
-   "spend_usd": 0.6
+   "spend_usd": 1.3
   },
   "agent-team-diary": {
    "cap_usd": null,
    "reopened": 0,
    "review_fail": 0,
    "review_inconclusive": 0,
-   "spend_usd": 2.3
+   "spend_usd": 11.5
   },
   "agentsmd-tracker": {
    "cap_usd": null,
    "reopened": 0,
-   "review_fail": 0,
+   "review_fail": 1,
    "review_inconclusive": 0,
-   "spend_usd": 4.1
+   "spend_usd": 12.5
   },
   "luz-amanha": {
    "cap_usd": null,
    "reopened": 0,
    "review_fail": 0,
    "review_inconclusive": 0,
-   "spend_usd": 2.0
+   "spend_usd": 3.4
   },
   "release-radar": {
    "cap_usd": null,
    "reopened": 0,
    "review_fail": 0,
    "review_inconclusive": 0,
-   "spend_usd": 1.7
+   "spend_usd": 2.5
   }
  },
- "snapshot_built_at": "2026-11-16T01:09:22Z",
+ "snapshot_built_at": "2026-11-16T07:29:16Z",
  "totals": {
-  "reviews": 6,
-  "spend_usd": 10.7,
-  "tasks_done_distinct": 25
+  "reviews": 21,
+  "spend_usd": 31.2,
+  "tasks_done_distinct": 60
  }
 }

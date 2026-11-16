@@ -5,10 +5,68 @@
  "date": "2026-11-15",
  "tasks": [
   {
+   "id": "T-0097",
+   "title": "Daily card 14.11 08:30 UTC — X @formachines_ai: 'N releases in 24 h, M flagged', quiet-day wording if few",
+   "type": "content",
+   "state": "done",
+   "priority": "P1",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-10T16:14:17+00:00",
+   "accepted_at": "2026-11-14T09:09:10+00:00",
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-15T12:16:20+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-15T12:16:20+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0098",
+   "title": "Machine door 15.11 08:30 UTC — X @formachines_ai: /today.json and /feed.xml for digest authors and bots",
+   "type": "marketing",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G4",
+   "role": "marketer",
+   "created": "2026-11-10T16:14:18+00:00",
+   "accepted_at": "2026-11-15T09:16:25+00:00",
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-15T09:15:58+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261115T0907-exec-T-0098"
+    },
+    {
+     "ts": "2026-11-15T09:15:58+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-15T09:16:25+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "posted 1 (editor-approved)"
+    }
+   ]
+  },
+  {
    "id": "T-0123",
    "title": "Per-package RSS: /pkg/<eco>/<name>/feed.xml with that package's releases, flags and verbatim quotes",
    "type": "feature",
-   "state": "accepted",
+   "state": "done",
    "priority": "P2",
    "goal": "G4",
    "role": "developer",
@@ -56,23 +114,29 @@
    "summary": "Per-package feeds are live, valid RSS 2.0, match index.json order and carry verbatim quotes with flag labels. Page links, llms.txt line and negatives all check out."
   }
  ],
- "posts": [],
+ "posts": [
+  {
+   "channel": "x",
+   "url": "https://x.com/formachines_ai/status/2121895084509614274",
+   "ts": "2026-11-15T09:16:25+00:00"
+  }
+ ],
  "metrics": {
-  "humans": 2,
-  "engaged": 1,
+  "humans": 8,
+  "engaged": 2,
   "returns": 0,
-  "agents": 26,
-  "crawlers": 89,
-  "requests": 231
+  "agents": 38,
+  "crawlers": 303,
+  "requests": 690
  },
- "spend_usd": 1.7,
- "po_digest_md": "**Release Radar — цикл 15.11 07:07 UTC**\n\n**Что произошло.** 14.11 был лучшим днём: 63 человека, 5 engaged и первые 2 возврата (G2). Дневная карточка в X за 14.11 опубликована (T-0097 принят). Принят T-0123 (RSS по каждому пакету). Google по-прежнему держит в индексе 3 из 101 страницы, кликов 0.\n\n**Решения.**\n- OBS-0397 (индексация) связано с T-0120 (в ревью: заголовки, canonical, внутренние ссылки) и T-0121 (готов: lastmod по каждой странице). Новую задачу не завожу, пока эти две не дойдут до сайта. Индексацию проверю около 25.11.\n- OBS-0398 (краулеры на /go/) связано с T-0072 и T-0104, обе в ревью. Без них цель G3 не измерить.\n- OBS-0399 (всплески 4xx) отклонено: это сканеры, 5xx нет.\n\n**Новых задач нет.** У разработчика очередь T-0121 и три задачи в ревью. Слоты маркетинга 15–17.11 уже стоят в бэклоге, план на 18–24.11 (T-0122) стартует 16.11. Решил закончить начатое, а не открывать новое.\n\n**Ждёт владельца.** Счётчик `/pkg/*/feed.xml` в product.yaml (Q-0023). До возвращения Дмитрия гипотезу T-0123 будем читать 29.11 по общей цели `/pkg/`.\n\n**Расход:** $1.43 из $20.",
- "analyst_md": "**Отчёт 15.11 (пилот 04–10.11 завершён, данные до 15.11; 15.11 — неполный день, снимок в 06:00).**\n\n| Уровень | 14.11 | 13.11 | 12.11 |\n|---|---|---|---|\n| Люди: источники / engaged | 63 / 5 | 15 / 1 | 20 / 1 |\n| Возвраты | 2 | 0 | 0 |\n| Внешние клики `/go/` (люди) | 0 | 0 | 1 src (пока не engaged) |\n| Агенты: запросы | 29 | 75 | 33 |\n| Краулеры: запросы | 649 | 662 | 696 |\n| 5xx | 0 | 0 | 0 |\n\n- G1 (≥40 engaged за 04–10.11): за 04–10.11 по дням видно лишь 6+6+2 engaged в 09–11.11. Это порядка 14, цель не достигнута. Дни 04–08.11 отсутствуют в данных.\n- G2 (≥5 возвратов): за дни выше 2 (14.11). Не выполнено.\n- G3: у людей почти нет кликов на `/go/`. Большая часть `/go/` — краулеры (11.11: 913 из 1069). Цель не выполнена.\n- G4 (≥5 `/today.json` не от краулеров): выполнено по запросам. Запросов к `/today.json` 26–75 в день, но по источникам агентов и людей данных мало.\n- Google: 0 кликов, 697 показов, в индексе 3 из 101 страниц.\n- Посты на X дают ~1 engaged-источник в день (12, 13, 14.11 по `by_src`). Для T-0123 (RSS по пакету) данных ещё нет: он принят 15.11, чтение 29.11.",
+ "spend_usd": 2.5,
+ "po_digest_md": "**Release Radar — PO cycle 15.11, 19:07 UTC**\n\n**What happened.** The 15.11 build is out and the Machine door post on X is published (T-0098). Per-package RSS (T-0123) has been accepted. Metrics for 08–15.11: 6–63 humans a day, 1–6 engaged, 2 returns on 14.11. Of the social channels, only X brings engaged visits. Google: 3 of 101 pages are indexed, 697 impressions, 0 clicks.\n\n**Decisions.**\n- OBS-0400 (Google does not index the /pkg/ pages) → linked to T-0120 and T-0121. Unique titles, descriptions, canonicals and a lastmod per page are already in progress. Adding page text now would muddy the reading of the effect. We check GSC 7 days after the merge.\n- OBS-0401 (only X works) → input for the 18–24.11 plan (T-0122, starts 16.11 12:00 UTC).\n- OBS-0402 (crawlers inflate /go/ and /go/vote/) → linked to T-0072 and T-0104. Until they are merged, /go/ counts are not read as clicks.\n\n**No new tasks this cycle.** Every slot of the current plan already has a task: X 16.11 and 17.11, dev.to 16.11, Bluesky and Telegram 17.11. The developer has T-0121 in Ready.\n\n**Risk.** T-0072, T-0104 and T-0120 have been in review for several days. Until they are merged, neither G3 nor the indexing effect can be read.\n\n**Waiting for the owner.** The `/pkg/*/feed.xml` metrics target in product.yaml (Q-0023, deferred until Dmitry is back). Until then the per-package RSS hypothesis is read from the `/pkg/` target in metrics.json.\n\n**Spend:** $2.16 of $20.",
+ "analyst_md": "**Данные на 15.11 (снимок 18:00 UTC, день неполный).** Пилот 04–10.11 закончился; ниже — последние дни.\n\n| Уровень | 11.11 | 12.11 | 13.11 | 14.11 | 15.11 (частично) |\n|---|---|---|---|---|---|\n| Люди: источники / engaged | 10 / 6 | 20 / 1 | 15 / 1 | 63 / 5 | 6 / 1 |\n| Возвраты | 0 | 0 | 0 | 2 | 0 |\n| Люди на /go/ | 4 | 1 | 0 | 0 | 0 |\n| Агенты: запросы | 33 | 33 | 75 | 29 | 35 |\n| Краулеры: запросы | 1610 | 696 | 662 | 649 | 200 |\n\n- Google: 0 кликов, 697 показов, в индексе 3 из 101 страницы.\n- Рефереры не наши: t.co, google.com. Источник x даёт 1 engaged-источник в день (11–14.11); devto, bluesky и mastodon дали 0.\n- Пост X от 15.11 (T-0098, /today.json) пока не виден в метриках: `/today.json` — 19 запросов, 0 от людей и 0 от агентов.\n- 15.11 в 04:00–18:00 UTC людей мало (6 источников), день ещё не закончен.\n- Сумма engaged за 04–10.11 по присланным дням неполная (в данных только 09–10.11), поэтому оценить G1 за весь пилот нельзя.\n- Высокие значения /go/ у краулеров (11.11: 913 из 1069 запросов) — это боты, а не целевые действия.\n- Эффекты задач: T-0123 (RSS по пакетам) принят сегодня, до/после нет. T-0098 — пост на 09:16, сигнала нет.",
  "observations": {
-  "new": 6,
+  "new": 9,
   "by_class": {
-   "measurement": 3,
-   "need_hypothesis": 3
+   "measurement": 5,
+   "need_hypothesis": 4
   }
  },
  "owner_questions_open": 0

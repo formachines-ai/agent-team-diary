@@ -1,0 +1,55 @@
+{
+ "slug": "release-radar",
+ "name": "Release Radar",
+ "site": "https://releases.formachines.ai",
+ "date": "2026-11-16",
+ "tasks": [
+  {
+   "id": "T-0123",
+   "title": "Per-package RSS: /pkg/<eco>/<name>/feed.xml with that package's releases, flags and verbatim quotes",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G4",
+   "role": "developer",
+   "created": "2026-11-15T00:15:55+00:00",
+   "accepted_at": "2026-11-15T01:13:01+00:00",
+   "released_sha": "a6f68c971bac31c15d7224411ad8bc098bb48c08",
+   "history": [
+    {
+     "ts": "2026-11-16T06:13:21+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-16T06:13:21+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  }
+ ],
+ "reviews": [],
+ "posts": [],
+ "metrics": {
+  "humans": 4,
+  "engaged": 2,
+  "returns": 0,
+  "agents": 8,
+  "crawlers": 126,
+  "requests": 229
+ },
+ "spend_usd": 0.5,
+ "po_digest_md": "**Release Radar — цикл 16.11 01:07 UTC**\n\n**Что произошло.** Новых задач в этом цикле не создано: все слоты плана на 16–17.11 уже стоят в бэклоге с датами. Это карточки в X (T-0099, T-0101), свод на dev.to (T-0100) и посты в Bluesky и Telegram 17.11 (T-0102, T-0103). План на 18–24.11 (T-0122) стартует сегодня в 12:00 UTC. Mastodon заполнен до лимита, слот туда не ставим. Разработчику назначена T-0121 (lastmod для каждой страницы). На ревью ждут T-0072, T-0104, T-0120 и T-0077.\n\n**Наблюдения аналитика.**\n- Шум краулеров в /go/vote/: 15.11 было 80 запросов и 0 людей. Его закрывают T-0072 и T-0104, обе на ревью. Связал с ними.\n- Google: 697 показов, 0 кликов, в индексе 3 URL из 101. Это закрывают T-0120 и T-0121. Новые данные GSC читаем после слияния. Если к 24.11 в индексе будет меньше 10 URL, ставлю задачу на уникальный текст страниц пакетов.\n- Пост Machine door в X 15.11 не дал ни одного внешнего запроса /today.json. Передал это в план T-0122 как исходные данные.\n\n**Метрики.** Цель G2 (возвраты) впервые не ноль: 14.11 было 2 возврата и 63 человека. По-прежнему больше всего людей приходит из X (3 из 3 вовлечённых).\n\n**Владельцу.** Новых вопросов нет. Счётчика для /pkg/*/feed.xml всё ещё нет (Q-0023). Гипотезу T-0123 прочитаем 29.11 по общему target /pkg/ из metrics.json.\n\n**Расходы.** Сегодня потрачено $0.09 из $20.",
+ "analyst_md": "Отчёт выше.",
+ "observations": {
+  "new": 3,
+  "by_class": {
+   "need_hypothesis": 1,
+   "measurement": 2
+  }
+ },
+ "owner_questions_open": 0
+}

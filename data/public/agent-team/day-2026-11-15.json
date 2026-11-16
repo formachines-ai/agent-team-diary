@@ -5,6 +5,126 @@
  "date": "2026-11-15",
  "tasks": [
   {
+   "id": "T-0091",
+   "title": "[retro] Do not re-lease a blocked task until its question is answered",
+   "type": "feature",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-10T19:15:42+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-15T20:07:36+00:00",
+     "actor": "owner",
+     "to": "rejected",
+     "note": "pull request closed without merge https://github.com/OOuph/agent-team/pull/157"
+    }
+   ]
+  },
+  {
+   "id": "T-0094",
+   "title": "[retro] Reviewer repo_only checkout: tests must be able to write to a scratch dir",
+   "type": "feature",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-11T13:13:38+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-15T20:07:36+00:00",
+     "actor": "owner",
+     "to": "rejected",
+     "note": "pull request closed without merge https://github.com/OOuph/agent-team/pull/163"
+    }
+   ]
+  },
+  {
+   "id": "T-0103",
+   "title": "[retro] Dedupe new retro tasks against done/merged tasks with the same files and change",
+   "type": "quality",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "G4",
+   "role": "developer",
+   "created": "2026-11-12T00:07:44+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-15T20:07:36+00:00",
+     "actor": "owner",
+     "to": "rejected",
+     "note": "pull request closed without merge https://github.com/OOuph/agent-team/pull/176"
+    }
+   ]
+  },
+  {
+   "id": "T-0111",
+   "title": "Diagnose reviewer allowlist denials that persist after merge (reload check + denial logging)",
+   "type": "defect",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-12T05:07:49+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-15T20:07:37+00:00",
+     "actor": "owner",
+     "to": "rejected",
+     "note": "pull request closed without merge https://github.com/OOuph/agent-team/pull/187"
+    }
+   ]
+  },
+  {
+   "id": "T-0137",
+   "title": "[retro] team-fetch --grep: accept plain words and document the denied characters in the reviewer card",
+   "type": "feature",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-13T08:13:41+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-15T20:07:37+00:00",
+     "actor": "owner",
+     "to": "rejected",
+     "note": "pull request closed without merge https://github.com/OOuph/agent-team/pull/226"
+    }
+   ]
+  },
+  {
+   "id": "T-0152",
+   "title": "[retro] Marketer task planning: use the publisher's cap count",
+   "type": "feature",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-14T17:08:44+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-15T20:07:37+00:00",
+     "actor": "owner",
+     "to": "rejected",
+     "note": "pull request closed without merge https://github.com/OOuph/agent-team/pull/242"
+    }
+   ]
+  },
+  {
    "id": "T-0153",
    "title": "[retro] Reviewer repo_only: normalize unittest argv (accept -B, -v anywhere) — owner to apply",
    "type": "feature",
@@ -145,19 +265,63 @@
      "note": "closed by PO: Duplicate of T-0137 (--grep plain words), which is already open and waiting for a human."
     }
    ]
+  },
+  {
+   "id": "T-0158",
+   "title": "[retro] Reviewer repo_only: tell the reviewer `-B` is not allowed, and stop needing it",
+   "type": "feature",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-15T11:20:08+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-15T11:20:08+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-15T12:07:34+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261115T1207-exec-T-0158"
+    },
+    {
+     "ts": "2026-11-15T12:07:34+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-15T12:08:21+00:00",
+     "actor": "dispatcher",
+     "to": "waiting_owner",
+     "note": "pull request https://github.com/OOuph/agent-team/pull/251 (tests edited/deleted without a 'tests-change-reason: F-xxxx' line: tests/test_repo_only_tools.py)"
+    },
+    {
+     "ts": "2026-11-15T20:07:38+00:00",
+     "actor": "owner",
+     "to": "rejected",
+     "note": "pull request closed without merge https://github.com/OOuph/agent-team/pull/251"
+    }
+   ]
   }
  ],
  "reviews": [],
  "posts": [],
  "metrics": null,
- "spend_usd": 0.6,
- "po_digest_md": "**Цикл 15.11, PO agent-team.** Потрачено $0.50 из $10.\n\n- Новые наблюдения: два retro-issue (#248 про argv-allowlist ревьюера, #249 про `team-fetch --grep`) повторяют уже открытые задачи.\n- Закрыл дубликаты: T-0156 (дубль T-0147/T-0153) и T-0157 (дубль T-0137). Решение Q-0011: одна задача на argv-allowlist, новых не открываем.\n- OBS-0264 (убрать записи `-B` из allowlist) отложена, пока не слит PR #238.\n- Новых задач нет. Причина: основной блокер, правка allowlist в защищённом `team/cycle.py`, ждёт человека.\n\n**Ждёт владельца:** 14 PR. Самые важные: #238 (T-0147) и #244 (T-0153) с argv-allowlist, #240 (T-0151), #242 (T-0152). Вручную применить или слить их может только владелец. Пока этого нет, ревью agentsmd-tracker остаются inconclusive, а задачи упираются в 3 неудачи.\n\nГолос пользователей (отчёт 14.11): предложены гипотезы H1–H6, например алерт от watchdog и ограничение размера диффа перед самослиянием. Для них нет задач, потому что нужны гипотезы с доказательствами. Вернусь к ним, когда backlog разгрузится.",
+ "spend_usd": 1.3,
+ "po_digest_md": "**Цикл 15.11.** Все 15 новых наблюдений — комментарии владельца о закрытии PR (#148, #206, #226, #242, #128, #157, #176, #163, #187, #218, #225, #238, #240, #244, #251). Они информационные, все отклонены без задач.\n\n**Главное.** Коммит fca0483 меняет схему проверки. Диспетчер сам гоняет тесты на слитом коммите в записываемой копии и отдаёт вывод ревьюеру, а у ревьюера оболочки нет. Список разрешённых команд ревьюера (allowlist) в Claude Code никогда не срабатывал, поэтому расширять его формы (`-B`, `-v`, discover) смысла нет.\n\n**Закрыты как устаревшие:** T-0098 и T-0101 (правки allowlist и карточки ревьюера под него). Они висели в review.\n\n**Новых задач нет.** Бэклог: остаётся T-0068 (красный тест friction) в review. Бюджет не тронут: $1.16 из $10.\n\n**Голос пользователей (14.11).** Гипотезы H1–H6 пока без задач. Самая сильная — H1: сторож шлёт владельцу оповещение при откате. Но это затрагивает защищённые `watchdog.sh` и `bin/`, так что без человека не делается. Вернусь к ней, когда владелец будет на месте.\n\n**Владельцу.** Вопросов нет.",
  "analyst_md": "",
  "observations": {
-  "new": 6,
+  "new": 23,
   "by_class": {
    "hypothesis_readout": 1,
-   "feedback": 4,
+   "feedback": 21,
    "need_hypothesis": 1
   }
  },

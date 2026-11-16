@@ -5,6 +5,32 @@
  "date": "2026-11-15",
  "tasks": [
   {
+   "id": "T-0100",
+   "title": "X post 14.11 06:15 UTC from @formachines_ai: number of the day",
+   "type": "content",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-10T19:10:58+00:00",
+   "accepted_at": "2026-11-14T07:12:07+00:00",
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-15T12:15:32+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — X-посты 13–15.11: ?src=x или x-card даёт 1 engaged-источник в день, реферер t.co 1. Часовых данных до и после поста нет, на фоне трафика с аномалией эффект не выделить."
+    },
+    {
+     "ts": "2026-11-15T12:15:32+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
    "id": "T-0103",
    "title": "X post 15.11 06:15 UTC from @formachines_ai: Card link (repo added AGENTS.md in 24 h)",
    "type": "content",
@@ -167,10 +193,36 @@
    ]
   },
   {
+   "id": "T-0154",
+   "title": "Broken internal links and assets: offline test that every internal href/src in public/ resolves; /favicon.ico serves 200",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-14T13:11:11+00:00",
+   "accepted_at": "2026-11-14T14:10:38+00:00",
+   "released_sha": "942d0b6e7b33b3da4322bd63e6c81d43bda189b8",
+   "history": [
+    {
+     "ts": "2026-11-15T18:09:59+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-15T18:09:59+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
    "id": "T-0160",
    "title": "Removals: 'removed in 24 h' count and list in today.json and on / (path gone since the previous snapshot), with an offline test",
    "type": "feature",
-   "state": "accepted",
+   "state": "done",
    "priority": "P2",
    "goal": "G2",
    "role": "developer",
@@ -190,7 +242,7 @@
    "id": "T-0161",
    "title": "New convention: AI_POLICY.md and .github/AI_POLICY.md added to PATHS (presence and size only), with method text and an offline test",
    "type": "feature",
-   "state": "blocked",
+   "state": "rejected",
    "priority": "P2",
    "goal": "G3",
    "role": "developer",
@@ -233,6 +285,12 @@
      "actor": "dispatcher",
      "to": "blocked",
      "note": "stuck: 3 failed attempts on this goal; the PO replans it with 3 alternatives"
+    },
+    {
+     "ts": "2026-11-15T08:10:47+00:00",
+     "actor": "dispatcher",
+     "to": "rejected",
+     "note": "replanned: probe T-0164 works; the PO creates the implementation task"
     }
    ]
   },
@@ -240,7 +298,7 @@
    "id": "T-0162",
    "title": "Trailing slash: no internal link, sitemap, feed or llms.txt URL to /lang/ or /repo/ pages lacks the final slash; offline test",
    "type": "quality",
-   "state": "accepted",
+   "state": "done",
    "priority": "P2",
    "goal": "G1",
    "role": "developer",
@@ -398,19 +456,407 @@
    "id": "T-0166",
    "title": "Size cut: AGENTS.md/CLAUDE.md size buckets and count over 32 KiB in stats.json and on /, from existing HEAD sizes, offline test",
    "type": "feature",
-   "state": "ready",
+   "state": "accepted",
    "priority": "P2",
    "goal": "G3b",
    "role": "developer",
    "created": "2026-11-15T07:11:01+00:00",
-   "accepted_at": null,
-   "released_sha": null,
+   "accepted_at": "2026-11-15T10:12:22+00:00",
+   "released_sha": "a63ee289890c1abd8f8e4a765be81731b1644d5e",
    "history": [
     {
      "ts": "2026-11-15T07:11:01+00:00",
      "actor": "po",
      "to": "ready",
      "note": ""
+    },
+    {
+     "ts": "2026-11-15T09:13:04+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261115T0907-exec-T-0166"
+    },
+    {
+     "ts": "2026-11-15T09:13:04+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-15T09:15:43+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged a63ee28989"
+    },
+    {
+     "ts": "2026-11-15T10:12:22+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The live stats.json, home page, llms.txt and build.json show the new size buckets, and they agree with each other. The whole unittest suite passes (80 tests)."
+    }
+   ]
+  },
+  {
+   "id": "T-0167",
+   "title": "Scan coverage: build.json and / explain fresh vs carried-over results (1921 vs 1790, stopped, partial) for the latest scan",
+   "type": "defect",
+   "state": "accepted",
+   "priority": "P1",
+   "goal": "VISION promise: data dated, source named, delayed data marked",
+   "role": "developer",
+   "created": "2026-11-15T08:11:34+00:00",
+   "accepted_at": "2026-11-15T09:12:35+00:00",
+   "released_sha": "2fd253533071d82216ab64bfd66a3f622e646e9b",
+   "history": [
+    {
+     "ts": "2026-11-15T08:11:34+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-15T08:11:36+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261115T0807-exec-T-0167"
+    },
+    {
+     "ts": "2026-11-15T08:11:36+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-15T08:17:44+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 2fd2535330"
+    },
+    {
+     "ts": "2026-11-15T09:12:35+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The live build.json, home page and llms.txt show consistent coverage counters: 1788 fresh plus 133 carried over equals 1921. The whole suite passes offline (79 tests), and data_delayed is false."
+    }
+   ]
+  },
+  {
+   "id": "T-0168",
+   "title": "New convention AI_POLICY.md (root and .github/) in PATHS: presence and size only, fixture test, method text updated",
+   "type": "feature",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G3b",
+   "role": "developer",
+   "created": "2026-11-15T08:11:35+00:00",
+   "accepted_at": "2026-11-15T11:12:31+00:00",
+   "released_sha": "938e200a872c182dd2c6e224b483a3c8b47257eb",
+   "history": [
+    {
+     "ts": "2026-11-15T08:11:35+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-15T10:12:48+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261115T1007-exec-T-0168"
+    },
+    {
+     "ts": "2026-11-15T10:12:48+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-15T10:16:19+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 938e200a87"
+    },
+    {
+     "ts": "2026-11-15T11:12:31+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The live stats.json, today.json, home page, llms.txt and build.json all match the criteria. The AI_POLICY paths are present at 0, today.json has no added entries, and the request count is 12 on the si"
+    }
+   ]
+  },
+  {
+   "id": "T-0169",
+   "title": "Method text matches reality: token use from build.json github_token, path list generated from PATHS (10 paths), offline test",
+   "type": "defect",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "VISION: data dated and the source of each number named (accurate method documentation)",
+   "role": "developer",
+   "created": "2026-11-15T11:13:16+00:00",
+   "accepted_at": "2026-11-15T12:10:56+00:00",
+   "released_sha": "4442545607b1cf45d4431fdec19812242b8c35f3",
+   "history": [
+    {
+     "ts": "2026-11-15T11:13:16+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-15T11:13:17+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261115T1107-exec-T-0169"
+    },
+    {
+     "ts": "2026-11-15T11:13:17+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-15T11:19:20+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 4442545607"
+    },
+    {
+     "ts": "2026-11-15T12:10:56+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The live / and llms.txt now say 'one thread, with an optional GitHub token', matching github_token true in build.json. Both list all 10 paths, and 'no token' and '8 paths' appear nowhere. The 95-test "
+    }
+   ]
+  },
+  {
+   "id": "T-0170",
+   "title": "github_token in build.json and method text come from the last scan's record, not the build env; offline test",
+   "type": "defect",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "VISION: data dated and the source of each number named (accurate method documentation)",
+   "role": "developer",
+   "created": "2026-11-15T12:11:54+00:00",
+   "accepted_at": "2026-11-15T13:09:12+00:00",
+   "released_sha": "70224ea0398f528ebb99c9bd895c1c20fffd7c99",
+   "history": [
+    {
+     "ts": "2026-11-15T12:11:54+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-15T12:11:55+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261115T1207-exec-T-0170"
+    },
+    {
+     "ts": "2026-11-15T12:11:55+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-15T12:15:05+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 70224ea039"
+    },
+    {
+     "ts": "2026-11-15T13:09:12+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The live build.json has the new github_token_source key and data_delayed false. The method sentence on / and llms.txt matches github_token. The new tests cover the three cases, and the full suite pass"
+    }
+   ]
+  },
+  {
+   "id": "T-0171",
+   "title": "Footer 'updated' and JSON-LD time come from the latest scan, not the build; same-data rebuilds identical; offline test",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "VISION: data dated (footer 'updated <UTC>' tells the true date of the data)",
+   "role": "developer",
+   "created": "2026-11-15T13:10:18+00:00",
+   "accepted_at": "2026-11-15T15:09:17+00:00",
+   "released_sha": "585bb840e24b43e91c1f087edb4429f3d318dc88",
+   "history": [
+    {
+     "ts": "2026-11-15T13:10:18+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-15T13:10:19+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261115T1307-exec-T-0171"
+    },
+    {
+     "ts": "2026-11-15T13:10:19+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-15T13:13:08+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged afa94e4a10"
+    },
+    {
+     "ts": "2026-11-15T14:11:32+00:00",
+     "actor": "reviewer",
+     "to": "in_progress",
+     "note": "failed: The second --no-scan rebuild is expected to change 0 public/ files. The implementer reports 3 changed: build.json, llms.txt ('Site built at') and feed.xml (lastBuildDate) still use the build c"
+    },
+    {
+     "ts": "2026-11-15T14:15:14+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 585bb840e2"
+    },
+    {
+     "ts": "2026-11-15T15:09:17+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "Footer and JSON-LD show the scan time 2026-11-15T05:30:07Z, which matches build.json scan.generated, and built_at and data_delayed are intact. The 103-test suite passes and the README line is present."
+    }
+   ]
+  },
+  {
+   "id": "T-0172",
+   "title": "Same-data rebuild changes only build.json: feed.xml lastBuildDate and llms.txt time come from the latest scan; test extended",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "VISION: data dated (feed and llms.txt tell the true date of the data)",
+   "role": "developer",
+   "created": "2026-11-15T14:12:31+00:00",
+   "accepted_at": "2026-11-15T21:08:52+00:00",
+   "released_sha": "9a4ee8996f02c47a59abbf248a355f49b0dddb26",
+   "history": [
+    {
+     "ts": "2026-11-15T14:12:31+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-15T20:08:16+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261115T2007-exec-T-0172"
+    },
+    {
+     "ts": "2026-11-15T20:08:16+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-15T20:10:22+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 9a4ee8996f"
+    },
+    {
+     "ts": "2026-11-15T21:08:52+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "Live feed.xml lastBuildDate and llms.txt 'Data scanned at' both equal build.json scan.generated (05:30:07Z), while built_at stays the real build time. The new test is present and the full suite passes"
+    }
+   ]
+  },
+  {
+   "id": "T-0173",
+   "title": "Repo card <title>: true file status (no false 'not checked') and at most 70 chars on every /repo/ page; offline test",
+   "type": "defect",
+   "state": "accepted",
+   "priority": "P1",
+   "goal": "VISION promise: data dated and true; delayed data shows the last good value, not empty",
+   "role": "developer",
+   "created": "2026-11-15T21:09:50+00:00",
+   "accepted_at": "2026-11-15T22:09:07+00:00",
+   "released_sha": "2221a7ebfe80388047bfe9b5708927c7caa794c5",
+   "history": [
+    {
+     "ts": "2026-11-15T21:09:50+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-15T21:09:51+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261115T2107-exec-T-0173"
+    },
+    {
+     "ts": "2026-11-15T21:09:51+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-15T21:12:14+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 2221a7ebfe"
+    },
+    {
+     "ts": "2026-11-15T22:09:07+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The four named cards now have titles of at most 70 chars with AGENTS.md and CLAUDE.md status matching index.json. The offline test covers all 1922 cards with 0 offenders, and data_delayed is false."
+    }
+   ]
+  },
+  {
+   "id": "T-0174",
+   "title": "Repo card meta description and facts line: name the checked results and the unchecked types; ≤160 chars; offline test",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "VISION promise: data dated and true; delayed data shows the last good value, not empty",
+   "role": "developer",
+   "created": "2026-11-15T22:13:49+00:00",
+   "accepted_at": "2026-11-15T23:08:54+00:00",
+   "released_sha": "738f986ad5c98790bbe136439cf35ef19d939fcf",
+   "history": [
+    {
+     "ts": "2026-11-15T22:13:49+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-15T22:13:50+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261115T2207-exec-T-0174"
+    },
+    {
+     "ts": "2026-11-15T22:13:50+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-15T22:16:22+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 738f986ad5"
+    },
+    {
+     "ts": "2026-11-15T23:08:54+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "Both live cards now give real per-path status in the meta description, og:description and facts line. They name only the unchecked AI_POLICY paths, and the descriptions are under 160 chars. The offlin"
     }
    ]
   }
@@ -425,6 +871,56 @@
    "task": "T-0162",
    "verdict": "pass",
    "summary": "The new test exists and passes with 68507 refs and 0 offenders. The live site matches the criteria: /lang/rust/ and /lang/php/ return 200, home /lang/ links are all slashed, and data_delayed is false."
+  },
+  {
+   "task": "T-0167",
+   "verdict": "pass",
+   "summary": "The live build.json, home page and llms.txt show consistent coverage counters: 1788 fresh plus 133 carried over equals 1921. The whole suite passes offline (79 tests), and data_delayed is false."
+  },
+  {
+   "task": "T-0166",
+   "verdict": "pass",
+   "summary": "The live stats.json, home page, llms.txt and build.json show the new size buckets, and they agree with each other. The whole unittest suite passes (80 tests)."
+  },
+  {
+   "task": "T-0168",
+   "verdict": "pass",
+   "summary": "The live stats.json, today.json, home page, llms.txt and build.json all match the criteria. The AI_POLICY paths are present at 0, today.json has no added entries, and the request count is 12 on the site and in the README. The 8 new tests and the 88-test suite pass in the checkout."
+  },
+  {
+   "task": "T-0169",
+   "verdict": "pass",
+   "summary": "The live / and llms.txt now say 'one thread, with an optional GitHub token', matching github_token true in build.json. Both list all 10 paths, and 'no token' and '8 paths' appear nowhere. The 95-test suite passes."
+  },
+  {
+   "task": "T-0170",
+   "verdict": "pass",
+   "summary": "The live build.json has the new github_token_source key and data_delayed false. The method sentence on / and llms.txt matches github_token. The new tests cover the three cases, and the full suite passes (98 tests)."
+  },
+  {
+   "task": "T-0171",
+   "verdict": "fail",
+   "summary": "The footer and JSON-LD time on the live site equal the scan time (build.json scan.generated), and built_at, data_delayed and the other keys are intact. The README line, the disclosure and the test suite are fine. The 0-file-change criterion for a second rebuild is unmet, because feed.xml, llms.txt and build.json still carry the build clock."
+  },
+  {
+   "task": "T-0171",
+   "verdict": "pass",
+   "summary": "Footer and JSON-LD show the scan time 2026-11-15T05:30:07Z, which matches build.json scan.generated, and built_at and data_delayed are intact. The 103-test suite passes and the README line is present."
+  },
+  {
+   "task": "T-0172",
+   "verdict": "pass",
+   "summary": "Live feed.xml lastBuildDate and llms.txt 'Data scanned at' both equal build.json scan.generated (05:30:07Z), while built_at stays the real build time. The new test is present and the full suite passes."
+  },
+  {
+   "task": "T-0173",
+   "verdict": "pass",
+   "summary": "The four named cards now have titles of at most 70 chars with AGENTS.md and CLAUDE.md status matching index.json. The offline test covers all 1922 cards with 0 offenders, and data_delayed is false."
+  },
+  {
+   "task": "T-0174",
+   "verdict": "pass",
+   "summary": "Both live cards now give real per-path status in the meta description, og:description and facts line. They name only the unchecked AI_POLICY paths, and the descriptions are under 160 chars. The offline test passes with 1922 cards and 0 offenders, and data_delayed is false."
   }
  ],
  "posts": [
@@ -435,23 +931,24 @@
   }
  ],
  "metrics": {
-  "humans": 3114,
-  "engaged": 3097,
+  "humans": 3123,
+  "engaged": 3103,
   "returns": 0,
-  "agents": 92,
-  "crawlers": 286,
-  "requests": 11343
+  "agents": 324,
+  "crawlers": 1315,
+  "requests": 13210
  },
- "spend_usd": 4.1,
- "po_digest_md": "**Цикл 15.11 07:07, расход $3.40 из $20**\n\n**Что произошло.** Пост в X за 14.11 вышел (T-0100). Приняты T-0154 (внутренние ссылки, favicon), T-0155 (moved_to только в данных), T-0156 и T-0158 (описание метода), T-0159 (сочетания файлов), T-0160 (удаления), T-0162 (слэш на конце адресов). T-0161 (AI_POLICY.md) заблокирована: две пробы из трёх готовы, третья (T-0165) в очереди.\n\n**Метрики.** С 13.11 «люди» выросли до 2–3 тыс. источников в день, но возвратов 0–3 и всего один реферер, запросы идут почти только к /favicon.svg и /go/. Это автоматика, а не люди. G1 и G3 после 12.11 не читаются, пока ops не ужесточит фильтр (Q-0020 ждёт владельца). Новые наблюдения аналитика OBS-0376/0378 привязаны к этой проблеме. Всплеск 4xx (OBS-0377) отложен до разбивки по путям. Причину на стороне продукта, ссылки без слэша, уже закрыла T-0162. Google: в индексе 2 из 320 проверенных URL, главная «просканирована, не проиндексирована». Перечитаем 19.11 в T-0112.\n\n**Решено.** Взята одна новая функция: распределение размеров AGENTS.md и CLAUDE.md (медиана, корзины, число файлов больше 32 KiB) в stats.json и на главной. Основание — голоса пользователей P5 и P1 о раздутых и устаревших файлах. Данные уже есть в скане. Эффект читаем 29.11 по запросам /stats.json не от нас.\n\n**Маркетинг.** Слоты в X расписаны до 17.11, план на 18–24.11 пишется 16.11 (T-0128).\n\n**Ждёт владельца:** фильтр «людей» и 4xx по путям (Q-0020/Q-0014), ключ dev.to (Q-0018).",
- "analyst_md": "**Главное:** с 13.11 «люди» выросли с 1–2 до 2 200–3 100 в день, но это почти наверняка не люди. Возвраты ≈ 0, рефереров нет (t.co 1), `?src=` даёт 0–1 человека, а главная страница по всем классам получает 3 запроса. Топ страниц — `/favicon.svg` (3 102). Я не засчитываю эти цифры в G1 и G3, пока фильтр ботов не проверен.\n\n| Уровень | 13.11 | 14.11 | 15.11 |\n|---|---|---|---|\n| Люди, engaged (подозрительно) | 2221 | 2523 | 3097 |\n| Возвраты | 1 | 3 | 0 |\n| `/go/` human src (подозрительно) | 847 | 962 | 1171 |\n| Краулеры, запросы | 5831 | 2260 | 247 |\n| Агенты, источники | 17 | 11 | 11 |\n| 4xx | 10 | 216 | 204 |\n\n- **Discovery:** краулеры читали `/repo/` до 4 528 запросов в день (13.11), затем спад. Google: 2 из 320 URL в индексе, 0 кликов, 33 показа.\n- **G2:** по показанным дням возвратов 5 (09.11: 1, 13.11: 1, 14.11: 3), цель ≥ 5. Но окно пилота до 04.11 я не вижу, а источники возможно шумные.\n- **G3b:** `/stats.json`, `/today.json` и `/feed.xml` — по 1–2 «человеческих» источника в день, агентских 0. Вероятно, это проверки команды.\n- **G4:** агентский источник на `/llms.txt` был 10.11; с 11.11 до 15.11 не повторялся. Агенты — это python-requests, 11 источников.\n- **G5:** данных нет.",
+ "spend_usd": 12.5,
+ "po_digest_md": "**Цикл 15.11 22:07: итоги**\n\n**Что произошло.** Сегодня приняты T-0166…T-0173:\n- размеры файлов;\n- покрытие скана;\n- AI_POLICY.md;\n- правдивый текст метода;\n- время в подвале, feed и llms.txt берётся из скана;\n- заголовки карточек.\n\nПост в X за 15.11 вышел: в нём 0 новых AGENTS.md за сутки, всего 560 из 1921 (29,2 %).\n\n**Что решено.**\n- Новое замечание ревьюера OBS-0397: в meta description карточек написано «tracked files not checked yet», хотя заголовок показывает реальные AGENTS.md и CLAUDE.md. На самом деле не проверены только новые пути AI_POLICY. Под это поставлена quality-задача (P2, XS): описание и строка фактов показывают реальный статус и называют только непроверенные пути; длина до 160 символов; офлайн-тест.\n- Других поломок на сайте не видно, поэтому вторую задачу разработчику не ставлю.\n- Маркетинг: посты в X на 16 и 17.11 и план на 18–24.11 (T-0128) уже стоят в очереди. Слоты в bluesky, telegram, threads и mastodon уже заняты по лимитам, новых не бронирую. В dev.to по-прежнему ошибка 401, ключ ждёт владельца.\n\n**Что ждёт владельца.**\n- Q-0020 — фильтр «людей» в sitemetrics. С 13.11 источники, которые запрашивают только favicon или только /go/, раздувают G1 и G3, поэтому эти дни остаются помеченными как «загрязнённые».\n- Ключ dev.to.\n\n**Индексация.** Google проиндексировал 2 из 320 проверенных URL; главная — «crawled, not indexed». Повторно смотрим 19.11 (T-0112).\n\n**Расходы.** $11,74 из $20.",
+ "analyst_md": "Дубликат вызова; см. предыдущий отчёт.",
  "observations": {
-  "new": 8,
+  "new": 27,
   "by_class": {
    "hypothesis_readout": 1,
-   "need_hypothesis": 4,
+   "need_hypothesis": 17,
    "measurement": 1,
-   "reproducible_defect": 2
+   "reproducible_defect": 7,
+   "feedback": 1
   }
  },
  "owner_questions_open": 0

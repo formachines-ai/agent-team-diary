@@ -1,25 +1,19 @@
 {
- "generated": "2026-11-15T07:28:58+00:00",
+ "generated": "2026-11-16T07:29:15+00:00",
  "days": 7,
- "total": 95,
+ "total": 89,
  "by_kind": {
-  "tool_denied": 32,
-  "reported": 24,
-  "task_blocked": 32,
-  "review_fail": 2,
+  "task_blocked": 31,
+  "reported": 20,
+  "tool_denied": 30,
   "phase_error": 3,
-  "env_error": 2
+  "env_error": 2,
+  "review_fail": 3
  },
  "by_day": {
-  "2026-11-08": {
-   "tool_denied": 2,
-   "reported": 3,
-   "task_blocked": 1,
-   "review_fail": 1
-  },
   "2026-11-09": {
-   "reported": 12,
-   "task_blocked": 6,
+   "task_blocked": 5,
+   "reported": 11,
    "tool_denied": 5
   },
   "2026-11-10": {
@@ -49,10 +43,35 @@
    "reported": 2
   },
   "2026-11-15": {
-   "task_blocked": 2
+   "task_blocked": 3,
+   "review_fail": 1
+  },
+  "2026-11-16": {
+   "review_fail": 1
   }
  },
  "recent": [
+  {
+   "ts": "2026-11-16T05:08:50+00:00",
+   "product": "agentsmd-tracker",
+   "role": "reviewer",
+   "kind": "review_fail",
+   "summary": "T-0179: The code and tests meet the criteria, and build.json is correct apart from one timestamp. The live built_at (04:10:40Z) is earlier than the merge commit time (04:12:40Z), so the first acceptan"
+  },
+  {
+   "ts": "2026-11-15T14:11:31+00:00",
+   "product": "agentsmd-tracker",
+   "role": "reviewer",
+   "kind": "review_fail",
+   "summary": "T-0171: The footer and JSON-LD time on the live site equal the scan time (build.json scan.generated), and built_at, data_delayed and the other keys are intact. The README line, the disclosure and the "
+  },
+  {
+   "ts": "2026-11-15T13:08:09+00:00",
+   "product": "agent-team-diary",
+   "role": "dispatcher",
+   "kind": "task_blocked",
+   "summary": "T-0156 Day pages 03–04.11 under the common 150 KB budget: card ids : stuck: 3 failed attempts on this goal; the PO replans it with 3 alternatives"
+  },
   {
    "ts": "2026-11-15T07:10:14+00:00",
    "product": "agent-team-diary",
@@ -381,27 +400,6 @@
    "role": "dispatcher",
    "kind": "task_blocked",
    "summary": "T-0098 Morning post 11.11 07:00 UTC with the dated link /d/2026-11-: question Q-0038"
-  },
-  {
-   "ts": "2026-11-11T06:10:29+00:00",
-   "product": "agent-team",
-   "role": "voice",
-   "kind": "tool_denied",
-   "summary": "voice: denied Bash(for n in 76687 83048 54393 85422; do gh api repos/anthropics/claude-code/issues/), Bash(gh api repos/anthropics/claude-code/issues/76687 --jq '.html_url, .created_at, .)"
-  },
-  {
-   "ts": "2026-11-11T00:10:01+00:00",
-   "product": "luz-amanha",
-   "role": "build-cron",
-   "kind": "env_error",
-   "summary": "daily build failed: build.py rc=2 (timeout 600s = rc 124)"
-  },
-  {
-   "ts": "2026-11-10T21:09:00+00:00",
-   "product": "luz-amanha",
-   "role": "dispatcher",
-   "kind": "task_blocked",
-   "summary": "T-0070 Daily post 10.11 14:05 UTC: prices for 11.11 with the dated : question Q-0033"
   }
  ]
 }

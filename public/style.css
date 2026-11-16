@@ -82,10 +82,10 @@ h4 { font-size: 1rem; margin: 0.8rem 0 0.2rem; }
   min-width: 0;
 }
 .cards.grid .card { margin: 0; }
-.card .head, .tasks > li .head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.3rem 0.6rem; overflow-wrap: anywhere; }
-.card .name, .tasks > li .name, .card .head > strong, .tasks > li .head > strong { font-weight: 600; font-size: 1.02rem; }
-.card .id, .tasks > li .id, .card .head > span:first-child:not(.product-name):not(.name), .tasks > li .head > span:first-child:not(.product-name):not(.name) { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; color: var(--muted); font-size: 0.9rem; }
-.card .meta, .tasks > li .meta { color: var(--muted); font-size: 0.88rem; margin-top: 0.15rem; }
+.card .h, .tasks > li .h { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.3rem 0.6rem; overflow-wrap: anywhere; }
+.card .name, .tasks > li .name, .card .h > strong, .tasks > li .h > strong, .tasks > li .h > b { font-weight: 600; font-size: 1.02rem; }
+.card .id, .tasks > li .id, .card .h > span:first-child:not(.product-name):not(.name), .tasks > li .h > span:first-child:not(.product-name):not(.name) { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; color: var(--muted); font-size: 0.9rem; }
+.card .m, .tasks > li .m, .card .meta, .tasks > li .meta { color: var(--muted); font-size: 0.88rem; margin-top: 0.15rem; }
 .card .links, .tasks > li .links { margin-top: 0.35rem; font-size: 0.92rem; overflow-wrap: anywhere; }
 .card .links a, .tasks > li .links a { margin-right: 0.9rem; }
 .card .summary, .tasks > li .summary { margin: 0.4rem 0 0; font-size: 0.95rem; overflow-wrap: anywhere; }
@@ -101,14 +101,12 @@ h4 { font-size: 1rem; margin: 0.8rem 0 0.2rem; }
   vertical-align: middle;
   white-space: nowrap;
 }
-.badge.state.done, .badge.verdict.pass { background: var(--ok-bg); color: var(--ok-fg); border-color: var(--ok-line); }
-.badge.state.side, .badge.verdict.inconclusive { background: var(--warn-bg); color: var(--warn-fg); border-color: var(--warn-line); }
-.badge.verdict.fail { background: var(--bad-bg); color: var(--bad-fg); border-color: var(--bad-line); }
+.badge.done, .badge.pass { background: var(--ok-bg); color: var(--ok-fg); border-color: var(--ok-line); }
+.badge.side, .badge.inconclusive { background: var(--warn-bg); color: var(--warn-fg); border-color: var(--warn-line); }
+.badge.fail { background: var(--bad-bg); color: var(--bad-fg); border-color: var(--bad-line); }
 li.card ol, .tasks > li ol { margin: 0.4rem 0 0; padding-left: 1.2rem; font-size: 0.9rem; }
 li.card ol li, .tasks > li ol li { margin: 0.1rem 0; overflow-wrap: anywhere; }
-li.card ol time, .tasks > li ol time { color: var(--muted); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.85em; }
 li.card ol b, .tasks > li ol b { font-weight: 600; }
-li.card ol code, .tasks > li ol code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
 li.card ol i, .tasks > li ol i { color: var(--muted); }
 .when { color: var(--muted); font-size: 0.9rem; }
 .digest { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 0.6rem 0.9rem; overflow-wrap: anywhere; }
@@ -158,7 +156,7 @@ footer.site p { margin: 0.2rem 0; }
 .try-next { margin: 0 0 1rem; overflow-wrap: anywhere; }
 .day-baseline { margin: 0 0 1rem; overflow-wrap: anywhere; }
 
-details.fold { margin-top: 0.4rem; }
-details.fold > summary { cursor: pointer; font-size: 0.9rem; color: var(--muted); }
+details { margin-top: 0.4rem; }
+details > summary { cursor: pointer; font-size: 0.9rem; color: var(--muted); }
 li.card ol i, .tasks > li ol i { font-style: normal; }
 li.card ol code, .tasks > li ol code { background: none; padding: 0; }

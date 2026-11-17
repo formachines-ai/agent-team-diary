@@ -1,0 +1,370 @@
+{
+ "slug": "agentsmd-tracker",
+ "name": "AGENTS.md Tracker",
+ "site": "https://agentsmd.formachines.ai",
+ "date": "2026-11-17",
+ "tasks": [
+  {
+   "id": "T-0107",
+   "title": "X post 17.11 06:15 UTC from @formachines_ai: Card link (repo added AGENTS.md in 24 h)",
+   "type": "content",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-11T03:08:29+00:00",
+   "accepted_at": "2026-11-17T07:11:00+00:00",
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-17T07:10:27+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261117T0707-exec-T-0107"
+    },
+    {
+     "ts": "2026-11-17T07:10:27+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-17T07:11:00+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "posted 1 (editor-approved)"
+    }
+   ]
+  },
+  {
+   "id": "T-0172",
+   "title": "Same-data rebuild changes only build.json: feed.xml lastBuildDate and llms.txt time come from the latest scan; test extended",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "VISION: data dated (feed and llms.txt tell the true date of the data)",
+   "role": "developer",
+   "created": "2026-11-15T14:12:31+00:00",
+   "accepted_at": "2026-11-15T21:08:52+00:00",
+   "released_sha": "9a4ee8996f02c47a59abbf248a355f49b0dddb26",
+   "history": [
+    {
+     "ts": "2026-11-17T00:09:30+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-17T00:09:30+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0173",
+   "title": "Repo card <title>: true file status (no false 'not checked') and at most 70 chars on every /repo/ page; offline test",
+   "type": "defect",
+   "state": "done",
+   "priority": "P1",
+   "goal": "VISION promise: data dated and true; delayed data shows the last good value, not empty",
+   "role": "developer",
+   "created": "2026-11-15T21:09:50+00:00",
+   "accepted_at": "2026-11-15T22:09:07+00:00",
+   "released_sha": "2221a7ebfe80388047bfe9b5708927c7caa794c5",
+   "history": [
+    {
+     "ts": "2026-11-17T00:09:30+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-17T00:09:30+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0174",
+   "title": "Repo card meta description and facts line: name the checked results and the unchecked types; ≤160 chars; offline test",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "VISION promise: data dated and true; delayed data shows the last good value, not empty",
+   "role": "developer",
+   "created": "2026-11-15T22:13:49+00:00",
+   "accepted_at": "2026-11-15T23:08:54+00:00",
+   "released_sha": "738f986ad5c98790bbe136439cf35ef19d939fcf",
+   "history": [
+    {
+     "ts": "2026-11-17T00:09:30+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-17T00:09:30+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0175",
+   "title": "Crawl reachability: every /repo/ card linked from a /lang/ page, every /lang/ page linked from /, robots.txt names the sitemap; offline test",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-16T00:12:10+00:00",
+   "accepted_at": "2026-11-16T01:10:51+00:00",
+   "released_sha": "785e63ad02e349acb653bdb40dd755fce7c52f66",
+   "history": [
+    {
+     "ts": "2026-11-17T06:08:46+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — Accepted 16.11; GSC lags 2–3 days and shows 2 of 420 indexed. Re-check in about a week."
+    },
+    {
+     "ts": "2026-11-17T06:08:46+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0176",
+   "title": "'Removed in 24 h': today.json removed list and a dated line on / (definite 200→404 only); offline fixture test",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G3b",
+   "role": "developer",
+   "created": "2026-11-16T01:12:12+00:00",
+   "accepted_at": "2026-11-16T02:09:54+00:00",
+   "released_sha": "e3f35b7b6bb4ccb9ac3fd1b532855f2b58052e76",
+   "history": [
+    {
+     "ts": "2026-11-17T06:08:46+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — No sign yet in /today.json requests (human src 2, same as before). The task has been accepted for under a day."
+    },
+    {
+     "ts": "2026-11-17T06:08:46+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0177",
+   "title": "Whole test suite green on main: fix the 5 failing tests in test_scan_coverage (3) and test_token_flag (2) at the root cause; offline",
+   "type": "defect",
+   "state": "done",
+   "priority": "P2",
+   "goal": "VISION: data dated and the source of each number named (accurate method documentation)",
+   "role": "developer",
+   "created": "2026-11-16T02:10:50+00:00",
+   "accepted_at": "2026-11-16T03:08:48+00:00",
+   "released_sha": "eca8df536f40bc8f5e3bdc0f69791c4b8ed0f363",
+   "history": [
+    {
+     "ts": "2026-11-17T06:08:46+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-17T06:08:46+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0178",
+   "title": "Test suite independent of the real date: build.py takes a fixed clock, fixtures stop depending on 2026-11-15 vs now; offline test",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "VISION: data dated and true (the regression suite that guards it stays green)",
+   "role": "developer",
+   "created": "2026-11-16T03:09:58+00:00",
+   "accepted_at": "2026-11-16T04:08:56+00:00",
+   "released_sha": "c9f8c65fbe49a90ab4990ef694a116db0346993f",
+   "history": [
+    {
+     "ts": "2026-11-17T06:08:46+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-17T06:08:46+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0186",
+   "title": "X post 21.11 06:15 UTC from @formachines_ai: Card link (repo added AGENTS.md in 24 h)",
+   "type": "content",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-17T01:08:51+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-17T01:08:51+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0187",
+   "title": "Telegram post 21.11 12:00 UTC @agentsmd_tracker: Daily number with one card",
+   "type": "content",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "marketer",
+   "created": "2026-11-17T01:08:52+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-17T01:08:52+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0188",
+   "title": "X post 22.11 06:15 UTC from @formachines_ai: Cut (one dated language share)",
+   "type": "content",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-17T01:08:53+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-17T01:08:53+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0189",
+   "title": "Bluesky post 22.11 12:00 UTC: Week in numbers (strongest change of the week)",
+   "type": "content",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-17T07:10:23+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-17T07:10:23+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0190",
+   "title": "X post 23.11 06:15 UTC from @formachines_ai: Daily number",
+   "type": "content",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-17T07:10:24+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-17T07:10:24+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0191",
+   "title": "Mastodon post 23.11 12:30 UTC: Week in numbers 16.11→23.11",
+   "type": "content",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G4",
+   "role": "marketer",
+   "created": "2026-11-17T07:10:26+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-17T07:10:26+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  }
+ ],
+ "reviews": [],
+ "posts": [
+  {
+   "channel": "x",
+   "url": "https://x.com/formachines_ai/status/2122588298279276619",
+   "ts": "2026-11-17T07:11:00+00:00"
+  }
+ ],
+ "metrics": {
+  "humans": 1,
+  "engaged": 0,
+  "returns": 0,
+  "agents": 0,
+  "crawlers": 413,
+  "requests": 1119
+ },
+ "spend_usd": 1.5,
+ "po_digest_md": "**Цикл 17.11 07:07. Потрачено $0,83 из $20.**\n\n**Что произошло:**\n- Приняты T-0179 (built_at = время сборки), T-0180 (счётчики combos: AGENTS.md+CLAUDE.md) и T-0182 (tracked_since, «not tracked» вместо ложных нулей).\n- T-0181 (ссылки со слешем на конце) на ревью.\n- Посты 16.11 в X и Mastodon вышли.\n\n**Метрики:**\n- Числа «engaged humans» за 13–16.11 (до 6 212 в день) — это утечка ботов. Почти все запросы идут к /favicon.svg и /go/, к главной `/` — всего 7.\n- G1 и G3 после 12.11 читать нельзя. Классификатор настраивают ops, решение у владельца (Q-0020), поэтому OBS-0420 и OBS-0423 отложены.\n- Реальные люди видны только по ?src=: x — 8 источников, 6 вовлечённых; x-card — 5 источников, 4 вовлечённых.\n- Google: в индексе 2 из 420 проверенных URL. Повторный замер — в T-0112 (19.11). Отправка sitemap ждёт владельца (Q-0022).\n\n**Решения:**\n- Нарезал из плана T-0128 три ближайших слота:\n  - Bluesky 22.11 12:00 — итог недели, второй пост в окне 7 дней, лимит исчерпан;\n  - X 23.11 06:15 — число дня;\n  - Mastodon 23.11 12:30 — сдвинут на 30 минут, чтобы точно прошло 7 дней после поста 16.11.\n- Слот dev.to 20.11 не ставлю: ключ отвечает 401 (Q-0018).\n- Слоты X и Threads 24.11 — в следующем цикле.\n- 2 «человеческих» источника на JSON/feed, вероятно, наш собственный опрос. В T-0112 они помечаются как неподтверждённые и не идут в G3b.\n\n**Ждёт владельца:**\n- фильтр людей в sitemetrics и разбивка 4xx по путям (Q-0020/Q-0014);\n- sitemap в Search Console (Q-0022);\n- ключ dev.to (Q-0018).",
+ "analyst_md": "**Главное:** с 13.11 «люди» выросли с единиц до тысяч в день, но это почти наверняка утечка фильтра ботов, а не аудитория. На 16.11 заявлено 6 212 engaged-источников, при этом `/` запрошена 7 раз, а `/favicon.svg` 6 218 раз. Это примерно один запрос на источник. Таблица ниже ничего не говорит о реальном спросе.\n\n| Уровень | 11.11 | 13.11 | 14.11 | 15.11 | 16.11 | 17.11 (до 06:02) |\n|---|---|---|---|---|---|---|\n| Люди engaged | 2 | 2 221 | 2 523 | 3 103 | 6 212 | 0 |\n| Возвраты | 0 | 1 | 3 | 0 | 10 | 0 |\n| `/go/` human src | 0 | 847 | 962 | 1 171 | 2 343 | 0 |\n| Агенты (источники) | 31 | 17 | 11 | 24 | 11 | 0 |\n| Краулеры (источники) | 610 | 1 308 | 883 | 862 | 711 | 189 |\n| 5xx | 0 | 0 | 0 | 0 | 0 | 0 |\n\n- **Посты → визиты.** С метками `?src=` приходит 1–2 источника в день, всегда один referer `t.co`. Мастодон-пост 16.11 дал 91 запрос и 0 людей, 72 из них — запросы превью Mastodon. Окна до и после поста разделить нельзя: посты ежедневные, данные посуточные.\n- **Google.** 0 кликов, 33 показа, в индексе 2 из 420 проверенных URL.\n- **Машины.** `/stats.json`, `/today.json` и `/feed.xml` ровно по 2 «человеческих» источника в день. Похоже на постоянные опросы, возможно наши.\n- **Дефекты.** 5xx нет. Рост 4xx (209–271 в день) не разбит по путям.",
+ "observations": {
+  "new": 7,
+  "by_class": {
+   "reproducible_defect": 1,
+   "measurement": 3,
+   "need_hypothesis": 3
+  }
+ },
+ "owner_questions_open": 0
+}

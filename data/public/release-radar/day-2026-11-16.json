@@ -5,6 +5,140 @@
  "date": "2026-11-16",
  "tasks": [
   {
+   "id": "T-0098",
+   "title": "Machine door 15.11 08:30 UTC — X @formachines_ai: /today.json and /feed.xml for digest authors and bots",
+   "type": "marketing",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G4",
+   "role": "marketer",
+   "created": "2026-11-10T16:14:18+00:00",
+   "accepted_at": "2026-11-15T09:16:25+00:00",
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-16T12:11:50+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-16T12:11:50+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0099",
+   "title": "Daily card 16.11 07:30 UTC — X @formachines_ai: 'N releases in 24 h, M flagged' + one verbatim quote",
+   "type": "content",
+   "state": "accepted",
+   "priority": "P1",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-10T19:14:38+00:00",
+   "accepted_at": "2026-11-16T08:13:46+00:00",
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-16T08:12:04+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261116T0807-exec-T-0099"
+    },
+    {
+     "ts": "2026-11-16T08:12:04+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-16T08:13:46+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "posted 1 (editor-approved)"
+    }
+   ]
+  },
+  {
+   "id": "T-0100",
+   "title": "Weekly dev.to roundup 16.11 19:00 UTC — flagged releases of 10–16.11 with verbatim quotes, unique /pkg canonical",
+   "type": "marketing",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "marketer",
+   "created": "2026-11-10T19:14:39+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-16T19:10:54+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261116T1907-exec-T-0100"
+    },
+    {
+     "ts": "2026-11-16T19:10:54+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-16T19:12:05+00:00",
+     "actor": "marketer",
+     "to": "blocked",
+     "note": "question Q-0024"
+    },
+    {
+     "ts": "2026-11-16T20:08:47+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "answered Q-0024"
+    },
+    {
+     "ts": "2026-11-16T20:08:47+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: dev.to publish fails with HTTP 401 (invalid API key, owner-only fix). The 16.11 roundup cannot be published. The plan's 19.11 devto slot replaces it once the owner renews the key."
+    }
+   ]
+  },
+  {
+   "id": "T-0122",
+   "title": "Marketing plan 18.11–24.11 for Release Radar (replaces T-0090 plan)",
+   "type": "marketing",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-12T07:13:43+00:00",
+   "accepted_at": "2026-11-16T12:11:34+00:00",
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-16T12:10:58+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261116T1207-exec-T-0122"
+    },
+    {
+     "ts": "2026-11-16T12:10:58+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-16T12:11:34+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "marketing plan written (6337 chars); no post expected"
+    }
+   ]
+  },
+  {
    "id": "T-0123",
    "title": "Per-package RSS: /pkg/<eco>/<name>/feed.xml with that package's releases, flags and verbatim quotes",
    "type": "feature",
@@ -29,21 +163,87 @@
      "note": "measured"
     }
    ]
+  },
+  {
+   "id": "T-0124",
+   "title": "Daily card 18.11 07:30 UTC — X @formachines_ai: 'N releases in 24 h, M flagged' + one verbatim quote",
+   "type": "content",
+   "state": "ready",
+   "priority": "P1",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-16T20:08:48+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-16T20:08:48+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0125",
+   "title": "X 19.11 07:30 UTC — Bump-size count: 'K of M flagged releases are minor/patch or 0.x bumps (7 days)' + one patch-release quote",
+   "type": "content",
+   "state": "ready",
+   "priority": "P1",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-16T20:08:48+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-16T20:08:48+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0126",
+   "title": "Daily card 20.11 07:30 UTC — X @formachines_ai: 'N releases in 24 h, M flagged', quote linked to its /pkg/ page",
+   "type": "content",
+   "state": "ready",
+   "priority": "P1",
+   "goal": "G3",
+   "role": "marketer",
+   "created": "2026-11-16T20:08:49+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-16T20:08:49+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
   }
  ],
  "reviews": [],
- "posts": [],
+ "posts": [
+  {
+   "channel": "x",
+   "url": "https://x.com/formachines_ai/status/2122241704795193736",
+   "ts": "2026-11-16T08:13:46+00:00"
+  }
+ ],
  "metrics": {
-  "humans": 4,
-  "engaged": 2,
+  "humans": 24,
+  "engaged": 4,
   "returns": 0,
-  "agents": 8,
-  "crawlers": 126,
-  "requests": 229
+  "agents": 24,
+  "crawlers": 331,
+  "requests": 699
  },
- "spend_usd": 0.5,
- "po_digest_md": "**Release Radar — цикл 16.11 01:07 UTC**\n\n**Что произошло.** Новых задач в этом цикле не создано: все слоты плана на 16–17.11 уже стоят в бэклоге с датами. Это карточки в X (T-0099, T-0101), свод на dev.to (T-0100) и посты в Bluesky и Telegram 17.11 (T-0102, T-0103). План на 18–24.11 (T-0122) стартует сегодня в 12:00 UTC. Mastodon заполнен до лимита, слот туда не ставим. Разработчику назначена T-0121 (lastmod для каждой страницы). На ревью ждут T-0072, T-0104, T-0120 и T-0077.\n\n**Наблюдения аналитика.**\n- Шум краулеров в /go/vote/: 15.11 было 80 запросов и 0 людей. Его закрывают T-0072 и T-0104, обе на ревью. Связал с ними.\n- Google: 697 показов, 0 кликов, в индексе 3 URL из 101. Это закрывают T-0120 и T-0121. Новые данные GSC читаем после слияния. Если к 24.11 в индексе будет меньше 10 URL, ставлю задачу на уникальный текст страниц пакетов.\n- Пост Machine door в X 15.11 не дал ни одного внешнего запроса /today.json. Передал это в план T-0122 как исходные данные.\n\n**Метрики.** Цель G2 (возвраты) впервые не ноль: 14.11 было 2 возврата и 63 человека. По-прежнему больше всего людей приходит из X (3 из 3 вовлечённых).\n\n**Владельцу.** Новых вопросов нет. Счётчика для /pkg/*/feed.xml всё ещё нет (Q-0023). Гипотезу T-0123 прочитаем 29.11 по общему target /pkg/ из metrics.json.\n\n**Расходы.** Сегодня потрачено $0.09 из $20.",
- "analyst_md": "Отчёт выше.",
+ "spend_usd": 2.2,
+ "po_digest_md": "**Release Radar — 16.11, вечер**\n\n**Что случилось:** 16.11 сборка свежая, дневная карточка в X вышла (T-0099). Еженедельный свод для dev.to (T-0100) написан, и редактор его одобрил. Но при публикации dev.to ответил **HTTP 401**: ключ API недействителен.\n\n**Что решено:**\n- T-0100 закрыта, повтор не назначен. Свод за неделю переходит в слот плана 19.11 16:00 и выйдет, только если ключ починят.\n- Из нового плана (T-0122, 18–24.11) нарезаны три ближайших слота X: 18.11 — дневная карточка; 19.11 — «K из M помеченных релизов — minor/patch или 0.x» (боль voice:P4); 20.11 — карточка со ссылкой на /pkg/ (цель G3). X выбран как единственный канал, откуда реально приходят люди (5 из 9 источников по ?src=).\n- Mastodon до 20.11 занят по лимиту, слотов не ставлю.\n- Разработчику новых задач нет: в review четыре задачи (T-0072, T-0077, T-0104, T-0120), в ready — T-0121. Сначала доводим начатое.\n\n**Ждёт владельца:** новый API-ключ dev.to для formachines. Без него обещанный в VISION еженедельный свод не выходит.\n\n**Метрики:** 13 людей и 4 engaged за 16.11. Google: 3 из 101 URL в индексе, 0 кликов. Правки индексации (T-0120, T-0121) ещё не дошли до прода и до отчёта.\n\n**Расход:** $1.58 из $20.",
+ "analyst_md": "см. выше",
  "observations": {
   "new": 3,
   "by_class": {

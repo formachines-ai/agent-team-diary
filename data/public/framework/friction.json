@@ -1,24 +1,19 @@
 {
- "generated": "2026-11-16T07:29:15+00:00",
+ "generated": "2026-11-17T07:29:26+00:00",
  "days": 7,
- "total": 89,
+ "total": 69,
  "by_kind": {
-  "task_blocked": 31,
-  "reported": 20,
-  "tool_denied": 30,
+  "reported": 9,
+  "task_blocked": 27,
   "phase_error": 3,
   "env_error": 2,
+  "tool_denied": 25,
   "review_fail": 3
  },
  "by_day": {
-  "2026-11-09": {
-   "task_blocked": 5,
-   "reported": 11,
-   "tool_denied": 5
-  },
   "2026-11-10": {
-   "task_blocked": 12,
    "reported": 1,
+   "task_blocked": 11,
    "phase_error": 3
   },
   "2026-11-11": {
@@ -47,10 +42,25 @@
    "review_fail": 1
   },
   "2026-11-16": {
-   "review_fail": 1
+   "review_fail": 1,
+   "task_blocked": 2
   }
  },
  "recent": [
+  {
+   "ts": "2026-11-16T19:12:05+00:00",
+   "product": "release-radar",
+   "role": "dispatcher",
+   "kind": "task_blocked",
+   "summary": "T-0100 Weekly dev.to roundup 16.11 19:00 UTC — flagged releases of : question Q-0024"
+  },
+  {
+   "ts": "2026-11-16T15:10:20+00:00",
+   "product": "agent-team-diary",
+   "role": "dispatcher",
+   "kind": "task_blocked",
+   "summary": "T-0107 dev.to weekly summary 2026-11-16 15:00 UTC: three events of : question Q-0030"
+  },
   {
    "ts": "2026-11-16T05:08:50+00:00",
    "product": "agentsmd-tracker",
@@ -386,20 +396,6 @@
    "role": "reviewer",
    "kind": "env_error",
    "summary": "reviewer: Tests error in read-only checkout"
-  },
-  {
-   "ts": "2026-11-11T09:17:07+00:00",
-   "product": "luz-amanha",
-   "role": "voice",
-   "kind": "tool_denied",
-   "summary": "voice: denied Bash(gh search issues \"OMIE\" --created \">2026-08-01\" --limit 30 --json repository,tit)"
-  },
-  {
-   "ts": "2026-11-11T07:17:22+00:00",
-   "product": "luz-amanha",
-   "role": "dispatcher",
-   "kind": "task_blocked",
-   "summary": "T-0098 Morning post 11.11 07:00 UTC with the dated link /d/2026-11-: question Q-0038"
   }
  ]
 }

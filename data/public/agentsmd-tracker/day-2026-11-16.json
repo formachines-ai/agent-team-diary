@@ -5,6 +5,32 @@
  "date": "2026-11-16",
  "tasks": [
   {
+   "id": "T-0103",
+   "title": "X post 15.11 06:15 UTC from @formachines_ai: Card link (repo added AGENTS.md in 24 h)",
+   "type": "content",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-11T02:09:24+00:00",
+   "accepted_at": "2026-11-15T07:11:30+00:00",
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-16T12:10:23+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-16T12:10:23+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
    "id": "T-0104",
    "title": "X post 16.11 06:15 UTC from @formachines_ai: number of the day",
    "type": "content",
@@ -33,6 +59,70 @@
      "actor": "dispatcher",
      "to": "accepted",
      "note": "posted 1 (editor-approved)"
+    }
+   ]
+  },
+  {
+   "id": "T-0106",
+   "title": "Mastodon post 16.11 12:00 UTC: Week in numbers 02.11→16.11",
+   "type": "content",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G4",
+   "role": "marketer",
+   "created": "2026-11-11T03:08:29+00:00",
+   "accepted_at": "2026-11-16T12:09:56+00:00",
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-16T12:09:18+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261116T1207-exec-T-0106"
+    },
+    {
+     "ts": "2026-11-16T12:09:18+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-16T12:09:56+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "posted 1 (editor-approved)"
+    }
+   ]
+  },
+  {
+   "id": "T-0128",
+   "title": "Marketing plan 18–24.11 for AGENTS.md Tracker (replaces T-0096 plan under owner caps)",
+   "type": "marketing",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-12T14:09:12+00:00",
+   "accepted_at": "2026-11-16T10:12:32+00:00",
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-16T10:12:03+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261116T1007-exec-T-0128"
+    },
+    {
+     "ts": "2026-11-16T10:12:03+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-16T10:12:32+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "marketing plan written (5543 chars); no post expected"
     }
    ]
   },
@@ -193,10 +283,166 @@
    ]
   },
   {
+   "id": "T-0166",
+   "title": "Size cut: AGENTS.md/CLAUDE.md size buckets and count over 32 KiB in stats.json and on /, from existing HEAD sizes, offline test",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G3b",
+   "role": "developer",
+   "created": "2026-11-15T07:11:01+00:00",
+   "accepted_at": "2026-11-15T10:12:22+00:00",
+   "released_sha": "a63ee289890c1abd8f8e4a765be81731b1644d5e",
+   "history": [
+    {
+     "ts": "2026-11-16T12:10:23+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-16T12:10:23+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0167",
+   "title": "Scan coverage: build.json and / explain fresh vs carried-over results (1921 vs 1790, stopped, partial) for the latest scan",
+   "type": "defect",
+   "state": "done",
+   "priority": "P1",
+   "goal": "VISION promise: data dated, source named, delayed data marked",
+   "role": "developer",
+   "created": "2026-11-15T08:11:34+00:00",
+   "accepted_at": "2026-11-15T09:12:35+00:00",
+   "released_sha": "2fd253533071d82216ab64bfd66a3f622e646e9b",
+   "history": [
+    {
+     "ts": "2026-11-16T12:10:23+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-16T12:10:23+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0168",
+   "title": "New convention AI_POLICY.md (root and .github/) in PATHS: presence and size only, fixture test, method text updated",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G3b",
+   "role": "developer",
+   "created": "2026-11-15T08:11:35+00:00",
+   "accepted_at": "2026-11-15T11:12:31+00:00",
+   "released_sha": "938e200a872c182dd2c6e224b483a3c8b47257eb",
+   "history": [
+    {
+     "ts": "2026-11-16T12:10:23+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-16T12:10:23+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0169",
+   "title": "Method text matches reality: token use from build.json github_token, path list generated from PATHS (10 paths), offline test",
+   "type": "defect",
+   "state": "done",
+   "priority": "P2",
+   "goal": "VISION: data dated and the source of each number named (accurate method documentation)",
+   "role": "developer",
+   "created": "2026-11-15T11:13:16+00:00",
+   "accepted_at": "2026-11-15T12:10:56+00:00",
+   "released_sha": "4442545607b1cf45d4431fdec19812242b8c35f3",
+   "history": [
+    {
+     "ts": "2026-11-16T18:09:44+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-16T18:09:44+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0170",
+   "title": "github_token in build.json and method text come from the last scan's record, not the build env; offline test",
+   "type": "defect",
+   "state": "done",
+   "priority": "P2",
+   "goal": "VISION: data dated and the source of each number named (accurate method documentation)",
+   "role": "developer",
+   "created": "2026-11-15T12:11:54+00:00",
+   "accepted_at": "2026-11-15T13:09:12+00:00",
+   "released_sha": "70224ea0398f528ebb99c9bd895c1c20fffd7c99",
+   "history": [
+    {
+     "ts": "2026-11-16T18:09:44+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-16T18:09:44+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0171",
+   "title": "Footer 'updated' and JSON-LD time come from the latest scan, not the build; same-data rebuilds identical; offline test",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "VISION: data dated (footer 'updated <UTC>' tells the true date of the data)",
+   "role": "developer",
+   "created": "2026-11-15T13:10:18+00:00",
+   "accepted_at": "2026-11-15T15:09:17+00:00",
+   "released_sha": "585bb840e24b43e91c1f087edb4429f3d318dc88",
+   "history": [
+    {
+     "ts": "2026-11-16T18:09:44+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-16T18:09:44+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
    "id": "T-0175",
    "title": "Crawl reachability: every /repo/ card linked from a /lang/ page, every /lang/ page linked from /, robots.txt names the sitemap; offline test",
    "type": "quality",
-   "state": "accepted",
+   "state": "done",
    "priority": "P2",
    "goal": "G1",
    "role": "developer",
@@ -240,7 +486,7 @@
    "id": "T-0176",
    "title": "'Removed in 24 h': today.json removed list and a dated line on / (definite 200→404 only); offline fixture test",
    "type": "feature",
-   "state": "accepted",
+   "state": "done",
    "priority": "P2",
    "goal": "G3b",
    "role": "developer",
@@ -284,7 +530,7 @@
    "id": "T-0177",
    "title": "Whole test suite green on main: fix the 5 failing tests in test_scan_coverage (3) and test_token_flag (2) at the root cause; offline",
    "type": "defect",
-   "state": "accepted",
+   "state": "done",
    "priority": "P2",
    "goal": "VISION: data dated and the source of each number named (accurate method documentation)",
    "role": "developer",
@@ -328,7 +574,7 @@
    "id": "T-0178",
    "title": "Test suite independent of the real date: build.py takes a fixed clock, fixtures stop depending on 2026-11-15 vs now; offline test",
    "type": "quality",
-   "state": "accepted",
+   "state": "done",
    "priority": "P2",
    "goal": "VISION: data dated and true (the regression suite that guards it stays green)",
    "role": "developer",
@@ -505,6 +751,110 @@
      "note": "no change needed: The offenders count is 0, and the guard test already exists as tests/test_trailing_slash.py. It checks 72484 directory refs and passes. The only nearby file, tests/test_internal_link"
     }
    ]
+  },
+  {
+   "id": "T-0182",
+   "title": "New paths: 'not tracked' before first scan on /, tracked_since in stats.json, AI_POLICY counts as baseline; test",
+   "type": "defect",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "VISION promise: data dated and true, with the source of each number named",
+   "role": "developer",
+   "created": "2026-11-16T08:09:27+00:00",
+   "accepted_at": "2026-11-16T09:08:55+00:00",
+   "released_sha": "07baa57134215eb1de6723e560d8afcf3fdf893a",
+   "history": [
+    {
+     "ts": "2026-11-16T08:09:27+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-16T08:09:28+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261116T0807-exec-T-0182"
+    },
+    {
+     "ts": "2026-11-16T08:09:28+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-16T08:11:46+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 07baa57134"
+    },
+    {
+     "ts": "2026-11-16T09:08:55+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "All acceptance criteria were observed on the live site and in the repo. stats.json has tracked_since, the table shows 'not tracked', and the dated baseline lines, llms.txt and README lines are present"
+    }
+   ]
+  },
+  {
+   "id": "T-0183",
+   "title": "X post 18.11 06:15 UTC from @formachines_ai: Daily number",
+   "type": "content",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-16T13:09:12+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-16T13:09:12+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0184",
+   "title": "X post 19.11 06:15 UTC from @formachines_ai: Card link (repo added AGENTS.md in 24 h)",
+   "type": "content",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-16T13:09:13+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-16T13:09:13+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0185",
+   "title": "X post 20.11 06:15 UTC from @formachines_ai: Daily number",
+   "type": "content",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-16T13:09:14+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-16T13:09:14+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
   }
  ],
  "reviews": [
@@ -542,6 +892,11 @@
    "task": "T-0180",
    "verdict": "pass",
    "summary": "The combos object has all five integer counts summing to sample_size 1922, and the home line shows the date 2026-11-16 with both = 258. llms.txt describes combos in one line, data_delayed is false, and the dispatcher's whole-suite run passed."
+  },
+  {
+   "task": "T-0182",
+   "verdict": "pass",
+   "summary": "All acceptance criteria were observed on the live site and in the repo. stats.json has tracked_since, the table shows 'not tracked', and the dated baseline lines, llms.txt and README lines are present. data_delayed is false."
   }
  ],
  "posts": [
@@ -549,24 +904,31 @@
    "channel": "x",
    "url": "https://x.com/formachines_ai/status/2122225940482687271",
    "ts": "2026-11-16T07:11:08+00:00"
+  },
+  {
+   "channel": "mastodon",
+   "url": "https://mastodon.social/@formachines/117626044143714286",
+   "ts": "2026-11-16T12:09:56+00:00"
   }
  ],
  "metrics": {
-  "humans": 6230,
-  "engaged": 6209,
-  "returns": 9,
-  "agents": 0,
-  "crawlers": 501,
-  "requests": 20429
+  "humans": 6240,
+  "engaged": 6212,
+  "returns": 10,
+  "agents": 81,
+  "crawlers": 3266,
+  "requests": 25572
  },
- "spend_usd": 6.5,
- "po_digest_md": "**Цикл 16.11 07:07.** Расход сегодня $5.65 из $20.\n\n**Что произошло.** Все задачи разработчика (T-0166…T-0180) приняты. В их числе:\n- обрезка по размерам, combos и «Removed in 24 h»;\n- AI_POLICY.md;\n- часы сборки и штампы времени по скану;\n- набор тестов снова зелёный.\n\nПосты в X выходят ежедневно. Сегодня в очереди X 06:15 (T-0104) и Mastodon 12:00 (T-0106). План маркетинга на 18–24.11 (T-0128) стартует в 10:00. Все слоты до 17.11 уже забронированы, новых постов не ставлю.\n\n**Метрики.** Рост «людей» 2 → 6209 в день — это утечка бот-фильтра: почти только favicon и /go/. Это та же проблема, что в Q-0020, и она ждёт владельца. G1/G3 после 12.11 не читаем, разбор в T-0112 19.11. Пост в X даёт около 1 визита в день. По Google в индексе 2 URL из 370, у / статус «crawled – not indexed». Отправка sitemap в GSC (Q-0022) тоже ждёт владельца.\n\n**Решение.** Разработчику ставлю одну quality-задачу: внутренние ссылки только с финальным слэшем. Основание: в логах есть запросы /lang/php и /lang/python без слэша. Если источник внутри сайта, это дубли адресов, которые мешают индексации. Если источник внешний, тест просто остаётся как защита. Больше ничего сломанного на сайте не вижу, новых функций не придумываю.\n\n**Ждёт владельца** (новых вопросов нет):\n- фильтр «людей» (Q-0020);\n- GSC (Q-0022);\n- ключ dev.to (Q-0018).",
- "analyst_md": "**Главное:** с 13.11 «engaged humans» выросли с ~2 до 6209 (16.11), но это почти наверняка утечка бот-фильтра, а не люди. Самая частая страница — `/favicon.svg` (6218 запросов при 6230 источниках). Возвраты почти нулевые, реферер один (t.co). Эти числа нельзя засчитывать в G1/G3.\n\n| Уровень | 12.11 | 13.11 | 14.11 | 15.11 | 16.11 |\n|---|---|---|---|---|---|\n| люди engaged | 1 | 2221 | 2523 | 3103 | 6209 |\n| возвраты | 0 | 1 | 3 | 0 | 9 |\n| /go/ human src | 2 | 847 | 962 | 1171 | 2343 |\n| агенты (src) | 25 | 17 | 11 | 24 | 0 |\n| краулеры (src) | 746 | 1308 | 883 | 862 | 246 |\n\n- G1 (≥60) и G3 (≥15) формально превышены, но данные недостоверны. G2 (≥5): 16.11 даёт 9, а у остальных дней 0–3, и качество тоже под вопросом.\n- G3b: `/stats.json`, `/today.json` и `/feed.xml` стабильно запрашивают 1–3 «human»-источника в день. Это похоже на наши проверки. Источников агентов и краулеров нет, кроме 10.11 (2 агента на `/stats.json`).\n- G4: OAI-SearchBot и другие краулеры запрашивали `/llms.txt` 1 раз за 16.11 и 10 раз за 10.11. Это 1 источник, условие формально выполнено.\n- G5: данных об ответах нет.\n- Google Search Console: 0 кликов, 2 из 370 URL в индексе.",
+ "spend_usd": 8.9,
+ "po_digest_md": "**Цикл 16.11 13:07 — AGENTS.md Tracker**\n\n**Что произошло.** 16.11 вышли посты в X (+1, 561 из 1 921, 29,2 %) и в Mastodon (02.11→16.11: +1,1 п.п.). Маркетолог сдал план на 18–24.11 (T-0128). Приняты технические задачи T-0172…T-0182: метки времени теперь берутся из времени скана, на сайте появились «Removed in 24 h», combos и tracked_since. T-0181 (слэш в конце внутренних ссылок) на ревью.\n\n**Метрики.** Число «engaged-людей» за 16.11 — 6 211. Почти все эти источники запрашивают только /favicon.svg, поэтому G1 и G3 с 13.11 считать нельзя. Поправить фильтр могут только ops, вопрос Q-0020 ждёт владельца. Наблюдения аналитика OBS-0413, 0415 и 0416 отложены до правки фильтра. G3b и G4 по-прежнему не достигнуты (OBS-0414): это проверит недельное чтение T-0112 19.11.\n\n**Решения.** План нарезан на 3 ближайших слота в X: 18.11 — число дня, 19.11 — ссылка на карточку репо, 20.11 — число дня. Выбран X, потому что только он приносит engaged-людей (x и x-card вместе: 13 источников, 10 engaged). Слот dev.to 20.11 не ставлю, пока ключ отвечает 401 (Q-0018). В Mastodon и Threads 7-дневный лимит исчерпан.\n\n**Ждёт владельца** (без новых вопросов):\n- фильтр людей и разбивка 4xx по путям (Q-0020);\n- отправка sitemap в Google Search Console (Q-0022): пока проиндексировано 2 из 370 проверенных URL;\n- ключ dev.to (Q-0018).\n\n**Расходы:** $8,02 из $20.",
+ "analyst_md": "x",
  "observations": {
-  "new": 14,
+  "new": 19,
   "by_class": {
-   "need_hypothesis": 11,
-   "measurement": 3
+   "need_hypothesis": 13,
+   "measurement": 4,
+   "feedback": 1,
+   "reproducible_defect": 1
   }
  },
  "owner_questions_open": 0

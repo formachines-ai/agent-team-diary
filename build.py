@@ -1592,6 +1592,19 @@ def baseline_stats(today: dict, earlier: list[dict]) -> dict:
     return out
 
 
+def baseline_json(date: str, idx_by_date: dict) -> dict:
+    """The 'baseline' object of day/<date>/index.json: the numbers the #day-baseline block shows (same baseline_stats)."""
+    today = baseline_values(idx_by_date[date]) if date in idx_by_date else None
+    earlier = [v for d in sorted(idx_by_date) if d < date for v in [baseline_values(idx_by_date[d])] if v]
+    used = min(len(earlier), BASELINE_DAYS) if today else 0
+    out = {"window_days": BASELINE_DAYS, "days_used": used, "enough_history": bool(today) and len(earlier) >= BASELINE_MIN,
+           "source": "previous recorded days of this export (day totals); fixture and no-activity days not counted", "metrics": None}
+    if today:
+        names = {"accepted": "totals.tasks_done_distinct", "review_fails": "broke_counts.review_fail", "spend": "totals.spend_usd"}
+        out["metrics"] = {k: dict(v, field=names[k]) for k, v in baseline_stats(today, earlier).items()}
+    return out
+
+
 def baseline_fmt(key: str, v: float) -> str:
     return f"${v:.2f}" if key == "spend" else (str(int(v)) if float(v).is_integer() else f"{v:g}")
 
@@ -1606,7 +1619,7 @@ def day_baseline_block(date: str, model: dict, idx_by_date: dict) -> str:
     st = baseline_stats(today, earlier)
     enough = len(earlier) >= BASELINE_MIN
     out.append(f'<p class="note">Day-wide sums over all products, from the export; median and min\u2013max of up to the previous {BASELINE_DAYS} '
-               f'days with records (fixture days left out; earlier days found: {min(len(earlier), BASELINE_DAYS)}).' + ('' if enough else ' not enough earlier days') + '</p>')
+               f'days with records (fixture days left out; earlier days found: {min(len(earlier), BASELINE_DAYS)}).' + ('' if enough else ' not enough history') + '</p>')
     out.append('<div class="table-wrap"><table class="table"><thead><tr><th>Measure</th><th>Today</th><th>Median</th><th>Min\u2013max</th><th>Mark</th></tr></thead><tbody>')
     for key, label, _ in BASELINE_FIELDS:
         r = st[key]
@@ -1614,7 +1627,7 @@ def day_baseline_block(date: str, model: dict, idx_by_date: dict) -> str:
             cells = (f'<td data-b="median">{baseline_fmt(key, r["median"])}</td><td data-b="range">{baseline_fmt(key, r["min"])}\u2013{baseline_fmt(key, r["max"])}</td>'
                      f'<td>{"<strong>unusual today</strong>" if r["unusual"] else ""}</td>')
         else:
-            cells = '<td colspan="3">not enough earlier days</td>'
+            cells = '<td colspan="3">not enough history</td>'
         out.append(f'<tr data-field="{key}"><th scope="row">{label}</th><td data-b="today">{baseline_fmt(key, r["today"])}</td>{cells}</tr>')
     out.append('</tbody></table></div></section>')
     return "\n".join(out)
@@ -1662,7 +1675,7 @@ def check_baseline() -> dict:
         st = baseline_stats(today, earlier)
         if len(earlier) < BASELINE_MIN:
             few.append(date)
-            if "not enough earlier days" not in sec or "data-b=\"median\"" in sec:
+            if "not enough history" not in sec or "data-b=\"median\"" in sec:
                 mism.append({"page": name, "issue": "few earlier days but median shown or sentence missing"})
         for key, _, _ in BASELINE_FIELDS:
             m = re.search(rf'<tr data-field="{key}">(.*?)</tr>', sec, re.S)
@@ -1677,6 +1690,9 @@ def check_baseline() -> dict:
                 g = re.search(rf'data-b="{k}">([^<]*)<', row)
                 if not g or html.unescape(g.group(1)) != v:
                     mism.append({"page": name, "field": key, "cell": k, "html": g.group(1) if g else None, "want": v})
+            jm = ((idx[date].get("baseline") or {}).get("metrics") or {}).get(key)
+            if jm is None or {k: v for k, v in jm.items() if k != "field"} != r:
+                mism.append({"page": name, "field": key, "issue": "index.json baseline differs from page"})
             if ("unusual today" in row) != bool(r.get("unusual")):
                 mism.append({"page": name, "field": key, "issue": "unusual mark wrong"})
     return {"pages_checked": len(pages), "mismatches": mism, "too_few_days": few}
@@ -2880,6 +2896,7 @@ def write_site(model: dict) -> dict:
                   "rework": {slug: rework_counts(p["days"][date]) for slug, p in model["products"].items() if date in p["days"]},
                   "broke": [{k: v for k, v in it.items() if k != "anchor"} | {"anchor": f"#{it['anchor']}" if it["anchor"] else None} for it in broke_items(date, model)],
                   "broke_counts": broke_counts(broke_items(date, model)),
+                  "baseline": baseline_json(date, day_index_map(model)),
                   "disclosure": f"{FOOTER_LINE}; responsible: {RESPONSIBLE}.", "built": built,
                   "day_complete": not day_in_progress(date, built), "snapshot_built_at": built}
         write_json(PUBLIC_DIR / "day" / date / "index.json", merged)

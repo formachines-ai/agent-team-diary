@@ -1,4 +1,36 @@
 {
+ "baseline": {
+  "days_used": 7,
+  "enough_history": true,
+  "metrics": {
+   "accepted": {
+    "field": "totals.tasks_done_distinct",
+    "max": 106,
+    "median": 73,
+    "min": 48,
+    "today": 81,
+    "unusual": false
+   },
+   "review_fails": {
+    "field": "broke_counts.review_fail",
+    "max": 1,
+    "median": 0,
+    "min": 0,
+    "today": 0,
+    "unusual": false
+   },
+   "spend": {
+    "field": "totals.spend_usd",
+    "max": 36.9,
+    "median": 32.1,
+    "min": 20.0,
+    "today": 45.9,
+    "unusual": true
+   }
+  },
+  "source": "previous recorded days of this export (day totals); fixture and no-activity days not counted",
+  "window_days": 7
+ },
  "broke": [
   {
    "actor": "marketer",
@@ -32,7 +64,7 @@
   "review_fail": 0,
   "review_inconclusive": 0
  },
- "built": "2026-11-17T22:13:49Z",
+ "built": "2026-11-18T02:08:27Z",
  "counts": {
   "agent-team": {
    "agents": null,
@@ -4248,7 +4280,7 @@
    "spend_usd": 10.2
   }
  },
- "snapshot_built_at": "2026-11-17T22:13:49Z",
+ "snapshot_built_at": "2026-11-18T02:08:27Z",
  "totals": {
   "reviews": 31,
   "spend_usd": 45.9,

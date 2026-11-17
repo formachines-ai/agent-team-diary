@@ -749,13 +749,14 @@ def health_obj(model: dict) -> dict:
     stale = iso(datetime.strptime(built, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc) + timedelta(hours=30))
     return {"built_at": built, "latest_export_day": model["dates"][-1] if model["dates"] else None,
             "fixture_days": sum(1 for p in model["products"].values() for d in p["days"].values() if d.get("fixture")),
-            "stale_after": stale}
+            "stale_after": stale, "last_export_date": model["dates"][-1] if model["dates"] else None,
+            "source": "export (data/public/) and build time"}
 
 
 def health_block(model: dict) -> str:
     h = health_obj(model)
     return (f'<p id="home-health" class="health-next">Built <span data-h="built_at">{esc(h["built_at"])}</span> UTC from records up to '
-            f'<span data-h="latest_export_day">{esc(h["latest_export_day"] or "none")}</span>; if this is older than '
+            f'<span data-h="last_export_date">{esc(h["last_export_date"] or "none")}</span>; if this is older than '
             f'<span data-h="stale_after">{esc(h["stale_after"])}</span>, the rebuild failed. '
             'Machine-readable: <a href="/today.json">health in today.json</a>.</p>')
 
@@ -767,14 +768,16 @@ def check_health() -> dict:
         t = json.loads((PUBLIC_DIR / "today.json").read_text(encoding="utf-8"))
         b = json.loads((PUBLIC_DIR / "build.json").read_text(encoding="utf-8"))
         h = t.get("health") or {}
-        fields = [k for k in ("built_at", "latest_export_day", "fixture_days", "stale_after") if k in h]
-        for k in ("built_at", "latest_export_day", "fixture_days", "stale_after"):
+        fields = [k for k in ("built_at", "latest_export_day", "last_export_date", "fixture_days", "stale_after", "source") if k in h]
+        for k in ("built_at", "latest_export_day", "last_export_date", "fixture_days", "stale_after", "source"):
             if k not in h:
                 mism.append(f"health.{k} missing")
         if h.get("built_at") != b.get("built"):
             mism.append("health.built_at != build.json built")
         if h.get("fixture_days") != b.get("fixture_days"):
             mism.append("health.fixture_days != build.json fixture_days")
+        if h.get("last_export_date") != h.get("latest_export_day"):
+            mism.append("health.last_export_date != latest_export_day")
         if h.get("latest_export_day") != b.get("latest_day"):
             mism.append("health.latest_export_day != build.json latest_day")
         try:
@@ -793,14 +796,14 @@ def check_health() -> dict:
             if i < html_t.find('id="home-follow"'):
                 mism.append("home-health not after home-follow")
             seg = html_t[i:html_t.find("</p>", i)]
-            for k in ("built_at", "latest_export_day", "stale_after"):
+            for k in ("built_at", "last_export_date", "stale_after"):
                 if f'data-h="{k}">{h.get(k)}<' not in seg:
                     mism.append(f"home-health {k} differs from today.json")
         if "health" not in (PUBLIC_DIR / "llms.txt").read_text(encoding="utf-8"):
             mism.append("llms.txt does not mention health")
     except (OSError, ValueError) as e:
         mism.append(f"cannot read: {e}")
-    return {"fields_present": fields, "mismatches": mism}
+    return {"fields_present": fields, "matches": not mism, "mismatches": mism}
 
 
 def check_follow() -> dict:
@@ -2678,7 +2681,7 @@ def render_llms(model: dict) -> str:
     if latest:
         lines += ["", f"- [Latest day {latest} index.json]({SITE_BASE}/day/{latest}/index.json): example with all fields above",
                   f"- [today.json]({SITE_BASE}/today.json): summary of the latest day (counts only, no transitions)"]
-    lines += [f"- `health` in today.json: built_at (build time, UTC), latest_export_day, fixture_days and stale_after (built_at + 30 h); if the current time is past stale_after, the rebuild failed. Example: {SITE_BASE}/today.json"]
+    lines += [f"- `health` in today.json: built_at (build time, UTC), last_export_date (= latest_export_day), fixture_days, source and stale_after (built_at + 30 h); if the current time is past stale_after, the rebuild failed. Example: {SITE_BASE}/today.json"]
     lines += ["", "Not in the export: questions to the owner, feedback texts, failed runs, rate limits."]
     lines += ["", "## Pages", "",
              f"- [Front page]({SITE_BASE}/): latest day per product, what this is, products, recent days",

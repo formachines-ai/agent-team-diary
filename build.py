@@ -3563,24 +3563,39 @@ def check_mobile() -> dict:
     return {"pages_checked": len(pages), "issues": issues}
 
 
-def check_audit() -> dict:
-    """Every documented audit field must exist in the latest day index.json."""
+def audit_seen() -> tuple[dict, str | None]:
+    """Field names present in the generated day index.json files. Each kind (task, transition, review) is read from the
+    newest day that has at least one record of that kind: a fresh day with no reviews yet has no review fields to show."""
     days = sorted(p.name for p in (PUBLIC_DIR / "day").iterdir() if p.is_dir() and re.fullmatch(r"\d{4}-\d{2}-\d{2}", p.name)) if (PUBLIC_DIR / "day").is_dir() else []
     seen: dict[str, set] = {"task": set(), "transition": set(), "review": set()}
-    if days:
+    done: set = set()
+    for day in reversed(days):
         try:
-            d = json.loads((PUBLIC_DIR / "day" / days[-1] / "index.json").read_text(encoding="utf-8"))
-            for p in d.get("products", {}).values():
-                for t in p.get("tasks", []):
-                    seen["task"] |= set(t)
-                    for h in t.get("history", []):
-                        seen["transition"] |= set(h)
-                for r in p.get("reviews", []):
-                    seen["review"] |= set(r)
+            d = json.loads((PUBLIC_DIR / "day" / day / "index.json").read_text(encoding="utf-8"))
         except (OSError, ValueError):
-            pass
+            continue
+        got: dict[str, set] = {"task": set(), "transition": set(), "review": set()}
+        for p in (d.get("products") or {}).values():
+            for t in p.get("tasks", []):
+                got["task"] |= set(t)
+                for h in t.get("history", []):
+                    got["transition"] |= set(h)
+            for r in p.get("reviews", []):
+                got["review"] |= set(r)
+        for k, v in got.items():
+            if v and k not in done:
+                seen[k] = v
+                done.add(k)
+        if len(done) == 3:
+            break
+    return seen, (days[-1] if days else None)
+
+
+def check_audit() -> dict:
+    """Every documented audit field must exist in the generated day index.json (newest day with records of that kind)."""
+    seen, latest = audit_seen()
     missing = [f for k, f, _ in AUDIT_FIELDS if f.removeprefix("history[].") not in seen[k]]
-    return {"fields_documented": len(AUDIT_FIELDS), "fields_missing": missing, "checked_day": days[-1] if days else None}
+    return {"fields_documented": len(AUDIT_FIELDS), "fields_missing": missing, "checked_day": latest}
 
 
 def check_llms() -> dict:
@@ -3595,19 +3610,9 @@ def check_llms() -> dict:
     sec = m.group(1) if m else ""
     names = re.findall(r"^- `products\.<slug>\.(?:tasks|reviews)\[\]\.([^`]+)`", sec, re.M)
     ad = check_audit()
-    seen: set = set()
     day = ad["checked_day"]
-    try:
-        d = json.loads((PUBLIC_DIR / "day" / day / "index.json").read_text(encoding="utf-8"))
-        for p in d.get("products", {}).values():
-            for t in p.get("tasks", []):
-                seen |= set(t)
-                for h in t.get("history", []):
-                    seen |= {"history[]." + k for k in h}
-            for r in p.get("reviews", []):
-                seen |= set(r)
-    except (OSError, ValueError, TypeError):
-        pass
+    sn, _ = audit_seen()
+    seen = sn["task"] | sn["review"] | {"history[]." + k for k in sn["transition"]}
     missing = [n for n in names if n not in seen]
     links = re.findall(re.escape(SITE_BASE) + r"(/[^\s)]*)", sec)
     links += [l for l in re.findall(r'href="(/[^"#]*)"', about.split('id="audit-trail"')[-1].split("<h2")[0])]

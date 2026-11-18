@@ -2925,7 +2925,9 @@ def check_crawl(built: str) -> dict:
         f = file_of(cur)
         if not f:
             continue
-        for h in re.findall(r'<a [^>]*href="([^"#?]+)"', f.read_text(encoding="utf-8")):
+        for h in re.findall(r'<a [^>]*href="([^"#?]*)[^"]*"', f.read_text(encoding="utf-8")):
+            if not h:
+                continue
             if h.startswith(SITE_BASE):
                 h = h[len(SITE_BASE):] or "/"
             if h.startswith("/") and h not in depth and not h.startswith("/go/"):

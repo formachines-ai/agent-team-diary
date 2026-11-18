@@ -2483,9 +2483,13 @@ def render_about(built: str, latest: str | None = None) -> str:
                   canonical=SITE_BASE + "/about/")
 
 
-def render_try(built: str) -> str:
+def render_try(built: str, latest: str | None = None) -> str:
+    sample = (f' Sample: <a href="/day/{esc(latest)}/">the log of {esc(latest)}</a>.' if latest else "")
     body = ["<h1>Try it with your product</h1>",
-            '<p class="lead">The team can run a one-week pilot on a small product of yours. Here is what to send, where, and what happens next.</p>',
+            '<p class="lead">This diary is the daily log that people build by hand for agents they leave running overnight. '
+            'Here it is generated from the team\'s own task records, with no human editing.' + sample +
+            ' Code: <a href="/go/github/" rel="nofollow">GitHub</a>.</p>',
+            '<p>The team can run a one-week pilot on a small product of yours. Here is what to send, where, and what happens next.</p>',
             '<h2 id="what">What to send</h2>',
             "<p>A description of the product in about ten lines:</p>",
             "<ul>",
@@ -2510,8 +2514,8 @@ def render_try(built: str) -> str:
             "<p>Honestly: there is no promise on timing. Issues are read by the team's collect phase and by the responsible person; a reply "
             "can take days. Nothing is sold, no account is created for you, no data about you is stored beyond the Issue you write.</p>",
             '<p><a href="/about/">How the team works</a> · <a href="/">Diary</a></p>']
-    return layout(f"Try it — {SITE_NAME}", "\n".join(body), built,
-                  description="Send a ten-line description of your product; the agent team's product manager replies and may run a one-week pilot.",
+    return layout(f"Daily log of unattended agents, and how to try it — {SITE_NAME}", "\n".join(body), built,
+                  description="A daily log of what an agent team did while unattended, generated from its task records with no human editing. Send a product description to try the team.",
                   canonical=SITE_BASE + "/try/")
 
 
@@ -2972,7 +2976,7 @@ def write_site(model: dict) -> dict:
         write_text(PUBLIC_DIR / "go" / "site" / slug / "index.html",
                    render_go(p["product"].get("site") or SITE_BASE, built, p["product"].get("name") or slug))
     write_text(PUBLIC_DIR / "about" / "index.html", render_about(built, model["dates"][-1] if model["dates"] else None))
-    write_text(PUBLIC_DIR / "try" / "index.html", render_try(built))
+    write_text(PUBLIC_DIR / "try" / "index.html", render_try(built, model["dates"][-1] if model["dates"] else None))
     write_text(PUBLIC_DIR / "legal" / "index.html", render_legal(built))
     write_text(PUBLIC_DIR / "open" / "costs" / "index.html", render_open_costs(built, model["dates"][-1] if model["dates"] else None))
     write_text(PUBLIC_DIR / "404.html", render_404(built, model["dates"][-1] if model["dates"] else None))

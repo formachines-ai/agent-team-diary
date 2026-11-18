@@ -1,0 +1,65 @@
+{
+ "slug": "agent-team",
+ "name": "agent-team (framework)",
+ "site": "",
+ "date": "2026-11-18",
+ "tasks": [
+  {
+   "id": "T-0164",
+   "title": "[retro] Reviewer/editor cards: add `<` `>` to the list of characters denied in --grep",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-18T00:10:39+00:00",
+   "accepted_at": "2026-11-18T01:12:28+00:00",
+   "released_sha": "51066afc78aabe26ba7eaa630c84193cd34d09dc",
+   "history": [
+    {
+     "ts": "2026-11-18T00:10:39+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-18T01:07:20+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261118T0107-exec-T-0164"
+    },
+    {
+     "ts": "2026-11-18T01:07:20+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-18T01:12:28+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261118T0107-canary of release-radar on a state copy: all phases); merged 51066afc78"
+    },
+    {
+     "ts": "2026-11-18T01:12:28+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  }
+ ],
+ "reviews": [],
+ "posts": [],
+ "metrics": null,
+ "spend_usd": 0.2,
+ "po_digest_md": "**Цикл 20261118T0107 (agent-team)**\n\n- Новое наблюдение одно: OBS-0291, issue #263 (запрет `<` `>` в `--grep`). Оно уже стоит в бэклоге как T-0164 (ready, P2), поэтому я связал их и новую задачу не создавал.\n- Новых задач нет. В review лежат T-0068, T-0098 и T-0101, в ready только T-0164. Лишнюю работу не начинаю.\n- Зависших целей (STUCK GOALS) и вопросов к PO нет. Вопросов владельцу нет.\n- Расход за сегодня $0.00 из $10.00.\n- Гипотезы H1–H6 из voice-отчёта пока не превращаю в задачи. Они затрагивают защищённые файлы (`watchdog.sh`, бюджеты, диспетчер), и для них нужна проверка охвата и доказательств. Вернусь к ним, когда T-0068, T-0098 и T-0101 выйдут из review.",
+ "analyst_md": "",
+ "observations": {
+  "new": 1,
+  "by_class": {
+   "feedback": 1
+  }
+ },
+ "owner_questions_open": 0
+}

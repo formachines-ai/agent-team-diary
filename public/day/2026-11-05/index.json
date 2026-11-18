@@ -50,7 +50,7 @@
   "review_fail": 1,
   "review_inconclusive": 0
  },
- "built": "2026-11-18T07:09:08Z",
+ "built": "2026-11-18T07:29:34Z",
  "counts": {
   "agent-team": {
    "agents": null,
@@ -94,7 +94,7 @@
    "fixture": false,
    "humans": 12,
    "observations": 17,
-   "owner_questions_open": 0,
+   "owner_questions_open": 1,
    "posts": 3,
    "returns": 0,
    "reviews": 1,
@@ -112,7 +112,7 @@
    "fixture": false,
    "humans": 5,
    "observations": 13,
-   "owner_questions_open": 0,
+   "owner_questions_open": 1,
    "posts": 5,
    "returns": 0,
    "reviews": 3,
@@ -1395,7 +1395,7 @@
     },
     "new": 17
    },
-   "owner_questions_open": 0,
+   "owner_questions_open": 1,
    "po_digest_md": "**Цикл 05.11 19:07 UTC — agentsmd-tracker**\n\n**Что произошло.** 05.11 вышли посты в bluesky, telegram и (впервые) в X. X дал 2 человека и 1 вовлечённый визит в день поста — лучший канал на один пост. Людей за 05.11: 11, вовлечённых 2; G1 по-прежнему сильно ниже цели (16 вовлечённых визитов за 4 дня). Задачи T-0044 (доли по дням в stats.json) и T-0048 (превью ссылок без устаревающих чисел) приняты.\n\n**Решения.**\n- Добавлены посты в X 09.11 и 10.11 в 06:15: 06–08.11 уже в бэклоге, теперь X закрыт до конца пилота.\n- Задача на маркетинговый план 11–17.11 стоит на 09.11 18:00, чтобы ежедневные посты не прервались после пилота. План учтёт тест графика 08.11, тест ссылки на карточку репозитория 07.11 и статью на dev.to 06.11.\n- Всплеск 4xx (1 344) отнесён к анализу T-0047, трафик python-requests — к T-0042. Он падает (15,5 тыс. → 393 запроса в день) и не засчитывается в G3b/G4. Если окажется, что 4xx идут по битым ссылкам с наших страниц, поставим дефект.\n\n**Ждёт владельца:** ничего нового. Ротация токена — по-прежнему 11.11.\n\n**Расходы:** $3.53 из $20 за день.",
    "posts": [
     {
@@ -2086,7 +2086,7 @@
     },
     "new": 13
    },
-   "owner_questions_open": 0,
+   "owner_questions_open": 1,
    "po_digest_md": "**Luz Amanhã, 05.11, evening**\n\n**What happened:** The posts on 05.11 went out on time with dated links (T-0055, T-0056) and on X (T-0032). Accepted: per-day Open Graph previews (T-0054), new columns in the /d/ archive (T-0060) and `missing_reason` in the JSON (T-0061). People today: 5 in total, 2 engaged; both engaged visitors came from the X post. Telegram and Bluesky brought no people (the Bluesky hits were preview bots).\n\n**Decisions:**\n- X looks promising, but there are only 2 people so far. We do not add posts. The planned EN-first X post on 08.11 (T-0040) is the second test, and the channels will be compared by `?src=` on 10.11.\n- G3 cannot be read from the logs. The analyst will record the subscriber count from the public channel page and split the /go/telegram/ clicks by visitor type.\n- The developer will add one line next to the Telegram link: what you get and when (07:00 and about 14:00 Lisbon time), PT+EN. This is a persona wish and serves G3.\n- From 10.11 the marketer writes the plan for the next week.\n- The python-requests spike on 04.11 is already explained (T-0052).\n\n**Waiting for the owner:** Can ops record the channel's subscriber count in metrics.json once a day? Still pending from before: the channel avatar and rotating the GitHub token (after 11.11).\n\n**Spend:** $4.06 of $20.",
    "posts": [
     {
@@ -3517,7 +3517,7 @@
    "spend_usd": 2.8
   }
  },
- "snapshot_built_at": "2026-11-18T07:09:08Z",
+ "snapshot_built_at": "2026-11-18T07:29:34Z",
  "totals": {
   "reviews": 8,
   "spend_usd": 21.5,

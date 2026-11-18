@@ -64,7 +64,7 @@
   "review_fail": 0,
   "review_inconclusive": 0
  },
- "built": "2026-11-18T07:09:08Z",
+ "built": "2026-11-18T07:29:34Z",
  "counts": {
   "agent-team": {
    "agents": null,
@@ -108,7 +108,7 @@
    "fixture": false,
    "humans": 10,
    "observations": 25,
-   "owner_questions_open": 0,
+   "owner_questions_open": 1,
    "posts": 1,
    "returns": 0,
    "reviews": 13,
@@ -126,7 +126,7 @@
    "fixture": false,
    "humans": 2,
    "observations": 34,
-   "owner_questions_open": 0,
+   "owner_questions_open": 1,
    "posts": 3,
    "returns": 0,
    "reviews": 7,
@@ -1096,12 +1096,13 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "accepted",
+     "state": "done",
      "title": "Threads strongest item 2026-11-16 17:30 UTC: one human sentence from a 09–15.11 event (1/7d cap)",
      "type": "marketing"
     },
     {
-     "accepted_at": null,
+     "accepted_at": "2026-11-17T16:08:33+00:00",
+     "artifact": null,
      "created": "2026-11-11T01:08:23+00:00",
      "goal": "G1",
      "history": [
@@ -1116,7 +1117,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "ready",
+     "state": "accepted",
      "title": "X day story 2026-11-17 16:00 UTC: one 16.11 event, link last",
      "type": "content"
     },
@@ -1390,7 +1391,7 @@
     },
     "new": 25
    },
-   "owner_questions_open": 0,
+   "owner_questions_open": 1,
    "po_digest_md": "**Цикл 11.11 19:07: 1 новая задача, расход $11.19 из $20**\n\n**Что произошло.** Все задачи разработчика по качеству, поиску и данным приняты: T-0105, T-0108, T-0111, T-0113, T-0115, T-0116, T-0117, T-0118, T-0119, T-0120. Посты в X запланированы на каждый день до 17.11, ещё четыре слота на этой неделе в других каналах (dev.to, Mastodon, Bluesky, Telegram, Threads) тоже стоят в бэклоге.\n\n**Решения по наблюдениям.**\n- **OBS-0290 (всплеск 08.11):** 4004 «человека» и 2422 запроса /go/ за день — это скрипт (python-requests). День 08.11 уже исключён из G1–G3. Наблюдение привязано к еженедельному чтению T-0112.\n- **OBS-0291:** отставание по целям (G1 17/60, G3 9/15) уже известно по Q-0013. Тоже привязано к T-0112.\n- **OBS-0292:** за 11.11 сайт вернул 444 ответа 4xx против 21 накануне. Скорее всего, это сканеры. Чтобы исключить наши собственные битые ссылки, поставил новую задачу (quality, P2): офлайн-тест внутренних ссылок и URL из sitemap, плюс исправление битых, если найдутся. Выбрал тест, а не ожидание списка 404 от ops, потому что за два дня build.py менялся 10 раз, а ссылки никто не проверял.\n\n**Что ждёт владельца.**\n- Попросить ops добавить в sitemetrics правило-фильтр для пула 08.11 и выводить топ путей с 4xx по дням.\n- Ещё не сделано: счётчики /repo/ и /lang/ (Q-0012, Q-0008).\n- Цели после пилота (Q-0013): пока команда держит G1–G5 и читает их каждую неделю.\n\n**Поиск.** Google проиндексировал 2 из 120 проверенных URL, главная по-прежнему не в индексе. Данные GSC заканчиваются 10.11, то есть до T-0120. Эффект прочитаем 24.11, новых задач по SEO не ставлю.",
    "posts": [
     {
@@ -1934,7 +1935,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "accepted",
+     "state": "done",
      "title": "X post 16.11 06:15 UTC from @formachines_ai: number of the day",
      "type": "content"
     },
@@ -2000,7 +2001,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "accepted",
+     "state": "done",
      "title": "Mastodon post 16.11 12:00 UTC: Week in numbers 02.11→16.11",
      "type": "content"
     },
@@ -2071,7 +2072,8 @@
      "type": "quality"
     },
     {
-     "accepted_at": null,
+     "accepted_at": "2026-11-17T12:08:57+00:00",
+     "artifact": null,
      "created": "2026-11-11T04:09:32+00:00",
      "goal": "G1",
      "history": [
@@ -2086,12 +2088,13 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "ready",
+     "state": "accepted",
      "title": "Bluesky post 17.11 12:00 UTC: Week in numbers 02.11→17.11",
      "type": "content"
     },
     {
-     "accepted_at": null,
+     "accepted_at": "2026-11-17T13:09:57+00:00",
+     "artifact": null,
      "created": "2026-11-11T04:09:33+00:00",
      "goal": "G2",
      "history": [
@@ -2106,7 +2109,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "ready",
+     "state": "accepted",
      "title": "Telegram post 17.11 12:00 UTC @agentsmd_tracker: number of the day",
      "type": "content"
     },
@@ -2221,7 +2224,8 @@
      "type": "defect"
     },
     {
-     "accepted_at": null,
+     "accepted_at": "2026-11-17T14:10:21+00:00",
+     "artifact": null,
      "created": "2026-11-11T08:11:03+00:00",
      "goal": "G1",
      "history": [
@@ -2236,7 +2240,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "ready",
+     "state": "accepted",
      "title": "Threads post 17.11 14:00 UTC from @formachines: Cut (one dated language share)",
      "type": "content"
     },
@@ -2579,7 +2583,7 @@
     },
     "new": 34
    },
-   "owner_questions_open": 0,
+   "owner_questions_open": 1,
    "po_digest_md": "## Luz Amanhã — цикл 11.11, 19:07 UTC\n\n**Что произошло.** 11.11 вышли все посты: утренний пост в Telegram (11.11), карточка на завтра (12.11) в Telegram и X. Самое дешёвое окно 12.11 — 11–14h, в среднем 1,47 €/MWh. Приняты исправления:\n- T-0131/T-0133/T-0140: строки статуса и ночного блока на главной;\n- T-0135: правильно назван файл OMIE `marginalpdbc` после того, как файл PT перестал выходить;\n- T-0123: sitemap и ссылки между датированными страницами;\n- T-0134/T-0139: строка о Telegram.\n\nНа ревью: T-0083, T-0087, T-0097, T-0104 (заполнение часа 23:00 из следующего файла).\n\n**Решения.** Новых задач нет: незакрытых слотов плана нет — посты расписаны до 16.11, план на 17–23.11 стоит на 16.11 (T-0138). Слоты Bluesky 13.11 и Mastodon 11.11 и 15.11 пропущены из-за лимитов владельца. Разработчику хватает того, что на ревью. Три наблюдения аналитика:\n- агентский трафик, возможно, наш собственный — отложено до маркера UA (Q-0037);\n- время поста в X — войдёт в тест в следующем плане;\n- реферер Google при 0 показов в GSC — связано с T-0123, перечитываем после 14.11.\n\n**Метрики.** 1 человек, 1 engaged за 11.11. X по-прежнему единственный канал, где каждый пост приносит engaged-человека (4/4). G5 не читается.\n\n**Ждёт владельца** (вопросы уже заданы, повторно не задаём):\n1. cron-сборки в 00:05 Lisbon и 06:50 UTC (Q-0024);\n2. цели после пилота: 8 engaged против цели ≥30, 0 внешних рефереров, 0 показов в Google (Q-0036);\n3. REN как резервный источник (L4, Q-0035);\n4. маркер UA для наших запросов в метриках (Q-0037).\n\n**Расход.** $12,07 из $20 (60 %).",
    "posts": [
     {
@@ -3110,7 +3114,7 @@
      "priority": "P1",
      "released_sha": null,
      "role": "marketer",
-     "state": "accepted",
+     "state": "done",
      "title": "Daily post 16.11 14:05 UTC: prices for 17.11 with the dated link /d/2026-11-17/ (Telegram)",
      "type": "content"
     },
@@ -3332,7 +3336,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "accepted",
+     "state": "done",
      "title": "Marketing plan for 17.11–23.11: test the voice angles (dynamic-tariff headline, HA/scripts via /tomorrow.json) within the caps",
      "type": "marketing"
     },
@@ -3720,7 +3724,8 @@
      "type": "quality"
     },
     {
-     "accepted_at": null,
+     "accepted_at": "2026-11-17T10:09:09+00:00",
+     "artifact": null,
      "created": "2026-11-11T01:13:16+00:00",
      "goal": "G1",
      "history": [
@@ -3735,12 +3740,13 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "ready",
+     "state": "accepted",
      "title": "Bluesky 17.11 10:00 UTC — week's strongest flagged release of 11–17.11 with verbatim quote and /pkg/ link",
      "type": "content"
     },
     {
-     "accepted_at": null,
+     "accepted_at": "2026-11-17T11:08:50+00:00",
+     "artifact": null,
      "created": "2026-11-11T01:13:16+00:00",
      "goal": "G2",
      "history": [
@@ -3755,7 +3761,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "ready",
+     "state": "accepted",
      "title": "Telegram 17.11 10:00 UTC — week's strongest item (or the 16.11 dev.to roundup) with verbatim quote",
      "type": "content"
     },
@@ -4325,7 +4331,7 @@
    "spend_usd": 10.2
   }
  },
- "snapshot_built_at": "2026-11-18T07:09:08Z",
+ "snapshot_built_at": "2026-11-18T07:29:34Z",
  "totals": {
   "reviews": 31,
   "spend_usd": 45.9,

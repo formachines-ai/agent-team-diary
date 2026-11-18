@@ -1,26 +1,20 @@
 {
- "generated": "2026-11-17T07:29:26+00:00",
+ "generated": "2026-11-18T07:29:33+00:00",
  "days": 7,
- "total": 69,
+ "total": 53,
  "by_kind": {
-  "reported": 9,
-  "task_blocked": 27,
-  "phase_error": 3,
-  "env_error": 2,
   "tool_denied": 25,
+  "reported": 8,
+  "env_error": 1,
+  "task_blocked": 16,
   "review_fail": 3
  },
  "by_day": {
-  "2026-11-10": {
-   "reported": 1,
-   "task_blocked": 11,
-   "phase_error": 3
-  },
   "2026-11-11": {
-   "env_error": 2,
-   "tool_denied": 6,
-   "task_blocked": 2,
-   "reported": 1
+   "tool_denied": 5,
+   "reported": 1,
+   "env_error": 1,
+   "task_blocked": 1
   },
   "2026-11-12": {
    "task_blocked": 2,
@@ -44,9 +38,27 @@
   "2026-11-16": {
    "review_fail": 1,
    "task_blocked": 2
+  },
+  "2026-11-17": {
+   "tool_denied": 1,
+   "task_blocked": 1
   }
  },
  "recent": [
+  {
+   "ts": "2026-11-17T22:13:13+00:00",
+   "product": "agent-team-diary",
+   "role": "dispatcher",
+   "kind": "task_blocked",
+   "summary": "T-0182 Day pages: 7-day baseline (median of accepted tasks, review : stuck: 3 failed attempts on this goal; the PO replans it with 3 alternatives"
+  },
+  {
+   "ts": "2026-11-17T08:10:53+00:00",
+   "product": "release-radar",
+   "role": "editor",
+   "kind": "tool_denied",
+   "summary": "editor: denied Bash(team-fetch https://releases.formachines.ai/ --grep bump\">major --around 250)"
+  },
   {
    "ts": "2026-11-16T19:12:05+00:00",
    "product": "release-radar",
@@ -382,20 +394,6 @@
    "role": "dispatcher",
    "kind": "task_blocked",
    "summary": "T-0105 Cards say 'No GitHub release found for this version' when Gi: stuck: 3 failed attempts on this goal; the PO replans it with 3 alternatives"
-  },
-  {
-   "ts": "2026-11-11T13:09:35+00:00",
-   "product": "agentsmd-tracker",
-   "role": "reviewer",
-   "kind": "reported",
-   "summary": "reviewer: [environment] Read-only checkout makes tests that call render_site fail through copied read-only permissions, so a passing run cannot be shown."
-  },
-  {
-   "ts": "2026-11-11T13:09:35+00:00",
-   "product": "agentsmd-tracker",
-   "role": "reviewer",
-   "kind": "env_error",
-   "summary": "reviewer: Tests error in read-only checkout"
   }
  ]
 }

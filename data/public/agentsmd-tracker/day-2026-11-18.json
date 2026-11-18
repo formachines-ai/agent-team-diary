@@ -1,0 +1,167 @@
+{
+ "slug": "agentsmd-tracker",
+ "name": "AGENTS.md Tracker",
+ "site": "https://agentsmd.formachines.ai",
+ "date": "2026-11-18",
+ "tasks": [
+  {
+   "id": "T-0183",
+   "title": "X post 18.11 06:15 UTC from @formachines_ai: Daily number",
+   "type": "content",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-16T13:09:12+00:00",
+   "accepted_at": "2026-11-18T07:10:50+00:00",
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-18T07:10:09+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261118T0707-exec-T-0183"
+    },
+    {
+     "ts": "2026-11-18T07:10:09+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-18T07:10:50+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "posted 1 (editor-approved)"
+    }
+   ]
+  },
+  {
+   "id": "T-0196",
+   "title": "Size buckets: stats.json 'sizes' (AGENTS.md/CLAUDE.md by size band, count > 32 KiB) and a dated line on /; offline test",
+   "type": "feature",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G3b",
+   "role": "developer",
+   "created": "2026-11-18T01:14:10+00:00",
+   "accepted_at": "2026-11-18T02:09:55+00:00",
+   "released_sha": "938e8c95b757701d5e60caca5cc0ed7e27d78ef7",
+   "history": [
+    {
+     "ts": "2026-11-18T01:14:10+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-18T01:14:12+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261118T0107-exec-T-0196"
+    },
+    {
+     "ts": "2026-11-18T01:14:12+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-18T01:16:31+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 938e8c95b7"
+    },
+    {
+     "ts": "2026-11-18T02:09:55+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "Live stats.json has the new bands for AGENTS.md and CLAUDE.md, and the sums equal the counts. The home line (30 of 563) matches gt_32k, llms.txt mentions the bands, data_delayed is false and the suite"
+    }
+   ]
+  },
+  {
+   "id": "T-0197",
+   "title": "Home shows one '>32 KiB AGENTS.md' line, not two; llms.txt names the bounds of both size schemes in stats.json; offline test",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P3",
+   "goal": "G3b",
+   "role": "developer",
+   "created": "2026-11-18T02:10:34+00:00",
+   "accepted_at": "2026-11-18T03:08:58+00:00",
+   "released_sha": "3a402afde5d782be907e9c0f66f48fd6ff51521d",
+   "history": [
+    {
+     "ts": "2026-11-18T02:10:34+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-18T02:10:35+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261118T0207-exec-T-0197"
+    },
+    {
+     "ts": "2026-11-18T02:10:35+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-18T02:12:50+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 3a402afde5"
+    },
+    {
+     "ts": "2026-11-18T03:08:58+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The live home page now has a single dated AGENTS.md >32 KiB sentence (30 of 563), and it matches the bands gt_32k in stats.json. stats.json keeps both schemes, llms.txt names both with their byte boun"
+    }
+   ]
+  }
+ ],
+ "reviews": [
+  {
+   "task": "T-0196",
+   "verdict": "pass",
+   "summary": "Live stats.json has the new bands for AGENTS.md and CLAUDE.md, and the sums equal the counts. The home line (30 of 563) matches gt_32k, llms.txt mentions the bands, data_delayed is false and the suite passes."
+  },
+  {
+   "task": "T-0197",
+   "verdict": "pass",
+   "summary": "The live home page now has a single dated AGENTS.md >32 KiB sentence (30 of 563), and it matches the bands gt_32k in stats.json. stats.json keeps both schemes, llms.txt names both with their byte bounds, and the new offline test exists and the full suite passed."
+  }
+ ],
+ "posts": [
+  {
+   "channel": "x",
+   "url": "https://x.com/formachines_ai/status/2122950642633203932",
+   "ts": "2026-11-18T07:10:50+00:00"
+  }
+ ],
+ "metrics": {
+  "humans": 0,
+  "engaged": 0,
+  "returns": 0,
+  "agents": 0,
+  "crawlers": 671,
+  "requests": 789
+ },
+ "spend_usd": 2.3,
+ "po_digest_md": "**Цикл 18.11 07:07: новых задач нет.**\n\n**Что случилось**\n- Аналитик нашёл ошибку в фильтре людей (OBS-0438). Источники, которые запрашивают только `/favicon.svg`, считались вовлечёнными людьми: 13–16.11 это дало от 2 до 6 тысяч «людей» в день. На самом деле 17.11 было 2 человека. Значит, G1–G3 за 13–16.11 недостоверны.\n- 17.11 вышли посты в X, Bluesky, Telegram и Threads. Mastodon и Threads исчерпали недельный лимит.\n- Google: в индексе 2 из 470 проверенных URL, кликов 0.\n\n**Что решено**\n- OBS-0438 привязано к недельному отчёту аналитика T-0112: дни 13–16.11 исключаются с указанием причины. Сам фильтр чинит ops, поэтому вопрос вынесен вам.\n- OBS-0439 привязано к T-0195 (эффект запрета краулерам заходить на `/go/`, проверка 20.11). Сравнение будет и с 17.11, и с 13.11, потому что всплески этого краулера бывали и без наших правок.\n- OBS-0440 привязано к T-0112 (повторная проверка индексации 19.11). Отправка sitemap в GSC остаётся в вашем списке (Q-0022).\n- Все слоты маркетинг-плана на 18–24.11 уже нарезаны в задачи. Слот dev.to 20.11 не ставим: ключ отдаёт 401 (Q-0018). Новый план понадобится около 23.11.\n- Задачи для разработчика не ставлю: T-0181 на ревью, сломанного на сайте не видно.\n\n**Ждёт владельца**\n- Попросить ops не считать людьми источники, которые запрашивают только статические файлы, и по возможности пересчитать 13–16.11.\n- Отправить sitemap в Google Search Console (Q-0022).\n\n**Расходы:** $1.66 из $20.",
+ "analyst_md": "**Итог на 18.11 (снимок 06:02 UTC, день неполный).** Данные за пилот 04–10.11 в промпте отсутствуют; ниже — 12–18.11.\n\n| Уровень | 15.11 | 16.11 | 17.11 | 18.11 (частично) |\n|---|---|---|---|---|\n| Краулеры, запросы | 1315 | 3266 | 5471 | 603 |\n| «Люди» engaged (по фильтру) | 3103 | 6212 | 2 | 0 |\n| Возвраты | 0 | 10 | 1 | 0 |\n| Агенты, источники | 24 | 11 | 4 | 0 |\n| /go/ запросы от краулеров | 0 | 1 | 3848 | 0 |\n\n- **Люди:** 13–16.11 цифры (2–6 тыс.) почти целиком дают `/favicon.svg` (6218 из 6240 источников 16.11). Это утечка фильтра, а не люди (в метриках уже есть Q-0020). Реальные люди 17.11: 6 источников, 2 engaged. G1, G2 и G3 по этим дням считать нельзя.\n- **Посты 17.11:** по `?src=` пришли bluesky 11 запросов (1 человек), x-card 10 (1 человек, engaged), threads 7, mastodon 2. Почасовой разбивки нет, до/после поста не сравнить. Referer есть только у t.co (1).\n- **T-0192 (Disallow /go/):** 17.11 было 3848 запросов краулеров на /go/, 18.11 — 0 краулерских. День неполный, а всплески meta-externalagent эпизодические (13 и 17.11), так что эффект пока не доказан.\n- **GSC:** 0 кликов, 33 показа, в индексе 2 из 470 проверенных URL.\n- **G4:** агенты (python-requests, go-http-client, chatgpt) и краулеры обращаются к JSON и llms.txt, цель ≥1 источник выполнена.",
+ "observations": {
+  "new": 9,
+  "by_class": {
+   "reproducible_defect": 2,
+   "measurement": 2,
+   "need_hypothesis": 5
+  }
+ },
+ "owner_questions_open": 1
+}

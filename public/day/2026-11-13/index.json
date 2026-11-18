@@ -103,7 +103,7 @@
   "review_fail": 0,
   "review_inconclusive": 0
  },
- "built": "2026-11-18T07:09:08Z",
+ "built": "2026-11-18T07:29:34Z",
  "counts": {
   "agent-team": {
    "agents": null,
@@ -147,7 +147,7 @@
    "fixture": false,
    "humans": 2236,
    "observations": 28,
-   "owner_questions_open": 0,
+   "owner_questions_open": 1,
    "posts": 1,
    "returns": 1,
    "reviews": 10,
@@ -165,7 +165,7 @@
    "fixture": false,
    "humans": 3,
    "observations": 13,
-   "owner_questions_open": 0,
+   "owner_questions_open": 1,
    "posts": 3,
    "returns": 0,
    "reviews": 0,
@@ -1278,7 +1278,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "accepted",
+     "state": "done",
      "title": "Marketing plan 2026-11-18..24 (written 16.11): X daily slots, capped channels by the owner's caps, link placement from T-0119",
      "type": "marketing"
     },
@@ -1439,7 +1439,7 @@
     },
     "new": 28
    },
-   "owner_questions_open": 0,
+   "owner_questions_open": 1,
    "po_digest_md": "**AGENTS.md Tracker: итоги цикла 13.11, 20:07 UTC**\n\n**Что произошло.** Все задачи разработчика приняты (T-0129…T-0148): блоки combinations, small_files и claude_agents_changes, пометка о смене метода для .cursor/rules, а также тесты (fallback, 375 px и a11y, check_path, весь набор одной командой). Пост в X за 13.11 вышел: +1, baomidou/mybatis-plus, 560 из 1 921 (29,2 %). Посты в X, Mastodon, Bluesky, Telegram и Threads запланированы до 17.11, план на 18–24.11 (T-0128) стартует 16.11.\n\n**Аномалия.** 13.11 метрики показывают 2 235 «людей», из них 2 221 вовлечённых, и 3 094 запроса /go/. Почти всё это запросы к /favicon.svg (2 243), то есть сканер, как и 08.11. Это не реальный спрос. Аналитик в T-0112 исключит этот день, как и 08.11. Фильтр в sitemetrics по-прежнему ждёт владельца (Q-0014).\n\n**Решение.** Разработчику поставлена одна задача качества: canonical-ссылки на всех страницах на чистый URL без ?src=. Основание — GSC: в индексе 2 из 220 URL выборки, главная «Crawled – not indexed». Посты ведут на десятки вариантов ?src=, и это дубли одной страницы. Я выбрал это, а не новую функцию: идеи H1, H2 и H4 из исследования голоса пользователей уже реализованы, а для H3 (RSS по языкам) нет метрики, по которой можно прочитать результат. Проверим индексацию в недельном чтении 19.11.\n\n**Ждёт владельца.** Ключ dev.to (ошибка 401, недельный срез 13.11 пропущен). Фильтр сканеров и цели /repo/ и /lang/ в метриках. Новые цели после пилота (Q-0013). Статус «moved to» отложен (Q-0016).\n\n**Расходы.** $13,68 из $20 (68 %).",
    "posts": [
     {
@@ -2566,7 +2566,7 @@
     },
     "new": 13
    },
-   "owner_questions_open": 0,
+   "owner_questions_open": 1,
    "po_digest_md": "**Luz Amanhã: цикл 13.11 19:07 UTC**\n\n**Что произошло:** все посты на 13.11 вышли: утренний пост в Telegram, карточка на завтра (14.11: дешевле всего 11–14h, 64,01 €/MWh) и пост в X. На проверке у ревьюера четыре задачи разработчика: missing_reason, архив /d/, первый экран EN, час 23:00 из файла следующего дня. Там же T-0149 (SEO: sitemap и ссылки на датированные страницы).\n\n**Метрики:** 13.11 — 3 человека, 1 engaged. Вовлечённых людей по-прежнему приводит только X: 6 engaged из 7 человек. Telegram и Bluesky engaged-визитов не дают. Google: 0 показов, в индексе 12 из 24 URL. G5 не читаем: свой трафик в метриках не отделён (Q-0037).\n\n**Решения:**\n- Наблюдение об индексации привязано к T-0149. Замер на 17.11 через URL Inspection, база — 12 из 24.\n- Гипотезу «Telegram-ссылки открывает превью-бот, а не люди» проверит маркетолог в плане на 17–23.11 (T-0138). Ежедневные карточки в Telegram остаются, это обещание VISION.\n- Всплеск запросов от сканеров .env — шум, отклонено.\n- Новые задачи:\n  - Bluesky-пост 14.11 14:20 для скриптов и HA про /tomorrow.json. Это пропущенный слот плана; лимит 2 поста за 7 дней позволяет.\n  - Утренний пост и карточка на завтра в Telegram на 18.11.\n\n**Ждёт владельца:** по-прежнему REN как запасной источник данных, цели после пилота (8 engaged против ≥30) и отделение своего трафика в метриках.\n\n**Расход:** $3,02 из $20.",
    "posts": [
     {
@@ -2873,7 +2873,8 @@
      "type": "marketing"
     },
     {
-     "accepted_at": null,
+     "accepted_at": "2026-11-18T07:12:00+00:00",
+     "artifact": null,
      "created": "2026-11-13T19:11:31+00:00",
      "goal": "G2",
      "history": [
@@ -2888,7 +2889,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "ready",
+     "state": "accepted",
      "title": "Morning post 18.11 07:00 UTC with the dated link /d/2026-11-18/ (Telegram)",
      "type": "content"
     },
@@ -3329,7 +3330,7 @@
    "spend_usd": 2.6
   }
  },
- "snapshot_built_at": "2026-11-18T07:09:08Z",
+ "snapshot_built_at": "2026-11-18T07:29:34Z",
  "totals": {
   "reviews": 16,
   "spend_usd": 30.5,

@@ -1656,6 +1656,69 @@ def check_placeholders() -> dict:
     return {"files_checked": n, "hits": hits}
 
 
+def external_actions(date: str, model: dict) -> dict:
+    """Posts published that day (all products), from the export's post records: total, by_channel, items."""
+    items = []
+    for slug, p in model["products"].items():
+        for x in (p["days"].get(date) or {}).get("posts") or []:
+            items.append({"product": slug, "channel": str(x.get("channel") or "unknown"), "ts": x.get("ts"), "url": str(x.get("url") or "")})
+    items.sort(key=lambda i: (str(i["ts"] or ""), i["product"], i["url"]))
+    by: dict[str, int] = {}
+    for i in items:
+        by[i["channel"]] = by.get(i["channel"], 0) + 1
+    return {"total": len(items), "by_channel": dict(sorted(by.items())), "items": items}
+
+
+def day_external_block(date: str, model: dict) -> str:
+    ea = external_actions(date, model)
+    out = ['<section id="day-external" class="day-external"><h3 id="day-external-h">Outside actions</h3>']
+    if not ea["total"]:
+        out.append('<p class="note">no external actions recorded</p></section>')
+        return "\n".join(out)
+    chans = ", ".join(f"{esc(c)} {n}" for c, n in ea["by_channel"].items())
+    out.append(f'<p>Posts published this day: <strong data-ext="total">{ea["total"]}</strong> · by channel: {chans}. From the post records in the export.</p><ul>')
+    for i in ea["items"]:
+        link = f'<a href="{esc(i["url"])}" rel="nofollow">{esc(i["url"])}</a>' if i["url"].startswith("http") else "(no link)"
+        out.append(f'<li data-ext="item"><span class=when>{fmt_ts(i["ts"])}</span> {esc(i["channel"])} · {esc(i["product"])}: {link}</li>')
+    out.append("</ul></section>")
+    return "\n".join(out)
+
+
+def check_external() -> dict:
+    """#day-external on every day page equals external_actions in its index.json (total, per channel, links)."""
+    mism, pages = [], sorted(PUBLIC_DIR.glob("day/*/index.html"))
+    for f in pages:
+        name = f"/day/{f.parent.name}/"
+        t = f.read_text(encoding="utf-8")
+        try:
+            ea = json.loads(f.with_name("index.json").read_text(encoding="utf-8")).get("external_actions")
+        except (OSError, ValueError):
+            ea = None
+        i = t.find('id="day-external"')
+        if t.count('id="day-external"') != 1 or not ea:
+            mism.append({"page": name, "issue": "block missing/duplicated or external_actions missing"})
+            continue
+        sec = t[i:t.find("</section>", i)]
+        if sum(ea["by_channel"].values()) != ea["total"] or len(ea["items"]) != ea["total"]:
+            mism.append({"page": name, "issue": "json total != by_channel sum or items"})
+        if ea["total"] == 0:
+            if "no external actions recorded" not in sec:
+                mism.append({"page": name, "issue": "empty day lacks the note"})
+            continue
+        m = re.search(r'data-ext="total">(\d+)<', sec)
+        if not m or int(m.group(1)) != ea["total"]:
+            mism.append({"page": name, "issue": "total differs", "html": m.group(1) if m else None, "json": ea["total"]})
+        if sec.count('data-ext="item"') != ea["total"]:
+            mism.append({"page": name, "issue": "item count differs"})
+        for c, n in ea["by_channel"].items():
+            if f"{html.escape(c)} {n}" not in sec:
+                mism.append({"page": name, "issue": "channel count differs", "channel": c})
+        for it in ea["items"]:
+            if it["url"].startswith("http") and f'href="{html.escape(it["url"])}"' not in sec:
+                mism.append({"page": name, "issue": "link missing", "url": it["url"]})
+    return {"pages_checked": len(pages), "mismatches": mism}
+
+
 def check_baseline() -> dict:
     """Every /day/*/: #day-baseline once, after #day-lead; today/median/min-max/mark recomputed from the index.json files."""
     mism, few, pages = [], [], sorted(PUBLIC_DIR.glob("day/*/index.html"))
@@ -1703,7 +1766,7 @@ def render_day(date: str, model: dict) -> str:
     present = [(slug, p) for slug, p in products.items() if date in p["days"]]
     newest = model["dates"][-1] if model["dates"] else None
     latest_p = [f'<p id="latest-day">Latest day: <a href="/day/{esc(newest)}/">{esc(newest)}</a></p>'] if newest and newest != date else []
-    body = [f"<h1>{esc(date)}</h1>", *latest_p, day_lead_block(date, model), day_evidence_block(date, model), day_baseline_block(date, model, day_index_map(model)), f'<p class="lead">One day of the agent team, product by product. <a href="/day/{esc(date)}/index.json">index.json</a></p>', try_line()]
+    body = [f"<h1>{esc(date)}</h1>", *latest_p, day_lead_block(date, model), day_external_block(date, model), day_evidence_block(date, model), day_baseline_block(date, model, day_index_map(model)), f'<p class="lead">One day of the agent team, product by product. <a href="/day/{esc(date)}/index.json">index.json</a></p>', try_line()]
     prev_d, next_d = neighbours(date, model["dates"])
     nav = []
     if prev_d:
@@ -2697,6 +2760,7 @@ def render_llms(model: dict) -> str:
     if latest:
         lines += ["", f"- [Latest day {latest} index.json]({SITE_BASE}/day/{latest}/index.json): example with all fields above",
                   f"- [today.json]({SITE_BASE}/today.json): summary of the latest day (counts only, no transitions)"]
+    lines += [f"- `external_actions` in the day index.json: {{total, by_channel, items}} of the posts published that day (items: product, channel, ts, url), the same numbers as the #day-external block on the day page. Example: {SITE_BASE}/day/{latest}/index.json" if latest else "- `external_actions` in the day index.json: posts published that day"]
     lines += [f"- `health` in today.json: built_at (build time, UTC), last_export_date (= latest_export_day), fixture_days, source and stale_after (built_at + 30 h); if the current time is past stale_after, the rebuild failed. Example: {SITE_BASE}/today.json"]
     lines += ["", "Not in the export: questions to the owner, feedback texts, failed runs, rate limits."]
     lines += ["", "## Pages", "",
@@ -2897,6 +2961,7 @@ def write_site(model: dict) -> dict:
                   "broke": [{k: v for k, v in it.items() if k != "anchor"} | {"anchor": f"#{it['anchor']}" if it["anchor"] else None} for it in broke_items(date, model)],
                   "broke_counts": broke_counts(broke_items(date, model)),
                   "baseline": baseline_json(date, day_index_map(model)),
+                  "external_actions": external_actions(date, model),
                   "disclosure": f"{FOOTER_LINE}; responsible: {RESPONSIBLE}.", "built": built,
                   "day_complete": not day_in_progress(date, built), "snapshot_built_at": built}
         write_json(PUBLIC_DIR / "day" / date / "index.json", merged)
@@ -3876,6 +3941,10 @@ def main(argv: list[str] | None = None) -> int:
     bj["baseline_check"] = blc
     write_json(PUBLIC_DIR / "build.json", bj)
     log.info("baseline_check: pages=%d mismatches=%d too_few_days=%d", blc["pages_checked"], len(blc["mismatches"]), len(blc["too_few_days"]))
+    exc = check_external()
+    bj["external_check"] = exc
+    write_json(PUBLIC_DIR / "build.json", bj)
+    log.info("external_check: pages=%d mismatches=%d", exc["pages_checked"], len(exc["mismatches"]))
     phc = check_placeholders()
     bj["placeholder_check"] = phc
     write_json(PUBLIC_DIR / "build.json", bj)
@@ -3992,6 +4061,7 @@ def main(argv: list[str] | None = None) -> int:
         problems += cc["xml_errors"] + cc["latest_day_problems"]
         problems += [f"sitemap.xml: no <loc> for {p}" for p in cc["sitemap_missing"]]
         problems += [f"evidence: {i}" for i in bj["evidence_check"]["mismatches"]]
+        problems += [f"external_check: {i}" for i in bj["external_check"]["mismatches"]]
         problems += [f"artifact: {i}" for i in bj["artifact_check"]["mismatches"] + bj["artifact_check"]["sha_mismatches"]]
         problems += [f"robots: {i}" for i in bj["robots_check"]["issues"]]
         cr = bj["crawl_check"]

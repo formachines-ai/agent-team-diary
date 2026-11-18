@@ -1719,6 +1719,74 @@ def check_external() -> dict:
     return {"pages_checked": len(pages), "mismatches": mism}
 
 
+def escaped_tasks(date: str, model: dict) -> dict:
+    """Tasks that reached accepted/done and later the same day moved to another state (not accepted/done/measured),
+    from the task history of the export. Review verdicts are not used. items: product, id, state, actor, note."""
+    items = []
+    for slug, p in model["products"].items():
+        for t in (p["days"].get(date) or {}).get("tasks") or []:
+            hist = t.get("history") or []
+            ok = False
+            for h in hist:
+                to = str(h.get("to"))
+                if ok and to not in ESCAPE_IGNORE:
+                    items.append({"product": slug, "id": str(t.get("id")), "state": to, "actor": h.get("actor"), "note": str(h.get("note") or "")[:120]})
+                    break
+                if to in ARTIFACT_STATES:
+                    ok = True
+    items.sort(key=lambda i: (i["product"], i["id"]))
+    return {"total": len(items), "items": items}
+
+
+ESCAPE_IGNORE = ("accepted", "done", "measured")
+
+
+def day_escaped_block(date: str, model: dict) -> str:
+    e = escaped_tasks(date, model)
+    out = ['<section id="day-escaped" class="day-escaped"><h3 id="day-escaped-h">Accepted, then reopened</h3>']
+    if not e["total"]:
+        out.append('<p class="note">no reopened tasks recorded</p></section>')
+        return "\n".join(out)
+    out.append(f'<p>Tasks that reached accepted or done and then moved to another state the same day: <strong data-esc="total">{e["total"]}</strong>. From the task history in the export.</p><ul>')
+    for i in e["items"]:
+        note = f' ({esc(i["actor"])}: {esc(i["note"])})' if i["note"] else ""
+        out.append(f'<li data-esc="item"><code>{esc(i["id"])}</code> → {esc(i["state"])}{note}</li>')
+    out.append("</ul></section>")
+    return "\n".join(out)
+
+
+def check_escaped() -> dict:
+    """#day-escaped on every day page equals escaped in its index.json (total and task ids)."""
+    mism, pages = [], sorted(PUBLIC_DIR.glob("day/*/index.html"))
+    for f in pages:
+        name = f"/day/{f.parent.name}/"
+        t = f.read_text(encoding="utf-8")
+        try:
+            e = json.loads(f.with_name("index.json").read_text(encoding="utf-8")).get("escaped")
+        except (OSError, ValueError):
+            e = None
+        i = t.find('id="day-escaped"')
+        if t.count('id="day-escaped"') != 1 or not isinstance(e, dict):
+            mism.append({"page": name, "issue": "block missing/duplicated or escaped missing"})
+            continue
+        sec = t[i:t.find("</section>", i)]
+        if len(e["items"]) != e["total"]:
+            mism.append({"page": name, "issue": "json total != items"})
+        if e["total"] == 0:
+            if "no reopened tasks recorded" not in sec:
+                mism.append({"page": name, "issue": "empty day lacks the note"})
+            continue
+        m = re.search(r'data-esc="total">(\d+)<', sec)
+        if not m or int(m.group(1)) != e["total"]:
+            mism.append({"page": name, "issue": "total differs", "html": m.group(1) if m else None, "json": e["total"]})
+        if sec.count('data-esc="item"') != e["total"]:
+            mism.append({"page": name, "issue": "item count differs"})
+        for it in e["items"]:
+            if f"<code>{html.escape(it['id'])}</code>" not in sec:
+                mism.append({"page": name, "issue": "task id missing", "id": it["id"]})
+    return {"pages_checked": len(pages), "mismatches": mism}
+
+
 def check_baseline() -> dict:
     """Every /day/*/: #day-baseline once, after #day-lead; today/median/min-max/mark recomputed from the index.json files."""
     mism, few, pages = [], [], sorted(PUBLIC_DIR.glob("day/*/index.html"))
@@ -1779,6 +1847,7 @@ def render_day(date: str, model: dict) -> str:
     body.append(fixture_note([p["days"][date] for _, p in present]))
     anchors = task_anchors(date, model)
     body.append(what_broke_block(date, model))
+    body.append(day_escaped_block(date, model))
     body.append(work_vs_people_block(date, model))
     body.append(try_block("day-try"))
     body.append(follow_block("day-follow"))
@@ -2765,6 +2834,7 @@ def render_llms(model: dict) -> str:
         lines += ["", f"- [Latest day {latest} index.json]({SITE_BASE}/day/{latest}/index.json): example with all fields above",
                   f"- [today.json]({SITE_BASE}/today.json): summary of the latest day (counts only, no transitions)"]
     lines += [f"- `external_actions` in the day index.json: {{total, by_channel, items}} of the posts published that day (items: product, channel, ts, url), the same numbers as the #day-external block on the day page. Example: {SITE_BASE}/day/{latest}/index.json" if latest else "- `external_actions` in the day index.json: posts published that day"]
+    lines += [f"- `escaped` in the day index.json: {{total, items}} of tasks that reached accepted or done and moved to another state the same day (items: product, id, state, actor, note), the same numbers as the #day-escaped block on the day page. Example: {SITE_BASE}/day/{latest}/index.json" if latest else "- `escaped` in the day index.json: tasks reopened after accepted"]
     lines += [f"- `health` in today.json: built_at (build time, UTC), last_export_date (= latest_export_day), fixture_days, source and stale_after (built_at + 30 h); if the current time is past stale_after, the rebuild failed. Example: {SITE_BASE}/today.json"]
     lines += ["", "Not in the export: questions to the owner, feedback texts, failed runs, rate limits."]
     lines += ["", "## Pages", "",
@@ -2968,6 +3038,7 @@ def write_site(model: dict) -> dict:
                   "broke_counts": broke_counts(broke_items(date, model)),
                   "baseline": baseline_json(date, day_index_map(model)),
                   "external_actions": external_actions(date, model),
+                  "escaped": escaped_tasks(date, model),
                   "disclosure": f"{FOOTER_LINE}; responsible: {RESPONSIBLE}.", "built": built,
                   "day_complete": not day_in_progress(date, built), "snapshot_built_at": built}
         write_json(PUBLIC_DIR / "day" / date / "index.json", merged)
@@ -3951,6 +4022,10 @@ def main(argv: list[str] | None = None) -> int:
     bj["external_check"] = exc
     write_json(PUBLIC_DIR / "build.json", bj)
     log.info("external_check: pages=%d mismatches=%d", exc["pages_checked"], len(exc["mismatches"]))
+    esc_c = check_escaped()
+    bj["escaped_check"] = esc_c
+    write_json(PUBLIC_DIR / "build.json", bj)
+    log.info("escaped_check: pages=%d mismatches=%d", esc_c["pages_checked"], len(esc_c["mismatches"]))
     phc = check_placeholders()
     bj["placeholder_check"] = phc
     write_json(PUBLIC_DIR / "build.json", bj)
@@ -4068,6 +4143,7 @@ def main(argv: list[str] | None = None) -> int:
         problems += [f"sitemap.xml: no <loc> for {p}" for p in cc["sitemap_missing"]]
         problems += [f"evidence: {i}" for i in bj["evidence_check"]["mismatches"]]
         problems += [f"external_check: {i}" for i in bj["external_check"]["mismatches"]]
+        problems += [f"escaped_check: {i}" for i in bj["escaped_check"]["mismatches"]]
         problems += [f"artifact: {i}" for i in bj["artifact_check"]["mismatches"] + bj["artifact_check"]["sha_mismatches"]]
         problems += [f"robots: {i}" for i in bj["robots_check"]["issues"]]
         cr = bj["crawl_check"]

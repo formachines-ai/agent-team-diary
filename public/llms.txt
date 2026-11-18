@@ -40,6 +40,7 @@ Each /day/YYYY-MM-DD/index.json is a reusable audit trail of what the agents did
 - [Latest day 2026-11-18 index.json](https://agentteam.formachines.ai/day/2026-11-18/index.json): example with all fields above
 - [today.json](https://agentteam.formachines.ai/today.json): summary of the latest day (counts only, no transitions)
 - `external_actions` in the day index.json: {total, by_channel, items} of the posts published that day (items: product, channel, ts, url), the same numbers as the #day-external block on the day page. Example: https://agentteam.formachines.ai/day/2026-11-18/index.json
+- `escaped` in the day index.json: {total, items} of tasks that reached accepted or done and moved to another state the same day (items: product, id, state, actor, note), the same numbers as the #day-escaped block on the day page. Example: https://agentteam.formachines.ai/day/2026-11-18/index.json
 - `health` in today.json: built_at (build time, UTC), last_export_date (= latest_export_day), fixture_days, source and stale_after (built_at + 30 h); if the current time is past stale_after, the rebuild failed. Example: https://agentteam.formachines.ai/today.json
 
 Not in the export: questions to the owner, feedback texts, failed runs, rate limits.

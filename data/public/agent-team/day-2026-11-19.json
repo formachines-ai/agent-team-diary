@@ -1,0 +1,358 @@
+{
+ "slug": "agent-team",
+ "name": "agent-team (framework)",
+ "site": "",
+ "date": "2026-11-19",
+ "tasks": [
+  {
+   "id": "T-0168",
+   "title": "[retro] team-fetch: add --head N and state that --tail counts characters",
+   "type": "feature",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-18T23:09:18+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-19T00:07:26+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261119T0007-exec-T-0168"
+    },
+    {
+     "ts": "2026-11-19T00:07:26+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-19T00:08:16+00:00",
+     "actor": "dispatcher",
+     "to": "ready",
+     "note": "tests failed: ubuntu/pytest-339/test_canary_with_real_output_p0')\n\n    def test_canary_with_real_output_passes(tmp_path: Path):\n        st, p, cy = _setup(tmp_path)\n        ok, note = cy.canary(REPO, "
+    },
+    {
+     "ts": "2026-11-19T01:07:30+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Duplicate of T-0169. Same friction F-0232..F-0234, same change. T-0169 is wider because it also covers editor.md and persona.md."
+    }
+   ]
+  },
+  {
+   "id": "T-0169",
+   "title": "[retro] team-fetch: add --head N and document that --tail counts characters",
+   "type": "feature",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-19T00:13:46+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-19T00:13:46+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-19T01:07:31+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261119T0107-exec-T-0169"
+    },
+    {
+     "ts": "2026-11-19T01:07:31+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-19T01:08:20+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "partial — continues next cycle"
+    },
+    {
+     "ts": "2026-11-19T02:08:00+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "partial — continues next cycle"
+    },
+    {
+     "ts": "2026-11-19T03:07:41+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "partial — continues next cycle"
+    },
+    {
+     "ts": "2026-11-19T04:07:32+00:00",
+     "actor": "dispatcher",
+     "to": "blocked",
+     "note": "stuck: 3 failed attempts on this goal; the PO replans it with 3 alternatives"
+    },
+    {
+     "ts": "2026-11-19T07:07:24+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Replaced by T-0175, which has the same scope and starts on a green baseline after T-0170."
+    }
+   ]
+  },
+  {
+   "id": "T-0170",
+   "title": "Fix failing test_canary_with_real_output_passes ('canary empty result') on a clean checkout",
+   "type": "defect",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-19T01:07:30+00:00",
+   "accepted_at": "2026-11-19T04:13:56+00:00",
+   "released_sha": "8c75545b043a2a5e1f342d73c098562950e5f604",
+   "history": [
+    {
+     "ts": "2026-11-19T01:07:30+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-19T04:07:32+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261119T0407-exec-T-0170"
+    },
+    {
+     "ts": "2026-11-19T04:07:33+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-19T04:13:56+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261119T0407-canary of release-radar on a state copy: all phases); merged 8c75545b04"
+    },
+    {
+     "ts": "2026-11-19T04:13:56+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0171",
+   "title": "[retro] team-fetch: add --head N, document that --tail counts characters",
+   "type": "feature",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-19T01:17:28+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-19T01:17:28+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-19T02:07:29+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Duplicate of T-0169 (same F-0232/3/4 team-fetch --head fix), which is already in progress."
+    }
+   ]
+  },
+  {
+   "id": "T-0172",
+   "title": "Probe 1/3 for T-0169: Повторить с чистой базой после T-0170",
+   "type": "research",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-19T05:07:30+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-19T05:07:30+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "replan probe for T-0169"
+    },
+    {
+     "ts": "2026-11-19T05:07:30+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261119T0507-exec-T-0172"
+    },
+    {
+     "ts": "2026-11-19T05:07:30+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-19T05:07:55+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "probe does not work: The approach works for the test baseline. main at 8c75545 includes T-0170, and the full pytest suite passes there (300 passed). The literal acceptance command, `python3 -m unittes"
+    }
+   ]
+  },
+  {
+   "id": "T-0173",
+   "title": "Probe 2/3 for T-0169: Разделить: код fetch.py + тест отдельно от карточек",
+   "type": "research",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-19T05:07:30+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-19T05:07:30+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "replan probe for T-0169"
+    },
+    {
+     "ts": "2026-11-19T06:07:20+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261119T0607-exec-T-0173"
+    },
+    {
+     "ts": "2026-11-19T06:07:20+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-19T06:07:53+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "probe works: Probe result: the split approach works. No product code was changed or committed. On this branch, which is at main 8c75545 with T-0170 merged, the full suite passes: 300 passed. test_cana"
+    }
+   ]
+  },
+  {
+   "id": "T-0174",
+   "title": "Probe 3/3 for T-0169: Свести цель к документации без нового флага",
+   "type": "research",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-19T05:07:30+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-19T05:07:30+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "replan probe for T-0169"
+    },
+    {
+     "ts": "2026-11-19T07:07:24+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Probe 3/3 is redundant. T-0175 carries the --head N implementation, and the blocker (the red test) was removed by T-0170."
+    }
+   ]
+  },
+  {
+   "id": "T-0175",
+   "title": "[retro] team-fetch: add --head N, state that --tail/--head count characters",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-19T06:11:07+00:00",
+   "accepted_at": "2026-11-19T07:13:37+00:00",
+   "released_sha": "8d7d8921481c5bc0f3b0b7fbbe13d725f2f14495",
+   "history": [
+    {
+     "ts": "2026-11-19T06:11:07+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-19T07:07:25+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261119T0707-exec-T-0175"
+    },
+    {
+     "ts": "2026-11-19T07:07:25+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-19T07:13:37+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261119T0707-canary of release-radar on a state copy: all phases); merged 8d7d892148"
+    },
+    {
+     "ts": "2026-11-19T07:13:37+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0176",
+   "title": "[retro] Reviewer/editor cards: plain team-fetch shows the page head; --tail N counts chars",
+   "type": "feature",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-19T07:19:50+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-19T07:19:50+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    }
+   ]
+  }
+ ],
+ "reviews": [],
+ "posts": [],
+ "metrics": null,
+ "spend_usd": 1.4,
+ "po_digest_md": "**Цикл 19.11.** Потрачено $1.12 из $10.\n\n- Issue #272 (OBS-0307) — это уже готовая задача T-0175: `team-fetch --head N` плюс пометка, что `--tail`/`--head` считают символы. Новую задачу не создавал, связал с T-0175.\n- Закрыл T-0169 (застряла после 3 неудач) и пробу T-0174. Их заменяет T-0175. Причина прошлых провалов, красный тест `test_canary_with_real_output_passes`, устранена в T-0170. Реплан не нужен.\n- Ретро-задачи T-0098 и T-0101 приняты. T-0068 тоже принята.\n- Новых задач нет, WIP низкий: одна задача T-0175 в Ready.\n- Вопросов к владельцу нет.\n- Проверим результат по T-0175: после слияния в реестре не должно появляться новых записей «нет `--head`» (F-0232–F-0234).",
+ "analyst_md": "",
+ "observations": {
+  "new": 9,
+  "by_class": {
+   "feedback": 4,
+   "need_hypothesis": 5
+  }
+ },
+ "owner_questions_open": 0
+}

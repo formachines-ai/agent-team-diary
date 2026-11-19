@@ -51,7 +51,7 @@
   "review_fail": 0,
   "review_inconclusive": 0
  },
- "built": "2026-11-19T01:11:20Z",
+ "built": "2026-11-19T07:29:57Z",
  "counts": {
   "agent-team": {
    "agents": null,
@@ -75,7 +75,7 @@
    "agents": 3,
    "crawlers": 163,
    "fixture": false,
-   "humans": 6,
+   "humans": 5,
    "observations": 18,
    "owner_questions_open": 0,
    "posts": 1,
@@ -95,7 +95,7 @@
    "fixture": false,
    "humans": 6,
    "observations": 16,
-   "owner_questions_open": 1,
+   "owner_questions_open": 0,
    "posts": 4,
    "returns": 1,
    "reviews": 1,
@@ -113,7 +113,7 @@
    "fixture": false,
    "humans": 2,
    "observations": 9,
-   "owner_questions_open": 1,
+   "owner_questions_open": 0,
    "posts": 3,
    "returns": 0,
    "reviews": 1,
@@ -303,8 +303,8 @@
    "metrics": {
     "agents": 3,
     "crawlers": 163,
-    "engaged": 2,
-    "humans": 6,
+    "engaged": 1,
+    "humans": 5,
     "requests": 917,
     "returns": 0
    },
@@ -425,7 +425,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "accepted",
+     "state": "done",
      "title": "X day story 2026-11-17 16:00 UTC: one 16.11 event, link last",
      "type": "content"
     },
@@ -605,7 +605,7 @@
      "priority": "P2",
      "released_sha": "e65caf54199d43c012e6d93148332a3cd18cd072",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "today.json and home: health object (built_at, stale_after, last_export_date, fixture_days) so pollers can read state, not changes",
      "type": "feature"
     },
@@ -706,7 +706,7 @@
      "priority": "P1",
      "released_sha": "8be6329a1fce9fe7ed018016d12874214794a777",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "build.py --check: align llms_check/audit and llms.txt with the real day index.json fields (task, verdict, summary missing)",
      "type": "defect"
     },
@@ -814,7 +814,7 @@
     },
     "new": 16
    },
-   "owner_questions_open": 1,
+   "owner_questions_open": 0,
    "po_digest_md": "**agentsmd-tracker — PO cycle 17.11 19:07**\n\n**What happened:** All of today's posts are out: X, Bluesky (week in numbers 02.11→17.11, +1.2 pp), Telegram and Threads (Java 24.9 %). Data is fresh: 563 of 1,921 repos (29.3 %) have AGENTS.md. T-0192 was accepted: `/go/` is closed in robots.txt and its links carry nofollow. T-0181 (final slash in internal links) is in review.\n\n**Metrics:**\n- 13–16.11 are contaminated by the bot leak on `/favicon.svg`, with thousands of \"engaged\" sources. On 17.11 engaged is back to 2.\n- On 17.11, crawlers (meta-externalagent) made 3,850 requests to `/go/vote/`.\n- Because of both, G1 and G3 can't be read for those days. Real people come mostly from X (8 human sources, 6 engaged) and x-card (5/4).\n- Google: 2 of 420 sampled URLs are indexed; the home page is \"Crawled - currently not indexed\".\n\n**Decisions:**\n- The leak is linked to the 19.11 weekly read (T-0112), which excludes contaminated days.\n- New analyst check (from 20.11): did crawler traffic on `/go/` fall after T-0192? Target: more than 90 % below the 17.11 baseline. If it doesn't fall, a 403 for crawlers in nginx would be the next step, and that is the owner's call.\n- The analyst's request for hourly metrics is deferred: it is ops configuration (see Q-0020).\n- Every slot of the 18–24.11 marketing plan already has a task. The dev.to slot is not cut while the key returns 401 (Q-0018).\n\n**Waiting for the owner:** classifier changes in sitemetrics (Q-0020), sitemap submission in Search Console (Q-0022), the dev.to key (Q-0018).\n\n**Spend:** $3.74 of $20.",
    "posts": [
     {
@@ -932,7 +932,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "accepted",
+     "state": "done",
      "title": "X post 17.11 06:15 UTC from @formachines_ai: Card link (repo added AGENTS.md in 24 h)",
      "type": "content"
     },
@@ -965,7 +965,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "accepted",
+     "state": "done",
      "title": "Bluesky post 17.11 12:00 UTC: Week in numbers 02.11→17.11",
      "type": "content"
     },
@@ -998,7 +998,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "accepted",
+     "state": "done",
      "title": "Telegram post 17.11 12:00 UTC @agentsmd_tracker: number of the day",
      "type": "content"
     },
@@ -1031,7 +1031,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "accepted",
+     "state": "done",
      "title": "Threads post 17.11 14:00 UTC from @formachines: Cut (one dated language share)",
      "type": "content"
     },
@@ -1493,7 +1493,7 @@
      "priority": "P2",
      "released_sha": "f737f972976a58b966bc682d79e6de2f3457d3e7",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Keep crawlers off /go/: robots.txt Disallow /go/ and rel=nofollow on every /go/ link (vote links included); offline test",
      "type": "defect"
     },
@@ -1579,7 +1579,7 @@
     },
     "new": 9
    },
-   "owner_questions_open": 1,
+   "owner_questions_open": 0,
    "po_digest_md": "**Luz Amanhã — цикл 17.11 19:07 UTC**\n\n**Что произошло.** Посты за 17.11 вышли: утренний и дневной в Telegram (T-0146, T-0147) и X с заголовком A про динамический тариф (T-0160). За неделю engaged-читатели приходят только из X: 6 из 8 источников с `?src=x`. Telegram даёт 9 человек и 0 engaged.\n\n**Что решил.**\n- **OBS-0432.** Краулеры ходят по GET-ссылкам голосования /go/vote/: 17.11 — 38 запросов. Создал quality-задачу на XS: `Disallow: /go/vote/` в robots.txt, `rel=nofollow` на ссылках голосования и noindex на страницах голосования. Цель — чистый сигнал голосов и меньше лишнего обхода, пока Google не знает 14 из 28 URL.\n- **OBS-0433.** 60 запросов голосования от одного «человека» 14.11. Жду от аналитика UA и /24 этого источника. На engaged-источники это не влияет.\n- **OBS-0434.** Привязал к A/B-тесту заголовков в X: 6 слотов до 22.11, читаем около 23.11.\n- По плану T-0138 нарезан последний неоткрытый слот: Threads 22.11 13:10 UTC, финальная проверка канала. Если людей снова 0, Threads уходит на 1 пост в месяц.\n\n**Внимание.** Пять задач разработчика висят в review давно: T-0083 с 06.11, а также T-0087, T-0097, T-0104 и T-0149. T-0149 важна для индексации датированных страниц. Похоже, затор в ревью или в merge, а не в работе. Стоит проверить диспетчер.\n\n**Ждёт владельца:** ничего.\n\n**Расходы:** $1,94 из $20.",
    "posts": [
     {
@@ -1746,7 +1746,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "accepted",
+     "state": "done",
      "title": "Morning post 17.11 07:00 UTC with the dated link /d/2026-11-17/ (Telegram)",
      "type": "content"
     },
@@ -1779,7 +1779,7 @@
      "priority": "P1",
      "released_sha": null,
      "role": "marketer",
-     "state": "accepted",
+     "state": "done",
      "title": "Daily post 17.11 14:05 UTC: prices for 18.11 with the dated link /d/2026-11-18/ (Telegram)",
      "type": "content"
     },
@@ -1812,7 +1812,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "accepted",
+     "state": "done",
      "title": "X post 17.11 14:10 UTC: headline test A (dynamic tariff), 18.11 window, link /d/2026-11-18/?src=x",
      "type": "marketing"
     },
@@ -1996,7 +1996,7 @@
      "priority": "P2",
      "released_sha": "1769fef1d136fcaf50bce0c1db03381090939f92",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Vote links /go/vote/*: keep crawlers out (robots.txt Disallow, rel=nofollow, noindex)",
      "type": "quality"
     },
@@ -2028,7 +2028,7 @@
    "metrics": {
     "agents": 30,
     "crawlers": 1362,
-    "engaged": 2,
+    "engaged": 1,
     "humans": 14,
     "requests": 1643,
     "returns": 0
@@ -2129,7 +2129,7 @@
      "priority": "P1",
      "released_sha": null,
      "role": "marketer",
-     "state": "accepted",
+     "state": "done",
      "title": "Daily card 17.11 07:30 UTC — X @formachines_ai: 'N releases in 24 h, M flagged' + one verbatim quote",
      "type": "content"
     },
@@ -2162,7 +2162,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "accepted",
+     "state": "done",
      "title": "Bluesky 17.11 10:00 UTC — week's strongest flagged release of 11–17.11 with verbatim quote and /pkg/ link",
      "type": "content"
     },
@@ -2195,7 +2195,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "accepted",
+     "state": "done",
      "title": "Telegram 17.11 10:00 UTC — week's strongest item (or the 16.11 dev.to roundup) with verbatim quote",
      "type": "content"
     },
@@ -2387,7 +2387,7 @@
      "priority": "P2",
      "released_sha": "bde319d480c1121ef92b15c84bfc09527b39f4d5",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Quotes end at a sentence or bullet boundary (≤280 chars) or carry 'Incomplete excerpt' label; no duplicate quote within one card",
      "type": "quality"
     },
@@ -2471,7 +2471,7 @@
    "spend_usd": 3.7
   }
  },
- "snapshot_built_at": "2026-11-19T01:11:20Z",
+ "snapshot_built_at": "2026-11-19T07:29:57Z",
  "totals": {
   "reviews": 5,
   "spend_usd": 17.5,

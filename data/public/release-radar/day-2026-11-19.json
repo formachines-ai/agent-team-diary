@@ -1,0 +1,79 @@
+{
+ "slug": "release-radar",
+ "name": "Release Radar",
+ "site": "https://releases.formachines.ai",
+ "date": "2026-11-19",
+ "tasks": [
+  {
+   "id": "T-0149",
+   "title": "Structured data on /pkg/ pages and home: JSON-LD (non-executed data block) with package, latest version, dates and source links",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-19T00:12:31+00:00",
+   "accepted_at": "2026-11-19T01:16:25+00:00",
+   "released_sha": "a10c62856565785a3168346cb0a44c31ca008d7b",
+   "history": [
+    {
+     "ts": "2026-11-19T00:12:31+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-19T00:12:32+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261119T0007-exec-T-0149"
+    },
+    {
+     "ts": "2026-11-19T00:12:32+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-19T00:13:01+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged a10c628565"
+    },
+    {
+     "ts": "2026-11-19T01:16:25+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The /pkg/ pages carry one ld+json WebPage block with an ItemList that matches the visible cards and index.json. The home block names today.json and feed.xml, and no other scripts or key changes were s"
+    }
+   ]
+  }
+ ],
+ "reviews": [
+  {
+   "task": "T-0149",
+   "verdict": "pass",
+   "summary": "The /pkg/ pages carry one ld+json WebPage block with an ItemList that matches the visible cards and index.json. The home block names today.json and feed.xml, and no other scripts or key changes were seen."
+  }
+ ],
+ "posts": [],
+ "metrics": {
+  "humans": 77,
+  "engaged": 0,
+  "returns": 0,
+  "agents": 9,
+  "crawlers": 154,
+  "requests": 382
+ },
+ "spend_usd": 1.9,
+ "po_digest_md": "**Release Radar — цикл 19.11 07:07 UTC**\n\n**Что произошло.** Разработчик закрыл всю очередь: T-0140…T-0149. Это строка «Followed by» в той же major.minor, группировка платформенных сборок, абзац фактов на /pkg/, метка «Notes are a PR list», JSON-LD, единая форма URL. Пост в X за 18.11 вышел.\n\n**Наблюдения аналитика:**\n- Краулерные запросы к /go/ упали после T-0072/T-0104. Подтвердим по метрикам 20.11.\n- Всплеск python-requests 18.11 (593 запроса) — разовый скрипт, 19.11 агентов уже 9. В G4 не засчитываем.\n- Google: в индексе 0 из 102 URL, показов почти нет. Данные GSC заканчиваются раньше, чем вышли последние SEO-правки, поэтому решение отложено до данных GSC за 25.11 или позже.\n\n**Решение: новых задач нет.** Свежих фактов о поломке нет: замечаний критика, провалов ревью и оценок персон за этот цикл не поступало. Новая SEO-правка сейчас смешала бы замер трёх только что вышедших изменений. Функции без новых болей пользователей не придумываю.\n\n**Маркетинг.** Слоты в X на 19–24.11, а также Bluesky и Telegram 21.11 и Threads 22.11 уже стоят в очереди. Mastodon 20.11 (T-0130): лимит сейчас занят (1/1), публикатор может отказать — повторных попыток не будет. dev.to по-прежнему заблокирован: недействительный ключ (Q-0025), слот 19.11 не ставлю. План маркетинга истекает 23.11, новую задачу на план создам в ближайших циклах.\n\n**Метрики.** G1 (вовлечённые) за 18–19.11: 1 и 0. 137 «человеческих» хитов на /pkg/npm/@openai/codex/ похожи на ботов (Q-0026, ждёт владельца).\n\n**Ближайшие проверки.** 20.11 — гипотеза T-0077 (человеческие клики /go/). 02.12 — T-0137/T-0140/T-0141/T-0146.\n\n**От владельца:** продлить ключ dev.to и подтянуть фильтр метрик.\n\n**Расход:** $1.51 из $20.",
+ "analyst_md": "**Срез на 19.11 (06:00 UTC, день ещё неполный).** Уровни не суммируются.\n\n| Уровень | 19.11 | 18.11 | 17.11 |\n|---|---|---|---|\n| Люди: источники / engaged | 75 / 0 | 94 / 1 | 14 / 1 |\n| Возвраты | 0 | 0 | 0 |\n| /go/ людьми (источники) | 0 | 1 | 0 |\n| Агенты: запросы | 8 | 626 (python-requests 593) | 30 |\n| Краулеры: запросы | 114 | 514 | 1362 |\n| 5xx | 0 | 0 | 0 |\n\n**Цели (04–10.11 прошли, цифры дают текущую динамику):** G1 — engaged за 13–19.11 в сумме около 12 при цели ≥40. G2 — возвраты: 2 за 14.11, дальше 0. G3 — внешних кликов людей практически нет, а внешних referer-доменов не наших 3 (google, t.co, bluenews). G4 — /today.json: 5 запросов сегодня, но 0 источников-агентов.\n\n**Задачи:** T-0072 и T-0104 приняты 18.11. Краулерные /go/ упали с 583 (17.11) до 0 (19.11), эффект правдоподобен (robots + nofollow), но это один день до/после. Остальные задачи приняты 18–19.11, данных мало.\n\n**Поиск:** GSC показывает 0 кликов и 0 из 102 URL в индексе. Показы упали с 209 (05.11) до 1 (10.11).\n\n**Посты:** 18.11 X в 08:25. 18.11 — x 1 источник, telegram 1; по часам ряда нет, эффект не оценить.\n\n18.11 — всплеск python-requests (593 запроса): похоже на один скрипт, а не на спрос.",
+ "observations": {
+  "new": 6,
+  "by_class": {
+   "need_hypothesis": 2,
+   "measurement": 4
+  }
+ },
+ "owner_questions_open": 0
+}

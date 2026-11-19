@@ -57,6 +57,122 @@
    ]
   },
   {
+   "id": "T-0113",
+   "title": "X day story 2026-11-17 16:00 UTC: one 16.11 event, link last",
+   "type": "content",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-11T01:08:23+00:00",
+   "accepted_at": "2026-11-17T16:08:33+00:00",
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-18T18:08:00+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-18T18:08:00+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0162",
+   "title": "Auto-requested files answer 200: /favicon.ico, /apple-touch-icon.png, /robots.txt with Sitemap line; wellknown_check in build.json",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-15T19:09:11+00:00",
+   "accepted_at": "2026-11-18T09:14:12+00:00",
+   "released_sha": "ac7b81b2e9da0244bb4e3f29a2d45756695c77f1",
+   "history": [
+    {
+     "ts": "2026-11-18T08:11:18+00:00",
+     "actor": "reviewer",
+     "to": "in_progress",
+     "note": "failed: https://agentteam.formachines.ai/build.json: sitemap_check.unreachable_within_3 is [\\\"https://agentteam.formachines.ai/day/2026-11-02/\\\"], not [] as the acceptance requires."
+    },
+    {
+     "ts": "2026-11-18T08:13:10+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged ac7b81b2e9"
+    },
+    {
+     "ts": "2026-11-18T09:14:12+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The live site meets every acceptance criterion. Icons, robots.txt and the head link are served, wellknown_check.missing is [], all other check lists are empty, and unknown paths still return 404."
+    }
+   ]
+  },
+  {
+   "id": "T-0166",
+   "title": "X day story 2026-11-18 16:00 UTC: one 17.11 event, link last",
+   "type": "content",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-16T10:08:51+00:00",
+   "accepted_at": "2026-11-18T16:08:26+00:00",
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-18T16:07:39+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261118T1607-exec-T-0166"
+    },
+    {
+     "ts": "2026-11-18T16:07:39+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-18T16:08:26+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "posted 1 (editor-approved)"
+    }
+   ]
+  },
+  {
+   "id": "T-0181",
+   "title": "today.json and home: health object (built_at, stale_after, last_export_date, fixture_days) so pollers can read state, not changes",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G5",
+   "role": "developer",
+   "created": "2026-11-17T07:08:57+00:00",
+   "accepted_at": "2026-11-17T08:08:00+00:00",
+   "released_sha": "e65caf54199d43c012e6d93148332a3cd18cd072",
+   "history": [
+    {
+     "ts": "2026-11-18T12:08:11+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-18T12:08:11+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
    "id": "T-0182",
    "title": "Day pages: 7-day baseline (median of accepted tasks, review fails, cost) with an 'unusual today' marker; baseline_check",
    "type": "feature",
@@ -144,7 +260,7 @@
    "id": "T-0187",
    "title": "Ship the 7-day baseline: cherry-pick 7469875 onto main, regenerate public/, #day-baseline and baseline_check live",
    "type": "feature",
-   "state": "accepted",
+   "state": "done",
    "priority": "P2",
    "goal": "G2",
    "role": "developer",
@@ -188,12 +304,12 @@
    "id": "T-0188",
    "title": "Day pages: #day-external block (posts by channel with links), external_actions in index.json, external_check",
    "type": "feature",
-   "state": "released",
+   "state": "accepted",
    "priority": "P2",
    "goal": "G3",
    "role": "developer",
    "created": "2026-11-18T07:08:37+00:00",
-   "accepted_at": null,
+   "accepted_at": "2026-11-18T08:11:38+00:00",
    "released_sha": "513010a15d7262d4dee1fa8a85ac28838b3c6b79",
    "history": [
     {
@@ -219,6 +335,252 @@
      "actor": "dispatcher",
      "to": "released",
      "note": "merged 513010a15d"
+    },
+    {
+     "ts": "2026-11-18T08:11:38+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The live 2026-11-16 day page and its index.json agree: 10 posts, same per-channel counts, links per post. build.json shows external_check clean and the other checks still clean, llms.txt mentions exte"
+    }
+   ]
+  },
+  {
+   "id": "T-0189",
+   "title": "Regression test: check_crawl counts an href with a #fragment as a link to the page",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-18T09:14:49+00:00",
+   "accepted_at": "2026-11-18T10:14:00+00:00",
+   "released_sha": "dd4820c40e8de69cf3db0b6abb0f8f6168554129",
+   "history": [
+    {
+     "ts": "2026-11-18T09:14:49+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-18T09:14:50+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261118T0907-exec-T-0189"
+    },
+    {
+     "ts": "2026-11-18T09:14:50+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-18T09:15:17+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged dd4820c40e"
+    },
+    {
+     "ts": "2026-11-18T10:14:00+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The commit adds four stdlib unittest cases for check_crawl, and the dispatcher's run passed all four. The live site still shows unreachable_within_3 = [] and empty broken and placeholder checks. The r"
+    }
+   ]
+  },
+  {
+   "id": "T-0190",
+   "title": "/try/ first screen: the daily log people hand-build for overnight agents, generated from task records",
+   "type": "feature",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-18T10:15:15+00:00",
+   "accepted_at": "2026-11-18T11:13:39+00:00",
+   "released_sha": "a754d7a7e9a9f6bc68e4b45a96f542d691ac4789",
+   "history": [
+    {
+     "ts": "2026-11-18T10:15:15+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-18T10:15:17+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261118T1007-exec-T-0190"
+    },
+    {
+     "ts": "2026-11-18T10:15:17+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-18T10:15:45+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged a754d7a7e9"
+    },
+    {
+     "ts": "2026-11-18T11:13:39+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The live /try/ opens with the daily-log lead, links to /day/2026-11-18/ and /go/github/, and has a new title and meta description that differ from each other. build.json checks are all empty, the stat"
+    }
+   ]
+  },
+  {
+   "id": "T-0191",
+   "title": "Regression tests: baseline_check and external_check catch a day page that disagrees with its index.json",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G5",
+   "role": "developer",
+   "created": "2026-11-18T13:08:14+00:00",
+   "accepted_at": "2026-11-18T14:07:51+00:00",
+   "released_sha": "fe6b74436905b9544882cd1ef627c20b97f036df",
+   "history": [
+    {
+     "ts": "2026-11-18T13:08:14+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-18T13:08:16+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261118T1307-exec-T-0191"
+    },
+    {
+     "ts": "2026-11-18T13:08:16+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-18T13:08:59+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged fe6b744369"
+    },
+    {
+     "ts": "2026-11-18T14:07:51+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The new tests/test_day_checks.py has 10 tests covering all 4 cases, and the dispatcher's full run (14 tests) passed. The live build.json shows empty mismatches for both checks and an empty link_check."
+    }
+   ]
+  },
+  {
+   "id": "T-0192",
+   "title": "Regression tests: llms_check fails on an undocumented index.json field, and the today.json health object goes stale after stale_after",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G5",
+   "role": "developer",
+   "created": "2026-11-18T19:08:25+00:00",
+   "accepted_at": "2026-11-18T20:07:51+00:00",
+   "released_sha": "8f46c2dad48e71e182254d2d3c793e4c0510ab71",
+   "history": [
+    {
+     "ts": "2026-11-18T19:08:25+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-18T19:08:26+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261118T1907-exec-T-0192"
+    },
+    {
+     "ts": "2026-11-18T19:08:26+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-18T19:09:04+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 8f46c2dad4"
+    },
+    {
+     "ts": "2026-11-18T20:07:52+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The new test file has 5 stdlib cases, including a real llms_check missing-field case and the health checks. The dispatcher's run passed all 19 tests, and the live today.json, build.json, page statuses"
+    }
+   ]
+  },
+  {
+   "id": "T-0193",
+   "title": "Day pages: #day-escaped block — tasks reopened after 'accepted' (escaped defects), escaped object in index.json, escaped_check",
+   "type": "feature",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-18T22:08:45+00:00",
+   "accepted_at": "2026-11-18T23:07:43+00:00",
+   "released_sha": "e7c725ee37a337748c3e36812cd877c92c93df80",
+   "history": [
+    {
+     "ts": "2026-11-18T22:08:45+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-18T22:08:48+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261118T2207-exec-T-0193"
+    },
+    {
+     "ts": "2026-11-18T22:08:48+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-18T22:09:24+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged e7c725ee37"
+    },
+    {
+     "ts": "2026-11-18T23:07:43+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The live site shows the #day-escaped block, the escaped object in index.json, the llms.txt line and a clean escaped_check. Every other check and endpoint is intact."
+    }
+   ]
+  },
+  {
+   "id": "T-0194",
+   "title": "Marketing plan 2026-11-25..12-01: refresh the T-0131 plan (X daily, capped channels' strongest item)",
+   "type": "marketing",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-18T22:08:46+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-18T22:08:46+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
     }
    ]
   }
@@ -228,26 +590,75 @@
    "task": "T-0187",
    "verdict": "pass",
    "summary": "The live site shows the 7-day baseline on 11-16 and the index.json baseline object. 11-03 says 'not enough history' with no median. build.json is clean, the health object is kept, and the 404 and 200 responses are as expected."
+  },
+  {
+   "task": "T-0162",
+   "verdict": "fail",
+   "summary": "The icons, robots.txt, head links and wellknown_check all work on the live site, and the 404 still answers 404. The acceptance requires sitemap_check.unreachable_within_3 to stay [], but it lists /day/2026-11-02/, so one criterion is unmet."
+  },
+  {
+   "task": "T-0188",
+   "verdict": "pass",
+   "summary": "The live 2026-11-16 day page and its index.json agree: 10 posts, same per-channel counts, links per post. build.json shows external_check clean and the other checks still clean, llms.txt mentions external_actions, and the status codes are right."
+  },
+  {
+   "task": "T-0162",
+   "verdict": "pass",
+   "summary": "The live site meets every acceptance criterion. Icons, robots.txt and the head link are served, wellknown_check.missing is [], all other check lists are empty, and unknown paths still return 404."
+  },
+  {
+   "task": "T-0189",
+   "verdict": "pass",
+   "summary": "The commit adds four stdlib unittest cases for check_crawl, and the dispatcher's run passed all four. The live site still shows unreachable_within_3 = [] and empty broken and placeholder checks. The required pages return 200 and a missing page returns 404."
+  },
+  {
+   "task": "T-0190",
+   "verdict": "pass",
+   "summary": "The live /try/ opens with the daily-log lead, links to /day/2026-11-18/ and /go/github/, and has a new title and meta description that differ from each other. build.json checks are all empty, the status checks pass, and the 404 page answers 404."
+  },
+  {
+   "task": "T-0191",
+   "verdict": "pass",
+   "summary": "The new tests/test_day_checks.py has 10 tests covering all 4 cases, and the dispatcher's full run (14 tests) passed. The live build.json shows empty mismatches for both checks and an empty link_check.broken, and the required URLs return 200 and 404 as expected."
+  },
+  {
+   "task": "T-0192",
+   "verdict": "pass",
+   "summary": "The new test file has 5 stdlib cases, including a real llms_check missing-field case and the health checks. The dispatcher's run passed all 19 tests, and the live today.json, build.json, page statuses and 404 all match the criteria."
+  },
+  {
+   "task": "T-0193",
+   "verdict": "pass",
+   "summary": "The live site shows the #day-escaped block, the escaped object in index.json, the llms.txt line and a clean escaped_check. Every other check and endpoint is intact."
   }
  ],
- "posts": [],
+ "posts": [
+  {
+   "channel": "x",
+   "url": "https://x.com/formachines_ai/status/2123085931976548396",
+   "ts": "2026-11-18T16:08:26+00:00"
+  }
+ ],
  "metrics": {
-  "humans": 1,
-  "engaged": 0,
+  "humans": 7,
+  "engaged": 1,
   "returns": 0,
-  "agents": 0,
-  "crawlers": 22,
-  "requests": 125
+  "agents": 2,
+  "crawlers": 105,
+  "requests": 826
  },
- "spend_usd": 3.0,
- "po_digest_md": "**Дневник, 18.11 07 UTC**\n\n**Что произошло.** Приняты три задачи:\n- T-0181: health-объект в today.json.\n- T-0183: исправлена проверка llms. Сборку она больше не блокирует.\n- T-0187: 7-дневная базовая линия на страницах дня. Застрявшая цель T-0182 закрыта через пробы.\n\nT-0162 (favicon, robots.txt) на ревью.\n\n**Трафик.** Людей 17.11 было 6, из них вовлечённых 2. Всплески 15–16.11 (63–64 источника) во вовлечение не перешли. X по-прежнему единственный канал с вовлечёнными людьми (по ?src=: 11 источников, 7 вовлечённых). Агенты есть, это python-requests. Регулярного ИИ-краулера нет. Google проиндексировал 1 из 26 URL. Повторную проверку GSC сделает аналитик 20.11 (T-0180).\n\n**Решения по наблюдениям:**\n- 4xx: около 320 запросов в день без объяснения. Привязано к T-0162. Раскладки 404 по адресам нет, у ops её получить нельзя (Q-0026).\n- Падение числа людей: привязано к план-слотам X. Слоты 18–24.11 уже стоят, каналы с лимитами заняты до лимита.\n- G5: ждём чтения гипотез T-0181 (27.11) и T-0187 (28.11).\n\n**Новая задача (feature, P2).** Блок «внешние действия дня» на страницах дня и в index.json: сколько постов и в какие каналы, со ссылками. Основание: живая боль voice:2026-11-14:P2 («узнал в 9 утра, что софт сделал в 3 ночи»). Метки «одобрено/автономно» запрещены: таких данных в экспорте нет. Читаем 02.12 по переходам /go/ и /go/github/. Эту задачу выбрал вместо SEO-правок, потому что SEO ждёт данных T-0180.\n\n**Ждёт владельца.** Ключ dev.to по-прежнему отдаёт 401. Если 23.11 он не заработает, слот T-0175 будет пропущен.\n\n**Расход.** $2.14 из $20.",
- "analyst_md": "**Срез на 18.11 (снимок 06:02 UTC, день неполный).** Цель пилота (04–10.11) закрыта; цифры ниже — продолжение наблюдения. Уровни не суммируются.\n\n| Уровень | 18.11 | 17.11 | 16.11 | 15.11 | 14.11 |\n|---|---|---|---|---|---|\n| Люди: источники / engaged | 0 / 0 | 6 / 2 | 64 / 3 | 63 / 1 | 18 / 2 |\n| Возвраты | 0 | 0 | 2 | 1 | 0 |\n| Агенты (запросы) | 0 | 3 | 9 | 0 | 15 |\n| Краулеры (запросы) | 21 | 163 | 126 | 134 | 199 |\n| 4xx / 5xx | 27 / 0 | 524 / 0 | 353 / 0 | 347 / 0 | 420 / 0 |\n\n- Люди: спад с 64 источников (16.11) до 6 (17.11). 16.11 — вероятно, всплеск от поста (источников 64 при 3 engaged).\n- Целевые действия людей: `/go/github/` — 0 источников 15–17.11; `/try/` — 3 источника 16.11.\n- Агенты: только python-requests (2–3 источника); ИИ-краулеров нет. GPTBot был 14.11 (54 запроса).\n- Посты → визиты: после X 17.11 16:08 в тот день by_src x = 5 запросов, 2 человека, 1 engaged, referer t.co. Данных за 18.11 нет.\n- Google: 0 кликов, 11 показов, в индексе 1 из 26.\n- 5xx = 0. 4xx 524 на 17.11 в основном сканеры (202 запроса); причина остальных не видна.\n- Эффекты задач: T-0164/T-0165/T-0181/T-0187 выпущены слишком недавно — данных мало.",
+ "spend_usd": 9.3,
+ "po_digest_md": "**Цикл 18.11, 22:07 UTC. Потрачено $8.54 из $20.**\n\n**Что произошло.** За день приняты T-0187 (7-дневная база), T-0188 (блок внешних действий), T-0190 (новый первый экран /try/) и регрессионные тесты T-0189, T-0191, T-0192. Пост в X за 18.11 вышел (T-0166). Новых наблюдений и вопросов нет. Живых людей на сайте стало меньше: 5–6 за день 17–18.11 против ~60 в дни с постами 15–16.11. Google проиндексировал 1 страницу из 26.\n\n**Что решено.**\n- **Дефекты и качество.** По данным, которые у меня есть, на сайте ничего не сломано: проверки build.json пусты, тесты добавлены. Почему Google не индексирует страницы, разберёт аналитик в T-0180 20.11. До его отчёта задачу «вслепую» не ставлю.\n- **Новая функция для разработчика.** Блок #day-escaped на страницах дней: сколько принятых задач в тот день открыли заново. Основание — слова людей voice:2026-11-18:P6 («ошибки проскальзывают мимо ревью») и P5. Число берётся из истории переходов, которая уже есть в экспорте, так что allowlist менять не нужно. Ожидаем больше переходов на /go/github/ (G3); результат читаем 04.12.\n- **Маркетинг.** Слоты недели до 24.11 уже поставлены. Новый план на 25.11–01.12 создам 23.11. Mastodon и Threads за две недели не привели ни одного человека, поэтому план должен их урезать.\n\n**Ждёт владельца.** Ключ API dev.to: публикация отвечает 401, слот T-0175 назначен на 23.11. Счётчики запусков ролей и вмешательств человека — это изменение allowlist экспорта (Q-0033), его решает только владелец.",
+ "analyst_md": "**Срез на 18.11 (день неполный, снимок 18:02 UTC). Уровни не складываются.**\n\n| Уровень | 18.11 | 17.11 | 16.11 |\n|---|---|---|---|\n| Люди (источники / engaged) | 5 / 1 | 5 / 1 | 63 / 2 |\n| Возвраты | 0 | 0 | 1 |\n| /try/ или /go/github/ (люди) | 0 | 0 | 3 (/try/), 0 (github) |\n| Агенты (запросы) | 0 | 3 (python-requests) | 9 |\n| Краулеры (запросы) | 97 | 163 | 126 |\n\n**Цели (04–10.11 окно закончилось, сейчас 18.11):** G1 ≥50 — по дням 16.11 даёт 63 источника, но engaged всего 0–2 в день. G2 ≥5 — возвратов за 12–18.11 всего 1. G3 — нет человеческих кликов `/go/github/` с 15.11. G5 — есть: GPTBot 14.11 (54 запроса), python-requests, ботов Meta/Mastodon; но не от фид-ридеров.\n\n**Посты → визиты:** X 16:08 18.11 пока не виден: до поста x дал 6 запросов, 1 engaged (referer t.co). Из других каналов только 1 человек от Telegram. После 16:00 данных за час нет, вывод делать рано.\n\n**Задачи:** T-0187/0188/0190/0164 слишком свежи, до/после недостаточно. 5xx = 0. Частота 4xx высокая (101 из 426 18.11, 524 из 917 17.11), в основном сканеры; T-0162 (favicon/robots) принят сегодня — сравнить 19–20.11.",
  "observations": {
-  "new": 9,
+  "new": 25,
   "by_class": {
    "hypothesis_readout": 2,
-   "measurement": 4,
-   "need_hypothesis": 3
+   "measurement": 6,
+   "need_hypothesis": 8,
+   "reproducible_defect": 1,
+   "success": 2,
+   "voice": 6
   }
  },
  "owner_questions_open": 0

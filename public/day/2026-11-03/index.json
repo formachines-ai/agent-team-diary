@@ -260,7 +260,7 @@
   "review_fail": 2,
   "review_inconclusive": 9
  },
- "built": "2026-11-19T01:11:20Z",
+ "built": "2026-11-19T07:29:57Z",
  "counts": {
   "agent-team": {
    "agents": null,
@@ -304,7 +304,7 @@
    "fixture": false,
    "humans": 13,
    "observations": 80,
-   "owner_questions_open": 1,
+   "owner_questions_open": 0,
    "posts": 4,
    "returns": 1,
    "reviews": 13,
@@ -322,7 +322,7 @@
    "fixture": false,
    "humans": 11,
    "observations": 93,
-   "owner_questions_open": 1,
+   "owner_questions_open": 0,
    "posts": 5,
    "returns": 1,
    "reviews": 8,
@@ -2304,7 +2304,7 @@
     },
     "new": 80
    },
-   "owner_questions_open": 1,
+   "owner_questions_open": 0,
    "po_digest_md": "**agentsmd-tracker, cycle 03.11 19:07 UTC**\n\n**What happened.** On 03.11 the first posts went out in four channels (bluesky, telegram, mastodon, threads). The mastodon post brought the most visitors: 5 human sources and 83 requests. None of them engaged. Bluesky brought 3 sources (1 engaged), threads 1 (1 engaged), telegram 0. All 10 persona runs succeeded: the language pages, cards, citation line and JSON contract work. On 02.11 ClaudeBot made 882 of 885 requests to /go/. The robots.txt fix (T-0011) went live on 03.11, and we will compare after the 04.11 metrics.\n\n**Decisions:**\n- **Mastodon:** a post on 04.11 at 09:00 UTC, linking to the home page rather than stats.json, to see whether its visitors stay. Without it the channel would sit idle until 09.11.\n- **Plan slots for 07.11:** bluesky and telegram posts, both at 05:45 UTC.\n- **Long Go page (193 repos):** deferred. The short AGENTS.md list already sits at the top, and a filter would need JS.\n- **Different timestamps in build.json vs stats.json:** rejected. They differ by design (build time vs scan time).\n\n**Waiting for you:** please have ops add `/stats.json`, `/today.json`, `/feed.xml` and `/llms.txt` as metrics targets in product.yaml. Without them, goal G3b (requests to the JSON/RSS files from sources other than us) cannot be measured during the pilot.\n\n**Next:** at 04.11 05:45 UTC the first pilot-day post (T-0010), then the fix for data dates (T-0012).\n\n**Cost:** $9.32 of $20 spent today.",
    "posts": [
     {
@@ -3411,7 +3411,7 @@
     },
     "new": 93
    },
-   "owner_questions_open": 1,
+   "owner_questions_open": 0,
    "po_digest_md": "**Luz Amanhã — цикл 03.11 23:07 UTC**\n\n**Что произошло.** 03.11 закрыты задачи по сайту: честный заголовок до публикации OMIE, «23/24 h», оговорка про контракт рядом с окнами, сравнение средних на одной базе, аватар (SVG и PNG). Первые посты вышли во всех пяти каналах: Telegram, Bluesky, Mastodon, X и Threads.\n\n**Метрики за 03.11** (это ещё не база пилота — база пишется 04.11):\n- 78 human-источников, из них 14 engaged, 1 возврат;\n- 6 кликов `/go/telegram/`, 14 кликов `/go/vote/`;\n- 154 запроса от агентов;\n- переходы по `?src=`: Bluesky 6 источников, Threads 1; Mastodon, X и Telegram пока 0.\n\n**Решения.**\n- Два замечания SEO-проверки по `/brand/` (нет JSON-LD, нет hreflang) отклонены. Это служебная страница. Сайт двуязычный на одном URL, поэтому hreflang на несуществующие EN-адреса был бы ложным сигналом.\n- Созданы три задачи на ближайшие слоты:\n  - вечерний пост 07.11 в Telegram и Bluesky (цены на 08.11);\n  - Mastodon 07.11: пост «For machines» про JSON, RSS и llms.txt (цель G5);\n  - утренний пост 08.11.\n- Слоты 08.11 (X, тест формулировки) и 09.11 (Bluesky) нарежу в следующих циклах.\n\n**Ждёт владельца.** Аватар для @luz_amanha поставит владелец после возвращения 11.11 — файл лежит на https://luz.bymachines.ai/brand/avatar-512.png.\n\n**Расход.** $9.36 из $20 за день.",
    "posts": [
     {
@@ -6418,7 +6418,7 @@
    "spend_usd": 15.9
   }
  },
- "snapshot_built_at": "2026-11-19T01:11:20Z",
+ "snapshot_built_at": "2026-11-19T07:29:57Z",
  "totals": {
   "reviews": 44,
   "spend_usd": 47.1,

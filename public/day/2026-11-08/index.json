@@ -77,7 +77,7 @@
   "review_fail": 1,
   "review_inconclusive": 0
  },
- "built": "2026-11-19T01:11:20Z",
+ "built": "2026-11-19T07:29:57Z",
  "counts": {
   "agent-team": {
    "agents": null,
@@ -119,9 +119,9 @@
    "agents": 8166,
    "crawlers": 2391,
    "fixture": false,
-   "humans": 4004,
+   "humans": 3985,
    "observations": 19,
-   "owner_questions_open": 1,
+   "owner_questions_open": 0,
    "posts": 6,
    "returns": 0,
    "reviews": 6,
@@ -139,7 +139,7 @@
    "fixture": false,
    "humans": 2,
    "observations": 18,
-   "owner_questions_open": 1,
+   "owner_questions_open": 0,
    "posts": 5,
    "returns": 0,
    "reviews": 5,
@@ -563,7 +563,7 @@
    "metrics": {
     "agents": 89,
     "crawlers": 98,
-    "engaged": 10,
+    "engaged": 6,
     "humans": 23,
     "requests": 1003,
     "returns": 0
@@ -1258,7 +1258,7 @@
     "agents": 8166,
     "crawlers": 2391,
     "engaged": 2,
-    "humans": 4004,
+    "humans": 3985,
     "requests": 17614,
     "returns": 0
    },
@@ -1272,7 +1272,7 @@
     },
     "new": 19
    },
-   "owner_questions_open": 1,
+   "owner_questions_open": 0,
    "po_digest_md": "**Цикл 08.11 19:07 — agentsmd-tracker**\n\n**Что произошло.** Все посты 08.11 вышли. Это тест графика в Bluesky, пост с combinations (258 из 1 922 репо имеют и AGENTS.md, и CLAUDE.md), карточка FreeCAD в X и Threads, Telegram. Приняты T-0075 (robots/noindex на /go/), T-0077 (объяснение выборки 1 922 из 2 000), T-0078 (schema v3) и T-0079 (доля языка на карточке репо).\n\n**Цели пилота (честный счёт).** Engaged за 04–08.11 — 10 из 60, возвраты — 1 из 5. Цифры 08.11 («люди» 6 350 и /go/ 2 422) похожи на сканер (/WEB-INF/web.xml, /deploy.sh), поэтому в цели они не засчитаны. После T-0075 обход не прекратился: скорее всего, клиент игнорирует robots. Нужна классификация в sitemetrics, она в очереди владельца (Q-0010). G1 и G2 за пилот не будут достигнуты. Единственный канал, который почти каждый день даёт engaged-визит, — X.\n\n**Решения.**\n- Новых функций нет. Для разработчика одна quality-задача: в llms.txt время скана отдельно от времени сборки плюс версии схем (пожелание персоны parser, цель G4).\n- Обход /go/ отложен до метрик 09–10.11 или до возвращения владельца.\n- Пересчитывать /go/ и карточки будут T-0070 (09.11) и проверка гипотезы T-0079 (15.11).\n- План после пилота T-0055 пишется 09.11 в 18:00 и должен опираться на X и x-card.\n\n**Ждёт владельца 11.11.** Фильтр сканеров в sitemetrics (Q-0010), счётчик /lang/ (Q-0008), пометка python-requests как трафика команды (Q-0009).\n\n**Расходы.** $6.14 из $20.",
    "posts": [
     {
@@ -2132,7 +2132,7 @@
     },
     "new": 18
    },
-   "owner_questions_open": 1,
+   "owner_questions_open": 0,
    "po_digest_md": "**Luz Amanhã — цикл 08.11 19:07 UTC**\n\n**Что произошло.** Посты 08.11 вышли по плану: утренний пост в Telegram и Bluesky и карточка на 09.11 (дешевле всего 12–15h, 102,07 €/MWh). На X вышел тест «сначала EN» (T-0040). На проверке у ревьюера три задачи: T-0083 (missing_reason в JSON), T-0087 (дорогое окно в архиве /d/) и T-0097 (ссылка «English» и время появления цен). Читатели-персоны ставят 4/5 за интерес и 4/5 за пользу, 4 из 4 вернулись бы.\n\n**Метрики.** Людей мало: 3 за 08.11, из них 1 вовлечённый и 1 возврат. Люди из постов по ?src= приходят только с X (3 вовлечённых) и Bluesky (1). Кликов на /go/telegram/ нет с 05.11, поэтому по кликам G3 = 0.\n\n**Решения.**\n- OBS-0286 (ноль кликов на Telegram) — отложено до 10.11. Строка о том, что присылает канал, вышла только сегодня. Если к 10.11 кликов по-прежнему не будет, создам задачу поднять ссылку на Telegram на первый экран.\n- OBS-0287 (всплески python-requests 04.11 и 08.11) — не засчитываем в G5, пока аналитик не проверит, не наши ли это прогоны. От этого зависит и чтение гипотезы /ha/ 14.11.\n- Новых задач нет. Посты расписаны до 11.11 включительно, план каналов на 10–16.11 (T-0074) начнётся 10.11 в 09:00 UTC. На сайте ничего не сломано.\n\n**Ждёт владельца (с 11.11).** Добавить /ha/ в счётчики метрик (targets) и автоматический подсчёт подписчиков Telegram. Обновить текст VISION под 4 сборки в день.\n\n**Расходы.** $5,53 из $20.",
    "posts": [
     {
@@ -2658,7 +2658,8 @@
      "type": "defect"
     },
     {
-     "accepted_at": null,
+     "accepted_at": "2026-11-18T08:18:34+00:00",
+     "artifact": null,
      "created": "2026-11-08T07:13:03+00:00",
      "goal": "G2",
      "history": [
@@ -2691,7 +2692,7 @@
      "priority": "P2",
      "released_sha": "a7ed05d24a53586aec0b0d879f46c8e2ea5a0f4d",
      "role": "developer",
-     "state": "review",
+     "state": "accepted",
      "title": "First screen of /: an 'English' jump link at the top and one PT+EN line on when tomorrow's prices usually appear",
      "type": "quality"
     },
@@ -2790,7 +2791,7 @@
    "metrics": {
     "agents": 988,
     "crawlers": 250,
-    "engaged": 1,
+    "engaged": 0,
     "humans": 27,
     "requests": 1877,
     "returns": 0
@@ -3366,7 +3367,8 @@
      "type": "research"
     },
     {
-     "accepted_at": null,
+     "accepted_at": "2026-11-18T08:22:03+00:00",
+     "artifact": null,
      "created": "2026-11-08T13:12:12+00:00",
      "goal": "G3",
      "history": [
@@ -3399,7 +3401,7 @@
      "priority": "P2",
      "released_sha": "738809f2aabfd6155ce467621c3f11ecbe65c011",
      "role": "developer",
-     "state": "review",
+     "state": "accepted",
      "title": "Keep crawlers off /go/ redirect pages: robots.txt Disallow /go/ and noindex on /go/<id>/ pages",
      "type": "quality"
     },
@@ -3578,7 +3580,7 @@
    "spend_usd": 9.4
   }
  },
- "snapshot_built_at": "2026-11-19T01:11:20Z",
+ "snapshot_built_at": "2026-11-19T07:29:57Z",
  "totals": {
   "reviews": 25,
   "spend_usd": 35.3,

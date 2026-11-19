@@ -5,6 +5,130 @@
  "date": "2026-11-18",
  "tasks": [
   {
+   "id": "T-0107",
+   "title": "X post 17.11 06:15 UTC from @formachines_ai: Card link (repo added AGENTS.md in 24 h)",
+   "type": "content",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-11T03:08:29+00:00",
+   "accepted_at": "2026-11-17T07:11:00+00:00",
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-18T12:13:06+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: none — X 17.11: x-card 10 запросов, 1 human, 1 engaged — на уровне прошлых x-дней."
+    },
+    {
+     "ts": "2026-11-18T12:13:06+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0109",
+   "title": "Bluesky post 17.11 12:00 UTC: Week in numbers 02.11→17.11",
+   "type": "content",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-11T04:09:32+00:00",
+   "accepted_at": "2026-11-17T12:08:57+00:00",
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-18T12:13:06+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: none — Bluesky 17.11: src=bluesky 11 запросов, 1 human, 0 engaged."
+    },
+    {
+     "ts": "2026-11-18T12:13:06+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0110",
+   "title": "Telegram post 17.11 12:00 UTC @agentsmd_tracker: number of the day",
+   "type": "content",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "marketer",
+   "created": "2026-11-11T04:09:33+00:00",
+   "accepted_at": "2026-11-17T13:09:57+00:00",
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-18T18:08:33+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-18T18:08:33+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0114",
+   "title": "Threads post 17.11 14:00 UTC from @formachines: Cut (one dated language share)",
+   "type": "content",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-11T08:11:03+00:00",
+   "accepted_at": "2026-11-17T14:10:21+00:00",
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-18T18:08:33+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-18T18:08:33+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0181",
+   "title": "Internal links end with the final slash: no /lang/<slug> or /repo/... href without '/' on any page; offline test",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-16T07:10:33+00:00",
+   "accepted_at": "2026-11-18T08:14:23+00:00",
+   "released_sha": "99c416548905cc440bdbe9f9893ada191c5b84dd",
+   "history": [
+    {
+     "ts": "2026-11-18T08:14:23+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "There were no offenders, so no code changed. The existing tests/test_trailing_slash.py guards the criterion, and the whole suite passes with 0 offenders over 72484 refs. The slash-less /lang/php and /"
+    }
+   ]
+  },
+  {
    "id": "T-0183",
    "title": "X post 18.11 06:15 UTC from @formachines_ai: Daily number",
    "type": "content",
@@ -37,10 +161,36 @@
    ]
   },
   {
+   "id": "T-0192",
+   "title": "Keep crawlers off /go/: robots.txt Disallow /go/ and rel=nofollow on every /go/ link (vote links included); offline test",
+   "type": "defect",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-17T13:09:00+00:00",
+   "accepted_at": "2026-11-17T14:09:03+00:00",
+   "released_sha": "f737f972976a58b966bc682d79e6de2f3457d3e7",
+   "history": [
+    {
+     "ts": "2026-11-18T18:08:33+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: positive — /go/ 3875 запросов (17.11) → 33 (18.11); краулеры 3848 → 3. Механизм правдоподобен (Disallow + nofollow), но это один день."
+    },
+    {
+     "ts": "2026-11-18T18:08:33+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
    "id": "T-0196",
    "title": "Size buckets: stats.json 'sizes' (AGENTS.md/CLAUDE.md by size band, count > 32 KiB) and a dated line on /; offline test",
    "type": "feature",
-   "state": "accepted",
+   "state": "done",
    "priority": "P2",
    "goal": "G3b",
    "role": "developer",
@@ -84,7 +234,7 @@
    "id": "T-0197",
    "title": "Home shows one '>32 KiB AGENTS.md' line, not two; llms.txt names the bounds of both size schemes in stats.json; offline test",
    "type": "quality",
-   "state": "accepted",
+   "state": "done",
    "priority": "P3",
    "goal": "G3b",
    "role": "developer",
@@ -123,6 +273,398 @@
      "note": "The live home page now has a single dated AGENTS.md >32 KiB sentence (30 of 563), and it matches the bands gt_32k in stats.json. stats.json keeps both schemes, llms.txt names both with their byte boun"
     }
    ]
+  },
+  {
+   "id": "T-0198",
+   "title": "SEO: lastmod on every sitemap URL; unique title, description and self-canonical on /, /lang/*/, /repo/*/*/; offline test",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-18T08:15:29+00:00",
+   "accepted_at": "2026-11-18T09:20:01+00:00",
+   "released_sha": "135cd3d1e530e701b8580f9b3d59ae3640316fe1",
+   "history": [
+    {
+     "ts": "2026-11-18T08:15:29+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-18T08:15:30+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261118T0807-exec-T-0198"
+    },
+    {
+     "ts": "2026-11-18T08:15:30+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-18T08:17:48+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 135cd3d1e5"
+    },
+    {
+     "ts": "2026-11-18T09:20:01+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The live sitemap has 1935 URLs, each with a lastmod, and the three sample pages have self-canonicals. The whole suite passed (124 tests) and build.json shows data_delayed false."
+    }
+   ]
+  },
+  {
+   "id": "T-0199",
+   "title": "New conventions in PATHS: .github/instructions/ and .claude/rules/ tracked from the next scan, 'not tracked' before it; offline test",
+   "type": "feature",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G3b",
+   "role": "developer",
+   "created": "2026-11-18T11:14:39+00:00",
+   "accepted_at": "2026-11-18T12:09:33+00:00",
+   "released_sha": "9d48d1d917d4a08a3f0c847b37ae0c497601295d",
+   "history": [
+    {
+     "ts": "2026-11-18T11:14:39+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-18T11:14:41+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261118T1107-exec-T-0199"
+    },
+    {
+     "ts": "2026-11-18T11:14:41+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-18T11:17:24+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 9d48d1d917"
+    },
+    {
+     "ts": "2026-11-18T12:09:33+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "Both new paths are tracked as directory presence checks. stats.json shows tracked_since null, the home history table shows 'not tracked', and llms.txt lists them. The offline test covers the baseline "
+    }
+   ]
+  },
+  {
+   "id": "T-0200",
+   "title": "Path count and scan-time estimate derived from PATHS: README and the site's method text cannot drift; offline test",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P3",
+   "goal": "G3b",
+   "role": "developer",
+   "created": "2026-11-18T12:10:12+00:00",
+   "accepted_at": "2026-11-18T13:10:13+00:00",
+   "released_sha": "16df4cf11892dcdf972f84ba99595af03b901aa0",
+   "history": [
+    {
+     "ts": "2026-11-18T12:10:12+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-18T12:10:14+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261118T1207-exec-T-0200"
+    },
+    {
+     "ts": "2026-11-18T12:10:14+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-18T12:12:38+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 16df4cf118"
+    },
+    {
+     "ts": "2026-11-18T13:10:13+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "README, tests and live pages agree on 12 paths. The scan-time estimate is stated as a formula, and build.json shows data_delayed false."
+    }
+   ]
+  },
+  {
+   "id": "T-0201",
+   "title": "README test count cannot drift: no literal 'N files' or a count equal to tests/test_*.py; offline test",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P3",
+   "goal": "G3b",
+   "role": "developer",
+   "created": "2026-11-18T13:10:58+00:00",
+   "accepted_at": "2026-11-18T14:09:12+00:00",
+   "released_sha": "e507fedf80f024dc9cdcf1f9468b101125d7e5e8",
+   "history": [
+    {
+     "ts": "2026-11-18T13:10:58+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-18T13:11:00+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261118T1307-exec-T-0201"
+    },
+    {
+     "ts": "2026-11-18T13:11:00+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-18T13:13:00+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged e507fedf80"
+    },
+    {
+     "ts": "2026-11-18T14:09:12+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The README no longer states a test-file count, and a new offline test fails if it states one that differs from the number of tests/test_*.py files. The dispatcher's full run passed (131 tests, exit 0)"
+    }
+   ]
+  },
+  {
+   "id": "T-0202",
+   "title": "Marketing plan 25.11–01.12 (replaces T-0128)",
+   "type": "marketing",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-18T13:10:59+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-18T13:10:59+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0203",
+   "title": "Unmeasured paths not shown as 0/0.0%: 'not measured yet' until first scan, then date and checked-repo count; test",
+   "type": "defect",
+   "state": "accepted",
+   "priority": "P1",
+   "goal": "G3b",
+   "role": "developer",
+   "created": "2026-11-18T14:10:06+00:00",
+   "accepted_at": "2026-11-18T15:08:49+00:00",
+   "released_sha": "bc840f255499329f521263a5810507fc76538434",
+   "history": [
+    {
+     "ts": "2026-11-18T14:10:06+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-18T14:10:07+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261118T1407-exec-T-0203"
+    },
+    {
+     "ts": "2026-11-18T14:10:07+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-18T14:14:13+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged bc840f2554"
+    },
+    {
+     "ts": "2026-11-18T15:08:49+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The live home page, /lang/php/, stats.json and llms.txt all show the two unmeasured paths as 'Not measured yet' or null with measured:false. Measured paths keep their values and show a date and repos-"
+    }
+   ]
+  },
+  {
+   "id": "T-0204",
+   "title": "Unmeasured paths on repo cards, card index.json and the /lang/ per-repo table: 'not measured yet', not 0/0.0%/'no'; offline test",
+   "type": "defect",
+   "state": "accepted",
+   "priority": "P1",
+   "goal": "G3b",
+   "role": "developer",
+   "created": "2026-11-18T15:09:38+00:00",
+   "accepted_at": "2026-11-18T16:09:45+00:00",
+   "released_sha": "4621fcb7f8e4a7939f5a117c72a15770e93370bb",
+   "history": [
+    {
+     "ts": "2026-11-18T15:09:38+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-18T15:09:39+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261118T1507-exec-T-0204"
+    },
+    {
+     "ts": "2026-11-18T15:09:39+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-18T15:15:00+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 4621fcb7f8"
+    },
+    {
+     "ts": "2026-11-18T16:09:45+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "Unmeasured paths now show as not measured on cards, card index.json and /lang/ tables, and llms.txt explains it. The tests exist and passed in the dispatcher run; build.json shows data_delayed false."
+    }
+   ]
+  },
+  {
+   "id": "T-0205",
+   "title": "Repo card prose summary counts only measured paths: 'K of N checked paths', unmeasured listed separately; offline test",
+   "type": "defect",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G3b",
+   "role": "developer",
+   "created": "2026-11-18T16:10:40+00:00",
+   "accepted_at": "2026-11-18T17:08:44+00:00",
+   "released_sha": "089ee2c8f531ec0e9d77b5aa4b5e3c96a63d1106",
+   "history": [
+    {
+     "ts": "2026-11-18T16:10:40+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-18T16:10:41+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261118T1607-exec-T-0205"
+    },
+    {
+     "ts": "2026-11-18T16:10:41+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-18T16:15:00+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 089ee2c8f5"
+    },
+    {
+     "ts": "2026-11-18T17:08:44+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The 3b1b/manim card now says \"none of the 10 checked file paths\" and lists the two unmeasured paths in a separate \"Not measured yet\" clause. The two card-summary tests exist and the dispatcher's whole"
+    }
+   ]
+  },
+  {
+   "id": "T-0206",
+   "title": "Tables readable at 375 px after the new path columns: every <table> in a horizontal-scroll wrapper, viewport meta; offline test",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-18T19:09:56+00:00",
+   "accepted_at": "2026-11-18T20:09:29+00:00",
+   "released_sha": "5891f799ffe1ec479742dbe48f6c6ccd5543a2be",
+   "history": [
+    {
+     "ts": "2026-11-18T19:09:56+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-18T19:09:57+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261118T1907-exec-T-0206"
+    },
+    {
+     "ts": "2026-11-18T19:09:57+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-18T19:11:46+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 5891f799ff"
+    },
+    {
+     "ts": "2026-11-18T20:09:29+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "Tables are wrapped in div.scroll.table-wrap, the viewport meta is present, and the CSS has overflow-x:auto with no width above 375px on body, main or table. The new test passes in the dispatcher's who"
+    }
+   ]
+  },
+  {
+   "id": "T-0207",
+   "title": "Analyst check 19.11: first scan of the two new paths (tracked_since, measured, no false 'added', data on time)",
+   "type": "research",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G3b",
+   "role": "analyst",
+   "created": "2026-11-18T21:08:24+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-18T21:08:24+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
   }
  ],
  "reviews": [
@@ -135,6 +677,51 @@
    "task": "T-0197",
    "verdict": "pass",
    "summary": "The live home page now has a single dated AGENTS.md >32 KiB sentence (30 of 563), and it matches the bands gt_32k in stats.json. stats.json keeps both schemes, llms.txt names both with their byte bounds, and the new offline test exists and the full suite passed."
+  },
+  {
+   "task": "T-0181",
+   "verdict": "pass",
+   "summary": "There were no offenders, so no code changed. The existing tests/test_trailing_slash.py guards the criterion, and the whole suite passes with 0 offenders over 72484 refs. The slash-less /lang/php and /lang/python requests have no internal source."
+  },
+  {
+   "task": "T-0198",
+   "verdict": "pass",
+   "summary": "The live sitemap has 1935 URLs, each with a lastmod, and the three sample pages have self-canonicals. The whole suite passed (124 tests) and build.json shows data_delayed false."
+  },
+  {
+   "task": "T-0199",
+   "verdict": "pass",
+   "summary": "Both new paths are tracked as directory presence checks. stats.json shows tracked_since null, the home history table shows 'not tracked', and llms.txt lists them. The offline test covers the baseline case and the whole suite passed."
+  },
+  {
+   "task": "T-0200",
+   "verdict": "pass",
+   "summary": "README, tests and live pages agree on 12 paths. The scan-time estimate is stated as a formula, and build.json shows data_delayed false."
+  },
+  {
+   "task": "T-0201",
+   "verdict": "pass",
+   "summary": "The README no longer states a test-file count, and a new offline test fails if it states one that differs from the number of tests/test_*.py files. The dispatcher's full run passed (131 tests, exit 0), and live build.json shows data_delayed false."
+  },
+  {
+   "task": "T-0203",
+   "verdict": "pass",
+   "summary": "The live home page, /lang/php/, stats.json and llms.txt all show the two unmeasured paths as 'Not measured yet' or null with measured:false. Measured paths keep their values and show a date and repos-checked count, and the dispatcher's suite passed (133 tests, OK)."
+  },
+  {
+   "task": "T-0204",
+   "verdict": "pass",
+   "summary": "Unmeasured paths now show as not measured on cards, card index.json and /lang/ tables, and llms.txt explains it. The tests exist and passed in the dispatcher run; build.json shows data_delayed false."
+  },
+  {
+   "task": "T-0205",
+   "verdict": "pass",
+   "summary": "The 3b1b/manim card now says \"none of the 10 checked file paths\" and lists the two unmeasured paths in a separate \"Not measured yet\" clause. The two card-summary tests exist and the dispatcher's whole-suite run passed, and build.json shows data_delayed false."
+  },
+  {
+   "task": "T-0206",
+   "verdict": "pass",
+   "summary": "Tables are wrapped in div.scroll.table-wrap, the viewport meta is present, and the CSS has overflow-x:auto with no width above 375px on body, main or table. The new test passes in the dispatcher's whole-suite run, and build.json shows data_delayed false."
   }
  ],
  "posts": [
@@ -145,23 +732,25 @@
   }
  ],
  "metrics": {
-  "humans": 0,
-  "engaged": 0,
+  "humans": 3,
+  "engaged": 1,
   "returns": 0,
   "agents": 0,
-  "crawlers": 671,
-  "requests": 789
+  "crawlers": 1918,
+  "requests": 2348
  },
- "spend_usd": 2.3,
- "po_digest_md": "**Цикл 18.11 07:07: новых задач нет.**\n\n**Что случилось**\n- Аналитик нашёл ошибку в фильтре людей (OBS-0438). Источники, которые запрашивают только `/favicon.svg`, считались вовлечёнными людьми: 13–16.11 это дало от 2 до 6 тысяч «людей» в день. На самом деле 17.11 было 2 человека. Значит, G1–G3 за 13–16.11 недостоверны.\n- 17.11 вышли посты в X, Bluesky, Telegram и Threads. Mastodon и Threads исчерпали недельный лимит.\n- Google: в индексе 2 из 470 проверенных URL, кликов 0.\n\n**Что решено**\n- OBS-0438 привязано к недельному отчёту аналитика T-0112: дни 13–16.11 исключаются с указанием причины. Сам фильтр чинит ops, поэтому вопрос вынесен вам.\n- OBS-0439 привязано к T-0195 (эффект запрета краулерам заходить на `/go/`, проверка 20.11). Сравнение будет и с 17.11, и с 13.11, потому что всплески этого краулера бывали и без наших правок.\n- OBS-0440 привязано к T-0112 (повторная проверка индексации 19.11). Отправка sitemap в GSC остаётся в вашем списке (Q-0022).\n- Все слоты маркетинг-плана на 18–24.11 уже нарезаны в задачи. Слот dev.to 20.11 не ставим: ключ отдаёт 401 (Q-0018). Новый план понадобится около 23.11.\n- Задачи для разработчика не ставлю: T-0181 на ревью, сломанного на сайте не видно.\n\n**Ждёт владельца**\n- Попросить ops не считать людьми источники, которые запрашивают только статические файлы, и по возможности пересчитать 13–16.11.\n- Отправить sitemap в Google Search Console (Q-0022).\n\n**Расходы:** $1.66 из $20.",
- "analyst_md": "**Итог на 18.11 (снимок 06:02 UTC, день неполный).** Данные за пилот 04–10.11 в промпте отсутствуют; ниже — 12–18.11.\n\n| Уровень | 15.11 | 16.11 | 17.11 | 18.11 (частично) |\n|---|---|---|---|---|\n| Краулеры, запросы | 1315 | 3266 | 5471 | 603 |\n| «Люди» engaged (по фильтру) | 3103 | 6212 | 2 | 0 |\n| Возвраты | 0 | 10 | 1 | 0 |\n| Агенты, источники | 24 | 11 | 4 | 0 |\n| /go/ запросы от краулеров | 0 | 1 | 3848 | 0 |\n\n- **Люди:** 13–16.11 цифры (2–6 тыс.) почти целиком дают `/favicon.svg` (6218 из 6240 источников 16.11). Это утечка фильтра, а не люди (в метриках уже есть Q-0020). Реальные люди 17.11: 6 источников, 2 engaged. G1, G2 и G3 по этим дням считать нельзя.\n- **Посты 17.11:** по `?src=` пришли bluesky 11 запросов (1 человек), x-card 10 (1 человек, engaged), threads 7, mastodon 2. Почасовой разбивки нет, до/после поста не сравнить. Referer есть только у t.co (1).\n- **T-0192 (Disallow /go/):** 17.11 было 3848 запросов краулеров на /go/, 18.11 — 0 краулерских. День неполный, а всплески meta-externalagent эпизодические (13 и 17.11), так что эффект пока не доказан.\n- **GSC:** 0 кликов, 33 показа, в индексе 2 из 470 проверенных URL.\n- **G4:** агенты (python-requests, go-http-client, chatgpt) и краулеры обращаются к JSON и llms.txt, цель ≥1 источник выполнена.",
+ "spend_usd": 10.1,
+ "po_digest_md": "**Цикл 18.11 21:07 — agentsmd-tracker**\n\n**Что произошло:** за день приняты T-0196…T-0206: размеры файлов, новые пути `.github/instructions/` и `.claude/rules/`, отметка «не измерено» вместо ложных 0 %, SEO (lastmod, title, description, canonical) и таблицы на 375 px. Новых наблюдений, вопросов ролей и отзывов людей нет. Пост в X за 18.11 вышел (+3, 565 из 1 919, 29,4 %).\n\n**Решение:** открыта одна задача аналитика на 19.11 в 05:45 UTC. Он проверит первый скан с 10 путями вместо 8:\n- успевают ли данные к посту в X в 06:15 (T-0184);\n- проставлены ли tracked_since и measured у новых путей;\n- нет ли в today.json потока ложных «added».\n\nВыбрал проверку, а не работу разработчика. На сайте сейчас нет сломанного или измеримо худшего места, у которого был бы источник. Задачу про отправку sitemap в GSC (435 из 470 URL Google не знает) у нас сделать нельзя: она ждёт владельца, Q-0022. Задачу разработчику не ставлю, функции не придумываю.\n\n**Расписание:** все слоты плана T-0128 до 24.11 уже нарезаны. Слот dev.to пропущен, ключ отвечает 401 (Q-0018). План на 25.11–01.12 (T-0202) стартует 22.11. Аналитик читает итоги 12–18.11 19.11 (T-0112), эффект Disallow для /go/ — 20.11 (T-0195).\n\n**Ждёт владельца:**\n- Q-0022: отправка sitemap в GSC;\n- Q-0023: фильтр людей в sitemetrics, favicon считается за человека; из-за него 13–16.11 исключены из G1–G3;\n- Q-0018: ключ dev.to.\n\n**Расходы:** $9,68 из $20 (48 %).",
+ "analyst_md": "**Срез на 18.11 (снимок 18:02 UTC; пилот 04–10.11 закончен, цифры по дням ниже — после пилота).**\n\nСлои не складываются.\n\n| Уровень | 18.11 | 17.11 | 16.11 |\n|---|---|---|---|\n| Люди: engaged | 1 | 2 | 6 |\n| Возвраты | 0 | 1 | 1 |\n| Агенты (источники) | 0 | 4 | 11 |\n| Краулеры (источники) | 604 | 977 | 711 |\n| /go/ от людей | 0 | 0 | 9 |\n| 5xx | 0 | 0 | 0 |\n\n- **Люди:** engaged 12–18.11 в сумме 20 (1+2+6+5+3+2+1). Цель G1 (≥60) не выполнена. Для 04–10.11 в этом срезе данных нет.\n- **Метрики людей 14–16.11 завышены:** 1–4 тыс. «human sources» и ~2–3 тыс. запросов /favicon.svg в день. Это утечка фильтра ботов, а не люди; настоящий показатель — engaged.\n- **/go/ 17.11:** 3 875 запросов, из них 3 848 краулеры (meta-externalagent). Человеческих источников 0. T-0192 (Disallow /go/ и nofollow) принята 17.11, эффект на 18.11 есть: 33 запроса против 3 875. Но Disallow мог и не сработать, дело в уходе краулера. До/после по одной дате, вывод предварительный.\n- **Посты → визиты:** единственный видимый эффект — x (t.co-реферер, 1 engaged в день). Остальные каналы дают 0 engaged.\n- **Google:** 0 кликов, 33 показа; в индексе 2 из 470.",
  "observations": {
-  "new": 9,
+  "new": 30,
   "by_class": {
-   "reproducible_defect": 2,
-   "measurement": 2,
-   "need_hypothesis": 5
+   "reproducible_defect": 3,
+   "measurement": 4,
+   "need_hypothesis": 16,
+   "voice": 6,
+   "feedback": 1
   }
  },
- "owner_questions_open": 1
+ "owner_questions_open": 0
 }

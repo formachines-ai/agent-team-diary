@@ -77,7 +77,7 @@
   "review_fail": 1,
   "review_inconclusive": 0
  },
- "built": "2026-11-19T01:11:20Z",
+ "built": "2026-11-19T07:29:57Z",
  "counts": {
   "agent-team": {
    "agents": null,
@@ -101,11 +101,11 @@
    "agents": 9,
    "crawlers": 126,
    "fixture": false,
-   "humans": 64,
+   "humans": 63,
    "observations": 19,
    "owner_questions_open": 0,
    "posts": 4,
-   "returns": 2,
+   "returns": 1,
    "reviews": 3,
    "reviews_fail": 0,
    "reviews_pass": 3,
@@ -119,11 +119,11 @@
    "agents": 81,
    "crawlers": 3266,
    "fixture": false,
-   "humans": 6240,
+   "humans": 3867,
    "observations": 19,
-   "owner_questions_open": 1,
+   "owner_questions_open": 0,
    "posts": 2,
-   "returns": 10,
+   "returns": 1,
    "reviews": 8,
    "reviews_fail": 1,
    "reviews_pass": 7,
@@ -139,7 +139,7 @@
    "fixture": false,
    "humans": 7,
    "observations": 12,
-   "owner_questions_open": 1,
+   "owner_questions_open": 0,
    "posts": 3,
    "returns": 0,
    "reviews": 0,
@@ -458,10 +458,10 @@
    "metrics": {
     "agents": 9,
     "crawlers": 126,
-    "engaged": 3,
-    "humans": 64,
+    "engaged": 2,
+    "humans": 63,
     "requests": 854,
-    "returns": 2
+    "returns": 1
    },
    "name": "agent-team diary",
    "observations": {
@@ -1154,7 +1154,8 @@
      "type": "quality"
     },
     {
-     "accepted_at": null,
+     "accepted_at": "2026-11-18T16:08:26+00:00",
+     "artifact": null,
      "created": "2026-11-16T10:08:51+00:00",
      "goal": "G1",
      "history": [
@@ -1169,7 +1170,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "ready",
+     "state": "accepted",
      "title": "X day story 2026-11-18 16:00 UTC: one 17.11 event, link last",
      "type": "content"
     },
@@ -1504,10 +1505,10 @@
    "metrics": {
     "agents": 81,
     "crawlers": 3266,
-    "engaged": 6212,
-    "humans": 6240,
+    "engaged": 6,
+    "humans": 3867,
     "requests": 25572,
-    "returns": 10
+    "returns": 1
    },
    "name": "AGENTS.md Tracker",
    "observations": {
@@ -1519,7 +1520,7 @@
     },
     "new": 19
    },
-   "owner_questions_open": 1,
+   "owner_questions_open": 0,
    "po_digest_md": "**Цикл 16.11 13:07 — AGENTS.md Tracker**\n\n**Что произошло.** 16.11 вышли посты в X (+1, 561 из 1 921, 29,2 %) и в Mastodon (02.11→16.11: +1,1 п.п.). Маркетолог сдал план на 18–24.11 (T-0128). Приняты технические задачи T-0172…T-0182: метки времени теперь берутся из времени скана, на сайте появились «Removed in 24 h», combos и tracked_since. T-0181 (слэш в конце внутренних ссылок) на ревью.\n\n**Метрики.** Число «engaged-людей» за 16.11 — 6 211. Почти все эти источники запрашивают только /favicon.svg, поэтому G1 и G3 с 13.11 считать нельзя. Поправить фильтр могут только ops, вопрос Q-0020 ждёт владельца. Наблюдения аналитика OBS-0413, 0415 и 0416 отложены до правки фильтра. G3b и G4 по-прежнему не достигнуты (OBS-0414): это проверит недельное чтение T-0112 19.11.\n\n**Решения.** План нарезан на 3 ближайших слота в X: 18.11 — число дня, 19.11 — ссылка на карточку репо, 20.11 — число дня. Выбран X, потому что только он приносит engaged-людей (x и x-card вместе: 13 источников, 10 engaged). Слот dev.to 20.11 не ставлю, пока ключ отвечает 401 (Q-0018). В Mastodon и Threads 7-дневный лимит исчерпан.\n\n**Ждёт владельца** (без новых вопросов):\n- фильтр людей и разбивка 4xx по путям (Q-0020);\n- отправка sitemap в Google Search Console (Q-0022): пока проиндексировано 2 из 370 проверенных URL;\n- ключ dev.to (Q-0018).\n\n**Расходы:** $8,02 из $20.",
    "posts": [
     {
@@ -2312,7 +2313,8 @@
      "type": "feature"
     },
     {
-     "accepted_at": null,
+     "accepted_at": "2026-11-18T08:14:23+00:00",
+     "artifact": null,
      "created": "2026-11-16T07:10:33+00:00",
      "goal": "G1",
      "history": [
@@ -2345,7 +2347,7 @@
      "priority": "P2",
      "released_sha": "99c416548905cc440bdbe9f9893ada191c5b84dd",
      "role": "developer",
-     "state": "review",
+     "state": "accepted",
      "title": "Internal links end with the final slash: no /lang/<slug> or /repo/... href without '/' on any page; offline test",
      "type": "quality"
     },
@@ -2416,7 +2418,8 @@
      "type": "content"
     },
     {
-     "accepted_at": null,
+     "accepted_at": "2026-11-19T07:16:04+00:00",
+     "artifact": null,
      "created": "2026-11-16T13:09:13+00:00",
      "goal": "G1",
      "history": [
@@ -2431,7 +2434,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "ready",
+     "state": "accepted",
      "title": "X post 19.11 06:15 UTC from @formachines_ai: Card link (repo added AGENTS.md in 24 h)",
      "type": "content"
     },
@@ -2477,7 +2480,7 @@
     },
     "new": 12
    },
-   "owner_questions_open": 1,
+   "owner_questions_open": 0,
    "po_digest_md": "**Luz Amanhã — цикл 16.11 19:07 UTC**\n\n**Что было.** Все три поста 16.11 вышли:\n- Telegram утром;\n- Telegram с ценами на 17.11;\n- X с «находкой»: окно 10–15h в 4 из 7 дней.\n\nМаркетолог принял план на 17–23.11 (T-0138).\n\nЛюди за 08–16.11: 1–2 engaged в день. Канал X по-прежнему единственный с engaged-посетителями: 8 источников, из них 6 engaged. В GSC 0 показов, в индексе 12 из 27 URL.\n\n**Решения.**\n- **Всплеск 60 голосов на /go/vote/ 14.11 (OBS-0423) отклонён:** это один источник, скорее скрипт, а не спрос.\n- **Индексация датированных страниц (OBS-0424):** привязана к задаче T-0149 (sitemap, ссылки на последние дни, canonical). Она на ревью; GSC перечитаем после мержа.\n- **G4, внешний referer (OBS-0425):** формально выполнен (google.com, nomorevibe.com по разу). Отложено, пока не появится ≥ 3 визитов с одного внешнего источника.\n- **Нарезал из плана три слота X** для A/B-теста заголовка «O seu tarifário passou a dinâmico?» (на основе voice P1): 19.11 — A, 20.11 — B, 21.11 — A. Вместе с T-0160 и T-0161 получается 5 точек теста. Оставшиеся слоты плана (Threads и X на 22.11) нарежу в следующем цикле.\n- **Ежедневные посты в Telegram** уже стоят до 20.11.\n\n**На ревью у разработчика:** T-0083, T-0087, T-0097, T-0104, T-0149. Новых задач для разработчика не ставил: сначала нужно закрыть эти пять.\n\n**Ждёт владельца:** /ha/ в targets (Q-0043). Если до 28.11 путь не добавят, гипотезу T-0089 запишем как нечитаемую.\n\n**Расходы:** $2.39 из $20.",
    "posts": [
     {
@@ -2824,7 +2827,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "accepted",
+     "state": "done",
      "title": "X post 17.11 14:10 UTC: headline test A (dynamic tariff), 18.11 window, link /d/2026-11-18/?src=x",
      "type": "marketing"
     },
@@ -2844,7 +2847,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "ready",
+     "state": "rejected",
      "title": "X post 18.11 14:10 UTC: headline test B (control, current wording), 19.11 window, link /d/2026-11-19/?src=x",
      "type": "marketing"
     },
@@ -2884,7 +2887,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "ready",
+     "state": "rejected",
      "title": "X post 19.11 14:20 UTC: headline test A (dynamic tariff), 20.11 window, link /d/2026-11-20/?src=x",
      "type": "marketing"
     },
@@ -2904,7 +2907,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "ready",
+     "state": "rejected",
      "title": "X post 20.11 14:10 UTC: headline test B (control, current wording), 21.11 window, link /d/2026-11-21/?src=x",
      "type": "marketing"
     },
@@ -2936,7 +2939,7 @@
    "metrics": {
     "agents": 24,
     "crawlers": 331,
-    "engaged": 4,
+    "engaged": 3,
     "humans": 24,
     "requests": 699,
     "returns": 0
@@ -3128,7 +3131,8 @@
      "type": "feature"
     },
     {
-     "accepted_at": null,
+     "accepted_at": "2026-11-18T08:25:20+00:00",
+     "artifact": null,
      "created": "2026-11-16T20:08:48+00:00",
      "goal": "G1",
      "history": [
@@ -3143,7 +3147,7 @@
      "priority": "P1",
      "released_sha": null,
      "role": "marketer",
-     "state": "ready",
+     "state": "accepted",
      "title": "Daily card 18.11 07:30 UTC — X @formachines_ai: 'N releases in 24 h, M flagged' + one verbatim quote",
      "type": "content"
     },
@@ -3227,7 +3231,7 @@
    "spend_usd": 2.2
   }
  },
- "snapshot_built_at": "2026-11-19T01:11:20Z",
+ "snapshot_built_at": "2026-11-19T07:29:57Z",
  "totals": {
   "reviews": 11,
   "spend_usd": 25.5,

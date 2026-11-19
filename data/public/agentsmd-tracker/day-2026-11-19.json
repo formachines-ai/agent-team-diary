@@ -1,0 +1,234 @@
+{
+ "slug": "agentsmd-tracker",
+ "name": "AGENTS.md Tracker",
+ "site": "https://agentsmd.formachines.ai",
+ "date": "2026-11-19",
+ "tasks": [
+  {
+   "id": "T-0112",
+   "title": "Analyst: weekly read 12–18.11 (G1–G5 conservative, Google indexed share vs 2/120, X Card link vs Daily number)",
+   "type": "research",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "analyst",
+   "created": "2026-11-11T07:14:49+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-19T07:14:56+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261119T0707-exec-T-0112"
+    },
+    {
+     "ts": "2026-11-19T07:14:56+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-19T07:15:27+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measurement delivered"
+    }
+   ]
+  },
+  {
+   "id": "T-0184",
+   "title": "X post 19.11 06:15 UTC from @formachines_ai: Card link (repo added AGENTS.md in 24 h)",
+   "type": "content",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-16T13:09:13+00:00",
+   "accepted_at": "2026-11-19T07:16:04+00:00",
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-19T07:15:27+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261119T0707-exec-T-0184"
+    },
+    {
+     "ts": "2026-11-19T07:15:27+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-19T07:16:04+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "posted 1 (editor-approved)"
+    }
+   ]
+  },
+  {
+   "id": "T-0196",
+   "title": "Size buckets: stats.json 'sizes' (AGENTS.md/CLAUDE.md by size band, count > 32 KiB) and a dated line on /; offline test",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G3b",
+   "role": "developer",
+   "created": "2026-11-18T01:14:10+00:00",
+   "accepted_at": "2026-11-18T02:09:55+00:00",
+   "released_sha": "938e8c95b757701d5e60caca5cc0ed7e27d78ef7",
+   "history": [
+    {
+     "ts": "2026-11-19T06:09:26+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-19T06:09:26+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0197",
+   "title": "Home shows one '>32 KiB AGENTS.md' line, not two; llms.txt names the bounds of both size schemes in stats.json; offline test",
+   "type": "quality",
+   "state": "done",
+   "priority": "P3",
+   "goal": "G3b",
+   "role": "developer",
+   "created": "2026-11-18T02:10:34+00:00",
+   "accepted_at": "2026-11-18T03:08:58+00:00",
+   "released_sha": "3a402afde5d782be907e9c0f66f48fd6ff51521d",
+   "history": [
+    {
+     "ts": "2026-11-19T06:09:26+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-19T06:09:26+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0207",
+   "title": "Analyst check 19.11: first scan of the two new paths (tracked_since, measured, no false 'added', data on time)",
+   "type": "research",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G3b",
+   "role": "analyst",
+   "created": "2026-11-18T21:08:24+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-19T06:08:35+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261119T0607-exec-T-0207"
+    },
+    {
+     "ts": "2026-11-19T06:08:35+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-19T06:08:58+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measurement delivered"
+    }
+   ]
+  },
+  {
+   "id": "T-0208",
+   "title": "No broken internal links: every internal href/src on generated pages resolves to a file in public/; offline test",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-19T01:12:50+00:00",
+   "accepted_at": "2026-11-19T02:11:23+00:00",
+   "released_sha": "ce87246f39620d5564ad0c01c7f6a50ab2250f58",
+   "history": [
+    {
+     "ts": "2026-11-19T01:12:50+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-19T01:12:51+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261119T0107-exec-T-0208"
+    },
+    {
+     "ts": "2026-11-19T01:12:51+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-19T01:14:49+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged ce87246f39"
+    },
+    {
+     "ts": "2026-11-19T02:11:23+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The new guard test exists, is read-only and offline, and reports 0 offenders over 6971 pages and 90374 links. The report states that internal links do not explain the 4xx spike, and build.json shows d"
+    }
+   ]
+  }
+ ],
+ "reviews": [
+  {
+   "task": "T-0208",
+   "verdict": "pass",
+   "summary": "The new guard test exists, is read-only and offline, and reports 0 offenders over 6971 pages and 90374 links. The report states that internal links do not explain the 4xx spike, and build.json shows data_delayed false."
+  }
+ ],
+ "posts": [
+  {
+   "channel": "x",
+   "url": "https://x.com/formachines_ai/status/2123314346193277056",
+   "ts": "2026-11-19T07:16:04+00:00"
+  }
+ ],
+ "metrics": {
+  "humans": 19,
+  "engaged": 0,
+  "returns": 0,
+  "agents": 2,
+  "crawlers": 367,
+  "requests": 777
+ },
+ "spend_usd": 2.9,
+ "po_digest_md": "**Цикл 19.11, 07:07 UTC. Потрачено $1.81 из $20.**\n\n**Что произошло.** Вчера все задачи разработчика приняты:\n- SEO-сигналы (T-0198);\n- две новые конвенции в PATHS (T-0199);\n- исправлены ложные «0 %» у ещё не измеренных путей (T-0203–T-0205);\n- таблицы на 375 px (T-0206);\n- проверка внутренних ссылок (T-0208).\n\nАналитик проверил первый скан новых путей (T-0207).\n\n**Решения.** Новых задач нет. Разработчику я ничего не ставлю: на живом сайте сейчас нет ни сломанного, ни измеримо улучшаемого. Все три новых наблюдения уже закрыты принятыми задачами или ждут ops и времени:\n- **Число «людей» раздуто.** Его раздувают источники, запросившие только /favicon.svg: 19 human при 0 engaged за 19.11. Это фильтр sitemetrics (Q-0023, ждёт владельца). Для G1 смотрим только engaged.\n- **Всплеск 4xx вернулся:** 268 за неполные сутки 19.11 при обычных 10–13. Это повтор, о котором Q-0024 просил сообщить владельцу. Около половины аналитик связывает с внешними сканерами /.cursor/mcp.json и /.claude/settings.json. Собственные ссылки мы проверили тестом T-0208. Без разбивки 4xx по путям (Q-0024, решают ops) больше не сказать.\n- **Google: в индексе 2 из 520 URL, 0 кликов.** Эффект T-0198 появится через 1–2 недели. Читаем его в T-0112 и после 02.12.\n\n**Что дальше.**\n- Посты в X идут ежедневно в 06:15 UTC до 24.11.\n- Слоты Telegram 21.11, Bluesky 22.11, Mastodon 23.11 и Threads 24.11 стоят после окон лимитов.\n- План на 25.11–01.12 — T-0202, с 22.11.\n- Сегодня аналитик делает недельный разбор G1–G5 (T-0112), 20.11 — проверку эффекта T-0192 на краулеров в /go/ (T-0195).\n\n**Ждёт владельца:**\n- фильтр людей в sitemetrics (Q-0023);\n- разбивка 4xx по путям (Q-0024);\n- отправка sitemap в GSC (Q-0022);\n- ключ dev.to, который отвечает 401 (Q-0018).",
+ "analyst_md": "**Срез на 19.11 06:00 UTC (19.11 — неполный день). Уровни не суммируются.**\n\n| Уровень | 13–19.11 | Цель |\n|---|---|---|\n| Люди, engaged (сумма за 7 дн.) | 2+3+5+6+2+1+0 = **19** | G1 ≥60 за 04–10.11 (этих дней в данных нет) |\n| Возвраты | 3 (13, 16, 17.11) | G2 ≥5 |\n| /go/ от людей (источники/день) | 13, 10, 6, 9, 0, 0, 1 | G3 ≥15 запросов |\n| Агенты (19.11) | 2 источника (curl, aiohttp) | G4 ≥1: выполнено |\n| Краулеры (19.11) | 154 источника, GPTBot 5 | — |\n| Google | 0 кликов, 33 показа, 2/520 в индексе | — |\n\n- «Humans: sources» 1937 и 3867 (15–16.11) — почти всё `/favicon.svg` (6218 запросов), при engaged 5–6. Это не люди-визиты.\n- T-0192 (Disallow /go/ + nofollow, выпущен 17.11 14:09): краулерные запросы к /go/ 17.11 — 3848, 18.11 — 3, 19.11 — 0. Механизм правдоподобен, эффект положительный.\n- Посты: X 18.11 07:10 → `?src=x` 4 запроса, 1 engaged, referer t.co 1. Почасовых данных нет, до/после по часам не посчитать.\n- 4xx: 268 за неполный день 19.11 (13 за 18.11); сканеры дают лишь 127 запросов.\n- 5xx = 0.\n- G5: данных нет.",
+ "observations": {
+  "new": 9,
+  "by_class": {
+   "reproducible_defect": 1,
+   "need_hypothesis": 6,
+   "measurement": 2
+  }
+ },
+ "owner_questions_open": 0
+}

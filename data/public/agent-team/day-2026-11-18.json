@@ -5,6 +5,66 @@
  "date": "2026-11-18",
  "tasks": [
   {
+   "id": "T-0068",
+   "title": "Fix failing test test_friction_collects_signals_and_dedupes (friction markdown lost WebFetch/Bash detail)",
+   "type": "defect",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-09T14:07:20+00:00",
+   "accepted_at": "2026-11-18T08:07:34+00:00",
+   "released_sha": "a73eb11fcccc290a0f5e29fca21d9ae22b211d37",
+   "history": [
+    {
+     "ts": "2026-11-18T08:07:34+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The suite is green (260 passed), and the test keeps its full assertions with a relative date. The renderer did not regress, so a no-change result is justified."
+    }
+   ]
+  },
+  {
+   "id": "T-0098",
+   "title": "[retro] Reviewer card: how to run repo tests outside tests/ (no path-form unittest)",
+   "type": "feature",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-11T19:16:36+00:00",
+   "accepted_at": "2026-11-18T08:07:55+00:00",
+   "released_sha": "9559cefcd73f1a67e7a373c22fb74a8fcf8d580c",
+   "history": [
+    {
+     "ts": "2026-11-18T08:07:55+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "reviewer.md at the expected commit already contains both rules (added earlier by T-0096), and both acceptance criteria match its text. The dispatcher's test run passed with 278 tests."
+    }
+   ]
+  },
+  {
+   "id": "T-0101",
+   "title": "[retro] Reviewer allowlist: accept path-form unittest, -B, -p",
+   "type": "feature",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-11T22:13:53+00:00",
+   "accepted_at": "2026-11-18T08:08:08+00:00",
+   "released_sha": "a74468d218d6b7fa9c812761775dd44ae5dcbecb",
+   "history": [
+    {
+     "ts": "2026-11-18T08:08:08+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The code at the commit already contains the -B, path-form and discover -p allowlist entries. The prompt text, reviewer.md, SCHEME.md and the tests match them. The change was delivered earlier by T-009"
+    }
+   ]
+  },
+  {
    "id": "T-0164",
    "title": "[retro] Reviewer/editor cards: add `<` `>` to the list of characters denied in --grep",
    "type": "feature",
@@ -47,18 +107,188 @@
      "note": "framework change live; the watchdog rolls back if the next cycles fail"
     }
    ]
+  },
+  {
+   "id": "T-0165",
+   "title": "Canary checks that the candidate's cycle produced real output, not just that it ended",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-18T09:07:36+00:00",
+   "accepted_at": "2026-11-18T09:13:47+00:00",
+   "released_sha": "9a81f71265064bc11761fae7799d0c8e68ed1113",
+   "history": [
+    {
+     "ts": "2026-11-18T09:07:36+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-18T09:07:40+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261118T0907-exec-T-0165"
+    },
+    {
+     "ts": "2026-11-18T09:07:40+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-18T09:13:47+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261118T0907-canary of release-radar on a state copy: all phases); merged 9a81f71265"
+    },
+    {
+     "ts": "2026-11-18T09:13:47+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0166",
+   "title": "Retro checks whether a merged rule stopped its F kind from coming back",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G4",
+   "role": "developer",
+   "created": "2026-11-18T09:07:37+00:00",
+   "accepted_at": "2026-11-18T10:13:37+00:00",
+   "released_sha": "eef4a2d5e41dddba7e8d03d3255a96c214310e9a",
+   "history": [
+    {
+     "ts": "2026-11-18T09:07:37+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-18T10:07:32+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261118T1007-exec-T-0166"
+    },
+    {
+     "ts": "2026-11-18T10:07:32+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-18T10:13:37+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261118T1007-canary of release-radar on a state copy: all phases); merged eef4a2d5e4"
+    },
+    {
+     "ts": "2026-11-18T10:13:37+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0167",
+   "title": "PR diff outside the task's declared scope is flagged before the canary",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-18T11:07:30+00:00",
+   "accepted_at": "2026-11-18T11:13:18+00:00",
+   "released_sha": "0e5d089c4e984076730b8525b18f18d229c1c509",
+   "history": [
+    {
+     "ts": "2026-11-18T11:07:30+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-18T11:07:32+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261118T1107-exec-T-0167"
+    },
+    {
+     "ts": "2026-11-18T11:07:32+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-18T11:13:18+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261118T1107-canary of release-radar on a state copy: all phases); merged 0e5d089c4e"
+    },
+    {
+     "ts": "2026-11-18T11:13:18+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0168",
+   "title": "[retro] team-fetch: add --head N and state that --tail counts characters",
+   "type": "feature",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-18T23:09:18+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-18T23:09:18+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    }
+   ]
   }
  ],
- "reviews": [],
+ "reviews": [
+  {
+   "task": "T-0068",
+   "verdict": "pass",
+   "summary": "The suite is green (260 passed), and the test keeps its full assertions with a relative date. The renderer did not regress, so a no-change result is justified."
+  },
+  {
+   "task": "T-0098",
+   "verdict": "pass",
+   "summary": "reviewer.md at the expected commit already contains both rules (added earlier by T-0096), and both acceptance criteria match its text. The dispatcher's test run passed with 278 tests."
+  },
+  {
+   "task": "T-0101",
+   "verdict": "pass",
+   "summary": "The code at the commit already contains the -B, path-form and discover -p allowlist entries. The prompt text, reviewer.md, SCHEME.md and the tests match them. The change was delivered earlier by T-0099, so this task made no edits, but every criterion holds at this commit."
+  }
+ ],
  "posts": [],
  "metrics": null,
- "spend_usd": 0.2,
- "po_digest_md": "**Цикл 20261118T0107 (agent-team)**\n\n- Новое наблюдение одно: OBS-0291, issue #263 (запрет `<` `>` в `--grep`). Оно уже стоит в бэклоге как T-0164 (ready, P2), поэтому я связал их и новую задачу не создавал.\n- Новых задач нет. В review лежат T-0068, T-0098 и T-0101, в ready только T-0164. Лишнюю работу не начинаю.\n- Зависших целей (STUCK GOALS) и вопросов к PO нет. Вопросов владельцу нет.\n- Расход за сегодня $0.00 из $10.00.\n- Гипотезы H1–H6 из voice-отчёта пока не превращаю в задачи. Они затрагивают защищённые файлы (`watchdog.sh`, бюджеты, диспетчер), и для них нужна проверка охвата и доказательств. Вернусь к ним, когда T-0068, T-0098 и T-0101 выйдут из review.",
+ "spend_usd": 3.2,
+ "po_digest_md": "**Цикл 18.11, agent-team.** Новых наблюдений нет, очередь пуста: T-0068, T-0098 и T-0101 уже приняты. Новых задач не создаю.\n\n- **Гипотезы из voice-отчёта.** H1, H4 и H5 уже смержены: T-0165 (канарейка проверяет реальный результат), T-0166 (ретро проверяет, вернулась ли трудность после правила) и T-0167 (диф вне заявленного scope). H3 (короткий дайджест владельцу) уже есть в отчёте ретро.\n- **H2 (бюджет не должен сбрасываться при падении).** Остаётся без задачи. Не знаю, переживает ли сегодняшний учёт трат перезапуск. Скорее всего, правка заденет защищённые файлы (`team/store.py`, `team/runner.py`). Сначала нужна проверка, не новая фича. Вернусь к этому, когда придут свидетельства или появится вопрос.\n- **Регистр за 7 дней.** Новых причин нет. Повторяющиеся кластеры закрыты: правила PO про живые временные метки (T-0159–T-0162), unittest у ревьюера и `--grep` в `team-fetch`. Записи F-0232 и F-0233 одиночные, поэтому инструмент не меняем.\n- **Бюджет.** Потрачено $3.18 из $10, всего по команде $42.95 из $90.\n- **Владельцу.** Вопросов нет.",
  "analyst_md": "",
  "observations": {
-  "new": 1,
+  "new": 8,
   "by_class": {
-   "feedback": 1
+   "feedback": 1,
+   "voice": 5,
+   "need_hypothesis": 2
   }
  },
  "owner_questions_open": 0

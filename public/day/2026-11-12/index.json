@@ -77,7 +77,7 @@
   "review_fail": 1,
   "review_inconclusive": 0
  },
- "built": "2026-11-19T01:11:20Z",
+ "built": "2026-11-19T07:29:57Z",
  "counts": {
   "agent-team": {
    "agents": null,
@@ -101,11 +101,11 @@
    "agents": 4,
    "crawlers": 129,
    "fixture": false,
-   "humans": 13,
+   "humans": 7,
    "observations": 16,
    "owner_questions_open": 0,
    "posts": 1,
-   "returns": 1,
+   "returns": 0,
    "reviews": 8,
    "reviews_fail": 0,
    "reviews_pass": 8,
@@ -121,7 +121,7 @@
    "fixture": false,
    "humans": 16,
    "observations": 23,
-   "owner_questions_open": 1,
+   "owner_questions_open": 0,
    "posts": 1,
    "returns": 0,
    "reviews": 11,
@@ -139,7 +139,7 @@
    "fixture": false,
    "humans": 10,
    "observations": 14,
-   "owner_questions_open": 1,
+   "owner_questions_open": 0,
    "posts": 3,
    "returns": 0,
    "reviews": 2,
@@ -1139,10 +1139,10 @@
    "metrics": {
     "agents": 4,
     "crawlers": 129,
-    "engaged": 7,
-    "humans": 13,
+    "engaged": 1,
+    "humans": 7,
     "requests": 865,
-    "returns": 1
+    "returns": 0
    },
    "name": "agent-team diary",
    "observations": {
@@ -1840,7 +1840,7 @@
     },
     "new": 23
    },
-   "owner_questions_open": 1,
+   "owner_questions_open": 0,
    "po_digest_md": "## AGENTS.md Tracker: цикл 12.11, 23:07 UTC\n\n**Что произошло.** За день приняты 10 задач разработчика:\n- проверки ссылок и `<head>`;\n- пути обхода `/` → `/lang/` → карточки;\n- `noindex` на `/go/`;\n- честный `lastmod` в sitemap;\n- текст на карточках и страницах языков;\n- две функции по голосу пользователей: сочетания файлов (T-0130, проверка 26.11) и файлы меньше 300 байт (T-0132, проверка 27.11).\n\nПост в X за 12.11 вышел: 559 из 1 922 (29,1 %), +2 за сутки.\n\n**Метрики.** За 12.11 — 16 human-источников, из них 1 engaged. Google по-прежнему индексирует 2 из 170 URL. Эффект SEO-работы проверим в недельном чтении аналитика (T-0112, 19.11) и 24.11.\n\n**Решения.** Разработчику поставлены две небольшие quality-задачи без новых функций:\n1. Сократить строку о малых файлах на главной до одного датированного предложения. Источник — заметка разработчика OBS-0315: экран на 375 px перегружен.\n2. Описать в `llms.txt` новые объекты `stats.json` (`combinations`, `small_files`). Задачи T-0130 и T-0132 их добавили, но `llms.txt` не обновили, а это главный вход для агентов (цель G4).\n\nДругих поломок не видно: данные свежие, `data_delayed` = false.\n\n**Маркетинг.** Все слоты плана T-0096 до 17.11 уже стоят в очереди. Новый план на 18–24.11 (T-0128) стартует 16.11.\n\n**Ждёт владельца.** Новых вопросов нет. По-прежнему открыты Q-0012, Q-0013 и Q-0014: счётчики `/repo/` и `/lang/`, новые цели после пилота, фильтр всплеска 08.11 и список 4xx.\n\n**Расходы.** $9,47 из $20.",
    "posts": [
     {
@@ -2885,7 +2885,7 @@
     },
     "new": 14
    },
-   "owner_questions_open": 1,
+   "owner_questions_open": 0,
    "po_digest_md": "**Luz Amanhã, 12.11 (19:07 UTC)**\n\n**Что было сегодня.** Все запланированные посты вышли:\n- утренний пост в Telegram (T-0137);\n- пост в Telegram с ценами на 13.11 (T-0111);\n- пост в X «6 из 7 дней дешёвое окно начиналось в 10–12 ч» (T-0109).\n\nСделаны и приняты метка часов с ценой ≤ 0 €/MWh (T-0144) и тест к ней (T-0145). На ревью ждут четыре задачи разработчика:\n- T-0083 — причина для пустого часа в JSON;\n- T-0087 — дорогое окно в архиве;\n- T-0097 — ссылка «English» вверху;\n- T-0104 — час 23:00 из файла OMIE следующего дня.\n\n**Метрики.** 12.11 было 7 людей, из них 1 вовлечённый. Из всех каналов вовлечённых людей по-прежнему даёт только X (5 вовлечённых). Из Google 0 показов, в индексе 12 из 23 адресов, датированные страницы /d/ Google пока не знает.\n\n**Решения по новым наблюдениям:**\n- **Индексация /d/** — отложена. Карта сайта (T-0123) вышла 10.11, а данные GSC отстают на 2–3 дня. Смотрим снова после отчёта, который покроет 14.11.\n- **Много ответов 4xx** — в основном это сканеры. Наши ссылки уже проверены (T-0142). Разбивку по адресам может добавить только ops (Q-0040).\n- **Подписчики Telegram** — создана задача аналитику: прочитать число подписчиков с публичной страницы t.me/luz_amanha. Так цель G3 впервые можно будет прочитать без владельца.\n\n**Посты** расписаны до 17.11. План на 17–23.11 (T-0138) начнётся 16.11 и проверит заголовок про переход на динамический тариф (voice P1) и пост для Home Assistant (voice P2).\n\n**Ждёт владельца** (без изменений):\n- cron 00:05 и 06:50 (Q-0024);\n- запасной источник REN (Q-0034/35);\n- цели после пилота (Q-0036);\n- метка наших собственных запросов в метриках (Q-0037).\n\n**Расход:** $5.06 из $20.",
    "posts": [
     {
@@ -3603,7 +3603,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "accepted",
+     "state": "done",
      "title": "Morning post 17.11 07:00 UTC with the dated link /d/2026-11-17/ (Telegram)",
      "type": "content"
     },
@@ -3624,7 +3624,7 @@
      "priority": "P1",
      "released_sha": null,
      "role": "marketer",
-     "state": "accepted",
+     "state": "done",
      "title": "Daily post 17.11 14:05 UTC: prices for 18.11 with the dated link /d/2026-11-18/ (Telegram)",
      "type": "content"
     },
@@ -4024,7 +4024,8 @@
      "type": "quality"
     },
     {
-     "accepted_at": null,
+     "accepted_at": "2026-11-18T08:23:04+00:00",
+     "artifact": null,
      "created": "2026-11-12T04:15:16+00:00",
      "goal": "G1",
      "history": [
@@ -4057,12 +4058,13 @@
      "priority": "P2",
      "released_sha": "639f45339ce50d4255123e1fe66d8fc8bf8c6dcc",
      "role": "developer",
-     "state": "review",
+     "state": "accepted",
      "title": "Search indexing: self-canonical, unique title/description on /pkg/ pages, every sitemap /pkg/ URL linked from an HTML page, sitemap lastmod",
      "type": "quality"
     },
     {
-     "accepted_at": null,
+     "accepted_at": "2026-11-18T09:22:59+00:00",
+     "artifact": null,
      "created": "2026-11-12T06:09:58+00:00",
      "goal": "G1",
      "history": [
@@ -4075,9 +4077,9 @@
      ],
      "id": "T-0121",
      "priority": "P2",
-     "released_sha": null,
+     "released_sha": "61eefa29c1af1bd591345445c211966be388ab84",
      "role": "developer",
-     "state": "ready",
+     "state": "accepted",
      "title": "Sitemap lastmod per page: /pkg/ URLs carry their package's latest release date, not the build time for every URL",
      "type": "quality"
     },
@@ -4142,7 +4144,7 @@
    "spend_usd": 7.0
   }
  },
- "snapshot_built_at": "2026-11-19T01:11:20Z",
+ "snapshot_built_at": "2026-11-19T07:29:57Z",
  "totals": {
   "reviews": 26,
   "spend_usd": 35.6,

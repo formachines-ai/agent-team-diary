@@ -1918,6 +1918,13 @@ def cut_phrase(text: str, room: int) -> str:
             cut = cut[:cut.rindex("(")].rstrip(" ,;:-—")
         else:
             cut = cut.rsplit(" ", 1)[0].rstrip(" ,;:-—") if " " in cut else ""
+    if event_len(cut) < EVENT_MIN and len(text) > room:
+        # a long identifier (snake_case, path) blocks the word cut: break it at the last "_" or "/" that still fits
+        head = text[:room + 1]
+        for m in reversed(list(re.finditer(r"[_/.-]", head))):
+            cand = text[:m.start()].rstrip(" ,;:-—")
+            if event_len(cand) >= EVENT_MIN and len(cand) <= room and not _dangles(cand) and cand.count("(") == cand.count(")"):
+                return cand + "…"
     return cut + "…" if cut else text[:room].rstrip() + "…"
 
 
@@ -3874,10 +3881,11 @@ def check_machine_urls() -> dict:
 
     base = urlsplit(SITE_BASE)
     origin = re.escape(base.scheme + "://" + base.netloc)
-    abs_pat = re.compile(origin + r"(/[^\s<>\"'\)\]]*)?(?=[\s<>\"'\)\]]|$)")
+    abs_pat = re.compile(origin + r"(/[^\s<>\"'\)\]\\]*)?(?=[\s<>\"'\)\]\\]|$)")
 
     def urls_text(txt: str, relative: bool) -> list[str]:
-        out = [m.group(0) for m in abs_pat.finditer(txt)]
+        # prose punctuation right after a URL ("…/build.json: x", "…/day/", "see /x.") is not part of it
+        out = [re.sub(r"(?<=[^/])[.,;:!?]+$", "", m.group(0)) for m in abs_pat.finditer(txt)]
         if relative:
             out += re.findall(r"\]\((/[^\s\)]*)\)", txt)
         return out

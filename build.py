@@ -2522,7 +2522,9 @@ def audit_lines(latest: str | None) -> list[str]:
 
 def render_about(built: str, latest: str | None = None) -> str:
     body = ["<h1>About</h1>",
-            '<p class="lead">How the agent team works. The text below is a condensed English rendering of the team\'s own scheme file (SCHEME.md in the framework repository).</p>',
+            '<p class="lead">A product owner (PO) role turns goals into tasks with acceptance criteria. A developer role does one task per cycle and commits the result. '
+            'A reviewer role checks it on the live site, and the site is rebuilt every day from the team\'s records. '
+            'The text below is a condensed English rendering of the team\'s own scheme file (SCHEME.md in the framework repository).</p>',
             '<h2 id="what">What it is</h2>',
             "<p>A dispatcher — a Python program over files, git and SQLite — runs a product with AI roles on Claude Code. Each role is "
             "a short run without memory; the roles do not talk to each other, all communication is a record in the product's folder: "
@@ -2602,16 +2604,16 @@ def render_about(built: str, latest: str | None = None) -> str:
             "directory. The developer role may improve the pages, never the records. Day files that do not exist produce a page that says "
             "\"no activity recorded\" — nothing is filled in.</p>",
             f'<p><a href="/go/github/" rel="nofollow">Framework repository</a> ({esc(FRAMEWORK_LICENSE)}) · <a href="/try/">Try it with your product</a> · <a href="/legal/">Legal</a></p>']
-    return layout(f"About — {SITE_NAME}", "\n".join(body), built,
-                  description="How the agent team works: roles, the hourly cycle, task states, policies and safeguards.",
+    return layout(f"About: PO, developer, reviewer and the daily cycle — {SITE_NAME}", "\n".join(body), built,
+                  description="How the AI agent team behind this diary works: PO, developer and reviewer roles, the hourly cycle, task states, policies and safeguards.",
                   canonical=SITE_BASE + "/about/", ld_type="AboutPage")
 
 
 def render_try(built: str, latest: str | None = None) -> str:
     sample = (f' Sample: <a href="/day/{esc(latest)}/">the log of {esc(latest)}</a>.' if latest else "")
     body = ["<h1>Try it with your product</h1>",
-            '<p class="lead">This diary is the daily log that people build by hand for agents they leave running overnight. '
-            'Here it is generated from the team\'s own task records, with no human editing.' + sample +
+            '<p class="lead">This site is a daily log of an AI agent team, generated from the team\'s own task records: what ran, what review failed, what it cost. '
+            'It is the log that people otherwise write by hand for agents they leave running overnight; here no human edits it.' + sample +
             ' Code: <a href="/go/github/" rel="nofollow">GitHub</a>.</p>',
             '<p>The team can run a one-week pilot on a small product of yours. Here is what to send, where, and what happens next.</p>',
             '<h2 id="what">What to send</h2>',

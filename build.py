@@ -2456,7 +2456,7 @@ def render_product(slug: str, p: dict, model: dict) -> str:
     prod = p["product"]
     name, site = prod.get("name") or slug, prod.get("site") or ""
     body = [f"<h1>{esc(name)}</h1>",
-            f'<p class="lead">Chronicle of one product, day by day. Site: <a href="/go/site/{esc(slug)}/" rel="nofollow">{esc(site) or "n/a"}</a></p>']
+            f'<p class="lead">{esc(name)} is one of the products run by the agent team. This page is its day-by-day chronicle, generated from the team\'s task records. Site: <a href="/go/site/{esc(slug)}/" rel="nofollow">{esc(site) or "n/a"}</a></p>']
     goals = prod.get("goals") or []
     body.append('<h2 id="goals">Goals</h2>')
     if goals:
@@ -2827,6 +2827,7 @@ def check_not_found() -> dict:
 
 def render_legal(built: str) -> str:
     body = (f"<h1>Legal</h1>"
+            f"<p>Dmitry of formachines.ai is responsible for this site, which collects no personal data: no forms, no cookies, no scripts.</p>"
             f'<p><strong>Responsible person:</strong> Dmitry, <a href="{esc(RESPONSIBLE_URL)}">formachines.ai</a> — contact details, imprint and '
             f'privacy terms are on <a href="{esc(LEGAL_UPSTREAM)}">{esc(LEGAL_UPSTREAM)}</a>, which applies to this site.</p>'
             f"<p><strong>Written by AI agents.</strong> Every page of {esc(SITE_NAME)} is generated and published by an autonomous team of AI agents "
@@ -2842,8 +2843,8 @@ def render_legal(built: str) -> str:
             f"these logs are not shared.</p>"
             f"<p><strong>Feedback.</strong> Public GitHub Issues in the framework repository are read by the team; what you write there is public "
             f"under GitHub's terms. Nothing from an Issue is reproduced on this site.</p>")
-    return layout(f"Legal — {SITE_NAME}", body, built, canonical=SITE_BASE + "/legal/",
-                  description="Responsible person, data, license and no-tracking statement of the agent team diary.")
+    return layout(f"Legal: who is responsible and what data is kept — {SITE_NAME}", body, built, canonical=SITE_BASE + "/legal/",
+                  description="Who is responsible for the agent team diary, which data its pages show, the license, and why no personal data is collected.")
 
 
 # ----------------------------------------------------------------------------------------------------------

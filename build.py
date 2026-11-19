@@ -393,11 +393,6 @@ def rework_line(d: dict, kp: str | None = None) -> str:
 PUBLISHER_LD = {"@type": "Organization", "name": "formachines.ai", "url": RESPONSIBLE_URL}
 
 
-def jsonld_block(data: dict) -> str:
-    """Static JSON-LD; '<' is escaped so the text can never close the script element."""
-    return ('<script type="application/ld+json">' + json.dumps(data, ensure_ascii=False).replace("<", "\\u003c") + "</script>\n")
-
-
 FOOTER_PRODUCTS: list[tuple[str, str]] = []
 
 
@@ -412,27 +407,25 @@ def layout(title: str, body: str, built: str, description: str = "", canonical: 
         desc = desc[:desc_max + 1].rsplit(" ", 1)[0].rstrip(" ,;:-")
     og_type = "article" if ld_type == "Article" else "website"
     url = canonical or SITE_BASE + "/"
-    ld = {"@context": "https://schema.org", "@type": ld_type, "name": title, "headline" if ld_type == "Article" else "description": title if ld_type == "Article" else desc,
-          "url": url, "inLanguage": "en", "isAccessibleForFree": True}
-    if ld_type == "Article":
-        ld.update({"description": desc, "datePublished": date_published or built, "dateModified": built, "mainEntityOfPage": url,
-                   "author": {"@type": "Organization", "name": "agent-team (AI agents)"},
-                   "publisher": PUBLISHER_LD})
-    else:
-        ld["publisher"] = PUBLISHER_LD
-    if ld_type == "WebSite":
-        ld["name"] = SITE_NAME
-        ld["description"] = desc
     og = (f'<meta property="og:title" content="{esc(title)}">\n<meta property="og:description" content="{esc(desc)}">\n'
           f'<meta property="og:type" content="{og_type}">\n<meta property="og:url" content="{esc(url)}">\n'
           f'<meta property="og:site_name" content="{esc(SITE_NAME)}">\n'
           f'<meta property="og:image" content="{SITE_BASE}/apple-touch-icon.png">\n'
           f'<meta property="og:image:alt" content="{esc(OG_IMAGE_ALT)}">\n'
           f'<meta name="twitter:image" content="{SITE_BASE}/apple-touch-icon.png">\n'
-          f'<meta name="twitter:card" content="summary">\n') + jsonld_block(ld)
+          f'<meta name="twitter:card" content="summary">\n')
     robots = '<meta name="robots" content="noindex">\n' if noindex else ""
     alt_json_link = (f'<link rel="alternate" type="application/json" title="{esc(alt_json)} as JSON" href="{esc(alt_json)}">\n' if alt_json else "")
     canon = f'<link rel="canonical" href="{esc(canonical)}">\n' if canonical else ""
+    md_attr = f' itemscope itemtype="https://schema.org/{ld_type}"'
+    prop = "headline" if ld_type == "Article" else "name"
+    body = body.replace("<h1>", f'<h1 itemprop="{prop}">', 1)
+    md_meta = (f'<meta itemprop="url" content="{esc(url)}">\n'
+               f'<span itemprop="publisher" itemscope itemtype="https://schema.org/Organization"><meta itemprop="name" content="{esc(PUBLISHER_LD["name"])}"><meta itemprop="url" content="{esc(PUBLISHER_LD["url"])}"></span>\n')
+    if ld_type == "Article":
+        md_meta += f'<meta itemprop="datePublished" content="{esc(date_published or built)}">\n'
+    body = md_meta + body
+    updated = f'<time itemprop="dateModified" datetime="{esc(built)}">{esc(built)}</time>' if ld_type == "Article" else esc(built)
     return f"""<!doctype html>
 <html lang="en">
 <head>
@@ -446,7 +439,7 @@ def layout(title: str, body: str, built: str, description: str = "", canonical: 
 <link rel="alternate" type="application/rss+xml" title="{esc(SITE_NAME)} RSS" href="/feed.xml">
 <link rel="alternate" type="text/plain" title="llms.txt" href="/llms.txt">
 {alt_json_link}</head>
-<body>
+<body{md_attr}>
 <header class="site"><div class="wrap">
 <a class="brand" href="/">{esc(SITE_NAME)}</a>
 <nav><a href="/#days">Days</a><a href="/#products">Products</a><a href="/about/">About</a><a href="/try/">Try it</a><a href="/feed.xml">RSS</a><a href="/today.json">today.json</a><a href="/llms.txt">llms.txt</a><a href="/legal/">Legal</a></nav>
@@ -455,7 +448,7 @@ def layout(title: str, body: str, built: str, description: str = "", canonical: 
 {body}
 </div></main>
 <footer class="site"><div class="wrap">
-<p>{esc(FOOTER_LINE)} · responsible: <a href="{esc(RESPONSIBLE_URL)}">{esc(RESPONSIBLE)}</a> · updated {esc(built)} UTC</p>
+<p>{esc(FOOTER_LINE)} · responsible: <a href="{esc(RESPONSIBLE_URL)}">{esc(RESPONSIBLE)}</a> · updated {updated} UTC</p>
 <p>Source: the team's public export of its own task records (allowlisted fields only). Text: <a href="{esc(LICENSE_URL)}">CC BY 4.0</a> · framework code: <a href="/go/github/" rel="nofollow">{esc(FRAMEWORK_LICENSE)} on GitHub</a> · <a href="/legal/">Legal</a> · <a href="/llms.txt">llms.txt</a> · no cookies, no tracking, no JavaScript.</p>
 <p class="sitelinks">Products: {footer_products()} · <a href="/brand/">Brand</a></p>
 </div></footer>
@@ -853,37 +846,44 @@ def check_try() -> dict:
     return {"pages_checked": len(pages), "missing": missing}
 
 
-def check_jsonld() -> dict:
-    """JSON-LD on every indexable page: parses, @context, @type, url = canonical, Article datePublished = page date."""
-    invalid, missing, n = [], [], 0
+def check_microdata() -> dict:
+    """schema.org microdata (no <script>): page type per URL, headline/name, publisher; day pages: datePublished = the day,
+    dateModified = the build time in the footer."""
+    missing, mismatches, n = [], [], 0
     for f in sorted(PUBLIC_DIR.glob("**/index.html")):
         rel = f.relative_to(PUBLIC_DIR).parent.as_posix()
         path = "/" if rel == "." else f"/{rel}/"
-        if path.startswith("/go/"):
-            continue
-        t = f.read_text(encoding="utf-8")
-        blocks = re.findall(r'<script type="application/ld\+json">(.*?)</script>', t, re.S)
-        if not blocks:
-            missing.append(path)
+        dm = re.fullmatch(r"/day/(\d{4}-\d{2}-\d{2})/", path)
+        if path == "/":
+            want = "WebSite"
+        elif path == "/about/":
+            want = "AboutPage"
+        elif path == "/try/":
+            want = "WebPage"
+        elif re.fullmatch(r"/product/[^/]+/", path):
+            want = "CollectionPage"
+        elif dm:
+            want = "Article"
+        else:
             continue
         n += 1
-        try:
-            ld = json.loads(blocks[0])
-            m = re.search(r'<link rel="canonical" href="([^"]*)"', t)
-            canon = html.unescape(m.group(1)) if m else SITE_BASE + path
-            dm = re.fullmatch(r"/day/(\d{4}-\d{2}-\d{2})/", path)
-            want = "Article" if dm else ("WebSite" if path == "/" else None)
-            if ld.get("@context") != "https://schema.org" or not ld.get("@type"):
-                invalid.append({"page": path, "issue": "@context/@type"})
-            elif want and ld["@type"] != want:
-                invalid.append({"page": path, "issue": f"@type {ld['@type']} != {want}"})
-            elif ld.get("url") != canon:
-                invalid.append({"page": path, "issue": "url != canonical"})
-            elif dm and str(ld.get("datePublished", ""))[:10] != dm.group(1):
-                invalid.append({"page": path, "issue": "datePublished != page date"})
-        except (ValueError, AttributeError) as e:
-            invalid.append({"page": path, "issue": f"bad JSON {e}"})
-    return {"pages_checked": n, "invalid": invalid, "missing": missing}
+        t = f.read_text(encoding="utf-8")
+        prop = "headline" if dm else "name"
+        for label, ok in ((f'itemtype="https://schema.org/{want}"', f'itemtype="https://schema.org/{want}"' in t),
+                          (f'itemprop="{prop}"', f'<h1 itemprop="{prop}">' in t),
+                          ("publisher", 'itemprop="publisher" itemscope itemtype="https://schema.org/Organization"' in t),
+                          ("no <script", "<script" not in t)):
+            if not ok:
+                missing.append({"page": path, "issue": label})
+        if dm:
+            m = re.search(r'<meta itemprop="datePublished" content="([^"]*)"', t)
+            if not m or m.group(1) != dm.group(1):
+                mismatches.append({"page": path, "issue": "datePublished != page date"})
+            mod = re.search(r'<time itemprop="dateModified" datetime="([^"]*)">', t)
+            foot = re.search(r"updated <time[^>]*>([^<]*)</time> UTC", t)
+            if not mod or not foot or mod.group(1) != foot.group(1):
+                mismatches.append({"page": path, "issue": "dateModified != footer build time"})
+    return {"pages_checked": n, "missing": missing, "date_mismatches": mismatches}
 
 
 def fallback_selftest() -> dict:
@@ -2442,7 +2442,7 @@ def render_product(slug: str, p: dict, model: dict) -> str:
         pdesc = (f"{name} chronicle by AI agents. Latest day {pdate}: {c['tasks_done_distinct']} {nn(c['tasks_done_distinct'], 'task')} accepted, {c['reviews']} {nn(c['reviews'], 'review')}, "
                  f"{fmt_usd(c['spend_usd'])} model spend" + (" (fixture sample data)." if c["fixture"] else "."))
     return layout(product_title(name, p), "\n".join(body), model["built"],
-                  description=pdesc,
+                  description=pdesc, ld_type="CollectionPage",
                   canonical=f"{SITE_BASE}/product/{slug}/")
 
 
@@ -2549,7 +2549,7 @@ def render_about(built: str, latest: str | None = None) -> str:
             f'<p><a href="/go/github/" rel="nofollow">Framework repository</a> ({esc(FRAMEWORK_LICENSE)}) · <a href="/try/">Try it with your product</a> · <a href="/legal/">Legal</a></p>']
     return layout(f"About — {SITE_NAME}", "\n".join(body), built,
                   description="How the agent team works: roles, the hourly cycle, task states, policies and safeguards.",
-                  canonical=SITE_BASE + "/about/")
+                  canonical=SITE_BASE + "/about/", ld_type="AboutPage")
 
 
 def render_try(built: str, latest: str | None = None) -> str:
@@ -2671,7 +2671,7 @@ def check_paths() -> dict:
         days = sorted(p.parent.name for p in PUBLIC_DIR.glob("day/*/index.html"))
         if days and f"/day/{days[-1]}/" not in hrefs:
             missing.append("/open/costs/ lacks latest day")
-        if "<h1>" not in t or re.search(r"<script(?![^>]*ld\+json)", t) or "<form" in t:
+        if "<h1" not in t or re.search(r"<script(?![^>]*ld\+json)", t) or "<form" in t:
             missing.append("/open/costs/ h1/script/form")
         if "/open/costs" in (PUBLIC_DIR / "sitemap.xml").read_text(encoding="utf-8"):
             missing.append("sitemap lists /open/costs/")
@@ -2696,7 +2696,7 @@ def check_notfound() -> dict:
     if PUBLIC_DIR.joinpath("day").is_dir() and sorted(PUBLIC_DIR.glob("day/*/index.html")):
         if len(days) != 1 or not (PUBLIC_DIR / days[0].strip("/") / "index.html").exists():
             missing.append("/day/<latest>/")
-    if "<h1>Page not found</h1>" not in t or "does not exist" not in t:
+    if ">Page not found</h1>" not in t or "does not exist" not in t:
         missing.append("h1")
     if 'content="noindex' not in t:
         missing.append("noindex")
@@ -3170,15 +3170,6 @@ def check_site() -> list[str]:
         if p.scripts:
             problems.append(f"{f}: contains <script>")
         if "http-equiv=\"refresh\"" not in txt:
-            if p.ld != 1:
-                problems.append(f"{f}: expected exactly one JSON-LD block, found {p.ld}")
-            else:
-                try:
-                    ld = json.loads(p.ld_text)
-                    if ld.get("@context") != "https://schema.org" or not ld.get("@type"):
-                        problems.append(f"{f}: JSON-LD lacks @context/@type")
-                except ValueError as e:
-                    problems.append(f"{f}: bad JSON-LD {e}")
             for k in ("og:title", "og:description", "og:type", "og:url"):
                 if k not in p.og:
                     problems.append(f"{f}: missing {k}")
@@ -4077,10 +4068,10 @@ def main(argv: list[str] | None = None) -> int:
     write_json(PUBLIC_DIR / "build.json", bj)
     log.info("seo_check: pages=%d canonical_missing=%d lastmod_missing=%d orphans=%d duplicate_titles=%d", seo["pages_checked"],
              len(seo["canonical_missing"]), len(seo["lastmod_missing"]), len(seo["orphans"]), len(seo["duplicate_titles"]))
-    jl = check_jsonld()
-    bj["jsonld_check"] = jl
+    md = check_microdata()
+    bj["microdata_check"] = {"pages_checked": md["pages_checked"], "missing": md["missing"], "date_mismatches": md["date_mismatches"]}
     write_json(PUBLIC_DIR / "build.json", bj)
-    log.info("jsonld_check: pages=%d invalid=%d missing=%d", jl["pages_checked"], len(jl["invalid"]), len(jl["missing"]))
+    log.info("microdata_check: pages=%d missing=%d date_mismatches=%d", md["pages_checked"], len(md["missing"]), len(md["date_mismatches"]))
     pc = check_paths()
     bj["paths_check"] = pc
     bj["grammar_check"] = check_grammar()
@@ -4106,7 +4097,7 @@ def main(argv: list[str] | None = None) -> int:
         problems += [f"outcome: {m}" for m in ocd["mismatches"]] + [f"outcome: duplicate block {d}" for d in ocd["duplicate_blocks"]]
         problems += [f"ids: duplicate id {x['id']} on {x['page']}" for x in idc["duplicate_ids"]]
         problems += [f"ids: dangling link {x['link']} on {x['page']}" for x in idc["dangling_links"]]
-        problems += [f"jsonld: invalid {i['page']} {i['issue']}" for i in jl["invalid"]] + [f"jsonld: missing {p}" for p in jl["missing"]]
+        problems += [f"microdata: missing {i['page']} {i['issue']}" for i in md["missing"]] + [f"microdata: {i['page']} {i['issue']}" for i in md["date_mismatches"]]
         problems += [f"icon: missing file {m}" for m in bj["icon_check"]["missing_files"]] + [f"icon: missing link {m}" for m in bj["icon_check"]["missing_links"]]
         problems += [f"alternate: missing {m}" for m in al["missing"]] + [f"alternate: bad target {m}" for m in al["bad_targets"]]
         problems += [f"seo: no self-canonical {p}" for p in seo["canonical_missing"]] + [f"seo: no lastmod {p}" for p in seo["lastmod_missing"]]

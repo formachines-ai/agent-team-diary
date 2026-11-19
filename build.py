@@ -2370,10 +2370,15 @@ def check_home_lead() -> dict:
     return {"lead_mismatches": mm, "bad_anchors": bad, "words": words}
 
 
+HOME_LEAD_HTML = ('<p class="lead">This site is a daily log of an AI agent team, generated from the team\'s own task records: what ran, '
+                  'what review failed, what it cost, with no human editing. See <a href="/try/">how to try it on your product</a> '
+                  'or <a href="/about/">how the team works</a>.</p>')
+
+
 def render_index(model: dict) -> str:
     products, dates = model["products"], model["dates"]
     latest = dates[-1] if dates else None
-    body = [f"<h1>{esc(SITE_NAME)}</h1>", f'<p class="lead">{esc(SITE_TAGLINE)}</p>', try_line(), latest_day_top_block(latest, model), home_lead_block(latest, model), try_block("home-try"), follow_block("home-follow"), health_block(model)]
+    body = [f"<h1>{esc(SITE_NAME)}</h1>", HOME_LEAD_HTML, try_line(), latest_day_top_block(latest, model), home_lead_block(latest, model), try_block("home-try"), follow_block("home-follow"), health_block(model)]
     if latest:
         body.append(f'<h2 id="latest">Latest day: <a href="/day/{esc(latest)}/">{esc(latest)}</a></h2>')
         body.append(progress_note(latest, model["built"]))

@@ -2741,6 +2741,38 @@ def check_paths() -> dict:
     return {"paths": paths, "missing": missing}
 
 
+def fixed_addresses(model: dict) -> list[str]:
+    """Every fixed VISION address, for each product slug and day, plus the browser/crawler probes."""
+    out = ["/", "/about/", "/try/", "/legal/", "/today.json", "/feed.xml", "/llms.txt", "/sitemap.xml", "/go/github/", "/go/telegram/",
+           "/favicon.ico", "/robots.txt", "/apple-touch-icon.png"]
+    for slug in model["products"]:
+        out += [f"/product/{slug}/", f"/go/site/{slug}/"]
+    for date in model.get("dates", []):
+        out += [f"/day/{date}/", f"/day/{date}/index.json"]
+    return out
+
+
+def address_file(addr: str) -> Path:
+    rel = addr.lstrip("/")
+    return PUBLIC_DIR / rel / "index.html" if addr.endswith("/") else PUBLIC_DIR / rel
+
+
+def check_address(model: dict) -> dict:
+    """Every fixed address and every sitemap <loc> exists in public/ as a non-empty file."""
+    expected = fixed_addresses(model)
+    try:
+        t = (PUBLIC_DIR / "sitemap.xml").read_text(encoding="utf-8")
+        for loc in re.findall(r"<loc>\s*([^<]+?)\s*</loc>", t):
+            path = re.sub(r"^https?://[^/]+", "", loc) or "/"
+            if path not in expected:
+                expected.append(path)
+    except OSError:
+        pass
+    expected = sorted(set(expected))
+    missing = [a for a in expected if not address_file(a).is_file() or address_file(a).stat().st_size == 0]
+    return {"expected": expected, "missing": missing}
+
+
 def check_notfound() -> dict:
     """404.html exists, has its required links, the latest-day link points to an existing day page, noindex only here."""
     f = PUBLIC_DIR / "404.html"
@@ -4079,6 +4111,10 @@ def main(argv: list[str] | None = None) -> int:
     bj["escaped_check"] = esc_c
     write_json(PUBLIC_DIR / "build.json", bj)
     log.info("escaped_check: pages=%d mismatches=%d", esc_c["pages_checked"], len(esc_c["mismatches"]))
+    adc = check_address(model)
+    bj["address_check"] = adc
+    write_json(PUBLIC_DIR / "build.json", bj)
+    log.info("address_check: expected=%d missing=%d", len(adc["expected"]), len(adc["missing"]))
     phc = check_placeholders()
     bj["placeholder_check"] = phc
     write_json(PUBLIC_DIR / "build.json", bj)
@@ -4198,6 +4234,7 @@ def main(argv: list[str] | None = None) -> int:
         problems += [f"evidence: {i}" for i in bj["evidence_check"]["mismatches"]]
         problems += [f"external_check: {i}" for i in bj["external_check"]["mismatches"]]
         problems += [f"escaped_check: {i}" for i in bj["escaped_check"]["mismatches"]]
+        problems += [f"address_check: missing {i}" for i in bj["address_check"]["missing"]]
         problems += [f"artifact: {i}" for i in bj["artifact_check"]["mismatches"] + bj["artifact_check"]["sha_mismatches"]]
         problems += [f"robots: {i}" for i in bj["robots_check"]["issues"]]
         cr = bj["crawl_check"]

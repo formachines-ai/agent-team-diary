@@ -1031,8 +1031,14 @@ def task_outcome(date: str, model: dict, slug: str, tid: str) -> dict | None:
     final = str(hist[-1].get("to")) if hist else ""
     if done:
         then = f'then {done[-1]["to"]} at {hhmm(done[-1]["ts"])}'
-    else:
+    elif final in OPEN_THREAD_STATES:
         then = "still open at end of day"
+    elif final == "rejected":
+        then = "then rejected (closed)"
+    elif final in DONE_STATES:
+        then = f"then {final} (finished)"
+    else:
+        then = "not closed at end of day"
     return {"text": f'{what}{when}, {then}', "final": final, "resolved": bool(done or ok)}
 
 
@@ -1519,7 +1525,7 @@ def lead_outcome_mismatches(pages: list) -> list:
 
     def verify(name: str, sec: str, data: dict) -> None:
         txt = html_text(sec)
-        m = re.search(r"\(([A-Za-z]+-\d+)\), ((?:failed|inconclusive) review|reopened|moved to \S+)(?: at \d\d:\d\d UTC)?, (then [^()]*?|still open at end of day) \(final state: ([a-z_]+|not recorded)\)", txt)
+        m = re.search(r"\(([A-Za-z]+-\d+)\), ((?:failed|inconclusive) review|reopened|moved to \S+)(?: at \d\d:\d\d UTC)?, (then (?:[^()]|\(closed\))*?|still open at end of day|not closed at end of day) \(final state: ([a-z_]+|not recorded)\)", txt)
         failed_named = "Failed:" in txt or "failed or inconclusive review:" in txt
         if not m:
             if failed_named:
@@ -1556,6 +1562,48 @@ def lead_outcome_mismatches(pages: list) -> list:
     except (OSError, ValueError):
         pass
     return mism
+
+
+OPEN_WORD_RE = re.compile(r"\(([A-Za-z]+-\d+)\)[^()]*?\bstill open\b|\b([A-Za-z]+-\d+)\b[^.;()]{0,40}\bis (?:still )?open\b")
+
+
+def lead_state_mismatches(page: str, lead_text: str, allowed_open: set) -> list:
+    """Ids a lead calls 'open'/'still open' that are not in allowed_open (the page's Open threads). Pure, tested."""
+    out = []
+    for m in OPEN_WORD_RE.finditer(lead_text):
+        tid = m.group(1) or m.group(2)
+        if tid not in allowed_open:
+            out.append({"page": page, "task": tid, "issue": "lead calls the task open but it is not in Open threads"})
+    return out
+
+
+def check_lead_state() -> dict:
+    """Day leads: 'open' only for ids whose last transition that day is an open-thread state (index.json); home lead: only ids listed in Open threads on /."""
+    mism, n = [], 0
+    for f in sorted(PUBLIC_DIR.glob("day/*/index.html")):
+        t = f.read_text(encoding="utf-8")
+        i = t.find('id="day-lead"')
+        if i < 0:
+            continue
+        try:
+            data = json.loads(f.with_name("index.json").read_text(encoding="utf-8"))
+        except (OSError, ValueError):
+            continue
+        allowed = {str(x.get("id")) for pr in (data.get("products") or {}).values() for x in (pr or {}).get("tasks") or []
+                   if x.get("history") and str(x["history"][-1].get("to")) in OPEN_THREAD_STATES}
+        n += 1
+        mism += lead_state_mismatches(f"/day/{f.parent.name}/", html_text(t[i:t.find("</section>", i)]), allowed)
+    try:
+        t = (PUBLIC_DIR / "index.html").read_text(encoding="utf-8")
+        i, j = t.find('id="home-lead"'), t.find('id="open-threads"')
+        if i >= 0:
+            ot = t[j:t.find("</ul>", j)] if j >= 0 else ""
+            allowed = set(re.findall(r'class="id"[^>]*>([A-Za-z]+-\d+)<', ot))
+            n += 1
+            mism += lead_state_mismatches("/", html_text(t[i:t.find("</section>", i)]), allowed)
+    except OSError:
+        pass
+    return {"pages_checked": n, "mismatches": mism}
 
 
 BASELINE_DAYS, BASELINE_MIN = 7, 3
@@ -4001,6 +4049,10 @@ def main(argv: list[str] | None = None) -> int:
     bj["lead_check"] = lcd
     write_json(PUBLIC_DIR / "build.json", bj)
     log.info("lead_check: pages=%d issues=%d mismatches=%d", lcd["pages_checked"], len(lcd["issues"]), len(lcd["mismatches"]))
+    lsc = check_lead_state()
+    bj["lead_state_check"] = lsc
+    write_json(PUBLIC_DIR / "build.json", bj)
+    log.info("lead_state_check: pages=%d mismatches=%d", lsc["pages_checked"], len(lsc["mismatches"]))
     fcd = check_feed()
     bj["feed_check"] = fcd
     write_json(PUBLIC_DIR / "build.json", bj)
@@ -4096,6 +4148,7 @@ def main(argv: list[str] | None = None) -> int:
         problems += [f"paths: {m}" for m in pc["missing"]]
         problems += [f"home: {m}" for m in hc["issues"]] + [f"home lead: {m}" for m in hc.get("lead_mismatches", [])]
         problems += [f"latest-day missing: {d}" for d in llc["missing"]] + [f"latest-day wrong target: {d}" for d in llc["wrong_target"]]
+        problems += [f"lead state: {m}" for m in lsc["mismatches"]]
         problems += [f"lead: {i['page']} {i['issue']}" for i in lcd["issues"]] + [f"lead outcome: {m}" for m in lcd["mismatches"]]
         problems += [f"feed: {i}" for i in fcd["lead_mismatches"]] + [f"feed: bad link {l}" for l in fcd["bad_links"]] + [f"feed: guid changed {g}" for g in fcd["guid_changed"]]
         if not fcd["items"]:

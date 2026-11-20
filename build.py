@@ -1827,6 +1827,21 @@ def day_escaped_block(date: str, model: dict) -> str:
     return "\n".join(out)
 
 
+def check_alias() -> dict:
+    """Every day index.json: escaped.total == escaped_after_accept.count (and ids equal)."""
+    mism = []
+    for f in sorted(PUBLIC_DIR.glob("day/*/index.json")):
+        try:
+            d = json.loads(f.read_text(encoding="utf-8"))
+            e, a = d["escaped"], d["escaped_after_accept"]
+            ids = sorted(i["id"] for i in e["items"])
+            if e["total"] != a["count"] or ids != sorted(a["tasks"]):
+                mism.append({"day": f.parent.name, "escaped": e["total"], "escaped_after_accept": a["count"]})
+        except (OSError, ValueError, KeyError, TypeError):
+            mism.append({"day": f.parent.name, "escaped": None, "escaped_after_accept": None})
+    return {"mismatches": mism}
+
+
 def check_escaped() -> dict:
     """#day-escaped on every day page equals escaped in its index.json (total and task ids)."""
     mism, pages = [], sorted(PUBLIC_DIR.glob("day/*/index.html"))
@@ -2963,7 +2978,7 @@ def render_llms(model: dict) -> str:
         lines += ["", f"- [Latest day {latest} index.json]({SITE_BASE}/day/{latest}/index.json): example with all fields above",
                   f"- [today.json]({SITE_BASE}/today.json): summary of the latest day (counts only, no transitions)"]
     lines += [f"- `external_actions` in the day index.json: {{total, by_channel, items}} of the posts published that day (items: product, channel, ts, url), the same numbers as the #day-external block on the day page. Example: {SITE_BASE}/day/{latest}/index.json" if latest else "- `external_actions` in the day index.json: posts published that day"]
-    lines += [f"- `escaped` in the day index.json: {{total, items}} of tasks that reached accepted or done and moved to another state the same day (items: product, id, state, actor, note), the same numbers as the #day-escaped block on the day page. Example: {SITE_BASE}/day/{latest}/index.json" if latest else "- `escaped` in the day index.json: tasks reopened after accepted"]
+    lines += [f"- `escaped_after_accept` is the field to use (see below); `escaped` is a kept alias with the same value (escaped.total == escaped_after_accept.count, checked on every build; build.json alias_check). `escaped` in the day index.json: {{total, items}} of tasks that reached accepted or done and moved to another state the same day (items: product, id, state, actor, note), the same numbers as the #day-escaped block on the day page. Example: {SITE_BASE}/day/{latest}/index.json" if latest else "- `escaped` in the day index.json: tasks reopened after accepted"]
     lines += [f"- `escaped_after_accept` in today.json and in the day index.json: {{count, tasks}} — ids of tasks with a transition that day out of accepted or done into another state (not measured), from the export's task transitions. Example: {SITE_BASE}/today.json"]
     lines += [f"- `health` in today.json: built_at (build time, UTC), last_export_date (= latest_export_day), fixture_days, source and stale_after (built_at + 30 h); if the current time is past stale_after, the rebuild failed. Example: {SITE_BASE}/today.json"]
     lines += ["", "Not in the export: questions to the owner, feedback texts, failed runs, rate limits."]
@@ -4166,6 +4181,10 @@ def main(argv: list[str] | None = None) -> int:
     bj["escaped_check"] = esc_c
     write_json(PUBLIC_DIR / "build.json", bj)
     log.info("escaped_check: pages=%d mismatches=%d", esc_c["pages_checked"], len(esc_c["mismatches"]))
+    alc = check_alias()
+    bj["alias_check"] = alc
+    write_json(PUBLIC_DIR / "build.json", bj)
+    log.info("alias_check: mismatches=%d", len(alc["mismatches"]))
     adc = check_address(model)
     bj["address_check"] = adc
     write_json(PUBLIC_DIR / "build.json", bj)
@@ -4291,6 +4310,7 @@ def main(argv: list[str] | None = None) -> int:
         problems += [f"evidence: {i}" for i in bj["evidence_check"]["mismatches"]]
         problems += [f"external_check: {i}" for i in bj["external_check"]["mismatches"]]
         problems += [f"escaped_check: {i}" for i in bj["escaped_check"]["mismatches"]]
+        problems += [f"alias_check: {i}" for i in bj["alias_check"]["mismatches"]]
         problems += [f"address_check: missing {i}" for i in bj["address_check"]["missing"]]
         problems += [f"artifact: {i}" for i in bj["artifact_check"]["mismatches"] + bj["artifact_check"]["sha_mismatches"]]
         problems += [f"robots: {i}" for i in bj["robots_check"]["issues"]]

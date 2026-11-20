@@ -1604,7 +1604,7 @@ def check_lead_state() -> dict:
         i, j = t.find('id="home-lead"'), t.find('id="open-threads"')
         if i >= 0:
             ot = t[j:t.find("</ul>", j)] if j >= 0 else ""
-            allowed = set(re.findall(r'class="id"[^>]*>([A-Za-z]+-\d+)<', ot))
+            allowed = set(re.findall(r'class="id"[^>]*>(?:<span[^>]*>)?([A-Za-z]+-\d+)<', ot))
             n += 1
             mism += lead_state_mismatches("/", html_text(t[i:t.find("</section>", i)]), allowed)
     except OSError:

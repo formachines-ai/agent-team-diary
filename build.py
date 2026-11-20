@@ -279,6 +279,27 @@ def md_to_html(md: str, max_chars: int = DIGEST_MAX_CHARS) -> str:
 # ----------------------------------------------------------------------------------------------------------
 # Data model
 # ----------------------------------------------------------------------------------------------------------
+def published_days() -> list[str]:
+    """Dates with a built public/day/<date>/index.html (before this build rewrites anything)."""
+    root = PUBLIC_DIR / "day"
+    if not root.is_dir():
+        return []
+    return sorted(p.name for p in root.iterdir() if re.fullmatch(r"\d{4}-\d{2}-\d{2}", p.name) and (p / "index.html").is_file())
+
+
+def check_day_persist(model: dict) -> dict:
+    """day_persist_check: every day page published before is still built (html + json) and has a sitemap <loc>."""
+    before = list(model.get("published_before") or [])
+    try:
+        sm = (PUBLIC_DIR / "sitemap.xml").read_text(encoding="utf-8")
+    except OSError:
+        sm = ""
+    missing = [d for d in before if not (PUBLIC_DIR / "day" / d / "index.html").is_file()
+               or not (PUBLIC_DIR / "day" / d / "index.json").is_file()
+               or f"<loc>{SITE_BASE}/day/{d}/</loc>" not in sm]
+    return {"published_before": before, "kept_without_data": list(model.get("kept") or []), "missing": missing}
+
+
 def load_data() -> dict:
     """products: slug → {"product": product.json, "days": {date: day.json}}; dates: sorted set of all dates."""
     products: dict[str, dict] = {}
@@ -316,7 +337,11 @@ def load_data() -> dict:
         products[pdir.name] = {"product": prod, "days": days}
         log.info("%s: %d day files, %d goals", pdir.name, len(days), len(prod.get("goals") or []))
     dates = sorted({d for p in products.values() for d in p["days"]})
-    return {"products": products, "dates": dates}
+    published = published_days()
+    kept = sorted(d for d in published if d not in dates)
+    if kept:
+        log.warning("days published before but without data/public file, kept as they are: %s", ", ".join(kept))
+    return {"products": products, "dates": sorted(set(dates) | set(kept)), "kept": kept, "published_before": published}
 
 
 def day_counts(d: dict) -> dict:
@@ -2484,6 +2509,8 @@ def render_index(model: dict) -> str:
     if dates:
         body.append("<ul>")
         for date in reversed(dates[-FRONT_DAYS:]):
+            if date in model.get("kept", []):
+                continue  # listed below as a kept page, not as "no activity recorded"
             parts = []
             for slug, p in products.items():
                 if date in p["days"]:
@@ -2493,6 +2520,9 @@ def render_index(model: dict) -> str:
                                  f'{dk(ck("reviews_pass"), c["reviews_pass"])} passed, {dk(ck("posts"), c["posts"])} {nn(c["posts"], "post")}')
             body.append(f'<li><a href="/day/{esc(date)}/">{esc(date)}</a> — ' + ("; ".join(parts) if parts else "no activity recorded") + "</li>")
         body.append("</ul>")
+        if model.get("kept"):
+            links = ", ".join(f'<a href="/day/{esc(d)}/">{esc(d)}</a>' for d in reversed(model["kept"]))
+            body.append(f'<p class="note" id="kept-days">Pages kept as published after their records left the export window (numbers not recomputed): {links}.</p>')
         if len(dates) > FRONT_DAYS:
             body.append(f'<p class="note">{len(dates) - FRONT_DAYS} earlier days are listed on the product pages and in <a href="/sitemap.xml">sitemap.xml</a>.</p>')
     else:
@@ -2931,7 +2961,7 @@ def feed_description(date: str, model: dict) -> str:
 
 def render_feed(model: dict) -> str:
     items = []
-    for date in reversed(model["dates"][-FEED_MAX_ITEMS:]):
+    for date in reversed([d for d in model["dates"] if d not in model.get("kept", [])][-FEED_MAX_ITEMS:]):
         desc = feed_description(date, model)
         pub = datetime.strptime(date, "%Y-%m-%d").replace(tzinfo=timezone.utc).strftime("%a, %d %b %Y 00:00:00 +0000")
         items.append(f"<item><title>{esc(date)} — agent team diary</title><link>{esc(SITE_BASE)}/day/{esc(date)}/?src=rss</link>"
@@ -3200,6 +3230,8 @@ def write_site(model: dict) -> dict:
     FOOTER_PRODUCTS[:] = [(sl, p["product"].get("name") or sl) for sl, p in model["products"].items()]
     write_text(PUBLIC_DIR / "index.html", render_index(model)); written += 1
     for date in model["dates"]:
+        if date in model.get("kept", []):
+            continue  # published before, data gone from the export window: page and index.json stay untouched
         write_text(PUBLIC_DIR / "day" / date / "index.html", render_day(date, model)); written += 1
         merged = {"date": date, "page": f"{SITE_BASE}/day/{date}/", "products": {slug: with_artifacts(p["days"][date]) for slug, p in model["products"].items() if date in p["days"]},
                   "counts": {slug: day_counts(p["days"][date]) for slug, p in model["products"].items() if date in p["days"]},
@@ -4203,6 +4235,10 @@ def main(argv: list[str] | None = None) -> int:
     bj["address_check"] = adc
     write_json(PUBLIC_DIR / "build.json", bj)
     log.info("address_check: expected=%d missing=%d", len(adc["expected"]), len(adc["missing"]))
+    dpc = check_day_persist(model)
+    bj["day_persist_check"] = dpc
+    write_json(PUBLIC_DIR / "build.json", bj)
+    log.info("day_persist_check: published_before=%d missing=%d", len(dpc["published_before"]), len(dpc["missing"]))
     phc = check_placeholders()
     bj["placeholder_check"] = phc
     write_json(PUBLIC_DIR / "build.json", bj)
@@ -4326,6 +4362,7 @@ def main(argv: list[str] | None = None) -> int:
         problems += [f"escaped_check: {i}" for i in bj["escaped_check"]["mismatches"]]
         problems += [f"alias_check: {i}" for i in bj["alias_check"]["mismatches"]]
         problems += [f"address_check: missing {i}" for i in bj["address_check"]["missing"]]
+        problems += [f"day_persist_check: missing {i}" for i in bj["day_persist_check"]["missing"]]
         problems += [f"artifact: {i}" for i in bj["artifact_check"]["mismatches"] + bj["artifact_check"]["sha_mismatches"]]
         problems += [f"robots: {i}" for i in bj["robots_check"]["issues"]]
         problems += [f"discovery_check: not within {bj['discovery_check']['max_depth']} clicks of /: {u}" for u in bj["discovery_check"]["unreachable"]]

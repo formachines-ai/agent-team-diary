@@ -19,6 +19,19 @@ class LeadStateTest(unittest.TestCase):
         o = build.task_outcome("2026-11-18", model("ready", "failed"), "p", "T-1")
         self.assertIn("still open", o["text"])
 
+    def test_task_absent_from_open_threads_not_called_open(self):
+        m = model("ready", "failed")
+        m["products"]["p"]["days"]["2026-11-18"]["tasks"].append({"id": "T-2", "title": "y", "history": []})
+        real = build.open_threads
+        build.open_threads = lambda latest, mdl: []  # T-1 fails and ends in an open state, but is not in the Open threads list
+        try:
+            o = build.task_outcome("2026-11-18", m, "p", "T-1")
+        finally:
+            build.open_threads = real
+        self.assertNotIn("still open", o["text"])
+        self.assertNotIn(" open", o["text"])
+        self.assertEqual(build.task_outcome("2026-11-18", m, "p", "T-1")["text"].count("still open"), 1)
+
     def test_check_flags_open_not_listed(self):
         txt = "Failed: Title (T-169), failed review, still open at end of day (final state: rejected)."
         m = build.lead_state_mismatches("/", txt, set())

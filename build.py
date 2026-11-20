@@ -1037,8 +1037,8 @@ def task_outcome(date: str, model: dict, slug: str, tid: str) -> dict | None:
     final = str(hist[-1].get("to")) if hist else ""
     if done:
         then = f'then {done[-1]["to"]} at {hhmm(done[-1]["ts"])}'
-    elif final in OPEN_THREAD_STATES:
-        then = "still open at end of day"
+    elif final in OPEN_THREAD_STATES and (slug, tid) in {(o["product"], o["task"]) for o in open_threads(date, model)}:
+        then = "still open at end of day"  # only for a task listed in Open threads (same list that renders them)
     elif final == "rejected":
         then = "then rejected (closed)"
     elif final in DONE_STATES:

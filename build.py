@@ -3078,6 +3078,18 @@ def check_robots_sitemap(built: str) -> tuple[dict, dict]:
                 "max_depth": max([depths[u] for u in locs if u in depths] or [0])}
 
 
+DISCOVERY_MAX_DEPTH = 2
+
+
+def check_discovery(max_depth: int = DISCOVERY_MAX_DEPTH) -> dict:
+    """discovery_check: sitemap <loc> URLs not reached from / within max_depth clicks (internal <a href> links, BFS)."""
+    cr = check_crawl("9999")
+    depths = cr["depths"]
+    locs = [u for u in cr["depths"]] + list(cr["unreachable"])
+    return {"max_depth": max_depth, "urls": len(locs),
+            "unreachable": sorted(u for u in locs if depths.get(u, 99) > max_depth)}
+
+
 def check_crawl(built: str) -> dict:
     """crawl_check: every sitemap URL is reachable from / by following <a href> links (BFS depth), robots names the sitemap."""
     import xml.etree.ElementTree as ET
@@ -4176,6 +4188,7 @@ def main(argv: list[str] | None = None) -> int:
     bj["orphan_check"] = {"pages_in_sitemap": seo["pages_in_sitemap"], "orphans": seo["orphans"]}
     bj["crawl_check"] = check_crawl(bj.get("built") or model["built"])
     bj["crawl_check"].pop("depths", None)
+    bj["discovery_check"] = check_discovery()
     write_json(PUBLIC_DIR / "build.json", bj)
     log.info("seo_check: pages=%d canonical_missing=%d lastmod_missing=%d orphans=%d duplicate_titles=%d", seo["pages_checked"],
              len(seo["canonical_missing"]), len(seo["lastmod_missing"]), len(seo["orphans"]), len(seo["duplicate_titles"]))
@@ -4251,6 +4264,7 @@ def main(argv: list[str] | None = None) -> int:
         problems += [f"address_check: missing {i}" for i in bj["address_check"]["missing"]]
         problems += [f"artifact: {i}" for i in bj["artifact_check"]["mismatches"] + bj["artifact_check"]["sha_mismatches"]]
         problems += [f"robots: {i}" for i in bj["robots_check"]["issues"]]
+        problems += [f"discovery_check: not within {bj['discovery_check']['max_depth']} clicks of /: {u}" for u in bj["discovery_check"]["unreachable"]]
         cr = bj["crawl_check"]
         problems += [f"crawl: {k} {cr[k]}" for k in ("missing_in_sitemap", "unreachable", "lastmod_after_build") if cr[k]]
         if not cr["robots_sitemap"] or cr["max_depth"] > 3 or cr["sitemap_urls"] < 1:

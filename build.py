@@ -300,6 +300,19 @@ def check_day_persist(model: dict) -> dict:
     return {"published_before": before, "kept_without_data": list(model.get("kept") or []), "missing": missing}
 
 
+def check_product_days(model: dict) -> dict:
+    """product_day_check: every (slug, date) with records (export or kept index.json) is linked from /product/<slug>/."""
+    missing = []
+    for slug in model["products"]:
+        try:
+            page = (PUBLIC_DIR / "product" / slug / "index.html").read_text(encoding="utf-8")
+        except OSError:
+            page = ""
+        dates = set(model["products"][slug]["days"]) | {d for d, idx in (model.get("kept_days") or {}).items() if slug in idx["counts"]}
+        missing += [[slug, d] for d in sorted(dates) if f'href="/day/{d}/#{slug}"' not in page]
+    return {"missing": missing}
+
+
 def load_data() -> dict:
     """products: slug → {"product": product.json, "days": {date: day.json}}; dates: sorted set of all dates."""
     products: dict[str, dict] = {}
@@ -341,7 +354,12 @@ def load_data() -> dict:
     kept = sorted(d for d in published if d not in dates)
     if kept:
         log.warning("days published before but without data/public file, kept as they are: %s", ", ".join(kept))
-    return {"products": products, "dates": sorted(set(dates) | set(kept)), "kept": kept, "published_before": published}
+    kept_days: dict[str, dict] = {}
+    for kd in kept:
+        idx = read_json(PUBLIC_DIR / "day" / kd / "index.json")
+        if isinstance(idx, dict) and isinstance(idx.get("counts"), dict):
+            kept_days[kd] = idx
+    return {"products": products, "dates": sorted(set(dates) | set(kept)), "kept": kept, "published_before": published, "kept_days": kept_days}
 
 
 def day_counts(d: dict) -> dict:
@@ -2546,15 +2564,20 @@ def render_product(slug: str, p: dict, model: dict) -> str:
         body.append('<p class="note">Goal rows are reproduced from the product\'s VISION file as exported, in the language they were written in.</p>')
     else:
         body.append('<p class="note">no goals in the export</p>')
-    dates = sorted(p["days"])
+    kept_idx = {d: idx for d, idx in (model.get("kept_days") or {}).items() if slug in idx["counts"]}
+    dates = sorted(set(p["days"]) | set(kept_idx))
     body.append(f'<h2 id="days">Days ({len(dates)})</h2>')
-    body.append(fixture_note([p["days"][d] for d in dates]))
+    body.append(fixture_note([p["days"][d] for d in dates if d in p["days"]]))
     if dates:
         totals = {"tasks_done_distinct": 0, "tasks_done": 0, "reviews_pass": 0, "posts": 0, "spend_usd": 0.0}
         body.append('<ul class="cards">')
         for date in reversed(dates):
-            d = p["days"][date]
-            c = day_counts(d)
+            if date in p["days"]:
+                d = p["days"][date]
+                c = day_counts(d)
+            else:  # kept day: the published index.json is the only source, nothing is recomputed
+                d = (kept_idx[date].get("products") or {}).get(slug) or {}
+                c = kept_idx[date]["counts"][slug]
             for k in totals:
                 totals[k] += c[k]
             people = "—" if c["humans"] is None else str(c["humans"])
@@ -4235,6 +4258,9 @@ def main(argv: list[str] | None = None) -> int:
     bj["address_check"] = adc
     write_json(PUBLIC_DIR / "build.json", bj)
     log.info("address_check: expected=%d missing=%d", len(adc["expected"]), len(adc["missing"]))
+    pdc = check_product_days(model)
+    bj["product_day_check"] = pdc
+    log.info("product_day_check: missing=%d", len(pdc["missing"]))
     dpc = check_day_persist(model)
     bj["day_persist_check"] = dpc
     write_json(PUBLIC_DIR / "build.json", bj)
@@ -4362,6 +4388,7 @@ def main(argv: list[str] | None = None) -> int:
         problems += [f"escaped_check: {i}" for i in bj["escaped_check"]["mismatches"]]
         problems += [f"alias_check: {i}" for i in bj["alias_check"]["mismatches"]]
         problems += [f"address_check: missing {i}" for i in bj["address_check"]["missing"]]
+        problems += [f"product_day_check: {i[0]} {i[1]} has records but no link" for i in bj["product_day_check"]["missing"]]
         problems += [f"day_persist_check: missing {i}" for i in bj["day_persist_check"]["missing"]]
         problems += [f"artifact: {i}" for i in bj["artifact_check"]["mismatches"] + bj["artifact_check"]["sha_mismatches"]]
         problems += [f"robots: {i}" for i in bj["robots_check"]["issues"]]

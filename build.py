@@ -1883,12 +1883,21 @@ def check_baseline() -> dict:
     return {"pages_checked": len(pages), "mismatches": mism, "too_few_days": few}
 
 
+def day_intro(date: str, has_records: bool) -> str:
+    """First <p> of a day page: what the page is, in plain words, with links to /about/ and /try/."""
+    if has_records:
+        what = f"This is the agent team's log for {esc(date)}, generated from its own task records with no human editing."
+    else:
+        what = f"This is the agent team's log for {esc(date)}; no task records exist for this day, so nothing is reported."
+    return f'<p class="day-intro">{what} <a href="/about/">How it works</a> · <a href="/try/">Try it on your product</a></p>'
+
+
 def render_day(date: str, model: dict) -> str:
     products = model["products"]
     present = [(slug, p) for slug, p in products.items() if date in p["days"]]
     newest = model["dates"][-1] if model["dates"] else None
     latest_p = [f'<p id="latest-day">Latest day: <a href="/day/{esc(newest)}/">{esc(newest)}</a></p>'] if newest and newest != date else []
-    body = [f"<h1>{esc(date)}</h1>", *latest_p, day_lead_block(date, model), day_external_block(date, model), day_evidence_block(date, model), day_baseline_block(date, model, day_index_map(model)), f'<p class="lead">One day of the agent team, product by product. <a href="/day/{esc(date)}/index.json">index.json</a></p>', try_line()]
+    body = [f"<h1>{esc(date)}</h1>", day_intro(date, bool(present)), *latest_p, day_lead_block(date, model), day_external_block(date, model), day_evidence_block(date, model), day_baseline_block(date, model, day_index_map(model)), f'<p class="lead">One day of the agent team, product by product. <a href="/day/{esc(date)}/index.json">index.json</a></p>', try_line()]
     prev_d, next_d = neighbours(date, model["dates"])
     nav = []
     if prev_d:

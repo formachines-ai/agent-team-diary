@@ -1449,6 +1449,47 @@ def check_broke() -> dict:
     return {"pages_checked": len(pages), "mismatches": mism, "bad_anchors": bad, "duplicate_blocks": dup}
 
 
+def feed_lists(xml_text: str, now: datetime | None = None, public: Path | None = None) -> dict:
+    """feed_check core: invalid (does not parse), bad_links (not absolute on SITE_BASE or no page in public/),
+    duplicate_guids, bad_dates (unparseable or future pubDate)."""
+    import xml.etree.ElementTree as ET
+    from email.utils import parsedate_to_datetime
+    from urllib.parse import urlsplit
+    public = public or PUBLIC_DIR
+    now = now or utcnow()
+    out = {"invalid": [], "bad_links": [], "duplicate_guids": [], "bad_dates": []}
+    try:
+        root = ET.fromstring(xml_text)
+    except ET.ParseError as e:
+        out["invalid"].append(str(e))
+        return out
+    seen = set()
+    for it in root.iter("item"):
+        link = (it.findtext("link") or "").strip()
+        guid = (it.findtext("guid") or "").strip()
+        pub = (it.findtext("pubDate") or "").strip()
+        if not link.startswith(SITE_BASE + "/"):
+            out["bad_links"].append(link)
+        else:
+            path = urlsplit(link).path
+            rel = path.lstrip("/")
+            target = public / rel
+            if not (target / "index.html" if path.endswith("/") else target).is_file():
+                out["bad_links"].append(link)
+        if guid in seen:
+            out["duplicate_guids"].append(guid)
+        seen.add(guid)
+        try:
+            dt = parsedate_to_datetime(pub)
+            if dt.tzinfo is None:
+                dt = dt.replace(tzinfo=timezone.utc)
+            if dt > now:
+                out["bad_dates"].append(pub)
+        except (TypeError, ValueError):
+            out["bad_dates"].append(pub)
+    return out
+
+
 def check_feed() -> dict:
     """feed.xml items: description starts with the #day-lead text of the day page and ends with a failure line equal to the
     task count in #what-broke; links are /day/<date>/?src=rss; guid is /day/<date>/ (unchanged)."""
@@ -1457,7 +1498,8 @@ def check_feed() -> dict:
     try:
         root = ET.fromstring((PUBLIC_DIR / "feed.xml").read_text(encoding="utf-8"))
     except (OSError, ET.ParseError) as e:
-        return {"items": 0, "lead_mismatches": [{"item": "feed.xml", "issue": str(e)}], "bad_links": [], "guid_changed": []}
+        return {"items": 0, "lead_mismatches": [{"item": "feed.xml", "issue": str(e)}], "bad_links": [], "guid_changed": [],
+                "invalid": [str(e)], "duplicate_guids": [], "bad_dates": []}
     for it in root.iter("item"):
         items += 1
         link, guid, desc = (it.findtext(k) or "" for k in ("link", "guid", "description"))
@@ -1501,7 +1543,10 @@ def check_feed() -> dict:
                     lead_mm.append({"item": d, "issue": f"{key}: json {v} not in item"})
         except (OSError, ValueError, KeyError, IndexError):
             lead_mm.append({"item": d, "issue": "index.json comparison failed"})
-    return {"items": items, "lead_mismatches": lead_mm, "bad_links": bad_links, "guid_changed": guid_changed}
+    fl = feed_lists((PUBLIC_DIR / "feed.xml").read_text(encoding="utf-8"))
+    bad_links += [l for l in fl["bad_links"] if l not in bad_links]
+    return {"items": items, "lead_mismatches": lead_mm, "bad_links": bad_links, "guid_changed": guid_changed,
+            "invalid": fl["invalid"], "duplicate_guids": fl["duplicate_guids"], "bad_dates": fl["bad_dates"]}
 
 
 def check_ids() -> dict:
@@ -4359,7 +4404,7 @@ def main(argv: list[str] | None = None) -> int:
         problems += [f"latest-day missing: {d}" for d in llc["missing"]] + [f"latest-day wrong target: {d}" for d in llc["wrong_target"]]
         problems += [f"lead state: {m}" for m in lsc["mismatches"]]
         problems += [f"lead: {i['page']} {i['issue']}" for i in lcd["issues"]] + [f"lead outcome: {m}" for m in lcd["mismatches"]]
-        problems += [f"feed: {i}" for i in fcd["lead_mismatches"]] + [f"feed: bad link {l}" for l in fcd["bad_links"]] + [f"feed: guid changed {g}" for g in fcd["guid_changed"]]
+        problems += [f"feed: {i}" for i in fcd["lead_mismatches"]] + [f"feed: bad link {l}" for l in fcd["bad_links"]] + [f"feed: guid changed {g}" for g in fcd["guid_changed"]] + [f"feed: invalid {x}" for x in fcd["invalid"]] + [f"feed: duplicate guid {x}" for x in fcd["duplicate_guids"]] + [f"feed: bad date {x}" for x in fcd["bad_dates"]]
         if not fcd["items"]:
             problems.append("feed: no items")
         problems += [f"broke: duplicate failure blocks {p}" for p in bkc["duplicate_blocks"]]

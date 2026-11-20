@@ -983,10 +983,16 @@ def check_seo() -> dict:
                 ev = re.sub(r"\s*·\s*[^·]*$", "", html.unescape(k)).partition(": ")[2]
                 if ev and ev not in FALLBACK_EVENTS and event_len(ev) < EVENT_MIN:
                     short.append({"page": p, "title": k, "event_length": event_len(ev)})
+    title_too_short = []
+    for f in sorted(PUBLIC_DIR.glob("**/*.html")):
+        tm = re.search(r"<title>(.*?)</title>", f.read_text(encoding="utf-8"), re.S)
+        n = len(html.unescape(tm.group(1)).strip()) if tm else 0
+        if n < TITLE_MIN:
+            title_too_short.append({"page": "/" + f.relative_to(PUBLIC_DIR).as_posix(), "length": n})
     snippet = {"pages_checked": len(pages), "short_titles": short, "fallback_selftest": fallback_selftest(), "duplicate_titles": dup, "duplicate_descriptions": ddup,
                "too_long": too_long, "counter_only_titles": counter_only, "dangling_titles": dangling}
     return {"pages_in_sitemap": len(locs), "description_duplicates": ddup, "description_length_issues": desc_len, "pages_checked": len(pages), "canonical_missing": canonical_missing, "lastmod_missing": lastmod_missing,
-            "orphans": orphans, "duplicate_titles": dup, "noindex": noindex, "daylink_missing": daylink_missing, "snippet_check": snippet}
+            "orphans": orphans, "duplicate_titles": dup, "title_too_short": title_too_short, "noindex": noindex, "daylink_missing": daylink_missing, "snippet_check": snippet}
 
 
 def check_nav() -> dict:
@@ -1937,6 +1943,7 @@ def _dangles(text: str) -> bool:
     return bool(w) and w[-1].lower() in DANGLING
 
 
+TITLE_MIN = 30  # characters of every generated <title>
 EVENT_MIN = 25  # characters of event text after "<date>: ", not counting a leading [tag]
 FALLBACK_EVENTS = ("no activity recorded", "fixture: sample data in the export format", "no accepted or failed task recorded", "no task event recorded")
 
@@ -2682,7 +2689,7 @@ def render_404(built: str, latest: str | None = None) -> str:
     body = ('<h1>Page not found</h1><p class="lead">This page does not exist. Day pages live at <code>/day/YYYY-MM-DD/</code>, product chronicles at '
             '<code>/product/&lt;slug&gt;/</code>. A day with no page is a day with no records.</p>'
             '<ul>' + "".join(f"<li>{x}</li>" for x in links) + '</ul>')
-    return layout(f"404 — {SITE_NAME}", body, built, noindex=True, description="No such page on the agent team diary.")
+    return layout(f"404 — page not found · {SITE_NAME}", body, built, noindex=True, description="No such page on the agent team diary.")
 
 
 def render_open_costs(built: str, latest: str | None) -> str:
@@ -4206,6 +4213,7 @@ def main(argv: list[str] | None = None) -> int:
         problems += [f"icon: missing file {m}" for m in bj["icon_check"]["missing_files"]] + [f"icon: missing link {m}" for m in bj["icon_check"]["missing_links"]]
         problems += [f"alternate: missing {m}" for m in al["missing"]] + [f"alternate: bad target {m}" for m in al["bad_targets"]]
         problems += [f"seo: no self-canonical {p}" for p in seo["canonical_missing"]] + [f"seo: no lastmod {p}" for p in seo["lastmod_missing"]]
+        problems += [f"seo: title under {TITLE_MIN} characters {d['page']} ({d['length']})" for d in seo["title_too_short"]]
         problems += [f"seo: orphan {p}" for p in seo["orphans"]] + [f"seo: duplicate title {d['title']}" for d in seo["duplicate_titles"]]
         problems += [f"seo: duplicate description {d['description']}" for d in seo["description_duplicates"]]
         problems += [f"seo: description {d['page']} {d['issue']} ({d['length']})" for d in seo["description_length_issues"]]

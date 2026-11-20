@@ -948,6 +948,25 @@ def fallback_selftest() -> dict:
     return out
 
 
+def check_canonical() -> dict:
+    """canonical_check: every public/**/*.html except 404 and noindex /go/ redirects has one self-referencing
+    <link rel=canonical> (absolute, trailing slash, no query/fragment) equal to its own URL, which is its sitemap <loc> when listed (/open/costs/ is deliberately not listed)."""
+    missing, mismatched = [], []
+    for f in sorted(PUBLIC_DIR.glob("**/*.html")):
+        rel = f.relative_to(PUBLIC_DIR).as_posix()
+        if rel == "404.html" or rel.startswith("go/"):
+            continue
+        path = "/" if rel == "index.html" else "/" + rel[:-len("index.html")]
+        found = re.findall(r'<link rel="canonical" href="([^"]*)"', f.read_text(encoding="utf-8"))
+        if not found:
+            missing.append(path)
+            continue
+        c = html.unescape(found[0])
+        if len(found) != 1 or c != SITE_BASE + path or "?" in c or "#" in c:
+            mismatched.append(path)
+    return {"missing": missing, "mismatched": mismatched}
+
+
 def check_seo() -> dict:
     """Self-canonical on every indexable page, lastmod on every sitemap <url>, prev/next day links, no orphan sitemap URLs,
     no noindex outside /go/ and 404, unique titles."""
@@ -4309,6 +4328,7 @@ def main(argv: list[str] | None = None) -> int:
     write_json(PUBLIC_DIR / "build.json", bj)
     seo = check_seo()
     bj["seo_check"] = seo
+    bj["canonical_check"] = check_canonical()
     bj["snippet_check"] = seo.pop("snippet_check")
     bj["orphan_check"] = {"pages_in_sitemap": seo["pages_in_sitemap"], "orphans": seo["orphans"]}
     bj["crawl_check"] = check_crawl(bj.get("built") or model["built"])
@@ -4350,6 +4370,7 @@ def main(argv: list[str] | None = None) -> int:
         problems += [f"microdata: missing {i['page']} {i['issue']}" for i in md["missing"]] + [f"microdata: {i['page']} {i['issue']}" for i in md["date_mismatches"]]
         problems += [f"icon: missing file {m}" for m in bj["icon_check"]["missing_files"]] + [f"icon: missing link {m}" for m in bj["icon_check"]["missing_links"]]
         problems += [f"alternate: missing {m}" for m in al["missing"]] + [f"alternate: bad target {m}" for m in al["bad_targets"]]
+        problems += [f"canonical: missing {p}" for p in bj["canonical_check"]["missing"]] + [f"canonical: mismatched {p}" for p in bj["canonical_check"]["mismatched"]]
         problems += [f"seo: no self-canonical {p}" for p in seo["canonical_missing"]] + [f"seo: no lastmod {p}" for p in seo["lastmod_missing"]]
         problems += [f"seo: title under {TITLE_MIN} characters {d['page']} ({d['length']})" for d in seo["title_too_short"]]
         problems += [f"seo: orphan {p}" for p in seo["orphans"]] + [f"seo: duplicate title {d['title']}" for d in seo["duplicate_titles"]]

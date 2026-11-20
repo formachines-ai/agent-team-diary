@@ -3049,10 +3049,10 @@ def sitemap_entries(model: dict) -> list[tuple[str, str]]:
         static = built
     static = min(static, built)
     latest = max(dm.values()) if dm else static
-    out = [(SITE_BASE + "/", max(latest, static))]
+    out = [(SITE_BASE + "/", latest)]
     out += [(f"{SITE_BASE}/{p}/", static) for p in ("about", "try", "legal", "brand")]
     for slug, p in model["products"].items():
-        out.append((f"{SITE_BASE}/product/{slug}/", max([dm[d] for d in p["days"] if d in dm] + [static])))
+        out.append((f"{SITE_BASE}/product/{slug}/", max([dm[d] for d in p["days"] if d in dm] or [static])))
     out += [(f"{SITE_BASE}/day/{d}/", dm[d]) for d in model["dates"]]
     return out
 
@@ -3060,6 +3060,30 @@ def sitemap_entries(model: dict) -> list[tuple[str, str]]:
 def render_sitemap(model: dict) -> str:
     return ('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
             + "".join(f"<url><loc>{esc(u)}</loc><lastmod>{esc(lm)}</lastmod></url>" for u, lm in sitemap_entries(model)) + "</urlset>\n")
+
+
+def lastmod_check(locs: dict, built_day: str) -> dict:
+    """locs: {url: lastmod}. missing_lastmod: empty; invalid: not a real YYYY-MM-DD, or a /day/<d>/ lastmod before <d>;
+    future: later than the build day. All lists sorted urls."""
+    missing, invalid, future = [], [], []
+    for loc, lm in locs.items():
+        if not lm:
+            missing.append(loc)
+            continue
+        try:
+            ok = bool(re.fullmatch(r"\d{4}-\d{2}-\d{2}", lm))
+            datetime.strptime(lm, "%Y-%m-%d")
+        except ValueError:
+            ok = False
+        if not ok:
+            invalid.append(loc)
+            continue
+        dm = re.search(r"/day/(\d{4}-\d{2}-\d{2})/$", loc)
+        if dm and lm < dm.group(1):
+            invalid.append(loc)
+        elif lm > built_day:
+            future.append(loc)
+    return {"missing_lastmod": sorted(missing), "invalid": sorted(invalid), "future": sorted(future)}
 
 
 def check_robots_sitemap(built: str) -> tuple[dict, dict]:
@@ -3102,21 +3126,11 @@ def check_robots_sitemap(built: str) -> tuple[dict, dict]:
     want += [f"{SITE_BASE}/day/{d.parent.name}/" for d in PUBLIC_DIR.glob("day/*/index.html")]
     missing = [w for w in want if w not in locs]
     missing += [f"{w} (listed but noindex/forbidden)" for w in locs if w.endswith("/404.html") or "/open/costs" in w]
-    for loc, lm in locs.items():
-        m = re.fullmatch(r"(\d{4})-(\d{2})-(\d{2})", lm)
-        try:
-            datetime.strptime(lm, "%Y-%m-%d")
-            ok = bool(m) and lm <= built[:10]
-        except ValueError:
-            ok = False
-        dm = re.search(r"/day/(\d{4}-\d{2}-\d{2})/$", loc)
-        if ok and dm and lm < dm.group(1):
-            ok = False
-        if not ok:
-            bad.append(f"{loc} {lm}")
+    chk = lastmod_check(locs, built[:10])
+    bad += [f"{u} {locs[u]}" for u in chk["invalid"] + chk["future"]]
     depths = check_crawl(built).pop("depths", {})
     return rc, {"urls": len(locs), "missing_pages": sorted(missing), "bad_lastmod": bad,
-                "lastmod_missing": sorted(u for u, lm in locs.items() if not lm),
+                "lastmod_missing": chk["missing_lastmod"], **chk,
                 "unreachable_within_3": sorted(u for u in locs if depths.get(u, 99) > 3),
                 "max_depth": max([depths[u] for u in locs if u in depths] or [0])}
 

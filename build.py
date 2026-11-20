@@ -1774,22 +1774,37 @@ def check_external() -> dict:
 
 
 def escaped_tasks(date: str, model: dict) -> dict:
-    """Tasks that reached accepted/done and later the same day moved to another state (not accepted/done/measured),
-    from the task history of the export. Review verdicts are not used. items: product, id, state, actor, note."""
+    """Tasks with a transition on `date` out of accepted/done into another state (not accepted/done/measured), from the ordered
+    task history of the export. The earlier state may come from an earlier day file. A transition without ts counts for the
+    day file it is in. Review verdicts are not used. items: product, id, state, actor, note."""
     items = []
     for slug, p in model["products"].items():
-        for t in (p["days"].get(date) or {}).get("tasks") or []:
-            hist = t.get("history") or []
-            ok = False
-            for h in hist:
+        seq: dict[str, list] = {}
+        for day, dd in sorted(p["days"].items()):
+            for t in dd.get("tasks") or []:
+                for h in t.get("history") or []:
+                    ts = str(h.get("ts") or "")
+                    seq.setdefault(str(t.get("id")), []).append((ts, day, h))
+        for tid, hs in seq.items():
+            seen, prev = set(), None
+            for ts, day, h in sorted(hs, key=lambda x: (x[0], x[1])):
+                key = (ts, str(h.get("to")), str(h.get("actor")))
+                if ts and key in seen:
+                    continue
+                seen.add(key)
                 to = str(h.get("to"))
-                if ok and to not in ESCAPE_IGNORE:
-                    items.append({"product": slug, "id": str(t.get("id")), "state": to, "actor": h.get("actor"), "note": str(h.get("note") or "")[:120]})
+                when = ts[:10] if ts else day
+                if prev in ARTIFACT_STATES and to not in ESCAPE_IGNORE and when == date:
+                    items.append({"product": slug, "id": tid, "state": to, "actor": h.get("actor"), "note": str(h.get("note") or "")[:120]})
                     break
-                if to in ARTIFACT_STATES:
-                    ok = True
+                prev = to
     items.sort(key=lambda i: (i["product"], i["id"]))
     return {"total": len(items), "items": items}
+
+
+def escaped_after_accept(date: str, model: dict) -> dict:
+    e = escaped_tasks(date, model)
+    return {"count": e["total"], "tasks": [i["id"] for i in e["items"]]}
 
 
 ESCAPE_IGNORE = ("accepted", "done", "measured")
@@ -1798,10 +1813,13 @@ ESCAPE_IGNORE = ("accepted", "done", "measured")
 def day_escaped_block(date: str, model: dict) -> str:
     e = escaped_tasks(date, model)
     out = ['<section id="day-escaped" class="day-escaped"><h3 id="day-escaped-h">Accepted, then reopened</h3>']
-    if not e["total"]:
-        out.append('<p class="note">no reopened tasks recorded</p></section>')
+    if not e["total"] and not any(date in p["days"] for p in model["products"].values()):
+        out.append('<p class="note">no activity recorded — no reopened tasks recorded.</p></section>')
         return "\n".join(out)
-    out.append(f'<p>Tasks that reached accepted or done and then moved to another state the same day: <strong data-esc="total">{e["total"]}</strong>. From the task history in the export.</p><ul>')
+    if not e["total"]:
+        out.append('<p class="note"><strong data-esc="zero">0</strong> — no accepted or done task reopened. Source: task transitions in the team\'s public export; no reopened tasks recorded.</p></section>')
+        return "\n".join(out)
+    out.append(f'<p>Tasks moved out of accepted or done that day: <strong data-esc="total">{e["total"]}</strong>. Source: task transitions in the team\'s public export.</p><ul>')
     for i in e["items"]:
         note = f' ({esc(i["actor"])}: {esc(i["note"])})' if i["note"] else ""
         out.append(f'<li data-esc="item"><code>{esc(i["id"])}</code> → {esc(i["state"])}{note}</li>')
@@ -2946,6 +2964,7 @@ def render_llms(model: dict) -> str:
                   f"- [today.json]({SITE_BASE}/today.json): summary of the latest day (counts only, no transitions)"]
     lines += [f"- `external_actions` in the day index.json: {{total, by_channel, items}} of the posts published that day (items: product, channel, ts, url), the same numbers as the #day-external block on the day page. Example: {SITE_BASE}/day/{latest}/index.json" if latest else "- `external_actions` in the day index.json: posts published that day"]
     lines += [f"- `escaped` in the day index.json: {{total, items}} of tasks that reached accepted or done and moved to another state the same day (items: product, id, state, actor, note), the same numbers as the #day-escaped block on the day page. Example: {SITE_BASE}/day/{latest}/index.json" if latest else "- `escaped` in the day index.json: tasks reopened after accepted"]
+    lines += [f"- `escaped_after_accept` in today.json and in the day index.json: {{count, tasks}} — ids of tasks with a transition that day out of accepted or done into another state (not measured), from the export's task transitions. Example: {SITE_BASE}/today.json"]
     lines += [f"- `health` in today.json: built_at (build time, UTC), last_export_date (= latest_export_day), fixture_days, source and stale_after (built_at + 30 h); if the current time is past stale_after, the rebuild failed. Example: {SITE_BASE}/today.json"]
     lines += ["", "Not in the export: questions to the owner, feedback texts, failed runs, rate limits."]
     lines += ["", "## Pages", "",
@@ -3162,6 +3181,7 @@ def write_site(model: dict) -> dict:
                   "baseline": baseline_json(date, day_index_map(model)),
                   "external_actions": external_actions(date, model),
                   "escaped": escaped_tasks(date, model),
+                  "escaped_after_accept": escaped_after_accept(date, model),
                   "disclosure": f"{FOOTER_LINE}; responsible: {RESPONSIBLE}.", "built": built,
                   "day_complete": not day_in_progress(date, built), "snapshot_built_at": built}
         write_json(PUBLIC_DIR / "day" / date / "index.json", merged)
@@ -3188,6 +3208,7 @@ def write_site(model: dict) -> dict:
     today["day_complete"] = bool(latest) and not day_in_progress(latest, built)
     today["snapshot_built_at"] = built
     today["health"] = health_obj(model)
+    today["escaped_after_accept"] = escaped_after_accept(latest, model) if latest else {"count": 0, "tasks": []}
     write_json(PUBLIC_DIR / "today.json", today)
     write_text(PUBLIC_DIR / "feed.xml", render_feed(model))
     write_text(PUBLIC_DIR / "llms.txt", render_llms(model))

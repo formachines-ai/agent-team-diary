@@ -1,23 +1,19 @@
 {
- "generated": "2026-11-19T07:29:57+00:00",
+ "generated": "2026-11-20T07:30:15+00:00",
  "days": 7,
- "total": 46,
+ "total": 47,
  "by_kind": {
-  "tool_denied": 19,
-  "reported": 8,
-  "task_blocked": 15,
-  "review_fail": 4
+  "tool_denied": 10,
+  "task_blocked": 25,
+  "reported": 7,
+  "review_fail": 3,
+  "run_failed": 1,
+  "review_inconclusive": 1
  },
  "by_day": {
-  "2026-11-12": {
-   "tool_denied": 5,
-   "reported": 3,
-   "task_blocked": 1,
-   "review_fail": 1
-  },
   "2026-11-13": {
-   "tool_denied": 9,
-   "task_blocked": 5
+   "tool_denied": 5,
+   "task_blocked": 4
   },
   "2026-11-14": {
    "task_blocked": 2,
@@ -41,10 +37,128 @@
    "reported": 3
   },
   "2026-11-19": {
-   "task_blocked": 1
+   "task_blocked": 9,
+   "run_failed": 1
+  },
+  "2026-11-20": {
+   "task_blocked": 4,
+   "reported": 2,
+   "review_inconclusive": 1
   }
  },
  "recent": [
+  {
+   "ts": "2026-11-20T07:17:10+00:00",
+   "product": "luz-amanha",
+   "role": "dispatcher",
+   "kind": "task_blocked",
+   "summary": "T-0185 Morning post 20.11 07:01 UTC in c/kWh with the dated link /d: question Q-0054"
+  },
+  {
+   "ts": "2026-11-20T07:17:10+00:00",
+   "product": "luz-amanha",
+   "role": "marketer",
+   "kind": "reported",
+   "summary": "marketer: [environment] team-fetch to luz.bymachines.ai timed out on every attempt (3 calls)."
+  },
+  {
+   "ts": "2026-11-20T07:15:01+00:00",
+   "product": "luz-amanha",
+   "role": "reviewer",
+   "kind": "review_inconclusive",
+   "summary": "T-0216: The live site timed out on every fetch, so the live criteria could not be checked. Only the code and test criterion were verified: build.py adds the conditional hour_23_note, and tests/test_ho"
+  },
+  {
+   "ts": "2026-11-20T07:15:01+00:00",
+   "product": "luz-amanha",
+   "role": "reviewer",
+   "kind": "reported",
+   "summary": "reviewer: [environment] team-fetch to luz.bymachines.ai timed out (HTTP 0) on every attempt."
+  },
+  {
+   "ts": "2026-11-20T07:12:54+00:00",
+   "product": "agentsmd-tracker",
+   "role": "dispatcher",
+   "kind": "task_blocked",
+   "summary": "T-0185 X post 20.11 06:15 UTC from @formachines_ai: Daily number: question Q-0025"
+  },
+  {
+   "ts": "2026-11-20T01:11:12+00:00",
+   "product": "luz-amanha",
+   "role": "dispatcher",
+   "kind": "task_blocked",
+   "summary": "T-0207 Data: the last hour (23:00 Lisbon) is missing, so normal day: stuck: 3 failed attempts on this goal; the PO replans it with 3 alternatives"
+  },
+  {
+   "ts": "2026-11-20T01:11:12+00:00",
+   "product": "luz-amanha",
+   "role": "dispatcher",
+   "kind": "task_blocked",
+   "summary": "T-0208 Data: fill 23:00 Lisbon of day D from OMIE file D+1 (quarter: stuck: stuck again after a replan on this chain (3 failed attempts)"
+  },
+  {
+   "ts": "2026-11-19T17:13:39+00:00",
+   "product": "luz-amanha",
+   "role": "dispatcher",
+   "kind": "task_blocked",
+   "summary": "T-0199 X post 19.11 14:20 UTC: headline test A (dynamic tariff) wit: question Q-0050"
+  },
+  {
+   "ts": "2026-11-19T16:27:15+00:00",
+   "product": "luz-amanha",
+   "role": "dispatcher",
+   "kind": "task_blocked",
+   "summary": "T-0199 X post 19.11 14:20 UTC: headline test A (dynamic tariff) wit: question Q-0048"
+  },
+  {
+   "ts": "2026-11-19T16:26:26+00:00",
+   "product": "agentsmd-tracker",
+   "role": "developer",
+   "kind": "run_failed",
+   "summary": "developer: inactive for 300s"
+  },
+  {
+   "ts": "2026-11-19T16:08:29+00:00",
+   "product": "agent-team-diary",
+   "role": "dispatcher",
+   "kind": "task_blocked",
+   "summary": "T-0167 X day story 2026-11-19 16:00 UTC: one 18.11 event, link last: question Q-0035"
+  },
+  {
+   "ts": "2026-11-19T15:07:37+00:00",
+   "product": "agent-team",
+   "role": "dispatcher",
+   "kind": "task_blocked",
+   "summary": "T-0183 team-fetch: add --head N (code + unit test only): stuck: stuck again after a replan on this chain (6 failed attempts)"
+  },
+  {
+   "ts": "2026-11-19T13:08:23+00:00",
+   "product": "agent-team-diary",
+   "role": "dispatcher",
+   "kind": "task_blocked",
+   "summary": "T-0198 Home and day lead: never call a task in a closed state (reje: stuck: 3 failed attempts on this goal; the PO replans it with 3 alternatives"
+  },
+  {
+   "ts": "2026-11-19T11:07:29+00:00",
+   "product": "agent-team",
+   "role": "dispatcher",
+   "kind": "task_blocked",
+   "summary": "T-0176 [retro] Reviewer/editor cards: plain team-fetch shows the pa: stuck: 3 failed attempts on this goal; the PO replans it with 3 alternatives"
+  },
+  {
+   "ts": "2026-11-19T10:07:58+00:00",
+   "product": "agent-team",
+   "role": "dispatcher",
+   "kind": "task_blocked",
+   "summary": "T-0176 [retro] Reviewer/editor cards: plain team-fetch shows the pa: partial repeated with the same summary: stuck"
+  },
+  {
+   "ts": "2026-11-19T08:18:09+00:00",
+   "product": "release-radar",
+   "role": "dispatcher",
+   "kind": "task_blocked",
+   "summary": "T-0125 X 19.11 07:30 UTC — Bump-size count: 'K of M flagged release: question Q-0027"
+  },
   {
    "ts": "2026-11-19T04:07:32+00:00",
    "product": "agent-team",
@@ -261,111 +375,6 @@
    "role": "reviewer",
    "kind": "tool_denied",
    "summary": "reviewer: denied Bash(python3 -B -m unittest tests.test_method_changes -v)"
-  },
-  {
-   "ts": "2026-11-13T07:09:56+00:00",
-   "product": "agentsmd-tracker",
-   "role": "dispatcher",
-   "kind": "task_blocked",
-   "summary": "T-0138 Scan accuracy: resolve each repo's current default branch at: stuck: 3 failed attempts on this goal; the PO replans it with 3 alternatives"
-  },
-  {
-   "ts": "2026-11-13T04:08:14+00:00",
-   "product": "agentsmd-tracker",
-   "role": "reviewer",
-   "kind": "tool_denied",
-   "summary": "reviewer: denied Bash(python3 -B -m unittest tests.test_check_path -v)"
-  },
-  {
-   "ts": "2026-11-13T03:10:59+00:00",
-   "product": "agentsmd-tracker",
-   "role": "reviewer",
-   "kind": "tool_denied",
-   "summary": "reviewer: denied Bash(python3 -B -m unittest tests.test_mobile_a11y -v)"
-  },
-  {
-   "ts": "2026-11-13T02:09:35+00:00",
-   "product": "agentsmd-tracker",
-   "role": "reviewer",
-   "kind": "tool_denied",
-   "summary": "reviewer: denied Bash(python3 -B -m unittest tests.test_fallback -v)"
-  },
-  {
-   "ts": "2026-11-13T00:12:00+00:00",
-   "product": "agentsmd-tracker",
-   "role": "reviewer",
-   "kind": "tool_denied",
-   "summary": "reviewer: denied Bash(team-fetch https://agentsmd.formachines.ai/ --grep under 300 bytes) --around 100), Bash(team-fetch https://agentsmd.formachines.ai/ --grep (under)"
-  },
-  {
-   "ts": "2026-11-12T22:08:14+00:00",
-   "product": "agentsmd-tracker",
-   "role": "reviewer",
-   "kind": "tool_denied",
-   "summary": "reviewer: denied Bash(python3 -B -m unittest tests.test_go_pages -v)"
-  },
-  {
-   "ts": "2026-11-12T22:08:14+00:00",
-   "product": "agentsmd-tracker",
-   "role": "reviewer",
-   "kind": "reported",
-   "summary": "reviewer: [denied_permission] python3 -m unittest tests.test_go_pages -v was listed as allowed but required approval, so the test could not be run."
-  },
-  {
-   "ts": "2026-11-12T21:11:05+00:00",
-   "product": "agentsmd-tracker",
-   "role": "reviewer",
-   "kind": "tool_denied",
-   "summary": "reviewer: denied Bash(python3 -B -m unittest tests.test_go_pages -v)"
-  },
-  {
-   "ts": "2026-11-12T21:11:05+00:00",
-   "product": "agentsmd-tracker",
-   "role": "reviewer",
-   "kind": "review_fail",
-   "summary": "T-0131: The /go/<id>/ pages now carry noindex, nofollow, all 8939 /go/ links are nofollow, the offline test passes, and build.json has data_delayed false. The only /go/ pages linked from /repo/3b1b/ma"
-  },
-  {
-   "ts": "2026-11-12T21:09:07+00:00",
-   "product": "agent-team-diary",
-   "role": "reviewer",
-   "kind": "tool_denied",
-   "summary": "reviewer: denied Bash(team-fetch https://agentteam.formachines.ai/day/2026-11-11/ --grep id=&quot;agen)"
-  },
-  {
-   "ts": "2026-11-12T19:08:21+00:00",
-   "product": "agent-team-diary",
-   "role": "reviewer",
-   "kind": "reported",
-   "summary": "reviewer: [other] team-fetch rejected --grep patterns containing the word 'not' (usage error), so the exact old heading text could not be searched directly."
-  },
-  {
-   "ts": "2026-11-12T16:12:20+00:00",
-   "product": "luz-amanha",
-   "role": "dispatcher",
-   "kind": "task_blocked",
-   "summary": "T-0110 Threads post 12.11 14:20 UTC: 13.11 cheapest hours in one hu: question Q-0041"
-  },
-  {
-   "ts": "2026-11-12T15:07:47+00:00",
-   "product": "agentsmd-tracker",
-   "role": "reviewer",
-   "kind": "tool_denied",
-   "summary": "reviewer: denied Bash(python3 -B -m unittest tests.test_head -v)"
-  },
-  {
-   "ts": "2026-11-12T15:07:47+00:00",
-   "product": "agentsmd-tracker",
-   "role": "reviewer",
-   "kind": "reported",
-   "summary": "reviewer: [denied_permission] The allowed command `python3 -B -m unittest tests.test_head -v` required approval, so the test could not be run."
-  },
-  {
-   "ts": "2026-11-12T14:08:42+00:00",
-   "product": "agentsmd-tracker",
-   "role": "reviewer",
-   "kind": "tool_denied",
-   "summary": "reviewer: denied Bash(python3 -B -m unittest tests.test_sitemap -v)"
   }
  ]
 }

@@ -37,6 +37,58 @@
    ]
   },
   {
+   "id": "T-0181",
+   "title": "Internal links end with the final slash: no /lang/<slug> or /repo/... href without '/' on any page; offline test",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-16T07:10:33+00:00",
+   "accepted_at": "2026-11-18T08:14:23+00:00",
+   "released_sha": "99c416548905cc440bdbe9f9893ada191c5b84dd",
+   "history": [
+    {
+     "ts": "2026-11-19T12:09:40+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — Данных о запросах /lang/ без слеша в metrics нет."
+    },
+    {
+     "ts": "2026-11-19T12:09:40+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0183",
+   "title": "X post 18.11 06:15 UTC from @formachines_ai: Daily number",
+   "type": "content",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-16T13:09:12+00:00",
+   "accepted_at": "2026-11-18T07:10:50+00:00",
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-19T12:09:40+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-19T12:09:40+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
    "id": "T-0184",
    "title": "X post 19.11 06:15 UTC from @formachines_ai: Card link (repo added AGENTS.md in 24 h)",
    "type": "content",
@@ -65,6 +117,26 @@
      "actor": "dispatcher",
      "to": "accepted",
      "note": "posted 1 (editor-approved)"
+    }
+   ]
+  },
+  {
+   "id": "T-0195",
+   "title": "Analyst: did T-0192 cut crawler hits on /go/? Read 18–19.11 against the 17.11 baseline (3,848 crawler requests)",
+   "type": "research",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "analyst",
+   "created": "2026-11-17T19:10:21+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-19T13:10:58+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: OBS-0476 from the analyst already answers it: crawler requests to /go/ went 3848 → 3 → 1 (a drop above 99 %), so the verdict is 'worked'. Human /go/ clicks are 0–1 a day. Another analyst"
     }
    ]
   },
@@ -121,6 +193,188 @@
    ]
   },
   {
+   "id": "T-0198",
+   "title": "SEO: lastmod on every sitemap URL; unique title, description and self-canonical on /, /lang/*/, /repo/*/*/; offline test",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-18T08:15:29+00:00",
+   "accepted_at": "2026-11-18T09:20:01+00:00",
+   "released_sha": "135cd3d1e530e701b8580f9b3d59ae3640316fe1",
+   "history": [
+    {
+     "ts": "2026-11-19T12:09:40+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — Релиз 18.11. GSC лагает на 2–3 дня, в индексе 2 из 520, кликов 0. Сравнивать пока нечего."
+    },
+    {
+     "ts": "2026-11-19T12:09:40+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0199",
+   "title": "New conventions in PATHS: .github/instructions/ and .claude/rules/ tracked from the next scan, 'not tracked' before it; offline test",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G3b",
+   "role": "developer",
+   "created": "2026-11-18T11:14:39+00:00",
+   "accepted_at": "2026-11-18T12:09:33+00:00",
+   "released_sha": "9d48d1d917d4a08a3f0c847b37ae0c497601295d",
+   "history": [
+    {
+     "ts": "2026-11-19T12:09:40+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — Метрики посещаемости не привязаны к новым путям; чтение 02.12."
+    },
+    {
+     "ts": "2026-11-19T12:09:40+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0200",
+   "title": "Path count and scan-time estimate derived from PATHS: README and the site's method text cannot drift; offline test",
+   "type": "quality",
+   "state": "done",
+   "priority": "P3",
+   "goal": "G3b",
+   "role": "developer",
+   "created": "2026-11-18T12:10:12+00:00",
+   "accepted_at": "2026-11-18T13:10:13+00:00",
+   "released_sha": "16df4cf11892dcdf972f84ba99595af03b901aa0",
+   "history": [
+    {
+     "ts": "2026-11-19T18:12:16+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-19T18:12:16+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0201",
+   "title": "README test count cannot drift: no literal 'N files' or a count equal to tests/test_*.py; offline test",
+   "type": "quality",
+   "state": "done",
+   "priority": "P3",
+   "goal": "G3b",
+   "role": "developer",
+   "created": "2026-11-18T13:10:58+00:00",
+   "accepted_at": "2026-11-18T14:09:12+00:00",
+   "released_sha": "e507fedf80f024dc9cdcf1f9468b101125d7e5e8",
+   "history": [
+    {
+     "ts": "2026-11-19T18:12:16+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-19T18:12:16+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0203",
+   "title": "Unmeasured paths not shown as 0/0.0%: 'not measured yet' until first scan, then date and checked-repo count; test",
+   "type": "defect",
+   "state": "done",
+   "priority": "P1",
+   "goal": "G3b",
+   "role": "developer",
+   "created": "2026-11-18T14:10:06+00:00",
+   "accepted_at": "2026-11-18T15:08:49+00:00",
+   "released_sha": "bc840f255499329f521263a5810507fc76538434",
+   "history": [
+    {
+     "ts": "2026-11-19T18:12:16+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-19T18:12:16+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0204",
+   "title": "Unmeasured paths on repo cards, card index.json and the /lang/ per-repo table: 'not measured yet', not 0/0.0%/'no'; offline test",
+   "type": "defect",
+   "state": "done",
+   "priority": "P1",
+   "goal": "G3b",
+   "role": "developer",
+   "created": "2026-11-18T15:09:38+00:00",
+   "accepted_at": "2026-11-18T16:09:45+00:00",
+   "released_sha": "4621fcb7f8e4a7939f5a117c72a15770e93370bb",
+   "history": [
+    {
+     "ts": "2026-11-19T18:12:16+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-19T18:12:16+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0205",
+   "title": "Repo card prose summary counts only measured paths: 'K of N checked paths', unmeasured listed separately; offline test",
+   "type": "defect",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G3b",
+   "role": "developer",
+   "created": "2026-11-18T16:10:40+00:00",
+   "accepted_at": "2026-11-18T17:08:44+00:00",
+   "released_sha": "089ee2c8f531ec0e9d77b5aa4b5e3c96a63d1106",
+   "history": [
+    {
+     "ts": "2026-11-19T18:12:16+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-19T18:12:16+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
    "id": "T-0207",
    "title": "Analyst check 19.11: first scan of the two new paths (tracked_since, measured, no false 'added', data on time)",
    "type": "research",
@@ -156,7 +410,7 @@
    "id": "T-0208",
    "title": "No broken internal links: every internal href/src on generated pages resolves to a file in public/; offline test",
    "type": "quality",
-   "state": "accepted",
+   "state": "done",
    "priority": "P2",
    "goal": "G1",
    "role": "developer",
@@ -195,6 +449,328 @@
      "note": "The new guard test exists, is read-only and offline, and reports 0 offenders over 6971 pages and 90374 links. The report states that internal links do not explain the 4xx spike, and build.json shows d"
     }
    ]
+  },
+  {
+   "id": "T-0209",
+   "title": "Per-path coverage: new paths show checked/unknown and share over checked repos only, not over 1,919; offline test",
+   "type": "defect",
+   "state": "accepted",
+   "priority": "P1",
+   "goal": "G3b",
+   "role": "developer",
+   "created": "2026-11-19T08:09:21+00:00",
+   "accepted_at": "2026-11-19T09:09:34+00:00",
+   "released_sha": "02fb9d7cea477395819167ff5eae56a347638f6f",
+   "history": [
+    {
+     "ts": "2026-11-19T08:09:21+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-19T08:09:23+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261119T0807-exec-T-0209"
+    },
+    {
+     "ts": "2026-11-19T08:09:23+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-19T08:16:54+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 02fb9d7cea"
+    },
+    {
+     "ts": "2026-11-19T09:09:34+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "Live stats.json, home and PHP page now show per-path checked/unknown (1217/702 for the two new paths) with shares over checked repos only. llms.txt explains it, the offline test with both cases exists"
+    }
+   ]
+  },
+  {
+   "id": "T-0210",
+   "title": "stats.json by_language: per-language checked/unknown for .github/instructions/ and .claude/rules/, share over checked only; offline test",
+   "type": "defect",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G3b",
+   "role": "developer",
+   "created": "2026-11-19T09:10:28+00:00",
+   "accepted_at": "2026-11-19T10:11:52+00:00",
+   "released_sha": "e5ebce17c9b4da8dd450545ef71ffdbde08a1074",
+   "history": [
+    {
+     "ts": "2026-11-19T09:10:28+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-19T09:10:29+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261119T0907-exec-T-0210"
+    },
+    {
+     "ts": "2026-11-19T09:10:29+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-19T09:13:22+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged e5ebce17c9"
+    },
+    {
+     "ts": "2026-11-19T10:11:52+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "Live stats.json by_language now carries integer checked/unknown/shares per path, consistent with /lang/php/ and with llms.txt. Tests cover partial and full coverage and passed. Values: php 88/103/1.1 "
+    }
+   ]
+  },
+  {
+   "id": "T-0211",
+   "title": "Indexability: sitemap lastmod without /go/, Sitemap in robots.txt, unique title/description, self-canonical; offline test",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-19T13:10:59+00:00",
+   "accepted_at": "2026-11-19T14:17:17+00:00",
+   "released_sha": "d8b60922cd8a6391946ef2231b6a74cf18beba75",
+   "history": [
+    {
+     "ts": "2026-11-19T13:10:59+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-19T13:11:01+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261119T1307-exec-T-0211"
+    },
+    {
+     "ts": "2026-11-19T13:11:01+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-19T13:12:44+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged d8b60922cd"
+    },
+    {
+     "ts": "2026-11-19T14:17:17+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "All observable criteria hold on the live site: robots.txt, sitemap lastmod with no /go/ URLs, unique self-canonical pages, a /lang/python/ link to manim, and data_delayed false. The new test is presen"
+    }
+   ]
+  },
+  {
+   "id": "T-0212",
+   "title": "Denominator M fell 1,922→1,919: name the repos that left, keep their cards with a status, explain M in stats.json; test",
+   "type": "defect",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G3b",
+   "role": "developer",
+   "created": "2026-11-19T14:18:14+00:00",
+   "accepted_at": "2026-11-19T15:10:00+00:00",
+   "released_sha": "4aee2cbab34499c5089dbd3403eb155324fe467c",
+   "history": [
+    {
+     "ts": "2026-11-19T14:18:14+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-19T14:18:15+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261119T1407-exec-T-0212"
+    },
+    {
+     "ts": "2026-11-19T14:18:15+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-19T14:22:59+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 4aee2cbab3"
+    },
+    {
+     "ts": "2026-11-19T15:10:00+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The live stats.json has a dated denominator block (M 1919 + excluded 3 = 1922), and llms.txt defines M and excluded. The three excluded repos keep cards (200) with status and first-seen date, and the "
+    }
+   ]
+  },
+  {
+   "id": "T-0213",
+   "title": "Excluded repos carry dated excluded_since (observed or inferred) on cards and in stats.json; offline test",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P3",
+   "goal": "G3b",
+   "role": "developer",
+   "created": "2026-11-19T15:10:56+00:00",
+   "accepted_at": "2026-11-19T16:10:40+00:00",
+   "released_sha": "d555a65f1dbf4294ef6d73418adc2135c988fac8",
+   "history": [
+    {
+     "ts": "2026-11-19T15:10:56+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-19T15:10:57+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261119T1507-exec-T-0213"
+    },
+    {
+     "ts": "2026-11-19T15:10:57+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-19T15:16:51+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged d555a65f1d"
+    },
+    {
+     "ts": "2026-11-19T16:10:40+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "All three excluded repos carry dated excluded_since with an honest inferred_from_history source in stats.json, on the cards and in the card JSON. llms.txt explains the fields, the test is present and "
+    }
+   ]
+  },
+  {
+   "id": "T-0214",
+   "title": "data/history/<date>.json records the day's excluded repos (with reason) from the next scan on; excluded_since reads it; offline test",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P3",
+   "goal": "G3b",
+   "role": "developer",
+   "created": "2026-11-19T16:11:37+00:00",
+   "accepted_at": "2026-11-19T18:11:53+00:00",
+   "released_sha": "e60ab731d237448b2c78bdd26944f563d0947acc",
+   "history": [
+    {
+     "ts": "2026-11-19T16:11:37+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-19T16:11:39+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261119T1607-exec-T-0214"
+    },
+    {
+     "ts": "2026-11-19T16:11:39+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-19T16:26:26+00:00",
+     "actor": "dispatcher",
+     "to": "ready",
+     "note": "run failed: inactive for 300s"
+    },
+    {
+     "ts": "2026-11-19T17:09:14+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261119T1707-exec-T-0214"
+    },
+    {
+     "ts": "2026-11-19T17:09:14+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-19T17:12:20+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged e60ab731d2"
+    },
+    {
+     "ts": "2026-11-19T18:11:53+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The code writes the 'excluded' list into new history files. llms.txt names the start date (the first scan after 2026-11-19). stats.json keeps the same excluded_since values, all still inferred_from_hi"
+    }
+   ]
+  },
+  {
+   "id": "T-0215",
+   "title": "Analyst check 20.11: first full scan after T-0209/T-0210/T-0214 (history 'excluded', checked/unknown, data on time)",
+   "type": "research",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G3b",
+   "role": "analyst",
+   "created": "2026-11-19T19:11:11+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-19T19:11:11+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0216",
+   "title": "Analyst readout 26.11: did T-0211 (sitemap lastmod, robots Sitemap line, unique titles) move Google discovery/indexing?",
+   "type": "research",
+   "state": "ready",
+   "priority": "P3",
+   "goal": "G1",
+   "role": "analyst",
+   "created": "2026-11-19T21:15:46+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-19T21:15:46+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
   }
  ],
  "reviews": [
@@ -202,6 +778,36 @@
    "task": "T-0208",
    "verdict": "pass",
    "summary": "The new guard test exists, is read-only and offline, and reports 0 offenders over 6971 pages and 90374 links. The report states that internal links do not explain the 4xx spike, and build.json shows data_delayed false."
+  },
+  {
+   "task": "T-0209",
+   "verdict": "pass",
+   "summary": "Live stats.json, home and PHP page now show per-path checked/unknown (1217/702 for the two new paths) with shares over checked repos only. llms.txt explains it, the offline test with both cases exists and the suite passed, and old types are unchanged."
+  },
+  {
+   "task": "T-0210",
+   "verdict": "pass",
+   "summary": "Live stats.json by_language now carries integer checked/unknown/shares per path, consistent with /lang/php/ and with llms.txt. Tests cover partial and full coverage and passed. Values: php 88/103/1.1 for both paths; python 63/134, share 1.6 (.github/instructions) and 6.3 (.claude/rules)."
+  },
+  {
+   "task": "T-0211",
+   "verdict": "pass",
+   "summary": "All observable criteria hold on the live site: robots.txt, sitemap lastmod with no /go/ URLs, unique self-canonical pages, a /lang/python/ link to manim, and data_delayed false. The new test is present and the dispatcher's full run passed with 0 offenders."
+  },
+  {
+   "task": "T-0212",
+   "verdict": "pass",
+   "summary": "The live stats.json has a dated denominator block (M 1919 + excluded 3 = 1922), and llms.txt defines M and excluded. The three excluded repos keep cards (200) with status and first-seen date, and the dispatcher's suite run passed (149 tests, exit 0)."
+  },
+  {
+   "task": "T-0213",
+   "verdict": "pass",
+   "summary": "All three excluded repos carry dated excluded_since with an honest inferred_from_history source in stats.json, on the cards and in the card JSON. llms.txt explains the fields, the test is present and the suite passes, and data_delayed is false."
+  },
+  {
+   "task": "T-0214",
+   "verdict": "pass",
+   "summary": "The code writes the 'excluded' list into new history files. llms.txt names the start date (the first scan after 2026-11-19). stats.json keeps the same excluded_since values, all still inferred_from_history, and build.json shows data_delayed false."
   }
  ],
  "posts": [
@@ -212,22 +818,23 @@
   }
  ],
  "metrics": {
-  "humans": 19,
-  "engaged": 0,
-  "returns": 0,
-  "agents": 2,
-  "crawlers": 367,
-  "requests": 777
+  "humans": 42,
+  "engaged": 1,
+  "returns": 1,
+  "agents": 71,
+  "crawlers": 1205,
+  "requests": 2318
  },
- "spend_usd": 2.9,
- "po_digest_md": "**Цикл 19.11, 07:07 UTC. Потрачено $1.81 из $20.**\n\n**Что произошло.** Вчера все задачи разработчика приняты:\n- SEO-сигналы (T-0198);\n- две новые конвенции в PATHS (T-0199);\n- исправлены ложные «0 %» у ещё не измеренных путей (T-0203–T-0205);\n- таблицы на 375 px (T-0206);\n- проверка внутренних ссылок (T-0208).\n\nАналитик проверил первый скан новых путей (T-0207).\n\n**Решения.** Новых задач нет. Разработчику я ничего не ставлю: на живом сайте сейчас нет ни сломанного, ни измеримо улучшаемого. Все три новых наблюдения уже закрыты принятыми задачами или ждут ops и времени:\n- **Число «людей» раздуто.** Его раздувают источники, запросившие только /favicon.svg: 19 human при 0 engaged за 19.11. Это фильтр sitemetrics (Q-0023, ждёт владельца). Для G1 смотрим только engaged.\n- **Всплеск 4xx вернулся:** 268 за неполные сутки 19.11 при обычных 10–13. Это повтор, о котором Q-0024 просил сообщить владельцу. Около половины аналитик связывает с внешними сканерами /.cursor/mcp.json и /.claude/settings.json. Собственные ссылки мы проверили тестом T-0208. Без разбивки 4xx по путям (Q-0024, решают ops) больше не сказать.\n- **Google: в индексе 2 из 520 URL, 0 кликов.** Эффект T-0198 появится через 1–2 недели. Читаем его в T-0112 и после 02.12.\n\n**Что дальше.**\n- Посты в X идут ежедневно в 06:15 UTC до 24.11.\n- Слоты Telegram 21.11, Bluesky 22.11, Mastodon 23.11 и Threads 24.11 стоят после окон лимитов.\n- План на 25.11–01.12 — T-0202, с 22.11.\n- Сегодня аналитик делает недельный разбор G1–G5 (T-0112), 20.11 — проверку эффекта T-0192 на краулеров в /go/ (T-0195).\n\n**Ждёт владельца:**\n- фильтр людей в sitemetrics (Q-0023);\n- разбивка 4xx по путям (Q-0024);\n- отправка sitemap в GSC (Q-0022);\n- ключ dev.to, который отвечает 401 (Q-0018).",
- "analyst_md": "**Срез на 19.11 06:00 UTC (19.11 — неполный день). Уровни не суммируются.**\n\n| Уровень | 13–19.11 | Цель |\n|---|---|---|\n| Люди, engaged (сумма за 7 дн.) | 2+3+5+6+2+1+0 = **19** | G1 ≥60 за 04–10.11 (этих дней в данных нет) |\n| Возвраты | 3 (13, 16, 17.11) | G2 ≥5 |\n| /go/ от людей (источники/день) | 13, 10, 6, 9, 0, 0, 1 | G3 ≥15 запросов |\n| Агенты (19.11) | 2 источника (curl, aiohttp) | G4 ≥1: выполнено |\n| Краулеры (19.11) | 154 источника, GPTBot 5 | — |\n| Google | 0 кликов, 33 показа, 2/520 в индексе | — |\n\n- «Humans: sources» 1937 и 3867 (15–16.11) — почти всё `/favicon.svg` (6218 запросов), при engaged 5–6. Это не люди-визиты.\n- T-0192 (Disallow /go/ + nofollow, выпущен 17.11 14:09): краулерные запросы к /go/ 17.11 — 3848, 18.11 — 3, 19.11 — 0. Механизм правдоподобен, эффект положительный.\n- Посты: X 18.11 07:10 → `?src=x` 4 запроса, 1 engaged, referer t.co 1. Почасовых данных нет, до/после по часам не посчитать.\n- 4xx: 268 за неполный день 19.11 (13 за 18.11); сканеры дают лишь 127 запросов.\n- 5xx = 0.\n- G5: данных нет.",
+ "spend_usd": 10.3,
+ "po_digest_md": "**Цикл 19.11 21:07 — agentsmd-tracker**\n\n**Что произошло.** Новых наблюдений и вопросов нет. За 19.11 приняты T-0206 (таблицы на 375 px), T-0208 (битые внутренние ссылки), T-0209/T-0210 (доля по проверенным репо для новых путей), T-0211 (индексируемость), T-0212–T-0214 (объяснение знаменателя 1 922→1 919 и excluded_since). Пост в X 19.11 вышел (+1, solidjs/solid, 566 из 1 919, 29,5 %).\n\n**Решения.** Сломанного или измеримо ухудшенного на сайте сейчас не вижу: открытые замечания QA, критика и аналитика закрыты задачами, принятыми сегодня. Новую функцию не придумываю, задачи на дефекты и качество не ставлю. Первый живой прогон всех сегодняшних изменений проверит аналитик в T-0215 (20.11, 04:45 UTC), до поста в X в 06:15. Добавлена одна дешёвая задача аналитика на 26.11: прочитать Google Search Console после T-0211. Сейчас в индексе 2 из 520 URL и 0 кликов из поиска. Если индексация не сдвинется, нужен другой подход к поиску для G1.\n\n**Маркетинг.** Все слоты плана T-0128 до 24.11 нарезаны, новый план T-0202 стартует 22.11. Слот dev.to 20.11 пропущен: ключ возвращает 401 (Q-0018). Лимиты Mastodon и Threads выбраны.\n\n**Ждёт владельца.** Q-0018 (ключ dev.to). Q-0023: фильтр людей в sitemetrics, из-за favicon.svg 13–16.11 насчитано тысячи «людей». Q-0024: разбивка 4xx по путям.\n\n**Метрики.** Реальные вовлечённые люди — 1–2 в день, их приводит только X (x + x-card: 15 человек, 13 вовлечённых за 14 дней).\n\n**Расходы:** $9,80 из $20.",
+ "analyst_md": "**Срез на 19.11 (пилот 04–10.11 завершён, данные за 13–19.11; цели G1–G5 из VISION, окно пилота в этом срезе не видно).**\n\n| Уровень | 19.11 | 18.11 | 17.11 |\n|---|---|---|---|\n| Краулеры (запросы) | 941 | 1918 | 5471 |\n| Люди: источники / engaged | 21 / 1 | 3 / 1 | 6 / 2 |\n| Возвраты | 1 | 0 | 1 |\n| Агенты (источники) | 10 | 0 | 4 |\n| /go/ люди (источники) | 1 | 0 | 0 |\n\n- Люди: всплеск 15–16.11 (3867 источников, 6 engaged) выглядит как нагрузка на /favicon.svg (6218 запросов) и /repo/, а не как реальные читатели. Engaged при этом 1–6 в день.\n- /go/: 17.11 — 3 875 запросов, почти все от краулеров (meta-externalagent). После T-0192 (robots Disallow /go/ + nofollow) 18–19.11 — 41 и 34 запроса, краулеров 3 и 1. Эффект похож на положительный, но данных мало.\n- Google: 0 кликов, 33 показа, в индексе 2 из 520.\n- Постов с рефереров мало: x-card 19.11 даёт 1 engaged на 7 запросов.\n- G4: llms.txt получил 1 агентский источник 19.11 — G4 выполнена по факту.\n- G5 по метрикам не проверить.",
  "observations": {
-  "new": 9,
+  "new": 21,
   "by_class": {
    "reproducible_defect": 1,
-   "need_hypothesis": 6,
-   "measurement": 2
+   "need_hypothesis": 14,
+   "measurement": 5,
+   "feedback": 1
   }
  },
  "owner_questions_open": 0

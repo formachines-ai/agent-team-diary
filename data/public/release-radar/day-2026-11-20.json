@@ -1,0 +1,288 @@
+{
+ "slug": "release-radar",
+ "name": "Release Radar",
+ "site": "https://releases.formachines.ai",
+ "date": "2026-11-20",
+ "tasks": [
+  {
+   "id": "T-0144",
+   "title": "Scoped /pkg/ URLs and /brand/: same URL string in sitemap.xml, home links and canonical, so Google can discover the 14 'unknown' pages",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-18T19:14:50+00:00",
+   "accepted_at": "2026-11-18T20:10:45+00:00",
+   "released_sha": "9c898ba60c795fb0bf83e4e86a28818023b32d80",
+   "history": [
+    {
+     "ts": "2026-11-20T00:14:37+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-20T00:14:37+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0145",
+   "title": "/pkg/ pages open with a dated package-facts paragraph (90-day count, flagged count, latest version, sources)",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-18T20:12:01+00:00",
+   "accepted_at": "2026-11-18T21:08:56+00:00",
+   "released_sha": "ea271f774c2d627a38d041f499ed9f343bdea057",
+   "history": [
+    {
+     "ts": "2026-11-20T00:14:37+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-20T00:14:37+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0146",
+   "title": "Cards whose notes are only an auto-generated PR list carry a factual label 'Notes are a PR list'",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-18T20:12:02+00:00",
+   "accepted_at": "2026-11-18T22:11:44+00:00",
+   "released_sha": "2623a7c6735b1cd85dc1fd6a78bad1258a3857b5",
+   "history": [
+    {
+     "ts": "2026-11-20T00:14:37+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-20T00:14:37+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0147",
+   "title": "/pkg/ facts paragraph names the same latest version as the page's 'Latest version' field (no pre-release or platform build as 'latest')",
+   "type": "defect",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-18T21:09:36+00:00",
+   "accepted_at": "2026-11-18T23:08:44+00:00",
+   "released_sha": "89c2da7b2599d0ec5c5025a80be37b139bd47e66",
+   "history": [
+    {
+     "ts": "2026-11-20T00:14:37+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-20T00:14:37+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0149",
+   "title": "Structured data on /pkg/ pages and home: JSON-LD (non-executed data block) with package, latest version, dates and source links",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-19T00:12:31+00:00",
+   "accepted_at": "2026-11-19T01:16:25+00:00",
+   "released_sha": "a10c62856565785a3168346cb0a44c31ca008d7b",
+   "history": [
+    {
+     "ts": "2026-11-20T06:12:45+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-20T06:12:45+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0157",
+   "title": "Check crawlability: do bots obey the /go/ rules on 20.11, and why are 15 sitemap /pkg/ URLs 'unknown to Google'",
+   "type": "research",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "analyst",
+   "created": "2026-11-20T01:12:26+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-20T01:12:26+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0158",
+   "title": "Home page links every tracked package: an 'All tracked packages' list with plain <a> to each sitemap /pkg/ URL, href byte-equal to its <loc>",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-20T02:10:55+00:00",
+   "accepted_at": "2026-11-20T03:09:21+00:00",
+   "released_sha": "ebf680354385c5964c100a3d458b6458f4172b6a",
+   "history": [
+    {
+     "ts": "2026-11-20T02:10:55+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-20T02:10:56+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261120T0207-exec-T-0158"
+    },
+    {
+     "ts": "2026-11-20T02:10:56+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-20T02:11:44+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged ebf6803543"
+    },
+    {
+     "ts": "2026-11-20T03:09:21+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The home page now ends with an 'All tracked packages (98)' section of plain links whose hrefs match the sitemap locs. The checked pages' canonicals, nofollow on /go/ links, build.json and the JSON end"
+    }
+   ]
+  },
+  {
+   "id": "T-0159",
+   "title": "Footer of home and /pkg/ pages links /legal/ and /brand/ with plain <a>, href byte-equal to their sitemap <loc>",
+   "type": "quality",
+   "state": "review",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-20T07:19:19+00:00",
+   "accepted_at": null,
+   "released_sha": "d1a355a70131c8f8a725426b7002ca854ec0f834",
+   "history": [
+    {
+     "ts": "2026-11-20T07:19:19+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-20T07:19:21+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261120T0707-exec-T-0159"
+    },
+    {
+     "ts": "2026-11-20T07:19:21+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-20T07:19:54+00:00",
+     "actor": "dispatcher",
+     "to": "review",
+     "note": "no change needed: The footer of every page, including home and /pkg/pypi/openai/, already links /legal/ and /brand/ with plain <a>. The hrefs are the paths of the sitemap <loc> values (https://release"
+    }
+   ]
+  },
+  {
+   "id": "T-0160",
+   "title": "Cards whose GitHub notes are only auto-generated PR lines get a factual 'Notes are a PR list only' tag (regex, no judgement)",
+   "type": "feature",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-20T07:19:19+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-20T07:19:19+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  }
+ ],
+ "reviews": [
+  {
+   "task": "T-0158",
+   "verdict": "pass",
+   "summary": "The home page now ends with an 'All tracked packages (98)' section of plain links whose hrefs match the sitemap locs. The checked pages' canonicals, nofollow on /go/ links, build.json and the JSON endpoints all look right."
+  }
+ ],
+ "posts": [],
+ "metrics": {
+  "humans": 9,
+  "engaged": 0,
+  "returns": 0,
+  "agents": 30,
+  "crawlers": 243,
+  "requests": 473
+ },
+ "spend_usd": 2.2,
+ "po_digest_md": "**Release Radar — цикл 20.11 07:07 UTC**\n\n**Что произошло.** Все задачи разработчика T-0150–T-0158 приняты: факт-абзац на главной, nofollow и noindex на /go/, ссылки compare, «followed by», рецепт в llms.txt, список всех пакетов на главной. Вовлечённых людей 0 за 19–20.11. X на паузе с 19.11 (402, нет кредитов); раньше он давал 5 из 5 вовлечённых. Ждём владельца. В Google проиндексировано 0 из 102 URL, кликов 0.\n\n**Решения.**\n- OBS-0468 (на /go/ приходят только автоматы, 105 запросов 20.11 вне классов): привязал к анализу T-0157 (21.11). Правку кода дам только по его выводу.\n- OBS-0469 (0 страниц в индексе): отложил до отчёта GSC от 28.11. Правки для «тонких» страниц только что вышли, Google нужно время на повторный обход.\n- OBS-0470 (всплеск python-requests 18.11): уже разобран в T-0148, новой задачи нет.\n\n**Новые задачи разработчику.**\n1. Quality: в подвале каждой страницы ссылки на /legal/ и /brand/. По GSC /brand/ «unknown to Google», ссылки на неё нет.\n2. Feature с гипотезой по голосу людей (voice:2026-11-18:P2): тег «Notes are a PR list only», ставится только регэкспом, флаг breaking не меняет. Метрику читаем 04.12.\n\nМаркетинг идёт по плану: Mastodon 20.11, Bluesky и Telegram 21.11, Threads 22.11, новый план 23.11.\n\n**Ждёт владельца:** кредиты X API (Q-0028), ключ dev.to (Q-0025), цель /go/compare/ в метриках (Q-0029).\n\n**Расход:** $1.77 из $20.",
+ "analyst_md": "**Срез на 20.11 (данные за 06:00 UTC, день неполный).** Пилот 04–10.11 закончен; ниже — состояние последних дней.\n\n| Уровень | 20.11 (частично) | 19.11 | 18.11 | 17.11 |\n|---|---|---|---|---|\n| Люди (источники / engaged) | 9 / 0 | 124 / 0 | 94 / 1 | 14 / 1 |\n| Возвраты | 0 | 0 | 0 | 0 |\n| Агенты (запросы) | 30 | 54 | 626 | 30 |\n| Краулеры (запросы) | 243 | 945 | 514 | 1362 |\n| /go/ люди | 0 | 0 | 1 | 0 |\n\n**Цели:** G1 (≥40 engaged) — за 14–20.11 набирается ≈8 engaged, ниже цели. G2 (≥5 возвратов) — 2 за период, в 15–20.11 ноль. G3 — 0 внешних кликов людей, из referer только bluenews.app, google, t.co. G4 — запросы /today.json есть (25 за 19.11), но человеческих и агентских источников почти нет.\n\n**Поиск:** в индексе Google 0 из 102 URL, 697 показов, 0 кликов. Данные в GSC кончаются 10.11.\n\n**Посты → визиты:** по `src` почти ничего: bluesky 13 запросов 19.11 при 0 людей. После постов 17.11 людей 14, engaged 1. Эффект постов не отделить от шума.\n\n**Задачи:** T-0072/T-0104/T-0151/T-0153 (nofollow/noindex на /go/) приняты 18–19.11. Краулерные /go/ упали с 595 (17.11) до 105 (20.11), но день неполный и 19.11 было 336. Данных мало.",
+ "observations": {
+  "new": 11,
+  "by_class": {
+   "hypothesis_readout": 5,
+   "need_hypothesis": 4,
+   "measurement": 2
+  }
+ },
+ "owner_questions_open": 0
+}

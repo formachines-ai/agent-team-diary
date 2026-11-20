@@ -113,7 +113,7 @@
    }
   ],
   "issues": [],
-  "pages_checked": 36
+  "pages_checked": 37
  },
  "address_check": {
   "expected": [
@@ -157,6 +157,8 @@
    "/day/2026-11-18/index.json",
    "/day/2026-11-19/",
    "/day/2026-11-19/index.json",
+   "/day/2026-11-20/",
+   "/day/2026-11-20/index.json",
    "/favicon.ico",
    "/feed.xml",
    "/go/github/",
@@ -183,24 +185,24 @@
  "alternate_check": {
   "bad_targets": [],
   "missing": [],
-  "pages_checked": 37
+  "pages_checked": 38
  },
  "artifact_check": {
-  "accepted_total": 1392,
+  "accepted_total": 1492,
   "mismatches": [],
-  "pages_checked": 18,
+  "pages_checked": 19,
   "sha_mismatches": [],
   "with_artifact": 3,
-  "with_sha": 769
+  "with_sha": 849
  },
  "audit_check": {
-  "checked_day": "2026-11-19",
+  "checked_day": "2026-11-20",
   "fields_documented": 10,
   "fields_missing": []
  },
  "baseline_check": {
   "mismatches": [],
-  "pages_checked": 18,
+  "pages_checked": 19,
   "too_few_days": [
    "2026-11-02",
    "2026-11-03",
@@ -211,19 +213,19 @@
   "bad_anchors": [],
   "duplicate_blocks": [],
   "mismatches": [],
-  "pages_checked": 18
+  "pages_checked": 19
  },
- "built": "2026-11-20T07:09:57Z",
+ "built": "2026-11-20T07:30:16Z",
  "checklist_check": {
   "footer_missing": [],
-  "latest_day": "2026-11-19",
+  "latest_day": "2026-11-20",
   "latest_day_problems": [],
-  "latest_export_day": "2026-11-19",
-  "pages_checked": 36,
+  "latest_export_day": "2026-11-20",
+  "pages_checked": 37,
   "sitemap_missing": [],
   "xml_errors": []
  },
- "commit": "8235e31",
+ "commit": "eb3e1a3",
  "contrast_check": {
   "failures": [],
   "pairs_checked": 32,
@@ -234,44 +236,44 @@
   "max_depth": 2,
   "missing_in_sitemap": [],
   "robots_sitemap": true,
-  "sitemap_urls": 28,
+  "sitemap_urls": 29,
   "unreachable": []
  },
- "day_files": 90,
- "days": 18,
+ "day_files": 95,
+ "days": 19,
  "discovery_check": {
   "max_depth": 2,
   "unreachable": [],
-  "urls": 28
+  "urls": 29
  },
  "errors": [],
  "escaped_check": {
   "mismatches": [],
-  "pages_checked": 18
+  "pages_checked": 19
  },
  "evidence_check": {
   "mismatches": [],
-  "pages_checked": 18
+  "pages_checked": 19
  },
  "external_check": {
   "mismatches": [],
-  "pages_checked": 18
+  "pages_checked": 19
  },
  "feed_check": {
   "bad_links": [],
   "guid_changed": [],
-  "items": 18,
+  "items": 19,
   "lead_mismatches": []
  },
  "fixture_days": 0,
  "follow_check": {
   "missing": [],
-  "pages_checked": 19
+  "pages_checked": 20
  },
  "generator": "build.py",
  "grammar_check": {
   "bad_plurals": [],
-  "files_checked": 39
+  "files_checked": 40
  },
  "health_check": {
   "fields_present": [
@@ -290,56 +292,62 @@
   "issues": [],
   "latest_link_ok": true,
   "lead_mismatches": [],
-  "words": 41
+  "words": 45
  },
  "icon_check": {
   "missing_files": [],
   "missing_links": [],
-  "pages_checked": 37
+  "pages_checked": 38
  },
  "id_check": {
   "dangling_links": [],
   "duplicate_ids": [],
-  "pages_checked": 37
+  "pages_checked": 38
  },
- "latest_day": "2026-11-19",
+ "latest_day": "2026-11-20",
  "latest_link_check": {
   "missing": [],
-  "pages_checked": 18,
+  "pages_checked": 19,
   "wrong_target": []
  },
  "lead_check": {
   "issues": [],
   "mismatches": [],
-  "pages_checked": 19
+  "pages_checked": 20
  },
  "lead_state_check": {
-  "mismatches": [],
-  "pages_checked": 19
+  "mismatches": [
+   {
+    "issue": "lead calls the task open but it is not in Open threads",
+    "page": "/",
+    "task": "T-0185"
+   }
+  ],
+  "pages_checked": 20
  },
  "link_check": {
   "broken": [],
-  "checked": 1669,
+  "checked": 1746,
   "sources": {
    "day_json": {
     "broken": 0,
-    "checked": 39
+    "checked": 41
    },
    "feed.xml": {
     "broken": 0,
-    "checked": 38
+    "checked": 40
    },
    "llms.txt": {
     "broken": 0,
-    "checked": 45
+    "checked": 46
    },
    "sitemap.xml": {
     "broken": 0,
-    "checked": 28
+    "checked": 29
    },
    "today.json": {
     "broken": 0,
-    "checked": 7
+    "checked": 9
    }
   }
  },
@@ -349,13 +357,13 @@
   "missing_fields": []
  },
  "machine_check": {
-  "days_checked": 18,
+  "days_checked": 19,
   "feed_missing": [],
   "json_errors": [],
   "llms_missing": []
  },
  "meta_check": {
-  "checked": 29,
+  "checked": 30,
   "missing": [],
   "tags": [
    "og:title",
@@ -372,21 +380,21 @@
  "microdata_check": {
   "date_mismatches": [],
   "missing": [],
-  "pages_checked": 26
+  "pages_checked": 27
  },
  "mobile_check": {
   "issues": [],
-  "pages_checked": 36
+  "pages_checked": 37
  },
  "nav_check": {
   "missing": [],
-  "pages_checked": 19
+  "pages_checked": 20
  },
  "not_found_check": {
   "file": "404.html",
   "links": [
    "/",
-   "/day/2026-11-19/",
+   "/day/2026-11-20/",
    "/about/",
    "/feed.xml"
   ],
@@ -398,24 +406,24 @@
  },
  "numbers_check": {
   "by_kind": {
-   "day": 736,
-   "home": 260,
-   "product": 702
+   "day": 777,
+   "home": 264,
+   "product": 741
   },
-  "checked": 1698,
+  "checked": 1782,
   "mismatches": [],
   "nested": [],
-  "pages_checked": 24,
+  "pages_checked": 25,
   "selftest": "pass"
  },
  "orphan_check": {
   "orphans": [],
-  "pages_in_sitemap": 28
+  "pages_in_sitemap": 29
  },
  "outcome_check": {
   "duplicate_blocks": [],
   "mismatches": [],
-  "pages_checked": 18
+  "pages_checked": 19
  },
  "paths_check": {
   "missing": [],
@@ -426,7 +434,7 @@
   ]
  },
  "placeholder_check": {
-  "files_checked": 39,
+  "files_checked": 40,
   "hits": []
  },
  "products": 5,
@@ -444,8 +452,8 @@
   "lastmod_missing": [],
   "noindex": [],
   "orphans": [],
-  "pages_checked": 36,
-  "pages_in_sitemap": 28,
+  "pages_checked": 37,
+  "pages_in_sitemap": 29,
   "title_too_short": []
  },
  "sitemap_check": {
@@ -454,17 +462,17 @@
   "max_depth": 2,
   "missing_pages": [],
   "unreachable_within_3": [],
-  "urls": 28
+  "urls": 29
  },
  "size_check": {
   "budget_bytes": 150000,
   "exempt": [],
   "gzip_budget_bytes": 36000,
   "gzip_level": 6,
-  "largest_gzip_bytes": 32761,
+  "largest_gzip_bytes": 32759,
   "largest_html_bytes": 167491,
   "measure": "gzip",
-  "min_gzip_headroom_bytes": 3239,
+  "min_gzip_headroom_bytes": 3241,
   "near_budget": [],
   "over_budget": [],
   "pages": [
@@ -474,12 +482,12 @@
     "raw_bytes": 3589
    },
    {
-    "gzip_bytes": 5407,
+    "gzip_bytes": 5404,
     "page": "/about/",
     "raw_bytes": 15559
    },
    {
-    "gzip_bytes": 1932,
+    "gzip_bytes": 1931,
     "page": "/brand/",
     "raw_bytes": 5443
    },
@@ -489,59 +497,59 @@
     "raw_bytes": 65730
    },
    {
-    "gzip_bytes": 32761,
+    "gzip_bytes": 32759,
     "page": "/day/2026-11-03/",
     "raw_bytes": 167491
    },
    {
-    "gzip_bytes": 26985,
+    "gzip_bytes": 26983,
     "page": "/day/2026-11-04/",
     "raw_bytes": 140963
    },
    {
-    "gzip_bytes": 20498,
+    "gzip_bytes": 20499,
     "page": "/day/2026-11-05/",
     "raw_bytes": 99642
    },
    {
-    "gzip_bytes": 18017,
+    "gzip_bytes": 18012,
     "page": "/day/2026-11-06/",
-    "raw_bytes": 82965
+    "raw_bytes": 82961
    },
    {
-    "gzip_bytes": 22207,
+    "gzip_bytes": 22200,
     "page": "/day/2026-11-07/",
-    "raw_bytes": 104939
+    "raw_bytes": 104935
    },
    {
-    "gzip_bytes": 23156,
+    "gzip_bytes": 23149,
     "page": "/day/2026-11-08/",
-    "raw_bytes": 109220
+    "raw_bytes": 109212
    },
    {
-    "gzip_bytes": 26402,
+    "gzip_bytes": 26392,
     "page": "/day/2026-11-09/",
-    "raw_bytes": 128000
+    "raw_bytes": 127992
    },
    {
-    "gzip_bytes": 25467,
+    "gzip_bytes": 25468,
     "page": "/day/2026-11-10/",
     "raw_bytes": 130590
    },
    {
-    "gzip_bytes": 26269,
+    "gzip_bytes": 26264,
     "page": "/day/2026-11-11/",
-    "raw_bytes": 124332
+    "raw_bytes": 124328
    },
    {
-    "gzip_bytes": 25813,
+    "gzip_bytes": 25810,
     "page": "/day/2026-11-12/",
-    "raw_bytes": 122106
+    "raw_bytes": 122098
    },
    {
-    "gzip_bytes": 22319,
+    "gzip_bytes": 22312,
     "page": "/day/2026-11-13/",
-    "raw_bytes": 100056
+    "raw_bytes": 100048
    },
    {
     "gzip_bytes": 23819,
@@ -549,52 +557,57 @@
     "raw_bytes": 105730
    },
    {
-    "gzip_bytes": 22495,
+    "gzip_bytes": 22491,
     "page": "/day/2026-11-15/",
-    "raw_bytes": 99648
+    "raw_bytes": 99644
    },
    {
-    "gzip_bytes": 19768,
+    "gzip_bytes": 19758,
     "page": "/day/2026-11-16/",
-    "raw_bytes": 91357
+    "raw_bytes": 91401
    },
    {
-    "gzip_bytes": 18305,
+    "gzip_bytes": 18316,
     "page": "/day/2026-11-17/",
-    "raw_bytes": 79116
+    "raw_bytes": 79146
    },
    {
-    "gzip_bytes": 26662,
+    "gzip_bytes": 26628,
     "page": "/day/2026-11-18/",
-    "raw_bytes": 128808
+    "raw_bytes": 128665
    },
    {
-    "gzip_bytes": 15249,
+    "gzip_bytes": 28662,
     "page": "/day/2026-11-19/",
-    "raw_bytes": 59027
+    "raw_bytes": 137621
    },
    {
-    "gzip_bytes": 670,
+    "gzip_bytes": 17101,
+    "page": "/day/2026-11-20/",
+    "raw_bytes": 65611
+   },
+   {
+    "gzip_bytes": 669,
     "page": "/go/github/",
     "raw_bytes": 1294
    },
    {
-    "gzip_bytes": 655,
+    "gzip_bytes": 656,
     "page": "/go/site/agent-team/",
     "raw_bytes": 1283
    },
    {
-    "gzip_bytes": 646,
+    "gzip_bytes": 645,
     "page": "/go/site/agent-team-diary/",
     "raw_bytes": 1277
    },
    {
-    "gzip_bytes": 663,
+    "gzip_bytes": 662,
     "page": "/go/site/agentsmd-tracker/",
     "raw_bytes": 1275
    },
    {
-    "gzip_bytes": 660,
+    "gzip_bytes": 659,
     "page": "/go/site/luz-amanha/",
     "raw_bytes": 1251
    },
@@ -604,14 +617,14 @@
     "raw_bytes": 1271
    },
    {
-    "gzip_bytes": 660,
+    "gzip_bytes": 659,
     "page": "/go/telegram/",
     "raw_bytes": 1272
    },
    {
-    "gzip_bytes": 5366,
+    "gzip_bytes": 5316,
     "page": "/",
-    "raw_bytes": 34025
+    "raw_bytes": 33823
    },
    {
     "gzip_bytes": 1899,
@@ -619,42 +632,42 @@
     "raw_bytes": 5242
    },
    {
-    "gzip_bytes": 1293,
+    "gzip_bytes": 1290,
     "page": "/open/costs/",
     "raw_bytes": 3600
    },
    {
-    "gzip_bytes": 5587,
+    "gzip_bytes": 5720,
     "page": "/product/agent-team/",
-    "raw_bytes": 25057
+    "raw_bytes": 26143
    },
    {
-    "gzip_bytes": 5850,
+    "gzip_bytes": 6097,
     "page": "/product/agent-team-diary/",
-    "raw_bytes": 27061
+    "raw_bytes": 28316
    },
    {
-    "gzip_bytes": 5776,
+    "gzip_bytes": 5943,
     "page": "/product/agentsmd-tracker/",
-    "raw_bytes": 26894
+    "raw_bytes": 28007
    },
    {
-    "gzip_bytes": 5574,
+    "gzip_bytes": 5781,
     "page": "/product/luz-amanha/",
-    "raw_bytes": 25861
+    "raw_bytes": 26946
    },
    {
-    "gzip_bytes": 5732,
+    "gzip_bytes": 5899,
     "page": "/product/release-radar/",
-    "raw_bytes": 26358
+    "raw_bytes": 27516
    },
    {
-    "gzip_bytes": 2246,
+    "gzip_bytes": 2243,
     "page": "/try/",
     "raw_bytes": 5977
    }
   ],
-  "pages_checked": 37
+  "pages_checked": 38
  },
  "snippet_check": {
   "counter_only_titles": [],
@@ -665,13 +678,13 @@
    "fixture": "ok",
    "no_activity": "ok"
   },
-  "pages_checked": 36,
+  "pages_checked": 37,
   "short_titles": [],
   "too_long": []
  },
  "try_check": {
   "missing": [],
-  "pages_checked": 19
+  "pages_checked": 20
  },
  "wellknown_check": {
   "files": [

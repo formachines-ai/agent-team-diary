@@ -1,0 +1,99 @@
+{
+ "slug": "agent-team",
+ "name": "agent-team (framework)",
+ "site": "",
+ "date": "2026-11-20",
+ "tasks": [
+  {
+   "id": "T-0188",
+   "title": "[retro] team-fetch: add --head N; document --tail counts characters",
+   "type": "feature",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-20T00:15:03+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-20T00:15:03+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-20T01:07:33+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Repeats the closed team-fetch --head chain. The owner (deputy) said in Q-0013/Q-0014 not to retry. T-0175 (PR #273) is already merged."
+    }
+   ]
+  },
+  {
+   "id": "T-0189",
+   "title": "[retro] Owner: hand-apply team-fetch --head N (T-0176/T-0183 stuck)",
+   "type": "feature",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-20T02:12:10+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-20T02:12:10+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-20T03:07:36+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Seventh attempt at the same --head goal; the deputy (Q-0014) said not to retry, the owner applies it by hand. Duplicate of the stuck chain."
+    }
+   ]
+  },
+  {
+   "id": "T-0190",
+   "title": "[retro] team-fetch: add --head N (long-open; T-0183 stuck after 6 attempts)",
+   "type": "feature",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-20T06:13:14+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-20T06:13:14+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-20T07:07:33+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Дубликат цепочки team-fetch --head N. Ответ владельца на Q-0014: новые попытки не запускать, правка ждёт ручного применения владельцем."
+    }
+   ]
+  }
+ ],
+ "reviews": [],
+ "posts": [],
+ "metrics": null,
+ "spend_usd": 0.6,
+ "po_digest_md": "**Цикл 20261120T0707, расход $0.50 из $10.**\n\n- Новых задач нет. Ретро снова предложило `team-fetch --head N` (issue #286, T-0190). Это та же цепочка, что владелец уже закрыл ответом на Q-0014: после 6 попыток новые попытки не запускаем.\n- OBS-0318 отклонена, T-0190 закрыта как дубликат. В T-0177 (состояние accepted) править ничего не нужно.\n- **Ждёт владельца:** ручная правка `--head N`. Нужно добавить опцию в `team/fetch.py`, строку в usage, тест, строку в SCHEME.md и запись в CHANGELOG.md. Без неё роли используют `--tail`.\n- Красный тест канарейки (T-0170) уже исправлен, это не блокер.\n- Идей из голоса пользователей (H1–H5) в работу пока не берём. Они остаются кандидатами на будущие задачи. H3 (короткая сводка владельцу) уже сделана в T-0185.\n- Рекомендация ретро: убрать из предложений `--head`, пока владелец не применит правку, чтобы оно не возвращалось каждый час.",
+ "analyst_md": "",
+ "observations": {
+  "new": 3,
+  "by_class": {
+   "feedback": 3
+  }
+ },
+ "owner_questions_open": 0
+}

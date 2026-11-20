@@ -1,0 +1,145 @@
+{
+ "slug": "agentsmd-tracker",
+ "name": "AGENTS.md Tracker",
+ "site": "https://agentsmd.formachines.ai",
+ "date": "2026-11-20",
+ "tasks": [
+  {
+   "id": "T-0185",
+   "title": "X post 20.11 06:15 UTC from @formachines_ai: Daily number",
+   "type": "content",
+   "state": "blocked",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-16T13:09:14+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-20T07:11:19+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261120T0707-exec-T-0185"
+    },
+    {
+     "ts": "2026-11-20T07:11:19+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-20T07:12:54+00:00",
+     "actor": "marketer",
+     "to": "blocked",
+     "note": "question Q-0025"
+    }
+   ]
+  },
+  {
+   "id": "T-0206",
+   "title": "Tables readable at 375 px after the new path columns: every <table> in a horizontal-scroll wrapper, viewport meta; offline test",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-18T19:09:56+00:00",
+   "accepted_at": "2026-11-18T20:09:29+00:00",
+   "released_sha": "5891f799ffe1ec479742dbe48f6c6ccd5543a2be",
+   "history": [
+    {
+     "ts": "2026-11-20T00:11:12+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-20T00:11:12+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0208",
+   "title": "No broken internal links: every internal href/src on generated pages resolves to a file in public/; offline test",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-19T01:12:50+00:00",
+   "accepted_at": "2026-11-19T02:11:23+00:00",
+   "released_sha": "ce87246f39620d5564ad0c01c7f6a50ab2250f58",
+   "history": [
+    {
+     "ts": "2026-11-20T06:09:08+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: none — 4xx выросли до 550 в день релиза (19.11) и 280 на следующий день; до/после не показывает влияния на внутренние ссылки."
+    },
+    {
+     "ts": "2026-11-20T06:09:08+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0215",
+   "title": "Analyst check 20.11: first full scan after T-0209/T-0210/T-0214 (history 'excluded', checked/unknown, data on time)",
+   "type": "research",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G3b",
+   "role": "analyst",
+   "created": "2026-11-19T19:11:11+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-20T05:08:01+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261120T0507-exec-T-0215"
+    },
+    {
+     "ts": "2026-11-20T05:08:01+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-20T05:08:20+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measurement delivered"
+    }
+   ]
+  }
+ ],
+ "reviews": [],
+ "posts": [],
+ "metrics": {
+  "humans": 642,
+  "engaged": 0,
+  "returns": 0,
+  "agents": 305,
+  "crawlers": 1222,
+  "requests": 5391
+ },
+ "spend_usd": 1.4,
+ "po_digest_md": "**Cycle 20.11 07:07 — agentsmd-tracker**\n\n**What happened.** The developer finished T-0209 through T-0214. Numbers for the new paths are now counted only over repos that were actually checked. The drop in the total number of repos tracked (1,922 → 1,919) is explained, and excluded repos are listed with their dates. The indexability fixes are live. Daily data arrives on time. The X posts on 18.11 and 19.11 went out, and the X slots up to 24.11 are booked.\n\n**Observations:**\n- Closing /go/ to crawlers in robots.txt (T-0192) worked: crawler requests to /go/ fell from 3,848 a day to 0. The /go/ count is now a cleaner signal of real clicks.\n- **The 4xx spike is back** (19.11: 550, 20.11: 280; base 10–13), mostly from scanners. Following Q-0024, this note is for you; no task opened.\n- The people filter is still inflated: on 20.11 it showed 642 \"humans\" but 0 engaged. Q-0023 is still waiting for the owner. Until it is fixed, G1 is read only from engaged visits and ?src= visits.\n\n**Decision: no new tasks for the developer.** Nothing on the site is broken or measurably worse. There are no critic or persona findings, and the reviewer has failed nothing. Google still sees little of the site: 2 of 567 checked URLs are indexed and 524 are unknown to it. But the indexability fix (T-0211) went live only on 19.11, and Search Console data lags 2–3 days. Its effect will be read on 26.11 (T-0216); a further fix before then would be guesswork.\n\n**Waiting for the owner:** the Q-0023 people filter, the Q-0024 4xx breakdown, and the dev.to key (Q-0018, returns 401).\n\n**Spend:** $0.97 of $20.",
+ "analyst_md": "**Срез на 20.11 (в промпте только 14–20.11; окно пилота 04–10.11 не видно, поэтому цели считаю по 7 дням 14–20.11, это не пилот).**\n\n| Уровень | Значение (14–20.11) |\n|---|---|\n| Люди, engaged | 3+5+6+2+1+1+0 = **18** (цель G1 ≥60) |\n| Возвраты | 3 за дни 16, 17 и 19.11 (цель ≥5) |\n| /go/ от людей | 10+6+9+0+0+1+2 = **28** источников (цель ≥15) |\n| JSON/feed от людей и агентов | 19.11: stats 1, today 2, feed 1. Цель ≥10 источников не достигнута |\n| Агенты/краулеры | 20.11: 9 источников агентов, 305 запросов, python-requests. 19.11: GPTBot 6, llms.txt от агента 1 |\n| Google | 0 кликов, 33 показа, в индексе 2 из 567 |\n\nЧеловеческие «sources» (3867, 1937, 1575, 642 в день) при engaged 0–6 и 641 источнике с одним запросом к /repo/ 20.11 похожи на нераспознанных ботов. Судить по engaged.\n\nПосты: X 19.11 07:16, затем x-card 7 запросов, 1 человек, 1 engaged. Рефереры: t.co 1, bluenews.app 4. Ответов и репостов в данных нет (G5 — по отчёту маркетолога).\n\n4xx: 550 (19.11) и 280 (20.11) против 13 на 18.11. 5xx равно 0.",
+ "observations": {
+  "new": 6,
+  "by_class": {
+   "need_hypothesis": 4,
+   "measurement": 2
+  }
+ },
+ "owner_questions_open": 0
+}

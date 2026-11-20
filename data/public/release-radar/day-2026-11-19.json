@@ -5,10 +5,466 @@
  "date": "2026-11-19",
  "tasks": [
   {
+   "id": "T-0072",
+   "title": "Keep crawlers off /go/ redirect pages: robots.txt Disallow /go/ and noindex on /go/<id>/ pages",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-08T13:12:12+00:00",
+   "accepted_at": "2026-11-18T08:22:03+00:00",
+   "released_sha": "738809f2aabfd6155ce467621c3f11ecbe65c011",
+   "history": [
+    {
+     "ts": "2026-11-19T12:10:35+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — Принята 18.11. 19.11: /go/ crawler req 0 против 583 17.11. Но /go/ req 170 с неопознанным классом. Нужен ещё день."
+    },
+    {
+     "ts": "2026-11-19T12:10:35+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0077",
+   "title": "Unflagged cards say what no flag means: dated line 'no breaking keyword found in these notes; notes may omit changes'",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-09T01:13:01+00:00",
+   "accepted_at": "2026-11-18T08:22:21+00:00",
+   "released_sha": "e152d9ca82a234766d9ff3114f17cc5459fa51a1",
+   "history": [
+    {
+     "ts": "2026-11-19T12:10:35+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — Метрика: люди на /go/, чтение 20.11. Выпущена 18.11, пока 0–1 человек в день, выборка ниже min_sample 20."
+    },
+    {
+     "ts": "2026-11-19T12:10:35+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0104",
+   "title": "rel=\"nofollow\" on every link to /go/ (release-notes and vote links) so crawlers stop following redirect and vote stubs",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-11T07:18:04+00:00",
+   "accepted_at": "2026-11-18T08:22:38+00:00",
+   "released_sha": "6fa37109f8acf02eaf0717e833d950f2aaa5ae56",
+   "history": [
+    {
+     "ts": "2026-11-19T12:10:35+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — Принята 18.11, вместе с T-0072. Раздельный эффект не выделить. Краулеры на /go/ 17.11: 583 из 595, 19.11: 0 из 170."
+    },
+    {
+     "ts": "2026-11-19T12:10:35+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0120",
+   "title": "Search indexing: self-canonical, unique title/description on /pkg/ pages, every sitemap /pkg/ URL linked from an HTML page, sitemap lastmod",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-12T04:15:16+00:00",
+   "accepted_at": "2026-11-18T08:23:04+00:00",
+   "released_sha": "639f45339ce50d4255123e1fe66d8fc8bf8c6dcc",
+   "history": [
+    {
+     "ts": "2026-11-19T12:10:35+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — GSC lag 2–3 дня, индексация 0/102 до выпуска (18.11). Нужны данные после 21.11."
+    },
+    {
+     "ts": "2026-11-19T12:10:35+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0121",
+   "title": "Sitemap lastmod per page: /pkg/ URLs carry their package's latest release date, not the build time for every URL",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-12T06:09:58+00:00",
+   "accepted_at": "2026-11-18T09:22:59+00:00",
+   "released_sha": "61eefa29c1af1bd591345445c211966be388ab84",
+   "history": [
+    {
+     "ts": "2026-11-19T12:10:35+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-19T12:10:35+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0124",
+   "title": "Daily card 18.11 07:30 UTC — X @formachines_ai: 'N releases in 24 h, M flagged' + one verbatim quote",
+   "type": "content",
+   "state": "done",
+   "priority": "P1",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-16T20:08:48+00:00",
+   "accepted_at": "2026-11-18T08:25:20+00:00",
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-19T12:10:35+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — Пост в X 18.11 08:25. По ?src=x: 1 запрос, 0 людей. Референсов из X не видно."
+    },
+    {
+     "ts": "2026-11-19T12:10:35+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0125",
+   "title": "X 19.11 07:30 UTC — Bump-size count: 'K of M flagged releases are minor/patch or 0.x bumps (7 days)' + one patch-release quote",
+   "type": "content",
+   "state": "rejected",
+   "priority": "P1",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-16T20:08:48+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-19T08:17:15+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261119T0807-exec-T-0125"
+    },
+    {
+     "ts": "2026-11-19T08:17:15+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-19T08:18:09+00:00",
+     "actor": "marketer",
+     "to": "blocked",
+     "note": "question Q-0027"
+    },
+    {
+     "ts": "2026-11-19T09:14:33+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "answered Q-0027"
+    },
+    {
+     "ts": "2026-11-19T09:14:33+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: The 19.11 X slot was missed: the X API returned 402 'credits depleted'. The owner question is open. The slot's date has passed, so retrying later would be a stale post."
+    }
+   ]
+  },
+  {
+   "id": "T-0126",
+   "title": "Daily card 20.11 07:30 UTC — X @formachines_ai: 'N releases in 24 h, M flagged', quote linked to its /pkg/ page",
+   "type": "content",
+   "state": "rejected",
+   "priority": "P1",
+   "goal": "G3",
+   "role": "marketer",
+   "created": "2026-11-16T20:08:49+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-19T13:14:39+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: X is paused: the API returns 402 'credits depleted' (Q-0028, deputy 19.11). No X posts until the owner tops up the credits."
+    }
+   ]
+  },
+  {
+   "id": "T-0127",
+   "title": "Daily card 21.11 08:30 UTC — X @formachines_ai: 'N releases in 24 h, M flagged', quiet-day wording if few",
+   "type": "content",
+   "state": "rejected",
+   "priority": "P1",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-17T00:10:48+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-19T13:14:39+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: X is paused: the API returns 402 'credits depleted' (Q-0028)."
+    }
+   ]
+  },
+  {
+   "id": "T-0131",
+   "title": "X 22.11 08:30 UTC — Machine door: /mcp/ and /pkg/<eco>/<name>/index.json (90-day history) for agent users",
+   "type": "content",
+   "state": "rejected",
+   "priority": "P1",
+   "goal": "G4",
+   "role": "marketer",
+   "created": "2026-11-17T07:13:32+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-19T13:14:39+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: X is paused: the API returns 402 'credits depleted' (Q-0028). If X comes back, the Machine door angle goes into the next plan."
+    }
+   ]
+  },
+  {
+   "id": "T-0134",
+   "title": "X 23.11 07:30 UTC — 'Versions without release notes': stable vs pre-release/dev counts from the home section",
+   "type": "content",
+   "state": "rejected",
+   "priority": "P1",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-17T08:09:34+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-19T13:14:39+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: X is paused: the API returns 402 'credits depleted' (Q-0028)."
+    }
+   ]
+  },
+  {
+   "id": "T-0135",
+   "title": "Daily card 24.11 07:30 UTC — X @formachines_ai: 'N releases in 24 h, M flagged' + one verbatim quote",
+   "type": "content",
+   "state": "rejected",
+   "priority": "P1",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-17T08:09:34+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-19T13:14:39+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: X is paused: the API returns 402 'credits depleted' (Q-0028)."
+    }
+   ]
+  },
+  {
+   "id": "T-0137",
+   "title": "Home 'Past a 7-day cooldown' block: flagged releases now 7–8 days old, with their quotes and /pkg/ links",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "developer",
+   "created": "2026-11-18T08:23:48+00:00",
+   "accepted_at": "2026-11-18T10:22:48+00:00",
+   "released_sha": "1197304546d7a0bd2d0e13fcfca6aee3833e9adf",
+   "history": [
+    {
+     "ts": "2026-11-19T12:10:35+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — Выпущена 18.11, чтение 02.12. Возвраты 0."
+    },
+    {
+     "ts": "2026-11-19T12:10:35+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0138",
+   "title": "Add /mcp/ to sitemap.xml with a stable lastmod",
+   "type": "quality",
+   "state": "done",
+   "priority": "P3",
+   "goal": "G4",
+   "role": "developer",
+   "created": "2026-11-18T09:23:37+00:00",
+   "accepted_at": "2026-11-18T11:22:36+00:00",
+   "released_sha": "2c85b96a0292ddf3d918be6ada7e5708c64c655f",
+   "history": [
+    {
+     "ts": "2026-11-19T12:10:35+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-19T12:10:36+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0140",
+   "title": "Release cards show a dated registry fact: 'Followed by <version> <N> h later' when a newer stable version came out within 7 days",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "developer",
+   "created": "2026-11-18T13:15:35+00:00",
+   "accepted_at": "2026-11-18T14:16:48+00:00",
+   "released_sha": "4cf205ed6335c4f336177757402b3bc927eb0e3c",
+   "history": [
+    {
+     "ts": "2026-11-19T18:13:49+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-19T18:13:49+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0141",
+   "title": "llms.txt section for dependency-update review agents: how to fetch /pkg/<eco>/<name>/index.json for a version bump",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G4",
+   "role": "developer",
+   "created": "2026-11-18T13:15:36+00:00",
+   "accepted_at": "2026-11-18T15:16:18+00:00",
+   "released_sha": "48209d816dacf848cb2ae2361a8630341a0d584c",
+   "history": [
+    {
+     "ts": "2026-11-19T18:13:49+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-19T18:13:49+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0142",
+   "title": "Group platform builds (e.g. 0.169.1-win32-x64) under their base version on /pkg/ pages even when the base version is not in the list",
+   "type": "quality",
+   "state": "done",
+   "priority": "P3",
+   "goal": "G2",
+   "role": "developer",
+   "created": "2026-11-18T14:17:46+00:00",
+   "accepted_at": "2026-11-18T16:15:59+00:00",
+   "released_sha": "7449e90818147b35b93f0782a12b884fe2693ea4",
+   "history": [
+    {
+     "ts": "2026-11-19T18:13:49+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-19T18:13:49+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0143",
+   "title": "'Followed by' line names only a higher version in the same major.minor line (no 7.0.174 → 5.0.291)",
+   "type": "defect",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "developer",
+   "created": "2026-11-18T16:16:53+00:00",
+   "accepted_at": "2026-11-18T17:09:24+00:00",
+   "released_sha": "1de66fa4a0170899bc2ace7176f4a92860429273",
+   "history": [
+    {
+     "ts": "2026-11-19T18:13:49+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-19T18:13:49+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
    "id": "T-0149",
    "title": "Structured data on /pkg/ pages and home: JSON-LD (non-executed data block) with package, latest version, dates and source links",
    "type": "quality",
-   "state": "accepted",
+   "state": "done",
    "priority": "P2",
    "goal": "G1",
    "role": "developer",
@@ -47,6 +503,290 @@
      "note": "The /pkg/ pages carry one ld+json WebPage block with an ItemList that matches the visible cards and index.json. The home block names today.json and feed.xml, and no other scripts or key changes were s"
     }
    ]
+  },
+  {
+   "id": "T-0150",
+   "title": "Home page opens with a dated site-facts paragraph and matching meta description (packages, 7-day releases/flags, sources)",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-19T09:14:33+00:00",
+   "accepted_at": "2026-11-19T10:13:44+00:00",
+   "released_sha": "193af656a840a124d13dbd046d285d967b9cfd3b",
+   "history": [
+    {
+     "ts": "2026-11-19T09:14:33+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-19T09:14:34+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261119T0907-exec-T-0150"
+    },
+    {
+     "ts": "2026-11-19T09:14:34+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-19T09:15:13+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 193af656a8"
+    },
+    {
+     "ts": "2026-11-19T10:13:44+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The live home page opens with the dated facts paragraph directly under the h1, and its numbers match sitemap.xml, today.json and build.json. The meta description carries the same R and F and differs f"
+    }
+   ]
+  },
+  {
+   "id": "T-0151",
+   "title": "Vote links /go/vote/ are not followed by bots: rel=\"nofollow\" on every vote link and Disallow: /go/vote/ in robots.txt",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-19T13:14:40+00:00",
+   "accepted_at": "2026-11-19T14:24:27+00:00",
+   "released_sha": "8a7dab631e815911a80652ead4c29144b68d9e61",
+   "history": [
+    {
+     "ts": "2026-11-19T13:14:40+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-19T13:14:40+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261119T1307-exec-T-0151"
+    },
+    {
+     "ts": "2026-11-19T13:14:40+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-19T13:15:07+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 8a7dab631e"
+    },
+    {
+     "ts": "2026-11-19T14:24:27+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The live robots.txt has Disallow: /go/vote/ and the Sitemap line. Every vote link on the home page and the openai page carries rel=nofollow, and all the other endpoints return 200 with build errors em"
+    }
+   ]
+  },
+  {
+   "id": "T-0152",
+   "title": "Cards get a 'compare <prev>…<this>' diff link via /go/compare/<id>/ and a factual 'No breaking keyword matched' label",
+   "type": "feature",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-19T14:25:43+00:00",
+   "accepted_at": "2026-11-19T15:18:33+00:00",
+   "released_sha": "60ec718f552d06790e1b43877d5c306cb0e48946",
+   "history": [
+    {
+     "ts": "2026-11-19T14:25:43+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-19T14:25:45+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261119T1407-exec-T-0152"
+    },
+    {
+     "ts": "2026-11-19T14:25:45+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-19T14:26:26+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 60ec718f55"
+    },
+    {
+     "ts": "2026-11-19T15:18:33+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The compare links, redirect pages, compare_url JSON key and the no-keyword label all work live, and the GitHub compare URL returns 200. Old endpoints and /go/ links are intact, and flagged cards don't"
+    }
+   ]
+  },
+  {
+   "id": "T-0153",
+   "title": "/go/ redirect pages carry noindex and every /go/ link carries rel=nofollow, so crawlers spend their visits on /pkg/ pages",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-19T19:15:05+00:00",
+   "accepted_at": "2026-11-19T20:09:37+00:00",
+   "released_sha": "8ec24007b40642ad68d0c8283f0576070499db53",
+   "history": [
+    {
+     "ts": "2026-11-19T19:15:05+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-19T19:15:07+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261119T1907-exec-T-0153"
+    },
+    {
+     "ts": "2026-11-19T19:15:07+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-19T19:15:56+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 8ec24007b4"
+    },
+    {
+     "ts": "2026-11-19T20:09:37+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The live site meets every observable criterion. Redirect pages carry noindex,nofollow and still redirect, the sampled /go/ links are nofollow, and robots.txt no longer blocks /go/ except /go/vote/."
+    }
+   ]
+  },
+  {
+   "id": "T-0154",
+   "title": "llms.txt recipe for dependency-review agents: read /pkg/<eco>/<name>/index.json for a version bump",
+   "type": "feature",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G4",
+   "role": "developer",
+   "created": "2026-11-19T19:15:06+00:00",
+   "accepted_at": "2026-11-19T21:16:26+00:00",
+   "released_sha": "6bd4c2e1e1d44e116a8d7e4c06da8246b97dc3f4",
+   "history": [
+    {
+     "ts": "2026-11-19T19:15:06+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-19T20:10:23+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261119T2007-exec-T-0154"
+    },
+    {
+     "ts": "2026-11-19T20:10:23+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-19T20:11:19+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 6bd4c2e1e1"
+    },
+    {
+     "ts": "2026-11-19T21:16:26+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The live llms.txt has the new dependency-review section with the 3 steps, the real JSON keys, the openai example URL, the no-flag caveat and the /mcp/ link. Every named key exists in a live record, bu"
+    }
+   ]
+  },
+  {
+   "id": "T-0155",
+   "title": "Release cards show a dated registry fact 'followed by <next> after <N> h' when a newer patch of the same line came out within 7 days",
+   "type": "feature",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "developer",
+   "created": "2026-11-19T20:10:20+00:00",
+   "accepted_at": "2026-11-19T22:18:20+00:00",
+   "released_sha": "5d59efc46f5ae7cfca9e417420fac739c3c52a03",
+   "history": [
+    {
+     "ts": "2026-11-19T20:10:20+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-19T21:16:51+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261119T2107-exec-T-0155"
+    },
+    {
+     "ts": "2026-11-19T21:16:51+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-19T21:17:33+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 5d59efc46f"
+    },
+    {
+     "ts": "2026-11-19T22:18:20+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The codex package page shows 'Followed by X after N h (registry dates)' on its cards. The matching followed_by {version, hours} keys are in index.json. The old endpoints still return 200, and build.js"
+    }
+   ]
+  },
+  {
+   "id": "T-0156",
+   "title": "Marketing plan 25.11–01.12 for release-radar (X paused, dev.to blocked)",
+   "type": "marketing",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-19T20:10:21+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-19T20:10:21+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
   }
  ],
  "reviews": [
@@ -54,25 +794,55 @@
    "task": "T-0149",
    "verdict": "pass",
    "summary": "The /pkg/ pages carry one ld+json WebPage block with an ItemList that matches the visible cards and index.json. The home block names today.json and feed.xml, and no other scripts or key changes were seen."
+  },
+  {
+   "task": "T-0150",
+   "verdict": "pass",
+   "summary": "The live home page opens with the dated facts paragraph directly under the h1, and its numbers match sitemap.xml, today.json and build.json. The meta description carries the same R and F and differs from the openai page's. The other endpoints still return 200 with their keys, and build errors are empty."
+  },
+  {
+   "task": "T-0151",
+   "verdict": "pass",
+   "summary": "The live robots.txt has Disallow: /go/vote/ and the Sitemap line. Every vote link on the home page and the openai page carries rel=nofollow, and all the other endpoints return 200 with build errors empty. The existing broad Disallow: /go/ still blocks the release-notes /go/<id>/ links for crawlers, as the implementer flagged; the task said to keep existing lines, so I did not fail on it."
+  },
+  {
+   "task": "T-0152",
+   "verdict": "pass",
+   "summary": "The compare links, redirect pages, compare_url JSON key and the no-keyword label all work live, and the GitHub compare URL returns 200. Old endpoints and /go/ links are intact, and flagged cards don't show the label."
+  },
+  {
+   "task": "T-0153",
+   "verdict": "pass",
+   "summary": "The live site meets every observable criterion. Redirect pages carry noindex,nofollow and still redirect, the sampled /go/ links are nofollow, and robots.txt no longer blocks /go/ except /go/vote/."
+  },
+  {
+   "task": "T-0154",
+   "verdict": "pass",
+   "summary": "The live llms.txt has the new dependency-review section with the 3 steps, the real JSON keys, the openai example URL, the no-flag caveat and the /mcp/ link. Every named key exists in a live record, build.json errors is empty, and today.json and feed.xml still return 200 with their old keys."
+  },
+  {
+   "task": "T-0155",
+   "verdict": "pass",
+   "summary": "The codex package page shows 'Followed by X after N h (registry dates)' on its cards. The matching followed_by {version, hours} keys are in index.json. The old endpoints still return 200, and build.json errors is empty."
   }
  ],
  "posts": [],
  "metrics": {
-  "humans": 77,
+  "humans": 124,
   "engaged": 0,
   "returns": 0,
-  "agents": 9,
-  "crawlers": 154,
-  "requests": 382
+  "agents": 54,
+  "crawlers": 945,
+  "requests": 1824
  },
- "spend_usd": 1.9,
- "po_digest_md": "**Release Radar — цикл 19.11 07:07 UTC**\n\n**Что произошло.** Разработчик закрыл всю очередь: T-0140…T-0149. Это строка «Followed by» в той же major.minor, группировка платформенных сборок, абзац фактов на /pkg/, метка «Notes are a PR list», JSON-LD, единая форма URL. Пост в X за 18.11 вышел.\n\n**Наблюдения аналитика:**\n- Краулерные запросы к /go/ упали после T-0072/T-0104. Подтвердим по метрикам 20.11.\n- Всплеск python-requests 18.11 (593 запроса) — разовый скрипт, 19.11 агентов уже 9. В G4 не засчитываем.\n- Google: в индексе 0 из 102 URL, показов почти нет. Данные GSC заканчиваются раньше, чем вышли последние SEO-правки, поэтому решение отложено до данных GSC за 25.11 или позже.\n\n**Решение: новых задач нет.** Свежих фактов о поломке нет: замечаний критика, провалов ревью и оценок персон за этот цикл не поступало. Новая SEO-правка сейчас смешала бы замер трёх только что вышедших изменений. Функции без новых болей пользователей не придумываю.\n\n**Маркетинг.** Слоты в X на 19–24.11, а также Bluesky и Telegram 21.11 и Threads 22.11 уже стоят в очереди. Mastodon 20.11 (T-0130): лимит сейчас занят (1/1), публикатор может отказать — повторных попыток не будет. dev.to по-прежнему заблокирован: недействительный ключ (Q-0025), слот 19.11 не ставлю. План маркетинга истекает 23.11, новую задачу на план создам в ближайших циклах.\n\n**Метрики.** G1 (вовлечённые) за 18–19.11: 1 и 0. 137 «человеческих» хитов на /pkg/npm/@openai/codex/ похожи на ботов (Q-0026, ждёт владельца).\n\n**Ближайшие проверки.** 20.11 — гипотеза T-0077 (человеческие клики /go/). 02.12 — T-0137/T-0140/T-0141/T-0146.\n\n**От владельца:** продлить ключ dev.to и подтянуть фильтр метрик.\n\n**Расход:** $1.51 из $20.",
- "analyst_md": "**Срез на 19.11 (06:00 UTC, день ещё неполный).** Уровни не суммируются.\n\n| Уровень | 19.11 | 18.11 | 17.11 |\n|---|---|---|---|\n| Люди: источники / engaged | 75 / 0 | 94 / 1 | 14 / 1 |\n| Возвраты | 0 | 0 | 0 |\n| /go/ людьми (источники) | 0 | 1 | 0 |\n| Агенты: запросы | 8 | 626 (python-requests 593) | 30 |\n| Краулеры: запросы | 114 | 514 | 1362 |\n| 5xx | 0 | 0 | 0 |\n\n**Цели (04–10.11 прошли, цифры дают текущую динамику):** G1 — engaged за 13–19.11 в сумме около 12 при цели ≥40. G2 — возвраты: 2 за 14.11, дальше 0. G3 — внешних кликов людей практически нет, а внешних referer-доменов не наших 3 (google, t.co, bluenews). G4 — /today.json: 5 запросов сегодня, но 0 источников-агентов.\n\n**Задачи:** T-0072 и T-0104 приняты 18.11. Краулерные /go/ упали с 583 (17.11) до 0 (19.11), эффект правдоподобен (robots + nofollow), но это один день до/после. Остальные задачи приняты 18–19.11, данных мало.\n\n**Поиск:** GSC показывает 0 кликов и 0 из 102 URL в индексе. Показы упали с 209 (05.11) до 1 (10.11).\n\n**Посты:** 18.11 X в 08:25. 18.11 — x 1 источник, telegram 1; по часам ряда нет, эффект не оценить.\n\n18.11 — всплеск python-requests (593 запроса): похоже на один скрипт, а не на спрос.",
+ "spend_usd": 7.1,
+ "po_digest_md": "**Release Radar — цикл 19.11, 21:07 UTC**\n\n**Что произошло.** Приняты и опубликованы задачи T-0149–T-0154:\n- разметка JSON-LD на страницах;\n- абзац с фактами на главной;\n- nofollow/noindex для ссылок /go/ и /go/vote/;\n- ссылки «compare» на сравнение версий и метка «нет ключевого слова о breaking»;\n- инструкция в llms.txt для агентов, которые проверяют PR от Dependabot.\n\nGoogle пока не проиндексировал ни одного URL из 102. Его данные отстают на 2–3 дня, и наши правки он ещё не видел. Новых SEO-задач не ставлю, жду, как сайт переобойдёт краулер.\n\n**Решения.**\n- OBS-0460 (пересборка без изменений не должна переписывать время сборки во всём public/) отложено. Это удобство для разработчика, читателю оно ничего не даёт. Вернусь к нему, если большой diff сорвёт ревью.\n- Новых задач нет. Разработчик работает над T-0155 (строка «followed by <версия> after N h»). Все слоты плана, кроме X, уже поставлены:\n  - Mastodon 20.11: окно лимита к этому времени освобождается;\n  - Bluesky и Telegram 21.11;\n  - Threads 22.11.\n- План на 25.11–01.12 (T-0156) стартует 23.11.\n\n**Ждёт владельца.**\n- X на паузе с 19.11: API отвечает 402, кредиты закончились. При этом X дал 5 из 5 вовлечённых посетителей.\n- dev.to заблокирован: API-ключ недействителен.\n- Цель /go/compare/ в метриках ещё не заведена.\n- Бот-трафик проходит фильтр «людей»: 19.11 — 117 «людей», из них 0 вовлечённых. /go/vote/ получил 225 запросов, все от ботов.\n\n**Метрики.** Вовлечённых людей за последние 3 дня: 1, 1, 0. Без X поток людей почти остановился.\n\n**Расходы.** $6.56 из $20.",
+ "analyst_md": "**Снимок 19.11 (данные за день неполные, 18:00 UTC). Пилот 04–10.11 закончен, цифры ниже — текущие.**\n\n| Уровень | 19.11 | 18.11 | 17.11 |\n|---|---|---|---|\n| Люди (источники / engaged) | 111 / 0 | 94 / 1 | 14 / 1 |\n| Возвраты | 0 | 0 | 0 |\n| Агенты (запросы) | 34 | 626 (python-requests 593) | 30 |\n| Краулеры (запросы) | 405 | 514 | 1362 |\n| /today.json: люди / агенты | 1 / 0 | 1 / 0 | 0 / 0 |\n| /go/ люди | 0 | 1 | 0 |\n\n- **Люди.** Источников много (111), но engaged 0. Почти все заходят на /pkg/ (98 источников) и не взаимодействуют. Возможно, это недофильтрованные боты, но данных для вывода нет.\n- **Возвраты.** Макс. 2 за всё окно (14.11). Цель G2 ≥5 не достигнута.\n- **Referer.** Внешних доменов мало: google, t.co, bluenews.app, agentteam (наш).\n- **Google.** 0 кликов, 697 показов, 0 из 102 URL в индексе. Показы упали до 1–7 в день с 09.11.\n- **/go/vote/.** Бот-подобный трафик: 170 запросов, 0 людей, 0 краулеров. T-0151 принята сегодня.\n- **Посты.** После X-поста 18.11 (08:25) данных по часам нет. По источникам: bluesky 10 запросов 19.11, 0 human.\n- **Эффект задач.** Эффект T-0072, T-0104, T-0120 и T-0121 пока не виден. Выводы делать рано, нужны 2–3 дня после выкладки.",
  "observations": {
-  "new": 6,
+  "new": 17,
   "by_class": {
-   "need_hypothesis": 2,
-   "measurement": 4
+   "need_hypothesis": 10,
+   "measurement": 7
   }
  },
  "owner_questions_open": 0

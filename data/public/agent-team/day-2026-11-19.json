@@ -324,7 +324,7 @@
    "id": "T-0176",
    "title": "[retro] Reviewer/editor cards: plain team-fetch shows the page head; --tail N counts chars",
    "type": "feature",
-   "state": "ready",
+   "state": "rejected",
    "priority": "P2",
    "goal": "framework",
    "role": "developer",
@@ -337,21 +337,475 @@
      "actor": "framework-retro",
      "to": "ready",
      "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-19T08:07:33+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261119T0807-exec-T-0176"
+    },
+    {
+     "ts": "2026-11-19T08:07:33+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-19T08:08:05+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "partial — continues next cycle"
+    },
+    {
+     "ts": "2026-11-19T09:07:48+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "partial — continues next cycle"
+    },
+    {
+     "ts": "2026-11-19T10:07:58+00:00",
+     "actor": "dispatcher",
+     "to": "blocked",
+     "note": "partial repeated with the same summary: stuck"
+    },
+    {
+     "ts": "2026-11-19T11:07:28+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "answered Q-0012"
+    },
+    {
+     "ts": "2026-11-19T11:07:29+00:00",
+     "actor": "dispatcher",
+     "to": "blocked",
+     "note": "stuck: 3 failed attempts on this goal; the PO replans it with 3 alternatives"
+    },
+    {
+     "ts": "2026-11-19T14:07:33+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Replaced by T-0181, which has the same card edits. T-0176 is stuck on its criterion 'T-0169 closed by the owner or the PO', which the developer cannot meet."
+    }
+   ]
+  },
+  {
+   "id": "T-0177",
+   "title": "[retro] team-fetch: add --head N (owner to apply; T-0169 stuck)",
+   "type": "feature",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-19T09:15:44+00:00",
+   "accepted_at": "2026-11-19T12:07:33+00:00",
+   "released_sha": "8d7d8921481c5bc0f3b0b7fbbe13d725f2f14495",
+   "history": [
+    {
+     "ts": "2026-11-19T09:15:44+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-19T11:07:29+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261119T1107-exec-T-0177"
+    },
+    {
+     "ts": "2026-11-19T11:07:29+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-19T11:07:50+00:00",
+     "actor": "dispatcher",
+     "to": "review",
+     "note": "no change needed: T-0175 already implemented --head N in team/fetch.py, the reviewer and editor cards, the SCHEME.md reviewer row, a CHANGELOG entry and a unit test, all present on this branch. Tests "
+    },
+    {
+     "ts": "2026-11-19T12:07:33+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "--head N was already in the code at the expected commit, added by T-0175. It is in fetch.py, the usage line, both role cards, the SCHEME.md reviewer row, the CHANGELOG and a unit test, so the acceptan"
+    }
+   ]
+  },
+  {
+   "id": "T-0178",
+   "title": "Probe 1/3 for T-0176: Выбросить критерий про T-0169",
+   "type": "research",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-19T12:07:53+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-19T12:07:53+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "replan probe for T-0176"
+    },
+    {
+     "ts": "2026-11-19T12:07:53+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261119T1207-exec-T-0178"
+    },
+    {
+     "ts": "2026-11-19T12:07:53+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-19T12:08:07+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "probe does not work: Probe result: the approach (close T-0176 on the three documentation criteria, PO closes T-0169 separately) is sound. The documentation is already in place, `--head N` is documente"
+    }
+   ]
+  },
+  {
+   "id": "T-0179",
+   "title": "Probe 2/3 for T-0176: Проверить, что --head уже слит, и обновить формулировку",
+   "type": "research",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-19T12:07:53+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-19T12:07:53+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "replan probe for T-0176"
+    },
+    {
+     "ts": "2026-11-19T13:07:15+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261119T1307-exec-T-0179"
+    },
+    {
+     "ts": "2026-11-19T13:07:15+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-19T13:07:38+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "probe works: Probe result: the approach works, but it needs no change. `--head N` already exists in team/fetch.py (T-0175) and the reviewer and editor cards, SCHEME.md and CHANGELOG already describe i"
+    }
+   ]
+  },
+  {
+   "id": "T-0180",
+   "title": "Probe 3/3 for T-0176: Свести в одну проверку по тестам вместо ручного ревью",
+   "type": "research",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-19T12:07:53+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-19T12:07:53+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "replan probe for T-0176"
+    },
+    {
+     "ts": "2026-11-19T14:07:33+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: A probe for T-0176, which is closed. T-0181 carries the work, so the probe is not needed."
+    }
+   ]
+  },
+  {
+   "id": "T-0181",
+   "title": "[retro] Reviewer/editor cards: plain fetch shows the page head, --tail counts chars; dedupe --grep bullets",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-19T13:15:45+00:00",
+   "accepted_at": "2026-11-19T14:13:56+00:00",
+   "released_sha": "809ee918e4e529bc2c3f734683296c4c472bb9a5",
+   "history": [
+    {
+     "ts": "2026-11-19T13:15:45+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-19T14:07:34+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261119T1407-exec-T-0181"
+    },
+    {
+     "ts": "2026-11-19T14:07:34+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-19T14:13:56+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261119T1407-canary of release-radar on a state copy: all phases); merged 809ee918e4"
+    },
+    {
+     "ts": "2026-11-19T14:13:56+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0182",
+   "title": "[retro] team-fetch: add --head N and document that --tail counts characters (owner to hand-apply)",
+   "type": "feature",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-19T14:26:55+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-19T14:26:55+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-19T15:07:35+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Replaced by the split code+test task; combined code+cards task is the shape that stalled 3 times and it names agents/*.md paths."
+    }
+   ]
+  },
+  {
+   "id": "T-0183",
+   "title": "team-fetch: add --head N (code + unit test only)",
+   "type": "quality",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-19T15:07:36+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-19T15:07:36+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-19T15:07:37+00:00",
+     "actor": "dispatcher",
+     "to": "blocked",
+     "note": "stuck: stuck again after a replan on this chain (6 failed attempts)"
+    },
+    {
+     "ts": "2026-11-19T15:07:37+00:00",
+     "actor": "dispatcher",
+     "to": "waiting_owner",
+     "note": "question Q-0013"
+    },
+    {
+     "ts": "2026-11-19T17:07:21+00:00",
+     "actor": "deputy",
+     "to": "ready",
+     "note": "answered Q-0013"
+    },
+    {
+     "ts": "2026-11-19T17:07:38+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Q-0013 (deputy, 19.11): closed after 6 failed attempts on this chain. Do not retry until the suite is green on main."
+    }
+   ]
+  },
+  {
+   "id": "T-0184",
+   "title": "[retro] team-fetch: add --head N (owner to hand-apply; T-0169/T-0176/T-0183 stuck)",
+   "type": "feature",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-19T16:28:11+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-19T16:28:11+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-19T17:07:38+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Same --head goal as T-0183 (issue #279). The Q-0013 decision covers it: no more attempts until the suite is green on main."
+    }
+   ]
+  },
+  {
+   "id": "T-0185",
+   "title": "Retro report opens with a 5-line owner summary",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G4",
+   "role": "developer",
+   "created": "2026-11-19T21:07:43+00:00",
+   "accepted_at": "2026-11-19T21:14:49+00:00",
+   "released_sha": "d12e3e467ca64664e7a4b16fa2cd21e255b08844",
+   "history": [
+    {
+     "ts": "2026-11-19T21:07:43+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-19T21:07:46+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261119T2107-exec-T-0185"
+    },
+    {
+     "ts": "2026-11-19T21:07:46+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-19T21:14:49+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261119T2107-canary of release-radar on a state copy: all phases); merged d12e3e467c"
+    },
+    {
+     "ts": "2026-11-19T21:14:49+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0186",
+   "title": "[retro] Escalate stuck framework-fix tasks to the owner after one replan",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-19T21:18:05+00:00",
+   "accepted_at": "2026-11-19T22:14:41+00:00",
+   "released_sha": "5873744aacb1c9837e954efec7ea39838e072c86",
+   "history": [
+    {
+     "ts": "2026-11-19T21:18:05+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-19T22:07:38+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261119T2207-exec-T-0186"
+    },
+    {
+     "ts": "2026-11-19T22:07:38+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-19T22:14:41+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "canary passed (dry-run cycle 20261119T2207-canary of release-radar on a state copy: all phases); merged 5873744aac"
+    },
+    {
+     "ts": "2026-11-19T22:14:41+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "framework change live; the watchdog rolls back if the next cycles fail"
+    }
+   ]
+  },
+  {
+   "id": "T-0187",
+   "title": "[retro] Owner: hand-apply team-fetch --head N (stuck T-0176/T-0183)",
+   "type": "feature",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-19T22:18:50+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-19T22:18:50+00:00",
+     "actor": "framework-retro",
+     "to": "ready",
+     "note": "low-risk retro proposal"
+    },
+    {
+     "ts": "2026-11-19T23:07:29+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Duplicate of the stuck --head chain; owner/deputy answers Q-0013 and Q-0014 say no new attempts, the fix is left for manual owner application."
     }
    ]
   }
  ],
- "reviews": [],
+ "reviews": [
+  {
+   "task": "T-0177",
+   "verdict": "pass",
+   "summary": "--head N was already in the code at the expected commit, added by T-0175. It is in fetch.py, the usage line, both role cards, the SCHEME.md reviewer row, the CHANGELOG and a unit test, so the acceptance criteria are met. The task changed no files itself, which is an acceptable no-op."
+  }
+ ],
  "posts": [],
  "metrics": null,
- "spend_usd": 1.4,
- "po_digest_md": "**Цикл 19.11.** Потрачено $1.12 из $10.\n\n- Issue #272 (OBS-0307) — это уже готовая задача T-0175: `team-fetch --head N` плюс пометка, что `--tail`/`--head` считают символы. Новую задачу не создавал, связал с T-0175.\n- Закрыл T-0169 (застряла после 3 неудач) и пробу T-0174. Их заменяет T-0175. Причина прошлых провалов, красный тест `test_canary_with_real_output_passes`, устранена в T-0170. Реплан не нужен.\n- Ретро-задачи T-0098 и T-0101 приняты. T-0068 тоже принята.\n- Новых задач нет, WIP низкий: одна задача T-0175 в Ready.\n- Вопросов к владельцу нет.\n- Проверим результат по T-0175: после слияния в реестре не должно появляться новых записей «нет `--head`» (F-0232–F-0234).",
+ "spend_usd": 4.0,
+ "po_digest_md": "**Цикл 20261119T2307.** Новых задач нет.\n\n- Новая запись OBS-0315 (issue #283) просит вручную применить `team-fetch --head N`. Это та же правка, что провалилась 6 раз (T-0169, T-0176, T-0182, T-0183). Ответы Q-0013 и Q-0014 запрещают новые попытки, поэтому запись отклонена.\n- Задача T-0187 повторяла эту же правку. Закрыта как дубликат.\n- Для владельца: правка `--head N` в `team/fetch.py` (тест, SCHEME.md, CHANGELOG.md, карточки reviewer и editor) остаётся ручной. Роли пока работают с `--tail`.\n- Тест канарейки (T-0170) уже исправлен, набор тестов должен быть зелёным.\n- Расход за день: $3.92 из $10.",
  "analyst_md": "",
  "observations": {
-  "new": 9,
+  "new": 17,
   "by_class": {
-   "feedback": 4,
-   "need_hypothesis": 5
+   "feedback": 11,
+   "need_hypothesis": 6
   }
  },
  "owner_questions_open": 0

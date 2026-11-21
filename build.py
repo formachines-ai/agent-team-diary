@@ -290,6 +290,23 @@ def published_days() -> list[str]:
     return sorted(p.name for p in root.iterdir() if re.fullmatch(r"\d{4}-\d{2}-\d{2}", p.name) and (p / "index.html").is_file())
 
 
+def check_day_nav(model: dict) -> dict:
+    """day_nav_check: every built day page links rel=prev / rel=next to its neighbours (none at the ends)."""
+    dates = list(model["dates"])
+    missing_prev, missing_next = [], []
+    for d in dates:
+        try:
+            html_ = (PUBLIC_DIR / "day" / d / "index.html").read_text(encoding="utf-8")
+        except OSError:
+            html_ = ""
+        prev_d, next_d = neighbours(d, dates)
+        if prev_d and f'rel="prev" href="/day/{prev_d}/"' not in html_:
+            missing_prev.append(d)
+        if next_d and f'rel="next" href="/day/{next_d}/"' not in html_:
+            missing_next.append(d)
+    return {"days": len(dates), "missing_prev": missing_prev, "missing_next": missing_next}
+
+
 def check_day_persist(model: dict) -> dict:
     """day_persist_check: every day page published before is still built (html + json) and has a sitemap <loc>."""
     before = list(model.get("published_before") or [])
@@ -4360,6 +4377,9 @@ def main(argv: list[str] | None = None) -> int:
     bj["day_persist_check"] = dpc
     write_json(PUBLIC_DIR / "build.json", bj)
     log.info("day_persist_check: published_before=%d missing=%d", len(dpc["published_before"]), len(dpc["missing"]))
+    dnc = check_day_nav(model)
+    bj["day_nav_check"] = dnc
+    log.info("day_nav_check: missing_prev=%d missing_next=%d", len(dnc["missing_prev"]), len(dnc["missing_next"]))
     phc = check_placeholders()
     bj["placeholder_check"] = phc
     write_json(PUBLIC_DIR / "build.json", bj)
@@ -4490,6 +4510,8 @@ def main(argv: list[str] | None = None) -> int:
         problems += [f"product_day_check: {i[0]} {i[1]} has records but no link" for i in bj["product_day_check"]["missing"]]
         problems += [f"product_schema_check: {i} has no CollectionPage itemtype" for i in bj["product_schema_check"]["missing"]]
         problems += [f"day_persist_check: missing {i}" for i in bj["day_persist_check"]["missing"]]
+        problems += [f"day_nav_check: {i} lacks prev link" for i in bj["day_nav_check"]["missing_prev"]]
+        problems += [f"day_nav_check: {i} lacks next link" for i in bj["day_nav_check"]["missing_next"]]
         problems += [f"artifact: {i}" for i in bj["artifact_check"]["mismatches"] + bj["artifact_check"]["sha_mismatches"]]
         problems += [f"robots: {i}" for i in bj["robots_check"]["issues"]]
         problems += [f"discovery_check: not within {bj['discovery_check']['max_depth']} clicks of /: {u}" for u in bj["discovery_check"]["unreachable"]]

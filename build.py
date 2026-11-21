@@ -1951,6 +1951,44 @@ def escaped_after_accept(date: str, model: dict) -> dict:
 ESCAPE_IGNORE = ("accepted", "done", "measured")
 
 
+def review_caught(d: dict) -> dict | None:
+    """One product-day: tasks the reviewer accepted and tasks it sent back (a review -> ready/in_progress transition), from
+    the day's task transitions only. None = no review transition recorded (not 0 accepted)."""
+    sent = []
+    for t, _h in reopen_events(d):
+        tid = str(t.get("id") or "")
+        if tid and tid not in sent:
+            sent.append(tid)
+    acc = {str(t.get("id")) for t in d.get("tasks") or []
+           if any(str(h.get("to")) == "accepted" for h in (t.get("history") or []))}
+    saw = any(str(h.get("to")) == "review" for t in d.get("tasks") or [] for h in (t.get("history") or []))
+    if not sent and not acc and not saw:
+        return None
+    return {"accepted": len(acc), "sent_back": len(sent), "sent_back_tasks": sent}
+
+
+def day_review_caught_block(date: str, model: dict) -> str:
+    anchors = task_anchors(date, model)
+    out = ['<section id="day-review-caught"><h3>Review caught</h3>']
+    rows = []
+    for slug, p in model["products"].items():
+        if date not in p["days"]:
+            continue
+        rc = review_caught(p["days"][date])
+        nm = esc(p["product"].get("name") or slug)
+        if rc is None:
+            rows.append(f"<li>{nm}: no review recorded")
+            continue
+        links = ", ".join(f'<a href="#{esc(anchors.get((slug, t), ""))}">{esc(t)}</a>' if (slug, t) in anchors else esc(t)
+                          for t in rc["sent_back_tasks"])
+        rows.append(f'<li>{nm}: accepted {rc["accepted"]}, sent back {rc["sent_back"]}' + (f": {links}" if links else ""))
+    if not rows:
+        out.append('<p class="note">no activity recorded</p></section>')
+        return "\n".join(out)
+    out.append("<ul>" + "".join(rows) + "</ul></section>")
+    return "\n".join(out)
+
+
 def day_escaped_block(date: str, model: dict) -> str:
     e = escaped_tasks(date, model)
     out = ['<section id="day-escaped" class="day-escaped"><h3 id="day-escaped-h">Accepted, then reopened</h3>']
@@ -2085,6 +2123,7 @@ def render_day(date: str, model: dict) -> str:
     anchors = task_anchors(date, model)
     body.append(what_broke_block(date, model))
     body.append(day_escaped_block(date, model))
+    body.append(day_review_caught_block(date, model))
     body.append(work_vs_people_block(date, model))
     body.append(try_block("day-try"))
     body.append(follow_block("day-follow"))
@@ -3139,6 +3178,7 @@ def render_llms(model: dict) -> str:
                   f"- [today.json]({SITE_BASE}/today.json): summary of the latest day (counts only, no transitions)"]
     lines += [f"- `external_actions` in the day index.json: {{total, by_channel, items}} of the posts published that day (items: product, channel, ts, url), the same numbers as the #day-external block on the day page. Example: {SITE_BASE}/day/{latest}/index.json" if latest else "- `external_actions` in the day index.json: posts published that day"]
     lines += [f"- `escaped_after_accept` is the field to use (see below); `escaped` is a kept alias with the same value (escaped.total == escaped_after_accept.count, checked on every build; build.json alias_check). `escaped` in the day index.json: {{total, items}} of tasks that reached accepted or done and moved to another state the same day (items: product, id, state, actor, note), the same numbers as the #day-escaped block on the day page. Example: {SITE_BASE}/day/{latest}/index.json" if latest else "- `escaped` in the day index.json: tasks reopened after accepted"]
+    lines += [f"- `review_caught` in the day index.json, per product: {{accepted, sent_back, sent_back_tasks}} from the day's review transitions (null = no review recorded). Shown as #day-review-caught on the day page. Example: {SITE_BASE}/day/{latest}/index.json" if latest else "- `review_caught` in the day index.json"]
     lines += [f"- `escaped_after_accept` in today.json and in the day index.json: {{count, tasks}} — ids of tasks with a transition that day out of accepted or done into another state (not measured), from the export's task transitions. Example: {SITE_BASE}/today.json"]
     lines += [f"- `health` in today.json: built_at (build time, UTC), last_export_date (= latest_export_day), fixture_days, source and stale_after (built_at + 30 h); if the current time is past stale_after, the rebuild failed. Example: {SITE_BASE}/today.json"]
     lines += ["", "Not in the export: questions to the owner, feedback texts, failed runs, rate limits."]
@@ -3373,6 +3413,7 @@ def write_site(model: dict) -> dict:
                   "external_actions": external_actions(date, model),
                   "escaped": escaped_tasks(date, model),
                   "escaped_after_accept": escaped_after_accept(date, model),
+                  "review_caught": {slug: review_caught(p["days"][date]) for slug, p in model["products"].items() if date in p["days"]},
                   "disclosure": f"{FOOTER_LINE}; responsible: {RESPONSIBLE}.", "built": built,
                   "day_complete": not day_in_progress(date, built), "snapshot_built_at": built}
         write_json(PUBLIC_DIR / "day" / date / "index.json", merged)
@@ -3400,6 +3441,7 @@ def write_site(model: dict) -> dict:
     today["snapshot_built_at"] = built
     today["health"] = health_obj(model)
     today["escaped_after_accept"] = escaped_after_accept(latest, model) if latest else {"count": 0, "tasks": []}
+    today["review_caught"] = {slug: review_caught(p["days"][latest]) for slug, p in model["products"].items() if latest in p["days"]} if latest else {}
     write_json(PUBLIC_DIR / "today.json", today)
     write_text(PUBLIC_DIR / "feed.xml", render_feed(model))
     write_text(PUBLIC_DIR / "llms.txt", render_llms(model))

@@ -1,0 +1,54 @@
+{
+ "slug": "agent-team",
+ "name": "agent-team (framework)",
+ "site": "",
+ "date": "2026-11-21",
+ "tasks": [
+  {
+   "id": "T-0196",
+   "title": "[retro] PO card: no acceptance criteria that depend on global build.json health lists",
+   "type": "feature",
+   "state": "blocked",
+   "priority": "P2",
+   "goal": "framework",
+   "role": "developer",
+   "created": "2026-11-20T16:14:44+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-21T02:09:29+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "partial — continues next cycle"
+    },
+    {
+     "ts": "2026-11-21T04:09:14+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "partial — continues next cycle"
+    },
+    {
+     "ts": "2026-11-21T07:08:10+00:00",
+     "actor": "dispatcher",
+     "to": "blocked",
+     "note": "stuck: 3 failed attempts on this goal; the PO replans it with 3 alternatives"
+    }
+   ]
+  }
+ ],
+ "reviews": [],
+ "posts": [],
+ "metrics": null,
+ "spend_usd": 0.4,
+ "po_digest_md": "Новых задач нет. Потрачено $0.21 из $10.\n\nЕдинственное новое наблюдение, OBS-0340, сообщает о двух тестах, которые падают в песочнице разработчика: flock overlap и playtest health.\n- Падение playtest health уже закрывает T-0200 (гонка в stop(), P1). Задача сейчас ждёт владельца (waiting_owner).\n- Для flock overlap нет ни имени теста, ни вывода падения, ни подтверждения, что он падает вне песочницы. Задачу не создаю. Если тест упадёт на чистом main, заведу дефект.\n\nЧто ждёт владельца: T-0200 (P1), красный набор тестов блокирует PR. Также в состоянии waiting_owner стоят T-0191, T-0192 и T-0195.",
+ "analyst_md": "",
+ "observations": {
+  "new": 2,
+  "by_class": {
+   "hypothesis_readout": 1,
+   "need_hypothesis": 1
+  }
+ },
+ "owner_questions_open": 0
+}

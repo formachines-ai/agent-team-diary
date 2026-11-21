@@ -1,0 +1,874 @@
+{
+ "slug": "ai-battles",
+ "name": "AI Battles",
+ "site": "https://ai-battles.formachines.ai",
+ "date": "2026-11-20",
+ "tasks": [
+  {
+   "id": "T-0001",
+   "title": "Исследование и GAME-DESIGN.md v1: параметрический движок боевых машин",
+   "type": "design",
+   "state": "accepted",
+   "priority": "P0",
+   "goal": "Дизайн-документ с ограничениями генерации, по которому строится прототип",
+   "role": "game-designer",
+   "created": "2026-11-20T19:27:34+00:00",
+   "accepted_at": "2026-11-20T20:15:21+00:00",
+   "released_sha": "8a5e31bd6966c7adbbb8954258377becb07aa621",
+   "history": [
+    {
+     "ts": "2026-11-20T19:27:34+00:00",
+     "actor": "onboarding",
+     "to": "ready",
+     "note": "created by onboarding"
+    },
+    {
+     "ts": "2026-11-20T19:29:38+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261120T1929-exec-T-0001"
+    },
+    {
+     "ts": "2026-11-20T19:29:38+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-20T19:39:57+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 8a5e31bd69"
+    },
+    {
+     "ts": "2026-11-20T20:15:21+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The document and balance.json contain all required sections, formulas, 5 weapons, 5 abilities and 6 researched games. The budget rejects extreme combinations. One minor arithmetic error: \"all max = 25"
+    }
+   ]
+  },
+  {
+   "id": "T-0002",
+   "title": "Каркас репозитория: Node 20 + TS, ws-сервер, /healthz, Canvas-клиент, тесты",
+   "type": "ops",
+   "state": "accepted",
+   "priority": "P0",
+   "goal": "Пустой, но разворачиваемый сервис с тестами и e2e",
+   "role": "developer",
+   "created": "2026-11-20T19:27:34+00:00",
+   "accepted_at": "2026-11-20T21:40:26+00:00",
+   "released_sha": "7cefa9e3b847f60717f8169d25db8b835cc9242d",
+   "history": [
+    {
+     "ts": "2026-11-20T19:27:34+00:00",
+     "actor": "onboarding",
+     "to": "ready",
+     "note": "created by onboarding"
+    },
+    {
+     "ts": "2026-11-20T19:39:57+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261120T1929-exec-T-0002"
+    },
+    {
+     "ts": "2026-11-20T19:39:57+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-20T19:48:45+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "partial — continues next cycle"
+    },
+    {
+     "ts": "2026-11-20T20:16:17+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 7cefa9e3b8"
+    },
+    {
+     "ts": "2026-11-20T21:40:26+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The deployed site returns 200 on /healthz, shows the AI Battles heading and the AI-agents footer, and connects over ws with no console errors. The smoke e2e passed against the deployed host. The dispa"
+    }
+   ]
+  },
+  {
+   "id": "T-0003",
+   "title": "Параметрический движок: схема характеристик, генератор с бюджетом, физика и бой",
+   "type": "milestone",
+   "state": "accepted",
+   "priority": "P0",
+   "goal": "Детерминированный общий движок, в который вписывается любая валидная машина",
+   "role": "developer",
+   "created": "2026-11-20T19:27:34+00:00",
+   "accepted_at": "2026-11-20T22:30:25+00:00",
+   "released_sha": "6698fcd57474b01d285d2ab0b9e65844838ffc04",
+   "history": [
+    {
+     "ts": "2026-11-20T19:27:34+00:00",
+     "actor": "onboarding",
+     "to": "ready",
+     "note": "created by onboarding"
+    },
+    {
+     "ts": "2026-11-20T21:41:29+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261120T2140-exec-T-0003"
+    },
+    {
+     "ts": "2026-11-20T21:41:29+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-20T21:44:15+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 6698fcd574"
+    },
+    {
+     "ts": "2026-11-20T22:30:25+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The dispatcher's test run exited 0 with all 15 tests passing, including a named test for each acceptance criterion and the NaN/Infinity negative case. I read the tests and they assert what the criteri"
+    }
+   ]
+  },
+  {
+   "id": "T-0004",
+   "title": "Простейшие боты и headless-симуляция баланса как тест",
+   "type": "milestone",
+   "state": "accepted",
+   "priority": "P0",
+   "goal": "Боты для боёв и автоматическая проверка коридора силы 35–65 %",
+   "role": "developer",
+   "created": "2026-11-20T19:27:34+00:00",
+   "accepted_at": "2026-11-20T22:51:52+00:00",
+   "released_sha": "aa8f98ffaccc88d800f84c2644017be4a1914862",
+   "history": [
+    {
+     "ts": "2026-11-20T19:27:34+00:00",
+     "actor": "onboarding",
+     "to": "ready",
+     "note": "created by onboarding"
+    },
+    {
+     "ts": "2026-11-20T22:32:44+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261120T2207-exec-T-0004"
+    },
+    {
+     "ts": "2026-11-20T22:32:44+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-20T22:41:18+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged aa8f98ffac"
+    },
+    {
+     "ts": "2026-11-20T22:51:52+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The dispatcher's test run passed (exit 0, 25 tests in 87 s), including the 200-machine corridor test, the 4-bot battle test and the damage ×3 negative case. The committed report shows 200/200 machines"
+    }
+   ]
+  },
+  {
+   "id": "T-0005",
+   "title": "Визуальный язык: процедурный вид машин из характеристик, арена и HUD",
+   "type": "design",
+   "state": "accepted",
+   "priority": "P1",
+   "goal": "Правила, по которым игрок «читает» машину глазами",
+   "role": "designer",
+   "created": "2026-11-20T19:27:34+00:00",
+   "accepted_at": "2026-11-20T22:01:31+00:00",
+   "released_sha": "d35794d84a11b6a52b1690c9c7f246d73ee9eafd",
+   "history": [
+    {
+     "ts": "2026-11-20T19:27:34+00:00",
+     "actor": "onboarding",
+     "to": "ready",
+     "note": "created by onboarding"
+    },
+    {
+     "ts": "2026-11-20T20:16:17+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261120T2007-exec-T-0005"
+    },
+    {
+     "ts": "2026-11-20T20:16:17+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-20T20:18:49+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged d35794d84a"
+    },
+    {
+     "ts": "2026-11-20T22:01:31+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "inconclusive 3×: accepted without external proof"
+    }
+   ]
+  },
+  {
+   "id": "T-0006",
+   "title": "Сетевой бой: комнаты по коду, бой против ботов, авторитетный сервер",
+   "type": "milestone",
+   "state": "accepted",
+   "priority": "P0",
+   "goal": "Сервер ведёт бои 4 машин с живыми игроками и ботами",
+   "role": "developer",
+   "created": "2026-11-20T19:27:34+00:00",
+   "accepted_at": "2026-11-20T23:56:42+00:00",
+   "released_sha": "23572f802e182508c0d6aa4ac03becc361a98e54",
+   "history": [
+    {
+     "ts": "2026-11-20T19:27:34+00:00",
+     "actor": "onboarding",
+     "to": "ready",
+     "note": "created by onboarding"
+    },
+    {
+     "ts": "2026-11-20T22:52:30+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261120T2250-exec-T-0006"
+    },
+    {
+     "ts": "2026-11-20T22:52:30+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-20T22:56:02+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 23572f802e"
+    },
+    {
+     "ts": "2026-11-20T23:56:42+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "All criteria are covered by passing tests (33/33, exit 0) and the code matches. The 180 s end is tested with a compressed tick, not real time."
+    }
+   ]
+  },
+  {
+   "id": "T-0007",
+   "title": "Клиент: генерация машины, управление мышью, рендер боя на PixiJS (скин «Неон-вектор»)",
+   "type": "milestone",
+   "state": "accepted",
+   "priority": "P0",
+   "goal": "Играбельный прототип в браузере",
+   "role": "developer",
+   "created": "2026-11-20T19:27:34+00:00",
+   "accepted_at": "2026-11-21T01:11:32+00:00",
+   "released_sha": "b6f8c8b53a718fdc0f3bdbeed0f753513d09245a",
+   "history": [
+    {
+     "ts": "2026-11-20T19:27:34+00:00",
+     "actor": "onboarding",
+     "to": "ready",
+     "note": "created by onboarding"
+    },
+    {
+     "ts": "2026-11-20T22:59:46+00:00",
+     "actor": "owner",
+     "to": "deferred",
+     "note": "владелец 20.11 выбрал стиль «Неон-вектор» на PixiJS: задача уточняется, вернётся в ready через несколько минут"
+    },
+    {
+     "ts": "2026-11-20T23:01:36+00:00",
+     "actor": "owner",
+     "to": "ready",
+     "note": "уточнена под «Неон-вектор» на PixiJS (владелец 20.11)"
+    }
+   ]
+  },
+  {
+   "id": "T-0008",
+   "title": "Приёмка M0: e2e-плейтест на ai-battles.formachines.ai",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "Подтвердить критерий выхода M0 на боевом хосте",
+   "role": "tester",
+   "created": "2026-11-20T19:27:34+00:00",
+   "accepted_at": "2026-11-21T05:37:12+00:00",
+   "released_sha": "1fba8c197049cf35da9fcc92a417826817d095d8",
+   "history": [
+    {
+     "ts": "2026-11-20T19:27:34+00:00",
+     "actor": "onboarding",
+     "to": "ready",
+     "note": "created by onboarding"
+    },
+    {
+     "ts": "2026-11-20T21:41:29+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "priority → P2: Приёмка M0 на живом хосте имеет смысл только после merge T-0003/T-0004/T-0006/T-0007. Если её запустить сейчас, тестер сыграет пустой каркас. Понижаем, чтобы диспетчер сначала брал mile"
+    }
+   ]
+  },
+  {
+   "id": "T-0009",
+   "title": "GAME-DESIGN.md §5.2: align the all-max cost with balance.json",
+   "type": "design",
+   "state": "accepted",
+   "priority": "P1",
+   "goal": "M0 (d): a balance simulation over one consistent power budget",
+   "role": "game-designer",
+   "created": "2026-11-20T20:15:44+00:00",
+   "accepted_at": "2026-11-20T21:23:54+00:00",
+   "released_sha": "05f5c51b197c23da35216e58e01bc5de06040b10",
+   "history": [
+    {
+     "ts": "2026-11-20T20:15:44+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-20T20:18:49+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261120T2007-exec-T-0009"
+    },
+    {
+     "ts": "2026-11-20T20:18:49+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-20T20:20:32+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 05f5c51b19"
+    },
+    {
+     "ts": "2026-11-20T21:23:54+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "§5.2 now gives the all-max cost as 216 (18×12), written out, and 240 with the most expensive weapon and ability. Both figures follow from balance.json, whose budget stays at 110. The share is recomput"
+    }
+   ]
+  },
+  {
+   "id": "T-0010",
+   "title": "GAME-DESIGN.md: rule for the archetype label on the car card (e.g. 'Fast · Ranged')",
+   "type": "design",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "M0 (c): the car's look and card reflect its stats",
+   "role": "game-designer",
+   "created": "2026-11-20T21:24:23+00:00",
+   "accepted_at": "2026-11-20T22:02:06+00:00",
+   "released_sha": "2c68b3d0d49f436b976e60a5caaee5f0a1fd15f4",
+   "history": [
+    {
+     "ts": "2026-11-20T21:24:23+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-20T21:24:23+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261120T2107-exec-T-0010"
+    },
+    {
+     "ts": "2026-11-20T21:24:23+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-20T21:32:17+00:00",
+     "actor": "dispatcher",
+     "to": "ready",
+     "note": "run failed: inactive for 300s"
+    },
+    {
+     "ts": "2026-11-20T21:44:27+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261120T2140-exec-T-0010"
+    },
+    {
+     "ts": "2026-11-20T21:44:27+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-20T21:49:09+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 2c68b3d0d4"
+    },
+    {
+     "ts": "2026-11-20T22:02:06+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "GAME-DESIGN.md §5.8 gives a deterministic archetype label rule with a tie-break, a full word list and 4 worked examples that I rechecked by hand. The label table is in a new file, archetype_label.json"
+    }
+   ]
+  },
+  {
+   "id": "T-0011",
+   "title": "GAME-DESIGN.md §5.4: confirm or correct the mine, oil and shield effects as implemented in the engine",
+   "type": "design",
+   "state": "rejected",
+   "priority": "P1",
+   "goal": "M0 (d): balance simulation over effects defined by the design, not guessed by code",
+   "role": "game-designer",
+   "created": "2026-11-20T22:02:55+00:00",
+   "accepted_at": null,
+   "released_sha": "3de546aa3b9468879861d5db6deda968bac2d571",
+   "history": [
+    {
+     "ts": "2026-11-20T22:02:55+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-20T22:02:55+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261120T2200-exec-T-0011"
+    },
+    {
+     "ts": "2026-11-20T22:02:55+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-20T22:04:43+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 9c6bfccca9"
+    },
+    {
+     "ts": "2026-11-20T22:30:51+00:00",
+     "actor": "reviewer",
+     "to": "in_progress",
+     "note": "failed: GAME-DESIGN.md §5.4 was not edited. The only change is design/drafts/T-0011-abilities.md, and the implementer's report admits the task was not finished."
+    },
+    {
+     "ts": "2026-11-20T22:32:44+00:00",
+     "actor": "game-designer",
+     "to": "blocked",
+     "note": "question Q-0003"
+    },
+    {
+     "ts": "2026-11-20T22:45:15+00:00",
+     "actor": "owner",
+     "to": "ready",
+     "note": "answered Q-0003"
+    },
+    {
+     "ts": "2026-11-20T22:56:14+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261120T2250-exec-T-0011"
+    },
+    {
+     "ts": "2026-11-20T22:56:14+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-20T23:01:14+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 3de546aa3b"
+    },
+    {
+     "ts": "2026-11-20T23:30:47+00:00",
+     "actor": "reviewer",
+     "to": "blocked",
+     "note": "failed review 2×: The §5.4.4 table marks shield and oil 'changed' without reading the engine. sim.ts lines 98-100 (oil) and 289-293 (shield) already match the rule, so both should be 'confirmed'. The "
+    }
+   ]
+  },
+  {
+   "id": "T-0012",
+   "title": "Archetype label: pure function label(CarSpec) in the shared engine with tests from GAME-DESIGN §5.8",
+   "type": "milestone",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "M0 (c): the car card reflects its stats",
+   "role": "developer",
+   "created": "2026-11-20T22:02:55+00:00",
+   "accepted_at": "2026-11-20T22:31:18+00:00",
+   "released_sha": "3fc24badd7e56314b643063f7a4786b9d24e08e3",
+   "history": [
+    {
+     "ts": "2026-11-20T22:02:55+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-20T22:04:43+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261120T2200-exec-T-0012"
+    },
+    {
+     "ts": "2026-11-20T22:04:43+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-20T22:05:36+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 3fc24badd7"
+    },
+    {
+     "ts": "2026-11-20T22:31:18+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "label(spec) is exported from the engine. It follows §5.8, and the tests cover the worked examples, the word list and 1000 seeded cars. The dispatcher's run passed 19 of 19 tests, exit 0."
+    }
+   ]
+  },
+  {
+   "id": "T-0013",
+   "title": "Engine bundle-safe for the browser: replace node:fs JSON loading in balance.ts and label.ts",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P1",
+   "goal": "M0 (c): the client shows the car and its label from the shared engine",
+   "role": "developer",
+   "created": "2026-11-20T22:31:47+00:00",
+   "accepted_at": "2026-11-20T23:58:25+00:00",
+   "released_sha": "b48842babf8c98ba5b9ea4674b276861651721cd",
+   "history": [
+    {
+     "ts": "2026-11-20T22:31:47+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-20T23:31:45+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261120T2307-exec-T-0013"
+    },
+    {
+     "ts": "2026-11-20T23:31:45+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-20T23:33:58+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged b48842babf"
+    },
+    {
+     "ts": "2026-11-20T23:58:25+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The engine no longer imports Node built-ins. Its tables come from a module generated from the JSON files, and the new tests check the browser bundle, value equality and staleness. All 37 tests passed "
+    }
+   ]
+  },
+  {
+   "id": "T-0014",
+   "title": "GAME-DESIGN.md §8: bot behaviour that can be built with cursor-only control",
+   "type": "design",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "M0 (a): bots in the battle behave the way the design describes",
+   "role": "game-designer",
+   "created": "2026-11-20T22:52:30+00:00",
+   "accepted_at": "2026-11-21T00:01:19+00:00",
+   "released_sha": "a8a3b7eaafcc21f77b1e0706d14be909d91f2818",
+   "history": [
+    {
+     "ts": "2026-11-20T22:52:30+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-20T23:40:39+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261120T2307-exec-T-0014"
+    },
+    {
+     "ts": "2026-11-20T23:40:39+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-20T23:47:20+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged a8a3b7eaaf"
+    }
+   ]
+  },
+  {
+   "id": "T-0015",
+   "title": "DESIGN v2: стиль «Неон-вектор» (выбор владельца 20.11)",
+   "type": "design",
+   "state": "accepted",
+   "priority": "P1",
+   "goal": "G1",
+   "role": "designer",
+   "created": "2026-11-20T23:01:35+00:00",
+   "accepted_at": "2026-11-21T00:03:08+00:00",
+   "released_sha": "5faa63c5848abe62ae22d519635634b08cf527e5",
+   "history": [
+    {
+     "ts": "2026-11-20T23:01:35+00:00",
+     "actor": "owner",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-20T23:34:11+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261120T2307-exec-T-0015"
+    },
+    {
+     "ts": "2026-11-20T23:34:11+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-20T23:40:26+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 5faa63c584"
+    }
+   ]
+  },
+  {
+   "id": "T-0016",
+   "title": "Портрет машины в карточке от генеративной модели (M1, после решения владельца о бюджете)",
+   "type": "milestone",
+   "state": "deferred",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-20T23:01:35+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-20T23:01:35+00:00",
+     "actor": "owner",
+     "to": "proposed",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-20T23:01:35+00:00",
+     "actor": "owner",
+     "to": "deferred",
+     "note": "M1: ждёт решения владельца о бюджете генерации и ключа модели в secrets.env"
+    }
+   ]
+  },
+  {
+   "id": "T-0017",
+   "title": "Engine: mine damage per GAME-DESIGN §5.4.1, without the owner's firepower multiplier",
+   "type": "defect",
+   "state": "accepted",
+   "priority": "P1",
+   "goal": "M0 (d): balance simulation over effects as the design defines them",
+   "role": "developer",
+   "created": "2026-11-20T23:31:45+00:00",
+   "accepted_at": "2026-11-21T01:15:09+00:00",
+   "released_sha": "971340bdd4861ceb556067f99beb9d9899cff07a",
+   "history": [
+    {
+     "ts": "2026-11-20T23:31:45+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0018",
+   "title": "Server: serve /_team/metrics.json per the game-metrics contract",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G4 and the M0 stability plan: the server measures rounds, errors and latency itself",
+   "role": "developer",
+   "created": "2026-11-20T23:31:45+00:00",
+   "accepted_at": "2026-11-21T03:30:27+00:00",
+   "released_sha": "237813c5b0575f2940fa144faddc81ce41516b7e",
+   "history": [
+    {
+     "ts": "2026-11-20T23:31:45+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0019",
+   "title": "GAME-DESIGN.md §2: one room autostart time (30 or 60 s) in the text and balance.json",
+   "type": "design",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "M0 (b): two friends get into one room by code before the battle starts",
+   "role": "game-designer",
+   "created": "2026-11-20T23:31:45+00:00",
+   "accepted_at": "2026-11-21T01:16:54+00:00",
+   "released_sha": "8ec1dbc705198b8131a40d8e2feddc8c4e8eb813",
+   "history": [
+    {
+     "ts": "2026-11-20T23:31:45+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  }
+ ],
+ "reviews": [
+  {
+   "task": "T-0001",
+   "verdict": "pass",
+   "summary": "The document and balance.json contain all required sections, formulas, 5 weapons, 5 abilities and 6 researched games. The budget rejects extreme combinations. One minor arithmetic error: \"all max = 252\" should be 216 by the stated formula."
+  },
+  {
+   "task": "T-0002",
+   "verdict": "inconclusive",
+   "summary": "The deployed site passes three of the four criteria: /healthz returns 200, the page shows the heading and AI footer, and the smoke e2e passes. I could not observe `npm ci && npm run build && npm test`: the dispatcher's `npm test` exited 127 (vitest not found), most likely because dependencies weren't installed at that point, and I can't run npm under the shell rules."
+  },
+  {
+   "task": "T-0005",
+   "verdict": "inconclusive",
+   "summary": "The change is design documents (DESIGN.md, SVG mockups in docs/), and the deployed server doesn't serve them. /docs/mockup-hud.svg returns 404, and team-play screenshot only accepts URLs on the server's host, so I could not render or screenshot any mockup. I read the files and confirmed the stat table covers all 8 stats and the contrast table is in DESIGN.md, but I computed no ratios myself. The server smoke test passes."
+  },
+  {
+   "task": "T-0009",
+   "verdict": "pass",
+   "summary": "§5.2 now gives the all-max cost as 216 (18×12), written out, and 240 with the most expensive weapon and ability. Both figures follow from balance.json, whose budget stays at 110. The share is recomputed (110/240 ≈ 45.8 %), and no 252 remains."
+  },
+  {
+   "task": "T-0002",
+   "verdict": "pass",
+   "summary": "The deployed site returns 200 on /healthz, shows the AI Battles heading and the AI-agents footer, and connects over ws with no console errors. The smoke e2e passed against the deployed host. The dispatcher's build and unit tests passed. The server log shows no errors."
+  },
+  {
+   "task": "T-0005",
+   "verdict": "inconclusive",
+   "summary": "T-0005 only adds design files (DESIGN.md and docs/*.svg), and the deployed server does not serve them, so I could not render the mockups. I read the stat table and the palette in DESIGN.md, and the existing smoke test passes, but nothing visual was seen or measured."
+  },
+  {
+   "task": "T-0003",
+   "verdict": "inconclusive",
+   "summary": "The T-0003 engine (src/engine) has no browser or server surface. The only e2e test, the smoke test, passes, and the server log shows no errors, but none of the five criteria can be played in a browser. The unit tests (15 passed in the dispatcher's run) cover each criterion, but that run isn't my own observation."
+  },
+  {
+   "task": "T-0005",
+   "verdict": "inconclusive",
+   "summary": "This is a docs-only design task. The deployed server returns \"not found\" for /docs/*.svg, so I could not render the mockups through team-play. I confirmed the files and the DESIGN.md table in the checkout, and the smoke test passed, but I did not see the mockups rendered."
+  },
+  {
+   "task": "T-0010",
+   "verdict": "pass",
+   "summary": "GAME-DESIGN.md §5.8 gives a deterministic archetype label rule with a tie-break, a full word list and 4 worked examples that I rechecked by hand. The label table is in a new file, archetype_label.json, rather than in balance.json."
+  },
+  {
+   "task": "T-0003",
+   "verdict": "pass",
+   "summary": "The dispatcher's test run exited 0 with all 15 tests passing, including a named test for each acceptance criterion and the NaN/Infinity negative case. I read the tests and they assert what the criteria require."
+  },
+  {
+   "task": "T-0011",
+   "verdict": "fail",
+   "summary": "The implementer did not edit GAME-DESIGN.md or balance.json. They wrote only a draft file, so none of the four acceptance criteria is met. The tests pass (exit 0), but they do not cover this design task."
+  },
+  {
+   "task": "T-0012",
+   "verdict": "pass",
+   "summary": "label(spec) is exported from the engine. It follows §5.8, and the tests cover the worked examples, the word list and 1000 seeded cars. The dispatcher's run passed 19 of 19 tests, exit 0."
+  },
+  {
+   "task": "T-0004",
+   "verdict": "pass",
+   "summary": "The dispatcher's test run passed (exit 0, 25 tests in 87 s), including the 200-machine corridor test, the 4-bot battle test and the damage ×3 negative case. The committed report shows 200/200 machines in the corridor."
+  },
+  {
+   "task": "T-0006",
+   "verdict": "inconclusive",
+   "summary": "Only the smoke test could be played, and it passed. None of the five T-0006 criteria or negative cases has a browser or ws scenario, so I could not verify them by playing."
+  },
+  {
+   "task": "T-0011",
+   "verdict": "fail",
+   "summary": "The formulas and balance.json keys in §5.4 are complete and consistent, and the budget and stat costs are untouched. The 'engine as implemented' table is not grounded in the engine, though. Oil and shield are marked 'changed' without reading sim.ts, which already implements the rule. The developer observations are missing for those two and name no file for the mine."
+  },
+  {
+   "task": "T-0006",
+   "verdict": "pass",
+   "summary": "All criteria are covered by passing tests (33/33, exit 0) and the code matches. The 180 s end is tested with a compressed tick, not real time."
+  },
+  {
+   "task": "T-0013",
+   "verdict": "pass",
+   "summary": "The engine no longer imports Node built-ins. Its tables come from a module generated from the JSON files, and the new tests check the browser bundle, value equality and staleness. All 37 tests passed in the dispatcher's run."
+  }
+ ],
+ "posts": [],
+ "metrics": null,
+ "spend_usd": 15.5,
+ "po_digest_md": "**AI Battles, цикл 20.11 23:55 (этап M0)**\n\n**Что случилось.** Приняты T-0013 и T-0015. После T-0013 движок собирается в браузере, и клиент может брать label() прямо из движка. После T-0015 готов DESIGN v2 в стиле «Неон-вектор». Блокеров у клиента T-0007 больше нет.\n\n**Что решено.** Новых задач нет: в ready уже 5 (T-0007 клиент, T-0017 урон мины, T-0018 метрики, T-0019 автостарт, T-0008 приёмка M0). Сейчас важнее закрыть их, чем начинать новое.\n- В T-0007 добавлены правки контраста свечения (яркость 70 %, трубка #6A72A8) и копирование tokens.css.\n- Бот v1.4 по §8 отложен до приёмки T-0017 и T-0007. Он перекалибрует балансный тест, а T-0017 сейчас правит ту же sim.ts. Сценарий tester'а для ботов ждёт сам бот.\n- Упреждение камеры и стрелки к врагам за экраном отложены до плейтеста T-0008.\n- esbuild в devDependencies добавим при следующей правке package.json.\n\n**Что ждёт владельца.** Выбор масштаба камеры:\n- 900 u: дальности оружия режем примерно на 40 %;\n- 1280/1600 u: рельсотрон бьёт дальше края экрана, то есть становится «слепым».\n\nПока клиент использует рекомендацию DESIGN.md, балансные числа не меняются.\n\nT-0011 (эффекты мины, масла и щита) заблокирована ревью после двух провалов, её разбирает ревью.\n\n**Расходы.** $0.17 из $100.",
+ "analyst_md": "",
+ "observations": {
+  "new": 58,
+  "by_class": {
+   "need_hypothesis": 52,
+   "reproducible_defect": 4,
+   "environment_error": 1,
+   "success": 1
+  }
+ },
+ "owner_questions_open": 0
+}

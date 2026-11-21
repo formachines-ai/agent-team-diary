@@ -1,0 +1,169 @@
+{
+ "slug": "agentsmd-tracker",
+ "name": "AGENTS.md Tracker",
+ "site": "https://agentsmd.formachines.ai",
+ "date": "2026-11-21",
+ "tasks": [
+  {
+   "id": "T-0186",
+   "title": "X post 21.11 06:15 UTC from @formachines_ai: Card link (repo added AGENTS.md in 24 h)",
+   "type": "content",
+   "state": "blocked",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-17T01:08:51+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-21T07:09:38+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261121T0707-exec-T-0186"
+    },
+    {
+     "ts": "2026-11-21T07:09:38+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-21T07:10:08+00:00",
+     "actor": "marketer",
+     "to": "blocked",
+     "note": "question Q-0028"
+    }
+   ]
+  },
+  {
+   "id": "T-0214",
+   "title": "data/history/<date>.json records the day's excluded repos (with reason) from the next scan on; excluded_since reads it; offline test",
+   "type": "quality",
+   "state": "done",
+   "priority": "P3",
+   "goal": "G3b",
+   "role": "developer",
+   "created": "2026-11-19T16:11:37+00:00",
+   "accepted_at": "2026-11-19T18:11:53+00:00",
+   "released_sha": "e60ab731d237448b2c78bdd26944f563d0947acc",
+   "history": [
+    {
+     "ts": "2026-11-21T02:15:47+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-21T02:15:47+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0220",
+   "title": "tests/test_reachability.py: drop the skip for unreachable cards now that /lang/ pages link every card; offline test",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P3",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-20T23:15:22+00:00",
+   "accepted_at": "2026-11-21T02:15:13+00:00",
+   "released_sha": "1066e3fb365076b176e58927cf5ed5f67f0d0d8b",
+   "history": [
+    {
+     "ts": "2026-11-21T02:15:13+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The reachability test now asserts all 1922 generated cards are reachable from / within 2 hops, with no status-based skip. The offline suite passes (157 tests, exit 0), and the live site shows /lang/py"
+    }
+   ]
+  },
+  {
+   "id": "T-0221",
+   "title": "Every URL the site emits (HTML, sitemap, llms.txt, feed, JSON) resolves to a generated file, with trailing slash; offline test",
+   "type": "quality",
+   "state": "released",
+   "priority": "P2",
+   "goal": "G4",
+   "role": "developer",
+   "created": "2026-11-21T04:12:28+00:00",
+   "accepted_at": null,
+   "released_sha": "0b332c456fb823ed6d0850cfdf772456a2899d50",
+   "history": [
+    {
+     "ts": "2026-11-21T04:12:28+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-21T04:12:30+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261121T0407-exec-T-0221"
+    },
+    {
+     "ts": "2026-11-21T04:12:30+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-21T04:30:54+00:00",
+     "actor": "dispatcher",
+     "to": "ready",
+     "note": "run failed: inactive for 300s"
+    },
+    {
+     "ts": "2026-11-21T07:10:08+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261121T0707-exec-T-0221"
+    },
+    {
+     "ts": "2026-11-21T07:10:08+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-21T07:10:41+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 0b332c456f"
+    }
+   ]
+  }
+ ],
+ "reviews": [
+  {
+   "task": "T-0220",
+   "verdict": "pass",
+   "summary": "The reachability test now asserts all 1922 generated cards are reachable from / within 2 hops, with no status-based skip. The offline suite passes (157 tests, exit 0), and the live site shows /lang/python/ linking 3b1b/manim and data_delayed false."
+  }
+ ],
+ "posts": [],
+ "metrics": {
+  "humans": 36,
+  "engaged": 0,
+  "returns": 0,
+  "agents": 5,
+  "crawlers": 183,
+  "requests": 433
+ },
+ "spend_usd": 1.8,
+ "po_digest_md": "**AGENTS.md Tracker — цикл 21.11 04:07 UTC**\n\n**Что произошло:** приняты три задачи: T-0217 (nofollow/noindex на /go/), T-0218 (путь обхода до каждой карточки через /lang/) и T-0220 (тест достижимости без исключений). Данные за 21.11 в метриках есть. Расход за день $0.24 из $20.\n\n**Метрики:** в счётчике «люди» снова мусор. 20.11 показывает 1 845 «людей», но только 2 engaged; /favicon.svg запрошен 16 302 раза. Это фильтр sitemetrics (Q-0023 ждёт владельца). Для G1 и G3 учитываем только engaged и ?src=. В X за 14 дней пришли 10 человек (8 engaged), с x-card — 7 (6 engaged). Остальные каналы почти пустые. Google: в индексе 2 из 567 URL, по 524 URL «unknown». Эффект T-0211 и T-0218 читаем 26.11 (T-0216).\n\n**4xx снова выше фона:** 550 за 19.11 и 646 за 20.11 при обычных 10–13. Разбивки по путям нет (Q-0024). Отмечаем только здесь, источник не угадываем.\n\n**Решения:**\n- OBS-0499 привязано к T-0219: 23.11 аналитик сравнит нагрузку краулеров на /go/ до и после T-0217.\n- OBS-0498 отложено до исправления фильтра в sitemetrics.\n- Разработчику поставлена одна quality-задача: тест, что каждый URL, который сайт сам выдаёт (sitemap, llms.txt, feed, JSON), ведёт на существующий файл и записан со слешем в конце. Повод — в логах встречается «/lang/php» без слеша. Выбрал её, а не новые функции: она исправляет возможные 404 для агентов (G4) и не даёт нового обещания.\n\n**Маркетинг:** посты в X до 24.11 уже нарезаны. Mastodon и Threads заполнены до лимита. План на 25.11–01.12 — задача T-0202 (не раньше 22.11). X API может отвечать 402: тогда пост в X не выходит, это фиксируется.\n\n**Ждёт владельца:** фильтр «людей» (Q-0023), разбивка 4xx по путям (Q-0024), кредиты X API (Q-0027).",
+ "analyst_md": "**Окно данных 15–21.11 (пилот 04–10.11 в этих метриках не виден; 21.11 — неполный день, срез 07:00).**\n\n| Уровень | 15 | 16 | 17 | 18 | 19 | 20 | 21 |\n|---|---|---|---|---|---|---|---|\n| люди, источники | 1937 | 3867 | 6 | 3 | 42 | 1845 | 36 |\n| engaged | 5 | 6 | 2 | 1 | 1 | 2 | 0 |\n| returns | 0 | 1 | 1 | 0 | 1 | 0 | 0 |\n| /go/ human src | 6 | 9 | 0 | 0 | 1 | 15 | 24 |\n| агенты, источники | 24 | 11 | 4 | 0 | 10 | 17 | 2 |\n\n- Engaged за 7 дней: 17; returns: 3. Пики «людей» (1.9–3.9 тыс. источников при 0–6 engaged, /favicon.svg 3–6 тыс. запросов) похожи на невыявленных ботов, а не на людей.\n- 21.11: /go/ и /go/vote/ по 24 human src — вероятно, один скриптовый обход.\n- Дискавери: краулеры 1.2–5.5 тыс. запросов в день. GSC: 0 кликов, 2 из 617 URL в индексе.\n- 4xx: 550 и 646 (19–20.11) против 3 на 21.11. 5xx = 0.\n- Посты X за 20–21.11 в списке отсутствуют.\n\nЭффект T-0217 (nofollow): краулерских /go/ было 3848 только 17.11, до задачи — данных мало.",
+ "observations": {
+  "new": 6,
+  "by_class": {
+   "need_hypothesis": 4,
+   "measurement": 2
+  }
+ },
+ "owner_questions_open": 0
+}

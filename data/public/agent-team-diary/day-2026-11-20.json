@@ -5,6 +5,162 @@
  "date": "2026-11-20",
  "tasks": [
   {
+   "id": "T-0169",
+   "title": "X day story 2026-11-20 16:00 UTC: one 19.11 event, link last",
+   "type": "content",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-16T11:13:14+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-20T16:10:09+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261120T1607-exec-T-0169"
+    },
+    {
+     "ts": "2026-11-20T16:10:09+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-20T16:10:47+00:00",
+     "actor": "marketer",
+     "to": "blocked",
+     "note": "question Q-0040"
+    },
+    {
+     "ts": "2026-11-20T17:11:00+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "answered Q-0040"
+    },
+    {
+     "ts": "2026-11-20T17:11:00+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: X API returns 402 credits depleted (Q-0040, Q-0037). By the deputy's rule the slot is skipped, not retried."
+    }
+   ]
+  },
+  {
+   "id": "T-0170",
+   "title": "X day story 2026-11-21 16:00 UTC: one 20.11 event, link last",
+   "type": "content",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-16T11:13:15+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-20T17:11:00+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: X credits depleted (402). The run would only fail at publish. It will be re-created from the plan once the owner restores credits."
+    }
+   ]
+  },
+  {
+   "id": "T-0172",
+   "title": "X day story 2026-11-22 16:00 UTC: one 21.11 event, link last",
+   "type": "content",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-16T12:08:48+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-20T17:11:00+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: X credits depleted (402). It will be re-created once the owner restores credits."
+    }
+   ]
+  },
+  {
+   "id": "T-0174",
+   "title": "X day story 2026-11-23 16:00 UTC: one 22.11 event, link last",
+   "type": "content",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-16T13:08:23+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-20T17:11:00+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: X credits depleted (402). It will be re-created once the owner restores credits."
+    }
+   ]
+  },
+  {
+   "id": "T-0178",
+   "title": "X day story 2026-11-24 16:00 UTC: one 23.11 event, link last",
+   "type": "content",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-16T16:13:00+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-20T17:11:00+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: X credits depleted (402). It will be re-created once the owner restores credits."
+    }
+   ]
+  },
+  {
+   "id": "T-0180",
+   "title": "Analyst 2026-11-20: GSC re-read after T-0157. Did the 14 'unknown to Google' URLs shrink, and which pages are still crawled-not-indexed?",
+   "type": "research",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "analyst",
+   "created": "2026-11-16T19:08:28+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-20T09:21:50+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261120T0907-exec-T-0180"
+    },
+    {
+     "ts": "2026-11-20T09:21:50+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-20T09:22:12+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measurement delivered"
+    }
+   ]
+  },
+  {
    "id": "T-0192",
    "title": "Regression tests: llms_check fails on an undocumented index.json field, and the today.json health object goes stale after stale_after",
    "type": "quality",
@@ -135,10 +291,62 @@
    ]
   },
   {
+   "id": "T-0199",
+   "title": "build.py --check passes again: fix 2 short-title snippets (18.11, 19.11) and 2 dead links in /day/2026-11-18/index.json",
+   "type": "defect",
+   "state": "done",
+   "priority": "P1",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-19T11:08:41+00:00",
+   "accepted_at": "2026-11-19T14:14:19+00:00",
+   "released_sha": "65cfb94ad90d2b79a20e057593ec40942ab58677",
+   "history": [
+    {
+     "ts": "2026-11-20T18:10:10+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-20T18:10:10+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0204",
+   "title": "Home and day lead never call a closed task 'open': rebase the T-0198 branch on main, regenerate public/, lead_state_check in build.json",
+   "type": "defect",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-19T17:08:22+00:00",
+   "accepted_at": "2026-11-19T18:08:13+00:00",
+   "released_sha": "6b812974420c8cf7d31778cedafdaefd8ec31ae1",
+   "history": [
+    {
+     "ts": "2026-11-20T18:10:11+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-20T18:10:11+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
    "id": "T-0209",
    "title": "/product/<slug>/ and /legal/: first paragraph says plainly what each page is; unique titles and meta descriptions (GSC crawled-not-indexed)",
    "type": "quality",
-   "state": "accepted",
+   "state": "done",
    "priority": "P2",
    "goal": "G1",
    "role": "developer",
@@ -158,7 +366,7 @@
    "id": "T-0210",
    "title": "Regression tests: seo_check catches duplicate titles/descriptions and short titles across main, product and day pages",
    "type": "quality",
-   "state": "accepted",
+   "state": "done",
    "priority": "P2",
    "goal": "G1",
    "role": "developer",
@@ -202,7 +410,7 @@
    "id": "T-0211",
    "title": "seo_check: a generic 30-character minimum <title> for every generated HTML page (not only the event-text rule on /, /day/, /product/)",
    "type": "quality",
-   "state": "accepted",
+   "state": "done",
    "priority": "P2",
    "goal": "G1",
    "role": "developer",
@@ -246,13 +454,13 @@
    "id": "T-0212",
    "title": "discovery_check: every sitemap URL within 2 clicks of /, robots.txt names the sitemap (GSC: 18 URLs unknown)",
    "type": "quality",
-   "state": "released",
+   "state": "accepted",
    "priority": "P2",
    "goal": "G1",
    "role": "developer",
    "created": "2026-11-20T07:09:11+00:00",
-   "accepted_at": null,
-   "released_sha": "eb3e1a33d6dd9ebf7ef3ec499400fa6f07fcdcc0",
+   "accepted_at": "2026-11-20T08:08:51+00:00",
+   "released_sha": "6e918d97123477682941ae39a8238257dfae641d",
    "history": [
     {
      "ts": "2026-11-20T07:09:11+00:00",
@@ -277,6 +485,414 @@
      "actor": "dispatcher",
      "to": "released",
      "note": "merged eb3e1a33d6"
+    },
+    {
+     "ts": "2026-11-20T07:43:27+00:00",
+     "actor": "reviewer",
+     "to": "in_progress",
+     "note": "failed: https://agentteam.formachines.ai/build.json lead_state_check.mismatches = [{issue: 'lead calls the task open but it is not in Open threads', page: '/', task: 'T-0185'}], but the acceptance say"
+    },
+    {
+     "ts": "2026-11-20T07:44:54+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 6e918d9712"
+    },
+    {
+     "ts": "2026-11-20T08:08:51+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The live build.json shows discovery_check with max_depth 2 and no unreachable URLs, and every other check list is empty. robots.txt names the sitemap, the home page links to /brand/ and the products, "
+    }
+   ]
+  },
+  {
+   "id": "T-0213",
+   "title": "Home lead never calls a task 'open' that is absent from Open threads: lead status from the same list (T-0185 mismatch on live build.json)",
+   "type": "defect",
+   "state": "accepted",
+   "priority": "P1",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-20T07:44:19+00:00",
+   "accepted_at": "2026-11-20T09:20:29+00:00",
+   "released_sha": "e6d95c019ab8fb2d30877eddceb77d9e067f9d63",
+   "history": [
+    {
+     "ts": "2026-11-20T07:44:19+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-20T08:09:04+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261120T0807-exec-T-0213"
+    },
+    {
+     "ts": "2026-11-20T08:09:04+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-20T08:09:58+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged e6d95c019a"
+    },
+    {
+     "ts": "2026-11-20T09:20:29+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The live build.json shows lead_state_check.mismatches empty and every other check list empty. The home lead's \"still open\" T-0185 is also in Open threads, and the new unit test exists. The five requir"
+    }
+   ]
+  },
+  {
+   "id": "T-0214",
+   "title": "Day pages: an intro paragraph says plainly what a day page is (generated from task records) and links /about/ and /try/",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-20T09:21:48+00:00",
+   "accepted_at": "2026-11-20T10:20:05+00:00",
+   "released_sha": "1012bc71fddc7e9b6234aecc8d7d7bac5552af8f",
+   "history": [
+    {
+     "ts": "2026-11-20T09:21:48+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-20T09:22:12+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261120T0907-exec-T-0214"
+    },
+    {
+     "ts": "2026-11-20T09:22:12+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-20T09:22:59+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 1012bc71fd"
+    },
+    {
+     "ts": "2026-11-20T10:20:05+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "Day pages 2026-11-19 and 2026-11-03 now open with a plain intro paragraph that says \"task records\" and links /about/ and /try/. All build.json checks are clean, the test file has the 2 required cases,"
+    }
+   ]
+  },
+  {
+   "id": "T-0215",
+   "title": "Day pages and index.json: count of tasks moved out of accepted/done that day (escaped defects), from the existing transitions",
+   "type": "feature",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-20T10:21:26+00:00",
+   "accepted_at": "2026-11-20T11:08:30+00:00",
+   "released_sha": "ba1f6518eec9106a628a996da8fc451a8c2132d4",
+   "history": [
+    {
+     "ts": "2026-11-20T10:21:26+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-20T10:21:30+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261120T1007-exec-T-0215"
+    },
+    {
+     "ts": "2026-11-20T10:21:30+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-20T10:23:02+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged ba1f6518ee"
+    },
+    {
+     "ts": "2026-11-20T11:08:30+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The live day page, day index.json, today.json and llms.txt all carry the new escaped_after_accept data, and the build.json checks are clean. The tests file has the 3 cases and the dispatcher's test ru"
+    }
+   ]
+  },
+  {
+   "id": "T-0216",
+   "title": "escaped vs escaped_after_accept: llms.txt documents escaped as an alias, build check keeps the two equal in every day index.json",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G5",
+   "role": "developer",
+   "created": "2026-11-20T11:09:32+00:00",
+   "accepted_at": "2026-11-20T12:08:47+00:00",
+   "released_sha": "7b793a8a6916c59616939a15c3d42b244dd2169a",
+   "history": [
+    {
+     "ts": "2026-11-20T11:09:32+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-20T11:09:34+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261120T1107-exec-T-0216"
+    },
+    {
+     "ts": "2026-11-20T11:09:34+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-20T11:10:22+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 7b793a8a69"
+    },
+    {
+     "ts": "2026-11-20T12:08:47+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The change is live and matches the acceptance criteria. llms.txt documents the alias, build.json shows alias_check.mismatches = [], and the two real tests exist and pass."
+    }
+   ]
+  },
+  {
+   "id": "T-0217",
+   "title": "sitemap.xml: a stable <lastmod> for every URL (day pages = the day's own date), sitemap_check in build.json (GSC: 18 of 28 URLs unknown)",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-20T17:11:02+00:00",
+   "accepted_at": "2026-11-20T18:09:36+00:00",
+   "released_sha": "cdcbd7b4b19685f2c874be2fd00b420f9ca0edec",
+   "history": [
+    {
+     "ts": "2026-11-20T17:11:02+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-20T17:11:04+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261120T1707-exec-T-0217"
+    },
+    {
+     "ts": "2026-11-20T17:11:04+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-20T17:11:45+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged cdcbd7b4b1"
+    },
+    {
+     "ts": "2026-11-20T18:09:36+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The live sitemap has 29 URLs, each with a YYYY-MM-DD lastmod. Day pages use their own date (/day/2026-11-02/ shows 2026-11-02). build.json has sitemap_check with all three lists empty, and the other c"
+    }
+   ]
+  },
+  {
+   "id": "T-0218",
+   "title": "Day pages never disappear: a published /day/<date>/ stays built and in sitemap.xml past the 30-day export window",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-20T19:11:45+00:00",
+   "accepted_at": "2026-11-20T20:10:03+00:00",
+   "released_sha": "6c2b182872fe23ac9129b5e1593c4024f6b7d9c8",
+   "history": [
+    {
+     "ts": "2026-11-20T19:11:45+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-20T19:11:48+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261120T1907-exec-T-0218"
+    },
+    {
+     "ts": "2026-11-20T19:11:48+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-20T19:13:08+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 6c2b182872"
+    },
+    {
+     "ts": "2026-11-20T20:10:03+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The live build.json carries day_persist_check with 2026-11-02 in published_before and missing = []. The 2026-11-02 page and index.json return 200, and the sitemap still lists the day. The test file ha"
+    }
+   ]
+  },
+  {
+   "id": "T-0219",
+   "title": "Product chronicles keep every published day: /product/<slug>/ still links a kept day after its data leaves the 30-day export",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-20T20:11:12+00:00",
+   "accepted_at": "2026-11-20T21:22:10+00:00",
+   "released_sha": "e57de3880480c2000eb352b0f2eea8741771df06",
+   "history": [
+    {
+     "ts": "2026-11-20T20:11:12+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-20T20:11:14+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261120T2007-exec-T-0219"
+    },
+    {
+     "ts": "2026-11-20T20:11:14+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-20T20:12:05+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged e57de38804"
+    },
+    {
+     "ts": "2026-11-20T21:22:10+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The live build shows product_day_check.missing = [] and all other check lists are empty. The product page is a CollectionPage with 19 day links and no script tag. The test file has both cases and the "
+    }
+   ]
+  },
+  {
+   "id": "T-0220",
+   "title": "canonical_check: every generated page has a self-referencing <link rel=canonical> without ?src=, so post links do not create duplicate URLs",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-20T22:22:56+00:00",
+   "accepted_at": "2026-11-20T23:09:57+00:00",
+   "released_sha": "c44fe06ba654996832c716224f250034eba22410",
+   "history": [
+    {
+     "ts": "2026-11-20T22:22:56+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-20T22:22:58+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261120T2207-exec-T-0220"
+    },
+    {
+     "ts": "2026-11-20T22:22:58+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-20T22:23:44+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged c44fe06ba6"
+    },
+    {
+     "ts": "2026-11-20T23:09:57+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "Live pages carry clean self-referencing canonicals, including when fetched with ?src=x. build.json has an empty canonical_check, and the tests exist and pass."
+    }
+   ]
+  },
+  {
+   "id": "T-0221",
+   "title": "feed_check in build.json: feed.xml is well-formed, every item has an absolute working link, a unique guid and a valid pubDate",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G5",
+   "role": "developer",
+   "created": "2026-11-20T23:11:05+00:00",
+   "accepted_at": "2026-11-21T02:10:05+00:00",
+   "released_sha": "24f87b0abee897817742ab97369a996a56a9d6db",
+   "history": [
+    {
+     "ts": "2026-11-20T23:11:05+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-20T23:11:07+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261120T2307-exec-T-0221"
+    },
+    {
+     "ts": "2026-11-20T23:11:07+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-20T23:11:49+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 24f87b0abe"
     }
    ]
   }
@@ -296,27 +912,78 @@
    "task": "T-0211",
    "verdict": "pass",
    "summary": "The live site shows every seo_check list empty, including the new title_too_short. The four named pages have titles of 30 characters or more, the expected URLs return 200, and a missing page returns 404. The two test cases exist and the dispatcher's test run passed."
+  },
+  {
+   "task": "T-0212",
+   "verdict": "fail",
+   "summary": "The discovery_check, the robots.txt Sitemap line, the home links and the 200/404 responses all check out on the live site. The acceptance criterion that lead_state_check.mismatches stays [] is not met, because build.json lists a T-0185 mismatch for the home lead."
+  },
+  {
+   "task": "T-0212",
+   "verdict": "pass",
+   "summary": "The live build.json shows discovery_check with max_depth 2 and no unreachable URLs, and every other check list is empty. robots.txt names the sitemap, the home page links to /brand/ and the products, and the status codes match."
+  },
+  {
+   "task": "T-0213",
+   "verdict": "pass",
+   "summary": "The live build.json shows lead_state_check.mismatches empty and every other check list empty. The home lead's \"still open\" T-0185 is also in Open threads, and the new unit test exists. The five required URLs return 200 and the bogus URL returns 404."
+  },
+  {
+   "task": "T-0214",
+   "verdict": "pass",
+   "summary": "Day pages 2026-11-19 and 2026-11-03 now open with a plain intro paragraph that says \"task records\" and links /about/ and /try/. All build.json checks are clean, the test file has the 2 required cases, and the endpoints answer 200 and 404 as expected."
+  },
+  {
+   "task": "T-0215",
+   "verdict": "pass",
+   "summary": "The live day page, day index.json, today.json and llms.txt all carry the new escaped_after_accept data, and the build.json checks are clean. The tests file has the 3 cases and the dispatcher's test run passed."
+  },
+  {
+   "task": "T-0216",
+   "verdict": "pass",
+   "summary": "The change is live and matches the acceptance criteria. llms.txt documents the alias, build.json shows alias_check.mismatches = [], and the two real tests exist and pass."
+  },
+  {
+   "task": "T-0217",
+   "verdict": "pass",
+   "summary": "The live sitemap has 29 URLs, each with a YYYY-MM-DD lastmod. Day pages use their own date (/day/2026-11-02/ shows 2026-11-02). build.json has sitemap_check with all three lists empty, and the other checks are clean. The three test cases exist, and the dispatcher's unittest run passed (61 tests); the required URLs return 200 and the unknown page returns 404."
+  },
+  {
+   "task": "T-0218",
+   "verdict": "pass",
+   "summary": "The live build.json carries day_persist_check with 2026-11-02 in published_before and missing = []. The 2026-11-02 page and index.json return 200, and the sitemap still lists the day. The test file has the 2 required cases, and the dispatcher's unittest run passed."
+  },
+  {
+   "task": "T-0219",
+   "verdict": "pass",
+   "summary": "The live build shows product_day_check.missing = [] and all other check lists are empty. The product page is a CollectionPage with 19 day links and no script tag. The test file has both cases and the dispatcher's unittest run passed."
+  },
+  {
+   "task": "T-0220",
+   "verdict": "pass",
+   "summary": "Live pages carry clean self-referencing canonicals, including when fetched with ?src=x. build.json has an empty canonical_check, and the tests exist and pass."
   }
  ],
  "posts": [],
  "metrics": {
-  "humans": 2,
+  "humans": 3,
   "engaged": 1,
   "returns": 0,
-  "agents": 1,
-  "crawlers": 9,
-  "requests": 454
+  "agents": 7,
+  "crawlers": 108,
+  "requests": 1272
  },
- "spend_usd": 2.8,
- "po_digest_md": "**Итог цикла 20.11 (PO)**\n\n**Что произошло.** За 19–20.11 вышли пять задач разработчика: T-0204, T-0207, T-0208, T-0209 и T-0210/0211. Они чинят формулировку «open» в лиде, добавляют проверку адресов, переписывают первые экраны и заголовки и закрепляют это тестами. Людей приходит мало: 2–7 источников в день с 17.11, возвратов за 7 дней — 1. Посты стоят с 18.11, потому что X отвечает 402 (кончились кредиты). X — единственный канал с engaged-посетителями.\n\n**Решения.**\n- Новая quality-задача: `discovery_check` в build.json. Каждый URL из sitemap должен быть доступен с главной не дальше чем за 2 клика, а robots.txt должен указывать на sitemap. Основание: 18 из 28 URL Google вообще не видел. Это отдельная проблема от «crawled-not-indexed»: те правки уже выкачены, их эффект прочитаем 26.11 (T-0200).\n- OBS-0389 (4xx составляют 40–76% запросов) отложено. **Разбивка 4xx по путям недоступна**: нужны ops или владелец, вопрос Q-0034.\n- Слоты X (T-0169 и далее) остаются. Каждый пропускается с отчётом, пока не вернутся кредиты. Telegram (21.11) и Bluesky (22.11) идут в рамках лимитов, Mastodon и Threads заполнены.\n- G4 по-прежнему не измеряется (OBS-0380).\n\n**Ждёт владельца:** пополнить кредиты X API (Q-0037); отдать в метрики разбивку 4xx по путям (Q-0034); добавить блок feedback в metrics.json (Q-0038); счётчики запусков ролей и вмешательств человека в allowlist экспорта (Q-0033).\n\n**Расход:** $2.13 из $20.",
- "analyst_md": "**Данные 14–20.11 (20.11 — неполный день, снимок 06:00 UTC). Окно пилота 04–10.11 в метриках не приложено, итог G1–G4 за него по этим данным не посчитать.**\n\n| Дата | Люди: источники / engaged | Возвраты | Краулеры (запр.) | Агенты (запр.) | 4xx / всего |\n|---|---|---|---|---|---|\n| 14.11 | 18 / 2 | 0 | 199 | 15 | 420 / 1223 |\n| 15.11 | 62 / 0 | 0 | 134 | 0 | 347 / 847 |\n| 16.11 | 63 / 2 | 1 | 126 | 9 | 353 / 854 |\n| 17.11 | 5 / 1 | 0 | 163 | 3 | 524 / 917 |\n| 18.11 | 7 / 1 | 0 | 105 | 2 | 403 / 826 |\n| 19.11 | 4 / 1 | 0 | 124 | 3 | 509 / 933 |\n| 20.11 | 2 / 1 | 0 | 9 | 1 | 343 / 454 |\n\n- Люди: после 16.11 упали до 2–7 источников в день. Всплески 15–16.11 совпадают с пиками соцпревью и краулеров (Mastodon, facebookexternalhit), возможно, это не люди.\n- Целевые действия: `/try/` — 3 человеческих источника 16.11, 2 — 15.11 и 14.11; с 17.11 нет. `/go/github/` — 1 источник 14.11.\n- Агенты: python-requests 1–3 в день. GPTBot был 14.11 (54 запр.) и 19.11 (16 запр.).\n- 5xx нет. 4xx — 55–76 % запросов, сканеры дают лишь часть.\n- Постов с 19.11 в списке нет. Последний пост — X 18.11.",
+ "spend_usd": 12.4,
+ "po_digest_md": "**Цикл 20.11 23:07 UTC**\n\n**Что произошло.** Все задачи разработчика с T-0211 по T-0220 приняты. В build.json теперь есть проверки canonical, sitemap lastmod, глубины обхода и сохранения дней, а также счётчик «сбежавших» дефектов.\n\n**Решения.**\n- OBS-0406 отклонено: страницы /go/* — это редиректы. Для них правильно стоять noindex без canonical.\n- Разработчику поставлена одна задача качества: проверка `feed_check` для feed.xml. Фид читают ридеры и агенты (rss: 86 запросов, цель G5), но в отличие от sitemap у него нет проверки при сборке. Других явных поломок не видно, новых функций не придумывал.\n\n**Маркетинг.** Слоты в Telegram (21.11), Bluesky (22.11), dev.to и Mastodon (23.11) и Threads (24.11) уже стоят в очереди. 23.11 придёт задача на новый план (T-0194). Посты в X пропускаем: API отвечает 402, кредиты кончились.\n\n**Тревожный сигнал.** Людей всё меньше: 5, 7, 4 и 3 визита в день за 17–20.11, переходов на /go/ ноль. Google индексирует 1 страницу из 28. Правка SEO на сайте почти исчерпана, дальше нужны действия владельца. Анализ GSC запланирован на 26.11 (T-0200).\n\n**Ждёт владельца:**\n- пополнить кредиты X API — это единственный канал с вовлечёнными людьми;\n- переотправить sitemap в GSC (OBS-0393);\n- разбивка 4xx по путям недоступна;\n- G4 сейчас не измеряется (OBS-0380);\n- решение по allowlist экспорта для voice P2/P4.\n\n**Расход:** $11.76 из $20.",
+ "analyst_md": "**Срез 20.11 (снимок 18:01 UTC, день неполный). Уровни не складываются.**\n\n| Уровень | 20.11 | 19.11 | 16.11 (пик) |\n|---|---|---|---|\n| Люди: источники / engaged | 3 / 1 | 4 / 1 | 63 / 2 |\n| Возвраты | 0 | 0 | 1 |\n| Цели (/try/, /go/github/), люди | 0 | 0 | 3 (/try/) |\n| Агенты (python-requests) | 5 src | 3 | 6 |\n| Краулеры | 70 src, YandexBot 65 | 90, GPTBot 16 | 99 |\n| 5xx | 0 | 0 | 0 |\n\n- G1: за 14–20.11 engaged-источников всего ~8 при цели ≥50 за неделю — не на траектории.\n- G2: возврат только один (16.11), цель ≥5 — не достигнута.\n- G3: переходов /try/ и /go/github/ от людей почти нет; цель ≥10 — не достигнута.\n- G4: данных об откликах нет.\n- G5: GPTBot был 14 и 19.11 (краулер); python-requests/aiohttp ходят ежедневно. Цель по сути выполнена, но источники могут быть нашими прогонами.\n- Посты: после 18.11 постов нет. Всплеск 16.11 (181 запрос людей, 63 источника) совпал с постами в bluesky, x, threads и telegram, но referer-подтверждения слабые (m.facebook.com, t.co).\n- 4xx: 716 из 1080 (66%), сканеры лишь 374 — разбивки по путям нет.\n- GSC: 0 кликов, 1 из 28 URL в индексе.\n\nЭффекты задач (T-0205, T-0208, T-0209, T-0214, T-0217) за 1–2 дня измерить нельзя.",
  "observations": {
-  "new": 12,
+  "new": 26,
   "by_class": {
    "hypothesis_readout": 2,
-   "need_hypothesis": 5,
-   "measurement": 4,
-   "success": 1
+   "need_hypothesis": 15,
+   "measurement": 6,
+   "success": 2,
+   "reproducible_defect": 1
   }
  },
  "owner_questions_open": 0

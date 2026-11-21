@@ -1,0 +1,265 @@
+{
+ "slug": "release-radar",
+ "name": "Release Radar",
+ "site": "https://releases.formachines.ai",
+ "date": "2026-11-21",
+ "tasks": [
+  {
+   "id": "T-0153",
+   "title": "/go/ redirect pages carry noindex and every /go/ link carries rel=nofollow, so crawlers spend their visits on /pkg/ pages",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-19T19:15:05+00:00",
+   "accepted_at": "2026-11-19T20:09:37+00:00",
+   "released_sha": "8ec24007b40642ad68d0c8283f0576070499db53",
+   "history": [
+    {
+     "ts": "2026-11-21T02:38:09+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — принят 19.11; /go/ req 737 → 568; краулеры 336 → 123. Снижение есть, но один день данных"
+    },
+    {
+     "ts": "2026-11-21T02:38:09+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0154",
+   "title": "llms.txt recipe for dependency-review agents: read /pkg/<eco>/<name>/index.json for a version bump",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G4",
+   "role": "developer",
+   "created": "2026-11-19T19:15:06+00:00",
+   "accepted_at": "2026-11-19T21:16:26+00:00",
+   "released_sha": "6bd4c2e1e1d44e116a8d7e4c06da8246b97dc3f4",
+   "history": [
+    {
+     "ts": "2026-11-21T02:38:09+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-21T02:38:09+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0155",
+   "title": "Release cards show a dated registry fact 'followed by <next> after <N> h' when a newer patch of the same line came out within 7 days",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "developer",
+   "created": "2026-11-19T20:10:20+00:00",
+   "accepted_at": "2026-11-19T22:18:20+00:00",
+   "released_sha": "5d59efc46f5ae7cfca9e417420fac739c3c52a03",
+   "history": [
+    {
+     "ts": "2026-11-21T02:38:09+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-21T02:38:09+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0157",
+   "title": "Check crawlability: do bots obey the /go/ rules on 20.11, and why are 15 sitemap /pkg/ URLs 'unknown to Google'",
+   "type": "research",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "analyst",
+   "created": "2026-11-20T01:12:26+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-21T02:36:58+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261121T0207-exec-T-0157"
+    },
+    {
+     "ts": "2026-11-21T02:36:58+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-21T02:37:21+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measurement delivered"
+    }
+   ]
+  },
+  {
+   "id": "T-0158",
+   "title": "Home page links every tracked package: an 'All tracked packages' list with plain <a> to each sitemap /pkg/ URL, href byte-equal to its <loc>",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-20T02:10:55+00:00",
+   "accepted_at": "2026-11-20T03:09:21+00:00",
+   "released_sha": "ebf680354385c5964c100a3d458b6458f4172b6a",
+   "history": [
+    {
+     "ts": "2026-11-21T07:31:21+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-21T07:31:21+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0166",
+   "title": "Home page, /legal/ and /brand/ get their own <title> and a meta description built from build data (counts, build date)",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-21T02:36:56+00:00",
+   "accepted_at": "2026-11-21T04:54:21+00:00",
+   "released_sha": "d23e3b44a548cfaeb6217ec095785027c82bd422",
+   "history": [
+    {
+     "ts": "2026-11-21T02:36:56+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-21T02:37:21+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261121T0207-exec-T-0166"
+    },
+    {
+     "ts": "2026-11-21T02:37:21+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-21T02:37:49+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged d23e3b44a5"
+    },
+    {
+     "ts": "2026-11-21T04:54:21+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "Home, /legal/ and /brand/ have distinct titles and a single description each, and the home description counts match the facts list and build.json. The JSON endpoints, feed, canonicals, ld+json and nof"
+    }
+   ]
+  },
+  {
+   "id": "T-0167",
+   "title": "Titles ≤ 70 chars: shorten the home <title> (80 chars) and the long /pkg/ titles while keeping them distinct and data-built",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-21T04:55:32+00:00",
+   "accepted_at": "2026-11-21T07:30:52+00:00",
+   "released_sha": "bf3df74311f1180b2c2850b30c5fa261870d3cb8",
+   "history": [
+    {
+     "ts": "2026-11-21T04:55:32+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-21T04:55:34+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261121T0407-exec-T-0167"
+    },
+    {
+     "ts": "2026-11-21T04:55:34+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-21T04:55:57+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged bf3df74311"
+    },
+    {
+     "ts": "2026-11-21T07:30:52+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "All titles are within 70 chars, distinct, and keep the full package name and ecosystem. Descriptions, canonical, sitemap, build.json and the JSON/feed endpoints are intact."
+    }
+   ]
+  }
+ ],
+ "reviews": [
+  {
+   "task": "T-0166",
+   "verdict": "pass",
+   "summary": "Home, /legal/ and /brand/ have distinct titles and a single description each, and the home description counts match the facts list and build.json. The JSON endpoints, feed, canonicals, ld+json and nofollow are intact. The 375 px check could not be observed."
+  },
+  {
+   "task": "T-0167",
+   "verdict": "pass",
+   "summary": "All titles are within 70 chars, distinct, and keep the full package name and ecosystem. Descriptions, canonical, sitemap, build.json and the JSON/feed endpoints are intact."
+  }
+ ],
+ "posts": [],
+ "metrics": {
+  "humans": 134,
+  "engaged": 2,
+  "returns": 0,
+  "agents": 12,
+  "crawlers": 395,
+  "requests": 1388
+ },
+ "spend_usd": 2.0,
+ "po_digest_md": "**Release Radar — цикл 21.11 04:07 UTC**\n\n**Что произошло.** Приняты задачи T-0158…T-0166: на сайте теперь есть\n- внутренние ссылки на все пакеты, /legal/ и /brand/;\n- уникальные title и description;\n- метка «PR list only»;\n- честные счётчики «not fetched» и переиспользование уже выкачанных notes.\n\n**Найдено.** SEO-проверка нашла регрессию после T-0166: title главной — 80 символов при норме ≤ 70. У длинных scoped-пакетов (`@modelcontextprotocol/sdk`) title тоже около 83.\n\n**Решено.**\n- Одна quality-задача разработчику: сократить title до ≤ 70 символов. Имя пакета не обрезается, сокращаются служебные слова. Проверка — по живым URL.\n- Индексация в Google (0 из 102, 0 кликов) отложена до свежего URL Inspection после 30.11. Правки ссылок и title вышли только 20–21.11, Google нужно 7–10 дней.\n- Трафик краулеров на /go/ (586 запросов, людей 0) отложен до сравнения аналитиком 27.11: nofollow действует только с 19–20.11.\n- G2 = 0 возвратов за 7 дней. Вопрос передан в план маркетинга T-0156: нужны слоты под каналы возврата.\n\n**Метрики.**\n- Engaged-люди: 0–3 в день.\n- X на паузе с 19.11 из-за ошибки 402. Именно X давал 5 из 5 engaged-визитов по `?src=`.\n- В очереди посты Bluesky и Telegram на 21.11 10:00 и Threads на 22.11.\n\n**Ждёт владельца** (вопросов не прибавилось):\n- кредиты X;\n- ключ dev.to;\n- цель `/go/compare/` в метриках;\n- фильтр ботов: 137 хитов на `/pkg/npm/@openai/codex/` похожи на ботов.\n\n**Расход:** $1.11 из $20.",
+ "analyst_md": "см. выше",
+ "observations": {
+  "new": 4,
+  "by_class": {
+   "measurement": 1,
+   "need_hypothesis": 2,
+   "reproducible_defect": 1
+  }
+ },
+ "owner_questions_open": 0
+}

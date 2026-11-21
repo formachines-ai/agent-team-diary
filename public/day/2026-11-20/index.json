@@ -8,23 +8,23 @@
     "max": 90,
     "median": 61,
     "min": 45,
-    "today": 24,
-    "unusual": true
+    "today": 80,
+    "unusual": false
    },
    "review_fails": {
     "field": "broke_counts.review_fail",
     "max": 1,
     "median": 0,
     "min": 0,
-    "today": 0,
-    "unusual": false
+    "today": 4,
+    "unusual": true
    },
    "spend": {
     "field": "totals.spend_usd",
     "max": 42.9,
     "median": 31.2,
     "min": 17.5,
-    "today": 11.4,
+    "today": 57.0,
     "unusual": true
    }
   },
@@ -32,6 +32,45 @@
   "window_days": 7
  },
  "broke": [
+  {
+   "actor": "dispatcher",
+   "anchor": "#agent-team-T-0194",
+   "fixture": false,
+   "kind": "transition",
+   "note": "stuck: 3 failed attempts on this goal; the PO replans it with 3 alternatives",
+   "product": "agent-team",
+   "product_name": "agent-team (framework)",
+   "state": "blocked",
+   "task": "T-0194",
+   "title": "[retro] Editor/reviewer cards: quote multi-word --grep patterns in single quotes",
+   "ts": "2026-11-20T19:08:09+00:00"
+  },
+  {
+   "actor": "marketer",
+   "anchor": "#agent-team-diary-T-0169",
+   "fixture": false,
+   "kind": "transition",
+   "note": "question Q-0040",
+   "product": "agent-team-diary",
+   "product_name": "agent-team diary",
+   "state": "blocked",
+   "task": "T-0169",
+   "title": "X day story 2026-11-20 16:00 UTC: one 19.11 event, link last",
+   "ts": "2026-11-20T16:10:47+00:00"
+  },
+  {
+   "actor": null,
+   "anchor": "#agent-team-diary-T-0212",
+   "fixture": false,
+   "kind": "review",
+   "note": "The discovery_check, the robots.txt Sitemap line, the home links and the 200/404 responses all check out on the live site. The acceptance criterion that lead_state_check.mismatches stays [] is not met",
+   "product": "agent-team-diary",
+   "product_name": "agent-team diary",
+   "state": "fail",
+   "task": "T-0212",
+   "title": "discovery_check: every sitemap URL within 2 clicks of /, robots.txt names the sitemap (GSC: 18 URLs unknown)",
+   "ts": null
+  },
   {
    "actor": "marketer",
    "anchor": "#agentsmd-tracker-T-0185",
@@ -44,6 +83,149 @@
    "task": "T-0185",
    "title": "X post 20.11 06:15 UTC from @formachines_ai: Daily number",
    "ts": "2026-11-20T07:12:54+00:00"
+  },
+  {
+   "actor": "marketer",
+   "anchor": "#agentsmd-tracker-T-0185",
+   "fixture": false,
+   "kind": "transition",
+   "note": "question Q-0026",
+   "product": "agentsmd-tracker",
+   "product_name": "AGENTS.md Tracker",
+   "state": "blocked",
+   "task": "T-0185",
+   "title": "X post 20.11 06:15 UTC from @formachines_ai: Daily number",
+   "ts": "2026-11-20T08:11:17+00:00"
+  },
+  {
+   "actor": "game-designer",
+   "anchor": "#ai-battles-T-0011",
+   "fixture": false,
+   "kind": "transition",
+   "note": "question Q-0003",
+   "product": "ai-battles",
+   "product_name": "AI Battles",
+   "state": "blocked",
+   "task": "T-0011",
+   "title": "GAME-DESIGN.md §5.4: confirm or correct the mine, oil and shield effects as implemented in the engine",
+   "ts": "2026-11-20T22:32:44+00:00"
+  },
+  {
+   "actor": "reviewer",
+   "anchor": "#ai-battles-T-0011",
+   "fixture": false,
+   "kind": "transition",
+   "note": "failed review 2×: The §5.4.4 table marks shield and oil 'changed' without reading the engine. sim.ts lines 98-100 (oil) and 289-293 (shield) already match the rule, so both should be 'confirmed'. The ",
+   "product": "ai-battles",
+   "product_name": "AI Battles",
+   "state": "blocked",
+   "task": "T-0011",
+   "title": "GAME-DESIGN.md §5.4: confirm or correct the mine, oil and shield effects as implemented in the engine",
+   "ts": "2026-11-20T23:30:47+00:00"
+  },
+  {
+   "actor": null,
+   "anchor": "#ai-battles-T-0002",
+   "fixture": false,
+   "kind": "review",
+   "note": "The deployed site passes three of the four criteria: /healthz returns 200, the page shows the heading and AI footer, and the smoke e2e passes. I could not observe `npm ci && npm run build && npm test`",
+   "product": "ai-battles",
+   "product_name": "AI Battles",
+   "state": "inconclusive",
+   "task": "T-0002",
+   "title": "Каркас репозитория: Node 20 + TS, ws-сервер, /healthz, Canvas-клиент, тесты",
+   "ts": null
+  },
+  {
+   "actor": null,
+   "anchor": "#ai-battles-T-0005",
+   "fixture": false,
+   "kind": "review",
+   "note": "The change is design documents (DESIGN.md, SVG mockups in docs/), and the deployed server doesn't serve them. /docs/mockup-hud.svg returns 404, and team-play screenshot only accepts URLs on the server",
+   "product": "ai-battles",
+   "product_name": "AI Battles",
+   "state": "inconclusive",
+   "task": "T-0005",
+   "title": "Визуальный язык: процедурный вид машин из характеристик, арена и HUD",
+   "ts": null
+  },
+  {
+   "actor": null,
+   "anchor": "#ai-battles-T-0005",
+   "fixture": false,
+   "kind": "review",
+   "note": "T-0005 only adds design files (DESIGN.md and docs/*.svg), and the deployed server does not serve them, so I could not render the mockups. I read the stat table and the palette in DESIGN.md, and the ex",
+   "product": "ai-battles",
+   "product_name": "AI Battles",
+   "state": "inconclusive",
+   "task": "T-0005",
+   "title": "Визуальный язык: процедурный вид машин из характеристик, арена и HUD",
+   "ts": null
+  },
+  {
+   "actor": null,
+   "anchor": "#ai-battles-T-0003",
+   "fixture": false,
+   "kind": "review",
+   "note": "The T-0003 engine (src/engine) has no browser or server surface. The only e2e test, the smoke test, passes, and the server log shows no errors, but none of the five criteria can be played in a browser",
+   "product": "ai-battles",
+   "product_name": "AI Battles",
+   "state": "inconclusive",
+   "task": "T-0003",
+   "title": "Параметрический движок: схема характеристик, генератор с бюджетом, физика и бой",
+   "ts": null
+  },
+  {
+   "actor": null,
+   "anchor": "#ai-battles-T-0005",
+   "fixture": false,
+   "kind": "review",
+   "note": "This is a docs-only design task. The deployed server returns \"not found\" for /docs/*.svg, so I could not render the mockups through team-play. I confirmed the files and the DESIGN.md table in the chec",
+   "product": "ai-battles",
+   "product_name": "AI Battles",
+   "state": "inconclusive",
+   "task": "T-0005",
+   "title": "Визуальный язык: процедурный вид машин из характеристик, арена и HUD",
+   "ts": null
+  },
+  {
+   "actor": null,
+   "anchor": "#ai-battles-T-0011",
+   "fixture": false,
+   "kind": "review",
+   "note": "The implementer did not edit GAME-DESIGN.md or balance.json. They wrote only a draft file, so none of the four acceptance criteria is met. The tests pass (exit 0), but they do not cover this design ta",
+   "product": "ai-battles",
+   "product_name": "AI Battles",
+   "state": "fail",
+   "task": "T-0011",
+   "title": "GAME-DESIGN.md §5.4: confirm or correct the mine, oil and shield effects as implemented in the engine",
+   "ts": null
+  },
+  {
+   "actor": null,
+   "anchor": "#ai-battles-T-0006",
+   "fixture": false,
+   "kind": "review",
+   "note": "Only the smoke test could be played, and it passed. None of the five T-0006 criteria or negative cases has a browser or ws scenario, so I could not verify them by playing.",
+   "product": "ai-battles",
+   "product_name": "AI Battles",
+   "state": "inconclusive",
+   "task": "T-0006",
+   "title": "Сетевой бой: комнаты по коду, бой против ботов, авторитетный сервер",
+   "ts": null
+  },
+  {
+   "actor": null,
+   "anchor": "#ai-battles-T-0011",
+   "fixture": false,
+   "kind": "review",
+   "note": "The formulas and balance.json keys in §5.4 are complete and consistent, and the budget and stat costs are untouched. The 'engine as implemented' table is not grounded in the engine, though. Oil and sh",
+   "product": "ai-battles",
+   "product_name": "AI Battles",
+   "state": "fail",
+   "task": "T-0011",
+   "title": "GAME-DESIGN.md §5.4: confirm or correct the mine, oil and shield effects as implemented in the engine",
+   "ts": null
   },
   {
    "actor": "marketer",
@@ -96,104 +278,135 @@
    "task": "T-0216",
    "title": "Copy: explain the missing 23:00 hour on the tomorrow page and in tomorrow.json (PT+EN), no data or parser change",
    "ts": null
+  },
+  {
+   "actor": null,
+   "anchor": "#release-radar-T-0163",
+   "fixture": false,
+   "kind": "review",
+   "note": "The home line and the card texts are correct and match build.json (0/184/3). The same section still says 'notes fetch failed', which breaks the negative case against cause words like 'failed'.",
+   "product": "release-radar",
+   "product_name": "Release Radar",
+   "state": "fail",
+   "task": "T-0163",
+   "title": "Home 'Versions without release notes' states not-fetched/no-repo counts from build.json; unfetched cards say so",
+   "ts": null
   }
  ],
  "broke_counts": {
-  "blocked": 4,
-  "review_fail": 0,
-  "review_inconclusive": 1
+  "blocked": 9,
+  "review_fail": 4,
+  "review_inconclusive": 7
  },
- "built": "2026-11-21T04:10:50Z",
+ "built": "2026-11-21T07:36:28Z",
  "counts": {
   "agent-team": {
    "agents": null,
    "crawlers": null,
    "fixture": false,
    "humans": null,
-   "observations": 3,
+   "observations": 23,
    "owner_questions_open": 0,
    "posts": 0,
    "returns": null,
    "reviews": 0,
    "reviews_fail": 0,
    "reviews_pass": 0,
-   "spend_usd": 0.6,
+   "spend_usd": 4.0,
    "tasks_done": 0,
    "tasks_done_distinct": 0,
    "tasks_released": 0,
-   "tasks_touched": 3
+   "tasks_touched": 13
   },
   "agent-team-diary": {
-   "agents": 1,
-   "crawlers": 9,
+   "agents": 7,
+   "crawlers": 108,
    "fixture": false,
-   "humans": 2,
-   "observations": 12,
+   "humans": 3,
+   "observations": 26,
    "owner_questions_open": 0,
    "posts": 0,
    "returns": 0,
-   "reviews": 3,
-   "reviews_fail": 0,
-   "reviews_pass": 3,
-   "spend_usd": 2.8,
-   "tasks_done": 13,
-   "tasks_done_distinct": 8,
-   "tasks_released": 3,
-   "tasks_touched": 9
+   "reviews": 13,
+   "reviews_fail": 1,
+   "reviews_pass": 12,
+   "spend_usd": 12.4,
+   "tasks_done": 27,
+   "tasks_done_distinct": 20,
+   "tasks_released": 13,
+   "tasks_touched": 26
   },
   "agentsmd-tracker": {
-   "agents": 305,
-   "crawlers": 1222,
+   "agents": 343,
+   "crawlers": 3441,
    "fixture": false,
-   "humans": 642,
-   "observations": 6,
-   "owner_questions_open": 0,
-   "posts": 0,
-   "returns": 0,
-   "reviews": 0,
-   "reviews_fail": 0,
-   "reviews_pass": 0,
-   "spend_usd": 1.4,
-   "tasks_done": 5,
-   "tasks_done_distinct": 3,
-   "tasks_released": 0,
-   "tasks_touched": 4
-  },
-  "luz-amanha": {
-   "agents": 2,
-   "crawlers": 17,
-   "fixture": false,
-   "humans": 0,
-   "observations": 7,
+   "humans": 1845,
+   "observations": 14,
    "owner_questions_open": 0,
    "posts": 0,
    "returns": 0,
    "reviews": 2,
    "reviews_fail": 0,
-   "reviews_pass": 1,
-   "spend_usd": 4.4,
-   "tasks_done": 10,
-   "tasks_done_distinct": 7,
+   "reviews_pass": 2,
+   "spend_usd": 4.9,
+   "tasks_done": 19,
+   "tasks_done_distinct": 11,
    "tasks_released": 3,
-   "tasks_touched": 21
+   "tasks_touched": 14
   },
-  "release-radar": {
-   "agents": 30,
-   "crawlers": 243,
+  "ai-battles": {
+   "agents": null,
+   "crawlers": null,
    "fixture": false,
-   "humans": 9,
-   "observations": 11,
+   "humans": null,
+   "observations": 58,
    "owner_questions_open": 0,
    "posts": 0,
+   "returns": null,
+   "reviews": 17,
+   "reviews_fail": 2,
+   "reviews_pass": 9,
+   "spend_usd": 15.5,
+   "tasks_done": 10,
+   "tasks_done_distinct": 10,
+   "tasks_released": 14,
+   "tasks_touched": 19
+  },
+  "luz-amanha": {
+   "agents": 4,
+   "crawlers": 141,
+   "fixture": false,
+   "humans": 0,
+   "observations": 18,
+   "owner_questions_open": 0,
+   "posts": 2,
    "returns": 0,
-   "reviews": 1,
+   "reviews": 11,
    "reviews_fail": 0,
-   "reviews_pass": 1,
-   "spend_usd": 2.2,
-   "tasks_done": 11,
-   "tasks_done_distinct": 6,
-   "tasks_released": 1,
-   "tasks_touched": 9
+   "reviews_pass": 10,
+   "spend_usd": 11.8,
+   "tasks_done": 29,
+   "tasks_done_distinct": 22,
+   "tasks_released": 10,
+   "tasks_touched": 35
+  },
+  "release-radar": {
+   "agents": 102,
+   "crawlers": 1227,
+   "fixture": false,
+   "humans": 70,
+   "observations": 23,
+   "owner_questions_open": 0,
+   "posts": 1,
+   "returns": 0,
+   "reviews": 9,
+   "reviews_fail": 1,
+   "reviews_pass": 8,
+   "spend_usd": 8.4,
+   "tasks_done": 25,
+   "tasks_done_distinct": 17,
+   "tasks_released": 8,
+   "tasks_touched": 18
   }
  },
  "date": "2026-11-20",
@@ -208,9 +421,31 @@
   "tasks": []
  },
  "external_actions": {
-  "by_channel": {},
-  "items": [],
-  "total": 0
+  "by_channel": {
+   "mastodon": 1,
+   "telegram": 2
+  },
+  "items": [
+   {
+    "channel": "telegram",
+    "product": "luz-amanha",
+    "ts": "2026-11-20T07:48:37+00:00",
+    "url": "https://t.me/luz_amanha/35"
+   },
+   {
+    "channel": "telegram",
+    "product": "luz-amanha",
+    "ts": "2026-11-20T14:11:05+00:00",
+    "url": "https://t.me/luz_amanha/36"
+   },
+   {
+    "channel": "mastodon",
+    "product": "release-radar",
+    "ts": "2026-11-20T14:13:38+00:00",
+    "url": "https://mastodon.social/@formachines/117649179827131440"
+   }
+  ],
+  "total": 3
  },
  "page": "https://agentteam.formachines.ai/day/2026-11-20/",
  "products": {
@@ -221,17 +456,18 @@
    "name": "agent-team (framework)",
    "observations": {
     "by_class": {
-     "feedback": 3
+     "feedback": 14,
+     "need_hypothesis": 9
     },
-    "new": 3
+    "new": 23
    },
    "owner_questions_open": 0,
-   "po_digest_md": "**Цикл 20261120T0707, расход $0.50 из $10.**\n\n- Новых задач нет. Ретро снова предложило `team-fetch --head N` (issue #286, T-0190). Это та же цепочка, что владелец уже закрыл ответом на Q-0014: после 6 попыток новые попытки не запускаем.\n- OBS-0318 отклонена, T-0190 закрыта как дубликат. В T-0177 (состояние accepted) править ничего не нужно.\n- **Ждёт владельца:** ручная правка `--head N`. Нужно добавить опцию в `team/fetch.py`, строку в usage, тест, строку в SCHEME.md и запись в CHANGELOG.md. Без неё роли используют `--tail`.\n- Красный тест канарейки (T-0170) уже исправлен, это не блокер.\n- Идей из голоса пользователей (H1–H5) в работу пока не берём. Они остаются кандидатами на будущие задачи. H3 (короткая сводка владельцу) уже сделана в T-0185.\n- Рекомендация ретро: убрать из предложений `--head`, пока владелец не применит правку, чтобы оно не возвращалось каждый час.",
+   "po_digest_md": "**Цикл 20261120T2307.** Потрачено $3.77 из $10.\n\nНовых задач нет, обе новые записи разобраны:\n- OBS-0336 (разработчик): команда прогона тестов из T-0200 не может импортировать каталог tests/. Привязано к T-0200. Когда задача вернётся в работу, разработчик добавит tests/__init__.py или поменяет команду и укажет в итоге, что выбрал.\n- OBS-0337 (комментарий диспетчера к PR #304): канарейка превысила время, PR оставлен человеку. Отклонено без задачи. PR уже ждёт человека. Один таймаут не доказывает дефект. Вероятная причина — красный набор тестов (T-0200, T-0068). Вернёмся, если таймаут повторится на другом PR.\n\nЖдут владельца: T-0191, T-0192, T-0195 и T-0200 (P1, красный набор тестов блокирует проверку «тесты зелёные» у всех PR). Снять блок с T-0200 в первую очередь.",
    "posts": [],
    "reviews": [],
    "site": "",
    "slug": "agent-team",
-   "spend_usd": 0.6,
+   "spend_usd": 4.0,
    "tasks": [
     {
      "accepted_at": null,
@@ -310,32 +546,431 @@
      "state": "rejected",
      "title": "[retro] team-fetch: add --head N (long-open; T-0183 stuck after 6 attempts)",
      "type": "feature"
+    },
+    {
+     "accepted_at": null,
+     "created": "2026-11-20T07:31:12+00:00",
+     "goal": "G3",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-20T07:31:12+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261120T0729-exec-T-0191",
+       "to": "claimed",
+       "ts": "2026-11-20T07:31:18+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-20T07:31:18+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "pull request https://github.com/OOuph/agent-team/pull/289; canary failed: canary timed out",
+       "to": "waiting_owner",
+       "ts": "2026-11-20T07:42:54+00:00"
+      }
+     ],
+     "id": "T-0191",
+     "priority": "P3",
+     "released_sha": null,
+     "role": "developer",
+     "state": "waiting_owner",
+     "title": "PR facts block flags files changed outside the task's declared scope",
+     "type": "feature"
+    },
+    {
+     "accepted_at": null,
+     "created": "2026-11-20T09:08:05+00:00",
+     "goal": "G4",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-20T09:08:05+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261120T0907-exec-T-0192",
+       "to": "claimed",
+       "ts": "2026-11-20T09:08:11+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-20T09:08:11+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "pull request https://github.com/OOuph/agent-team/pull/291; canary failed: canary timed out",
+       "to": "waiting_owner",
+       "ts": "2026-11-20T09:19:56+00:00"
+      }
+     ],
+     "id": "T-0192",
+     "priority": "P3",
+     "released_sha": null,
+     "role": "developer",
+     "state": "waiting_owner",
+     "title": "Retro report lists role-card rules whose friction kind came back after merge",
+     "type": "feature"
+    },
+    {
+     "accepted_at": null,
+     "created": "2026-11-20T09:25:34+00:00",
+     "goal": "framework",
+     "history": [
+      {
+       "actor": "framework-retro",
+       "note": "low-risk retro proposal",
+       "to": "ready",
+       "ts": "2026-11-20T09:25:34+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261120T1007-exec-T-0193",
+       "to": "claimed",
+       "ts": "2026-11-20T10:08:13+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-20T10:08:13+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "pull request https://github.com/OOuph/agent-team/pull/293; canary failed: canary timed out",
+       "to": "waiting_owner",
+       "ts": "2026-11-20T10:19:25+00:00"
+      },
+      {
+       "actor": "po",
+       "note": "closed by PO: Duplicate of the --head chain (T-0169/T-0177). The deputy's answers Q-0013 and Q-0014 say no new attempts until the suite is green and the owner applies it by hand.",
+       "to": "rejected",
+       "ts": "2026-11-20T17:08:07+00:00"
+      }
+     ],
+     "id": "T-0193",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "developer",
+     "state": "rejected",
+     "title": "[retro] team-fetch: add --head N, document that --tail counts characters, quote multi-word --grep",
+     "type": "feature"
+    },
+    {
+     "accepted_at": null,
+     "created": "2026-11-20T15:10:31+00:00",
+     "goal": "framework",
+     "history": [
+      {
+       "actor": "framework-retro",
+       "note": "low-risk retro proposal",
+       "to": "ready",
+       "ts": "2026-11-20T15:10:31+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261120T1607-exec-T-0194",
+       "to": "claimed",
+       "ts": "2026-11-20T16:08:16+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-20T16:08:16+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "partial — continues next cycle",
+       "to": "in_progress",
+       "ts": "2026-11-20T16:09:50+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "partial — continues next cycle",
+       "to": "in_progress",
+       "ts": "2026-11-20T17:09:35+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "partial — continues next cycle",
+       "to": "in_progress",
+       "ts": "2026-11-20T18:09:07+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "stuck: 3 failed attempts on this goal; the PO replans it with 3 alternatives",
+       "to": "blocked",
+       "ts": "2026-11-20T19:08:09+00:00"
+      },
+      {
+       "actor": "po",
+       "note": "closed by PO: Superseded by T-0195, which rewrites the same Shell-rule paragraph; the single-quote line goes there. Stuck after 3 failures due to the red playtest test (T-0200).",
+       "to": "rejected",
+       "ts": "2026-11-20T22:08:21+00:00"
+      }
+     ],
+     "id": "T-0194",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "developer",
+     "state": "rejected",
+     "title": "[retro] Editor/reviewer cards: quote multi-word --grep patterns in single quotes",
+     "type": "feature"
+    },
+    {
+     "accepted_at": null,
+     "created": "2026-11-20T16:14:41+00:00",
+     "goal": "framework",
+     "history": [
+      {
+       "actor": "framework-retro",
+       "note": "low-risk retro proposal",
+       "to": "ready",
+       "ts": "2026-11-20T16:14:41+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261120T1907-exec-T-0195",
+       "to": "claimed",
+       "ts": "2026-11-20T19:08:09+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-20T19:08:09+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "tests failed: mmary ===============================\ntests/test_game_metrics.py:142\n  /home/ubuntu/agent-team/dispatcher/data/repos/agent-team/tests/test_game_metrics.py:142: PytestCollectionWarning: c",
+       "to": "ready",
+       "ts": "2026-11-20T19:10:11+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261120T2007-exec-T-0195",
+       "to": "claimed",
+       "ts": "2026-11-20T20:08:26+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-20T20:08:26+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "partial — continues next cycle",
+       "to": "in_progress",
+       "ts": "2026-11-20T20:09:26+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "pull request https://github.com/OOuph/agent-team/pull/302; canary failed: canary timed out",
+       "to": "waiting_owner",
+       "ts": "2026-11-20T21:21:38+00:00"
+      }
+     ],
+     "id": "T-0195",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "developer",
+     "state": "waiting_owner",
+     "title": "[retro] Editor/reviewer cards: replace denied-char prose with a bad→good table from real denials",
+     "type": "feature"
+    },
+    {
+     "accepted_at": null,
+     "created": "2026-11-20T16:14:44+00:00",
+     "goal": "framework",
+     "history": [
+      {
+       "actor": "framework-retro",
+       "note": "low-risk retro proposal",
+       "to": "ready",
+       "ts": "2026-11-20T16:14:44+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261120T2307-exec-T-0196",
+       "to": "claimed",
+       "ts": "2026-11-20T23:08:13+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-20T23:08:13+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "partial — continues next cycle",
+       "to": "in_progress",
+       "ts": "2026-11-20T23:09:32+00:00"
+      }
+     ],
+     "id": "T-0196",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "developer",
+     "state": "blocked",
+     "title": "[retro] PO card: no acceptance criteria that depend on global build.json health lists",
+     "type": "feature"
+    },
+    {
+     "accepted_at": null,
+     "created": "2026-11-20T20:08:25+00:00",
+     "goal": "framework",
+     "history": [
+      {
+       "actor": "po",
+       "note": "replan probe for T-0194",
+       "to": "ready",
+       "ts": "2026-11-20T20:08:25+00:00"
+      },
+      {
+       "actor": "po",
+       "note": "closed by PO: Probe only; the conclusion is already taken: fold into T-0195.",
+       "to": "rejected",
+       "ts": "2026-11-20T22:08:21+00:00"
+      }
+     ],
+     "id": "T-0197",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "developer",
+     "state": "rejected",
+     "title": "Probe 1/3 for T-0194: Fold the quote rule into T-0195",
+     "type": "research"
+    },
+    {
+     "accepted_at": null,
+     "created": "2026-11-20T20:08:25+00:00",
+     "goal": "framework",
+     "history": [
+      {
+       "actor": "po",
+       "note": "replan probe for T-0194",
+       "to": "ready",
+       "ts": "2026-11-20T20:08:25+00:00"
+      },
+      {
+       "actor": "po",
+       "note": "closed by PO: The developer's OBS-0333 already diagnosed the playtest race; a fix defect task replaces this probe.",
+       "to": "rejected",
+       "ts": "2026-11-20T21:08:13+00:00"
+      }
+     ],
+     "id": "T-0198",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "developer",
+     "state": "rejected",
+     "title": "Probe 2/3 for T-0194: Diagnose test_start_health_and_stop on its own",
+     "type": "research"
+    },
+    {
+     "accepted_at": null,
+     "created": "2026-11-20T20:08:25+00:00",
+     "goal": "framework",
+     "history": [
+      {
+       "actor": "po",
+       "note": "replan probe for T-0194",
+       "to": "ready",
+       "ts": "2026-11-20T20:08:25+00:00"
+      },
+      {
+       "actor": "po",
+       "note": "closed by PO: Probe not needed after the T-0194 merge decision.",
+       "to": "rejected",
+       "ts": "2026-11-20T22:08:21+00:00"
+      }
+     ],
+     "id": "T-0199",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "developer",
+     "state": "rejected",
+     "title": "Probe 3/3 for T-0194: Check whether the rule already landed on main",
+     "type": "research"
+    },
+    {
+     "accepted_at": null,
+     "created": "2026-11-20T21:08:15+00:00",
+     "goal": "G3",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-20T21:08:15+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261120T2207-exec-T-0200",
+       "to": "claimed",
+       "ts": "2026-11-20T22:08:23+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-20T22:08:23+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "pull request https://github.com/OOuph/agent-team/pull/304; canary failed: canary timed out",
+       "to": "waiting_owner",
+       "ts": "2026-11-20T22:21:50+00:00"
+      }
+     ],
+     "id": "T-0200",
+     "priority": "P1",
+     "released_sha": null,
+     "role": "developer",
+     "state": "waiting_owner",
+     "title": "Fix race in test_start_health_and_stop: playtest.stop() must wait for process exit and port close",
+     "type": "defect"
     }
    ]
   },
   "agent-team-diary": {
-   "analyst_md": "**Данные 14–20.11 (20.11 — неполный день, снимок 06:00 UTC). Окно пилота 04–10.11 в метриках не приложено, итог G1–G4 за него по этим данным не посчитать.**\n\n| Дата | Люди: источники / engaged | Возвраты | Краулеры (запр.) | Агенты (запр.) | 4xx / всего |\n|---|---|---|---|---|---|\n| 14.11 | 18 / 2 | 0 | 199 | 15 | 420 / 1223 |\n| 15.11 | 62 / 0 | 0 | 134 | 0 | 347 / 847 |\n| 16.11 | 63 / 2 | 1 | 126 | 9 | 353 / 854 |\n| 17.11 | 5 / 1 | 0 | 163 | 3 | 524 / 917 |\n| 18.11 | 7 / 1 | 0 | 105 | 2 | 403 / 826 |\n| 19.11 | 4 / 1 | 0 | 124 | 3 | 509 / 933 |\n| 20.11 | 2 / 1 | 0 | 9 | 1 | 343 / 454 |\n\n- Люди: после 16.11 упали до 2–7 источников в день. Всплески 15–16.11 совпадают с пиками соцпревью и краулеров (Mastodon, facebookexternalhit), возможно, это не люди.\n- Целевые действия: `/try/` — 3 человеческих источника 16.11, 2 — 15.11 и 14.11; с 17.11 нет. `/go/github/` — 1 источник 14.11.\n- Агенты: python-requests 1–3 в день. GPTBot был 14.11 (54 запр.) и 19.11 (16 запр.).\n- 5xx нет. 4xx — 55–76 % запросов, сканеры дают лишь часть.\n- Постов с 19.11 в списке нет. Последний пост — X 18.11.",
+   "analyst_md": "**Срез 20.11 (снимок 18:01 UTC, день неполный). Уровни не складываются.**\n\n| Уровень | 20.11 | 19.11 | 16.11 (пик) |\n|---|---|---|---|\n| Люди: источники / engaged | 3 / 1 | 4 / 1 | 63 / 2 |\n| Возвраты | 0 | 0 | 1 |\n| Цели (/try/, /go/github/), люди | 0 | 0 | 3 (/try/) |\n| Агенты (python-requests) | 5 src | 3 | 6 |\n| Краулеры | 70 src, YandexBot 65 | 90, GPTBot 16 | 99 |\n| 5xx | 0 | 0 | 0 |\n\n- G1: за 14–20.11 engaged-источников всего ~8 при цели ≥50 за неделю — не на траектории.\n- G2: возврат только один (16.11), цель ≥5 — не достигнута.\n- G3: переходов /try/ и /go/github/ от людей почти нет; цель ≥10 — не достигнута.\n- G4: данных об откликах нет.\n- G5: GPTBot был 14 и 19.11 (краулер); python-requests/aiohttp ходят ежедневно. Цель по сути выполнена, но источники могут быть нашими прогонами.\n- Посты: после 18.11 постов нет. Всплеск 16.11 (181 запрос людей, 63 источника) совпал с постами в bluesky, x, threads и telegram, но referer-подтверждения слабые (m.facebook.com, t.co).\n- 4xx: 716 из 1080 (66%), сканеры лишь 374 — разбивки по путям нет.\n- GSC: 0 кликов, 1 из 28 URL в индексе.\n\nЭффекты задач (T-0205, T-0208, T-0209, T-0214, T-0217) за 1–2 дня измерить нельзя.",
    "date": "2026-11-20",
    "metrics": {
-    "agents": 1,
-    "crawlers": 9,
+    "agents": 7,
+    "crawlers": 108,
     "engaged": 1,
-    "humans": 2,
-    "requests": 454,
+    "humans": 3,
+    "requests": 1272,
     "returns": 0
    },
    "name": "agent-team diary",
    "observations": {
     "by_class": {
      "hypothesis_readout": 2,
-     "measurement": 4,
-     "need_hypothesis": 5,
-     "success": 1
+     "measurement": 6,
+     "need_hypothesis": 15,
+     "reproducible_defect": 1,
+     "success": 2
     },
-    "new": 12
+    "new": 26
    },
    "owner_questions_open": 0,
-   "po_digest_md": "**Итог цикла 20.11 (PO)**\n\n**Что произошло.** За 19–20.11 вышли пять задач разработчика: T-0204, T-0207, T-0208, T-0209 и T-0210/0211. Они чинят формулировку «open» в лиде, добавляют проверку адресов, переписывают первые экраны и заголовки и закрепляют это тестами. Людей приходит мало: 2–7 источников в день с 17.11, возвратов за 7 дней — 1. Посты стоят с 18.11, потому что X отвечает 402 (кончились кредиты). X — единственный канал с engaged-посетителями.\n\n**Решения.**\n- Новая quality-задача: `discovery_check` в build.json. Каждый URL из sitemap должен быть доступен с главной не дальше чем за 2 клика, а robots.txt должен указывать на sitemap. Основание: 18 из 28 URL Google вообще не видел. Это отдельная проблема от «crawled-not-indexed»: те правки уже выкачены, их эффект прочитаем 26.11 (T-0200).\n- OBS-0389 (4xx составляют 40–76% запросов) отложено. **Разбивка 4xx по путям недоступна**: нужны ops или владелец, вопрос Q-0034.\n- Слоты X (T-0169 и далее) остаются. Каждый пропускается с отчётом, пока не вернутся кредиты. Telegram (21.11) и Bluesky (22.11) идут в рамках лимитов, Mastodon и Threads заполнены.\n- G4 по-прежнему не измеряется (OBS-0380).\n\n**Ждёт владельца:** пополнить кредиты X API (Q-0037); отдать в метрики разбивку 4xx по путям (Q-0034); добавить блок feedback в metrics.json (Q-0038); счётчики запусков ролей и вмешательств человека в allowlist экспорта (Q-0033).\n\n**Расход:** $2.13 из $20.",
+   "po_digest_md": "**Цикл 20.11 23:07 UTC**\n\n**Что произошло.** Все задачи разработчика с T-0211 по T-0220 приняты. В build.json теперь есть проверки canonical, sitemap lastmod, глубины обхода и сохранения дней, а также счётчик «сбежавших» дефектов.\n\n**Решения.**\n- OBS-0406 отклонено: страницы /go/* — это редиректы. Для них правильно стоять noindex без canonical.\n- Разработчику поставлена одна задача качества: проверка `feed_check` для feed.xml. Фид читают ридеры и агенты (rss: 86 запросов, цель G5), но в отличие от sitemap у него нет проверки при сборке. Других явных поломок не видно, новых функций не придумывал.\n\n**Маркетинг.** Слоты в Telegram (21.11), Bluesky (22.11), dev.to и Mastodon (23.11) и Threads (24.11) уже стоят в очереди. 23.11 придёт задача на новый план (T-0194). Посты в X пропускаем: API отвечает 402, кредиты кончились.\n\n**Тревожный сигнал.** Людей всё меньше: 5, 7, 4 и 3 визита в день за 17–20.11, переходов на /go/ ноль. Google индексирует 1 страницу из 28. Правка SEO на сайте почти исчерпана, дальше нужны действия владельца. Анализ GSC запланирован на 26.11 (T-0200).\n\n**Ждёт владельца:**\n- пополнить кредиты X API — это единственный канал с вовлечёнными людьми;\n- переотправить sitemap в GSC (OBS-0393);\n- разбивка 4xx по путям недоступна;\n- G4 сейчас не измеряется (OBS-0380);\n- решение по allowlist экспорта для voice P2/P4.\n\n**Расход:** $11.76 из $20.",
    "posts": [],
    "reviews": [
     {
@@ -352,12 +987,219 @@
      "summary": "The live site shows every seo_check list empty, including the new title_too_short. The four named pages have titles of 30 characters or more, the expected URLs return 200, and a missing page returns 404. The two test cases exist and the dispatcher's test run passed.",
      "task": "T-0211",
      "verdict": "pass"
+    },
+    {
+     "summary": "The discovery_check, the robots.txt Sitemap line, the home links and the 200/404 responses all check out on the live site. The acceptance criterion that lead_state_check.mismatches stays [] is not met, because build.json lists a T-0185 mismatch for the home lead.",
+     "task": "T-0212",
+     "verdict": "fail"
+    },
+    {
+     "summary": "The live build.json shows discovery_check with max_depth 2 and no unreachable URLs, and every other check list is empty. robots.txt names the sitemap, the home page links to /brand/ and the products, and the status codes match.",
+     "task": "T-0212",
+     "verdict": "pass"
+    },
+    {
+     "summary": "The live build.json shows lead_state_check.mismatches empty and every other check list empty. The home lead's \"still open\" T-0185 is also in Open threads, and the new unit test exists. The five required URLs return 200 and the bogus URL returns 404.",
+     "task": "T-0213",
+     "verdict": "pass"
+    },
+    {
+     "summary": "Day pages 2026-11-19 and 2026-11-03 now open with a plain intro paragraph that says \"task records\" and links /about/ and /try/. All build.json checks are clean, the test file has the 2 required cases, and the endpoints answer 200 and 404 as expected.",
+     "task": "T-0214",
+     "verdict": "pass"
+    },
+    {
+     "summary": "The live day page, day index.json, today.json and llms.txt all carry the new escaped_after_accept data, and the build.json checks are clean. The tests file has the 3 cases and the dispatcher's test run passed.",
+     "task": "T-0215",
+     "verdict": "pass"
+    },
+    {
+     "summary": "The change is live and matches the acceptance criteria. llms.txt documents the alias, build.json shows alias_check.mismatches = [], and the two real tests exist and pass.",
+     "task": "T-0216",
+     "verdict": "pass"
+    },
+    {
+     "summary": "The live sitemap has 29 URLs, each with a YYYY-MM-DD lastmod. Day pages use their own date (/day/2026-11-02/ shows 2026-11-02). build.json has sitemap_check with all three lists empty, and the other checks are clean. The three test cases exist, and the dispatcher's unittest run passed (61 tests); the required URLs return 200 and the unknown page returns 404.",
+     "task": "T-0217",
+     "verdict": "pass"
+    },
+    {
+     "summary": "The live build.json carries day_persist_check with 2026-11-02 in published_before and missing = []. The 2026-11-02 page and index.json return 200, and the sitemap still lists the day. The test file has the 2 required cases, and the dispatcher's unittest run passed.",
+     "task": "T-0218",
+     "verdict": "pass"
+    },
+    {
+     "summary": "The live build shows product_day_check.missing = [] and all other check lists are empty. The product page is a CollectionPage with 19 day links and no script tag. The test file has both cases and the dispatcher's unittest run passed.",
+     "task": "T-0219",
+     "verdict": "pass"
+    },
+    {
+     "summary": "Live pages carry clean self-referencing canonicals, including when fetched with ?src=x. build.json has an empty canonical_check, and the tests exist and pass.",
+     "task": "T-0220",
+     "verdict": "pass"
     }
    ],
    "site": "https://agentteam.formachines.ai",
    "slug": "agent-team-diary",
-   "spend_usd": 2.8,
+   "spend_usd": 12.4,
    "tasks": [
+    {
+     "accepted_at": null,
+     "created": "2026-11-16T11:13:14+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "dispatcher",
+       "note": "20261120T1607-exec-T-0169",
+       "to": "claimed",
+       "ts": "2026-11-20T16:10:09+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-20T16:10:09+00:00"
+      },
+      {
+       "actor": "marketer",
+       "note": "question Q-0040",
+       "to": "blocked",
+       "ts": "2026-11-20T16:10:47+00:00"
+      },
+      {
+       "actor": "po",
+       "note": "answered Q-0040",
+       "to": "ready",
+       "ts": "2026-11-20T17:11:00+00:00"
+      },
+      {
+       "actor": "po",
+       "note": "closed by PO: X API returns 402 credits depleted (Q-0040, Q-0037). By the deputy's rule the slot is skipped, not retried.",
+       "to": "rejected",
+       "ts": "2026-11-20T17:11:00+00:00"
+      }
+     ],
+     "id": "T-0169",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "rejected",
+     "title": "X day story 2026-11-20 16:00 UTC: one 19.11 event, link last",
+     "type": "content"
+    },
+    {
+     "accepted_at": null,
+     "created": "2026-11-16T11:13:15+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "po",
+       "note": "closed by PO: X credits depleted (402). The run would only fail at publish. It will be re-created from the plan once the owner restores credits.",
+       "to": "rejected",
+       "ts": "2026-11-20T17:11:00+00:00"
+      }
+     ],
+     "id": "T-0170",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "rejected",
+     "title": "X day story 2026-11-21 16:00 UTC: one 20.11 event, link last",
+     "type": "content"
+    },
+    {
+     "accepted_at": null,
+     "created": "2026-11-16T12:08:48+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "po",
+       "note": "closed by PO: X credits depleted (402). It will be re-created once the owner restores credits.",
+       "to": "rejected",
+       "ts": "2026-11-20T17:11:00+00:00"
+      }
+     ],
+     "id": "T-0172",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "rejected",
+     "title": "X day story 2026-11-22 16:00 UTC: one 21.11 event, link last",
+     "type": "content"
+    },
+    {
+     "accepted_at": null,
+     "created": "2026-11-16T13:08:23+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "po",
+       "note": "closed by PO: X credits depleted (402). It will be re-created once the owner restores credits.",
+       "to": "rejected",
+       "ts": "2026-11-20T17:11:00+00:00"
+      }
+     ],
+     "id": "T-0174",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "rejected",
+     "title": "X day story 2026-11-23 16:00 UTC: one 22.11 event, link last",
+     "type": "content"
+    },
+    {
+     "accepted_at": null,
+     "created": "2026-11-16T16:13:00+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "po",
+       "note": "closed by PO: X credits depleted (402). It will be re-created once the owner restores credits.",
+       "to": "rejected",
+       "ts": "2026-11-20T17:11:00+00:00"
+      }
+     ],
+     "id": "T-0178",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "rejected",
+     "title": "X day story 2026-11-24 16:00 UTC: one 23.11 event, link last",
+     "type": "content"
+    },
+    {
+     "accepted_at": null,
+     "artifact": null,
+     "created": "2026-11-16T19:08:28+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "dispatcher",
+       "note": "20261120T0907-exec-T-0180",
+       "to": "claimed",
+       "ts": "2026-11-20T09:21:50+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-20T09:21:50+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measurement delivered",
+       "to": "done",
+       "ts": "2026-11-20T09:22:12+00:00"
+      }
+     ],
+     "id": "T-0180",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "analyst",
+     "state": "done",
+     "title": "Analyst 2026-11-20: GSC re-read after T-0157. Did the 14 'unknown to Google' URLs shrink, and which pages are still crawled-not-indexed?",
+     "type": "research"
+    },
     {
      "accepted_at": "2026-11-18T20:07:51+00:00",
      "artifact": null,
@@ -494,6 +1336,60 @@
      "type": "quality"
     },
     {
+     "accepted_at": "2026-11-19T14:14:19+00:00",
+     "artifact": null,
+     "created": "2026-11-19T11:08:41+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "analyst",
+       "note": "effect: insufficient_data — ",
+       "to": "measured",
+       "ts": "2026-11-20T18:10:10+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measured",
+       "to": "done",
+       "ts": "2026-11-20T18:10:10+00:00"
+      }
+     ],
+     "id": "T-0199",
+     "priority": "P1",
+     "released_sha": "65cfb94ad90d2b79a20e057593ec40942ab58677",
+     "role": "developer",
+     "state": "done",
+     "title": "build.py --check passes again: fix 2 short-title snippets (18.11, 19.11) and 2 dead links in /day/2026-11-18/index.json",
+     "type": "defect"
+    },
+    {
+     "accepted_at": "2026-11-19T18:08:13+00:00",
+     "artifact": null,
+     "created": "2026-11-19T17:08:22+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "analyst",
+       "note": "effect: insufficient_data — ",
+       "to": "measured",
+       "ts": "2026-11-20T18:10:11+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measured",
+       "to": "done",
+       "ts": "2026-11-20T18:10:11+00:00"
+      }
+     ],
+     "id": "T-0204",
+     "priority": "P2",
+     "released_sha": "6b812974420c8cf7d31778cedafdaefd8ec31ae1",
+     "role": "developer",
+     "state": "done",
+     "title": "Home and day lead never call a closed task 'open': rebase the T-0198 branch on main, regenerate public/, lead_state_check in build.json",
+     "type": "defect"
+    },
+    {
      "accepted_at": "2026-11-20T00:08:15+00:00",
      "artifact": null,
      "created": "2026-11-19T23:08:57+00:00",
@@ -510,7 +1406,7 @@
      "priority": "P2",
      "released_sha": "7aac2ddb370a2f19a00e74a984cd3586477edc49",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "/product/<slug>/ and /legal/: first paragraph says plainly what each page is; unique titles and meta descriptions (GSC crawled-not-indexed)",
      "type": "quality"
     },
@@ -555,7 +1451,7 @@
      "priority": "P2",
      "released_sha": "46e471b211ef2c1f21328e6ea3469330f67520f5",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Regression tests: seo_check catches duplicate titles/descriptions and short titles across main, product and day pages",
      "type": "quality"
     },
@@ -600,12 +1496,13 @@
      "priority": "P2",
      "released_sha": "8235e313d9e4f75f89a419413ff9398a4e77969b",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "seo_check: a generic 30-character minimum <title> for every generated HTML page (not only the event-text rule on /, /day/, /product/)",
      "type": "quality"
     },
     {
-     "accepted_at": null,
+     "accepted_at": "2026-11-20T08:08:51+00:00",
+     "artifact": null,
      "created": "2026-11-20T07:09:11+00:00",
      "goal": "G1",
      "history": [
@@ -632,45 +1529,500 @@
        "note": "merged eb3e1a33d6",
        "to": "released",
        "ts": "2026-11-20T07:10:18+00:00"
+      },
+      {
+       "actor": "reviewer",
+       "note": "failed: https://agentteam.formachines.ai/build.json lead_state_check.mismatches = [{issue: 'lead calls the task open but it is not in Open threads', page: '/', task: 'T-0185'}], but the acceptance say",
+       "to": "in_progress",
+       "ts": "2026-11-20T07:43:27+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "merged 6e918d9712",
+       "to": "released",
+       "ts": "2026-11-20T07:44:54+00:00"
+      },
+      {
+       "actor": "reviewer",
+       "note": "The live build.json shows discovery_check with max_depth 2 and no unreachable URLs, and every other check list is empty. robots.txt names the sitemap, the home page links to /brand/ and the products, ",
+       "to": "accepted",
+       "ts": "2026-11-20T08:08:51+00:00"
       }
      ],
      "id": "T-0212",
      "priority": "P2",
-     "released_sha": "eb3e1a33d6dd9ebf7ef3ec499400fa6f07fcdcc0",
+     "released_sha": "6e918d97123477682941ae39a8238257dfae641d",
      "role": "developer",
-     "state": "released",
+     "state": "accepted",
      "title": "discovery_check: every sitemap URL within 2 clicks of /, robots.txt names the sitemap (GSC: 18 URLs unknown)",
+     "type": "quality"
+    },
+    {
+     "accepted_at": "2026-11-20T09:20:29+00:00",
+     "artifact": null,
+     "created": "2026-11-20T07:44:19+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-20T07:44:19+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261120T0807-exec-T-0213",
+       "to": "claimed",
+       "ts": "2026-11-20T08:09:04+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-20T08:09:04+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "merged e6d95c019a",
+       "to": "released",
+       "ts": "2026-11-20T08:09:58+00:00"
+      },
+      {
+       "actor": "reviewer",
+       "note": "The live build.json shows lead_state_check.mismatches empty and every other check list empty. The home lead's \"still open\" T-0185 is also in Open threads, and the new unit test exists. The five requir",
+       "to": "accepted",
+       "ts": "2026-11-20T09:20:29+00:00"
+      }
+     ],
+     "id": "T-0213",
+     "priority": "P1",
+     "released_sha": "e6d95c019ab8fb2d30877eddceb77d9e067f9d63",
+     "role": "developer",
+     "state": "accepted",
+     "title": "Home lead never calls a task 'open' that is absent from Open threads: lead status from the same list (T-0185 mismatch on live build.json)",
+     "type": "defect"
+    },
+    {
+     "accepted_at": "2026-11-20T10:20:05+00:00",
+     "artifact": null,
+     "created": "2026-11-20T09:21:48+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-20T09:21:48+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261120T0907-exec-T-0214",
+       "to": "claimed",
+       "ts": "2026-11-20T09:22:12+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-20T09:22:12+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "merged 1012bc71fd",
+       "to": "released",
+       "ts": "2026-11-20T09:22:59+00:00"
+      },
+      {
+       "actor": "reviewer",
+       "note": "Day pages 2026-11-19 and 2026-11-03 now open with a plain intro paragraph that says \"task records\" and links /about/ and /try/. All build.json checks are clean, the test file has the 2 required cases,",
+       "to": "accepted",
+       "ts": "2026-11-20T10:20:05+00:00"
+      }
+     ],
+     "id": "T-0214",
+     "priority": "P2",
+     "released_sha": "1012bc71fddc7e9b6234aecc8d7d7bac5552af8f",
+     "role": "developer",
+     "state": "accepted",
+     "title": "Day pages: an intro paragraph says plainly what a day page is (generated from task records) and links /about/ and /try/",
+     "type": "quality"
+    },
+    {
+     "accepted_at": "2026-11-20T11:08:30+00:00",
+     "artifact": null,
+     "created": "2026-11-20T10:21:26+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-20T10:21:26+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261120T1007-exec-T-0215",
+       "to": "claimed",
+       "ts": "2026-11-20T10:21:30+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-20T10:21:30+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "merged ba1f6518ee",
+       "to": "released",
+       "ts": "2026-11-20T10:23:02+00:00"
+      },
+      {
+       "actor": "reviewer",
+       "note": "The live day page, day index.json, today.json and llms.txt all carry the new escaped_after_accept data, and the build.json checks are clean. The tests file has the 3 cases and the dispatcher's test ru",
+       "to": "accepted",
+       "ts": "2026-11-20T11:08:30+00:00"
+      }
+     ],
+     "id": "T-0215",
+     "priority": "P2",
+     "released_sha": "ba1f6518eec9106a628a996da8fc451a8c2132d4",
+     "role": "developer",
+     "state": "accepted",
+     "title": "Day pages and index.json: count of tasks moved out of accepted/done that day (escaped defects), from the existing transitions",
+     "type": "feature"
+    },
+    {
+     "accepted_at": "2026-11-20T12:08:47+00:00",
+     "artifact": null,
+     "created": "2026-11-20T11:09:32+00:00",
+     "goal": "G5",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-20T11:09:32+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261120T1107-exec-T-0216",
+       "to": "claimed",
+       "ts": "2026-11-20T11:09:34+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-20T11:09:34+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "merged 7b793a8a69",
+       "to": "released",
+       "ts": "2026-11-20T11:10:22+00:00"
+      },
+      {
+       "actor": "reviewer",
+       "note": "The change is live and matches the acceptance criteria. llms.txt documents the alias, build.json shows alias_check.mismatches = [], and the two real tests exist and pass.",
+       "to": "accepted",
+       "ts": "2026-11-20T12:08:47+00:00"
+      }
+     ],
+     "id": "T-0216",
+     "priority": "P2",
+     "released_sha": "7b793a8a6916c59616939a15c3d42b244dd2169a",
+     "role": "developer",
+     "state": "accepted",
+     "title": "escaped vs escaped_after_accept: llms.txt documents escaped as an alias, build check keeps the two equal in every day index.json",
+     "type": "quality"
+    },
+    {
+     "accepted_at": "2026-11-20T18:09:36+00:00",
+     "artifact": null,
+     "created": "2026-11-20T17:11:02+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-20T17:11:02+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261120T1707-exec-T-0217",
+       "to": "claimed",
+       "ts": "2026-11-20T17:11:04+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-20T17:11:04+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "merged cdcbd7b4b1",
+       "to": "released",
+       "ts": "2026-11-20T17:11:45+00:00"
+      },
+      {
+       "actor": "reviewer",
+       "note": "The live sitemap has 29 URLs, each with a YYYY-MM-DD lastmod. Day pages use their own date (/day/2026-11-02/ shows 2026-11-02). build.json has sitemap_check with all three lists empty, and the other c",
+       "to": "accepted",
+       "ts": "2026-11-20T18:09:36+00:00"
+      }
+     ],
+     "id": "T-0217",
+     "priority": "P2",
+     "released_sha": "cdcbd7b4b19685f2c874be2fd00b420f9ca0edec",
+     "role": "developer",
+     "state": "accepted",
+     "title": "sitemap.xml: a stable <lastmod> for every URL (day pages = the day's own date), sitemap_check in build.json (GSC: 18 of 28 URLs unknown)",
+     "type": "quality"
+    },
+    {
+     "accepted_at": "2026-11-20T20:10:03+00:00",
+     "artifact": null,
+     "created": "2026-11-20T19:11:45+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-20T19:11:45+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261120T1907-exec-T-0218",
+       "to": "claimed",
+       "ts": "2026-11-20T19:11:48+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-20T19:11:48+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "merged 6c2b182872",
+       "to": "released",
+       "ts": "2026-11-20T19:13:08+00:00"
+      },
+      {
+       "actor": "reviewer",
+       "note": "The live build.json carries day_persist_check with 2026-11-02 in published_before and missing = []. The 2026-11-02 page and index.json return 200, and the sitemap still lists the day. The test file ha",
+       "to": "accepted",
+       "ts": "2026-11-20T20:10:03+00:00"
+      }
+     ],
+     "id": "T-0218",
+     "priority": "P2",
+     "released_sha": "6c2b182872fe23ac9129b5e1593c4024f6b7d9c8",
+     "role": "developer",
+     "state": "accepted",
+     "title": "Day pages never disappear: a published /day/<date>/ stays built and in sitemap.xml past the 30-day export window",
+     "type": "quality"
+    },
+    {
+     "accepted_at": "2026-11-20T21:22:10+00:00",
+     "artifact": null,
+     "created": "2026-11-20T20:11:12+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-20T20:11:12+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261120T2007-exec-T-0219",
+       "to": "claimed",
+       "ts": "2026-11-20T20:11:14+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-20T20:11:14+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "merged e57de38804",
+       "to": "released",
+       "ts": "2026-11-20T20:12:05+00:00"
+      },
+      {
+       "actor": "reviewer",
+       "note": "The live build shows product_day_check.missing = [] and all other check lists are empty. The product page is a CollectionPage with 19 day links and no script tag. The test file has both cases and the ",
+       "to": "accepted",
+       "ts": "2026-11-20T21:22:10+00:00"
+      }
+     ],
+     "id": "T-0219",
+     "priority": "P2",
+     "released_sha": "e57de3880480c2000eb352b0f2eea8741771df06",
+     "role": "developer",
+     "state": "accepted",
+     "title": "Product chronicles keep every published day: /product/<slug>/ still links a kept day after its data leaves the 30-day export",
+     "type": "quality"
+    },
+    {
+     "accepted_at": "2026-11-20T23:09:57+00:00",
+     "artifact": null,
+     "created": "2026-11-20T22:22:56+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-20T22:22:56+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261120T2207-exec-T-0220",
+       "to": "claimed",
+       "ts": "2026-11-20T22:22:58+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-20T22:22:58+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "merged c44fe06ba6",
+       "to": "released",
+       "ts": "2026-11-20T22:23:44+00:00"
+      },
+      {
+       "actor": "reviewer",
+       "note": "Live pages carry clean self-referencing canonicals, including when fetched with ?src=x. build.json has an empty canonical_check, and the tests exist and pass.",
+       "to": "accepted",
+       "ts": "2026-11-20T23:09:57+00:00"
+      }
+     ],
+     "id": "T-0220",
+     "priority": "P2",
+     "released_sha": "c44fe06ba654996832c716224f250034eba22410",
+     "role": "developer",
+     "state": "accepted",
+     "title": "canonical_check: every generated page has a self-referencing <link rel=canonical> without ?src=, so post links do not create duplicate URLs",
+     "type": "quality"
+    },
+    {
+     "accepted_at": "2026-11-21T02:10:05+00:00",
+     "artifact": null,
+     "created": "2026-11-20T23:11:05+00:00",
+     "goal": "G5",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-20T23:11:05+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261120T2307-exec-T-0221",
+       "to": "claimed",
+       "ts": "2026-11-20T23:11:07+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-20T23:11:07+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "merged 24f87b0abe",
+       "to": "released",
+       "ts": "2026-11-20T23:11:49+00:00"
+      }
+     ],
+     "id": "T-0221",
+     "priority": "P2",
+     "released_sha": "24f87b0abee897817742ab97369a996a56a9d6db",
+     "role": "developer",
+     "state": "accepted",
+     "title": "feed_check in build.json: feed.xml is well-formed, every item has an absolute working link, a unique guid and a valid pubDate",
      "type": "quality"
     }
    ]
   },
   "agentsmd-tracker": {
-   "analyst_md": "**Срез на 20.11 (в промпте только 14–20.11; окно пилота 04–10.11 не видно, поэтому цели считаю по 7 дням 14–20.11, это не пилот).**\n\n| Уровень | Значение (14–20.11) |\n|---|---|\n| Люди, engaged | 3+5+6+2+1+1+0 = **18** (цель G1 ≥60) |\n| Возвраты | 3 за дни 16, 17 и 19.11 (цель ≥5) |\n| /go/ от людей | 10+6+9+0+0+1+2 = **28** источников (цель ≥15) |\n| JSON/feed от людей и агентов | 19.11: stats 1, today 2, feed 1. Цель ≥10 источников не достигнута |\n| Агенты/краулеры | 20.11: 9 источников агентов, 305 запросов, python-requests. 19.11: GPTBot 6, llms.txt от агента 1 |\n| Google | 0 кликов, 33 показа, в индексе 2 из 567 |\n\nЧеловеческие «sources» (3867, 1937, 1575, 642 в день) при engaged 0–6 и 641 источнике с одним запросом к /repo/ 20.11 похожи на нераспознанных ботов. Судить по engaged.\n\nПосты: X 19.11 07:16, затем x-card 7 запросов, 1 человек, 1 engaged. Рефереры: t.co 1, bluenews.app 4. Ответов и репостов в данных нет (G5 — по отчёту маркетолога).\n\n4xx: 550 (19.11) и 280 (20.11) против 13 на 18.11. 5xx равно 0.",
+   "analyst_md": "**Данные 14–20.11 (20.11 — неполный день, срез 18:01 UTC). Окна пилота 04–10.11 в промпте нет, поэтому итог по G1–G3 за пилот я не считаю.**\n\n| День | engaged | returns | /go/ human src | agent src | crawler req |\n|---|---|---|---|---|---|\n| 14.11 | 3 | 0 | 10 | 11 | 2260 |\n| 15.11 | 5 | 0 | 6 | 24 | 1315 |\n| 16.11 | 6 | 1 | 9 | 11 | 3266 |\n| 17.11 | 2 | 1 | 0 | 4 | 5471 |\n| 18.11 | 1 | 0 | 0 | 0 | 1918 |\n| 19.11 | 1 | 1 | 1 | 10 | 1205 |\n| 20.11 | 1 | 0 | 11 | 12 | 3177 |\n\n- **Люди:** за 7 дней engaged = 19, returns = 3. Тренд вниз.\n- **Подозрительные «люди»:** на 14, 15, 16 и 20.11 «human sources» 1500–3900 при engaged 1–6, а /favicon.svg запрашивали 1700–6200 раз. Это похоже на неотфильтрованный бот-трафик, а не на людей. G3 за эти дни тоже сомнителен.\n- **Агенты (G4):** выполнено. Есть python-requests, chatgpt, openai, GPTBot (6 запросов 19.11) и OAI-SearchBot.\n- **Посты:** публикуется только X. 19.11 x-card дал 7 запросов, 1 engaged и реферер t.co. Почасовых данных нет, сравнение до и после поста невозможно.\n- **Google:** 0 кликов, 33 показа. Проиндексировано 2 из 567; 524 URL Google не знает.\n- **4xx:** 13 (18.11) → 550 (19.11) → 645 (20.11); 5xx = 0.",
    "date": "2026-11-20",
    "metrics": {
-    "agents": 305,
-    "crawlers": 1222,
-    "engaged": 0,
-    "humans": 642,
-    "requests": 5391,
+    "agents": 343,
+    "crawlers": 3441,
+    "engaged": 2,
+    "humans": 1845,
+    "requests": 17244,
     "returns": 0
    },
    "name": "AGENTS.md Tracker",
    "observations": {
     "by_class": {
-     "measurement": 2,
-     "need_hypothesis": 4
+     "measurement": 5,
+     "need_hypothesis": 9
     },
-    "new": 6
+    "new": 14
    },
    "owner_questions_open": 0,
-   "po_digest_md": "**Cycle 20.11 07:07 — agentsmd-tracker**\n\n**What happened.** The developer finished T-0209 through T-0214. Numbers for the new paths are now counted only over repos that were actually checked. The drop in the total number of repos tracked (1,922 → 1,919) is explained, and excluded repos are listed with their dates. The indexability fixes are live. Daily data arrives on time. The X posts on 18.11 and 19.11 went out, and the X slots up to 24.11 are booked.\n\n**Observations:**\n- Closing /go/ to crawlers in robots.txt (T-0192) worked: crawler requests to /go/ fell from 3,848 a day to 0. The /go/ count is now a cleaner signal of real clicks.\n- **The 4xx spike is back** (19.11: 550, 20.11: 280; base 10–13), mostly from scanners. Following Q-0024, this note is for you; no task opened.\n- The people filter is still inflated: on 20.11 it showed 642 \"humans\" but 0 engaged. Q-0023 is still waiting for the owner. Until it is fixed, G1 is read only from engaged visits and ?src= visits.\n\n**Decision: no new tasks for the developer.** Nothing on the site is broken or measurably worse. There are no critic or persona findings, and the reviewer has failed nothing. Google still sees little of the site: 2 of 567 checked URLs are indexed and 524 are unknown to it. But the indexability fix (T-0211) went live only on 19.11, and Search Console data lags 2–3 days. Its effect will be read on 26.11 (T-0216); a further fix before then would be guesswork.\n\n**Waiting for the owner:** the Q-0023 people filter, the Q-0024 4xx breakdown, and the dev.to key (Q-0018, returns 401).\n\n**Spend:** $0.97 of $20.",
+   "po_digest_md": "**Цикл 20.11 23:07 — agentsmd-tracker**\n\n**Что произошло.** Приняты три задачи:\n- T-0214: история теперь записывает исключённые репо;\n- T-0217: ссылки на `/go/` получили nofollow, страницы `/go/` — noindex;\n- T-0218: с главной по ссылкам доступна каждая карточка через `/lang/`.\n\nДанные обновляются вовремя.\n\n**Метрики.** Цифра «люди» 20.11 (1 838) раздута запросами к `/favicon.svg`: таких запросов 16 265. Реальных вовлечённых людей 2. Фильтр метрик ждёт владельца (Q-0023).\n\nКраулеры продолжают нагружать `/go/` (4 108 запросов). Действует ли nofollow, проверит аналитик 23.11 (T-0219). Google: в индексе 2 из 567 проверенных адресов, 524 ему неизвестны; эффект T-0211 и T-0218 прочитаем 26.11 (T-0216).\n\n**Решение.** Одно новое наблюдение, OBS-0497. По нему создана небольшая quality-задача P3: убрать из `test_reachability.py` пропуск недоступных карточек. Иначе, если карточки снова окажутся без ссылок, тесты этого не заметят. Других сломанных вещей или провалившихся проверок нет, поэтому новых функций не придумываю.\n\n**Маркетинг.** Посты по плану T-0128 стоят в очереди на 21–24.11. План на 25.11–01.12 (T-0202) стартует 22.11. Mastodon и Threads сейчас исчерпали лимит, но их слоты выпадают после того, как окно освободится.\n\nX отвечает 402 (кредиты закончились, Q-0027). Пока это так, X-посты не выйдут, и в дни без слотов в других каналах ежедневного поста не будет. Это решает владелец.\n\n**Ждёт владельца:**\n- пополнить кредиты X API;\n- исправить фильтр людей в sitemetrics.\n\n**Расходы:** $4.46 из $20.",
    "posts": [],
-   "reviews": [],
+   "reviews": [
+    {
+     "summary": "The live pages meet every observed criterion. Each /go/ link has nofollow, /go/1191/ has the noindex meta and still redirects, robots.txt keeps Disallow, and the offline test passes in the dispatcher's run (exit 0, 156 tests OK).",
+     "task": "T-0217",
+     "verdict": "pass"
+    },
+    {
+     "summary": "The live site meets every acceptance criterion I could observe. The home page links all 10 language pages, the Python page links 3b1b/manim, the Rust page has more /repo/ links than the 198 Rust repos in stats.json, and build.json shows data_delayed false. The new crawl-path test is in the repo and passed in the dispatcher's run with 0 missing URLs.",
+     "task": "T-0218",
+     "verdict": "pass"
+    }
+   ],
    "site": "https://agentsmd.formachines.ai",
    "slug": "agentsmd-tracker",
-   "spend_usd": 1.4,
+   "spend_usd": 4.9,
    "tasks": [
+    {
+     "accepted_at": "2026-11-19T07:16:04+00:00",
+     "artifact": null,
+     "created": "2026-11-16T13:09:13+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "analyst",
+       "note": "effect: insufficient_data — x-card 7 запросов, 1 engaged на 19.11, 1 engaged от `x` на 18.11; почасовых данных нет, источник не отделить.",
+       "to": "measured",
+       "ts": "2026-11-20T12:10:12+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measured",
+       "to": "done",
+       "ts": "2026-11-20T12:10:12+00:00"
+      }
+     ],
+     "id": "T-0184",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "done",
+     "title": "X post 19.11 06:15 UTC from @formachines_ai: Card link (repo added AGENTS.md in 24 h)",
+     "type": "content"
+    },
     {
      "accepted_at": null,
      "created": "2026-11-16T13:09:14+00:00",
@@ -693,13 +2045,49 @@
        "note": "question Q-0025",
        "to": "blocked",
        "ts": "2026-11-20T07:12:54+00:00"
+      },
+      {
+       "actor": "po",
+       "note": "answered Q-0025; not before 2026-11-20T08:00:00Z",
+       "to": "ready",
+       "ts": "2026-11-20T07:45:46+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261120T0807-exec-T-0185",
+       "to": "claimed",
+       "ts": "2026-11-20T08:10:16+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-20T08:10:16+00:00"
+      },
+      {
+       "actor": "marketer",
+       "note": "question Q-0026",
+       "to": "blocked",
+       "ts": "2026-11-20T08:11:17+00:00"
+      },
+      {
+       "actor": "po",
+       "note": "answered Q-0026",
+       "to": "ready",
+       "ts": "2026-11-20T09:23:49+00:00"
+      },
+      {
+       "actor": "po",
+       "note": "closed by PO: X API returned 402 credits depleted on the real send; the 20.11 slot has passed and its numbers would be stale tomorrow. The owner decides on topping up credits (owner question).",
+       "to": "rejected",
+       "ts": "2026-11-20T09:23:50+00:00"
       }
      ],
      "id": "T-0185",
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "blocked",
+     "state": "rejected",
      "title": "X post 20.11 06:15 UTC from @formachines_ai: Daily number",
      "type": "content"
     },
@@ -758,6 +2146,141 @@
      "type": "quality"
     },
     {
+     "accepted_at": "2026-11-19T09:09:34+00:00",
+     "artifact": null,
+     "created": "2026-11-19T08:09:21+00:00",
+     "goal": "G3b",
+     "history": [
+      {
+       "actor": "analyst",
+       "note": "effect: insufficient_data — ",
+       "to": "measured",
+       "ts": "2026-11-20T12:10:12+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measured",
+       "to": "done",
+       "ts": "2026-11-20T12:10:12+00:00"
+      }
+     ],
+     "id": "T-0209",
+     "priority": "P1",
+     "released_sha": "02fb9d7cea477395819167ff5eae56a347638f6f",
+     "role": "developer",
+     "state": "done",
+     "title": "Per-path coverage: new paths show checked/unknown and share over checked repos only, not over 1,919; offline test",
+     "type": "defect"
+    },
+    {
+     "accepted_at": "2026-11-19T10:11:52+00:00",
+     "artifact": null,
+     "created": "2026-11-19T09:10:28+00:00",
+     "goal": "G3b",
+     "history": [
+      {
+       "actor": "analyst",
+       "note": "effect: insufficient_data — ",
+       "to": "measured",
+       "ts": "2026-11-20T12:10:12+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measured",
+       "to": "done",
+       "ts": "2026-11-20T12:10:12+00:00"
+      }
+     ],
+     "id": "T-0210",
+     "priority": "P2",
+     "released_sha": "e5ebce17c9b4da8dd450545ef71ffdbde08a1074",
+     "role": "developer",
+     "state": "done",
+     "title": "stats.json by_language: per-language checked/unknown for .github/instructions/ and .claude/rules/, share over checked only; offline test",
+     "type": "defect"
+    },
+    {
+     "accepted_at": "2026-11-19T14:17:17+00:00",
+     "artifact": null,
+     "created": "2026-11-19T13:10:59+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "analyst",
+       "note": "effect: insufficient_data — ",
+       "to": "measured",
+       "ts": "2026-11-20T18:11:03+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measured",
+       "to": "done",
+       "ts": "2026-11-20T18:11:03+00:00"
+      }
+     ],
+     "id": "T-0211",
+     "priority": "P2",
+     "released_sha": "d8b60922cd8a6391946ef2231b6a74cf18beba75",
+     "role": "developer",
+     "state": "done",
+     "title": "Indexability: sitemap lastmod without /go/, Sitemap in robots.txt, unique title/description, self-canonical; offline test",
+     "type": "quality"
+    },
+    {
+     "accepted_at": "2026-11-19T15:10:00+00:00",
+     "artifact": null,
+     "created": "2026-11-19T14:18:14+00:00",
+     "goal": "G3b",
+     "history": [
+      {
+       "actor": "analyst",
+       "note": "effect: insufficient_data — ",
+       "to": "measured",
+       "ts": "2026-11-20T18:11:03+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measured",
+       "to": "done",
+       "ts": "2026-11-20T18:11:03+00:00"
+      }
+     ],
+     "id": "T-0212",
+     "priority": "P2",
+     "released_sha": "4aee2cbab34499c5089dbd3403eb155324fe467c",
+     "role": "developer",
+     "state": "done",
+     "title": "Denominator M fell 1,922→1,919: name the repos that left, keep their cards with a status, explain M in stats.json; test",
+     "type": "defect"
+    },
+    {
+     "accepted_at": "2026-11-19T16:10:40+00:00",
+     "artifact": null,
+     "created": "2026-11-19T15:10:56+00:00",
+     "goal": "G3b",
+     "history": [
+      {
+       "actor": "analyst",
+       "note": "effect: insufficient_data — ",
+       "to": "measured",
+       "ts": "2026-11-20T18:11:03+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measured",
+       "to": "done",
+       "ts": "2026-11-20T18:11:03+00:00"
+      }
+     ],
+     "id": "T-0213",
+     "priority": "P3",
+     "released_sha": "d555a65f1dbf4294ef6d73418adc2135c988fac8",
+     "role": "developer",
+     "state": "done",
+     "title": "Excluded repos carry dated excluded_since (observed or inferred) on cards and in stats.json; offline test",
+     "type": "quality"
+    },
+    {
      "accepted_at": null,
      "artifact": null,
      "created": "2026-11-19T19:11:11+00:00",
@@ -789,31 +2312,1082 @@
      "state": "done",
      "title": "Analyst check 20.11: first full scan after T-0209/T-0210/T-0214 (history 'excluded', checked/unknown, data on time)",
      "type": "research"
+    },
+    {
+     "accepted_at": "2026-11-20T20:14:53+00:00",
+     "artifact": null,
+     "created": "2026-11-20T19:14:13+00:00",
+     "goal": "G3",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-20T19:14:13+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261120T1907-exec-T-0217",
+       "to": "claimed",
+       "ts": "2026-11-20T19:14:15+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-20T19:14:15+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "merged 6b95fa8ed0",
+       "to": "released",
+       "ts": "2026-11-20T19:19:09+00:00"
+      },
+      {
+       "actor": "reviewer",
+       "note": "The live pages meet every observed criterion. Each /go/ link has nofollow, /go/1191/ has the noindex meta and still redirects, robots.txt keeps Disallow, and the offline test passes in the dispatcher'",
+       "to": "accepted",
+       "ts": "2026-11-20T20:14:53+00:00"
+      }
+     ],
+     "id": "T-0217",
+     "priority": "P2",
+     "released_sha": "6b95fa8ed07fcee3cd160ccedc2d00f7fcb93a32",
+     "role": "developer",
+     "state": "accepted",
+     "title": "/go/ redirects: rel=\"nofollow\" on every link to /go/ and noindex,nofollow meta on /go/ pages; offline test",
+     "type": "quality"
+    },
+    {
+     "accepted_at": "2026-11-20T23:14:42+00:00",
+     "artifact": null,
+     "created": "2026-11-20T22:25:06+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-20T22:25:06+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261120T2207-exec-T-0218",
+       "to": "claimed",
+       "ts": "2026-11-20T22:25:11+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-20T22:25:11+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "merged 0f44f2d162",
+       "to": "released",
+       "ts": "2026-11-20T22:29:58+00:00"
+      },
+      {
+       "actor": "reviewer",
+       "note": "The live site meets every acceptance criterion I could observe. The home page links all 10 language pages, the Python page links 3b1b/manim, the Rust page has more /repo/ links than the 198 Rust repos",
+       "to": "accepted",
+       "ts": "2026-11-20T23:14:42+00:00"
+      }
+     ],
+     "id": "T-0218",
+     "priority": "P2",
+     "released_sha": "0f44f2d1623bcf7a877763e9da3c163242ec0cd7",
+     "role": "developer",
+     "state": "accepted",
+     "title": "Crawl path to every card: / links every /lang/<x>/, each /lang/<x>/ links all its repo cards; offline reachability test",
+     "type": "quality"
+    },
+    {
+     "accepted_at": null,
+     "created": "2026-11-20T22:25:09+00:00",
+     "goal": "G3",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-20T22:25:09+00:00"
+      }
+     ],
+     "id": "T-0219",
+     "priority": "P3",
+     "released_sha": null,
+     "role": "analyst",
+     "state": "ready",
+     "title": "Analyst readout 23.11: did T-0217 (nofollow/noindex on /go/) cut crawler requests to /go/?",
+     "type": "research"
+    },
+    {
+     "accepted_at": "2026-11-21T02:15:13+00:00",
+     "artifact": null,
+     "created": "2026-11-20T23:15:22+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-20T23:15:22+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261120T2307-exec-T-0220",
+       "to": "claimed",
+       "ts": "2026-11-20T23:15:25+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-20T23:15:25+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "merged 1066e3fb36",
+       "to": "released",
+       "ts": "2026-11-20T23:26:48+00:00"
+      }
+     ],
+     "id": "T-0220",
+     "priority": "P3",
+     "released_sha": "1066e3fb365076b176e58927cf5ed5f67f0d0d8b",
+     "role": "developer",
+     "state": "accepted",
+     "title": "tests/test_reachability.py: drop the skip for unreachable cards now that /lang/ pages link every card; offline test",
+     "type": "quality"
+    }
+   ]
+  },
+  "ai-battles": {
+   "analyst_md": "",
+   "date": "2026-11-20",
+   "metrics": null,
+   "name": "AI Battles",
+   "observations": {
+    "by_class": {
+     "environment_error": 1,
+     "need_hypothesis": 52,
+     "reproducible_defect": 4,
+     "success": 1
+    },
+    "new": 58
+   },
+   "owner_questions_open": 0,
+   "po_digest_md": "**AI Battles, цикл 20.11 23:55 (этап M0)**\n\n**Что случилось.** Приняты T-0013 и T-0015. После T-0013 движок собирается в браузере, и клиент может брать label() прямо из движка. После T-0015 готов DESIGN v2 в стиле «Неон-вектор». Блокеров у клиента T-0007 больше нет.\n\n**Что решено.** Новых задач нет: в ready уже 5 (T-0007 клиент, T-0017 урон мины, T-0018 метрики, T-0019 автостарт, T-0008 приёмка M0). Сейчас важнее закрыть их, чем начинать новое.\n- В T-0007 добавлены правки контраста свечения (яркость 70 %, трубка #6A72A8) и копирование tokens.css.\n- Бот v1.4 по §8 отложен до приёмки T-0017 и T-0007. Он перекалибрует балансный тест, а T-0017 сейчас правит ту же sim.ts. Сценарий tester'а для ботов ждёт сам бот.\n- Упреждение камеры и стрелки к врагам за экраном отложены до плейтеста T-0008.\n- esbuild в devDependencies добавим при следующей правке package.json.\n\n**Что ждёт владельца.** Выбор масштаба камеры:\n- 900 u: дальности оружия режем примерно на 40 %;\n- 1280/1600 u: рельсотрон бьёт дальше края экрана, то есть становится «слепым».\n\nПока клиент использует рекомендацию DESIGN.md, балансные числа не меняются.\n\nT-0011 (эффекты мины, масла и щита) заблокирована ревью после двух провалов, её разбирает ревью.\n\n**Расходы.** $0.17 из $100.",
+   "posts": [],
+   "reviews": [
+    {
+     "summary": "The document and balance.json contain all required sections, formulas, 5 weapons, 5 abilities and 6 researched games. The budget rejects extreme combinations. One minor arithmetic error: \"all max = 252\" should be 216 by the stated formula.",
+     "task": "T-0001",
+     "verdict": "pass"
+    },
+    {
+     "summary": "The deployed site passes three of the four criteria: /healthz returns 200, the page shows the heading and AI footer, and the smoke e2e passes. I could not observe `npm ci && npm run build && npm test`: the dispatcher's `npm test` exited 127 (vitest not found), most likely because dependencies weren't installed at that point, and I can't run npm under the shell rules.",
+     "task": "T-0002",
+     "verdict": "inconclusive"
+    },
+    {
+     "summary": "The change is design documents (DESIGN.md, SVG mockups in docs/), and the deployed server doesn't serve them. /docs/mockup-hud.svg returns 404, and team-play screenshot only accepts URLs on the server's host, so I could not render or screenshot any mockup. I read the files and confirmed the stat table covers all 8 stats and the contrast table is in DESIGN.md, but I computed no ratios myself. The server smoke test passes.",
+     "task": "T-0005",
+     "verdict": "inconclusive"
+    },
+    {
+     "summary": "§5.2 now gives the all-max cost as 216 (18×12), written out, and 240 with the most expensive weapon and ability. Both figures follow from balance.json, whose budget stays at 110. The share is recomputed (110/240 ≈ 45.8 %), and no 252 remains.",
+     "task": "T-0009",
+     "verdict": "pass"
+    },
+    {
+     "summary": "The deployed site returns 200 on /healthz, shows the AI Battles heading and the AI-agents footer, and connects over ws with no console errors. The smoke e2e passed against the deployed host. The dispatcher's build and unit tests passed. The server log shows no errors.",
+     "task": "T-0002",
+     "verdict": "pass"
+    },
+    {
+     "summary": "T-0005 only adds design files (DESIGN.md and docs/*.svg), and the deployed server does not serve them, so I could not render the mockups. I read the stat table and the palette in DESIGN.md, and the existing smoke test passes, but nothing visual was seen or measured.",
+     "task": "T-0005",
+     "verdict": "inconclusive"
+    },
+    {
+     "summary": "The T-0003 engine (src/engine) has no browser or server surface. The only e2e test, the smoke test, passes, and the server log shows no errors, but none of the five criteria can be played in a browser. The unit tests (15 passed in the dispatcher's run) cover each criterion, but that run isn't my own observation.",
+     "task": "T-0003",
+     "verdict": "inconclusive"
+    },
+    {
+     "summary": "This is a docs-only design task. The deployed server returns \"not found\" for /docs/*.svg, so I could not render the mockups through team-play. I confirmed the files and the DESIGN.md table in the checkout, and the smoke test passed, but I did not see the mockups rendered.",
+     "task": "T-0005",
+     "verdict": "inconclusive"
+    },
+    {
+     "summary": "GAME-DESIGN.md §5.8 gives a deterministic archetype label rule with a tie-break, a full word list and 4 worked examples that I rechecked by hand. The label table is in a new file, archetype_label.json, rather than in balance.json.",
+     "task": "T-0010",
+     "verdict": "pass"
+    },
+    {
+     "summary": "The dispatcher's test run exited 0 with all 15 tests passing, including a named test for each acceptance criterion and the NaN/Infinity negative case. I read the tests and they assert what the criteria require.",
+     "task": "T-0003",
+     "verdict": "pass"
+    },
+    {
+     "summary": "The implementer did not edit GAME-DESIGN.md or balance.json. They wrote only a draft file, so none of the four acceptance criteria is met. The tests pass (exit 0), but they do not cover this design task.",
+     "task": "T-0011",
+     "verdict": "fail"
+    },
+    {
+     "summary": "label(spec) is exported from the engine. It follows §5.8, and the tests cover the worked examples, the word list and 1000 seeded cars. The dispatcher's run passed 19 of 19 tests, exit 0.",
+     "task": "T-0012",
+     "verdict": "pass"
+    },
+    {
+     "summary": "The dispatcher's test run passed (exit 0, 25 tests in 87 s), including the 200-machine corridor test, the 4-bot battle test and the damage ×3 negative case. The committed report shows 200/200 machines in the corridor.",
+     "task": "T-0004",
+     "verdict": "pass"
+    },
+    {
+     "summary": "Only the smoke test could be played, and it passed. None of the five T-0006 criteria or negative cases has a browser or ws scenario, so I could not verify them by playing.",
+     "task": "T-0006",
+     "verdict": "inconclusive"
+    },
+    {
+     "summary": "The formulas and balance.json keys in §5.4 are complete and consistent, and the budget and stat costs are untouched. The 'engine as implemented' table is not grounded in the engine, though. Oil and shield are marked 'changed' without reading sim.ts, which already implements the rule. The developer observations are missing for those two and name no file for the mine.",
+     "task": "T-0011",
+     "verdict": "fail"
+    },
+    {
+     "summary": "All criteria are covered by passing tests (33/33, exit 0) and the code matches. The 180 s end is tested with a compressed tick, not real time.",
+     "task": "T-0006",
+     "verdict": "pass"
+    },
+    {
+     "summary": "The engine no longer imports Node built-ins. Its tables come from a module generated from the JSON files, and the new tests check the browser bundle, value equality and staleness. All 37 tests passed in the dispatcher's run.",
+     "task": "T-0013",
+     "verdict": "pass"
+    }
+   ],
+   "site": "https://ai-battles.formachines.ai",
+   "slug": "ai-battles",
+   "spend_usd": 15.5,
+   "tasks": [
+    {
+     "accepted_at": "2026-11-20T20:15:21+00:00",
+     "artifact": null,
+     "created": "2026-11-20T19:27:34+00:00",
+     "goal": "Дизайн-документ с ограничениями генерации, по которому строится прототип",
+     "history": [
+      {
+       "actor": "onboarding",
+       "note": "created by onboarding",
+       "to": "ready",
+       "ts": "2026-11-20T19:27:34+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261120T1929-exec-T-0001",
+       "to": "claimed",
+       "ts": "2026-11-20T19:29:38+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-20T19:29:38+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "merged 8a5e31bd69",
+       "to": "released",
+       "ts": "2026-11-20T19:39:57+00:00"
+      },
+      {
+       "actor": "reviewer",
+       "note": "The document and balance.json contain all required sections, formulas, 5 weapons, 5 abilities and 6 researched games. The budget rejects extreme combinations. One minor arithmetic error: \"all max = 25",
+       "to": "accepted",
+       "ts": "2026-11-20T20:15:21+00:00"
+      }
+     ],
+     "id": "T-0001",
+     "priority": "P0",
+     "released_sha": "8a5e31bd6966c7adbbb8954258377becb07aa621",
+     "role": "game-designer",
+     "state": "accepted",
+     "title": "Исследование и GAME-DESIGN.md v1: параметрический движок боевых машин",
+     "type": "design"
+    },
+    {
+     "accepted_at": "2026-11-20T21:40:26+00:00",
+     "artifact": null,
+     "created": "2026-11-20T19:27:34+00:00",
+     "goal": "Пустой, но разворачиваемый сервис с тестами и e2e",
+     "history": [
+      {
+       "actor": "onboarding",
+       "note": "created by onboarding",
+       "to": "ready",
+       "ts": "2026-11-20T19:27:34+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261120T1929-exec-T-0002",
+       "to": "claimed",
+       "ts": "2026-11-20T19:39:57+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-20T19:39:57+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "partial — continues next cycle",
+       "to": "in_progress",
+       "ts": "2026-11-20T19:48:45+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "merged 7cefa9e3b8",
+       "to": "released",
+       "ts": "2026-11-20T20:16:17+00:00"
+      },
+      {
+       "actor": "reviewer",
+       "note": "The deployed site returns 200 on /healthz, shows the AI Battles heading and the AI-agents footer, and connects over ws with no console errors. The smoke e2e passed against the deployed host. The dispa",
+       "to": "accepted",
+       "ts": "2026-11-20T21:40:26+00:00"
+      }
+     ],
+     "id": "T-0002",
+     "priority": "P0",
+     "released_sha": "7cefa9e3b847f60717f8169d25db8b835cc9242d",
+     "role": "developer",
+     "state": "accepted",
+     "title": "Каркас репозитория: Node 20 + TS, ws-сервер, /healthz, Canvas-клиент, тесты",
+     "type": "ops"
+    },
+    {
+     "accepted_at": "2026-11-20T22:30:25+00:00",
+     "artifact": null,
+     "created": "2026-11-20T19:27:34+00:00",
+     "goal": "Детерминированный общий движок, в который вписывается любая валидная машина",
+     "history": [
+      {
+       "actor": "onboarding",
+       "note": "created by onboarding",
+       "to": "ready",
+       "ts": "2026-11-20T19:27:34+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261120T2140-exec-T-0003",
+       "to": "claimed",
+       "ts": "2026-11-20T21:41:29+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-20T21:41:29+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "merged 6698fcd574",
+       "to": "released",
+       "ts": "2026-11-20T21:44:15+00:00"
+      },
+      {
+       "actor": "reviewer",
+       "note": "The dispatcher's test run exited 0 with all 15 tests passing, including a named test for each acceptance criterion and the NaN/Infinity negative case. I read the tests and they assert what the criteri",
+       "to": "accepted",
+       "ts": "2026-11-20T22:30:25+00:00"
+      }
+     ],
+     "id": "T-0003",
+     "priority": "P0",
+     "released_sha": "6698fcd57474b01d285d2ab0b9e65844838ffc04",
+     "role": "developer",
+     "state": "accepted",
+     "title": "Параметрический движок: схема характеристик, генератор с бюджетом, физика и бой",
+     "type": "milestone"
+    },
+    {
+     "accepted_at": "2026-11-20T22:51:52+00:00",
+     "artifact": null,
+     "created": "2026-11-20T19:27:34+00:00",
+     "goal": "Боты для боёв и автоматическая проверка коридора силы 35–65 %",
+     "history": [
+      {
+       "actor": "onboarding",
+       "note": "created by onboarding",
+       "to": "ready",
+       "ts": "2026-11-20T19:27:34+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261120T2207-exec-T-0004",
+       "to": "claimed",
+       "ts": "2026-11-20T22:32:44+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-20T22:32:44+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "merged aa8f98ffac",
+       "to": "released",
+       "ts": "2026-11-20T22:41:18+00:00"
+      },
+      {
+       "actor": "reviewer",
+       "note": "The dispatcher's test run passed (exit 0, 25 tests in 87 s), including the 200-machine corridor test, the 4-bot battle test and the damage ×3 negative case. The committed report shows 200/200 machines",
+       "to": "accepted",
+       "ts": "2026-11-20T22:51:52+00:00"
+      }
+     ],
+     "id": "T-0004",
+     "priority": "P0",
+     "released_sha": "aa8f98ffaccc88d800f84c2644017be4a1914862",
+     "role": "developer",
+     "state": "accepted",
+     "title": "Простейшие боты и headless-симуляция баланса как тест",
+     "type": "milestone"
+    },
+    {
+     "accepted_at": "2026-11-20T22:01:31+00:00",
+     "artifact": null,
+     "created": "2026-11-20T19:27:34+00:00",
+     "goal": "Правила, по которым игрок «читает» машину глазами",
+     "history": [
+      {
+       "actor": "onboarding",
+       "note": "created by onboarding",
+       "to": "ready",
+       "ts": "2026-11-20T19:27:34+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261120T2007-exec-T-0005",
+       "to": "claimed",
+       "ts": "2026-11-20T20:16:17+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-20T20:16:17+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "merged d35794d84a",
+       "to": "released",
+       "ts": "2026-11-20T20:18:49+00:00"
+      },
+      {
+       "actor": "reviewer",
+       "note": "inconclusive 3×: accepted without external proof",
+       "to": "accepted",
+       "ts": "2026-11-20T22:01:31+00:00"
+      }
+     ],
+     "id": "T-0005",
+     "priority": "P1",
+     "released_sha": "d35794d84a11b6a52b1690c9c7f246d73ee9eafd",
+     "role": "designer",
+     "state": "accepted",
+     "title": "Визуальный язык: процедурный вид машин из характеристик, арена и HUD",
+     "type": "design"
+    },
+    {
+     "accepted_at": "2026-11-20T23:56:42+00:00",
+     "artifact": null,
+     "created": "2026-11-20T19:27:34+00:00",
+     "goal": "Сервер ведёт бои 4 машин с живыми игроками и ботами",
+     "history": [
+      {
+       "actor": "onboarding",
+       "note": "created by onboarding",
+       "to": "ready",
+       "ts": "2026-11-20T19:27:34+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261120T2250-exec-T-0006",
+       "to": "claimed",
+       "ts": "2026-11-20T22:52:30+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-20T22:52:30+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "merged 23572f802e",
+       "to": "released",
+       "ts": "2026-11-20T22:56:02+00:00"
+      },
+      {
+       "actor": "reviewer",
+       "note": "All criteria are covered by passing tests (33/33, exit 0) and the code matches. The 180 s end is tested with a compressed tick, not real time.",
+       "to": "accepted",
+       "ts": "2026-11-20T23:56:42+00:00"
+      }
+     ],
+     "id": "T-0006",
+     "priority": "P0",
+     "released_sha": "23572f802e182508c0d6aa4ac03becc361a98e54",
+     "role": "developer",
+     "state": "accepted",
+     "title": "Сетевой бой: комнаты по коду, бой против ботов, авторитетный сервер",
+     "type": "milestone"
+    },
+    {
+     "accepted_at": "2026-11-21T01:11:32+00:00",
+     "artifact": null,
+     "created": "2026-11-20T19:27:34+00:00",
+     "goal": "Играбельный прототип в браузере",
+     "history": [
+      {
+       "actor": "onboarding",
+       "note": "created by onboarding",
+       "to": "ready",
+       "ts": "2026-11-20T19:27:34+00:00"
+      },
+      {
+       "actor": "owner",
+       "note": "владелец 20.11 выбрал стиль «Неон-вектор» на PixiJS: задача уточняется, вернётся в ready через несколько минут",
+       "to": "deferred",
+       "ts": "2026-11-20T22:59:46+00:00"
+      },
+      {
+       "actor": "owner",
+       "note": "уточнена под «Неон-вектор» на PixiJS (владелец 20.11)",
+       "to": "ready",
+       "ts": "2026-11-20T23:01:36+00:00"
+      }
+     ],
+     "id": "T-0007",
+     "priority": "P0",
+     "released_sha": "b6f8c8b53a718fdc0f3bdbeed0f753513d09245a",
+     "role": "developer",
+     "state": "accepted",
+     "title": "Клиент: генерация машины, управление мышью, рендер боя на PixiJS (скин «Неон-вектор»)",
+     "type": "milestone"
+    },
+    {
+     "accepted_at": "2026-11-21T05:37:12+00:00",
+     "artifact": null,
+     "created": "2026-11-20T19:27:34+00:00",
+     "goal": "Подтвердить критерий выхода M0 на боевом хосте",
+     "history": [
+      {
+       "actor": "onboarding",
+       "note": "created by onboarding",
+       "to": "ready",
+       "ts": "2026-11-20T19:27:34+00:00"
+      },
+      {
+       "actor": "po",
+       "note": "priority → P2: Приёмка M0 на живом хосте имеет смысл только после merge T-0003/T-0004/T-0006/T-0007. Если её запустить сейчас, тестер сыграет пустой каркас. Понижаем, чтобы диспетчер сначала брал mile",
+       "to": "ready",
+       "ts": "2026-11-20T21:41:29+00:00"
+      }
+     ],
+     "id": "T-0008",
+     "priority": "P2",
+     "released_sha": "1fba8c197049cf35da9fcc92a417826817d095d8",
+     "role": "tester",
+     "state": "accepted",
+     "title": "Приёмка M0: e2e-плейтест на ai-battles.formachines.ai",
+     "type": "quality"
+    },
+    {
+     "accepted_at": "2026-11-20T21:23:54+00:00",
+     "artifact": null,
+     "created": "2026-11-20T20:15:44+00:00",
+     "goal": "M0 (d): a balance simulation over one consistent power budget",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-20T20:15:44+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261120T2007-exec-T-0009",
+       "to": "claimed",
+       "ts": "2026-11-20T20:18:49+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-20T20:18:49+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "merged 05f5c51b19",
+       "to": "released",
+       "ts": "2026-11-20T20:20:32+00:00"
+      },
+      {
+       "actor": "reviewer",
+       "note": "§5.2 now gives the all-max cost as 216 (18×12), written out, and 240 with the most expensive weapon and ability. Both figures follow from balance.json, whose budget stays at 110. The share is recomput",
+       "to": "accepted",
+       "ts": "2026-11-20T21:23:54+00:00"
+      }
+     ],
+     "id": "T-0009",
+     "priority": "P1",
+     "released_sha": "05f5c51b197c23da35216e58e01bc5de06040b10",
+     "role": "game-designer",
+     "state": "accepted",
+     "title": "GAME-DESIGN.md §5.2: align the all-max cost with balance.json",
+     "type": "design"
+    },
+    {
+     "accepted_at": "2026-11-20T22:02:06+00:00",
+     "artifact": null,
+     "created": "2026-11-20T21:24:23+00:00",
+     "goal": "M0 (c): the car's look and card reflect its stats",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-20T21:24:23+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261120T2107-exec-T-0010",
+       "to": "claimed",
+       "ts": "2026-11-20T21:24:23+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-20T21:24:23+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "run failed: inactive for 300s",
+       "to": "ready",
+       "ts": "2026-11-20T21:32:17+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261120T2140-exec-T-0010",
+       "to": "claimed",
+       "ts": "2026-11-20T21:44:27+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-20T21:44:27+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "merged 2c68b3d0d4",
+       "to": "released",
+       "ts": "2026-11-20T21:49:09+00:00"
+      },
+      {
+       "actor": "reviewer",
+       "note": "GAME-DESIGN.md §5.8 gives a deterministic archetype label rule with a tie-break, a full word list and 4 worked examples that I rechecked by hand. The label table is in a new file, archetype_label.json",
+       "to": "accepted",
+       "ts": "2026-11-20T22:02:06+00:00"
+      }
+     ],
+     "id": "T-0010",
+     "priority": "P2",
+     "released_sha": "2c68b3d0d49f436b976e60a5caaee5f0a1fd15f4",
+     "role": "game-designer",
+     "state": "accepted",
+     "title": "GAME-DESIGN.md: rule for the archetype label on the car card (e.g. 'Fast · Ranged')",
+     "type": "design"
+    },
+    {
+     "accepted_at": null,
+     "created": "2026-11-20T22:02:55+00:00",
+     "goal": "M0 (d): balance simulation over effects defined by the design, not guessed by code",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-20T22:02:55+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261120T2200-exec-T-0011",
+       "to": "claimed",
+       "ts": "2026-11-20T22:02:55+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-20T22:02:55+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "merged 9c6bfccca9",
+       "to": "released",
+       "ts": "2026-11-20T22:04:43+00:00"
+      },
+      {
+       "actor": "reviewer",
+       "note": "failed: GAME-DESIGN.md §5.4 was not edited. The only change is design/drafts/T-0011-abilities.md, and the implementer's report admits the task was not finished.",
+       "to": "in_progress",
+       "ts": "2026-11-20T22:30:51+00:00"
+      },
+      {
+       "actor": "game-designer",
+       "note": "question Q-0003",
+       "to": "blocked",
+       "ts": "2026-11-20T22:32:44+00:00"
+      },
+      {
+       "actor": "owner",
+       "note": "answered Q-0003",
+       "to": "ready",
+       "ts": "2026-11-20T22:45:15+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261120T2250-exec-T-0011",
+       "to": "claimed",
+       "ts": "2026-11-20T22:56:14+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-20T22:56:14+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "merged 3de546aa3b",
+       "to": "released",
+       "ts": "2026-11-20T23:01:14+00:00"
+      },
+      {
+       "actor": "reviewer",
+       "note": "failed review 2×: The §5.4.4 table marks shield and oil 'changed' without reading the engine. sim.ts lines 98-100 (oil) and 289-293 (shield) already match the rule, so both should be 'confirmed'. The ",
+       "to": "blocked",
+       "ts": "2026-11-20T23:30:47+00:00"
+      }
+     ],
+     "id": "T-0011",
+     "priority": "P1",
+     "released_sha": "3de546aa3b9468879861d5db6deda968bac2d571",
+     "role": "game-designer",
+     "state": "rejected",
+     "title": "GAME-DESIGN.md §5.4: confirm or correct the mine, oil and shield effects as implemented in the engine",
+     "type": "design"
+    },
+    {
+     "accepted_at": "2026-11-20T22:31:18+00:00",
+     "artifact": null,
+     "created": "2026-11-20T22:02:55+00:00",
+     "goal": "M0 (c): the car card reflects its stats",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-20T22:02:55+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261120T2200-exec-T-0012",
+       "to": "claimed",
+       "ts": "2026-11-20T22:04:43+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-20T22:04:43+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "merged 3fc24badd7",
+       "to": "released",
+       "ts": "2026-11-20T22:05:36+00:00"
+      },
+      {
+       "actor": "reviewer",
+       "note": "label(spec) is exported from the engine. It follows §5.8, and the tests cover the worked examples, the word list and 1000 seeded cars. The dispatcher's run passed 19 of 19 tests, exit 0.",
+       "to": "accepted",
+       "ts": "2026-11-20T22:31:18+00:00"
+      }
+     ],
+     "id": "T-0012",
+     "priority": "P2",
+     "released_sha": "3fc24badd7e56314b643063f7a4786b9d24e08e3",
+     "role": "developer",
+     "state": "accepted",
+     "title": "Archetype label: pure function label(CarSpec) in the shared engine with tests from GAME-DESIGN §5.8",
+     "type": "milestone"
+    },
+    {
+     "accepted_at": "2026-11-20T23:58:25+00:00",
+     "artifact": null,
+     "created": "2026-11-20T22:31:47+00:00",
+     "goal": "M0 (c): the client shows the car and its label from the shared engine",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-20T22:31:47+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261120T2307-exec-T-0013",
+       "to": "claimed",
+       "ts": "2026-11-20T23:31:45+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-20T23:31:45+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "merged b48842babf",
+       "to": "released",
+       "ts": "2026-11-20T23:33:58+00:00"
+      },
+      {
+       "actor": "reviewer",
+       "note": "The engine no longer imports Node built-ins. Its tables come from a module generated from the JSON files, and the new tests check the browser bundle, value equality and staleness. All 37 tests passed ",
+       "to": "accepted",
+       "ts": "2026-11-20T23:58:25+00:00"
+      }
+     ],
+     "id": "T-0013",
+     "priority": "P1",
+     "released_sha": "b48842babf8c98ba5b9ea4674b276861651721cd",
+     "role": "developer",
+     "state": "accepted",
+     "title": "Engine bundle-safe for the browser: replace node:fs JSON loading in balance.ts and label.ts",
+     "type": "quality"
+    },
+    {
+     "accepted_at": "2026-11-21T00:01:19+00:00",
+     "artifact": null,
+     "created": "2026-11-20T22:52:30+00:00",
+     "goal": "M0 (a): bots in the battle behave the way the design describes",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-20T22:52:30+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261120T2307-exec-T-0014",
+       "to": "claimed",
+       "ts": "2026-11-20T23:40:39+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-20T23:40:39+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "merged a8a3b7eaaf",
+       "to": "released",
+       "ts": "2026-11-20T23:47:20+00:00"
+      }
+     ],
+     "id": "T-0014",
+     "priority": "P2",
+     "released_sha": "a8a3b7eaafcc21f77b1e0706d14be909d91f2818",
+     "role": "game-designer",
+     "state": "accepted",
+     "title": "GAME-DESIGN.md §8: bot behaviour that can be built with cursor-only control",
+     "type": "design"
+    },
+    {
+     "accepted_at": "2026-11-21T00:03:08+00:00",
+     "artifact": null,
+     "created": "2026-11-20T23:01:35+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "owner",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-20T23:01:35+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261120T2307-exec-T-0015",
+       "to": "claimed",
+       "ts": "2026-11-20T23:34:11+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-20T23:34:11+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "merged 5faa63c584",
+       "to": "released",
+       "ts": "2026-11-20T23:40:26+00:00"
+      }
+     ],
+     "id": "T-0015",
+     "priority": "P1",
+     "released_sha": "5faa63c5848abe62ae22d519635634b08cf527e5",
+     "role": "designer",
+     "state": "accepted",
+     "title": "DESIGN v2: стиль «Неон-вектор» (выбор владельца 20.11)",
+     "type": "design"
+    },
+    {
+     "accepted_at": null,
+     "created": "2026-11-20T23:01:35+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "owner",
+       "note": "",
+       "to": "proposed",
+       "ts": "2026-11-20T23:01:35+00:00"
+      },
+      {
+       "actor": "owner",
+       "note": "M1: ждёт решения владельца о бюджете генерации и ключа модели в secrets.env",
+       "to": "deferred",
+       "ts": "2026-11-20T23:01:35+00:00"
+      }
+     ],
+     "id": "T-0016",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "developer",
+     "state": "deferred",
+     "title": "Портрет машины в карточке от генеративной модели (M1, после решения владельца о бюджете)",
+     "type": "milestone"
+    },
+    {
+     "accepted_at": "2026-11-21T01:15:09+00:00",
+     "artifact": null,
+     "created": "2026-11-20T23:31:45+00:00",
+     "goal": "M0 (d): balance simulation over effects as the design defines them",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-20T23:31:45+00:00"
+      }
+     ],
+     "id": "T-0017",
+     "priority": "P1",
+     "released_sha": "971340bdd4861ceb556067f99beb9d9899cff07a",
+     "role": "developer",
+     "state": "accepted",
+     "title": "Engine: mine damage per GAME-DESIGN §5.4.1, without the owner's firepower multiplier",
+     "type": "defect"
+    },
+    {
+     "accepted_at": "2026-11-21T03:30:27+00:00",
+     "artifact": null,
+     "created": "2026-11-20T23:31:45+00:00",
+     "goal": "G4 and the M0 stability plan: the server measures rounds, errors and latency itself",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-20T23:31:45+00:00"
+      }
+     ],
+     "id": "T-0018",
+     "priority": "P2",
+     "released_sha": "237813c5b0575f2940fa144faddc81ce41516b7e",
+     "role": "developer",
+     "state": "accepted",
+     "title": "Server: serve /_team/metrics.json per the game-metrics contract",
+     "type": "quality"
+    },
+    {
+     "accepted_at": "2026-11-21T01:16:54+00:00",
+     "artifact": null,
+     "created": "2026-11-20T23:31:45+00:00",
+     "goal": "M0 (b): two friends get into one room by code before the battle starts",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-20T23:31:45+00:00"
+      }
+     ],
+     "id": "T-0019",
+     "priority": "P2",
+     "released_sha": "8ec1dbc705198b8131a40d8e2feddc8c4e8eb813",
+     "role": "game-designer",
+     "state": "accepted",
+     "title": "GAME-DESIGN.md §2: one room autostart time (30 or 60 s) in the text and balance.json",
+     "type": "design"
     }
    ]
   },
   "luz-amanha": {
-   "analyst_md": "**Срез на 20.11 06:00 UTC (пилот 04–10.11 закончен; цифры — за последние дни).**\n\n| Уровень | 14.11 | 15.11 | 16.11 | 17.11 | 18.11 | 19.11 | 20.11 (частично) |\n|---|---|---|---|---|---|---|---|\n| Люди (источники) | 4 | 10 | 7 | 2 | 4 | 5 | 0 |\n| Engaged | 1 | 1 | 1 | 1 | 1 | 0 | 0 |\n| Возвраты | 1 | 1 | 0 | 0 | 1 | 0 | 0 |\n| Агенты (запр.) | 5 | 3 | 1 | 0 | 6 | 3 | 2 |\n| Краулеры (запр.) | 109 | 58 | 49 | 91 | 103 | 122 | 17 |\n\n- G1: ≥30 engaged-источников за 7 дней. Сейчас ≈1 в день, поэтому цель не достигается.\n- G2: возвраты редки (3 за 7 дней, в те же дни engaged=1). Доля не выше нуля-единицы на день, цель 15 % не достигнута.\n- G3: клики `/go/telegram/` — 2 (14.11) и 2 (16.11), по `human src` 1 (14.11). Число подписчиков канала в метриках не видно.\n- G4: внешние referer'ы — nomorevibe.com (14.11), www.bluenews.app ×5 и google.com ×1 (19.11). Цель ≥1 выполнена, но referer'ы единичные.\n- G5: запросы `/tomorrow.json`, `/feed.xml`, `/llms.txt` идут в основном из python-requests и okhttp. Порога нет.\n- GSC: 0 показов, в индексе 11 из 31 страниц.\n- Пик 19.11 (154 человеческих запроса при 5 источниках, 551 ответ 4xx) и 14.11 (170 запросов при 4 источниках) похож на сканирование или единичные источники, а не на аудиторию.\n- Пост после 14:00 UTC 19.11 (Telegram/Bluesky) дал 24 запроса с `src=bluesky` (1 human, 0 engaged) и 3 с `src=telegram`. Эффект не выделить.",
+   "analyst_md": "**Пилот 04–10.11 закончен; данные на 20.11 (день неполный, снимок 18:01 UTC).**\n\n| Уровень | 20.11 | 19.11 | 18.11 |\n|---|---|---|---|\n| Люди: источники / engaged | 0 / 0 | 5 / 0 | 4 / 1 |\n| Возвраты | 0 | 0 | 1 |\n| Агенты (запросы) | 3 | 3 | 6 |\n| Краулеры (запросы) | 105 | 122 | 103 |\n| 5xx | 0 | 0 | 0 |\n\n- G1 (≥30 людей): по дням видно максимум 10 источников в день, цель за неделю пилота по этим данным не набрана. Точная сумма за 04–10.11 в промпте отсутствует.\n- G2 (≥15 %): возвраты только 18.11 и 14–15.11 (по 1), доля мала.\n- G3: клики `/go/telegram/` — 2 (14.11) и 2 (16.11), а подписчиков в данных нет.\n- G4: внешние referer'ы есть: nomorevibe.com (14.11), www.bluenews.app ×5 и google.com ×1 (19.11). Цель ≥1 выполнена.\n- G5: агенты — python-requests/okhttp, 3–6 запросов в день. Это, возможно, наши проверки или скрипты.\n- GSC: 0 показов, в индексе 11 из 31 URL.\n- Посты → визиты: на 20.11 по by_src приходится 10 запросов bluesky и 2 telegram, людей 0. Эффект постов не виден.\n- Задачи: до/после по одной метрике недостаточно ни для одной (T-0178 c/kWh, T-0222, T-0218).",
    "date": "2026-11-20",
    "metrics": {
-    "agents": 2,
-    "crawlers": 17,
+    "agents": 4,
+    "crawlers": 141,
     "engaged": 0,
     "humans": 0,
-    "requests": 151,
+    "requests": 915,
     "returns": 0
    },
    "name": "Luz Amanhã",
    "observations": {
     "by_class": {
-     "measurement": 4,
-     "need_hypothesis": 3
+     "measurement": 7,
+     "need_hypothesis": 11
     },
-    "new": 7
+    "new": 18
    },
    "owner_questions_open": 0,
-   "po_digest_md": "**Luz Amanhã — 20.11, cycle 07:07**\n\n**What happened:** T-0204 (Lisbon-time line), T-0205 (internal link check) and T-0208 (closed by the deputy) were accepted. T-0216 (explaining the missing 23:00 hour) has been released. The 19.11 posts are out on Telegram (×2) and Bluesky (HA post). People per day: 2–10, engaged ≤ 1. Google: 11 of 31 URLs indexed, 0 impressions. We re-read the index on 25.11 (T-0197).\n\n**Decisions:**\n- The 19.11 spike of 4xx errors comes from scanners. Our own links are now covered by the T-0205 test.\n- X is the only channel with engaged people (4 of 6 days). Telegram brings visitors who don't engage. The 24–30.11 plan (T-0175) should take this into account.\n- New feature (L2, evidence voice:2026-11-18:P4): the four 15-min OMIE values per hour in the JSON files. Expected: more outside requests to /tomorrow.json and /ha/, read on 04.12. Chosen over the month-to-date average because it reuses data we already parse and directly serves HA users.\n- Developer queue: T-0217 (note that a zero/negative price is real) → quarters_eur_mwh.\n\n**Waiting for the owner:**\n- X API returns 402 (credits ran out). The X slots for 20–22.11 are skipped and the headline A/B test cannot be read on X.\n- Ops: splitting our own requests out of the G5 traffic to /tomorrow.json, /feed.xml and /llms.txt (Q-0047).\n- Q-0045 list of tasks stuck in review: T-0104 is done and T-0149 went live on 18.11. I can't see T-0083, T-0087 or T-0097 in the backlog anymore — please check their status.\n\n**Cost:** $3.80 of $20 so far today.",
-   "posts": [],
+   "po_digest_md": "**Luz Amanhã — цикл 20.11, 22:07 UTC**\n\n**Что произошло.** 20.11 приняты 10 задач разработчика:\n- пояснение про час 23:00 (T-0216);\n- пометка «нулевая или отрицательная цена — это реальная цена» (T-0217);\n- четвертьчасовые цены в JSON (T-0218);\n- ссылки на страницы, не связанные с остальными (T-0221);\n- средняя цена за месяц на сегодня (T-0222, T-0223);\n- время по Лиссабону со сдвигом от UTC (T-0224);\n- стабильные даты в sitemap (T-0226);\n- документация к `built_utc` (T-0227).\n\nОба поста в Telegram за 20.11 вышли (t.me/luz_amanha/35 и /36).\n\n**Люди.** 20.11 на сайте 0 человек; за 11–20.11 — 47 человек, 9 из них вовлечённые. Вовлечённых приводит только X (9 из 12 по `?src=x`). У Telegram 12 источников и 0 вовлечённых.\n\n**Решение: новых задач нет.** Сайт исправен, а измеримых улучшений без свежих данных я не вижу. Мнений персон и находок критика нет. Индекс Google мы перечитаем 25.11 (T-0197): это покажет, сработали ли SEO-изменения от 18.11. До этого новый SEO-код не заказываю. Почему Telegram не даёт вовлечённых, выяснит аналитик 21.11 в 01:00 (T-0225). Изменения страницы для читателей из Telegram решу по его отчёту, а не наугад. Разработчик пока простаивает, и это осознанный выбор.\n\n**Посты.** Ежедневные посты расписаны до 25.11. Новый маркетинговый план (T-0175) будет 22.11, финальный тест Threads (T-0173) — тоже 22.11. Последний слот Bluesky — 21.11 (T-0206).\n\n**X на паузе:** на API кончились кредиты (Q-0049/0051). Слот 20.11 пропущен, слоты 21 и 22.11 будут пропущены. Сравнение заголовков (A/B) на X прочитать нельзя.\n\n**Ждёт владельца:**\n- пополнить кредиты X API;\n- выделить запросы команды в отдельный класс в метриках (Q-0047). Пока G5 считаем общим числом запросов, неклассифицированные идут отдельной строкой.\n\nПять задач, которые висели на ревью (Q-0045: T-0083, T-0087, T-0097, T-0104, T-0149), больше не открыты в бэклоге.\n\n**Расходы:** $11.34 из $20.",
+   "posts": [
+    {
+     "channel": "telegram",
+     "ts": "2026-11-20T07:48:37+00:00",
+     "url": "https://t.me/luz_amanha/35"
+    },
+    {
+     "channel": "telegram",
+     "ts": "2026-11-20T14:11:05+00:00",
+     "url": "https://t.me/luz_amanha/36"
+    }
+   ],
    "reviews": [
     {
      "summary": "The 2026-11-19 page and JSON are complete at 24/24 with 23:00 priced at 58.59. The PT+EN explanatory line appears on / where 23:00 is null.",
@@ -824,12 +3398,84 @@
      "summary": "The live site timed out on every fetch, so the live criteria could not be checked. Only the code and test criterion were verified: build.py adds the conditional hour_23_note, and tests/test_hour23_note.py covers both cases and passes in the dispatcher's run.",
      "task": "T-0216",
      "verdict": "inconclusive"
+    },
+    {
+     "summary": "The note appears on the page and in the JSON for 2026-11-20, where the 23:00 price is null. It is null on the complete day 2026-11-19. The home page has one h1 and no executable script, and the dispatcher's 39 tests pass. I could not open the new test file, so the test criterion rests on the passing run and the implementer's report.",
+     "task": "T-0216",
+     "verdict": "pass"
+    },
+    {
+     "summary": "The live page for 2026-11-19 shows the PT and EN lines with the real file name marginalpdbcpt_20261119.1. The page for 2026-11-14 has no such line. The ZeroNegWording test is in the repo and the suite passed, with one h1, the AI disclosure footer and no executable script on both pages.",
+     "task": "T-0217",
+     "verdict": "pass"
+    },
+    {
+     "summary": "The field appears in d/2026-11-19 and today.json, and llms.txt and /ha/ document it. The 23:00 hour of 2026-11-19 checks out, but I only checked that hour's mean, not the other 23. The home page and the test run are fine.",
+     "task": "T-0218",
+     "verdict": "pass"
+    },
+    {
+     "summary": "The live /d/ archive links every dated page, including 11-02, 11-04, 11-05 and 11-10, and all return 200. /brand/ is linked from the footer of / and of the dated pages. The new Orphans test is named in the README and the 41-test run passed.",
+     "task": "T-0221",
+     "verdict": "pass"
+    },
+    {
+     "summary": "The live today.json and / show a consistent month-to-date average (163.28 €/MWh, 16.3 c/kWh, 20 days) with the required PT and EN wording. llms.txt, the single h1, the disclosure and the test are all in place, and the test suite passed.",
+     "task": "T-0222",
+     "verdict": "pass"
+    },
+    {
+     "summary": "The month_to_date test now builds offline into a temp dir and reads nothing under public/. It asserts an exact average, hour count, and the 1 dp half-up cent conversion. Live today.json and / are intact.",
+     "task": "T-0223",
+     "verdict": "pass"
+    },
+    {
+     "summary": "Live JSON, pages, llms.txt and /ha/ all show the new fields and Lisbon-time line, with no removed fields or shifted hours. The DST test exists and the suite passed.",
+     "task": "T-0224",
+     "verdict": "pass"
+    },
+    {
+     "summary": "The live sitemap shows lastmod 2026-11-11 for /d/2026-11-10/ and 2026-11-15 for /d/2026-11-15/. The double-build test, README line and test run all check out. The home page and JSON fields are intact.",
+     "task": "T-0226",
+     "verdict": "pass"
+    },
+    {
+     "summary": "llms.txt and /ha/ (PT and EN) now state that built_utc is the OMIE data time and that the build time is in /build.json. The JSON files were not regenerated, and the home page still has one h1, the AI footer and no executable script.",
+     "task": "T-0227",
+     "verdict": "pass"
     }
    ],
    "site": "https://luz.bymachines.ai",
    "slug": "luz-amanha",
-   "spend_usd": 4.4,
+   "spend_usd": 11.8,
    "tasks": [
+    {
+     "accepted_at": "2026-11-19T15:18:08+00:00",
+     "artifact": null,
+     "created": "2026-11-16T13:10:01+00:00",
+     "goal": "G5",
+     "history": [
+      {
+       "actor": "analyst",
+       "note": "effect: insufficient_data — ",
+       "to": "measured",
+       "ts": "2026-11-20T18:11:44+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measured",
+       "to": "done",
+       "ts": "2026-11-20T18:11:44+00:00"
+      }
+     ],
+     "id": "T-0162",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "done",
+     "title": "Bluesky post 19.11 14:15 UTC: For machines, /tomorrow.json available flag + cheap_window for HA/scripts, link /ha/?src=bluesky",
+     "type": "marketing"
+    },
     {
      "accepted_at": null,
      "created": "2026-11-17T07:11:46+00:00",
@@ -931,7 +3577,35 @@
      "type": "content"
     },
     {
-     "accepted_at": null,
+     "accepted_at": "2026-11-19T07:18:31+00:00",
+     "artifact": null,
+     "created": "2026-11-18T08:21:04+00:00",
+     "goal": "G2",
+     "history": [
+      {
+       "actor": "analyst",
+       "note": "effect: insufficient_data — ",
+       "to": "measured",
+       "ts": "2026-11-20T12:10:50+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measured",
+       "to": "done",
+       "ts": "2026-11-20T12:10:50+00:00"
+      }
+     ],
+     "id": "T-0182",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "done",
+     "title": "Morning post 19.11 07:01 UTC in c/kWh with the dated link /d/2026-11-19/ (Telegram)",
+     "type": "content"
+    },
+    {
+     "accepted_at": "2026-11-20T07:48:37+00:00",
+     "artifact": null,
      "created": "2026-11-18T09:21:49+00:00",
      "goal": "G2",
      "history": [
@@ -952,14 +3626,98 @@
        "note": "question Q-0054",
        "to": "blocked",
        "ts": "2026-11-20T07:17:10+00:00"
+      },
+      {
+       "actor": "po",
+       "note": "answered Q-0054; not before 2026-11-20T07:40:00Z",
+       "to": "ready",
+       "ts": "2026-11-20T07:47:53+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261120T0729-exec-T-0185",
+       "to": "claimed",
+       "ts": "2026-11-20T07:47:59+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-20T07:47:59+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "posted 1 (editor-approved)",
+       "to": "accepted",
+       "ts": "2026-11-20T07:48:37+00:00"
       }
      ],
      "id": "T-0185",
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "blocked",
+     "state": "accepted",
      "title": "Morning post 20.11 07:01 UTC in c/kWh with the dated link /d/2026-11-20/ (Telegram)",
+     "type": "content"
+    },
+    {
+     "accepted_at": "2026-11-19T14:23:59+00:00",
+     "artifact": null,
+     "created": "2026-11-18T10:21:50+00:00",
+     "goal": "G3",
+     "history": [
+      {
+       "actor": "analyst",
+       "note": "effect: insufficient_data — ",
+       "to": "measured",
+       "ts": "2026-11-20T18:11:44+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measured",
+       "to": "done",
+       "ts": "2026-11-20T18:11:44+00:00"
+      }
+     ],
+     "id": "T-0187",
+     "priority": "P1",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "done",
+     "title": "Daily post 19.11 14:05 UTC: prices for 20.11 in c/kWh, plus a wholesale-gap example block, link /d/2026-11-20/ (Telegram)",
+     "type": "content"
+    },
+    {
+     "accepted_at": "2026-11-20T14:11:05+00:00",
+     "artifact": null,
+     "created": "2026-11-18T10:21:51+00:00",
+     "goal": "G3",
+     "history": [
+      {
+       "actor": "dispatcher",
+       "note": "20261120T1407-exec-T-0188",
+       "to": "claimed",
+       "ts": "2026-11-20T14:10:17+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-20T14:10:17+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "posted 1 (editor-approved)",
+       "to": "accepted",
+       "ts": "2026-11-20T14:11:05+00:00"
+      }
+     ],
+     "id": "T-0188",
+     "priority": "P1",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "accepted",
+     "title": "Daily post 20.11 14:05 UTC: prices for 21.11 in c/kWh first, link /d/2026-11-21/ (Telegram)",
      "type": "content"
     },
     {
@@ -1041,6 +3799,33 @@
      "role": "developer",
      "state": "done",
      "title": "SEO: shorten the <title> (≤70 chars) and meta description (≤160) of / and the dated pages, keeping PT+EN and distinct texts",
+     "type": "quality"
+    },
+    {
+     "accepted_at": "2026-11-19T14:23:21+00:00",
+     "artifact": null,
+     "created": "2026-11-19T13:13:25+00:00",
+     "goal": "G2",
+     "history": [
+      {
+       "actor": "analyst",
+       "note": "effect: insufficient_data — ",
+       "to": "measured",
+       "ts": "2026-11-20T18:11:44+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measured",
+       "to": "done",
+       "ts": "2026-11-20T18:11:44+00:00"
+      }
+     ],
+     "id": "T-0204",
+     "priority": "P2",
+     "released_sha": "8f0facf25bd8fddac5587c64ff87be30eef5df9d",
+     "role": "developer",
+     "state": "done",
+     "title": "Pages: state 'hora de Lisboa (WET/WEST)' / 'Lisbon time' next to the hour table on / and /d/YYYY-MM-DD/",
      "type": "quality"
     },
     {
@@ -1128,7 +3913,7 @@
      "priority": "P1",
      "released_sha": "8175ff3f6e0724473d788e5988f368f0c3d28cc6",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Data: fill 23:00 Lisbon of day D from OMIE file D+1 (quarters 1-4) on today.json and dated pages; explain 23/24 on tomorrow",
      "type": "defect"
     },
@@ -1330,7 +4115,8 @@
      "type": "research"
     },
     {
-     "accepted_at": null,
+     "accepted_at": "2026-11-20T07:46:21+00:00",
+     "artifact": null,
      "created": "2026-11-20T06:10:48+00:00",
      "goal": "G2",
      "history": [
@@ -1357,18 +4143,25 @@
        "note": "merged c2d6cb904a",
        "to": "released",
        "ts": "2026-11-20T06:11:42+00:00"
+      },
+      {
+       "actor": "reviewer",
+       "note": "The note appears on the page and in the JSON for 2026-11-20, where the 23:00 price is null. It is null on the complete day 2026-11-19. The home page has one h1 and no executable script, and the dispat",
+       "to": "accepted",
+       "ts": "2026-11-20T07:46:21+00:00"
       }
      ],
      "id": "T-0216",
      "priority": "P2",
      "released_sha": "c2d6cb904a3ea9b7a8c3eec43d1c9672aeb9da8f",
      "role": "developer",
-     "state": "released",
+     "state": "accepted",
      "title": "Copy: explain the missing 23:00 hour on the tomorrow page and in tomorrow.json (PT+EN), no data or parser change",
      "type": "quality"
     },
     {
-     "accepted_at": null,
+     "accepted_at": "2026-11-20T07:46:42+00:00",
+     "artifact": null,
      "created": "2026-11-20T06:10:49+00:00",
      "goal": "G2",
      "history": [
@@ -1395,18 +4188,25 @@
        "note": "merged 56a527def2",
        "to": "released",
        "ts": "2026-11-20T07:17:59+00:00"
+      },
+      {
+       "actor": "reviewer",
+       "note": "The live page for 2026-11-19 shows the PT and EN lines with the real file name marginalpdbcpt_20261119.1. The page for 2026-11-14 has no such line. The ZeroNegWording test is in the repo and the suite",
+       "to": "accepted",
+       "ts": "2026-11-20T07:46:42+00:00"
       }
      ],
      "id": "T-0217",
      "priority": "P2",
      "released_sha": "56a527def2a1ec05934e18f0e80d0976e5ca4914",
      "role": "developer",
-     "state": "released",
+     "state": "accepted",
      "title": "Copy: on days with an hour ≤ 0 €/MWh, show 'zero/negative price is real (OMIE), not an error' next to the table",
      "type": "quality"
     },
     {
-     "accepted_at": null,
+     "accepted_at": "2026-11-20T08:11:46+00:00",
+     "artifact": null,
      "created": "2026-11-20T07:15:45+00:00",
      "goal": "G5",
      "history": [
@@ -1415,52 +4215,506 @@
        "note": "",
        "to": "ready",
        "ts": "2026-11-20T07:15:45+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261120T0728-exec-T-0218",
+       "to": "claimed",
+       "ts": "2026-11-20T07:28:56+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-20T07:28:56+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "no run (budget or dry-run)",
+       "to": "ready",
+       "ts": "2026-11-20T07:28:58+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261120T0729-exec-T-0218",
+       "to": "claimed",
+       "ts": "2026-11-20T07:48:38+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-20T07:48:38+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "merged 4906e2e811",
+       "to": "released",
+       "ts": "2026-11-20T07:49:28+00:00"
+      },
+      {
+       "actor": "reviewer",
+       "note": "The field appears in d/2026-11-19 and today.json, and llms.txt and /ha/ document it. The 23:00 hour of 2026-11-19 checks out, but I only checked that hour's mean, not the other 23. The home page and t",
+       "to": "accepted",
+       "ts": "2026-11-20T08:11:46+00:00"
       }
      ],
      "id": "T-0218",
      "priority": "P2",
-     "released_sha": null,
+     "released_sha": "4906e2e811b354accb3058bfda435e5db0c89baf",
      "role": "developer",
-     "state": "ready",
+     "state": "accepted",
      "title": "JSON: add the four 15-min OMIE values per hour (quarters_eur_mwh) to tomorrow.json, today.json and /d/<date>/index.json",
      "type": "feature"
+    },
+    {
+     "accepted_at": null,
+     "created": "2026-11-20T07:47:55+00:00",
+     "goal": "G2",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-20T07:47:55+00:00"
+      }
+     ],
+     "id": "T-0219",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "ready",
+     "title": "Morning post 25.11 07:01 UTC in c/kWh with the dated link /d/2026-11-25/ (Telegram)",
+     "type": "content"
+    },
+    {
+     "accepted_at": null,
+     "created": "2026-11-20T07:47:57+00:00",
+     "goal": "G3",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-20T07:47:57+00:00"
+      }
+     ],
+     "id": "T-0220",
+     "priority": "P1",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "ready",
+     "title": "Daily post 25.11 14:06 UTC: prices for 26.11 in c/kWh first, link /d/2026-11-26/ (Telegram)",
+     "type": "content"
+    },
+    {
+     "accepted_at": "2026-11-20T11:11:18+00:00",
+     "artifact": null,
+     "created": "2026-11-20T10:24:18+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-20T10:24:18+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261120T1007-exec-T-0221",
+       "to": "claimed",
+       "ts": "2026-11-20T10:24:20+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-20T10:24:20+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "merged f21fc712a4",
+       "to": "released",
+       "ts": "2026-11-20T10:25:03+00:00"
+      },
+      {
+       "actor": "reviewer",
+       "note": "The live /d/ archive links every dated page, including 11-02, 11-04, 11-05 and 11-10, and all return 200. /brand/ is linked from the footer of / and of the dated pages. The new Orphans test is named i",
+       "to": "accepted",
+       "ts": "2026-11-20T11:11:18+00:00"
+      }
+     ],
+     "id": "T-0221",
+     "priority": "P2",
+     "released_sha": "f21fc712a441a7abbffdcec1081418f1eb22e60d",
+     "role": "developer",
+     "state": "accepted",
+     "title": "SEO quality: every sitemap.xml URL gets at least one internal link (no orphan pages such as /brand/, /d/2026-11-02/)",
+     "type": "quality"
+    },
+    {
+     "accepted_at": "2026-11-20T14:09:31+00:00",
+     "artifact": null,
+     "created": "2026-11-20T13:11:16+00:00",
+     "goal": "G2",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-20T13:11:16+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261120T1307-exec-T-0222",
+       "to": "claimed",
+       "ts": "2026-11-20T13:11:21+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-20T13:11:21+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "merged 370eddac61",
+       "to": "released",
+       "ts": "2026-11-20T13:12:24+00:00"
+      },
+      {
+       "actor": "reviewer",
+       "note": "The live today.json and / show a consistent month-to-date average (163.28 €/MWh, 16.3 c/kWh, 20 days) with the required PT and EN wording. llms.txt, the single h1, the disclosure and the test are all ",
+       "to": "accepted",
+       "ts": "2026-11-20T14:09:31+00:00"
+      }
+     ],
+     "id": "T-0222",
+     "priority": "P2",
+     "released_sha": "370eddac619797ca0616ec3b715f58205228d67c",
+     "role": "developer",
+     "state": "accepted",
+     "title": "Month-to-date average OMIE PT price on / and in today.json (raw €/MWh and c/kWh, PT+EN)",
+     "type": "feature"
+    },
+    {
+     "accepted_at": "2026-11-20T15:09:08+00:00",
+     "artifact": null,
+     "created": "2026-11-20T14:10:15+00:00",
+     "goal": "G2",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-20T14:10:15+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261120T1407-exec-T-0223",
+       "to": "claimed",
+       "ts": "2026-11-20T14:11:05+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-20T14:11:05+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "merged 230309b998",
+       "to": "released",
+       "ts": "2026-11-20T14:11:39+00:00"
+      },
+      {
+       "actor": "reviewer",
+       "note": "The month_to_date test now builds offline into a temp dir and reads nothing under public/. It asserts an exact average, hour count, and the 1 dp half-up cent conversion. Live today.json and / are inta",
+       "to": "accepted",
+       "ts": "2026-11-20T15:09:08+00:00"
+      }
+     ],
+     "id": "T-0223",
+     "priority": "P2",
+     "released_sha": "230309b9982187846ce291807620f03f445b4a79",
+     "role": "developer",
+     "state": "accepted",
+     "title": "QA: month_to_date test (T-0222) builds into a temp dir from cached data/omie/ instead of reading public/",
+     "type": "quality"
+    },
+    {
+     "accepted_at": "2026-11-20T20:21:00+00:00",
+     "artifact": null,
+     "created": "2026-11-20T19:20:54+00:00",
+     "goal": "G5",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-20T19:20:54+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261120T1907-exec-T-0224",
+       "to": "claimed",
+       "ts": "2026-11-20T19:21:01+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-20T19:21:01+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "merged ed319d2827",
+       "to": "released",
+       "ts": "2026-11-20T19:21:43+00:00"
+      },
+      {
+       "actor": "reviewer",
+       "note": "Live JSON, pages, llms.txt and /ha/ all show the new fields and Lisbon-time line, with no removed fields or shifted hours. The DST test exists and the suite passed.",
+       "to": "accepted",
+       "ts": "2026-11-20T20:21:00+00:00"
+      }
+     ],
+     "id": "T-0224",
+     "priority": "P2",
+     "released_sha": "ed319d2827d67bd1ac527d8ce6621650df6f6741",
+     "role": "developer",
+     "state": "accepted",
+     "title": "JSON+page: explicit Lisbon time per hour (ISO 8601 with offset) in the JSON files and a 'hora de Lisboa' line by the table",
+     "type": "feature"
+    },
+    {
+     "accepted_at": null,
+     "artifact": null,
+     "created": "2026-11-20T19:20:58+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-20T19:20:58+00:00"
+      }
+     ],
+     "id": "T-0225",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "analyst",
+     "state": "done",
+     "title": "Analyst: where the 11–20.11 human sources came from (referer, ?src), and why Telegram brings 0 engaged",
+     "type": "research"
+    },
+    {
+     "accepted_at": "2026-11-20T21:32:49+00:00",
+     "artifact": null,
+     "created": "2026-11-20T20:22:11+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-20T20:22:11+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261120T2007-exec-T-0226",
+       "to": "claimed",
+       "ts": "2026-11-20T20:22:13+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-20T20:22:13+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "merged ecd5adf449",
+       "to": "released",
+       "ts": "2026-11-20T20:23:43+00:00"
+      },
+      {
+       "actor": "reviewer",
+       "note": "The live sitemap shows lastmod 2026-11-11 for /d/2026-11-10/ and 2026-11-15 for /d/2026-11-15/. The double-build test, README line and test run all check out. The home page and JSON fields are intact.",
+       "to": "accepted",
+       "ts": "2026-11-20T21:32:49+00:00"
+      }
+     ],
+     "id": "T-0226",
+     "priority": "P2",
+     "released_sha": "ecd5adf449939d5954ad4216d53b0f19c07ad9f8",
+     "role": "developer",
+     "state": "accepted",
+     "title": "Quality: stable dates on past dated pages — sitemap lastmod and page timestamps follow the data, not the build time",
+     "type": "quality"
+    },
+    {
+     "accepted_at": "2026-11-20T22:41:59+00:00",
+     "artifact": null,
+     "created": "2026-11-20T21:33:36+00:00",
+     "goal": "G5",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-20T21:33:36+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261120T2107-exec-T-0227",
+       "to": "claimed",
+       "ts": "2026-11-20T21:33:38+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-20T21:33:38+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "merged 0a59e4ccc1",
+       "to": "released",
+       "ts": "2026-11-20T21:34:05+00:00"
+      },
+      {
+       "actor": "reviewer",
+       "note": "llms.txt and /ha/ (PT and EN) now state that built_utc is the OMIE data time and that the build time is in /build.json. The JSON files were not regenerated, and the home page still has one h1, the AI ",
+       "to": "accepted",
+       "ts": "2026-11-20T22:41:59+00:00"
+      }
+     ],
+     "id": "T-0227",
+     "priority": "P2",
+     "released_sha": "0a59e4ccc1af1ae3265f9ef02e1363b0eaa8feb7",
+     "role": "developer",
+     "state": "accepted",
+     "title": "Docs: llms.txt and /ha/ explain built_utc (data time) vs build.json (real build time)",
+     "type": "quality"
     }
    ]
   },
   "release-radar": {
-   "analyst_md": "**Срез на 20.11 (данные за 06:00 UTC, день неполный).** Пилот 04–10.11 закончен; ниже — состояние последних дней.\n\n| Уровень | 20.11 (частично) | 19.11 | 18.11 | 17.11 |\n|---|---|---|---|---|\n| Люди (источники / engaged) | 9 / 0 | 124 / 0 | 94 / 1 | 14 / 1 |\n| Возвраты | 0 | 0 | 0 | 0 |\n| Агенты (запросы) | 30 | 54 | 626 | 30 |\n| Краулеры (запросы) | 243 | 945 | 514 | 1362 |\n| /go/ люди | 0 | 0 | 1 | 0 |\n\n**Цели:** G1 (≥40 engaged) — за 14–20.11 набирается ≈8 engaged, ниже цели. G2 (≥5 возвратов) — 2 за период, в 15–20.11 ноль. G3 — 0 внешних кликов людей, из referer только bluenews.app, google, t.co. G4 — запросы /today.json есть (25 за 19.11), но человеческих и агентских источников почти нет.\n\n**Поиск:** в индексе Google 0 из 102 URL, 697 показов, 0 кликов. Данные в GSC кончаются 10.11.\n\n**Посты → визиты:** по `src` почти ничего: bluesky 13 запросов 19.11 при 0 людей. После постов 17.11 людей 14, engaged 1. Эффект постов не отделить от шума.\n\n**Задачи:** T-0072/T-0104/T-0151/T-0153 (nofollow/noindex на /go/) приняты 18–19.11. Краулерные /go/ упали с 595 (17.11) до 105 (20.11), но день неполный и 19.11 было 336. Данных мало.",
+   "analyst_md": "**Release Radar, срез на 20.11 (18:01 UTC, день неполный).** Уровни не складываются.\n\n| Уровень | 16.11 | 17.11 | 18.11 | 19.11 | 20.11 |\n|---|---|---|---|---|---|\n| Люди (источники / engaged) | 24 / 3 | 14 / 1 | 94 / 1 | 124 / 0 | 57 / 2 |\n| Возвраты | 0 | 0 | 0 | 0 | 0 |\n| Внешние клики по /go/ (люди) | 2 | 0 | 1 | 0 | 0 |\n| Агенты, запросы | 24 | 30 | 626 | 54 | 75 |\n\n- **G1** (≥40 engaged за пилот): 04–10.11 здесь не видны. За 14–20.11 engaged = 13. Отстаём, вероятно.\n- **G2** (≥5 возвратов): 2 возврата (14.11), за 15–20.11 ноль. Отстаём.\n- **G3**: 3 человеческих источника на /go/ за 16–20.11 при ≥10 % визитов. Внешних referer-доменов не наших 2–3 (google, bluenews.app, t.co). Цель не достигнута.\n- **G4** (≥5 запросов /today.json не от краулеров): человеческие и агентские источники дают 0–1 в день. Запросы агентов идут в основном к /pkg/ (python-requests, chatgpt).\n\n**Discovery:** Google проиндексировал 0 из 102 URL, 697 показов, 0 кликов. Данные GSC заканчиваются 10.11, показы упали с 209 до 1 к 10.11. Краулеры дают 756–1362 запроса в день.\n\n**Задачи:** T-0072, T-0104 приняты 18.11. Для /go/ у краулеров до/после неясно: 583 на 17.11, 336 на 19.11, 0 на 20.11. Падение совпадает с их внедрением, но день неполный.\n\n**Посты:** Mastodon 20.11 14:13 дал 33 запроса с ?src=mastodon, людей 0. Это похоже на превью-бот (Mastodon 29). X 18.11 08:25 дал 1 запрос, людей 0.",
    "date": "2026-11-20",
    "metrics": {
-    "agents": 30,
-    "crawlers": 243,
-    "engaged": 0,
-    "humans": 9,
-    "requests": 473,
+    "agents": 102,
+    "crawlers": 1227,
+    "engaged": 3,
+    "humans": 70,
+    "requests": 2167,
     "returns": 0
    },
    "name": "Release Radar",
    "observations": {
     "by_class": {
+     "feedback": 1,
      "hypothesis_readout": 5,
-     "measurement": 2,
-     "need_hypothesis": 4
+     "measurement": 4,
+     "need_hypothesis": 11,
+     "success": 2
     },
-    "new": 11
+    "new": 23
    },
    "owner_questions_open": 0,
-   "po_digest_md": "**Release Radar — цикл 20.11 07:07 UTC**\n\n**Что произошло.** Все задачи разработчика T-0150–T-0158 приняты: факт-абзац на главной, nofollow и noindex на /go/, ссылки compare, «followed by», рецепт в llms.txt, список всех пакетов на главной. Вовлечённых людей 0 за 19–20.11. X на паузе с 19.11 (402, нет кредитов); раньше он давал 5 из 5 вовлечённых. Ждём владельца. В Google проиндексировано 0 из 102 URL, кликов 0.\n\n**Решения.**\n- OBS-0468 (на /go/ приходят только автоматы, 105 запросов 20.11 вне классов): привязал к анализу T-0157 (21.11). Правку кода дам только по его выводу.\n- OBS-0469 (0 страниц в индексе): отложил до отчёта GSC от 28.11. Правки для «тонких» страниц только что вышли, Google нужно время на повторный обход.\n- OBS-0470 (всплеск python-requests 18.11): уже разобран в T-0148, новой задачи нет.\n\n**Новые задачи разработчику.**\n1. Quality: в подвале каждой страницы ссылки на /legal/ и /brand/. По GSC /brand/ «unknown to Google», ссылки на неё нет.\n2. Feature с гипотезой по голосу людей (voice:2026-11-18:P2): тег «Notes are a PR list only», ставится только регэкспом, флаг breaking не меняет. Метрику читаем 04.12.\n\nМаркетинг идёт по плану: Mastodon 20.11, Bluesky и Telegram 21.11, Threads 22.11, новый план 23.11.\n\n**Ждёт владельца:** кредиты X API (Q-0028), ключ dev.to (Q-0025), цель /go/compare/ в метриках (Q-0029).\n\n**Расход:** $1.77 из $20.",
-   "posts": [],
+   "po_digest_md": "**Release Radar: цикл 20.11, 19:07 UTC**\n\n**Что сделано за день.** Приняты T-0153–T-0164:\n- noindex/nofollow на /go/;\n- рецепт для агентов в llms.txt;\n- метка «followed by … after N h»;\n- список всех пакетов и ссылки в подвале;\n- метка «PR list only» (одна метка на карточку);\n- уникальные title и description на /pkg/;\n- честные счётчики «not fetched» и повторное использование уже скачанных notes.\n\n**Причина 183 «not fetched».** Разработчик собрал public/ без сети на ветке задачи (OBS-0479). Теперь T-0164 подставляет notes из предыдущей сборки, поэтому отдельная задача не нужна.\n\n**Решения по наблюдениям.**\n- Ложное «(0)» в заголовке исправит T-0165 (ready).\n- Исключать pre-release из счёта (OBS-0480) пока не будем, вернёмся после T-0165.\n- Боты на /go/ (OBS-0481): итог за полный день 20.11 даст аналитик в T-0157 (21.11 01:30).\n- Mastodon снова дал 0 людей (OBS-0482). Учтём в плане на 25.11–01.12 (T-0156).\n- Повторную проверку индекса в GSC (OBS-0483) отложили, пока данные GSC не дойдут до ≥27.11: SEO-правки вышли только 20.11.\n\n**Новых задач нет:** в очереди уже есть посты Bluesky и Telegram на 21.11, Threads на 22.11, план, аналитика и T-0165. Слоты X на 21–24.11 не создаём: X на паузе с 19.11 из-за ошибки 402, а именно X дал 5 из 5 вовлечённых людей.\n\n**Метрики.** Вовлечённых людей за 20.11 — 2, возвратов — 0. В Google проиндексировано 0 из 102 страниц.\n\n**Ждёт владельца** (вопросы прежние): кредиты X API; цель /go/compare/ в product.yaml; фильтр ботов в метриках.\n\n**Расход:** $7.92 из $20.",
+   "posts": [
+    {
+     "channel": "mastodon",
+     "ts": "2026-11-20T14:13:38+00:00",
+     "url": "https://mastodon.social/@formachines/117649179827131440"
+    }
+   ],
    "reviews": [
     {
      "summary": "The home page now ends with an 'All tracked packages (98)' section of plain links whose hrefs match the sitemap locs. The checked pages' canonicals, nofollow on /go/ links, build.json and the JSON endpoints all look right.",
      "task": "T-0158",
      "verdict": "pass"
+    },
+    {
+     "summary": "The footers of the home page and /pkg/pypi/openai/ already carry plain links to /legal/ and /brand/. Their paths match the sitemap loc values, and canonicals, build.json, the JSON and feed endpoints, and the /go/ nofollow links all check out. The no-commit close is valid. Only the 375 px check could not be observed.",
+     "task": "T-0159",
+     "verdict": "pass"
+    },
+    {
+     "summary": "The prisma 8.0.0-rc.34 card shows the 'Notes are a PR list only (auto-generated)' label, and its index.json record has notes_pr_list_only true with the old keys intact. Untagged github_release cards exist on prisma and gemini-cli, build.json errors is [], and the neighbouring endpoints return 200. The 375px check and the regex code were not observed.",
+     "task": "T-0160",
+     "verdict": "pass"
+    },
+    {
+     "summary": "On the live site, the prisma card and all home-page cards show one PR-list label each. The old label remains only on litellm cards. The JSON keys, build.json (errors empty) and the other endpoints are intact.",
+     "task": "T-0161",
+     "verdict": "pass"
+    },
+    {
+     "summary": "The /pkg/ pages have unique titles and data-built descriptions that match their index.json counts. The build is clean, and the neighbouring endpoints and nofollow links are intact.",
+     "task": "T-0162",
+     "verdict": "pass"
+    },
+    {
+     "summary": "The home line and the card texts are correct and match build.json (0/184/3). The same section still says 'notes fetch failed', which breaks the negative case against cause words like 'failed'.",
+     "task": "T-0163",
+     "verdict": "fail"
+    },
+    {
+     "summary": "The home no-notes section shows the three counts (0/183/3), and they match build.json. Unfetched cards say 'Notes not fetched in this build', fetched cards keep the keyword text, and the neighbouring endpoints return 200.",
+     "task": "T-0163",
+     "verdict": "pass"
+    },
+    {
+     "summary": "The live build has notes_reused 182, not_fetched 0 and errors []. The home page line matches build.json. A flagged quote I checked, from codex 0.171.0, appears word for word in its GitHub release notes, and the mongoose cards show the checked-no-notes label. The neighbouring endpoints return 200 with their old keys.",
+     "task": "T-0164",
+     "verdict": "pass"
+    },
+    {
+     "summary": "The live home heading now reads 'Versions checked with no release notes (173)'. That matches build.json checked_no_notes, and the three-count line under it matches its fields too. The other endpoints return 200 and build.json errors is empty.",
+     "task": "T-0165",
+     "verdict": "pass"
     }
    ],
    "site": "https://releases.formachines.ai",
    "slug": "release-radar",
-   "spend_usd": 2.2,
+   "spend_usd": 8.4,
    "tasks": [
+    {
+     "accepted_at": "2026-11-20T14:13:38+00:00",
+     "artifact": null,
+     "created": "2026-11-17T07:13:31+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "dispatcher",
+       "note": "20261120T1407-exec-T-0130",
+       "to": "claimed",
+       "ts": "2026-11-20T14:12:54+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-20T14:12:54+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "posted 1 (editor-approved)",
+       "to": "accepted",
+       "ts": "2026-11-20T14:13:38+00:00"
+      }
+     ],
+     "id": "T-0130",
+     "priority": "P2",
+     "released_sha": null,
+     "role": "marketer",
+     "state": "accepted",
+     "title": "Mastodon 20.11 14:00 UTC — 'Versions without release notes': stable vs pre-release/dev counts from the home section",
+     "type": "content"
+    },
     {
      "accepted_at": "2026-11-18T20:10:45+00:00",
      "artifact": null,
@@ -1597,7 +4851,89 @@
      "type": "quality"
     },
     {
+     "accepted_at": "2026-11-19T10:13:44+00:00",
+     "artifact": null,
+     "created": "2026-11-19T09:14:33+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "analyst",
+       "note": "effect: insufficient_data — ",
+       "to": "measured",
+       "ts": "2026-11-20T12:11:30+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measured",
+       "to": "done",
+       "ts": "2026-11-20T12:11:30+00:00"
+      }
+     ],
+     "id": "T-0150",
+     "priority": "P2",
+     "released_sha": "193af656a840a124d13dbd046d285d967b9cfd3b",
+     "role": "developer",
+     "state": "done",
+     "title": "Home page opens with a dated site-facts paragraph and matching meta description (packages, 7-day releases/flags, sources)",
+     "type": "quality"
+    },
+    {
+     "accepted_at": "2026-11-19T14:24:27+00:00",
+     "artifact": null,
+     "created": "2026-11-19T13:14:40+00:00",
+     "goal": "G3",
+     "history": [
+      {
+       "actor": "analyst",
+       "note": "effect: insufficient_data — ",
+       "to": "measured",
+       "ts": "2026-11-20T18:15:13+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measured",
+       "to": "done",
+       "ts": "2026-11-20T18:15:14+00:00"
+      }
+     ],
+     "id": "T-0151",
+     "priority": "P2",
+     "released_sha": "8a7dab631e815911a80652ead4c29144b68d9e61",
+     "role": "developer",
+     "state": "done",
+     "title": "Vote links /go/vote/ are not followed by bots: rel=\"nofollow\" on every vote link and Disallow: /go/vote/ in robots.txt",
+     "type": "quality"
+    },
+    {
+     "accepted_at": "2026-11-19T15:18:33+00:00",
+     "artifact": null,
+     "created": "2026-11-19T14:25:43+00:00",
+     "goal": "G3",
+     "history": [
+      {
+       "actor": "analyst",
+       "note": "effect: insufficient_data — ",
+       "to": "measured",
+       "ts": "2026-11-20T18:15:14+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "measured",
+       "to": "done",
+       "ts": "2026-11-20T18:15:14+00:00"
+      }
+     ],
+     "id": "T-0152",
+     "priority": "P2",
+     "released_sha": "60ec718f552d06790e1b43877d5c306cb0e48946",
+     "role": "developer",
+     "state": "done",
+     "title": "Cards get a 'compare <prev>…<this>' diff link via /go/compare/<id>/ and a factual 'No breaking keyword matched' label",
+     "type": "feature"
+    },
+    {
      "accepted_at": null,
+     "artifact": null,
      "created": "2026-11-20T01:12:26+00:00",
      "goal": "G3",
      "history": [
@@ -1612,7 +4948,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "analyst",
-     "state": "ready",
+     "state": "done",
      "title": "Check crawlability: do bots obey the /go/ rules on 20.11, and why are 15 sitemap /pkg/ URLs 'unknown to Google'",
      "type": "research"
     },
@@ -1657,12 +4993,13 @@
      "priority": "P2",
      "released_sha": "ebf680354385c5964c100a3d458b6458f4172b6a",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Home page links every tracked package: an 'All tracked packages' list with plain <a> to each sitemap /pkg/ URL, href byte-equal to its <loc>",
      "type": "quality"
     },
     {
-     "accepted_at": null,
+     "accepted_at": "2026-11-20T07:49:57+00:00",
+     "artifact": null,
      "created": "2026-11-20T07:19:19+00:00",
      "goal": "G1",
      "history": [
@@ -1689,18 +5026,25 @@
        "note": "no change needed: The footer of every page, including home and /pkg/pypi/openai/, already links /legal/ and /brand/ with plain <a>. The hrefs are the paths of the sitemap <loc> values (https://release",
        "to": "review",
        "ts": "2026-11-20T07:19:54+00:00"
+      },
+      {
+       "actor": "reviewer",
+       "note": "The footers of the home page and /pkg/pypi/openai/ already carry plain links to /legal/ and /brand/. Their paths match the sitemap loc values, and canonicals, build.json, the JSON and feed endpoints, ",
+       "to": "accepted",
+       "ts": "2026-11-20T07:49:57+00:00"
       }
      ],
      "id": "T-0159",
      "priority": "P2",
      "released_sha": "d1a355a70131c8f8a725426b7002ca854ec0f834",
      "role": "developer",
-     "state": "review",
+     "state": "accepted",
      "title": "Footer of home and /pkg/ pages links /legal/ and /brand/ with plain <a>, href byte-equal to their sitemap <loc>",
      "type": "quality"
     },
     {
-     "accepted_at": null,
+     "accepted_at": "2026-11-20T08:13:23+00:00",
+     "artifact": null,
      "created": "2026-11-20T07:19:19+00:00",
      "goal": "G3",
      "history": [
@@ -1709,15 +5053,276 @@
        "note": "",
        "to": "ready",
        "ts": "2026-11-20T07:19:19+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261120T0729-exec-T-0160",
+       "to": "claimed",
+       "ts": "2026-11-20T07:50:36+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-20T07:50:36+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "merged a397ee8bc3",
+       "to": "released",
+       "ts": "2026-11-20T07:51:14+00:00"
+      },
+      {
+       "actor": "reviewer",
+       "note": "The prisma 8.0.0-rc.34 card shows the 'Notes are a PR list only (auto-generated)' label, and its index.json record has notes_pr_list_only true with the old keys intact. Untagged github_release cards e",
+       "to": "accepted",
+       "ts": "2026-11-20T08:13:23+00:00"
       }
      ],
      "id": "T-0160",
      "priority": "P2",
-     "released_sha": null,
+     "released_sha": "a397ee8bc3c0242ecd2e13ddb7bf63e5eb4cd64f",
      "role": "developer",
-     "state": "ready",
+     "state": "accepted",
      "title": "Cards whose GitHub notes are only auto-generated PR lines get a factual 'Notes are a PR list only' tag (regex, no judgement)",
      "type": "feature"
+    },
+    {
+     "accepted_at": "2026-11-20T09:24:39+00:00",
+     "artifact": null,
+     "created": "2026-11-20T08:14:04+00:00",
+     "goal": "G3",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-20T08:14:04+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261120T0807-exec-T-0161",
+       "to": "claimed",
+       "ts": "2026-11-20T08:14:05+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-20T08:14:05+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "merged 03a2e6660c",
+       "to": "released",
+       "ts": "2026-11-20T08:14:35+00:00"
+      },
+      {
+       "actor": "reviewer",
+       "note": "On the live site, the prisma card and all home-page cards show one PR-list label each. The old label remains only on litellm cards. The JSON keys, build.json (errors empty) and the other endpoints are",
+       "to": "accepted",
+       "ts": "2026-11-20T09:24:39+00:00"
+      }
+     ],
+     "id": "T-0161",
+     "priority": "P2",
+     "released_sha": "03a2e6660c4e4a3055beba3af1e0457e9246be6f",
+     "role": "developer",
+     "state": "accepted",
+     "title": "One PR-list label per card: drop the older 'Notes are a PR list (auto-generated format)' label where the T-0160 tag is shown",
+     "type": "quality"
+    },
+    {
+     "accepted_at": "2026-11-20T14:12:18+00:00",
+     "artifact": null,
+     "created": "2026-11-20T13:13:29+00:00",
+     "goal": "G1",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-20T13:13:29+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261120T1307-exec-T-0162",
+       "to": "claimed",
+       "ts": "2026-11-20T13:13:31+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-20T13:13:31+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "merged 0a3742833e",
+       "to": "released",
+       "ts": "2026-11-20T13:14:15+00:00"
+      },
+      {
+       "actor": "reviewer",
+       "note": "The /pkg/ pages have unique titles and data-built descriptions that match their index.json counts. The build is clean, and the neighbouring endpoints and nofollow links are intact.",
+       "to": "accepted",
+       "ts": "2026-11-20T14:12:18+00:00"
+      }
+     ],
+     "id": "T-0162",
+     "priority": "P2",
+     "released_sha": "0a3742833e328980a422fe2103e42eceeb2e3dd6",
+     "role": "developer",
+     "state": "accepted",
+     "title": "Each /pkg/ page gets a unique <title> and a meta description built from its own data (version, date, counts)",
+     "type": "quality"
+    },
+    {
+     "accepted_at": "2026-11-20T18:12:19+00:00",
+     "artifact": null,
+     "created": "2026-11-20T16:12:57+00:00",
+     "goal": "G3",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-20T16:12:57+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261120T1607-exec-T-0163",
+       "to": "claimed",
+       "ts": "2026-11-20T16:12:59+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-20T16:12:59+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "merged 9fc7cef4e1",
+       "to": "released",
+       "ts": "2026-11-20T16:13:50+00:00"
+      },
+      {
+       "actor": "reviewer",
+       "note": "failed: Negative case: https://releases.formachines.ai/ section 'Versions without release notes' contains 'Not checked, notes fetch failed (not_fetched): 184', an unconfirmed cause word 'failed'.",
+       "to": "in_progress",
+       "ts": "2026-11-20T17:12:45+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "merged f4a22da4e7",
+       "to": "released",
+       "ts": "2026-11-20T17:13:50+00:00"
+      },
+      {
+       "actor": "reviewer",
+       "note": "The home no-notes section shows the three counts (0/183/3), and they match build.json. Unfetched cards say 'Notes not fetched in this build', fetched cards keep the keyword text, and the neighbouring ",
+       "to": "accepted",
+       "ts": "2026-11-20T18:12:19+00:00"
+      }
+     ],
+     "id": "T-0163",
+     "priority": "P1",
+     "released_sha": "f4a22da4e7b6a309c29bed668110acd66e42f283",
+     "role": "developer",
+     "state": "accepted",
+     "title": "Home 'Versions without release notes' states not-fetched/no-repo counts from build.json; unfetched cards say so",
+     "type": "defect"
+    },
+    {
+     "accepted_at": "2026-11-20T19:22:24+00:00",
+     "artifact": null,
+     "created": "2026-11-20T18:13:34+00:00",
+     "goal": "G3",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-20T18:13:34+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261120T1807-exec-T-0164",
+       "to": "claimed",
+       "ts": "2026-11-20T18:13:37+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-20T18:13:38+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "merged ce8cab096a",
+       "to": "released",
+       "ts": "2026-11-20T18:14:51+00:00"
+      },
+      {
+       "actor": "reviewer",
+       "note": "The live build has notes_reused 182, not_fetched 0 and errors []. The home page line matches build.json. A flagged quote I checked, from codex 0.171.0, appears word for word in its GitHub release note",
+       "to": "accepted",
+       "ts": "2026-11-20T19:22:24+00:00"
+      }
+     ],
+     "id": "T-0164",
+     "priority": "P2",
+     "released_sha": "ce8cab096a14914781f8023ffc4969da13cdb0c5",
+     "role": "developer",
+     "state": "accepted",
+     "title": "Notes completeness: a build reuses notes already fetched in the previous committed build instead of marking 183 versions 'not fetched'",
+     "type": "quality"
+    },
+    {
+     "accepted_at": "2026-11-20T20:24:02+00:00",
+     "artifact": null,
+     "created": "2026-11-20T18:13:36+00:00",
+     "goal": "G3",
+     "history": [
+      {
+       "actor": "po",
+       "note": "",
+       "to": "ready",
+       "ts": "2026-11-20T18:13:36+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "20261120T1907-exec-T-0165",
+       "to": "claimed",
+       "ts": "2026-11-20T19:23:04+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "started",
+       "to": "in_progress",
+       "ts": "2026-11-20T19:23:04+00:00"
+      },
+      {
+       "actor": "dispatcher",
+       "note": "merged 35f6252ab5",
+       "to": "released",
+       "ts": "2026-11-20T19:23:30+00:00"
+      },
+      {
+       "actor": "reviewer",
+       "note": "The live home heading now reads 'Versions checked with no release notes (173)'. That matches build.json checked_no_notes, and the three-count line under it matches its fields too. The other endpoints ",
+       "to": "accepted",
+       "ts": "2026-11-20T20:24:02+00:00"
+      }
+     ],
+     "id": "T-0165",
+     "priority": "P3",
+     "released_sha": "35f6252ab5c19d0c1ffd007a3062a73449e95cd1",
+     "role": "developer",
+     "state": "accepted",
+     "title": "Home heading names what it counts: 'Versions checked with no release notes (<N>)' instead of a bare '(0)'",
+     "type": "quality"
     }
    ]
   }
@@ -1728,41 +5333,48 @@
    "reopened": 0,
    "review_fail": 0,
    "review_inconclusive": 0,
-   "spend_usd": 0.6
+   "spend_usd": 4.0
   },
   "agent-team-diary": {
    "cap_usd": null,
    "reopened": 0,
-   "review_fail": 0,
+   "review_fail": 1,
    "review_inconclusive": 0,
-   "spend_usd": 2.8
+   "spend_usd": 12.4
   },
   "agentsmd-tracker": {
    "cap_usd": null,
    "reopened": 0,
    "review_fail": 0,
    "review_inconclusive": 0,
-   "spend_usd": 1.4
+   "spend_usd": 4.9
+  },
+  "ai-battles": {
+   "cap_usd": null,
+   "reopened": 0,
+   "review_fail": 2,
+   "review_inconclusive": 6,
+   "spend_usd": 15.5
   },
   "luz-amanha": {
    "cap_usd": null,
    "reopened": 0,
    "review_fail": 0,
    "review_inconclusive": 1,
-   "spend_usd": 4.4
+   "spend_usd": 11.8
   },
   "release-radar": {
    "cap_usd": null,
    "reopened": 0,
-   "review_fail": 0,
+   "review_fail": 1,
    "review_inconclusive": 0,
-   "spend_usd": 2.2
+   "spend_usd": 8.4
   }
  },
- "snapshot_built_at": "2026-11-21T04:10:50Z",
+ "snapshot_built_at": "2026-11-21T07:36:28Z",
  "totals": {
-  "reviews": 6,
-  "spend_usd": 11.4,
-  "tasks_done_distinct": 24
+  "reviews": 52,
+  "spend_usd": 57.0,
+  "tasks_done_distinct": 80
  }
 }

@@ -5,6 +5,38 @@
  "date": "2026-11-20",
  "tasks": [
   {
+   "id": "T-0130",
+   "title": "Mastodon 20.11 14:00 UTC — 'Versions without release notes': stable vs pre-release/dev counts from the home section",
+   "type": "content",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-17T07:13:31+00:00",
+   "accepted_at": "2026-11-20T14:13:38+00:00",
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-20T14:12:54+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261120T1407-exec-T-0130"
+    },
+    {
+     "ts": "2026-11-20T14:12:54+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-20T14:13:38+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "posted 1 (editor-approved)"
+    }
+   ]
+  },
+  {
    "id": "T-0144",
    "title": "Scoped /pkg/ URLs and /brand/: same URL string in sitemap.xml, home links and canonical, so Google can discover the 14 'unknown' pages",
    "type": "quality",
@@ -135,10 +167,88 @@
    ]
   },
   {
+   "id": "T-0150",
+   "title": "Home page opens with a dated site-facts paragraph and matching meta description (packages, 7-day releases/flags, sources)",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-19T09:14:33+00:00",
+   "accepted_at": "2026-11-19T10:13:44+00:00",
+   "released_sha": "193af656a840a124d13dbd046d285d967b9cfd3b",
+   "history": [
+    {
+     "ts": "2026-11-20T12:11:30+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-20T12:11:30+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0151",
+   "title": "Vote links /go/vote/ are not followed by bots: rel=\"nofollow\" on every vote link and Disallow: /go/vote/ in robots.txt",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-19T13:14:40+00:00",
+   "accepted_at": "2026-11-19T14:24:27+00:00",
+   "released_sha": "8a7dab631e815911a80652ead4c29144b68d9e61",
+   "history": [
+    {
+     "ts": "2026-11-20T18:15:13+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-20T18:15:14+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0152",
+   "title": "Cards get a 'compare <prev>…<this>' diff link via /go/compare/<id>/ and a factual 'No breaking keyword matched' label",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-19T14:25:43+00:00",
+   "accepted_at": "2026-11-19T15:18:33+00:00",
+   "released_sha": "60ec718f552d06790e1b43877d5c306cb0e48946",
+   "history": [
+    {
+     "ts": "2026-11-20T18:15:14+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-20T18:15:14+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
    "id": "T-0157",
    "title": "Check crawlability: do bots obey the /go/ rules on 20.11, and why are 15 sitemap /pkg/ URLs 'unknown to Google'",
    "type": "research",
-   "state": "ready",
+   "state": "done",
    "priority": "P2",
    "goal": "G3",
    "role": "analyst",
@@ -158,7 +268,7 @@
    "id": "T-0158",
    "title": "Home page links every tracked package: an 'All tracked packages' list with plain <a> to each sitemap /pkg/ URL, href byte-equal to its <loc>",
    "type": "quality",
-   "state": "accepted",
+   "state": "done",
    "priority": "P2",
    "goal": "G1",
    "role": "developer",
@@ -202,12 +312,12 @@
    "id": "T-0159",
    "title": "Footer of home and /pkg/ pages links /legal/ and /brand/ with plain <a>, href byte-equal to their sitemap <loc>",
    "type": "quality",
-   "state": "review",
+   "state": "accepted",
    "priority": "P2",
    "goal": "G1",
    "role": "developer",
    "created": "2026-11-20T07:19:19+00:00",
-   "accepted_at": null,
+   "accepted_at": "2026-11-20T07:49:57+00:00",
    "released_sha": "d1a355a70131c8f8a725426b7002ca854ec0f834",
    "history": [
     {
@@ -233,6 +343,12 @@
      "actor": "dispatcher",
      "to": "review",
      "note": "no change needed: The footer of every page, including home and /pkg/pypi/openai/, already links /legal/ and /brand/ with plain <a>. The hrefs are the paths of the sitemap <loc> values (https://release"
+    },
+    {
+     "ts": "2026-11-20T07:49:57+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The footers of the home page and /pkg/pypi/openai/ already carry plain links to /legal/ and /brand/. Their paths match the sitemap loc values, and canonicals, build.json, the JSON and feed endpoints, "
     }
    ]
   },
@@ -240,19 +356,275 @@
    "id": "T-0160",
    "title": "Cards whose GitHub notes are only auto-generated PR lines get a factual 'Notes are a PR list only' tag (regex, no judgement)",
    "type": "feature",
-   "state": "ready",
+   "state": "accepted",
    "priority": "P2",
    "goal": "G3",
    "role": "developer",
    "created": "2026-11-20T07:19:19+00:00",
-   "accepted_at": null,
-   "released_sha": null,
+   "accepted_at": "2026-11-20T08:13:23+00:00",
+   "released_sha": "a397ee8bc3c0242ecd2e13ddb7bf63e5eb4cd64f",
    "history": [
     {
      "ts": "2026-11-20T07:19:19+00:00",
      "actor": "po",
      "to": "ready",
      "note": ""
+    },
+    {
+     "ts": "2026-11-20T07:50:36+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261120T0729-exec-T-0160"
+    },
+    {
+     "ts": "2026-11-20T07:50:36+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-20T07:51:14+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged a397ee8bc3"
+    },
+    {
+     "ts": "2026-11-20T08:13:23+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The prisma 8.0.0-rc.34 card shows the 'Notes are a PR list only (auto-generated)' label, and its index.json record has notes_pr_list_only true with the old keys intact. Untagged github_release cards e"
+    }
+   ]
+  },
+  {
+   "id": "T-0161",
+   "title": "One PR-list label per card: drop the older 'Notes are a PR list (auto-generated format)' label where the T-0160 tag is shown",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-20T08:14:04+00:00",
+   "accepted_at": "2026-11-20T09:24:39+00:00",
+   "released_sha": "03a2e6660c4e4a3055beba3af1e0457e9246be6f",
+   "history": [
+    {
+     "ts": "2026-11-20T08:14:04+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-20T08:14:05+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261120T0807-exec-T-0161"
+    },
+    {
+     "ts": "2026-11-20T08:14:05+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-20T08:14:35+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 03a2e6660c"
+    },
+    {
+     "ts": "2026-11-20T09:24:39+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "On the live site, the prisma card and all home-page cards show one PR-list label each. The old label remains only on litellm cards. The JSON keys, build.json (errors empty) and the other endpoints are"
+    }
+   ]
+  },
+  {
+   "id": "T-0162",
+   "title": "Each /pkg/ page gets a unique <title> and a meta description built from its own data (version, date, counts)",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-20T13:13:29+00:00",
+   "accepted_at": "2026-11-20T14:12:18+00:00",
+   "released_sha": "0a3742833e328980a422fe2103e42eceeb2e3dd6",
+   "history": [
+    {
+     "ts": "2026-11-20T13:13:29+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-20T13:13:31+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261120T1307-exec-T-0162"
+    },
+    {
+     "ts": "2026-11-20T13:13:31+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-20T13:14:15+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 0a3742833e"
+    },
+    {
+     "ts": "2026-11-20T14:12:18+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The /pkg/ pages have unique titles and data-built descriptions that match their index.json counts. The build is clean, and the neighbouring endpoints and nofollow links are intact."
+    }
+   ]
+  },
+  {
+   "id": "T-0163",
+   "title": "Home 'Versions without release notes' states not-fetched/no-repo counts from build.json; unfetched cards say so",
+   "type": "defect",
+   "state": "accepted",
+   "priority": "P1",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-20T16:12:57+00:00",
+   "accepted_at": "2026-11-20T18:12:19+00:00",
+   "released_sha": "f4a22da4e7b6a309c29bed668110acd66e42f283",
+   "history": [
+    {
+     "ts": "2026-11-20T16:12:57+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-20T16:12:59+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261120T1607-exec-T-0163"
+    },
+    {
+     "ts": "2026-11-20T16:12:59+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-20T16:13:50+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 9fc7cef4e1"
+    },
+    {
+     "ts": "2026-11-20T17:12:45+00:00",
+     "actor": "reviewer",
+     "to": "in_progress",
+     "note": "failed: Negative case: https://releases.formachines.ai/ section 'Versions without release notes' contains 'Not checked, notes fetch failed (not_fetched): 184', an unconfirmed cause word 'failed'."
+    },
+    {
+     "ts": "2026-11-20T17:13:50+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged f4a22da4e7"
+    },
+    {
+     "ts": "2026-11-20T18:12:19+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The home no-notes section shows the three counts (0/183/3), and they match build.json. Unfetched cards say 'Notes not fetched in this build', fetched cards keep the keyword text, and the neighbouring "
+    }
+   ]
+  },
+  {
+   "id": "T-0164",
+   "title": "Notes completeness: a build reuses notes already fetched in the previous committed build instead of marking 183 versions 'not fetched'",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-20T18:13:34+00:00",
+   "accepted_at": "2026-11-20T19:22:24+00:00",
+   "released_sha": "ce8cab096a14914781f8023ffc4969da13cdb0c5",
+   "history": [
+    {
+     "ts": "2026-11-20T18:13:34+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-20T18:13:37+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261120T1807-exec-T-0164"
+    },
+    {
+     "ts": "2026-11-20T18:13:38+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-20T18:14:51+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged ce8cab096a"
+    },
+    {
+     "ts": "2026-11-20T19:22:24+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The live build has notes_reused 182, not_fetched 0 and errors []. The home page line matches build.json. A flagged quote I checked, from codex 0.171.0, appears word for word in its GitHub release note"
+    }
+   ]
+  },
+  {
+   "id": "T-0165",
+   "title": "Home heading names what it counts: 'Versions checked with no release notes (<N>)' instead of a bare '(0)'",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P3",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-20T18:13:36+00:00",
+   "accepted_at": "2026-11-20T20:24:02+00:00",
+   "released_sha": "35f6252ab5c19d0c1ffd007a3062a73449e95cd1",
+   "history": [
+    {
+     "ts": "2026-11-20T18:13:36+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-20T19:23:04+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261120T1907-exec-T-0165"
+    },
+    {
+     "ts": "2026-11-20T19:23:04+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-20T19:23:30+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 35f6252ab5"
+    },
+    {
+     "ts": "2026-11-20T20:24:02+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The live home heading now reads 'Versions checked with no release notes (173)'. That matches build.json checked_no_notes, and the three-count line under it matches its fields too. The other endpoints "
     }
    ]
   }
@@ -262,26 +634,74 @@
    "task": "T-0158",
    "verdict": "pass",
    "summary": "The home page now ends with an 'All tracked packages (98)' section of plain links whose hrefs match the sitemap locs. The checked pages' canonicals, nofollow on /go/ links, build.json and the JSON endpoints all look right."
+  },
+  {
+   "task": "T-0159",
+   "verdict": "pass",
+   "summary": "The footers of the home page and /pkg/pypi/openai/ already carry plain links to /legal/ and /brand/. Their paths match the sitemap loc values, and canonicals, build.json, the JSON and feed endpoints, and the /go/ nofollow links all check out. The no-commit close is valid. Only the 375 px check could not be observed."
+  },
+  {
+   "task": "T-0160",
+   "verdict": "pass",
+   "summary": "The prisma 8.0.0-rc.34 card shows the 'Notes are a PR list only (auto-generated)' label, and its index.json record has notes_pr_list_only true with the old keys intact. Untagged github_release cards exist on prisma and gemini-cli, build.json errors is [], and the neighbouring endpoints return 200. The 375px check and the regex code were not observed."
+  },
+  {
+   "task": "T-0161",
+   "verdict": "pass",
+   "summary": "On the live site, the prisma card and all home-page cards show one PR-list label each. The old label remains only on litellm cards. The JSON keys, build.json (errors empty) and the other endpoints are intact."
+  },
+  {
+   "task": "T-0162",
+   "verdict": "pass",
+   "summary": "The /pkg/ pages have unique titles and data-built descriptions that match their index.json counts. The build is clean, and the neighbouring endpoints and nofollow links are intact."
+  },
+  {
+   "task": "T-0163",
+   "verdict": "fail",
+   "summary": "The home line and the card texts are correct and match build.json (0/184/3). The same section still says 'notes fetch failed', which breaks the negative case against cause words like 'failed'."
+  },
+  {
+   "task": "T-0163",
+   "verdict": "pass",
+   "summary": "The home no-notes section shows the three counts (0/183/3), and they match build.json. Unfetched cards say 'Notes not fetched in this build', fetched cards keep the keyword text, and the neighbouring endpoints return 200."
+  },
+  {
+   "task": "T-0164",
+   "verdict": "pass",
+   "summary": "The live build has notes_reused 182, not_fetched 0 and errors []. The home page line matches build.json. A flagged quote I checked, from codex 0.171.0, appears word for word in its GitHub release notes, and the mongoose cards show the checked-no-notes label. The neighbouring endpoints return 200 with their old keys."
+  },
+  {
+   "task": "T-0165",
+   "verdict": "pass",
+   "summary": "The live home heading now reads 'Versions checked with no release notes (173)'. That matches build.json checked_no_notes, and the three-count line under it matches its fields too. The other endpoints return 200 and build.json errors is empty."
   }
  ],
- "posts": [],
+ "posts": [
+  {
+   "channel": "mastodon",
+   "url": "https://mastodon.social/@formachines/117649179827131440",
+   "ts": "2026-11-20T14:13:38+00:00"
+  }
+ ],
  "metrics": {
-  "humans": 9,
-  "engaged": 0,
+  "humans": 70,
+  "engaged": 3,
   "returns": 0,
-  "agents": 30,
-  "crawlers": 243,
-  "requests": 473
+  "agents": 102,
+  "crawlers": 1227,
+  "requests": 2167
  },
- "spend_usd": 2.2,
- "po_digest_md": "**Release Radar — цикл 20.11 07:07 UTC**\n\n**Что произошло.** Все задачи разработчика T-0150–T-0158 приняты: факт-абзац на главной, nofollow и noindex на /go/, ссылки compare, «followed by», рецепт в llms.txt, список всех пакетов на главной. Вовлечённых людей 0 за 19–20.11. X на паузе с 19.11 (402, нет кредитов); раньше он давал 5 из 5 вовлечённых. Ждём владельца. В Google проиндексировано 0 из 102 URL, кликов 0.\n\n**Решения.**\n- OBS-0468 (на /go/ приходят только автоматы, 105 запросов 20.11 вне классов): привязал к анализу T-0157 (21.11). Правку кода дам только по его выводу.\n- OBS-0469 (0 страниц в индексе): отложил до отчёта GSC от 28.11. Правки для «тонких» страниц только что вышли, Google нужно время на повторный обход.\n- OBS-0470 (всплеск python-requests 18.11): уже разобран в T-0148, новой задачи нет.\n\n**Новые задачи разработчику.**\n1. Quality: в подвале каждой страницы ссылки на /legal/ и /brand/. По GSC /brand/ «unknown to Google», ссылки на неё нет.\n2. Feature с гипотезой по голосу людей (voice:2026-11-18:P2): тег «Notes are a PR list only», ставится только регэкспом, флаг breaking не меняет. Метрику читаем 04.12.\n\nМаркетинг идёт по плану: Mastodon 20.11, Bluesky и Telegram 21.11, Threads 22.11, новый план 23.11.\n\n**Ждёт владельца:** кредиты X API (Q-0028), ключ dev.to (Q-0025), цель /go/compare/ в метриках (Q-0029).\n\n**Расход:** $1.77 из $20.",
- "analyst_md": "**Срез на 20.11 (данные за 06:00 UTC, день неполный).** Пилот 04–10.11 закончен; ниже — состояние последних дней.\n\n| Уровень | 20.11 (частично) | 19.11 | 18.11 | 17.11 |\n|---|---|---|---|---|\n| Люди (источники / engaged) | 9 / 0 | 124 / 0 | 94 / 1 | 14 / 1 |\n| Возвраты | 0 | 0 | 0 | 0 |\n| Агенты (запросы) | 30 | 54 | 626 | 30 |\n| Краулеры (запросы) | 243 | 945 | 514 | 1362 |\n| /go/ люди | 0 | 0 | 1 | 0 |\n\n**Цели:** G1 (≥40 engaged) — за 14–20.11 набирается ≈8 engaged, ниже цели. G2 (≥5 возвратов) — 2 за период, в 15–20.11 ноль. G3 — 0 внешних кликов людей, из referer только bluenews.app, google, t.co. G4 — запросы /today.json есть (25 за 19.11), но человеческих и агентских источников почти нет.\n\n**Поиск:** в индексе Google 0 из 102 URL, 697 показов, 0 кликов. Данные в GSC кончаются 10.11.\n\n**Посты → визиты:** по `src` почти ничего: bluesky 13 запросов 19.11 при 0 людей. После постов 17.11 людей 14, engaged 1. Эффект постов не отделить от шума.\n\n**Задачи:** T-0072/T-0104/T-0151/T-0153 (nofollow/noindex на /go/) приняты 18–19.11. Краулерные /go/ упали с 595 (17.11) до 105 (20.11), но день неполный и 19.11 было 336. Данных мало.",
+ "spend_usd": 8.4,
+ "po_digest_md": "**Release Radar: цикл 20.11, 19:07 UTC**\n\n**Что сделано за день.** Приняты T-0153–T-0164:\n- noindex/nofollow на /go/;\n- рецепт для агентов в llms.txt;\n- метка «followed by … after N h»;\n- список всех пакетов и ссылки в подвале;\n- метка «PR list only» (одна метка на карточку);\n- уникальные title и description на /pkg/;\n- честные счётчики «not fetched» и повторное использование уже скачанных notes.\n\n**Причина 183 «not fetched».** Разработчик собрал public/ без сети на ветке задачи (OBS-0479). Теперь T-0164 подставляет notes из предыдущей сборки, поэтому отдельная задача не нужна.\n\n**Решения по наблюдениям.**\n- Ложное «(0)» в заголовке исправит T-0165 (ready).\n- Исключать pre-release из счёта (OBS-0480) пока не будем, вернёмся после T-0165.\n- Боты на /go/ (OBS-0481): итог за полный день 20.11 даст аналитик в T-0157 (21.11 01:30).\n- Mastodon снова дал 0 людей (OBS-0482). Учтём в плане на 25.11–01.12 (T-0156).\n- Повторную проверку индекса в GSC (OBS-0483) отложили, пока данные GSC не дойдут до ≥27.11: SEO-правки вышли только 20.11.\n\n**Новых задач нет:** в очереди уже есть посты Bluesky и Telegram на 21.11, Threads на 22.11, план, аналитика и T-0165. Слоты X на 21–24.11 не создаём: X на паузе с 19.11 из-за ошибки 402, а именно X дал 5 из 5 вовлечённых людей.\n\n**Метрики.** Вовлечённых людей за 20.11 — 2, возвратов — 0. В Google проиндексировано 0 из 102 страниц.\n\n**Ждёт владельца** (вопросы прежние): кредиты X API; цель /go/compare/ в product.yaml; фильтр ботов в метриках.\n\n**Расход:** $7.92 из $20.",
+ "analyst_md": "**Release Radar, срез на 20.11 (18:01 UTC, день неполный).** Уровни не складываются.\n\n| Уровень | 16.11 | 17.11 | 18.11 | 19.11 | 20.11 |\n|---|---|---|---|---|---|\n| Люди (источники / engaged) | 24 / 3 | 14 / 1 | 94 / 1 | 124 / 0 | 57 / 2 |\n| Возвраты | 0 | 0 | 0 | 0 | 0 |\n| Внешние клики по /go/ (люди) | 2 | 0 | 1 | 0 | 0 |\n| Агенты, запросы | 24 | 30 | 626 | 54 | 75 |\n\n- **G1** (≥40 engaged за пилот): 04–10.11 здесь не видны. За 14–20.11 engaged = 13. Отстаём, вероятно.\n- **G2** (≥5 возвратов): 2 возврата (14.11), за 15–20.11 ноль. Отстаём.\n- **G3**: 3 человеческих источника на /go/ за 16–20.11 при ≥10 % визитов. Внешних referer-доменов не наших 2–3 (google, bluenews.app, t.co). Цель не достигнута.\n- **G4** (≥5 запросов /today.json не от краулеров): человеческие и агентские источники дают 0–1 в день. Запросы агентов идут в основном к /pkg/ (python-requests, chatgpt).\n\n**Discovery:** Google проиндексировал 0 из 102 URL, 697 показов, 0 кликов. Данные GSC заканчиваются 10.11, показы упали с 209 до 1 к 10.11. Краулеры дают 756–1362 запроса в день.\n\n**Задачи:** T-0072, T-0104 приняты 18.11. Для /go/ у краулеров до/после неясно: 583 на 17.11, 336 на 19.11, 0 на 20.11. Падение совпадает с их внедрением, но день неполный.\n\n**Посты:** Mastodon 20.11 14:13 дал 33 запроса с ?src=mastodon, людей 0. Это похоже на превью-бот (Mastodon 29). X 18.11 08:25 дал 1 запрос, людей 0.",
  "observations": {
-  "new": 11,
+  "new": 23,
   "by_class": {
    "hypothesis_readout": 5,
-   "need_hypothesis": 4,
-   "measurement": 2
+   "need_hypothesis": 11,
+   "measurement": 4,
+   "success": 2,
+   "feedback": 1
   }
  },
  "owner_questions_open": 0

@@ -54,8 +54,8 @@ FEED_MAX_ITEMS = 60         # days in feed.xml
 DIGEST_MAX_CHARS = 4000     # digest text is cut here (the export already caps at 4000)
 HOME_NOTE_MAX = 140         # reviewer note on the front page
 FOLD_MIN_TRANSITIONS = 3   # a task history with more transitions than this is folded into <details>
-SIZE_NEAR_BYTES = 3000  # pages with less gzip headroom than this are listed in size_check.near_budget
 GZIP_BUDGET_BYTES = 36000  # gzip transfer bytes per page, no exemptions
+GZIP_WARN_BYTES = 35000  # a page at or above this (and within budget) is listed in size_check.near_budget: a warning only
 GZIP_LEVEL = 6  # nginx gzip_comp_level default is 1; level 6 stated here
 SIZE_BUDGET_BYTES = 150000  # raw bytes, informational only
 NOTE_MAX_CHARS = 200        # task-history note cap (the export already caps at 200)
@@ -626,19 +626,17 @@ def product_section(d: dict, product: dict, heading_link: bool = True, anchors: 
             card_start = len(out)
             legacy = ""
             if aid and sum(1 for (_s, i) in (anchors or {}) if i == tid_s) == 1 and tid_s != slug:
-                legacy = f'<span id="{esc(tid_s)}"></span>'  # old anchor, only where unique on the page
-            out.append(f'<li id="{esc(aid)}">{legacy}' if aid else '<li>')
-            out.append(f'<div class=h><span>{esc(t.get("id"))}</span> <b>{esc(t.get("title"))}</b> {state_badge(t.get("state"))}</div>')
+                legacy = f' id="{esc(tid_s)}"'  # old anchor, only where unique on the page; sits on the id span
+            out.append(f'<li id="{esc(aid)}">' if aid else '<li>')
+            out.append(f'<div class=h><span{legacy}>{esc(t.get("id"))}</span> <b>{esc(t.get("title"))}</b> {state_badge(t.get("state"))}</div>')
             if meta:
                 out.append(f'<div class=m>{meta}</div>')
             hist = t.get("history") or []
             if is_accepted(t):
                 art = task_artifact(t, d.get("posts") or [])
-                sha = str(t.get("released_sha") or "")[:12]
                 if art:
                     out.append(f'<div class="m a">artifact: <a href="{esc(art["url"])}" rel="nofollow">{esc(art["kind"])} {esc(art["url"])}</a></div>')
-                elif sha:
-                    out.append(f'<div class="m a"><code>commit {esc(sha)}</code></div>')
+                # the sha is shown once, in the evidence line below
             if is_accepted(t):
                 out.append(evidence_line(t, d))
             if hist:
@@ -3415,9 +3413,11 @@ def check_size() -> dict:
         largest, largest_raw = max(largest, gz), max(largest_raw, len(data))
         if gz > GZIP_BUDGET_BYTES:
             over.append({"page": page, "gzip_bytes": gz, "limit": GZIP_BUDGET_BYTES})
-        elif GZIP_BUDGET_BYTES - gz < SIZE_NEAR_BYTES:
+        elif gz >= GZIP_WARN_BYTES:
             near.append({"page": page, "gzip_bytes": gz})  # informational
-    return {"measure": "gzip", "gzip_level": GZIP_LEVEL, "pages_checked": len(pages),
+    top = max(pages, key=lambda x: x["gzip_bytes"]) if pages else {"page": "", "gzip_bytes": 0}
+    return {"budget": GZIP_BUDGET_BYTES, "warn_at": GZIP_WARN_BYTES, "max_page": top["page"], "max_bytes": top["gzip_bytes"],
+            "measure": "gzip", "gzip_level": GZIP_LEVEL, "pages_checked": len(pages),
             "gzip_budget_bytes": GZIP_BUDGET_BYTES, "largest_gzip_bytes": largest,
             "min_gzip_headroom_bytes": GZIP_BUDGET_BYTES - largest,
             "budget_bytes": SIZE_BUDGET_BYTES, "largest_html_bytes": largest_raw,

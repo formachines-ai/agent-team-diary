@@ -88,7 +88,7 @@ h4 { font-size: 1rem; margin: 0.8rem 0 0.2rem; }
 .card .m, .tasks > li .m, .card .meta, .tasks > li .meta { color: var(--muted); font-size: 0.88rem; margin-top: 0.15rem; }
 .card .links, .tasks > li .links { margin-top: 0.35rem; font-size: 0.92rem; overflow-wrap: anywhere; }
 .card .links a, .tasks > li .links a { margin-right: 0.9rem; }
-.card .summary, .tasks > li .summary { margin: 0.4rem 0 0; font-size: 0.95rem; overflow-wrap: anywhere; }
+.card .summary, .tasks > li .summary, li.card > p { margin: 0.4rem 0 0; font-size: 0.95rem; overflow-wrap: anywhere; }
 .badge {
   display: inline-block;
   font-size: 0.78rem;
@@ -105,9 +105,9 @@ h4 { font-size: 1rem; margin: 0.8rem 0 0.2rem; }
 .badge.side, .badge.inconclusive { background: var(--warn-bg); color: var(--warn-fg); border-color: var(--warn-line); }
 .badge.fail { background: var(--bad-bg); color: var(--bad-fg); border-color: var(--bad-line); }
 li.card ol, .tasks > li ol { margin: 0.4rem 0 0; padding-left: 1.2rem; font-size: 0.9rem; }
-li.card ol li, .tasks > li ol li { margin: 0.1rem 0; overflow-wrap: anywhere; }
+li.card ol li, .tasks > li ol li { margin: 0.1rem 0; overflow-wrap: anywhere; font-weight: 600; }
 li.card ol b, .tasks > li ol b { font-weight: 600; }
-li.card ol i, .tasks > li ol i { color: var(--muted); }
+li.card ol i, .tasks > li ol i { color: var(--muted); font-weight: 400; }
 .when { color: var(--muted); font-size: 0.9rem; }
 .digest { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 0.6rem 0.9rem; overflow-wrap: anywhere; }
 .digest p { margin: 0.4rem 0; }

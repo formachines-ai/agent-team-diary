@@ -1457,7 +1457,7 @@ def feed_lists(xml_text: str, now: datetime | None = None, public: Path | None =
     from urllib.parse import urlsplit
     public = public or PUBLIC_DIR
     now = now or utcnow()
-    out = {"invalid": [], "bad_links": [], "duplicate_guids": [], "bad_dates": []}
+    out = {"invalid": [], "bad_links": [], "bad_link_form": [], "missing_page": [], "duplicate_guids": [], "bad_dates": []}
     try:
         root = ET.fromstring(xml_text)
     except ET.ParseError as e:
@@ -1469,13 +1469,13 @@ def feed_lists(xml_text: str, now: datetime | None = None, public: Path | None =
         guid = (it.findtext("guid") or "").strip()
         pub = (it.findtext("pubDate") or "").strip()
         if not link.startswith(SITE_BASE + "/"):
-            out["bad_links"].append(link)
+            out["bad_link_form"].append(link)
         else:
             path = urlsplit(link).path
             rel = path.lstrip("/")
             target = public / rel
             if not (target / "index.html" if path.endswith("/") else target).is_file():
-                out["bad_links"].append(link)
+                out["missing_page"].append(link)
         if guid in seen:
             out["duplicate_guids"].append(guid)
         seen.add(guid)
@@ -1487,6 +1487,7 @@ def feed_lists(xml_text: str, now: datetime | None = None, public: Path | None =
                 out["bad_dates"].append(pub)
         except (TypeError, ValueError):
             out["bad_dates"].append(pub)
+    out["bad_links"] = out["bad_link_form"] + [l for l in out["missing_page"] if l not in out["bad_link_form"]]
     return out
 
 
@@ -1498,7 +1499,7 @@ def check_feed() -> dict:
     try:
         root = ET.fromstring((PUBLIC_DIR / "feed.xml").read_text(encoding="utf-8"))
     except (OSError, ET.ParseError) as e:
-        return {"items": 0, "lead_mismatches": [{"item": "feed.xml", "issue": str(e)}], "bad_links": [], "guid_changed": [],
+        return {"items": 0, "lead_mismatches": [{"item": "feed.xml", "issue": str(e)}], "bad_links": [], "bad_link_form": [], "missing_page": [], "guid_changed": [],
                 "invalid": [str(e)], "duplicate_guids": [], "bad_dates": []}
     for it in root.iter("item"):
         items += 1
@@ -1544,8 +1545,10 @@ def check_feed() -> dict:
         except (OSError, ValueError, KeyError, IndexError):
             lead_mm.append({"item": d, "issue": "index.json comparison failed"})
     fl = feed_lists((PUBLIC_DIR / "feed.xml").read_text(encoding="utf-8"))
-    bad_links += [l for l in fl["bad_links"] if l not in bad_links]
-    return {"items": items, "lead_mismatches": lead_mm, "bad_links": bad_links, "guid_changed": guid_changed,
+    form = bad_links + [l for l in fl["bad_link_form"] if l not in bad_links]
+    bad_links = form + [l for l in fl["missing_page"] if l not in form]
+    return {"items": items, "lead_mismatches": lead_mm, "bad_links": bad_links, "bad_link_form": form,
+            "missing_page": fl["missing_page"], "guid_changed": guid_changed,
             "invalid": fl["invalid"], "duplicate_guids": fl["duplicate_guids"], "bad_dates": fl["bad_dates"]}
 
 

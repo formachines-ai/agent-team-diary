@@ -261,13 +261,16 @@ def md_to_html(md: str, max_chars: int = DIGEST_MAX_CHARS) -> str:
                 close_list()
                 out.append(f"<{tag}>")
                 list_tag = tag
-            out.append(f"<li>{inline_md((m_ul or m_ol).group(1))}</li>")
+            out.append(f"<li>{inline_md((m_ul or m_ol).group(1))}")  # </li> is optional in HTML: saves bytes
             continue
         if line.startswith("|") or line.startswith("```"):
             # tables and code fences are not rendered; the line is kept as preformatted text
             close_para()
             close_list()
-            out.append(f"<pre>{esc(line)}</pre>")
+            if out and out[-1].startswith("<pre>"):  # consecutive table lines share one <pre>
+                out[-1] = out[-1][:-6] + "\n" + esc(line) + "</pre>"
+            else:
+                out.append(f"<pre>{esc(line)}</pre>")
             continue
         close_list()
         para.append(line.strip())
@@ -642,7 +645,7 @@ def product_section(d: dict, product: dict, heading_link: bool = True, anchors: 
                 items = []
                 for h in hist:
                     note = str(h.get("note") or "")[:NOTE_MAX_CHARS]
-                    items.append(f'<li><b>{fmt_ts(h.get("ts")).removesuffix(" UTC")} {esc(h.get("actor"))} → {esc(h.get("to"))}</b>'
+                    items.append(f'<li>{fmt_ts(h.get("ts")).removesuffix(" UTC")} {esc(h.get("actor"))} → {esc(h.get("to"))}'
                                  + (f' <i>{esc(note)}</i>' if note else ""))
                 ol = "<ol>" + "".join(items) + "</ol>"
                 if len(hist) > FOLD_MIN_TRANSITIONS:
@@ -661,7 +664,7 @@ def product_section(d: dict, product: dict, heading_link: bool = True, anchors: 
         out.append('<ul class="cards">')
         for r in reviews:
             out.append(f'<li class=card><div class=h><span>{esc(r.get("task"))}</span> {verdict_badge(r.get("verdict"))}</div>'
-                       f'<p class=summary>{esc(r.get("summary"))}</p>')
+                       f'<p>{esc(r.get("summary"))}</p>')  # styled by .card > p
         out.append("</ul>")
     else:
         out.append('<p class="note">no reviews recorded</p>')

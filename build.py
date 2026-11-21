@@ -2915,6 +2915,15 @@ def check_paths() -> dict:
     return {"paths": paths, "missing": missing}
 
 
+PROBE_FILES = ["favicon.ico", "apple-touch-icon.png", "apple-touch-icon-precomposed.png", "robots.txt", "sitemap.xml"]
+
+
+def check_probe_files() -> dict:
+    """Standard probe files that browsers, readers and crawlers request by default; missing = absent or empty in public/."""
+    missing = [n for n in PROBE_FILES if not (PUBLIC_DIR / n).is_file() or (PUBLIC_DIR / n).stat().st_size == 0]
+    return {"files": PROBE_FILES, "missing": missing}
+
+
 def fixed_addresses(model: dict) -> list[str]:
     """Every fixed VISION address, for each product slug and day, plus the browser/crawler probes."""
     out = ["/", "/about/", "/try/", "/legal/", "/today.json", "/feed.xml", "/llms.txt", "/sitemap.xml", "/go/github/", "/go/telegram/",
@@ -4391,6 +4400,7 @@ def main(argv: list[str] | None = None) -> int:
     log.info("microdata_check: pages=%d missing=%d date_mismatches=%d", md["pages_checked"], len(md["missing"]), len(md["date_mismatches"]))
     pc = check_paths()
     bj["paths_check"] = pc
+    bj["probe_check"] = check_probe_files()
     bj["grammar_check"] = check_grammar()
     hlc = check_health()
     bj["health_check"] = hlc
@@ -4456,6 +4466,7 @@ def main(argv: list[str] | None = None) -> int:
         problems += [f"external_check: {i}" for i in bj["external_check"]["mismatches"]]
         problems += [f"escaped_check: {i}" for i in bj["escaped_check"]["mismatches"]]
         problems += [f"alias_check: {i}" for i in bj["alias_check"]["mismatches"]]
+        problems += [f"probe_check: missing {i}" for i in bj["probe_check"]["missing"]]
         problems += [f"address_check: missing {i}" for i in bj["address_check"]["missing"]]
         problems += [f"product_day_check: {i[0]} {i[1]} has records but no link" for i in bj["product_day_check"]["missing"]]
         problems += [f"day_persist_check: missing {i}" for i in bj["day_persist_check"]["missing"]]

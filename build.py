@@ -316,6 +316,19 @@ def check_product_days(model: dict) -> dict:
     return {"missing": missing}
 
 
+def check_product_schema(model: dict) -> dict:
+    """product_schema_check: every /product/<slug>/ page carries itemtype CollectionPage (microdata, no script)."""
+    missing = []
+    for slug in model["products"]:
+        try:
+            page = (PUBLIC_DIR / "product" / slug / "index.html").read_text(encoding="utf-8")
+        except OSError:
+            page = ""
+        if 'itemtype="https://schema.org/CollectionPage"' not in page:
+            missing.append(slug)
+    return {"missing": missing}
+
+
 def load_data() -> dict:
     """products: slug → {"product": product.json, "days": {date: day.json}}; dates: sorted set of all dates."""
     products: dict[str, dict] = {}
@@ -4340,6 +4353,9 @@ def main(argv: list[str] | None = None) -> int:
     pdc = check_product_days(model)
     bj["product_day_check"] = pdc
     log.info("product_day_check: missing=%d", len(pdc["missing"]))
+    psc = check_product_schema(model)
+    bj["product_schema_check"] = psc
+    log.info("product_schema_check: missing=%d", len(psc["missing"]))
     dpc = check_day_persist(model)
     bj["day_persist_check"] = dpc
     write_json(PUBLIC_DIR / "build.json", bj)
@@ -4472,6 +4488,7 @@ def main(argv: list[str] | None = None) -> int:
         problems += [f"probe_check: missing {i}" for i in bj["probe_check"]["missing"]]
         problems += [f"address_check: missing {i}" for i in bj["address_check"]["missing"]]
         problems += [f"product_day_check: {i[0]} {i[1]} has records but no link" for i in bj["product_day_check"]["missing"]]
+        problems += [f"product_schema_check: {i} has no CollectionPage itemtype" for i in bj["product_schema_check"]["missing"]]
         problems += [f"day_persist_check: missing {i}" for i in bj["day_persist_check"]["missing"]]
         problems += [f"artifact: {i}" for i in bj["artifact_check"]["mismatches"] + bj["artifact_check"]["sha_mismatches"]]
         problems += [f"robots: {i}" for i in bj["robots_check"]["issues"]]

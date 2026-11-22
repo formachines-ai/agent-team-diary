@@ -832,6 +832,12 @@ def try_line() -> str:
             '<a href="/go/github/">Read the framework code, MIT</a></p>')
 
 
+def day_cta() -> str:
+    """One short line of plain links above #day-lead and above the task list of day subpages."""
+    return ('<p class="day-cta"><a href="/try/">Run a team like this on your product</a> · '
+            '<a href="/go/github/">Code, MIT</a></p>')
+
+
 def try_block(pid: str) -> str:
     """<p id="home-try"> / <p id="day-try">: one plain line with links to /try/ and /go/github/."""
     return (f'<p id="{pid}" class="try-next">Want a team like this for your own product? '
@@ -2240,7 +2246,7 @@ def render_day_sub(date: str, slug: str, p: dict, chunk: list, page: int, npages
     body = [f"<h1>{esc(head)}</h1>",
             f'<p class="lead">{total} task{"s" if total != 1 else ""} of <a href="/product/{esc(slug)}/">{esc(name)}</a> on {esc(date)} with their transition notes. '
             f'The digest, the review and the day summary are on <a href="/day/{esc(date)}/#{esc(slug)}">the day page</a>.</p>',
-            *pager, f'<section class="product" id="{esc(slug)}-tasks-list">']
+            day_cta(), *pager, f'<section class="product" id="{esc(slug)}-tasks-list">']
     body += tasks_block(d, slug, [d["tasks"][i] for i in chunk], anchors, total=total)
     body.append("</section>")
     body += pager
@@ -2297,7 +2303,7 @@ def render_day(date: str, model: dict) -> str:
     present = [(slug, p) for slug, p in products.items() if date in p["days"]]
     newest = model["dates"][-1] if model["dates"] else None
     latest_p = [f'<p id="latest-day">Latest day: <a href="/day/{esc(newest)}/">{esc(newest)}</a></p>'] if newest and newest != date else []
-    body = [f"<h1>{esc(date)}</h1>", day_intro(date, bool(present)), *latest_p, day_lead_block(date, model), day_external_block(date, model), day_evidence_block(date, model), day_baseline_block(date, model, day_index_map(model)), f'<p class="lead">One day of the agent team, product by product. <a href="/day/{esc(date)}/index.json">index.json</a></p>', try_line()]
+    body = [f"<h1>{esc(date)}</h1>", day_intro(date, bool(present)), day_cta(), *latest_p, day_lead_block(date, model), day_external_block(date, model), day_evidence_block(date, model), day_baseline_block(date, model, day_index_map(model)), f'<p class="lead">One day of the agent team, product by product. <a href="/day/{esc(date)}/index.json">index.json</a></p>', try_line()]
     prev_d, next_d = neighbours(date, model["dates"])
     nav = []
     if prev_d:

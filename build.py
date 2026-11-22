@@ -1337,7 +1337,7 @@ def what_broke_block(date: str, model: dict) -> str:
     else:
         c = broke_counts(items)
         out.append('<p class="note" id="broke">Counted here: reviews with verdict fail or inconclusive, tasks moved to a broken state, and reopened tasks '
-                   '(a task whose history goes from review to ready or in_progress; detected only when that review is in the same day\'s records).</p>')
+                   '(history goes review to ready or in_progress; the review must be in the same day\'s records).</p>')
         out.append('<p class="note">Events by state, all products: ' + " · ".join(f"{esc(k)} {dk('broke_counts.' + k, v)}" for k, v in sorted(c.items())) + ".</p>")
         for slug, p in model["products"].items():
             its = [it for it in items if it["product"] == slug]
@@ -1363,8 +1363,8 @@ def what_broke_block(date: str, model: dict) -> str:
     if any(p["days"].get(date) for p in model["products"].values()):
         w, m, k = artifact_counts([p["days"][date] for p in model["products"].values() if date in p["days"]])
         out.append(f'<p class="note" id="artifact-line">Accepted with an artifact link: {w} of {m}</p>')
-        out.append(f'<p class="note" id="sha-line">with a commit SHA: {k} of {m} · commit links need a repo URL the export does not carry · '
-                   'cards without an artifact link or commit SHA have nothing to show: no artifact link in the export</p>')
+        out.append(f'<p class="note" id="sha-line">with a commit SHA: {k} of {m} · no repo URL in the export, so no commit links · '
+                   'cards without artifact link or SHA: none in the export</p>')
     out.append("</section>")
     return "\n".join(out)
 
@@ -1379,8 +1379,8 @@ def work_vs_people_block(date: str, model: dict) -> str:
         return "\n".join(out)
     if all(d.get("fixture") for _, _, d in present):
         out.append('<p class="note">fixture: sample data in the export format, not a measurement.</p>')
-    out.append('<p class="note" id="shipped-vs-came">Per product, this day, from the export: tasks accepted, reviews, and the <code>humans</code>, <code>engaged</code> '
-               'and agent values of the visit log. A cell reads "not in the export" when the export has no such field.</p>')
+    out.append('<p class="note" id="shipped-vs-came">Per product, from the export: tasks accepted, reviews, visit-log values. '
+               '"not in the export" = no such field.</p>')
     out.append('<div class="table-wrap" id="shipped-section"><table class="table"><thead><tr><th>Product</th><th>Tasks accepted</th><th>Reviews</th>'
                '<th>humans</th><th>engaged</th><th>Agent visits</th></tr></thead><tbody>')
     for slug, p, d in present:
@@ -1813,8 +1813,8 @@ def day_baseline_block(date: str, model: dict, idx_by_date: dict) -> str:
     earlier = [v for d in sorted(idx_by_date) if d < date for v in [baseline_values(idx_by_date[d])] if v]
     st = baseline_stats(today, earlier)
     enough = len(earlier) >= BASELINE_MIN
-    out.append(f'<p class="note">Day-wide sums over all products, from the export; median and min\u2013max of up to the previous {BASELINE_DAYS} '
-               f'days with records (fixture days left out; earlier days found: {min(len(earlier), BASELINE_DAYS)}).' + ('' if enough else ' not enough history') + '</p>')
+    out.append(f'<p class="note">Day-wide sums over all products; median and min\u2013max of up to the previous {BASELINE_DAYS} '
+               f'days with records (no fixtures; earlier days: {min(len(earlier), BASELINE_DAYS)}).' + ('' if enough else ' not enough history') + '</p>')
     out.append('<div class="table-wrap"><table class="table"><thead><tr><th>Measure</th><th>Today</th><th>Median</th><th>Min\u2013max</th><th>Mark</th></tr></thead><tbody>')
     for key, label, _ in BASELINE_FIELDS:
         r = st[key]
@@ -1965,6 +1965,47 @@ def review_caught(d: dict) -> dict | None:
     if not sent and not acc and not saw:
         return None
     return {"accepted": len(acc), "sent_back": len(sent), "sent_back_tasks": sent}
+
+
+def stuck_signals(d: dict) -> dict:
+    """One product-day: tasks moved to blocked, and tasks sent back from review (see reopen_events) two or more times,
+    from exported transitions only."""
+    blocked = []
+    for t in d.get("tasks") or []:
+        tid = str(t.get("id") or "")
+        if tid and tid not in blocked and any(str(h.get("to")) == "blocked" for h in (t.get("history") or [])):
+            blocked.append(tid)
+    cnt: dict = {}
+    for t, _h in reopen_events(d):
+        tid = str(t.get("id") or "")
+        if tid:
+            cnt[tid] = cnt.get(tid, 0) + 1
+    rep = [k for k, v in cnt.items() if v >= 2]
+    return {"blocked": len(blocked), "blocked_tasks": blocked, "repeat_fails": len(rep), "repeat_fail_tasks": rep}
+
+
+def day_stuck_block(date: str, model: dict) -> str:
+    anchors = task_anchors(date, model)
+
+    def lk(slug, ids):
+        return ", ".join(f'<a href="#{esc(anchors[(slug, t)])}">{esc(t)}</a>' if (slug, t) in anchors else esc(t) for t in ids)
+    rows = []
+    for slug, p in model["products"].items():
+        if date not in p["days"]:
+            continue
+        s = stuck_signals(p["days"][date])
+        if not s["blocked"] and not s["repeat_fails"]:
+            continue
+        nm = esc(p["product"].get("name") or slug)
+        parts = []
+        if s["blocked"]:
+            parts.append(f'blocked {s["blocked"]}: {lk(slug, s["blocked_tasks"])}')
+        if s["repeat_fails"]:
+            parts.append(f'failed 2+ {s["repeat_fails"]}: {lk(slug, s["repeat_fail_tasks"])}')
+        rows.append(f"{nm}: " + ", ".join(parts))
+    out = ['<section id="day-stuck"><h3>Stuck signals</h3>']
+    out.append("<p>" + "; ".join(rows) + "</p></section>" if rows else '<p class="note">no stuck signal recorded</p></section>')
+    return "\n".join(out)
 
 
 def day_review_caught_block(date: str, model: dict) -> str:
@@ -2124,6 +2165,7 @@ def render_day(date: str, model: dict) -> str:
     body.append(what_broke_block(date, model))
     body.append(day_escaped_block(date, model))
     body.append(day_review_caught_block(date, model))
+    body.append(day_stuck_block(date, model))
     body.append(work_vs_people_block(date, model))
     body.append(try_block("day-try"))
     body.append(follow_block("day-follow"))
@@ -3414,6 +3456,7 @@ def write_site(model: dict) -> dict:
                   "escaped": escaped_tasks(date, model),
                   "escaped_after_accept": escaped_after_accept(date, model),
                   "review_caught": {slug: review_caught(p["days"][date]) for slug, p in model["products"].items() if date in p["days"]},
+                  "stuck_signals": {slug: stuck_signals(p["days"][date]) for slug, p in model["products"].items() if date in p["days"]},
                   "disclosure": f"{FOOTER_LINE}; responsible: {RESPONSIBLE}.", "built": built,
                   "day_complete": not day_in_progress(date, built), "snapshot_built_at": built}
         write_json(PUBLIC_DIR / "day" / date / "index.json", merged)

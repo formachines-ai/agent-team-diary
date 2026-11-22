@@ -1,0 +1,2029 @@
+{
+ "slug": "ai-battles",
+ "name": "AI Battles",
+ "site": "https://ai-battles.formachines.ai",
+ "date": "2026-11-22",
+ "tasks": [
+  {
+   "id": "T-0001",
+   "title": "Исследование и GAME-DESIGN.md v1: параметрический движок боевых машин",
+   "type": "design",
+   "state": "done",
+   "priority": "P0",
+   "goal": "Дизайн-документ с ограничениями генерации, по которому строится прототип",
+   "role": "game-designer",
+   "created": "2026-11-20T19:27:34+00:00",
+   "accepted_at": "2026-11-20T20:15:21+00:00",
+   "released_sha": "8a5e31bd6966c7adbbb8954258377becb07aa621",
+   "history": [
+    {
+     "ts": "2026-11-22T00:10:46+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-22T00:10:46+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0002",
+   "title": "Каркас репозитория: Node 20 + TS, ws-сервер, /healthz, Canvas-клиент, тесты",
+   "type": "ops",
+   "state": "done",
+   "priority": "P0",
+   "goal": "Пустой, но разворачиваемый сервис с тестами и e2e",
+   "role": "developer",
+   "created": "2026-11-20T19:27:34+00:00",
+   "accepted_at": "2026-11-20T21:40:26+00:00",
+   "released_sha": "7cefa9e3b847f60717f8169d25db8b835cc9242d",
+   "history": [
+    {
+     "ts": "2026-11-22T00:10:46+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-22T00:10:46+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0003",
+   "title": "Параметрический движок: схема характеристик, генератор с бюджетом, физика и бой",
+   "type": "milestone",
+   "state": "done",
+   "priority": "P0",
+   "goal": "Детерминированный общий движок, в который вписывается любая валидная машина",
+   "role": "developer",
+   "created": "2026-11-20T19:27:34+00:00",
+   "accepted_at": "2026-11-20T22:30:25+00:00",
+   "released_sha": "6698fcd57474b01d285d2ab0b9e65844838ffc04",
+   "history": [
+    {
+     "ts": "2026-11-22T00:10:46+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-22T00:10:46+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0004",
+   "title": "Простейшие боты и headless-симуляция баланса как тест",
+   "type": "milestone",
+   "state": "done",
+   "priority": "P0",
+   "goal": "Боты для боёв и автоматическая проверка коридора силы 35–65 %",
+   "role": "developer",
+   "created": "2026-11-20T19:27:34+00:00",
+   "accepted_at": "2026-11-20T22:51:52+00:00",
+   "released_sha": "aa8f98ffaccc88d800f84c2644017be4a1914862",
+   "history": [
+    {
+     "ts": "2026-11-22T00:10:46+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-22T00:10:46+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0005",
+   "title": "Визуальный язык: процедурный вид машин из характеристик, арена и HUD",
+   "type": "design",
+   "state": "done",
+   "priority": "P1",
+   "goal": "Правила, по которым игрок «читает» машину глазами",
+   "role": "designer",
+   "created": "2026-11-20T19:27:34+00:00",
+   "accepted_at": "2026-11-20T22:01:31+00:00",
+   "released_sha": "d35794d84a11b6a52b1690c9c7f246d73ee9eafd",
+   "history": [
+    {
+     "ts": "2026-11-22T00:10:46+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-22T00:10:46+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0006",
+   "title": "Сетевой бой: комнаты по коду, бой против ботов, авторитетный сервер",
+   "type": "milestone",
+   "state": "done",
+   "priority": "P0",
+   "goal": "Сервер ведёт бои 4 машин с живыми игроками и ботами",
+   "role": "developer",
+   "created": "2026-11-20T19:27:34+00:00",
+   "accepted_at": "2026-11-20T23:56:42+00:00",
+   "released_sha": "23572f802e182508c0d6aa4ac03becc361a98e54",
+   "history": [
+    {
+     "ts": "2026-11-22T00:10:46+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-22T00:10:46+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0007",
+   "title": "Клиент: генерация машины, управление мышью, рендер боя на PixiJS (скин «Неон-вектор»)",
+   "type": "milestone",
+   "state": "done",
+   "priority": "P0",
+   "goal": "Играбельный прототип в браузере",
+   "role": "developer",
+   "created": "2026-11-20T19:27:34+00:00",
+   "accepted_at": "2026-11-21T01:11:32+00:00",
+   "released_sha": "b6f8c8b53a718fdc0f3bdbeed0f753513d09245a",
+   "history": [
+    {
+     "ts": "2026-11-22T06:08:58+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-22T06:08:58+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0008",
+   "title": "Приёмка M0: e2e-плейтест на ai-battles.formachines.ai",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "Подтвердить критерий выхода M0 на боевом хосте",
+   "role": "tester",
+   "created": "2026-11-20T19:27:34+00:00",
+   "accepted_at": "2026-11-21T05:37:12+00:00",
+   "released_sha": "1fba8c197049cf35da9fcc92a417826817d095d8",
+   "history": [
+    {
+     "ts": "2026-11-22T06:08:58+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-22T06:08:58+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0009",
+   "title": "GAME-DESIGN.md §5.2: align the all-max cost with balance.json",
+   "type": "design",
+   "state": "done",
+   "priority": "P1",
+   "goal": "M0 (d): a balance simulation over one consistent power budget",
+   "role": "game-designer",
+   "created": "2026-11-20T20:15:44+00:00",
+   "accepted_at": "2026-11-20T21:23:54+00:00",
+   "released_sha": "05f5c51b197c23da35216e58e01bc5de06040b10",
+   "history": [
+    {
+     "ts": "2026-11-22T00:10:46+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-22T00:10:46+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0010",
+   "title": "GAME-DESIGN.md: rule for the archetype label on the car card (e.g. 'Fast · Ranged')",
+   "type": "design",
+   "state": "done",
+   "priority": "P2",
+   "goal": "M0 (c): the car's look and card reflect its stats",
+   "role": "game-designer",
+   "created": "2026-11-20T21:24:23+00:00",
+   "accepted_at": "2026-11-20T22:02:06+00:00",
+   "released_sha": "2c68b3d0d49f436b976e60a5caaee5f0a1fd15f4",
+   "history": [
+    {
+     "ts": "2026-11-22T00:10:46+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-22T00:10:46+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0012",
+   "title": "Archetype label: pure function label(CarSpec) in the shared engine with tests from GAME-DESIGN §5.8",
+   "type": "milestone",
+   "state": "done",
+   "priority": "P2",
+   "goal": "M0 (c): the car card reflects its stats",
+   "role": "developer",
+   "created": "2026-11-20T22:02:55+00:00",
+   "accepted_at": "2026-11-20T22:31:18+00:00",
+   "released_sha": "3fc24badd7e56314b643063f7a4786b9d24e08e3",
+   "history": [
+    {
+     "ts": "2026-11-22T00:10:47+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-22T00:10:47+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0013",
+   "title": "Engine bundle-safe for the browser: replace node:fs JSON loading in balance.ts and label.ts",
+   "type": "quality",
+   "state": "done",
+   "priority": "P1",
+   "goal": "M0 (c): the client shows the car and its label from the shared engine",
+   "role": "developer",
+   "created": "2026-11-20T22:31:47+00:00",
+   "accepted_at": "2026-11-20T23:58:25+00:00",
+   "released_sha": "b48842babf8c98ba5b9ea4674b276861651721cd",
+   "history": [
+    {
+     "ts": "2026-11-22T00:10:47+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-22T00:10:47+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0014",
+   "title": "GAME-DESIGN.md §8: bot behaviour that can be built with cursor-only control",
+   "type": "design",
+   "state": "done",
+   "priority": "P2",
+   "goal": "M0 (a): bots in the battle behave the way the design describes",
+   "role": "game-designer",
+   "created": "2026-11-20T22:52:30+00:00",
+   "accepted_at": "2026-11-21T00:01:19+00:00",
+   "released_sha": "a8a3b7eaafcc21f77b1e0706d14be909d91f2818",
+   "history": [
+    {
+     "ts": "2026-11-22T00:10:47+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-22T00:10:47+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0015",
+   "title": "DESIGN v2: стиль «Неон-вектор» (выбор владельца 20.11)",
+   "type": "design",
+   "state": "done",
+   "priority": "P1",
+   "goal": "G1",
+   "role": "designer",
+   "created": "2026-11-20T23:01:35+00:00",
+   "accepted_at": "2026-11-21T00:03:08+00:00",
+   "released_sha": "5faa63c5848abe62ae22d519635634b08cf527e5",
+   "history": [
+    {
+     "ts": "2026-11-22T00:10:47+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-22T00:10:47+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0016",
+   "title": "Портрет машины в карточке от генеративной модели (M1, после решения владельца о бюджете)",
+   "type": "milestone",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-20T23:01:35+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-22T04:50:54+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Портрет машины ждёт решения владельца о бюджете (Q-0024/Q-0025: задачи, которые без владельца не сделать, не держим открытыми). Заведём заново, когда владелец решит."
+    }
+   ]
+  },
+  {
+   "id": "T-0017",
+   "title": "Engine: mine damage per GAME-DESIGN §5.4.1, without the owner's firepower multiplier",
+   "type": "defect",
+   "state": "done",
+   "priority": "P1",
+   "goal": "M0 (d): balance simulation over effects as the design defines them",
+   "role": "developer",
+   "created": "2026-11-20T23:31:45+00:00",
+   "accepted_at": "2026-11-21T01:15:09+00:00",
+   "released_sha": "971340bdd4861ceb556067f99beb9d9899cff07a",
+   "history": [
+    {
+     "ts": "2026-11-22T06:08:58+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-22T06:08:58+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0018",
+   "title": "Server: serve /_team/metrics.json per the game-metrics contract",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G4 and the M0 stability plan: the server measures rounds, errors and latency itself",
+   "role": "developer",
+   "created": "2026-11-20T23:31:45+00:00",
+   "accepted_at": "2026-11-21T03:30:27+00:00",
+   "released_sha": "237813c5b0575f2940fa144faddc81ce41516b7e",
+   "history": [
+    {
+     "ts": "2026-11-22T06:08:58+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-22T06:08:58+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0019",
+   "title": "GAME-DESIGN.md §2: one room autostart time (30 or 60 s) in the text and balance.json",
+   "type": "design",
+   "state": "done",
+   "priority": "P2",
+   "goal": "M0 (b): two friends get into one room by code before the battle starts",
+   "role": "game-designer",
+   "created": "2026-11-20T23:31:45+00:00",
+   "accepted_at": "2026-11-21T01:16:54+00:00",
+   "released_sha": "8ec1dbc705198b8131a40d8e2feddc8c4e8eb813",
+   "history": [
+    {
+     "ts": "2026-11-22T06:08:58+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-22T06:08:58+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0020",
+   "title": "Client battle defects: HP above max, permanent 'Fight!' banner, camera variant B, connect stall, README",
+   "type": "defect",
+   "state": "done",
+   "priority": "P1",
+   "goal": "M0 (a): solo battle against bots plays cleanly to the score table",
+   "role": "developer",
+   "created": "2026-11-21T00:44:44+00:00",
+   "accepted_at": "2026-11-21T02:23:14+00:00",
+   "released_sha": "5f9f1bd4a8b0b59b82e3585175aedd085145652a",
+   "history": [
+    {
+     "ts": "2026-11-22T06:08:58+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-22T06:08:58+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0021",
+   "title": "Server room: autostart from balance.json match.room_autostart_wait_s (60 s) and a correct startsInS",
+   "type": "defect",
+   "state": "done",
+   "priority": "P2",
+   "goal": "M0 (b): two friends get into one room by code before the battle starts",
+   "role": "developer",
+   "created": "2026-11-21T00:44:44+00:00",
+   "accepted_at": "2026-11-21T03:37:00+00:00",
+   "released_sha": "6e53c1360247c6b030e316ab15cfccb8fc22bbd7",
+   "history": [
+    {
+     "ts": "2026-11-22T06:08:58+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-22T06:08:58+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0022",
+   "title": "E2E: two-players.spec.ts plays a room by code (2 players + 2 bots) to the score table and runs against the live host",
+   "type": "milestone",
+   "state": "done",
+   "priority": "P1",
+   "goal": "M0 (b): two friends play a battle by room code to the end",
+   "role": "developer",
+   "created": "2026-11-21T01:46:32+00:00",
+   "accepted_at": "2026-11-21T02:45:17+00:00",
+   "released_sha": "56e9c668faa1e8efd805fe8b3502af0c5f73c889",
+   "history": [
+    {
+     "ts": "2026-11-22T06:08:58+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-22T06:08:58+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0031",
+   "title": "Opponents' cars are drawn from their real CarSpec: the server sends every participant's spec at battle start",
+   "type": "milestone",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "M0 (c): a car's look reflects its stats for every car in the battle",
+   "role": "developer",
+   "created": "2026-11-21T05:46:25+00:00",
+   "accepted_at": "2026-11-22T06:40:35+00:00",
+   "released_sha": "4e47e1e9e94730bc8fb2a6319a738b81894e664e",
+   "history": [
+    {
+     "ts": "2026-11-22T05:10:44+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261122T0510-exec-T-0031"
+    },
+    {
+     "ts": "2026-11-22T05:10:44+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-22T05:23:30+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "partial — continues next cycle"
+    },
+    {
+     "ts": "2026-11-22T05:31:15+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "partial — continues next cycle"
+    },
+    {
+     "ts": "2026-11-22T05:52:03+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 4e47e1e9e9"
+    },
+    {
+     "ts": "2026-11-22T06:40:35+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "inconclusive 3×: accepted without external proof"
+    }
+   ]
+  },
+  {
+   "id": "T-0032",
+   "title": "Журнал подключений и боёв: сервер и клиент пишут события с временем, чтобы видеть, где и когда зависло",
+   "type": "quality",
+   "state": "blocked",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-21T07:59:46+00:00",
+   "accepted_at": null,
+   "released_sha": "926ad70d5774c8f5fae4abd2381bdb08d3ceca9c",
+   "history": [
+    {
+     "ts": "2026-11-22T05:10:42+00:00",
+     "actor": "po",
+     "to": "blocked",
+     "note": "priority → P2: Журнал подключений полезен, но сайт не сломан: причину зависания на «connecting» нашла и закрыла T-0030, переподключение принято в T-0081. По правилам P0 — только для сломанного сайта."
+    }
+   ]
+  },
+  {
+   "id": "T-0048",
+   "title": "Телеметрия баланса: счётчики настоящих матчей по оружию, способностям и характеристикам в /_team/metrics.json",
+   "type": "milestone",
+   "state": "released",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-21T13:10:21+00:00",
+   "accepted_at": null,
+   "released_sha": "25339d2bc17f727127ff3f010a21ce9f1543e8b5",
+   "history": [
+    {
+     "ts": "2026-11-22T06:30:36+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261122T0630-exec-T-0048"
+    },
+    {
+     "ts": "2026-11-22T06:30:37+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-22T06:50:23+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 25339d2bc1"
+    }
+   ]
+  },
+  {
+   "id": "T-0049",
+   "title": "E2E live-host mode: default @live set ≤ 60 s without the 180 s battle; real battle only via e2e:slow",
+   "type": "quality",
+   "state": "rejected",
+   "priority": "P3",
+   "goal": "M1: короткий цикл проверки выпущенных задач (каденция developer)",
+   "role": "developer",
+   "created": "2026-11-21T13:35:21+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-22T00:00:50+00:00",
+     "actor": "po",
+     "to": "blocked",
+     "note": "priority → P3: Тестовая инфраструктура, задача ждёт результата проб. По порядку владельца идёт после задач игрока."
+    },
+    {
+     "ts": "2026-11-22T02:25:07+00:00",
+     "actor": "dispatcher",
+     "to": "blocked",
+     "note": "stuck: none of the 3 probes of the PO's replan worked"
+    },
+    {
+     "ts": "2026-11-22T02:25:07+00:00",
+     "actor": "dispatcher",
+     "to": "waiting_owner",
+     "note": "question Q-0023"
+    },
+    {
+     "ts": "2026-11-22T03:30:15+00:00",
+     "actor": "deputy",
+     "to": "ready",
+     "note": "answered Q-0023"
+    },
+    {
+     "ts": "2026-11-22T04:12:10+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Replaced by a narrowed task (only the @slow exclusion, no ≤ 60 s bar), per the deputy's Q-0023 decision."
+    }
+   ]
+  },
+  {
+   "id": "T-0051",
+   "title": "Bots aim the turret separately from movement (GAME-DESIGN §8.3–8.4) and re-run the 200-car balance corridor",
+   "type": "milestone",
+   "state": "accepted",
+   "priority": "P1",
+   "goal": "M0 (d)/G1: balance corridor 35–65 % holds under the separate-turret controls",
+   "role": "developer",
+   "created": "2026-11-21T14:27:34+00:00",
+   "accepted_at": "2026-11-22T04:56:16+00:00",
+   "released_sha": "947902f4b87288bcdaafee5d0c5a565be53455df",
+   "history": [
+    {
+     "ts": "2026-11-22T04:25:44+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "priority → P1: Обещание VISION: каждая машина держит коридор 35–65 %. Сейчас балансная симуляция гоняет ботов старой схемы управления и не доказывает честность при раздельной башне. Это важнее полиров"
+    },
+    {
+     "ts": "2026-11-22T04:25:45+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261122T0425-exec-T-0051"
+    },
+    {
+     "ts": "2026-11-22T04:25:45+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-22T04:42:03+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 947902f4b8"
+    },
+    {
+     "ts": "2026-11-22T04:56:16+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "Bot behaviour is headless, so I judged it from the unit tests and the committed report; the deployed browser checks (smoke, menu) pass. 200/200 cars are in the corridor, and the separate-aim and bots."
+    }
+   ]
+  },
+  {
+   "id": "T-0053",
+   "title": "E2E: тестовый режим отрисовки без свечения, ожидания по снимкам сервера, мобильные в один поток; desktop и mobile ≤ 2 мин",
+   "type": "quality",
+   "state": "blocked",
+   "priority": "P2",
+   "goal": "M1: короткий и надёжный цикл проверки задач developer",
+   "role": "developer",
+   "created": "2026-11-21T15:50:06+00:00",
+   "accepted_at": null,
+   "released_sha": "980069e1544c200b33cf57c230c1b5ad3da4afb1",
+   "history": [
+    {
+     "ts": "2026-11-22T00:00:50+00:00",
+     "actor": "po",
+     "to": "blocked",
+     "note": "priority → P2: Мобильная часть задачи больше не держит приёмку. Десктопная стабильность e2e нужна, но по порядку владельца идёт после задач игрока."
+    }
+   ]
+  },
+  {
+   "id": "T-0055",
+   "title": "Прототип «Заряд удержанием» (weapons.charge) за флагом features.charge_cannon, выключенным по умолчанию, с симуляцией в коридоре",
+   "type": "milestone",
+   "state": "in_progress",
+   "priority": "P2",
+   "goal": "G1: необычная механика оружия (постоянное направление mechanics)",
+   "role": "developer",
+   "created": "2026-11-21T15:50:08+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-22T07:01:42+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261122T0700-exec-T-0055"
+    },
+    {
+     "ts": "2026-11-22T07:01:42+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-22T07:24:10+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "partial — continues next cycle"
+    }
+   ]
+  },
+  {
+   "id": "T-0058",
+   "title": "Playwright: software-rendering flags for Chromium in playwright.config.ts behind an env variable, not in spec files",
+   "type": "quality",
+   "state": "ready",
+   "priority": "P3",
+   "goal": "M1: a reliable task-check cycle on the server and on the operator's stand",
+   "role": "developer",
+   "created": "2026-11-21T17:10:53+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-22T00:00:50+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "priority → P3: Владелец 21.11: задачи тестовой инфраструктуры идут после потери связи, генерации по описанию, реплея и калибровки."
+    }
+   ]
+  },
+  {
+   "id": "T-0060",
+   "title": "Metrics: separate test battles (e2e/load/headless) from real players and record why a battle was abandoned",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P1",
+   "goal": "G2: share of battles finished by real players (M1 metrics readable)",
+   "role": "developer",
+   "created": "2026-11-21T18:11:05+00:00",
+   "accepted_at": "2026-11-22T00:02:50+00:00",
+   "released_sha": "f06e429e69f6d74f76f6ee76c9cda5d25e91baee",
+   "history": [
+    {
+     "ts": "2026-11-22T00:02:50+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "On the live host, the Playwright two-tab game was counted under by_origin.test (started 1, abandoned 1, reason all_humans_left) and by_origin.human stayed at 0. The response has no IP, UA or id, and t"
+    }
+   ]
+  },
+  {
+   "id": "T-0065",
+   "title": "Probe 2/3 for T-0049: Live set in the test render mode from T-0053",
+   "type": "research",
+   "state": "rejected",
+   "priority": "P3",
+   "goal": "M1: короткий цикл проверки выпущенных задач (каденция developer)",
+   "role": "developer",
+   "created": "2026-11-21T18:50:45+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-22T00:00:50+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "priority → P3: Проба для T-0049 (тестовая инфраструктура) — по порядку владельца после задач игрока."
+    },
+    {
+     "ts": "2026-11-22T02:18:57+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Проба 1/3 для T-0049 (T-0064: принять частичный результат и снять планку 60 с) уже done. Цель застрявшей T-0049 решена другой пробой, запускать эту не нужно."
+    }
+   ]
+  },
+  {
+   "id": "T-0066",
+   "title": "Probe 3/3 for T-0049: Protocol smoke without a browser instead of browser @live",
+   "type": "research",
+   "state": "rejected",
+   "priority": "P3",
+   "goal": "M1: короткий цикл проверки выпущенных задач (каденция developer)",
+   "role": "developer",
+   "created": "2026-11-21T18:50:45+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-22T00:00:50+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "priority → P3: Проба для T-0049 (тестовая инфраструктура) — по порядку владельца после задач игрока."
+    },
+    {
+     "ts": "2026-11-22T02:18:57+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Проба 1/3 для T-0049 (T-0064) уже done и сняла планку 60 с. Альтернативный протокольный smoke не нужен, а нагрузочный скрипт уже проверяется в T-0057."
+    }
+   ]
+  },
+  {
+   "id": "T-0067",
+   "title": "Repo: no pkill/killall/kill by pattern in scripts and tests; stop only own processes by saved PID, guarded by a test",
+   "type": "defect",
+   "state": "accepted",
+   "priority": "P1",
+   "goal": "L0: the live server stays up while the team runs tests on the same host",
+   "role": "developer",
+   "created": "2026-11-21T19:30:42+00:00",
+   "accepted_at": "2026-11-22T01:57:01+00:00",
+   "released_sha": "a520fb2cf7a21c8b261c9b140905741c30a73b12",
+   "history": [
+    {
+     "ts": "2026-11-22T01:45:47+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "priority → P1: L0 по VISION: pkill по шаблону уже уронил живой сервер (502 с 18:32 до 18:46 UTC 21.11). Тест-страж нужен раньше задач P2 на улучшения."
+    },
+    {
+     "ts": "2026-11-22T01:45:49+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261122T0145-exec-T-0067"
+    },
+    {
+     "ts": "2026-11-22T01:45:49+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-22T01:48:13+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged a520fb2cf7"
+    },
+    {
+     "ts": "2026-11-22T01:57:01+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "Repo-only task: the guard test scans all required locations, catches the bad forms including kill by port, and passes in npm test (91 tests). README has the rule section and no pattern kills exist in "
+    }
+   ]
+  },
+  {
+   "id": "T-0070",
+   "title": "Машина по текстовому описанию: поле в гараже, классификатор запроса, генерация моделью, лимиты и блокировка",
+   "type": "milestone",
+   "state": "rejected",
+   "priority": "P1",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-21T19:52:49+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-22T00:21:25+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261122T0020-exec-T-0070"
+    },
+    {
+     "ts": "2026-11-22T00:21:25+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-22T00:32:18+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "partial — continues next cycle"
+    },
+    {
+     "ts": "2026-11-22T00:46:14+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "partial — continues next cycle"
+    },
+    {
+     "ts": "2026-11-22T00:55:36+00:00",
+     "actor": "po",
+     "to": "waiting_owner",
+     "note": "question Q-0021"
+    },
+    {
+     "ts": "2026-11-22T02:18:26+00:00",
+     "actor": "deputy",
+     "to": "ready",
+     "note": "answered Q-0021"
+    },
+    {
+     "ts": "2026-11-22T02:18:58+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261122T0207-exec-T-0070"
+    },
+    {
+     "ts": "2026-11-22T02:18:58+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-22T02:19:11+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "partial — continues next cycle"
+    },
+    {
+     "ts": "2026-11-22T02:25:11+00:00",
+     "actor": "dispatcher",
+     "to": "blocked",
+     "note": "stuck: 3 failed attempts on this goal; the PO replans it with 3 alternatives"
+    },
+    {
+     "ts": "2026-11-22T04:10:07+00:00",
+     "actor": "dispatcher",
+     "to": "rejected",
+     "note": "replanned: probe T-0088 works; the PO creates the implementation task"
+    }
+   ]
+  },
+  {
+   "id": "T-0074",
+   "title": "Телефон: подсказка управления в начале боя не закрывает машину игрока",
+   "type": "quality",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "G1: казуальный игрок на телефоне видит свою машину с первой секунды боя",
+   "role": "developer",
+   "created": "2026-11-21T22:15:48+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-22T04:50:54+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Мобильная разработка на паузе по решению владельца 21.11. Заведём заново, когда владелец вернёт мобильную версию; T-0080 остаётся записью о мобильных дефектах."
+    }
+   ]
+  },
+  {
+   "id": "T-0076",
+   "title": "Десктоп: потеря связи в бою показывает сообщение и возвращает в гараж, экран боя не замирает",
+   "type": "milestone",
+   "state": "accepted",
+   "priority": "P0",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-21T23:58:43+00:00",
+   "accepted_at": "2026-11-22T00:57:17+00:00",
+   "released_sha": "223757d0ef254a00e25653f911e55c05f6c8d59e",
+   "history": [
+    {
+     "ts": "2026-11-22T00:00:51+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261122T0000-exec-T-0076"
+    },
+    {
+     "ts": "2026-11-22T00:00:51+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-22T00:10:16+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 223757d0ef"
+    },
+    {
+     "ts": "2026-11-22T00:57:17+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "inconclusive 3×: accepted without external proof"
+    }
+   ]
+  },
+  {
+   "id": "T-0077",
+   "title": "Запись всех боёв и реплей: каждый бой сохраняется полностью и воспроизводится на десктопе",
+   "type": "milestone",
+   "state": "accepted",
+   "priority": "P1",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-21T23:58:44+00:00",
+   "accepted_at": "2026-11-22T01:48:01+00:00",
+   "released_sha": "4774af373f28c74be26e12f81c49123d288d5c8f",
+   "history": [
+    {
+     "ts": "2026-11-22T00:55:37+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261122T0055-exec-T-0077"
+    },
+    {
+     "ts": "2026-11-22T00:55:37+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-22T01:08:40+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 4774af373f"
+    },
+    {
+     "ts": "2026-11-22T01:48:01+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "inconclusive 3×: accepted without external proof"
+    }
+   ]
+  },
+  {
+   "id": "T-0078",
+   "title": "Калибровка: турниры ботов измеряют, сколько даёт очко каждой характеристики, оружие и способность",
+   "type": "milestone",
+   "state": "accepted",
+   "priority": "P1",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-21T23:58:44+00:00",
+   "accepted_at": "2026-11-22T01:47:16+00:00",
+   "released_sha": "2cbbcb2b30e95648f0643b1523ad07cac1271daf",
+   "history": [
+    {
+     "ts": "2026-11-22T01:15:51+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261122T0115-exec-T-0078"
+    },
+    {
+     "ts": "2026-11-22T01:15:52+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-22T01:28:35+00:00",
+     "actor": "dispatcher",
+     "to": "ready",
+     "note": "run failed: error_max_structured_output_retries"
+    },
+    {
+     "ts": "2026-11-22T01:32:37+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261122T0107-exec-T-0078"
+    },
+    {
+     "ts": "2026-11-22T01:32:37+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-22T01:34:53+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 2cbbcb2b30"
+    },
+    {
+     "ts": "2026-11-22T01:47:16+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The calibrate script, report and tests meet all four criteria. The report covers every stat, weapon and ability with CIs and battle counts, names the outlier stats, and the resume test passes."
+    }
+   ]
+  },
+  {
+   "id": "T-0079",
+   "title": "GAME-DESIGN.md: перевзвешивание характеристик по данным калибровки — неравная стоимость очков",
+   "type": "design",
+   "state": "rejected",
+   "priority": "P1",
+   "goal": "G1",
+   "role": "game-designer",
+   "created": "2026-11-21T23:58:44+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-22T00:21:22+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: It consumes reports/stat-weights.md from T-0078, which is not done. Without that input the game-designer would invent the numbers. It will be re-created with depends_on T-0078 once the T"
+    }
+   ]
+  },
+  {
+   "id": "T-0081",
+   "title": "Reconnect: a player whose connection drops returns to the same running battle with the same car and score",
+   "type": "milestone",
+   "state": "accepted",
+   "priority": "P1",
+   "goal": "M1: переподключение возвращает в бой",
+   "role": "developer",
+   "created": "2026-11-22T00:21:23+00:00",
+   "accepted_at": "2026-11-22T02:57:52+00:00",
+   "released_sha": "20c85eb3cdd23cb4d2767fdd4122c462a8e58c12",
+   "history": [
+    {
+     "ts": "2026-11-22T00:21:23+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-22T01:55:34+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261122T0155-exec-T-0081"
+    },
+    {
+     "ts": "2026-11-22T01:55:34+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-22T02:13:34+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 20c85eb3cd"
+    },
+    {
+     "ts": "2026-11-22T02:57:52+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "inconclusive 3×: accepted without external proof"
+    }
+   ]
+  },
+  {
+   "id": "T-0082",
+   "title": "Metrics: daily counters in /_team/metrics.json survive a server restart (persisted in DATA_DIR)",
+   "type": "defect",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G1–G3: daily counts readable across deploys",
+   "role": "developer",
+   "created": "2026-11-22T00:21:24+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-22T00:21:24+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0083",
+   "title": "E2E: replay.spec.ts находится и проходит на живом хосте (тег @live, реплей настоящего записанного боя)",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P1",
+   "goal": "G1: запись и реплей боёв (T-0077) проверены на живом хосте",
+   "role": "developer",
+   "created": "2026-11-22T01:45:48+00:00",
+   "accepted_at": "2026-11-22T02:45:54+00:00",
+   "released_sha": "b730b0da4518253ebb6e89a107ea68f480023c8e",
+   "history": [
+    {
+     "ts": "2026-11-22T01:45:48+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-22T02:25:11+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261122T0225-exec-T-0083"
+    },
+    {
+     "ts": "2026-11-22T02:25:11+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-22T02:31:59+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged b730b0da45"
+    },
+    {
+     "ts": "2026-11-22T02:45:54+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The new \"@slow @live real 180 s battle\" replay scenario is picked up by the live host filter and passed on the live host (desktop, 209 s) with the full replay checks. The two short-match tests in the "
+    }
+   ]
+  },
+  {
+   "id": "T-0084",
+   "title": "E2E: reconnect.spec.ts и тест неизвестного id реплея помечены @live и проходят на живом хосте",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P1",
+   "goal": "M1: переподключение возвращает в бой (T-0081 проверено на живом хосте)",
+   "role": "developer",
+   "created": "2026-11-22T02:41:48+00:00",
+   "accepted_at": "2026-11-22T03:01:29+00:00",
+   "released_sha": "0e1d1642adc1268c49c199d431d105c4ec9e9e74",
+   "history": [
+    {
+     "ts": "2026-11-22T02:41:48+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-22T02:41:51+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261122T0240-exec-T-0084"
+    },
+    {
+     "ts": "2026-11-22T02:41:51+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-22T02:45:58+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 0e1d1642ad"
+    },
+    {
+     "ts": "2026-11-22T03:01:29+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The @live reconnect test and the @live unknown-replay-id test both pass on the live host. The reconnect test runs the real socket drop, the overlay-gone check within 5 s, the timer advance and the kil"
+    }
+   ]
+  },
+  {
+   "id": "T-0085",
+   "title": "Нагрузка M1: 10 одновременных боёв на живом хосте, p95 задержки ввода ≤ 300 мс, 0 ошибок сервера",
+   "type": "load",
+   "state": "accepted",
+   "priority": "P1",
+   "goal": "M1: 10 одновременных боёв без ошибок сервера; G4 p95 ≤ 300 мс",
+   "role": "tester",
+   "created": "2026-11-22T02:41:49+00:00",
+   "accepted_at": "2026-11-22T02:44:32+00:00",
+   "released_sha": "b730b0da4518253ebb6e89a107ea68f480023c8e",
+   "history": [
+    {
+     "ts": "2026-11-22T02:41:49+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-22T02:43:10+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261122T0240-exec-T-0085"
+    },
+    {
+     "ts": "2026-11-22T02:43:10+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-22T02:44:32+00:00",
+     "actor": "tester",
+     "to": "accepted",
+     "note": "load pass: p50 28 p95 65 ms — Ran team-play load with 20 clients for 60 s (10 rooms × 2) against the live host. Script-measured input p95 was 65 ms (≤300), with 0 disconnects, 0 socket errors, and ser"
+    }
+   ]
+  },
+  {
+   "id": "T-0086",
+   "title": "Страница правил /rules: управление, оружие, способности, бюджет машины (десктоп)",
+   "type": "milestone",
+   "state": "accepted",
+   "priority": "P1",
+   "goal": "M1: страница правил",
+   "role": "developer",
+   "created": "2026-11-22T02:41:50+00:00",
+   "accepted_at": "2026-11-22T04:02:29+00:00",
+   "released_sha": "cde5d4d47b345807e6b96dabb1e9c509fdee4256",
+   "history": [
+    {
+     "ts": "2026-11-22T02:41:50+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-22T02:55:46+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "priority → P1: Страница правил входит в критерий выхода M1. Остальные части M1 (нагрузка, звук, переподключение) уже приняты или выпущены, и без страницы правил выход из этапа не закрыть."
+    },
+    {
+     "ts": "2026-11-22T02:55:48+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261122T0255-exec-T-0086"
+    },
+    {
+     "ts": "2026-11-22T02:55:48+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-22T03:07:01+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged cde5d4d47b"
+    },
+    {
+     "ts": "2026-11-22T03:39:59+00:00",
+     "actor": "reviewer",
+     "to": "in_progress",
+     "note": "failed: Acceptance «npm run e2e green» not met: full run has 5 failures (menu.spec.ts exit to garage; mobile.spec.ts full screen, 844x390, 667x375, in-battle menu taps, all [mobile]). The implementer "
+    },
+    {
+     "ts": "2026-11-22T03:50:22+00:00",
+     "actor": "dispatcher",
+     "to": "review",
+     "note": "no change needed: The code from commit 2a52105 is already complete and merged into main (cde5d4d). The full desktop `npm run e2e` run now gives 36 passed, 0 failed. The earlier desktop menu failure no"
+    },
+    {
+     "ts": "2026-11-22T04:02:29+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The /rules page is live and its three @live desktop tests passed. They cover the sections, the footer, the numbers against balance.json, the Rules links and the return to the garage. The one unit-test"
+    }
+   ]
+  },
+  {
+   "id": "T-0087",
+   "title": "Probe 1/3 for T-0070: Принять как «готово к включению» без настоящего вызова",
+   "type": "research",
+   "state": "done",
+   "priority": "P1",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-22T02:41:50+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-22T02:41:50+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "replan probe for T-0070"
+    },
+    {
+     "ts": "2026-11-22T03:13:02+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261122T0307-exec-T-0087"
+    },
+    {
+     "ts": "2026-11-22T03:13:02+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-22T03:21:52+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "probe does not work: The approach works: T-0070 can be accepted without a real model call. Commit 9a06ab9 (exported to /tmp/p87 via git archive, since it is not an ancestor of this branch) passes `npm"
+    }
+   ]
+  },
+  {
+   "id": "T-0088",
+   "title": "Probe 2/3 for T-0070: Генератор без модели: машина по словарю §14.2",
+   "type": "research",
+   "state": "done",
+   "priority": "P1",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-22T02:41:50+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-22T02:41:50+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "replan probe for T-0070"
+    },
+    {
+     "ts": "2026-11-22T03:30:22+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261122T0330-exec-T-0088"
+    },
+    {
+     "ts": "2026-11-22T03:30:22+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-22T03:31:21+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "probe works: The check passes on the §14.3 table. A one-off dictionary parser built from GAME-DESIGN §14.2 and §14.1.3 matched weapon, ability and the two top stats on 18 of 19 rows (94.7 %, bar ≥ 70 "
+    }
+   ]
+  },
+  {
+   "id": "T-0089",
+   "title": "Probe 3/3 for T-0070: Локальный ONNX-классификатор вместо Venice",
+   "type": "research",
+   "state": "done",
+   "priority": "P1",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-22T02:41:50+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-22T02:41:50+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "replan probe for T-0070"
+    },
+    {
+     "ts": "2026-11-22T04:00:13+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261122T0400-exec-T-0089"
+    },
+    {
+     "ts": "2026-11-22T04:00:13+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-22T04:03:08+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "probe does not work: The approach does not work. Local zero-shot mDeBERTa (Xenova/mDeBERTa-v3-base-xnli-multilingual-nli-2mil7, q8 ONNX, @huggingface/transformers 4.3.2, Node 20, 4 CPUs) is fast, but "
+    }
+   ]
+  },
+  {
+   "id": "T-0090",
+   "title": "Tests: replay tick-cost assertion in replay.test.ts is stable on a loaded host (no false fail in npm test)",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P1",
+   "goal": "M1: a reliable check cycle (npm test does not fail on host load); T-0077 promise that recording does not slow the tick",
+   "role": "developer",
+   "created": "2026-11-22T02:55:47+00:00",
+   "accepted_at": "2026-11-22T04:52:20+00:00",
+   "released_sha": "08141dee8b0bfdb9138317f0d80c7029232e5a88",
+   "history": [
+    {
+     "ts": "2026-11-22T02:55:47+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-22T04:12:14+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261122T0410-exec-T-0090"
+    },
+    {
+     "ts": "2026-11-22T04:12:14+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-22T04:15:55+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 08141dee8b"
+    },
+    {
+     "ts": "2026-11-22T04:52:20+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "T-0090 changes only a unit test, so there is nothing to play in a browser. The new tick-cost test is interleaved, warmed up and median-based, and it keeps the 10 % limit. The dispatcher's full npm tes"
+    }
+   ]
+  },
+  {
+   "id": "T-0091",
+   "title": "Машина по описанию без ключа: словарный поставщик §14.2 за флагом TEXTGEN_PROVIDER, лимит 25/день и блокировка 60 с",
+   "type": "milestone",
+   "state": "accepted",
+   "priority": "P1",
+   "goal": "G1: машина по текстовому описанию (VISION 21.11)",
+   "role": "developer",
+   "created": "2026-11-22T04:12:11+00:00",
+   "accepted_at": "2026-11-22T05:46:30+00:00",
+   "released_sha": "db052a44b231994f0394b6750eea856bbd465321",
+   "history": [
+    {
+     "ts": "2026-11-22T04:12:11+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-22T04:50:55+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261122T0450-exec-T-0091"
+    },
+    {
+     "ts": "2026-11-22T04:50:55+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-22T05:03:04+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged db052a44b2"
+    },
+    {
+     "ts": "2026-11-22T05:46:30+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "inconclusive 3×: accepted without external proof"
+    }
+   ]
+  },
+  {
+   "id": "T-0092",
+   "title": "E2E live-host mode: default @live set excludes every @slow spec; the 180 s battle runs only via e2e:slow",
+   "type": "quality",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "M1: короткий цикл проверки выпущенных задач",
+   "role": "developer",
+   "created": "2026-11-22T04:12:12+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-22T04:12:12+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0093",
+   "title": "Машина по описанию: лимиты в localStorage, тестовые часы только в тестах, textgen-спеки без @live и 127.0.0.1",
+   "type": "defect",
+   "state": "accepted",
+   "priority": "P1",
+   "goal": "G1: машина по текстовому описанию (VISION 21.11) без нарушения обещания «учёт в браузере, без лишних данных»",
+   "role": "developer",
+   "created": "2026-11-22T05:25:32+00:00",
+   "accepted_at": "2026-11-22T07:06:44+00:00",
+   "released_sha": "5e4b14a24f1a5938ef5f70cdd9e3418c675f81f1",
+   "history": [
+    {
+     "ts": "2026-11-22T05:25:32+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-22T06:00:39+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "priority → P1: Нарушено обещание VISION: учёт генераций до авторизации хранится только в браузере, лишних данных не собираем. Сейчас сервер считает лимит по пиру соединения и держит тестовый эндпоинт "
+    },
+    {
+     "ts": "2026-11-22T06:00:41+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261122T0600-exec-T-0093"
+    },
+    {
+     "ts": "2026-11-22T06:00:41+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-22T06:08:26+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 5e4b14a24f"
+    },
+    {
+     "ts": "2026-11-22T07:06:44+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "inconclusive 3×: accepted without external proof"
+    }
+   ]
+  },
+  {
+   "id": "T-0094",
+   "title": "E2E: opponent-specs.spec.ts tagged @live, plus a @live smoke that the description field is hidden in production",
+   "type": "quality",
+   "state": "released",
+   "priority": "P1",
+   "goal": "M0 (c): a car's look reflects its stats for every car (T-0031 checked on the live host)",
+   "role": "developer",
+   "created": "2026-11-22T06:15:57+00:00",
+   "accepted_at": null,
+   "released_sha": "3d231223eeb4deec203c08328537f4ce1a30a3ab",
+   "history": [
+    {
+     "ts": "2026-11-22T06:15:57+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-22T06:16:02+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261122T0615-exec-T-0094"
+    },
+    {
+     "ts": "2026-11-22T06:16:02+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-22T06:24:27+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 3d231223ee"
+    }
+   ]
+  },
+  {
+   "id": "T-0095",
+   "title": "Check: does production /_team/metrics.json serve by_origin and abandon_reasons after T-0060",
+   "type": "research",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G2: share of battles finished by real players",
+   "role": "analyst",
+   "created": "2026-11-22T06:15:59+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-22T06:15:59+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-22T06:22:42+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261122T0615-exec-T-0095"
+    },
+    {
+     "ts": "2026-11-22T06:22:42+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-22T06:22:57+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measurement delivered"
+    }
+   ]
+  },
+  {
+   "id": "T-0096",
+   "title": "Generator: shotgun never appears in the 200-car sample — find the cause and restore all 5 weapons in the random generator",
+   "type": "defect",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "M0 (c)/(d): generated cars use all 5 weapons and stay within the 35–65 % corridor",
+   "role": "developer",
+   "created": "2026-11-22T07:01:39+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-22T07:01:39+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0097",
+   "title": "npm test: the 200-car balance test runs ≤ 3 min (each car evaluated once, parallel), still inside npm test",
+   "type": "quality",
+   "state": "ready",
+   "priority": "P1",
+   "goal": "M0 (d) and M1: a short, reliable check cycle for developer runs",
+   "role": "developer",
+   "created": "2026-11-22T07:01:40+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-22T07:01:40+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-22T07:27:29+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "priority → P1: Under load the 200-car balance test takes about 8 minutes. That pushes every developer run toward the time limit (T-0048 1181 s, T-0055 1335 s), so it blocks the main work cycle."
+    }
+   ]
+  },
+  {
+   "id": "T-0098",
+   "title": "Balance telemetry: a human who left before the battle closed is still counted as a human in humans_only",
+   "type": "defect",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G1 / balance standing direction: real-match balance data is correct",
+   "role": "developer",
+   "created": "2026-11-22T07:01:41+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-22T07:01:41+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0099",
+   "title": "E2E: the Fight! banner spec waits on the match-start state, not a fixed 2.5 s window",
+   "type": "quality",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "M1: a reliable check cycle (e2e does not fail on host load)",
+   "role": "developer",
+   "created": "2026-11-22T07:27:30+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-22T07:27:30+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  }
+ ],
+ "reviews": [
+  {
+   "task": "T-0060",
+   "verdict": "pass",
+   "summary": "On the live host, the Playwright two-tab game was counted under by_origin.test (started 1, abandoned 1, reason all_humans_left) and by_origin.human stayed at 0. The response has no IP, UA or id, and the top-level fields are unchanged. I didn't run the match-to-end and ordinary-UA quick_play criteria in a browser, so they rest on the passing unit tests."
+  },
+  {
+   "task": "T-0076",
+   "verdict": "inconclusive",
+   "summary": "Only the @live no-false-alarm scenario could run against the deployed host. The server-stop scenarios (SIGTERM and SIGKILL mid-battle) spawn their own server and are not run in this mode, so the core criteria were not observed. The deployed /healthz version also differs from the task commit."
+  },
+  {
+   "task": "T-0076",
+   "verdict": "inconclusive",
+   "summary": "Only the @live \"steady battle shows no overlay\" scenario could run against the deployed host. It passed. The two scenarios that stop a server mid-battle (SIGTERM and SIGKILL) are not @live and were filtered out, so the core acceptance criteria were not observed."
+  },
+  {
+   "task": "T-0076",
+   "verdict": "inconclusive",
+   "summary": "Only the @live no-false-alarm scenario could run against the deployed host, and it passed. The server-stop scenarios (SIGTERM and SIGKILL) need a local server, so the main acceptance criteria are unverified by me. Run them with a dispatcher-started local server."
+  },
+  {
+   "task": "T-0077",
+   "verdict": "inconclusive",
+   "summary": "The deployed host holds a recorded test battle, listed at /_team/replays(.json), and /?replay=<id> renders with Pause, 1x/2x/4x, seek and car selector. The desktop project run passed 10 of 10 (full bot battle to the results table, a two-tab room within 1 s), but none of them was in replay.spec.ts, so replay pause, 2x, seek and results were not played."
+  },
+  {
+   "task": "T-0078",
+   "verdict": "pass",
+   "summary": "The calibrate script, report and tests meet all four criteria. The report covers every stat, weapon and ability with CIs and battle counts, names the outlier stats, and the resume test passes."
+  },
+  {
+   "task": "T-0077",
+   "verdict": "inconclusive",
+   "summary": "The live host already holds recordings and lists them, and /?replay=<id> renders in the normal renderer with the replay controls. I could not run the replay e2e spec: `team-play test` reports \"No tests found\" for every spec, grep and project filter I tried. As a result pause, 2x, seek and the results table were never exercised in a browser, and the balance block could not be checked."
+  },
+  {
+   "task": "T-0067",
+   "verdict": "pass",
+   "summary": "Repo-only task: the guard test scans all required locations, catches the bad forms including kill by port, and passes in npm test (91 tests). README has the rule section and no pattern kills exist in the repo."
+  },
+  {
+   "task": "T-0081",
+   "verdict": "inconclusive",
+   "summary": "The reconnect e2e spec could not be run against the deployed host. The Playwright config runs only `@live`-tagged specs when BASE_URL is set, and reconnect.spec.ts has no `@live` tag, so every run returned \"No tests found\". Only a phone screenshot of the menu was taken, so no reconnect criterion was observed in a browser."
+  },
+  {
+   "task": "T-0081",
+   "verdict": "inconclusive",
+   "summary": "The deployed host serves the reconnect client code (the bundle contains reconnect, seat_gone and __dropSocket), but I could not run the reconnect e2e spec against it because `team-play test` only runs @live-tagged tests. The dispatcher's integration tests for criteria 1 and 2 passed, but I did not observe a browser reconnect or a two-context scenario myself."
+  },
+  {
+   "task": "T-0083",
+   "verdict": "pass",
+   "summary": "The new \"@slow @live real 180 s battle\" replay scenario is picked up by the live host filter and passed on the live host (desktop, 209 s) with the full replay checks. The two short-match tests in the same file are correctly left out of the live set. I did not run `--list` or a phone screenshot myself."
+  },
+  {
+   "task": "T-0081",
+   "verdict": "inconclusive",
+   "summary": "The reconnect e2e spec cannot run against the deployed host. playwright.config.ts runs only `@live` specs there, and tests/e2e/reconnect.spec.ts has no `@live` tag, so every run returned \"No tests found\". Nothing was played, so the reconnect criteria are unobserved."
+  },
+  {
+   "task": "T-0084",
+   "verdict": "pass",
+   "summary": "The @live reconnect test and the @live unknown-replay-id test both pass on the live host. The reconnect test runs the real socket drop, the overlay-gone check within 5 s, the timer advance and the kill-count check. I did not run the playwright --list command or the local runs myself and took them from the implementer's claim and the unit run."
+  },
+  {
+   "task": "T-0086",
+   "verdict": "fail",
+   "summary": "The /rules page works: 200, all sections, numbers equal balance.json, Rules link in garage and battle menu, return link and footer; all 3 rules.spec.ts tests pass. The full e2e suite has 5 failures (1 desktop menu, 4 mobile Chromium), so «npm run e2e green» is not met."
+  },
+  {
+   "task": "T-0086",
+   "verdict": "pass",
+   "summary": "The /rules page is live and its three @live desktop tests passed. They cover the sections, the footer, the numbers against balance.json, the Rules links and the return to the garage. The one unit-test failure is a flaky timing assertion in replay.test.ts, which has nothing to do with this change."
+  },
+  {
+   "task": "T-0090",
+   "verdict": "inconclusive",
+   "summary": "The change touches only tests/unit/replay.test.ts and has no browser-visible effect. I could not run the 10×-in-a-row loop, because my shell only allows bare team-play/team-fetch calls. The dispatcher's single run passed, but it measured ratio 1.218 and cleared the limit only through the +0.002 ms slack, so the 10/10 criterion is unproven."
+  },
+  {
+   "task": "T-0090",
+   "verdict": "pass",
+   "summary": "T-0090 changes only a unit test, so there is nothing to play in a browser. The new tick-cost test is interleaved, warmed up and median-based, and it keeps the 10 % limit. The dispatcher's full npm test passed (93/93, ratio 1.040). I could not rerun the 10× loop myself."
+  },
+  {
+   "task": "T-0051",
+   "verdict": "pass",
+   "summary": "Bot behaviour is headless, so I judged it from the unit tests and the committed report; the deployed browser checks (smoke, menu) pass. 200/200 cars are in the corridor, and the separate-aim and bots.* tests exist and pass in the dispatcher's npm test."
+  },
+  {
+   "task": "T-0091",
+   "verdict": "inconclusive",
+   "summary": "The textgen scenarios could not be played against the deployed host. tests/e2e/textgen.spec.ts hardcodes its own local server (127.0.0.1:PORT) and needs TEXTGEN_PROVIDER=dictionary and a test clock, so `team-play test` found no tests for it. I only confirmed that the deployed garage opens on a phone and that the random generator works there."
+  },
+  {
+   "task": "T-0091",
+   "verdict": "inconclusive",
+   "summary": "I could not play the textgen scenarios. The T-0091 spec starts its own local server with TEXTGEN_PROVIDER=dictionary, and `team-play test` found no tests for it and had no local server to use. The deployed host, which has no flag, shows no description field in the visible garage area, but the page is cut off and the test run was inconclusive. The deployed /healthz version db052a4 differs from the released commit e38635c."
+  },
+  {
+   "task": "T-0091",
+   "verdict": "inconclusive",
+   "summary": "The textgen scenarios could not run: against a deployed host the config runs only @live specs, and the textgen specs are not tagged @live. Only the hidden-field default was seen on the phone screenshot; the other criteria rest on the dispatcher's unit run (149 passed)."
+  },
+  {
+   "task": "T-0031",
+   "verdict": "inconclusive",
+   "summary": "I could not run the T-0031 e2e spec: against the deployed host `team-play test` only runs tests tagged @live, and opponent-specs.spec.ts has no such tag, so Playwright reported \"No tests found\". The live host also reports version 4e47e1e, not the task commit 61d6884, and I only saw the menu screen at 360×740, so no acceptance criterion was verified in a browser."
+  },
+  {
+   "task": "T-0093",
+   "verdict": "inconclusive",
+   "summary": "The textgen specs are correctly absent from the production run, and the clock endpoint answers 404 on the live host. I could not run the 25/day limit or the 60 s block in a browser, because team-play only runs against the deployed host and those specs spawn their own server."
+  },
+  {
+   "task": "T-0031",
+   "verdict": "inconclusive",
+   "summary": "I could not play the T-0031 e2e spec against the deployed host. The runner only runs specs tagged @live there, and opponent-specs.spec.ts has no such tag, so every grep returned \"No tests found\". No two-context scenario ran, so no acceptance criterion was verified by play."
+  },
+  {
+   "task": "T-0093",
+   "verdict": "inconclusive",
+   "summary": "Against the deployed host, both textgen specs are not selected and the phone garage shows no description field, which is consistent with criterion 4 and the production negative case. The limit, localStorage and 60 s block scenarios need a local server with TEXTGEN_PROVIDER, which I couldn't start, so they were not played."
+  },
+  {
+   "task": "T-0031",
+   "verdict": "inconclusive",
+   "summary": "I could not play the main criterion. The two-context opponent-spec test is untagged for live mode, so Playwright found no tests against the deployed host. The full desktop run passed 14 and failed 3 for environmental reasons, and the deployed version is not shown to contain the task commit."
+  },
+  {
+   "task": "T-0048",
+   "verdict": "inconclusive",
+   "summary": "The deployed host's version (25339d2…) differs from the task commit (3875a33…). Its metrics.json has no balance block, and a Playwright battle would be skipped as test traffic anyway, so the feature could not be observed. Only the smoke spec ran, and it passed."
+  },
+  {
+   "task": "T-0093",
+   "verdict": "inconclusive",
+   "summary": "The deployed host confirms three things. Both textgen specs are skipped there, as the task asks. `/api/generate/test-advance` returns 404. The garage shows no description field in the 360×740 screenshot. The limit scenarios (26th generation refused, localStorage counter, 60 s block via page.clock) start their own server and cannot run through `team-play test` against a host, so I did not play them."
+  }
+ ],
+ "posts": [],
+ "metrics": {
+  "humans": 0,
+  "engaged": 0,
+  "returns": 0,
+  "agents": 0,
+  "crawlers": 0,
+  "requests": 0
+ },
+ "spend_usd": 32.0,
+ "po_digest_md": "**AI Battles, цикл 22.11 07:07 UTC.** Этап по-прежнему M1. Три пункта ждут владельца: ключ и потолок расходов для генерации по тексту, бюджет на портрет машины, мобильная пауза.\n\n**Что произошло**\n- Прототип оружия «Заряд» (T-0055) сделан за флагом, по умолчанию выключен. Боты с ним выигрывают в среднем 64,5 % боёв, это на самой границе коридора 35–65 %.\n- Звук заряда, свечение заряда у соперников (для этого нужна правка протокола) и доводку баланса отложил до приёмки T-0055 и плейтеста.\n- Ревью T-0048 упало из-за среды: на хосте была старая версия. Ревью повторится после выкладки.\n- Тестер T-0094 остановлен сторожем бездействия: почти всё время ушло на e2e.\n\n**Метрики за 22.11:** 41 бой, доиграно 2, брошено 39, ошибок 0. Почти все бои, видимо, тестовые (нагрузка и e2e). Живых игроков пока не отделить.\n\n**Решения**\n- Новая задача: нестабильный e2e баннера Fight! будет ждать начала боя по состоянию сервера, а не окно 2,5 с.\n- T-0097 (ускорить балансный тест на 200 машин) поднята до P1. Под нагрузкой он идёт около 8 минут и толкает прогоны разработчиков к лимиту времени.\n- В очереди уже 9 готовых задач, поэтому больше ничего не заводил.\n\n**Расход:** $31 из $200.",
+ "analyst_md": "**Состояние на 22.11 06:00 UTC: данных почти нет.**\n\n| Уровень | Значение |\n|---|---|\n| Бои начаты (21.11) | 1, завершено 0, брошено 0 |\n| Игроки | 1 (возвратов нет), пик онлайн 1 |\n| Задержка ввода | p50 15.4 мс, p95 22.5 мс (34 замера) |\n| Ходы / отклонённые | 50 / 0 |\n| Ошибки сервера | 0 |\n| 22.11 | всё по нулям (день только начался) |\n| Google Search Console | 0 кликов, 0 показов, 0 проиндексированных URL в выборке |\n| Посты | нет |\n\nЕдинственный бой 21.11 с 1 игроком, скорее всего наш собственный запуск (e2e, нагрузка или тестер), а не живой человек. Блока by_origin из T-0060 в выгрузке нет, поэтому отделить тестовый трафик нельзя.\n\nБаланс: таблицы Balance в метриках нет.\n\n**Цели:**\n- G1 (боёв в день): 1 против ≥50. Это не человеческий показатель.\n- G2: недостаточно данных (0 завершённых).\n- G3: возвратов нет.\n- G4: p95 22.5 мс при цели ≤300 мс, но выборка 34 замера на одном клиенте.\n\nВлияние задач оценить нельзя: нет до/после на одной метрике. Промоушена до M2 нет, поэтому людей ждать не от чего.",
+ "observations": {
+  "new": 63,
+  "by_class": {
+   "need_hypothesis": 47,
+   "measurement": 2,
+   "environment_error": 12,
+   "ux_friction": 1,
+   "reproducible_defect": 1
+  }
+ },
+ "owner_questions_open": 0
+}

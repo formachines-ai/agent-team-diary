@@ -8,7 +8,7 @@
    "id": "T-0007",
    "title": "Клиент: генерация машины, управление мышью, рендер боя на PixiJS (скин «Неон-вектор»)",
    "type": "milestone",
-   "state": "accepted",
+   "state": "done",
    "priority": "P0",
    "goal": "Играбельный прототип в браузере",
    "role": "developer",
@@ -46,7 +46,7 @@
    "id": "T-0008",
    "title": "Приёмка M0: e2e-плейтест на ai-battles.formachines.ai",
    "type": "quality",
-   "state": "accepted",
+   "state": "done",
    "priority": "P2",
    "goal": "Подтвердить критерий выхода M0 на боевом хосте",
    "role": "tester",
@@ -122,7 +122,7 @@
    "id": "T-0014",
    "title": "GAME-DESIGN.md §8: bot behaviour that can be built with cursor-only control",
    "type": "design",
-   "state": "accepted",
+   "state": "done",
    "priority": "P2",
    "goal": "M0 (a): bots in the battle behave the way the design describes",
    "role": "game-designer",
@@ -142,7 +142,7 @@
    "id": "T-0015",
    "title": "DESIGN v2: стиль «Неон-вектор» (выбор владельца 20.11)",
    "type": "design",
-   "state": "accepted",
+   "state": "done",
    "priority": "P1",
    "goal": "G1",
    "role": "designer",
@@ -162,7 +162,7 @@
    "id": "T-0017",
    "title": "Engine: mine damage per GAME-DESIGN §5.4.1, without the owner's firepower multiplier",
    "type": "defect",
-   "state": "accepted",
+   "state": "done",
    "priority": "P1",
    "goal": "M0 (d): balance simulation over effects as the design defines them",
    "role": "developer",
@@ -200,7 +200,7 @@
    "id": "T-0018",
    "title": "Server: serve /_team/metrics.json per the game-metrics contract",
    "type": "quality",
-   "state": "accepted",
+   "state": "done",
    "priority": "P2",
    "goal": "G4 and the M0 stability plan: the server measures rounds, errors and latency itself",
    "role": "developer",
@@ -238,7 +238,7 @@
    "id": "T-0019",
    "title": "GAME-DESIGN.md §2: one room autostart time (30 or 60 s) in the text and balance.json",
    "type": "design",
-   "state": "accepted",
+   "state": "done",
    "priority": "P2",
    "goal": "M0 (b): two friends get into one room by code before the battle starts",
    "role": "game-designer",
@@ -288,7 +288,7 @@
    "id": "T-0020",
    "title": "Client battle defects: HP above max, permanent 'Fight!' banner, camera variant B, connect stall, README",
    "type": "defect",
-   "state": "accepted",
+   "state": "done",
    "priority": "P1",
    "goal": "M0 (a): solo battle against bots plays cleanly to the score table",
    "role": "developer",
@@ -344,7 +344,7 @@
    "id": "T-0021",
    "title": "Server room: autostart from balance.json match.room_autostart_wait_s (60 s) and a correct startsInS",
    "type": "defect",
-   "state": "accepted",
+   "state": "done",
    "priority": "P2",
    "goal": "M0 (b): two friends get into one room by code before the battle starts",
    "role": "developer",
@@ -388,7 +388,7 @@
    "id": "T-0022",
    "title": "E2E: two-players.spec.ts plays a room by code (2 players + 2 bots) to the score table and runs against the live host",
    "type": "milestone",
-   "state": "accepted",
+   "state": "done",
    "priority": "P1",
    "goal": "M0 (b): two friends play a battle by room code to the end",
    "role": "developer",
@@ -432,13 +432,13 @@
    "id": "T-0023",
    "title": "Server: latch LMB/RMB presses between ticks so a short click is never lost (fixes flaky RMB cooldown e2e)",
    "type": "defect",
-   "state": "ready",
-   "priority": "P2",
+   "state": "accepted",
+   "priority": "P0",
    "goal": "M0 (a): LMB fires, RMB applies the ability in a solo battle against bots",
    "role": "developer",
    "created": "2026-11-21T02:23:50+00:00",
-   "accepted_at": null,
-   "released_sha": null,
+   "accepted_at": "2026-11-21T11:36:58+00:00",
+   "released_sha": "a55721f98ecbd8dcaf5d093a506b4886ec73e38f",
    "history": [
     {
      "ts": "2026-11-21T02:23:50+00:00",
@@ -469,6 +469,42 @@
      "actor": "po",
      "to": "ready",
      "note": "priority → P2: T-0023 остаётся P2 и ждёт задачу про короткий тестовый матч: прошлый прогон упал по таймауту на 3-минутных e2e (OBS-0098)."
+    },
+    {
+     "ts": "2026-11-21T09:19:32+00:00",
+     "actor": "owner",
+     "to": "ready",
+     "note": "priority P2 → P3: чтобы T-0031 шла сразу после звука; мелкие задачи качества"
+    },
+    {
+     "ts": "2026-11-21T10:54:31+00:00",
+     "actor": "owner",
+     "to": "ready",
+     "note": "приоритет P0, после T-0036: нужна для огня на телефоне (владелец 21.11)"
+    },
+    {
+     "ts": "2026-11-21T11:17:20+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261121T1115-exec-T-0023"
+    },
+    {
+     "ts": "2026-11-21T11:17:20+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-21T11:26:54+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged a55721f98e"
+    },
+    {
+     "ts": "2026-11-21T11:36:58+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The server latches LMB presses until the next tick, and RMB is already latched by the engine's abilityEdge. Both pulse integration tests exist and the dispatcher's npm test run passed (59 tests). The "
     }
    ]
   },
@@ -539,7 +575,7 @@
    "title": "Client: take the battle view from balance.json arena.view and commit the regenerated balance.data.ts",
    "type": "quality",
    "state": "ready",
-   "priority": "P2",
+   "priority": "P3",
    "goal": "M0 (a): one source of truth for the battle view",
    "role": "developer",
    "created": "2026-11-21T03:07:46+00:00",
@@ -551,6 +587,12 @@
      "actor": "po",
      "to": "ready",
      "note": ""
+    },
+    {
+     "ts": "2026-11-21T09:19:32+00:00",
+     "actor": "owner",
+     "to": "ready",
+     "note": "priority P2 → P3: чтобы T-0031 шла сразу после звука; мелкие задачи качества"
     }
    ]
   },
@@ -585,7 +627,7 @@
    "title": "PROTOCOL.md: room autostart 60 s from match.room_autostart_wait_s, and the server_error error code",
    "type": "defect",
    "state": "ready",
-   "priority": "P2",
+   "priority": "P3",
    "goal": "M0 (b): client and server agree on one protocol",
    "role": "developer",
    "created": "2026-11-21T03:37:48+00:00",
@@ -597,6 +639,12 @@
      "actor": "po",
      "to": "ready",
      "note": ""
+    },
+    {
+     "ts": "2026-11-21T09:19:32+00:00",
+     "actor": "owner",
+     "to": "ready",
+     "note": "priority P2 → P3: чтобы T-0031 шла сразу после звука; мелкие задачи качества"
     }
    ]
   },
@@ -740,13 +788,13 @@
    "id": "T-0030",
    "title": "Connection sometimes stays 'connecting' after the reconnect test: find the root cause on the server or client",
    "type": "defect",
-   "state": "released",
+   "state": "accepted",
    "priority": "P1",
    "goal": "M0 (a): solo battle against bots starts reliably",
    "role": "developer",
    "created": "2026-11-21T05:46:25+00:00",
-   "accepted_at": null,
-   "released_sha": "44bb1db922cdcd4ff9d28b8bd6ab3dddf0a64909",
+   "accepted_at": "2026-11-21T08:27:13+00:00",
+   "released_sha": "606bcfbf380c1e3dc2320def00e240be92b25503",
    "history": [
     {
      "ts": "2026-11-21T05:46:25+00:00",
@@ -771,6 +819,24 @@
      "actor": "dispatcher",
      "to": "released",
      "note": "merged 44bb1db922"
+    },
+    {
+     "ts": "2026-11-21T07:41:46+00:00",
+     "actor": "reviewer",
+     "to": "in_progress",
+     "note": "failed: client.spec.ts › a full bot battle ends with the results table: getByTestId('conn') expected 'connected', received 'connecting' after 20 s, on the live host."
+    },
+    {
+     "ts": "2026-11-21T07:52:07+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 606bcfbf38"
+    },
+    {
+     "ts": "2026-11-21T08:27:13+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "On the live host, the 10x reconnect spec and the solo-battle spec passed against it, with no stall in 'connecting'. The ws-churn integration test passed in the dispatcher's unit run. I could not run -"
     }
    ]
   },
@@ -778,19 +844,2145 @@
    "id": "T-0031",
    "title": "Opponents' cars are drawn from their real CarSpec: the server sends every participant's spec at battle start",
    "type": "milestone",
-   "state": "ready",
-   "priority": "P1",
+   "state": "accepted",
+   "priority": "P2",
    "goal": "M0 (c): a car's look reflects its stats for every car in the battle",
    "role": "developer",
    "created": "2026-11-21T05:46:25+00:00",
-   "accepted_at": null,
-   "released_sha": null,
+   "accepted_at": "2026-11-22T06:40:35+00:00",
+   "released_sha": "4e47e1e9e94730bc8fb2a6319a738b81894e664e",
    "history": [
     {
      "ts": "2026-11-21T05:46:25+00:00",
      "actor": "po",
      "to": "ready",
      "note": ""
+    },
+    {
+     "ts": "2026-11-21T09:19:32+00:00",
+     "actor": "owner",
+     "to": "ready",
+     "note": "priority P1 → P2: владелец 21.11: звук (T-0033, T-0034) перед характеристиками соперников"
+    }
+   ]
+  },
+  {
+   "id": "T-0032",
+   "title": "Журнал подключений и боёв: сервер и клиент пишут события с временем, чтобы видеть, где и когда зависло",
+   "type": "quality",
+   "state": "blocked",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-21T07:59:46+00:00",
+   "accepted_at": null,
+   "released_sha": "926ad70d5774c8f5fae4abd2381bdb08d3ceca9c",
+   "history": [
+    {
+     "ts": "2026-11-21T07:59:46+00:00",
+     "actor": "owner",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-21T08:05:13+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261121T0800-exec-T-0032"
+    },
+    {
+     "ts": "2026-11-21T08:05:13+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-21T08:12:29+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 67ac8bbe80"
+    },
+    {
+     "ts": "2026-11-21T08:30:47+00:00",
+     "actor": "reviewer",
+     "to": "in_progress",
+     "note": "failed: Criterion 'e2e not longer than 3 min' is unmet: the implementer reports 3m13s. On the live host, two-players.spec.ts also failed at the results table."
+    },
+    {
+     "ts": "2026-11-21T08:47:16+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 926ad70d57"
+    },
+    {
+     "ts": "2026-11-21T09:00:51+00:00",
+     "actor": "reviewer",
+     "to": "blocked",
+     "note": "failed review 2×: client.spec.ts › a full bot battle ends with the results table: Test timeout of 90000ms exceeded. The host runs 180 s matches, so this is probably the host configuration rather than "
+    }
+   ]
+  },
+  {
+   "id": "T-0033",
+   "title": "Музыка: три синтвейв-мелодии (меню, бой, итоги) с выключателем и громкостью",
+   "type": "milestone",
+   "state": "accepted",
+   "priority": "P1",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-21T08:05:40+00:00",
+   "accepted_at": "2026-11-21T14:15:00+00:00",
+   "released_sha": "a56a15aa0444480285a0334271ee0507cfcbef58",
+   "history": [
+    {
+     "ts": "2026-11-21T08:05:40+00:00",
+     "actor": "owner",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-21T08:50:23+00:00",
+     "actor": "owner",
+     "to": "ready",
+     "note": "priority P2 → P1: владелец 21.11 поднял приоритет мобильного управления и звука"
+    },
+    {
+     "ts": "2026-11-21T12:00:30+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261121T1200-exec-T-0033"
+    },
+    {
+     "ts": "2026-11-21T12:00:30+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-21T12:03:32+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged be94a7a1a7"
+    },
+    {
+     "ts": "2026-11-21T12:40:29+00:00",
+     "actor": "reviewer",
+     "to": "in_progress",
+     "note": "failed: Hidden-tab silencing and resume are not covered by any scenario, and nothing plays the battle or results tracks. Both need new tests in tests/e2e/music.spec.ts."
+    },
+    {
+     "ts": "2026-11-21T13:07:06+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged a56a15aa04"
+    },
+    {
+     "ts": "2026-11-21T14:15:00+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "inconclusive 3×: accepted without external proof"
+    }
+   ]
+  },
+  {
+   "id": "T-0034",
+   "title": "Звуковые эффекты: ускорение, стрельба пяти оружий, лазер, попадания, взрывы, способности, интерфейс",
+   "type": "milestone",
+   "state": "accepted",
+   "priority": "P1",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-21T08:05:40+00:00",
+   "accepted_at": "2026-11-21T14:23:00+00:00",
+   "released_sha": "96ee2a1f504ed73b5dace4bf5b15bf6e853b698f",
+   "history": [
+    {
+     "ts": "2026-11-21T08:05:40+00:00",
+     "actor": "owner",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-21T08:50:23+00:00",
+     "actor": "owner",
+     "to": "ready",
+     "note": "priority P2 → P1: владелец 21.11 поднял приоритет мобильного управления и звука"
+    },
+    {
+     "ts": "2026-11-21T12:18:15+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261121T1210-exec-T-0034"
+    },
+    {
+     "ts": "2026-11-21T12:18:15+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-21T12:25:36+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 96ee2a1f50"
+    },
+    {
+     "ts": "2026-11-21T14:23:00+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "inconclusive 3×: accepted without external proof"
+    }
+   ]
+  },
+  {
+   "id": "T-0035",
+   "title": "Управление в мобильных браузерах: палец ведёт машину, две кнопки действий, раскладка под телефон",
+   "type": "milestone",
+   "state": "rejected",
+   "priority": "P0",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-21T08:05:40+00:00",
+   "accepted_at": null,
+   "released_sha": "8121bcd83b5af405c3a2974a55ed75fed5f93b67",
+   "history": [
+    {
+     "ts": "2026-11-21T08:05:40+00:00",
+     "actor": "owner",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-21T08:50:23+00:00",
+     "actor": "owner",
+     "to": "ready",
+     "note": "priority P2 → P0: владелец 21.11 поднял приоритет мобильного управления и звука"
+    },
+    {
+     "ts": "2026-11-21T09:01:19+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261121T0855-exec-T-0035"
+    },
+    {
+     "ts": "2026-11-21T09:01:20+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-21T09:19:18+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 8121bcd83b"
+    },
+    {
+     "ts": "2026-11-21T10:44:13+00:00",
+     "actor": "reviewer",
+     "to": "in_progress",
+     "note": "failed: client.spec.ts 'a full bot battle ends with the results table [desktop]': Test timeout of 90000ms exceeded. two-players.spec 'two players play a room by code...' also failed, with the results "
+    },
+    {
+     "ts": "2026-11-21T10:54:31+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "partial — continues next cycle"
+    },
+    {
+     "ts": "2026-11-21T10:54:48+00:00",
+     "actor": "owner",
+     "to": "rejected",
+     "note": "владелец проверил на телефоне 21.11: огонь не работает, вести пальцем по полю нельзя. Код остаётся в main; заменена задачей T-0040 «Мобильное управление v2» (стик)."
+    }
+   ]
+  },
+  {
+   "id": "T-0036",
+   "title": "E2E: live-host mode runs only the real 180 s @slow battle; local npm run e2e ≤ 3 min",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P0",
+   "goal": "M0 (a)/(b) and M1: e2e proof of the battle runs locally within the limit and on the live host",
+   "role": "developer",
+   "created": "2026-11-21T08:32:12+00:00",
+   "accepted_at": "2026-11-21T11:16:59+00:00",
+   "released_sha": "de94c057738ff66fcaa3d46cb600b6aa4d85c79c",
+   "history": [
+    {
+     "ts": "2026-11-21T08:32:12+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-21T09:19:32+00:00",
+     "actor": "owner",
+     "to": "ready",
+     "note": "priority P1 → P0: без режима живого хоста e2e каждая задача developer проваливает ревью tester-а (T-0030, T-0032)"
+    },
+    {
+     "ts": "2026-11-21T09:25:34+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261121T0925-exec-T-0036"
+    },
+    {
+     "ts": "2026-11-21T09:25:34+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-21T09:50:36+00:00",
+     "actor": "dispatcher",
+     "to": "ready",
+     "note": "run failed: timeout after 1500s"
+    },
+    {
+     "ts": "2026-11-21T10:08:30+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261121T1000-exec-T-0036"
+    },
+    {
+     "ts": "2026-11-21T10:08:30+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-21T10:33:32+00:00",
+     "actor": "dispatcher",
+     "to": "ready",
+     "note": "run failed: timeout after 1500s"
+    },
+    {
+     "ts": "2026-11-21T10:54:31+00:00",
+     "actor": "owner",
+     "to": "ready",
+     "note": "задача сужена и ограничена по времени после двух таймаутов 1500 с"
+    },
+    {
+     "ts": "2026-11-21T11:00:29+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261121T1100-exec-T-0036"
+    },
+    {
+     "ts": "2026-11-21T11:00:29+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-21T11:05:15+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged de94c05773"
+    },
+    {
+     "ts": "2026-11-21T11:16:59+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The config, scripts and README implement live-host @live-only mode, a desktop-only non-@slow default run, a separate mobile command with no dependencies, and a 180 s @slow @live battle with a 240 s ti"
+    }
+   ]
+  },
+  {
+   "id": "T-0037",
+   "title": "Load script tests/load/clients.ts: N rooms of ws clients, input at 20 Hz, report p95 latency and errors",
+   "type": "milestone",
+   "state": "accepted",
+   "priority": "P1",
+   "goal": "M1: 10 concurrent battles without server errors; G4 p95 ≤ 300 ms",
+   "role": "developer",
+   "created": "2026-11-21T08:32:12+00:00",
+   "accepted_at": "2026-11-21T16:48:03+00:00",
+   "released_sha": "8eaf541c44f13103b1cc6eb10be130f86ad338f2",
+   "history": [
+    {
+     "ts": "2026-11-21T08:32:12+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-21T12:00:30+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "priority → P1: Этап теперь M1. Критерий выхода M1 «10 одновременных боёв без ошибок» и G4 (p95 ≤ 300 мс) нельзя проверить без скрипта нагрузки. Он блокирует приёмку этапа."
+    },
+    {
+     "ts": "2026-11-21T16:30:08+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261121T1630-exec-T-0037"
+    },
+    {
+     "ts": "2026-11-21T16:30:08+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-21T16:34:11+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 8eaf541c44"
+    },
+    {
+     "ts": "2026-11-21T16:48:03+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The load script ran against the deployed host with no protocol change or server hook. It printed the required JSON (p95 65 ms, server_errors 0, disconnects 0), and server_errors stayed 0 in /_team/met"
+    }
+   ]
+  },
+  {
+   "id": "T-0038",
+   "title": "Меню в бою: продолжить, начать заново, выйти в гараж, настройки, управление",
+   "type": "milestone",
+   "state": "accepted",
+   "priority": "P1",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-21T09:03:29+00:00",
+   "accepted_at": null,
+   "released_sha": "0207173a3415ce4ef478553c615c54348653f7fa",
+   "history": [
+    {
+     "ts": "2026-11-21T09:03:29+00:00",
+     "actor": "owner",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-21T17:25:30+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261121T1725-exec-T-0038"
+    },
+    {
+     "ts": "2026-11-21T17:25:30+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-21T17:41:20+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "partial — continues next cycle"
+    },
+    {
+     "ts": "2026-11-21T17:50:38+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "partial — continues next cycle"
+    },
+    {
+     "ts": "2026-11-21T18:00:21+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "partial — continues next cycle"
+    },
+    {
+     "ts": "2026-11-21T18:11:06+00:00",
+     "actor": "dispatcher",
+     "to": "blocked",
+     "note": "stuck: 3 failed attempts on this goal; the PO replans it with 3 alternatives"
+    },
+    {
+     "ts": "2026-11-21T18:45:14+00:00",
+     "actor": "owner",
+     "to": "ready",
+     "note": "оператор: два прогона вышли за 10 с из-за двусмысленной строки о времени в подсказке (F35, исправлено PR 316); код меню готов в ветке task/T-0038, осталось: мобильный сценарий меню 844x390, проверка r"
+    },
+    {
+     "ts": "2026-11-21T20:00:38+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261121T2000-exec-T-0038"
+    },
+    {
+     "ts": "2026-11-21T20:00:38+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-21T20:13:38+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "partial — continues next cycle"
+    },
+    {
+     "ts": "2026-11-21T20:45:36+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "partial — continues next cycle"
+    },
+    {
+     "ts": "2026-11-21T21:17:26+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "partial — continues next cycle"
+    },
+    {
+     "ts": "2026-11-21T21:57:44+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "partial — continues next cycle"
+    },
+    {
+     "ts": "2026-11-21T22:22:40+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "partial — continues next cycle"
+    },
+    {
+     "ts": "2026-11-21T22:49:45+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 0207173a34"
+    },
+    {
+     "ts": "2026-11-21T23:35:47+00:00",
+     "actor": "reviewer",
+     "to": "in_progress",
+     "note": "failed: The first criterion has no passing scenario. menu.spec.ts is not runnable against the deployed host (no @live tag), and mobile.spec @live fails with `ReferenceError: noShift is not defined` at"
+    },
+    {
+     "ts": "2026-11-21T23:53:29+00:00",
+     "actor": "owner",
+     "to": "accepted",
+     "note": "оператор: ревью 23:35 провалило задачу на версии, где слияние стёрло часть main (ошибка noShift is not defined) и где у меню не было сценариев @live. Обе причины устранены исправлениями оператора e88b"
+    }
+   ]
+  },
+  {
+   "id": "T-0039",
+   "title": "Mobile portrait: Kills/Deaths panel must not overlap the battle timer; rotate hint hides after 5 s or on tap",
+   "type": "defect",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "M1: управление в мобильных браузерах (VISION), читаемый HUD на телефоне",
+   "role": "developer",
+   "created": "2026-11-21T09:25:34+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-21T09:25:34+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-21T10:54:31+00:00",
+     "actor": "owner",
+     "to": "ready",
+     "note": "мобильная полировка — после v2"
+    },
+    {
+     "ts": "2026-11-21T13:00:50+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Владелец 21.11 (OBS-0152): на телефоне игра только альбомная, в книжной показывается подсказка повернуть (T-0044). Наложение в книжной ориентации больше не нужно чинить."
+    }
+   ]
+  },
+  {
+   "id": "T-0040",
+   "title": "Мобильное управление v2: стик в левом углу, надёжный огонь, проверка на движке Safari (iPhone)",
+   "type": "milestone",
+   "state": "accepted",
+   "priority": "P0",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-21T10:54:32+00:00",
+   "accepted_at": "2026-11-21T13:32:37+00:00",
+   "released_sha": "4d9f32622d165c422b6178f759f837b134f64423",
+   "history": [
+    {
+     "ts": "2026-11-21T10:54:32+00:00",
+     "actor": "owner",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-21T11:37:22+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261121T1135-exec-T-0040"
+    },
+    {
+     "ts": "2026-11-21T11:37:22+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-21T11:54:08+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 4d9f32622d"
+    },
+    {
+     "ts": "2026-11-21T13:32:37+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "inconclusive 3×: accepted without external proof"
+    }
+   ]
+  },
+  {
+   "id": "T-0041",
+   "title": "Огонь на настоящем телефоне: защитная обработка касаний кнопок и диагностика в журнале сервера",
+   "type": "milestone",
+   "state": "rejected",
+   "priority": "P0",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-21T12:20:24+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-21T12:20:24+00:00",
+     "actor": "owner",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-21T12:25:47+00:00",
+     "actor": "owner",
+     "to": "rejected",
+     "note": "владелец 21.11 ~12:40 UTC: стрельба на телефоне заработала (у него была закэшированная старая версия). Задача снята; полезные части (input_summary в журнале, проекты Playwright объявлены всегда, тесты"
+    }
+   ]
+  },
+  {
+   "id": "T-0042",
+   "title": "Десктоп: WASD ведёт машину, мышь наводит башню отдельно от кузова",
+   "type": "milestone",
+   "state": "accepted",
+   "priority": "P0",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-21T12:30:54+00:00",
+   "accepted_at": null,
+   "released_sha": "c2a60dc7874117e68c2152c2df21599feca83835",
+   "history": [
+    {
+     "ts": "2026-11-21T12:30:54+00:00",
+     "actor": "owner",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-21T13:35:22+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261121T1320-exec-T-0042"
+    },
+    {
+     "ts": "2026-11-21T13:35:22+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-21T14:00:23+00:00",
+     "actor": "dispatcher",
+     "to": "ready",
+     "note": "run failed: timeout after 1500s"
+    },
+    {
+     "ts": "2026-11-21T14:08:36+00:00",
+     "actor": "owner",
+     "to": "ready",
+     "note": "после таймаута: работа сохранена коммитом 349d029 в task/T-0042, в scope добавлено правило продолжения"
+    },
+    {
+     "ts": "2026-11-21T14:35:58+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261121T1407-exec-T-0042"
+    },
+    {
+     "ts": "2026-11-21T14:35:58+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-21T14:43:04+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged c2a60dc787"
+    },
+    {
+     "ts": "2026-11-21T14:58:41+00:00",
+     "actor": "owner",
+     "to": "accepted",
+     "note": "принято владельцем по ручной проверке на живом хосте 21.11 14:44 UTC (версия c2a60dc): D+S ведут машину из угла, отпускание останавливает, башня наводится на курсор независимо от кузова, линия прицела"
+    }
+   ]
+  },
+  {
+   "id": "T-0043",
+   "title": "GAME-DESIGN.md §3 и §8: раздельные движение и прицел (WASD/стик + независимая башня)",
+   "type": "design",
+   "state": "accepted",
+   "priority": "P1",
+   "goal": "G1",
+   "role": "game-designer",
+   "created": "2026-11-21T12:30:54+00:00",
+   "accepted_at": "2026-11-21T13:34:34+00:00",
+   "released_sha": "24edafc46f10b62ea674cd82b1fa23b6aa1f056a",
+   "history": [
+    {
+     "ts": "2026-11-21T12:30:54+00:00",
+     "actor": "owner",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-21T13:07:19+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261121T1235-exec-T-0043"
+    },
+    {
+     "ts": "2026-11-21T13:07:19+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-21T13:12:09+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 24edafc46f"
+    },
+    {
+     "ts": "2026-11-21T13:34:34+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "GAME-DESIGN v1.7 and balance.json describe separate move and aim inputs, and the bot rules match the JSON keys. §10.1 lists the parameters to revisit, and the 35–65 % corridor is unchanged."
+    }
+   ]
+  },
+  {
+   "id": "T-0044",
+   "title": "Телефон: правый стик наводит башню и стреляет при сильном отклонении",
+   "type": "milestone",
+   "state": "accepted",
+   "priority": "P0",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-21T12:58:34+00:00",
+   "accepted_at": null,
+   "released_sha": "1102609ca9382bbc379fd5af87918eaf4e2b80fd",
+   "history": [
+    {
+     "ts": "2026-11-21T12:58:34+00:00",
+     "actor": "owner",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-21T14:58:49+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261121T1450-exec-T-0044"
+    },
+    {
+     "ts": "2026-11-21T14:58:49+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-21T15:29:46+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "partial — continues next cycle"
+    },
+    {
+     "ts": "2026-11-21T15:50:26+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "partial — continues next cycle"
+    },
+    {
+     "ts": "2026-11-21T16:10:51+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "partial — continues next cycle"
+    },
+    {
+     "ts": "2026-11-21T16:30:08+00:00",
+     "actor": "dispatcher",
+     "to": "blocked",
+     "note": "stuck: 3 failed attempts on this goal; the PO replans it with 3 alternatives"
+    },
+    {
+     "ts": "2026-11-21T16:39:53+00:00",
+     "actor": "owner",
+     "to": "ready",
+     "note": "оператор: убрано устаревшее правило 15 минут, из-за него два прогона вышли без работы; код готов, осталось довести тесты"
+    },
+    {
+     "ts": "2026-11-21T16:45:56+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261121T1645-exec-T-0044"
+    },
+    {
+     "ts": "2026-11-21T16:45:56+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-21T17:09:19+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "partial — continues next cycle"
+    },
+    {
+     "ts": "2026-11-21T17:19:08+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 1102609ca9"
+    },
+    {
+     "ts": "2026-11-21T17:41:21+00:00",
+     "actor": "owner",
+     "to": "accepted",
+     "note": "оператор проверил на живом адресе версии 1102609 настоящими касаниями двух пальцев через CDP: левый стик ведёт машину, правый одновременно наводит башню точно по направлению стика (вверх, вниз, влево,"
+    }
+   ]
+  },
+  {
+   "id": "T-0045",
+   "title": "GAME-DESIGN.md: привязанность к машине и риск её потери (гараж, история машины, железный режим)",
+   "type": "design",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "game-designer",
+   "created": "2026-11-21T13:07:05+00:00",
+   "accepted_at": null,
+   "released_sha": "e4745b7614b9a159bdd23f542852443f8b6a9143",
+   "history": [
+    {
+     "ts": "2026-11-21T13:07:05+00:00",
+     "actor": "owner",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-21T14:00:23+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261121T1320-exec-T-0045"
+    },
+    {
+     "ts": "2026-11-21T14:00:23+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-21T14:04:36+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 1c82b75646"
+    },
+    {
+     "ts": "2026-11-21T14:24:54+00:00",
+     "actor": "reviewer",
+     "to": "in_progress",
+     "note": "failed: The last criterion (proposed_tasks, 3–5 ordered tasks with a minimal first version) is unmet. GAME-DESIGN.md has no task list, and the implementer's report has no proposed_tasks field."
+    },
+    {
+     "ts": "2026-11-21T14:35:58+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged e4745b7614"
+    },
+    {
+     "ts": "2026-11-21T14:57:39+00:00",
+     "actor": "reviewer",
+     "to": "blocked",
+     "note": "failed review 2×: The last criterion (3–5 proposed tasks in implementation order, with a minimal first version) is not met. Neither GAME-DESIGN.md §6A nor design/balance/garage.json contains such a li"
+    },
+    {
+     "ts": "2026-11-21T14:58:23+00:00",
+     "actor": "owner",
+     "to": "accepted",
+     "note": "документ готов и слит; критерий про proposed_tasks снят решением владельца (задачи developer по теме отложены до авторизации)"
+    }
+   ]
+  },
+  {
+   "id": "T-0046",
+   "title": "Каталог механик: необычные оружия и воздействия на карту (design/ideas/mechanics.md, первая версия)",
+   "type": "design",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "game-designer",
+   "created": "2026-11-21T13:10:21+00:00",
+   "accepted_at": "2026-11-21T15:46:52+00:00",
+   "released_sha": "b399821405337b1e9179efd2dfaf232c60fcdaeb",
+   "history": [
+    {
+     "ts": "2026-11-21T13:10:21+00:00",
+     "actor": "owner",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-21T15:29:46+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261121T1450-exec-T-0046"
+    },
+    {
+     "ts": "2026-11-21T15:29:47+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-21T15:38:38+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged b399821405"
+    },
+    {
+     "ts": "2026-11-21T15:46:52+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The catalogue has 16 ideas in the shared template, three ordered recommendations with balance.json parameters, and a return rule. GAME-DESIGN.md links to it. The tests passed (exit 0)."
+    }
+   ]
+  },
+  {
+   "id": "T-0047",
+   "title": "GAME-DESIGN.md: правила автоматической балансировки — как находим имбу и как быстро лечим",
+   "type": "design",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "game-designer",
+   "created": "2026-11-21T13:10:21+00:00",
+   "accepted_at": "2026-11-21T16:12:56+00:00",
+   "released_sha": "53fdc87c41f14b934c9572d1dbcdd6a2fbcca0f3",
+   "history": [
+    {
+     "ts": "2026-11-21T13:10:21+00:00",
+     "actor": "owner",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-21T15:50:26+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261121T1545-exec-T-0047"
+    },
+    {
+     "ts": "2026-11-21T15:50:26+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-21T16:01:28+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 53fdc87c41"
+    },
+    {
+     "ts": "2026-11-21T16:12:56+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "GAME-DESIGN.md §13 covers the data sources, numeric imbalance definitions, healing steps, rhythm and roles, and the daily report. The autobalance block in balance.json carries the same numbers as the "
+    }
+   ]
+  },
+  {
+   "id": "T-0048",
+   "title": "Телеметрия баланса: счётчики настоящих матчей по оружию, способностям и характеристикам в /_team/metrics.json",
+   "type": "milestone",
+   "state": "released",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-21T13:10:21+00:00",
+   "accepted_at": null,
+   "released_sha": "25339d2bc17f727127ff3f010a21ce9f1543e8b5",
+   "history": [
+    {
+     "ts": "2026-11-21T13:10:21+00:00",
+     "actor": "owner",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0049",
+   "title": "E2E live-host mode: default @live set ≤ 60 s without the 180 s battle; real battle only via e2e:slow",
+   "type": "quality",
+   "state": "rejected",
+   "priority": "P3",
+   "goal": "M1: короткий цикл проверки выпущенных задач (каденция developer)",
+   "role": "developer",
+   "created": "2026-11-21T13:35:21+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-21T13:35:21+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-21T18:11:06+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261121T1810-exec-T-0049"
+    },
+    {
+     "ts": "2026-11-21T18:11:06+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-21T18:18:15+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "partial — continues next cycle"
+    },
+    {
+     "ts": "2026-11-21T18:25:43+00:00",
+     "actor": "dispatcher",
+     "to": "blocked",
+     "note": "stuck: 3 failed attempts on this goal; the PO replans it with 3 alternatives"
+    }
+   ]
+  },
+  {
+   "id": "T-0050",
+   "title": "DESIGN.md: readable separate turret in Neon-vector (direction at 1280×720 and on a 360 px wide phone)",
+   "type": "design",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1: игрок видит, куда смотрит башня своя и соперника (WASD + мышь, правый стик)",
+   "role": "designer",
+   "created": "2026-11-21T13:35:21+00:00",
+   "accepted_at": "2026-11-21T14:26:51+00:00",
+   "released_sha": "d86158a6114bc47cd70b5b71f1ac19346f186e73",
+   "history": [
+    {
+     "ts": "2026-11-21T13:35:21+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-21T14:04:36+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261121T1320-exec-T-0050"
+    },
+    {
+     "ts": "2026-11-21T14:04:36+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-21T14:08:23+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged d86158a611"
+    },
+    {
+     "ts": "2026-11-21T14:26:51+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "This is a docs-only task, so I checked it by reading DESIGN.md §4.1 and viewing both PNG mock-ups. Every acceptance criterion and negative case holds; no gameplay scenario applies, so none was run."
+    }
+   ]
+  },
+  {
+   "id": "T-0051",
+   "title": "Bots aim the turret separately from movement (GAME-DESIGN §8.3–8.4) and re-run the 200-car balance corridor",
+   "type": "milestone",
+   "state": "accepted",
+   "priority": "P1",
+   "goal": "M0 (d)/G1: balance corridor 35–65 % holds under the separate-turret controls",
+   "role": "developer",
+   "created": "2026-11-21T14:27:34+00:00",
+   "accepted_at": "2026-11-22T04:56:16+00:00",
+   "released_sha": "947902f4b87288bcdaafee5d0c5a565be53455df",
+   "history": [
+    {
+     "ts": "2026-11-21T14:27:34+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0052",
+   "title": "E2E desktop: npm run e2e ≤ 3 min (parallel battle specs) and a stable A+W movement test in client.spec.ts",
+   "type": "quality",
+   "state": "rejected",
+   "priority": "P1",
+   "goal": "M1: короткий и надёжный цикл проверки выпущенных задач",
+   "role": "developer",
+   "created": "2026-11-21T14:58:48+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-21T14:58:48+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-21T15:50:06+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Поглощена новой задачей e2e (тестовый режим отрисовки, desktop ≤ 2 мин, флаки A+W и ≤ 1 с), которая продолжает её через continues."
+    }
+   ]
+  },
+  {
+   "id": "T-0053",
+   "title": "E2E: тестовый режим отрисовки без свечения, ожидания по снимкам сервера, мобильные в один поток; desktop и mobile ≤ 2 мин",
+   "type": "quality",
+   "state": "blocked",
+   "priority": "P2",
+   "goal": "M1: короткий и надёжный цикл проверки задач developer",
+   "role": "developer",
+   "created": "2026-11-21T15:50:06+00:00",
+   "accepted_at": null,
+   "released_sha": "980069e1544c200b33cf57c230c1b5ad3da4afb1",
+   "history": [
+    {
+     "ts": "2026-11-21T15:50:06+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-21T18:25:44+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261121T1825-exec-T-0053"
+    },
+    {
+     "ts": "2026-11-21T18:25:44+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-21T18:44:17+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "partial — continues next cycle"
+    },
+    {
+     "ts": "2026-11-21T19:20:04+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "partial — continues next cycle"
+    },
+    {
+     "ts": "2026-11-21T19:51:14+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "partial — continues next cycle"
+    },
+    {
+     "ts": "2026-11-21T20:00:38+00:00",
+     "actor": "dispatcher",
+     "to": "blocked",
+     "note": "stuck: 3 failed attempts on this goal; the PO replans it with 3 alternatives"
+    },
+    {
+     "ts": "2026-11-21T20:37:55+00:00",
+     "actor": "owner",
+     "to": "ready",
+     "note": "оператор: три partial были с настоящим продвижением; цель «десктопный e2e не дольше 2 минут» на этом сервере недостижима при двух разработчиках, новая цель 3 мин 15 с; завершить задачу как done без но"
+    },
+    {
+     "ts": "2026-11-21T21:47:23+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261121T2145-exec-T-0053"
+    },
+    {
+     "ts": "2026-11-21T21:47:24+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-21T22:04:45+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged c306fff4b6"
+    },
+    {
+     "ts": "2026-11-21T22:22:48+00:00",
+     "actor": "reviewer",
+     "to": "in_progress",
+     "note": "failed: client.spec.ts: the two-tab 'A's car movement is visible in B within 1 s' test [desktop] timed out (30 s). It failed in both runs against the deployed host. This is the exact flaky test the ta"
+    },
+    {
+     "ts": "2026-11-21T22:50:28+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 980069e154"
+    },
+    {
+     "ts": "2026-11-21T23:06:48+00:00",
+     "actor": "reviewer",
+     "to": "blocked",
+     "note": "failed review 2×: mobile.spec.ts @live 'no overlaps in the garage and in battle' (all 3 viewports, mobile and mobile-webkit): ReferenceError: noShift is not defined, called at mobile.spec.ts:233 and d"
+    }
+   ]
+  },
+  {
+   "id": "T-0054",
+   "title": "GAME-DESIGN.md §2 и §3.1: управление на телефоне двумя стиками (без кнопки Fire) по T-0044",
+   "type": "design",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "G1: документ совпадает с управлением, которое видит игрок",
+   "role": "game-designer",
+   "created": "2026-11-21T15:50:07+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-21T15:50:07+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-21T16:10:40+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261121T1610-exec-T-0054"
+    },
+    {
+     "ts": "2026-11-21T16:10:40+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-21T16:20:36+00:00",
+     "actor": "dispatcher",
+     "to": "ready",
+     "note": "run failed: error_max_turns"
+    },
+    {
+     "ts": "2026-11-21T16:30:08+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261121T1630-exec-T-0054"
+    },
+    {
+     "ts": "2026-11-21T16:30:08+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-21T16:39:52+00:00",
+     "actor": "dispatcher",
+     "to": "ready",
+     "note": "run failed: error_max_turns"
+    },
+    {
+     "ts": "2026-11-21T16:45:55+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Two runs ~590 s each, 91 % in git; replaced by a re-scoped task with the numbers in the card and no git search of task/T-0044."
+    }
+   ]
+  },
+  {
+   "id": "T-0055",
+   "title": "Прототип «Заряд удержанием» (weapons.charge) за флагом features.charge_cannon, выключенным по умолчанию, с симуляцией в коридоре",
+   "type": "milestone",
+   "state": "in_progress",
+   "priority": "P2",
+   "goal": "G1: необычная механика оружия (постоянное направление mechanics)",
+   "role": "developer",
+   "created": "2026-11-21T15:50:08+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-21T15:50:08+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0056",
+   "title": "GAME-DESIGN.md §2 и §3.1: телефон — два стика без кнопки Fire (числа из этой карточки, без git)",
+   "type": "design",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1: документ совпадает с управлением, которое видит игрок",
+   "role": "game-designer",
+   "created": "2026-11-21T16:45:55+00:00",
+   "accepted_at": "2026-11-21T17:11:48+00:00",
+   "released_sha": "ed8810a0ba49c28b18619b2222e2d40a270e8fe4",
+   "history": [
+    {
+     "ts": "2026-11-21T16:45:55+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-21T16:45:56+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261121T1645-exec-T-0056"
+    },
+    {
+     "ts": "2026-11-21T16:45:56+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-21T16:55:43+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged ed8810a0ba"
+    },
+    {
+     "ts": "2026-11-21T17:11:48+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "GAME-DESIGN.md is v1.12. Its §3.1.1 matches every number on the card, and it has no phone Fire button. I could not read the commit diff, so I could not confirm that only the document changed."
+    }
+   ]
+  },
+  {
+   "id": "T-0057",
+   "title": "Load script: tests/load/clients.ts honours the rooms/clients/seconds that team-play load passes",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P1",
+   "goal": "M1: 10 concurrent battles without server errors; G4 p95 ≤ 300 ms",
+   "role": "developer",
+   "created": "2026-11-21T17:10:53+00:00",
+   "accepted_at": "2026-11-21T22:45:39+00:00",
+   "released_sha": "52cf99a090493eced679d29adad9278cc19d3be7",
+   "history": [
+    {
+     "ts": "2026-11-21T17:10:53+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-21T22:15:49+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261121T2215-exec-T-0057"
+    },
+    {
+     "ts": "2026-11-21T22:15:49+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-21T22:23:16+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 52cf99a090"
+    },
+    {
+     "ts": "2026-11-21T22:45:39+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The load script now honours the parameters team-play load passes. Against the deployed host, runs with 6 clients for 5 s and 20 clients for 60 s reported the requested client counts, with 0 disconnect"
+    }
+   ]
+  },
+  {
+   "id": "T-0058",
+   "title": "Playwright: software-rendering flags for Chromium in playwright.config.ts behind an env variable, not in spec files",
+   "type": "quality",
+   "state": "ready",
+   "priority": "P3",
+   "goal": "M1: a reliable task-check cycle on the server and on the operator's stand",
+   "role": "developer",
+   "created": "2026-11-21T17:10:53+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-21T17:10:53+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0059",
+   "title": "Analyst: why /_team/metrics.json shows 0 finished and 9 abandoned battles for 21.11",
+   "type": "research",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G2: the share of battles played to the end is measured correctly",
+   "role": "analyst",
+   "created": "2026-11-21T17:10:54+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-21T17:10:54+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-21T17:10:54+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261121T1707-exec-T-0059"
+    },
+    {
+     "ts": "2026-11-21T17:10:54+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-21T17:11:15+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measurement delivered"
+    }
+   ]
+  },
+  {
+   "id": "T-0060",
+   "title": "Metrics: separate test battles (e2e/load/headless) from real players and record why a battle was abandoned",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P1",
+   "goal": "G2: share of battles finished by real players (M1 metrics readable)",
+   "role": "developer",
+   "created": "2026-11-21T18:11:05+00:00",
+   "accepted_at": "2026-11-22T00:02:50+00:00",
+   "released_sha": "f06e429e69f6d74f76f6ee76c9cda5d25e91baee",
+   "history": [
+    {
+     "ts": "2026-11-21T18:11:05+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-21T21:46:41+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "priority → P1: Metrics for 21.11: 23 started, 0 finished, 23 abandoned, median 0 s. G1/G2 for M1 cannot be read, and this may hide a real defect where battles are counted abandoned at the start."
+    },
+    {
+     "ts": "2026-11-21T23:00:38+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261121T2300-exec-T-0060"
+    },
+    {
+     "ts": "2026-11-21T23:00:38+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-21T23:11:31+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged a0873a930b"
+    },
+    {
+     "ts": "2026-11-21T23:23:31+00:00",
+     "actor": "reviewer",
+     "to": "in_progress",
+     "note": "failed: Criterion 1: on the deployed host, headless Playwright traffic is counted as by_origin.human, not by_origin.test (human started 4→6, test 0→0)."
+    },
+    {
+     "ts": "2026-11-21T23:51:29+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged f06e429e69"
+    }
+   ]
+  },
+  {
+   "id": "T-0061",
+   "title": "Probe 1/3 for T-0038: Accept the menu by its own spec; take the suite gate off the task",
+   "type": "research",
+   "state": "rejected",
+   "priority": "P1",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-21T18:25:43+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-21T18:25:43+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "replan probe for T-0038"
+    },
+    {
+     "ts": "2026-11-21T19:20:07+00:00",
+     "actor": "owner",
+     "to": "rejected",
+     "note": "оператор: пробы не нужны, T-0038 возвращена в работу после исправления подсказки о времени (PR 316); код меню готов"
+    }
+   ]
+  },
+  {
+   "id": "T-0062",
+   "title": "Probe 2/3 for T-0038: Split: desktop menu now, room and phone as a follow-up",
+   "type": "research",
+   "state": "rejected",
+   "priority": "P1",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-21T18:25:43+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-21T18:25:43+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "replan probe for T-0038"
+    },
+    {
+     "ts": "2026-11-21T19:20:07+00:00",
+     "actor": "owner",
+     "to": "rejected",
+     "note": "оператор: пробы не нужны, T-0038 возвращена в работу после исправления подсказки о времени (PR 316); код меню готов"
+    }
+   ]
+  },
+  {
+   "id": "T-0063",
+   "title": "Probe 3/3 for T-0038: Wait for T-0053, then one menu run in the test render mode",
+   "type": "research",
+   "state": "rejected",
+   "priority": "P1",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-21T18:25:43+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-21T18:25:43+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "replan probe for T-0038"
+    },
+    {
+     "ts": "2026-11-21T19:20:08+00:00",
+     "actor": "owner",
+     "to": "rejected",
+     "note": "оператор: пробы не нужны, T-0038 возвращена в работу после исправления подсказки о времени (PR 316); код меню готов"
+    }
+   ]
+  },
+  {
+   "id": "T-0064",
+   "title": "Probe 1/3 for T-0049: Accept the partial result and drop the 60 s bar",
+   "type": "research",
+   "state": "done",
+   "priority": "P1",
+   "goal": "M1: короткий цикл проверки выпущенных задач (каденция developer)",
+   "role": "developer",
+   "created": "2026-11-21T18:50:45+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-21T18:50:45+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "replan probe for T-0049"
+    },
+    {
+     "ts": "2026-11-21T23:20:50+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261121T2307-exec-T-0064"
+    },
+    {
+     "ts": "2026-11-21T23:20:50+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-21T23:24:35+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "probe does not work: The approach does not hold on main as it stands. The live set still contains the 180 s @slow battle, so the criterion \"no @slow in the live set\" is not met. Without that battle, t"
+    }
+   ]
+  },
+  {
+   "id": "T-0065",
+   "title": "Probe 2/3 for T-0049: Live set in the test render mode from T-0053",
+   "type": "research",
+   "state": "rejected",
+   "priority": "P3",
+   "goal": "M1: короткий цикл проверки выпущенных задач (каденция developer)",
+   "role": "developer",
+   "created": "2026-11-21T18:50:45+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-21T18:50:45+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "replan probe for T-0049"
+    }
+   ]
+  },
+  {
+   "id": "T-0066",
+   "title": "Probe 3/3 for T-0049: Protocol smoke without a browser instead of browser @live",
+   "type": "research",
+   "state": "rejected",
+   "priority": "P3",
+   "goal": "M1: короткий цикл проверки выпущенных задач (каденция developer)",
+   "role": "developer",
+   "created": "2026-11-21T18:50:45+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-21T18:50:45+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "replan probe for T-0049"
+    }
+   ]
+  },
+  {
+   "id": "T-0067",
+   "title": "Repo: no pkill/killall/kill by pattern in scripts and tests; stop only own processes by saved PID, guarded by a test",
+   "type": "defect",
+   "state": "accepted",
+   "priority": "P1",
+   "goal": "L0: the live server stays up while the team runs tests on the same host",
+   "role": "developer",
+   "created": "2026-11-21T19:30:42+00:00",
+   "accepted_at": "2026-11-22T01:57:01+00:00",
+   "released_sha": "a520fb2cf7a21c8b261c9b140905741c30a73b12",
+   "history": [
+    {
+     "ts": "2026-11-21T19:30:42+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0068",
+   "title": "Телефон: игра на весь экран, без панелей браузера и без сдвига страницы",
+   "type": "milestone",
+   "state": "accepted",
+   "priority": "P0",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-21T19:51:14+00:00",
+   "accepted_at": null,
+   "released_sha": "4a25851553a4dd61fcf95be82217f439a6f1db03",
+   "history": [
+    {
+     "ts": "2026-11-21T19:51:14+00:00",
+     "actor": "owner",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-21T20:00:38+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261121T2000-exec-T-0068"
+    },
+    {
+     "ts": "2026-11-21T20:00:38+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-21T20:37:54+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "partial — continues next cycle"
+    },
+    {
+     "ts": "2026-11-21T20:54:52+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 4a25851553"
+    },
+    {
+     "ts": "2026-11-21T21:15:47+00:00",
+     "actor": "reviewer",
+     "to": "in_progress",
+     "note": "failed: mobile.spec.ts › @live full screen button toggles and the battle goes on (Chromium) [mobile] — Test timeout of 30000ms exceeded, on the first run and on retries."
+    },
+    {
+     "ts": "2026-11-21T21:36:33+00:00",
+     "actor": "owner",
+     "to": "accepted",
+     "note": "оператор: ревью провалило задачу по таймауту сценария полного экрана в Chromium на сервере без видеокарты. На стенде Mac с видеокартой по живому адресу версии e527d4b те же сценарии проходят: телефон "
+    }
+   ]
+  },
+  {
+   "id": "T-0069",
+   "title": "GAME-DESIGN.md: машина по текстовому описанию — правила перевода описания в характеристики, классификатор, отказы и лимиты",
+   "type": "design",
+   "state": "rejected",
+   "priority": "P1",
+   "goal": "G1",
+   "role": "game-designer",
+   "created": "2026-11-21T19:52:49+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-21T19:52:49+00:00",
+     "actor": "owner",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-21T20:00:38+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261121T2000-exec-T-0069"
+    },
+    {
+     "ts": "2026-11-21T20:00:38+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-21T20:08:54+00:00",
+     "actor": "dispatcher",
+     "to": "ready",
+     "note": "run failed: inactive for 300s"
+    },
+    {
+     "ts": "2026-11-21T20:39:43+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261121T2007-exec-T-0069"
+    },
+    {
+     "ts": "2026-11-21T20:39:43+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-21T20:49:41+00:00",
+     "actor": "dispatcher",
+     "to": "ready",
+     "note": "run failed: inactive for 300s"
+    },
+    {
+     "ts": "2026-11-21T21:06:11+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Слишком большая для одного прогона: сторож бездействия остановил её на 596 с. Разделена: часть 1 заведена (continues T-0069), часть 2 (классификатор, отказы, безопасность) заведём после "
+    }
+   ]
+  },
+  {
+   "id": "T-0070",
+   "title": "Машина по текстовому описанию: поле в гараже, классификатор запроса, генерация моделью, лимиты и блокировка",
+   "type": "milestone",
+   "state": "rejected",
+   "priority": "P1",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-21T19:52:49+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-21T19:52:49+00:00",
+     "actor": "owner",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-21T20:00:37+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "priority → P2: По своему scope задача начинается только после приёмки T-0068 (полный экран) и T-0069 (правила генерации). С P2 диспетчер не возьмёт её раньше её источников; когда T-0069 примут, вернём"
+    }
+   ]
+  },
+  {
+   "id": "T-0071",
+   "title": "Телефон: доводка после полного экрана — лишняя кнопка и подсказка в бою на iPhone, наложения в гараже",
+   "type": "milestone",
+   "state": "accepted",
+   "priority": "P0",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-21T21:03:22+00:00",
+   "accepted_at": "2026-11-21T21:58:51+00:00",
+   "released_sha": "425b4712dd560b407da1f3b189d580e51f1c8197",
+   "history": [
+    {
+     "ts": "2026-11-21T21:03:22+00:00",
+     "actor": "owner",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-21T21:06:12+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261121T2105-exec-T-0071"
+    },
+    {
+     "ts": "2026-11-21T21:06:12+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-21T21:36:18+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 425b4712dd"
+    },
+    {
+     "ts": "2026-11-21T21:58:51+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The overlap guard test passes in mobile-webkit at all three sizes and passes in Chromium after a retry. The screenshots show no overlaps in the garage or in battle. The Chromium runs timed out at 60 s"
+    }
+   ]
+  },
+  {
+   "id": "T-0072",
+   "title": "GAME-DESIGN.md «Машина по описанию», часть 1: контракт генератора, словарь, таблица точности, блок generation",
+   "type": "design",
+   "state": "accepted",
+   "priority": "P1",
+   "goal": "G1: машина по текстовому описанию (VISION 21.11)",
+   "role": "game-designer",
+   "created": "2026-11-21T21:06:11+00:00",
+   "accepted_at": "2026-11-21T21:47:23+00:00",
+   "released_sha": "f52f788832d7d24d041510ad455498fb1ab66354",
+   "history": [
+    {
+     "ts": "2026-11-21T21:06:11+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-21T21:15:47+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261121T2105-exec-T-0072"
+    },
+    {
+     "ts": "2026-11-21T21:15:47+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-21T21:25:08+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged f52f788832"
+    },
+    {
+     "ts": "2026-11-21T21:47:23+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "GAME-DESIGN.md §14 has the contract, a 40-row bilingual dictionary with contradiction rules, and a 24-row accuracy table. balance.json has the generation block with the required values. The owner exam"
+    }
+   ]
+  },
+  {
+   "id": "T-0073",
+   "title": "GAME-DESIGN.md «Машина по описанию», часть 2: классификатор, тексты отказов, блокировка reject_streak, дневной счётчик",
+   "type": "design",
+   "state": "blocked",
+   "priority": "P1",
+   "goal": "G1: машина по текстовому описанию (VISION 21.11)",
+   "role": "game-designer",
+   "created": "2026-11-21T21:46:41+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-21T21:46:41+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-21T21:57:44+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261121T2145-exec-T-0073"
+    },
+    {
+     "ts": "2026-11-21T21:57:44+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-21T22:08:11+00:00",
+     "actor": "dispatcher",
+     "to": "ready",
+     "note": "run failed: inactive for 300s"
+    },
+    {
+     "ts": "2026-11-21T22:22:40+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261121T2215-exec-T-0073"
+    },
+    {
+     "ts": "2026-11-21T22:22:40+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-21T22:33:07+00:00",
+     "actor": "dispatcher",
+     "to": "ready",
+     "note": "run failed: error_max_budget_usd"
+    },
+    {
+     "ts": "2026-11-21T22:45:39+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261121T2240-exec-T-0073"
+    },
+    {
+     "ts": "2026-11-21T22:45:39+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-21T22:55:00+00:00",
+     "actor": "dispatcher",
+     "to": "blocked",
+     "note": "run failed: error_max_budget_usd"
+    }
+   ]
+  },
+  {
+   "id": "T-0074",
+   "title": "Телефон: подсказка управления в начале боя не закрывает машину игрока",
+   "type": "quality",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "G1: казуальный игрок на телефоне видит свою машину с первой секунды боя",
+   "role": "developer",
+   "created": "2026-11-21T22:15:48+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-21T22:15:48+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-21T23:58:46+00:00",
+     "actor": "owner",
+     "to": "deferred",
+     "note": "владелец 21.11: мобильная разработка на паузе, фокус на десктопе"
+    }
+   ]
+  },
+  {
+   "id": "T-0075",
+   "title": "E2E: быстрые сценарии menu.spec.ts помечены @live, чтобы меню проверялось на живом хосте",
+   "type": "quality",
+   "state": "ready",
+   "priority": "P3",
+   "goal": "G1: меню в бою (T-0038) проверено на живом хосте",
+   "role": "developer",
+   "created": "2026-11-21T23:20:50+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-21T23:20:50+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0076",
+   "title": "Десктоп: потеря связи в бою показывает сообщение и возвращает в гараж, экран боя не замирает",
+   "type": "milestone",
+   "state": "accepted",
+   "priority": "P0",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-21T23:58:43+00:00",
+   "accepted_at": "2026-11-22T00:57:17+00:00",
+   "released_sha": "223757d0ef254a00e25653f911e55c05f6c8d59e",
+   "history": [
+    {
+     "ts": "2026-11-21T23:58:43+00:00",
+     "actor": "owner",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0077",
+   "title": "Запись всех боёв и реплей: каждый бой сохраняется полностью и воспроизводится на десктопе",
+   "type": "milestone",
+   "state": "accepted",
+   "priority": "P1",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-21T23:58:44+00:00",
+   "accepted_at": "2026-11-22T01:48:01+00:00",
+   "released_sha": "4774af373f28c74be26e12f81c49123d288d5c8f",
+   "history": [
+    {
+     "ts": "2026-11-21T23:58:44+00:00",
+     "actor": "owner",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0078",
+   "title": "Калибровка: турниры ботов измеряют, сколько даёт очко каждой характеристики, оружие и способность",
+   "type": "milestone",
+   "state": "accepted",
+   "priority": "P1",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-21T23:58:44+00:00",
+   "accepted_at": "2026-11-22T01:47:16+00:00",
+   "released_sha": "2cbbcb2b30e95648f0643b1523ad07cac1271daf",
+   "history": [
+    {
+     "ts": "2026-11-21T23:58:44+00:00",
+     "actor": "owner",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0079",
+   "title": "GAME-DESIGN.md: перевзвешивание характеристик по данным калибровки — неравная стоимость очков",
+   "type": "design",
+   "state": "rejected",
+   "priority": "P1",
+   "goal": "G1",
+   "role": "game-designer",
+   "created": "2026-11-21T23:58:44+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-21T23:58:44+00:00",
+     "actor": "owner",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0080",
+   "title": "Телефон (на паузе): на настоящих Android и iPhone в полном экране не работает огонь, повороты только на iPhone",
+   "type": "milestone",
+   "state": "deferred",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-21T23:58:44+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-21T23:58:44+00:00",
+     "actor": "owner",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-21T23:58:45+00:00",
+     "actor": "owner",
+     "to": "deferred",
+     "note": "владелец 21.11: мобильная разработка на паузе"
     }
    ]
   }
@@ -880,6 +3072,196 @@
    "task": "T-0028",
    "verdict": "pass",
    "summary": "The config never reuses a server unless E2E_REUSE_SERVER=1, and the README documents this, so a stale server on 3101 causes a hard failure. The flake cause is recorded in the spec comment with measurements, retries stay 0, and npm test passes with 48 tests."
+  },
+  {
+   "task": "T-0030",
+   "verdict": "fail",
+   "summary": "On the live host, the full client.spec.ts run had one failure: \"a full bot battle ends with the results table\" was stuck on conn=connecting for 20 s, the symptom from OBS-0099. A rerun of that spec failed differently, with the results table never visible. I could not confirm the live host runs the fixed commit, and I did not run `--repeat-each=5`."
+  },
+  {
+   "task": "T-0030",
+   "verdict": "inconclusive",
+   "summary": "The reconnect spec and the solo-battle spec passed on the live host, and the phone screenshot is readable. I could not run `--repeat-each=5` with the tool, and the full bot battle test timed out at 90 s on live, so the full e2e and repeat criteria are not confirmed."
+  },
+  {
+   "task": "T-0030",
+   "verdict": "pass",
+   "summary": "On the live host, the 10x reconnect spec and the solo-battle spec passed against it, with no stall in 'connecting'. The ws-churn integration test passed in the dispatcher's unit run. I could not run --repeat-each=5, and the short-match 'full bot battle' spec failed only because the live host runs 180 s matches."
+  },
+  {
+   "task": "T-0032",
+   "verdict": "fail",
+   "summary": "The live host serves the new metrics fields (connect_stalls, connect_time_ms) and the ?debug=1 chronology panel works; smoke passed. The verdict is fail because the e2e suite exceeds the 3 min limit by the implementer's own report (3m13s). The journal criteria rest on the dispatcher's unit tests, and the live two-player e2e failed because the host runs 180 s matches."
+  },
+  {
+   "task": "T-0032",
+   "verdict": "fail",
+   "summary": "The client chronology panel and connect metrics work on the live host, but 2 of 13 e2e scenarios failed there, so \"npm run e2e green\" is not met on this host. The server journal chain, client_report and tick_slow criteria could not be observed on the host, because `team-play logs` returned no server log."
+  },
+  {
+   "task": "T-0035",
+   "verdict": "inconclusive",
+   "summary": "Inconclusive: all 5 mobile.spec tests were skipped because desktop tests failed first, so no touch criterion was played. Two desktop full-match tests failed on timeouts; the other desktop tests passed, including the two-tab sync within 1 s."
+  },
+  {
+   "task": "T-0035",
+   "verdict": "fail",
+   "summary": "The desktop criterion is unmet: two existing e2e specs fail on the deployed host (full bot battle timed out; two-player match never showed the results table). The mobile specs did not run, so I did not verify any touch criterion in battle."
+  },
+  {
+   "task": "T-0036",
+   "verdict": "pass",
+   "summary": "The config, scripts and README implement live-host @live-only mode, a desktop-only non-@slow default run, a separate mobile command with no dependencies, and a 180 s @slow @live battle with a 240 s timeout. Unit tests pass and no specs were removed."
+  },
+  {
+   "task": "T-0023",
+   "verdict": "pass",
+   "summary": "The server latches LMB presses until the next tick, and RMB is already latched by the engine's abilityEdge. Both pulse integration tests exist and the dispatcher's npm test run passed (59 tests). The e2e repeat run could not be observed."
+  },
+  {
+   "task": "T-0033",
+   "verdict": "inconclusive",
+   "summary": "The music spec and the full desktop e2e suite pass on the live host. Silence before the first click, start after it, and toggle/volume persistence are confirmed. Hidden-tab muting, in-battle frame rate, track distinctness and loop seamlessness have no browser test, so I could not observe them."
+  },
+  {
+   "task": "T-0040",
+   "verdict": "inconclusive",
+   "summary": "I could not run the mobile scenarios. `team-play test` only exposes the `desktop` project, and the `mobile` and `mobile-webkit` projects exist only under `npm run e2e:mobile`. I took one 844×390 screenshot of `?debug=1`, which shows the start screen only."
+  },
+  {
+   "task": "T-0033",
+   "verdict": "fail",
+   "summary": "The music spec and the full e2e suite pass on the live host (6/6), and the music-toggle and music-volume controls work and persist. No scenario covers the battle and results tracks or the hidden-tab behaviour, so I could not confirm those criteria. On the 360×740 menu screenshot the music and effects controls overlap the \"AI BATTLES\" title."
+  },
+  {
+   "task": "T-0034",
+   "verdict": "inconclusive",
+   "summary": "I could not run the sfx scenarios against the live host. tests/e2e/sfx.spec.ts has no @live tag, so the live config filters it out (\"No tests found\"). The full @live run passed 5 and failed 1, but none of those tests cover the sound effects."
+  },
+  {
+   "task": "T-0040",
+   "verdict": "inconclusive",
+   "summary": "The mobile acceptance criteria (stick, 40 ms fire tap, multitouch, ability cooldown, no-scroll layout, debug panel, WebKit) could not be exercised. `team-play` offers only the desktop project against the live host, and mobile.spec needs E2E_MOBILE=1 and is not tagged @live. The desktop live tests passed (5/5), which supports \"desktop unchanged\" only weakly. The live server version does not match the task commit."
+  },
+  {
+   "task": "T-0033",
+   "verdict": "inconclusive",
+   "summary": "The live-runnable test passed: no sound before a click, music starts after one, and toggle and volume persist. The battle, hidden-tab and results test is not tagged @live, so I could not run it against the deployed host, and the loop, melody-distinctness and frame-rate criteria were not observed."
+  },
+  {
+   "task": "T-0034",
+   "verdict": "inconclusive",
+   "summary": "The Effects toggle and slider are present on the deployed host. The live battle and music tests still pass, so there is no visible regression. The sfx acceptance criteria could not be played because sfx.spec.ts is excluded from the live run."
+  },
+  {
+   "task": "T-0040",
+   "verdict": "inconclusive",
+   "summary": "The mobile projects (mobile, mobile-webkit) are only defined when E2E_MOBILE=1, and team-play cannot set that, so none of the T-0040 mobile scenarios ran. Only the desktop live specs passed (5/5), and the deployed /healthz version differs from the task commit."
+  },
+  {
+   "task": "T-0043",
+   "verdict": "pass",
+   "summary": "GAME-DESIGN v1.7 and balance.json describe separate move and aim inputs, and the bot rules match the JSON keys. §10.1 lists the parameters to revisit, and the 35–65 % corridor is unchanged."
+  },
+  {
+   "task": "T-0033",
+   "verdict": "inconclusive",
+   "summary": "Only the menu-level music test could run on the deployed host. It passed, and the 360×740 menu shows no overlap. The battle, results and hidden-tab scenarios did not run, because that test lacks the @live tag and the runner finds no tests for it."
+  },
+  {
+   "task": "T-0034",
+   "verdict": "inconclusive",
+   "summary": "The deployed build serves the new sfx code and controls, and the one live bot battle I ran to the results table passed. The sfx e2e spec is not tagged @live, so `team-play test` could not run it, and I could not check the sfx persistence, the pre-action silence, or the with/without-sound battle."
+  },
+  {
+   "task": "T-0045",
+   "verdict": "fail",
+   "summary": "§6A and garage.json cover goal, loop, stored data, loss variants, softening, balance consistency and limits well. The required 3–5 proposed implementation tasks are missing from both the document and the report, so the review fails."
+  },
+  {
+   "task": "T-0050",
+   "verdict": "pass",
+   "summary": "This is a docs-only task, so I checked it by reading DESIGN.md §4.1 and viewing both PNG mock-ups. Every acceptance criterion and negative case holds; no gameplay scenario applies, so none was run."
+  },
+  {
+   "task": "T-0042",
+   "verdict": "inconclusive",
+   "summary": "I could not run the core controls scenarios: `controls.spec.ts` has no `@live` tests, so `team-play test` finds none against the deployed host. The `@live` desktop subset ran 5 passed and 1 failed. The failure was a flaky test: it passed on re-run, and it holds A+W, which can run into a spawn-corner wall."
+  },
+  {
+   "task": "T-0045",
+   "verdict": "fail",
+   "summary": "Section 6A is thorough. It covers the goal, a 5-step loop, stored data, loss rules with numbers, softening, balance consistency and the phase A/B split, and the tests pass (exit 0). The 3–5 proposed tasks are missing from everything I could read, so the last criterion fails."
+  },
+  {
+   "task": "T-0046",
+   "verdict": "pass",
+   "summary": "The catalogue has 16 ideas in the shared template, three ordered recommendations with balance.json parameters, and a return rule. GAME-DESIGN.md links to it. The tests passed (exit 0)."
+  },
+  {
+   "task": "T-0047",
+   "verdict": "pass",
+   "summary": "GAME-DESIGN.md §13 covers the data sources, numeric imbalance definitions, healing steps, rhythm and roles, and the daily report. The autobalance block in balance.json carries the same numbers as the text. I could not observe the proposed_tasks criterion, because it is a task-result field and not in the repo."
+  },
+  {
+   "task": "T-0037",
+   "verdict": "pass",
+   "summary": "The load script ran against the deployed host with no protocol change or server hook. It printed the required JSON (p95 65 ms, server_errors 0, disconnects 0), and server_errors stayed 0 in /_team/metrics.json before and after. The 10x2x60 run is quoted from the report and was not rerun, because `team-play load` ignores its flags and used the script defaults."
+  },
+  {
+   "task": "T-0056",
+   "verdict": "pass",
+   "summary": "GAME-DESIGN.md is v1.12. Its §3.1.1 matches every number on the card, and it has no phone Fire button. I could not read the commit diff, so I could not confirm that only the document changed."
+  },
+  {
+   "task": "T-0068",
+   "verdict": "fail",
+   "summary": "Manifest, icons and the WebKit hint pass on the deployed host, but the Chromium full-screen scenario timed out on all 3 attempts (30 s). The Chromium 844x390 and 667x375 visible-area scenarios also timed out at 60 s, so the full-screen and page-size criteria are not shown to be met."
+  },
+  {
+   "task": "T-0072",
+   "verdict": "pass",
+   "summary": "GAME-DESIGN.md §14 has the contract, a 40-row bilingual dictionary with contradiction rules, and a 24-row accuracy table. balance.json has the generation block with the required values. The owner example sums to 110, and the table rows I checked stay within budget and use real weapons and abilities."
+  },
+  {
+   "task": "T-0071",
+   "verdict": "pass",
+   "summary": "The overlap guard test passes in mobile-webkit at all three sizes and passes in Chromium after a retry. The screenshots show no overlaps in the garage or in battle. The Chromium runs timed out at 60 s on the first full run, so that project is flaky on the live host."
+  },
+  {
+   "task": "T-0053",
+   "verdict": "fail",
+   "summary": "The two-tab 'move visible in B within 1 s' test failed with a timeout in both of my desktop runs against the deployed host. The task was meant to fix that flaky test, so the 5/5 criterion is not met. The render-mode test and the mobile suites were not observed."
+  },
+  {
+   "task": "T-0057",
+   "verdict": "pass",
+   "summary": "The load script now honours the parameters team-play load passes. Against the deployed host, runs with 6 clients for 5 s and 20 clients for 60 s reported the requested client counts, with 0 disconnects. The unit tests for the CLI-args and env-only forms passed, and the README covers both forms."
+  },
+  {
+   "task": "T-0038",
+   "verdict": "inconclusive",
+   "summary": "The deployed host serves the menu markup, but I could not play any menu scenario. menu.spec.ts is not tagged @live, so `team-play test` finds no tests in it. The implementer also reports the e2e run failing 3 tests and taking longer than 3 minutes."
+  },
+  {
+   "task": "T-0053",
+   "verdict": "fail",
+   "summary": "The desktop live scenarios passed, including the two-tab \"movement visible in B within 1 s\" test. The mobile.spec.ts \"no overlaps\" test fails on mobile and mobile-webkit with ReferenceError: noShift is not defined, and the run-time criterion was not met."
+  },
+  {
+   "task": "T-0060",
+   "verdict": "fail",
+   "summary": "Live, headless Playwright traffic was counted as by_origin.human, not test: human started went 4→6 and test stayed 0. So the main purpose of the task, separating test traffic from real players, did not work on the deployed host."
+  },
+  {
+   "task": "T-0038",
+   "verdict": "inconclusive",
+   "summary": "The deployed host serves the menu markup (menu-button, menu-panel and the other testids are in index.html), but none of the T-0038 menu scenarios could run against it. The menu specs in menu.spec.ts are not tagged @live, so `team-play test` finds none of them. The only matching test that ran was an unrelated controls.spec @live test, which passed."
+  },
+  {
+   "task": "T-0038",
+   "verdict": "fail",
+   "summary": "The menu markup is deployed, but I could not play any menu criterion against the live host. menu.spec.ts has no @live tag, so the runner finds no tests in it. The only menu-related @live test, mobile.spec \"no overlaps\", fails in all 6 runs with `ReferenceError: noShift is not defined`, a defect in the test."
   }
  ],
  "posts": [],
@@ -891,18 +3273,18 @@
   "crawlers": 0,
   "requests": 0
  },
- "spend_usd": 18.1,
- "po_digest_md": "**AI Battles — цикл 21.11 07:07 UTC (этап M0)**\n\n**Итог приёмки M0 (T-0008):** 21.11 в 05:37 UTC на живом хосте прошли все 12 из 12 e2e-тестов. Комнату на двоих (2 игрока и 2 бота) доиграли до таблицы очков, ход одного игрока виден другому не дольше чем через 1 с. Критерий выхода из M0 выполнен. Переход на M1 ждёт вашего решения (вопрос Q-0009); пока работаем на M0.\n\n**Что принято за последние циклы:**\n- e2e-тесты больше не подключаются к чужому старому серверу (T-0028);\n- в тестах бой идёт 15–20 с, весь прогон укладывается в 3 мин, полный 180-секундный бой вынесен в отдельный медленный тест (T-0029);\n- игра на двоих по коду комнаты доказана тестом (T-0022);\n- комната стартует сама через 60 с (T-0021);\n- исправлены HP выше максимума, вечная надпись «Fight!» и камера 1280×720 (T-0020);\n- сервер отдаёт метрики боёв (T-0018).\n\n**В работе, новых задач нет:**\n- P1: причина зависания «connecting» (T-0030). Сюда же отнесено предложение разработчика увеличить 1,2-секундный таймаут ожидания ответа сервера. Сначала нужна найденная причина, а не более долгое ожидание.\n- P1: машины соперников рисуются по их настоящим характеристикам (T-0031).\n- P2: короткий клик ЛКМ/ПКМ больше не теряется (T-0023), один источник размера вида боя (T-0025), исправление PROTOCOL.md (T-0027).\n\n**Метрики:** реальных боёв пока 0, ошибок сервера 0.\n\n**Ждёт вас:**\n1. Перевод этапа на M1.\n2. Остановить старый процесс 120737, который держит порт 3101.\n3. Подтвердить или сменить камеру 1280×720 (вариант B).\n\n**Расход:** $17.41 из $100.",
- "analyst_md": "**Состояние (21.11, M0, снимок 05:45 UTC): данных мало, сайт только что выкатили.**\n\n| Уровень | Значение |\n|---|---|\n| Discovery (GSC) | 0 кликов, 0 показов, 0 URL проверено |\n| Люди | 20 игроков, пик онлайн 6 |\n| Возвраты | нет данных («—») |\n| Бои | начато 17, завершено 2, брошено 15 |\n| Целевые действия | 2 завершённых боя (≈12 %) |\n| Задержка ввода | p50 15.4 мс, p95 31.4 мс |\n| Ошибки | 0 серверных, 0 отклонённых ходов, 29 разрывов |\n\nПосты не публиковались (до M2 продвижения нет), поэтому связи «пост → визиты» нет. Вероятно, значительная часть 17 боёв и 20 игроков — прогоны tester'а (T-0008, e2e на проде): отдельно их не выделить. 15 «брошенных» могут быть обрывами e2e-тестов.\n\n**Цели:** G1 17/день (цель ≥50 к концу M2); G2 ≈12 % при цели ≥70 % (выборка из 2 — малая, возможно артефакт тестов); G3 нет данных; G4 p95 31 мс ≤ 300 мс — в норме.\n\n**Влияние задач:** до/после по одной метрике нет, дата первых данных совпадает с деплоем.",
+ "spend_usd": 86.6,
+ "po_digest_md": "**Цикл 21.11 23:30 UTC — ai-battles (этап M1)**\n\n**Что произошло:** ревьюер вернул два замечания.\n- Метрики (T-0060): бои из headless Playwright всё ещё считаются боями людей. Замечание привязано к T-0060, исправление продолжается в ней. Пока его нет, долю доигранных боёв (G2) по живым игрокам прочитать нельзя.\n- Меню в бою (T-0038) не проверить на живом хосте: у сценариев нет тега @live. Привязано к T-0075 (P1, в очереди).\n\n**Решение:** новых задач нет. Потрачено $85 из $100 (больше 80 %), а в очереди уже достаточно задач P1/P0:\n- T-0075 — тег @live для меню;\n- T-0067 — запрет pkill, после того как 21.11 дважды упал живой сервер;\n- пробы T-0065 и T-0066 по застрявшей T-0049;\n- T-0070 — машина по описанию; ждёт T-0073, вторую часть дизайна, она на ревью.\n\n**Метрики:** за день 1 бой, 0 ошибок, задержка ввода p95 22 мс (цель M1 — не больше 300 мс).\n\n**Ждёт владельца:** ключи моделей (VENICE_API_KEY или ANTHROPIC_API_KEY) и дневной потолок расходов на генерацию для игроков. Без них поле «машина по описанию» после выкладки T-0070 будет скрыто.",
+ "analyst_md": "Данные за 21.11 (снимок 18:00 UTC). Продвижения нет (постов нет), GSC: 0 показов и 0 кликов. Метрик по референсам и страницам в промпте нет.\n\n| Уровень | Значение |\n|---|---|\n| Люди (игроки) | 9, пик онлайн 2 |\n| Возвраты | нет данных («—») |\n| Бои | начато 9, завершено 0, брошено 9 |\n| Задержка ввода p50/p95 | 15.4 / 32.4 мс (3592 замера) |\n| Ходы / отклонено | 5448 / 0 |\n| Ошибки сервера | 0 |\n| Разрывы / переподключения | 11 / — |\n\nЦели: G1 — 9 боёв против ≥ 50 (до конца M2); G2 — 0 % против ≥ 70 %; G3 — нет данных против ≥ 20 %; G4 — p95 32 мс против ≤ 300 мс, цель достигнута.\n\nГлавное: 9 из 9 боёв брошены, медиана длительности 0 с. Часть боёв, вероятно, наши собственные прогоны (e2e, load, T-0037, мобильные тесты), потому что игроков 9 и пик онлайна 2. Отделить их от настоящих игроков по данным нельзя. Влияние задач T-0040/T-0042/T-0044 (управление) оценить нельзя: нет «до/после» по одной метрике, у T-0042 и T-0044 нет accepted_at.\n\nБаланс: таблицы Balance в метриках нет, оценить нельзя.",
  "observations": {
-  "new": 50,
+  "new": 213,
   "by_class": {
-   "need_hypothesis": 41,
-   "defect": 1,
-   "reproducible_defect": 3,
-   "ux_friction": 1,
-   "measurement": 2,
-   "environment_error": 2
+   "need_hypothesis": 174,
+   "defect": 2,
+   "reproducible_defect": 10,
+   "ux_friction": 8,
+   "measurement": 4,
+   "environment_error": 15
   }
  },
  "owner_questions_open": 0

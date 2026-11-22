@@ -1,31 +1,19 @@
 {
- "generated": "2026-11-19T07:29:57+00:00",
+ "generated": "2026-11-22T07:43:48+00:00",
  "days": 7,
- "total": 46,
+ "total": 367,
  "by_kind": {
+  "task_blocked": 52,
+  "review_fail": 25,
   "tool_denied": 19,
-  "reported": 8,
-  "task_blocked": 15,
-  "review_fail": 4
+  "reported": 177,
+  "run_failed": 23,
+  "review_inconclusive": 42,
+  "env_error": 29
  },
  "by_day": {
-  "2026-11-12": {
-   "tool_denied": 5,
-   "reported": 3,
-   "task_blocked": 1,
-   "review_fail": 1
-  },
-  "2026-11-13": {
-   "tool_denied": 9,
-   "task_blocked": 5
-  },
-  "2026-11-14": {
-   "task_blocked": 2,
-   "tool_denied": 4,
-   "reported": 2
-  },
   "2026-11-15": {
-   "task_blocked": 3,
+   "task_blocked": 1,
    "review_fail": 1
   },
   "2026-11-16": {
@@ -41,331 +29,387 @@
    "reported": 3
   },
   "2026-11-19": {
-   "task_blocked": 1
+   "task_blocked": 9,
+   "run_failed": 1
+  },
+  "2026-11-20": {
+   "task_blocked": 9,
+   "reported": 25,
+   "review_inconclusive": 7,
+   "review_fail": 4,
+   "tool_denied": 8,
+   "run_failed": 1,
+   "env_error": 1
+  },
+  "2026-11-21": {
+   "run_failed": 17,
+   "task_blocked": 18,
+   "tool_denied": 9,
+   "reported": 109,
+   "review_inconclusive": 15,
+   "review_fail": 17,
+   "env_error": 15
+  },
+  "2026-11-22": {
+   "task_blocked": 12,
+   "reported": 40,
+   "review_inconclusive": 20,
+   "env_error": 13,
+   "run_failed": 4,
+   "tool_denied": 1,
+   "review_fail": 1
   }
  },
  "recent": [
   {
-   "ts": "2026-11-19T04:07:32+00:00",
+   "ts": "2026-11-22T07:34:19+00:00",
+   "product": "ai-battles",
+   "role": "reviewer",
+   "kind": "env_error",
+   "summary": "reviewer: Deployed version differs from the task commit"
+  },
+  {
+   "ts": "2026-11-22T07:34:17+00:00",
+   "product": "ai-battles",
+   "role": "reviewer",
+   "kind": "review_inconclusive",
+   "summary": "T-0048: The live /_team/metrics.json has no balance block, and I could not make it appear. The deployed version (25339d2…) is not the task commit (3875a33…), and my browser traffic is classed as \"test"
+  },
+  {
+   "ts": "2026-11-22T07:34:17+00:00",
+   "product": "ai-battles",
+   "role": "reviewer",
+   "kind": "reported",
+   "summary": "reviewer: [environment] The play-test server is not running the task's commit, and test traffic is excluded from the feature."
+  },
+  {
+   "ts": "2026-11-22T07:22:50+00:00",
+   "product": "ai-battles",
+   "role": "tester",
+   "kind": "run_failed",
+   "summary": "tester: inactive for 300s"
+  },
+  {
+   "ts": "2026-11-22T07:18:27+00:00",
+   "product": "agentsmd-tracker",
+   "role": "dispatcher",
+   "kind": "task_blocked",
+   "summary": "T-0188 X post 22.11 06:15 UTC from @formachines_ai: Cut (one dated : question Q-0029"
+  },
+  {
+   "ts": "2026-11-22T07:08:13+00:00",
    "product": "agent-team",
    "role": "dispatcher",
    "kind": "task_blocked",
-   "summary": "T-0169 [retro] team-fetch: add --head N and document that --tail co: stuck: 3 failed attempts on this goal; the PO replans it with 3 alternatives"
+   "summary": "T-0204 README: developer restrictions are role instructions, not a : stuck: none of the 3 probes of the PO's replan worked"
   },
   {
-   "ts": "2026-11-18T22:11:44+00:00",
-   "product": "release-radar",
+   "ts": "2026-11-22T07:06:44+00:00",
+   "product": "ai-battles",
+   "role": "reviewer",
+   "kind": "review_inconclusive",
+   "summary": "T-0093: The deployed host confirms three things. Both textgen specs are skipped there, as the task asks. `/api/generate/test-advance` returns 404. The garage shows no description field in the 360×740 "
+  },
+  {
+   "ts": "2026-11-22T07:06:44+00:00",
+   "product": "ai-battles",
    "role": "reviewer",
    "kind": "reported",
-   "summary": "reviewer: [missing_tool] team-fetch has no --head option, and a viewport render is impossible, so I could not check 375 px."
+   "summary": "reviewer: [missing_tool] `team-play test` cannot run specs that start their own server, so the textgen limit scenarios cannot be played against the host."
   },
   {
-   "ts": "2026-11-18T20:07:51+00:00",
-   "product": "agent-team-diary",
+   "ts": "2026-11-22T07:06:44+00:00",
+   "product": "ai-battles",
    "role": "reviewer",
    "kind": "reported",
-   "summary": "reviewer: [other] team-fetch with --tail 1 does not show page content, so I could not check the footer disclosure line."
+   "summary": "reviewer: [other] `team-play test --spec X --project desktop` made Playwright read the spec path as a project name and fail."
   },
   {
-   "ts": "2026-11-18T08:19:06+00:00",
-   "product": "luz-amanha",
+   "ts": "2026-11-22T07:06:34+00:00",
+   "product": "ai-battles",
+   "role": "reviewer",
+   "kind": "env_error",
+   "summary": "reviewer: Deployed version differs from task commit"
+  },
+  {
+   "ts": "2026-11-22T07:06:33+00:00",
+   "product": "ai-battles",
+   "role": "reviewer",
+   "kind": "review_inconclusive",
+   "summary": "T-0048: The deployed host's version (25339d2…) differs from the task commit (3875a33…). Its metrics.json has no balance block, and a Playwright battle would be skipped as test traffic anyway, so the f"
+  },
+  {
+   "ts": "2026-11-22T07:06:33+00:00",
+   "product": "ai-battles",
    "role": "reviewer",
    "kind": "reported",
-   "summary": "reviewer: [missing_tool] team-fetch has no --head option, so a small raw file cannot be previewed. I fetched the whole file instead."
+   "summary": "reviewer: [environment] There is no way to play a non-test battle that counts toward balance, or to restart the server, on the deployed host."
   },
   {
-   "ts": "2026-11-18T08:11:17+00:00",
-   "product": "agent-team-diary",
+   "ts": "2026-11-22T06:40:35+00:00",
+   "product": "ai-battles",
    "role": "reviewer",
-   "kind": "review_fail",
-   "summary": "T-0162: The icons, robots.txt, head links and wellknown_check all work on the live site, and the 404 still answers 404. The acceptance requires sitemap_check.unreachable_within_3 to stay [], but it li"
+   "kind": "review_inconclusive",
+   "summary": "T-0031: I could not play the main criterion. The two-context opponent-spec test is untagged for live mode, so Playwright found no tests against the deployed host. The full desktop run passed 14 and fa"
   },
   {
-   "ts": "2026-11-17T22:13:13+00:00",
-   "product": "agent-team-diary",
-   "role": "dispatcher",
-   "kind": "task_blocked",
-   "summary": "T-0182 Day pages: 7-day baseline (median of accepted tasks, review : stuck: 3 failed attempts on this goal; the PO replans it with 3 alternatives"
-  },
-  {
-   "ts": "2026-11-17T08:10:53+00:00",
-   "product": "release-radar",
-   "role": "editor",
-   "kind": "tool_denied",
-   "summary": "editor: denied Bash(team-fetch https://releases.formachines.ai/ --grep bump\">major --around 250)"
-  },
-  {
-   "ts": "2026-11-16T19:12:05+00:00",
-   "product": "release-radar",
-   "role": "dispatcher",
-   "kind": "task_blocked",
-   "summary": "T-0100 Weekly dev.to roundup 16.11 19:00 UTC — flagged releases of : question Q-0024"
-  },
-  {
-   "ts": "2026-11-16T15:10:20+00:00",
-   "product": "agent-team-diary",
-   "role": "dispatcher",
-   "kind": "task_blocked",
-   "summary": "T-0107 dev.to weekly summary 2026-11-16 15:00 UTC: three events of : question Q-0030"
-  },
-  {
-   "ts": "2026-11-16T05:08:50+00:00",
-   "product": "agentsmd-tracker",
-   "role": "reviewer",
-   "kind": "review_fail",
-   "summary": "T-0179: The code and tests meet the criteria, and build.json is correct apart from one timestamp. The live built_at (04:10:40Z) is earlier than the merge commit time (04:12:40Z), so the first acceptan"
-  },
-  {
-   "ts": "2026-11-15T14:11:31+00:00",
-   "product": "agentsmd-tracker",
-   "role": "reviewer",
-   "kind": "review_fail",
-   "summary": "T-0171: The footer and JSON-LD time on the live site equal the scan time (build.json scan.generated), and built_at, data_delayed and the other keys are intact. The README line, the disclosure and the "
-  },
-  {
-   "ts": "2026-11-15T13:08:09+00:00",
-   "product": "agent-team-diary",
-   "role": "dispatcher",
-   "kind": "task_blocked",
-   "summary": "T-0156 Day pages 03–04.11 under the common 150 KB budget: card ids : stuck: 3 failed attempts on this goal; the PO replans it with 3 alternatives"
-  },
-  {
-   "ts": "2026-11-15T07:10:14+00:00",
-   "product": "agent-team-diary",
-   "role": "dispatcher",
-   "kind": "task_blocked",
-   "summary": "T-0152 Day pages: long task histories folded into <details>, each d: question Q-0028"
-  },
-  {
-   "ts": "2026-11-15T03:07:50+00:00",
-   "product": "agentsmd-tracker",
-   "role": "dispatcher",
-   "kind": "task_blocked",
-   "summary": "T-0161 New convention: AI_POLICY.md and .github/AI_POLICY.md added : stuck: 3 failed attempts on this goal; the PO replans it with 3 alternatives"
-  },
-  {
-   "ts": "2026-11-14T23:07:53+00:00",
-   "product": "agent-team-diary",
-   "role": "reviewer",
-   "kind": "tool_denied",
-   "summary": "reviewer: denied Bash(team-fetch https://agentteam.formachines.ai/day/2026-11-14/ --grep len(earlier -)"
-  },
-  {
-   "ts": "2026-11-14T22:08:26+00:00",
-   "product": "agent-team-diary",
+   "ts": "2026-11-22T06:40:35+00:00",
+   "product": "ai-battles",
    "role": "reviewer",
    "kind": "reported",
-   "summary": "reviewer: [missing_data] The rendered note with the literal placeholder is not an acceptance criterion, so it cannot change the verdict. It is reported as an observation only."
+   "summary": "reviewer: [environment] Live mode only runs @live tests, and the new spec is untagged, so the acceptance e2e can't run against the deployed host."
   },
   {
-   "ts": "2026-11-14T17:08:03+00:00",
-   "product": "luz-amanha",
-   "role": "dispatcher",
-   "kind": "task_blocked",
-   "summary": "T-0150 Bluesky post 14.11 14:20 UTC: For machines, what a script se: question Q-0044"
-  },
-  {
-   "ts": "2026-11-14T17:08:03+00:00",
-   "product": "luz-amanha",
-   "role": "marketer",
+   "ts": "2026-11-22T06:40:35+00:00",
+   "product": "ai-battles",
+   "role": "reviewer",
    "kind": "reported",
-   "summary": "marketer: [other] The task was booked as allowed (only 1 post in the window), but the publisher counts 5 Bluesky posts in 7 days against the cap of 2. The cap check in task planning does not match the"
+   "summary": "reviewer: [environment] The full desktop e2e exceeds the 120 s foreground timeout and its output file stayed empty until it finished."
   },
   {
-   "ts": "2026-11-14T03:10:38+00:00",
-   "product": "agentsmd-tracker",
+   "ts": "2026-11-22T06:40:35+00:00",
+   "product": "ai-battles",
    "role": "reviewer",
-   "kind": "tool_denied",
-   "summary": "reviewer: denied Bash(python3 -B -m unittest tests.test_jsonld -v)"
+   "kind": "reported",
+   "summary": "reviewer: [unclear_instruction] The tool description mentions --project phone, but the config only has desktop, mobile and mobile-webkit."
   },
   {
-   "ts": "2026-11-14T02:10:58+00:00",
-   "product": "agentsmd-tracker",
+   "ts": "2026-11-22T06:40:35+00:00",
+   "product": "ai-battles",
    "role": "reviewer",
-   "kind": "tool_denied",
-   "summary": "reviewer: denied Bash(python3 -B -m unittest discover -s tests -t .)"
+   "kind": "env_error",
+   "summary": "reviewer: The opponent-specs e2e is not runnable against the deployed host"
   },
   {
-   "ts": "2026-11-14T01:10:39+00:00",
-   "product": "agentsmd-tracker",
+   "ts": "2026-11-22T06:36:45+00:00",
+   "product": "ai-battles",
    "role": "reviewer",
-   "kind": "tool_denied",
-   "summary": "reviewer: denied Bash(python3 -B -m unittest tests.test_sitemap -v), Bash(team-fetch https://agentsmd.formachines.ai/sitemap.xml --tail 0 --grep ai/</loc>)"
+   "kind": "env_error",
+   "summary": "reviewer: team-play cannot run local-server specs like textgen.spec.ts"
   },
   {
-   "ts": "2026-11-14T00:07:28+00:00",
-   "product": "agent-team",
-   "role": "dispatcher",
-   "kind": "task_blocked",
-   "summary": "T-0143 [retro] Reviewer repo_only: accept `python3 -B -m unittest` : stuck: 3 failed attempts on this goal; the PO replans it with 3 alternatives"
-  },
-  {
-   "ts": "2026-11-13T21:09:19+00:00",
-   "product": "agentsmd-tracker",
+   "ts": "2026-11-22T06:36:43+00:00",
+   "product": "ai-battles",
    "role": "reviewer",
-   "kind": "tool_denied",
-   "summary": "reviewer: denied Bash(python3 -B -m unittest tests.test_canonical -v), Bash(python3 -B -m unittest discover -s tests -t .)"
+   "kind": "review_inconclusive",
+   "summary": "T-0093: Against the deployed host, both textgen specs are not selected and the phone garage shows no description field, which is consistent with criterion 4 and the production negative case. The limit"
   },
   {
-   "ts": "2026-11-13T21:08:51+00:00",
+   "ts": "2026-11-22T06:36:43+00:00",
+   "product": "ai-battles",
+   "role": "reviewer",
+   "kind": "reported",
+   "summary": "reviewer: [missing_tool] No way to start a local server with TEXTGEN_PROVIDER, so specs that spawn their own server can't be run by the tester."
+  },
+  {
+   "ts": "2026-11-22T06:36:43+00:00",
+   "product": "ai-battles",
+   "role": "reviewer",
+   "kind": "reported",
+   "summary": "reviewer: [other] team-play test --grep rejects the | character, so I couldn't match several spec names with one pattern."
+  },
+  {
+   "ts": "2026-11-22T06:22:48+00:00",
+   "product": "ai-battles",
+   "role": "reviewer",
+   "kind": "review_inconclusive",
+   "summary": "T-0031: I could not play the T-0031 e2e spec against the deployed host. The runner only runs specs tagged @live there, and opponent-specs.spec.ts has no such tag, so every grep returned \"No tests foun"
+  },
+  {
+   "ts": "2026-11-22T06:22:48+00:00",
+   "product": "ai-battles",
+   "role": "reviewer",
+   "kind": "reported",
+   "summary": "reviewer: [environment] The play-test server is the deployed host, where only @live specs run. The task's own new spec is not tagged @live, and there was no local server to run it on."
+  },
+  {
+   "ts": "2026-11-22T06:22:48+00:00",
+   "product": "ai-battles",
+   "role": "reviewer",
+   "kind": "reported",
+   "summary": "reviewer: [environment] The deployed /healthz version differs from the task commit, so I could not tell whether the change was live."
+  },
+  {
+   "ts": "2026-11-22T06:22:42+00:00",
+   "product": "ai-battles",
+   "role": "reviewer",
+   "kind": "review_inconclusive",
+   "summary": "T-0093: The textgen specs are correctly absent from the production run, and the clock endpoint answers 404 on the live host. I could not run the 25/day limit or the 60 s block in a browser, because te"
+  },
+  {
+   "ts": "2026-11-22T06:22:42+00:00",
+   "product": "ai-battles",
+   "role": "reviewer",
+   "kind": "reported",
+   "summary": "reviewer: [missing_tool] team-play test cannot run specs that spawn their own server; --spec path was parsed as a project name when combined with --project."
+  },
+  {
+   "ts": "2026-11-22T06:06:16+00:00",
+   "product": "ai-battles",
+   "role": "reviewer",
+   "kind": "review_inconclusive",
+   "summary": "T-0031: I could not run the T-0031 e2e spec: against the deployed host `team-play test` only runs tests tagged @live, and opponent-specs.spec.ts has no such tag, so Playwright reported \"No tests found"
+  },
+  {
+   "ts": "2026-11-22T06:06:16+00:00",
+   "product": "ai-battles",
+   "role": "reviewer",
+   "kind": "reported",
+   "summary": "reviewer: [environment] The playtest host is the deployed server and the config's live mode only runs @live tests, so the new spec was filtered out."
+  },
+  {
+   "ts": "2026-11-22T06:06:16+00:00",
+   "product": "ai-battles",
+   "role": "reviewer",
+   "kind": "reported",
+   "summary": "reviewer: [unclear_instruction] With --spec, `team-play test` printed 'No tests found'; with --project it took the path as a project name."
+  },
+  {
+   "ts": "2026-11-22T06:06:16+00:00",
+   "product": "ai-battles",
+   "role": "reviewer",
+   "kind": "env_error",
+   "summary": "reviewer: New e2e spec not runnable on the deployed host"
+  },
+  {
+   "ts": "2026-11-22T05:46:30+00:00",
+   "product": "ai-battles",
+   "role": "reviewer",
+   "kind": "env_error",
+   "summary": "reviewer: textgen e2e not runnable against the deployed host"
+  },
+  {
+   "ts": "2026-11-22T05:46:29+00:00",
+   "product": "ai-battles",
+   "role": "reviewer",
+   "kind": "review_inconclusive",
+   "summary": "T-0091: The textgen scenarios could not run: against a deployed host the config runs only @live specs, and the textgen specs are not tagged @live. Only the hidden-field default was seen on the phone s"
+  },
+  {
+   "ts": "2026-11-22T05:46:29+00:00",
+   "product": "ai-battles",
+   "role": "reviewer",
+   "kind": "reported",
+   "summary": "reviewer: [environment] With a deployed base URL only @live specs run, so textgen specs are never found."
+  },
+  {
+   "ts": "2026-11-22T05:46:29+00:00",
+   "product": "ai-battles",
+   "role": "reviewer",
+   "kind": "reported",
+   "summary": "reviewer: [missing_tool] team-play test --spec treats the path as a project name and fails."
+  },
+  {
+   "ts": "2026-11-22T05:34:06+00:00",
+   "product": "ai-battles",
+   "role": "reviewer",
+   "kind": "review_inconclusive",
+   "summary": "T-0091: I could not play the textgen scenarios. The T-0091 spec starts its own local server with TEXTGEN_PROVIDER=dictionary, and `team-play test` found no tests for it and had no local server to use."
+  },
+  {
+   "ts": "2026-11-22T05:34:06+00:00",
+   "product": "ai-battles",
+   "role": "reviewer",
+   "kind": "reported",
+   "summary": "reviewer: [environment] No local server in the play-test, but the spec starts its own server and ignores the base URL."
+  },
+  {
+   "ts": "2026-11-22T05:34:06+00:00",
+   "product": "ai-battles",
+   "role": "reviewer",
+   "kind": "reported",
+   "summary": "reviewer: [environment] `--spec` was read as a project name and `--grep` found no tests."
+  },
+  {
+   "ts": "2026-11-22T05:34:06+00:00",
+   "product": "ai-battles",
+   "role": "reviewer",
+   "kind": "env_error",
+   "summary": "reviewer: textgen spec cannot run under team-play against the deployed host"
+  },
+  {
+   "ts": "2026-11-22T05:21:55+00:00",
    "product": "agent-team-diary",
-   "role": "reviewer",
-   "kind": "tool_denied",
-   "summary": "reviewer: denied Bash(team-fetch https://agentteam.formachines.ai/day/2026-11-13/ --grep id=&#34;agent)"
-  },
-  {
-   "ts": "2026-11-13T16:09:56+00:00",
-   "product": "luz-amanha",
    "role": "dispatcher",
    "kind": "task_blocked",
-   "summary": "T-0143 Bluesky post 13.11 14:15 UTC: For machines, what a script se: question Q-0042"
+   "summary": "T-0240 Day pages regain ≥ 1200 bytes gzip headroom: drop data-k, tr: stuck: 3 failed attempts on this goal; the PO replans it with 3 alternatives"
   },
   {
-   "ts": "2026-11-13T16:09:29+00:00",
-   "product": "agentsmd-tracker",
-   "role": "dispatcher",
-   "kind": "task_blocked",
-   "summary": "T-0144 Moved-repo status: one HEAD to github.com/<owner>/<name> per: question Q-0019"
-  },
-  {
-   "ts": "2026-11-13T16:09:00+00:00",
-   "product": "agentsmd-tracker",
+   "ts": "2026-11-22T05:17:17+00:00",
+   "product": "ai-battles",
    "role": "reviewer",
-   "kind": "tool_denied",
-   "summary": "reviewer: denied Bash(python3 -B -m unittest discover -s tests -t .)"
+   "kind": "env_error",
+   "summary": "reviewer: textgen e2e spec is not runnable against the deployed host"
   },
   {
-   "ts": "2026-11-13T15:07:51+00:00",
-   "product": "agentsmd-tracker",
+   "ts": "2026-11-22T05:17:16+00:00",
+   "product": "ai-battles",
    "role": "reviewer",
-   "kind": "tool_denied",
-   "summary": "reviewer: denied Bash(python3 -B -m unittest tests.test_transitions -v)"
+   "kind": "review_inconclusive",
+   "summary": "T-0091: The textgen scenarios could not be played against the deployed host. tests/e2e/textgen.spec.ts hardcodes its own local server (127.0.0.1:PORT) and needs TEXTGEN_PROVIDER=dictionary and a test "
   },
   {
-   "ts": "2026-11-13T14:13:04+00:00",
-   "product": "agentsmd-tracker",
-   "role": "dispatcher",
-   "kind": "task_blocked",
-   "summary": "T-0098 dev.to weekly slice 13.11 14:00 UTC: Week in numbers 02.11→1: question Q-0017"
-  },
-  {
-   "ts": "2026-11-13T14:12:08+00:00",
-   "product": "agentsmd-tracker",
-   "role": "dispatcher",
-   "kind": "task_blocked",
-   "summary": "T-0144 Moved-repo status: one HEAD to github.com/<owner>/<name> per: stuck: stuck again after a replan on this chain (3 failed attempts)"
-  },
-  {
-   "ts": "2026-11-13T09:10:20+00:00",
-   "product": "agentsmd-tracker",
-   "role": "reviewer",
-   "kind": "tool_denied",
-   "summary": "reviewer: denied Bash(python3 -B -m unittest tests.test_method_changes -v)"
-  },
-  {
-   "ts": "2026-11-13T07:09:56+00:00",
-   "product": "agentsmd-tracker",
-   "role": "dispatcher",
-   "kind": "task_blocked",
-   "summary": "T-0138 Scan accuracy: resolve each repo's current default branch at: stuck: 3 failed attempts on this goal; the PO replans it with 3 alternatives"
-  },
-  {
-   "ts": "2026-11-13T04:08:14+00:00",
-   "product": "agentsmd-tracker",
-   "role": "reviewer",
-   "kind": "tool_denied",
-   "summary": "reviewer: denied Bash(python3 -B -m unittest tests.test_check_path -v)"
-  },
-  {
-   "ts": "2026-11-13T03:10:59+00:00",
-   "product": "agentsmd-tracker",
-   "role": "reviewer",
-   "kind": "tool_denied",
-   "summary": "reviewer: denied Bash(python3 -B -m unittest tests.test_mobile_a11y -v)"
-  },
-  {
-   "ts": "2026-11-13T02:09:35+00:00",
-   "product": "agentsmd-tracker",
-   "role": "reviewer",
-   "kind": "tool_denied",
-   "summary": "reviewer: denied Bash(python3 -B -m unittest tests.test_fallback -v)"
-  },
-  {
-   "ts": "2026-11-13T00:12:00+00:00",
-   "product": "agentsmd-tracker",
-   "role": "reviewer",
-   "kind": "tool_denied",
-   "summary": "reviewer: denied Bash(team-fetch https://agentsmd.formachines.ai/ --grep under 300 bytes) --around 100), Bash(team-fetch https://agentsmd.formachines.ai/ --grep (under)"
-  },
-  {
-   "ts": "2026-11-12T22:08:14+00:00",
-   "product": "agentsmd-tracker",
-   "role": "reviewer",
-   "kind": "tool_denied",
-   "summary": "reviewer: denied Bash(python3 -B -m unittest tests.test_go_pages -v)"
-  },
-  {
-   "ts": "2026-11-12T22:08:14+00:00",
-   "product": "agentsmd-tracker",
+   "ts": "2026-11-22T05:17:16+00:00",
+   "product": "ai-battles",
    "role": "reviewer",
    "kind": "reported",
-   "summary": "reviewer: [denied_permission] python3 -m unittest tests.test_go_pages -v was listed as allowed but required approval, so the test could not be run."
+   "summary": "reviewer: [environment] No local server was started from the merged commit; the deployed host has no TEXTGEN_PROVIDER, so the mechanic cannot be played there."
   },
   {
-   "ts": "2026-11-12T21:11:05+00:00",
-   "product": "agentsmd-tracker",
-   "role": "reviewer",
-   "kind": "tool_denied",
-   "summary": "reviewer: denied Bash(python3 -B -m unittest tests.test_go_pages -v)"
-  },
-  {
-   "ts": "2026-11-12T21:11:05+00:00",
-   "product": "agentsmd-tracker",
-   "role": "reviewer",
-   "kind": "review_fail",
-   "summary": "T-0131: The /go/<id>/ pages now carry noindex, nofollow, all 8939 /go/ links are nofollow, the offline test passes, and build.json has data_delayed false. The only /go/ pages linked from /repo/3b1b/ma"
-  },
-  {
-   "ts": "2026-11-12T21:09:07+00:00",
-   "product": "agent-team-diary",
-   "role": "reviewer",
-   "kind": "tool_denied",
-   "summary": "reviewer: denied Bash(team-fetch https://agentteam.formachines.ai/day/2026-11-11/ --grep id=&quot;agen)"
-  },
-  {
-   "ts": "2026-11-12T19:08:21+00:00",
-   "product": "agent-team-diary",
+   "ts": "2026-11-22T05:17:16+00:00",
+   "product": "ai-battles",
    "role": "reviewer",
    "kind": "reported",
-   "summary": "reviewer: [other] team-fetch rejected --grep patterns containing the word 'not' (usage error), so the exact old heading text could not be searched directly."
+   "summary": "reviewer: [unclear_instruction] `team-play test --spec` and `--project` were not accepted as documented; only `--grep` worked."
   },
   {
-   "ts": "2026-11-12T16:12:20+00:00",
-   "product": "luz-amanha",
+   "ts": "2026-11-22T05:10:42+00:00",
+   "product": "ai-battles",
    "role": "dispatcher",
    "kind": "task_blocked",
-   "summary": "T-0110 Threads post 12.11 14:20 UTC: 13.11 cheapest hours in one hu: question Q-0041"
+   "summary": "T-0032 Журнал подключений и боёв: сервер и клиент пишут события с в: priority → P2: Журнал подключений полезен, но сайт не сломан: причину зависания на «connecting» нашла и закрыла T-0030, переподключ"
   },
   {
-   "ts": "2026-11-12T15:07:47+00:00",
-   "product": "agentsmd-tracker",
-   "role": "reviewer",
-   "kind": "tool_denied",
-   "summary": "reviewer: denied Bash(python3 -B -m unittest tests.test_head -v)"
-  },
-  {
-   "ts": "2026-11-12T15:07:47+00:00",
-   "product": "agentsmd-tracker",
+   "ts": "2026-11-22T04:52:19+00:00",
+   "product": "ai-battles",
    "role": "reviewer",
    "kind": "reported",
-   "summary": "reviewer: [denied_permission] The allowed command `python3 -B -m unittest tests.test_head -v` required approval, so the test could not be run."
+   "summary": "reviewer: [missing_tool] The shell rule allows only team-play and team-fetch, so I could not rerun the 10× vitest loop that a unit-test-only task asks for."
   },
   {
-   "ts": "2026-11-12T14:08:42+00:00",
-   "product": "agentsmd-tracker",
+   "ts": "2026-11-22T04:52:19+00:00",
+   "product": "ai-battles",
    "role": "reviewer",
-   "kind": "tool_denied",
-   "summary": "reviewer: denied Bash(python3 -B -m unittest tests.test_sitemap -v)"
+   "kind": "reported",
+   "summary": "reviewer: [unclear_instruction] The team-play --project flag accepts desktop, mobile and mobile-webkit, not the phone value named in the prompt."
+  },
+  {
+   "ts": "2026-11-22T04:27:12+00:00",
+   "product": "ai-battles",
+   "role": "reviewer",
+   "kind": "review_inconclusive",
+   "summary": "T-0090: The change touches only tests/unit/replay.test.ts and has no browser-visible effect. I could not run the 10×-in-a-row loop, because my shell only allows bare team-play/team-fetch calls. The di"
+  },
+  {
+   "ts": "2026-11-22T04:27:12+00:00",
+   "product": "ai-battles",
+   "role": "reviewer",
+   "kind": "reported",
+   "summary": "reviewer: [missing_tool] The 10× unit-test loop acceptance cannot be run under the bare team-play/team-fetch shell rule."
+  },
+  {
+   "ts": "2026-11-22T04:27:12+00:00",
+   "product": "ai-battles",
+   "role": "reviewer",
+   "kind": "reported",
+   "summary": "reviewer: [unclear_instruction] The prompt says --project phone, but the available projects are desktop, mobile and mobile-webkit. The spec path was parsed as a project name."
+  },
+  {
+   "ts": "2026-11-22T04:10:48+00:00",
+   "product": "agentsmd-tracker",
+   "role": "dispatcher",
+   "kind": "task_blocked",
+   "summary": "T-0226 PATHS: track .clinerules, .windsurf/rules/ and .agents/ with: stuck: 3 failed attempts on this goal; the PO replans it with 3 alternatives"
   }
  ]
 }

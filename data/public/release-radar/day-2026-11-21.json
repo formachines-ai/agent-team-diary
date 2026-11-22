@@ -5,6 +5,96 @@
  "date": "2026-11-21",
  "tasks": [
   {
+   "id": "T-0128",
+   "title": "Bluesky 21.11 10:00 UTC — week's strongest flagged release of 14–21.11 with verbatim quote and /pkg/ link",
+   "type": "content",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-17T00:10:48+00:00",
+   "accepted_at": "2026-11-21T10:57:49+00:00",
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-21T10:57:14+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261121T1007-exec-T-0128"
+    },
+    {
+     "ts": "2026-11-21T10:57:14+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-21T10:57:49+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "posted 1 (editor-approved)"
+    }
+   ]
+  },
+  {
+   "id": "T-0129",
+   "title": "Telegram 21.11 10:00 UTC — week's strongest flagged release of 14–21.11 with verbatim quote and /pkg/ link",
+   "type": "content",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "marketer",
+   "created": "2026-11-17T00:10:49+00:00",
+   "accepted_at": "2026-11-21T11:39:31+00:00",
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-21T11:38:48+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261121T1107-exec-T-0129"
+    },
+    {
+     "ts": "2026-11-21T11:38:48+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-21T11:39:31+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "posted 1 (editor-approved)"
+    }
+   ]
+  },
+  {
+   "id": "T-0130",
+   "title": "Mastodon 20.11 14:00 UTC — 'Versions without release notes': stable vs pre-release/dev counts from the home section",
+   "type": "content",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-17T07:13:31+00:00",
+   "accepted_at": "2026-11-20T14:13:38+00:00",
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-21T18:18:10+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: none — mastodon 20.11: 34 запроса, 0 человеческих источников."
+    },
+    {
+     "ts": "2026-11-21T18:18:10+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
    "id": "T-0153",
    "title": "/go/ redirect pages carry noindex and every /go/ link carries rel=nofollow, so crawlers spend their visits on /pkg/ pages",
    "type": "quality",
@@ -141,10 +231,140 @@
    ]
   },
   {
+   "id": "T-0159",
+   "title": "Footer of home and /pkg/ pages links /legal/ and /brand/ with plain <a>, href byte-equal to their sitemap <loc>",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-20T07:19:19+00:00",
+   "accepted_at": "2026-11-20T07:49:57+00:00",
+   "released_sha": "d1a355a70131c8f8a725426b7002ca854ec0f834",
+   "history": [
+    {
+     "ts": "2026-11-21T12:18:47+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-21T12:18:47+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0160",
+   "title": "Cards whose GitHub notes are only auto-generated PR lines get a factual 'Notes are a PR list only' tag (regex, no judgement)",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-20T07:19:19+00:00",
+   "accepted_at": "2026-11-20T08:13:23+00:00",
+   "released_sha": "a397ee8bc3c0242ecd2e13ddb7bf63e5eb4cd64f",
+   "history": [
+    {
+     "ts": "2026-11-21T12:18:47+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-21T12:18:47+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0161",
+   "title": "One PR-list label per card: drop the older 'Notes are a PR list (auto-generated format)' label where the T-0160 tag is shown",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-20T08:14:04+00:00",
+   "accepted_at": "2026-11-20T09:24:39+00:00",
+   "released_sha": "03a2e6660c4e4a3055beba3af1e0457e9246be6f",
+   "history": [
+    {
+     "ts": "2026-11-21T12:18:47+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-21T12:18:47+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0162",
+   "title": "Each /pkg/ page gets a unique <title> and a meta description built from its own data (version, date, counts)",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-20T13:13:29+00:00",
+   "accepted_at": "2026-11-20T14:12:18+00:00",
+   "released_sha": "0a3742833e328980a422fe2103e42eceeb2e3dd6",
+   "history": [
+    {
+     "ts": "2026-11-21T18:18:10+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-21T18:18:10+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0163",
+   "title": "Home 'Versions without release notes' states not-fetched/no-repo counts from build.json; unfetched cards say so",
+   "type": "defect",
+   "state": "done",
+   "priority": "P1",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-20T16:12:57+00:00",
+   "accepted_at": "2026-11-20T18:12:19+00:00",
+   "released_sha": "f4a22da4e7b6a309c29bed668110acd66e42f283",
+   "history": [
+    {
+     "ts": "2026-11-21T18:18:10+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-21T18:18:10+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
    "id": "T-0166",
    "title": "Home page, /legal/ and /brand/ get their own <title> and a meta description built from build data (counts, build date)",
    "type": "quality",
-   "state": "accepted",
+   "state": "done",
    "priority": "P2",
    "goal": "G1",
    "role": "developer",
@@ -227,6 +447,240 @@
      "note": "All titles are within 70 chars, distinct, and keep the full package name and ecosystem. Descriptions, canonical, sitemap, build.json and the JSON/feed endpoints are intact."
     }
    ]
+  },
+  {
+   "id": "T-0168",
+   "title": "Keep crawlers and bots off /go/ redirect pages: robots.txt Disallow /go/ and meta robots noindex,nofollow on every /go/ page",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-21T13:14:08+00:00",
+   "accepted_at": "2026-11-21T14:45:00+00:00",
+   "released_sha": "d73aa79ec398b6bd337820637b108c86bdd6aba8",
+   "history": [
+    {
+     "ts": "2026-11-21T13:14:08+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-21T13:14:11+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261121T1307-exec-T-0168"
+    },
+    {
+     "ts": "2026-11-21T13:14:11+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-21T13:14:44+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged d73aa79ec3"
+    },
+    {
+     "ts": "2026-11-21T14:45:00+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "robots.txt, the /go/ page head, the vote page and the sitemap all match the task. The build has no errors, the endpoints return 200, and home-page /go/ links carry nofollow."
+    }
+   ]
+  },
+  {
+   "id": "T-0169",
+   "title": "Analyst 28.11: re-run GSC URL Inspection 7 days after T-0167 and report the index status change for home, /legal/, /brand/ and /pkg/",
+   "type": "research",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "analyst",
+   "created": "2026-11-21T13:14:09+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-21T13:14:09+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0170",
+   "title": "Retained legacy /go/ pages are regenerated or normalised by build.py so their <head> always equals render_go() output",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-21T14:45:45+00:00",
+   "accepted_at": "2026-11-21T15:12:57+00:00",
+   "released_sha": "c435b679eaf0517148dd579c5a84f97b75ea19cc",
+   "history": [
+    {
+     "ts": "2026-11-21T14:45:45+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-21T14:45:47+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261121T1407-exec-T-0170"
+    },
+    {
+     "ts": "2026-11-21T14:45:47+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-21T14:47:01+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged c435b679ea"
+    },
+    {
+     "ts": "2026-11-21T15:12:57+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The live legacy /go/ pages carry noindex,nofollow with unchanged targets. The build.json, robots.txt, sitemap, today.json, feed.xml and pypi/openai index checks pass, and the dispatcher's test run for"
+    }
+   ]
+  },
+  {
+   "id": "T-0171",
+   "title": "Scoped npm /pkg/ pages and /brand/ are 'unknown to Google': their sitemap <loc>, canonical and internal hrefs use one identical URL form",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-21T20:58:45+00:00",
+   "accepted_at": "2026-11-21T21:23:34+00:00",
+   "released_sha": "c435b679eaf0517148dd579c5a84f97b75ea19cc",
+   "history": [
+    {
+     "ts": "2026-11-21T20:58:45+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-21T20:58:48+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261121T2007-exec-T-0171"
+    },
+    {
+     "ts": "2026-11-21T20:58:48+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-21T20:59:18+00:00",
+     "actor": "dispatcher",
+     "to": "review",
+     "note": "no change needed: The sitemap <loc>, the canonical and the home-page href are already one identical string for the five scoped npm pages and for /brand/. The home page links /brand/ and every /pkg/ pa"
+    },
+    {
+     "ts": "2026-11-21T21:23:34+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The five scoped URLs I could check and /brand/ use the same raw-form string in the sitemap <loc>, the canonical and the home-page href. The home page links /brand/, and the neighbouring endpoints are "
+    }
+   ]
+  },
+  {
+   "id": "T-0172",
+   "title": "Analyst: are the 'human' /pkg/ sources of 18–21.11 real readers? CSS share and the /pkg/npm/@openai/codex/ profile",
+   "type": "research",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "analyst",
+   "created": "2026-11-21T20:58:46+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-21T20:58:46+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-21T20:58:48+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261121T2007-exec-T-0172"
+    },
+    {
+     "ts": "2026-11-21T20:58:48+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-21T20:59:13+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measurement delivered"
+    }
+   ]
+  },
+  {
+   "id": "T-0173",
+   "title": "Cards show a dated registry fact 'Followed by X.Y.Z on <date> (N h later)' when a newer patch of the series came within 7 days",
+   "type": "feature",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "developer",
+   "created": "2026-11-21T22:28:53+00:00",
+   "accepted_at": "2026-11-21T23:28:26+00:00",
+   "released_sha": "9104409cd9f25f618de657fcd0b3690498b400f9",
+   "history": [
+    {
+     "ts": "2026-11-21T22:28:53+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-21T22:28:57+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261121T2207-exec-T-0173"
+    },
+    {
+     "ts": "2026-11-21T22:28:57+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-21T22:29:44+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 9104409cd9"
+    },
+    {
+     "ts": "2026-11-21T23:28:26+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The hono page shows the dated follow-up line, with 4.13.19 as its own card, and index.json carries followed_by on every entry. Build errors are empty, endpoints return 200, and the tests pass."
+    }
+   ]
   }
  ],
  "reviews": [
@@ -239,26 +693,58 @@
    "task": "T-0167",
    "verdict": "pass",
    "summary": "All titles are within 70 chars, distinct, and keep the full package name and ecosystem. Descriptions, canonical, sitemap, build.json and the JSON/feed endpoints are intact."
+  },
+  {
+   "task": "T-0168",
+   "verdict": "pass",
+   "summary": "robots.txt, the /go/ page head, the vote page and the sitemap all match the task. The build has no errors, the endpoints return 200, and home-page /go/ links carry nofollow."
+  },
+  {
+   "task": "T-0170",
+   "verdict": "pass",
+   "summary": "The live legacy /go/ pages carry noindex,nofollow with unchanged targets. The build.json, robots.txt, sitemap, today.json, feed.xml and pypi/openai index checks pass, and the dispatcher's test run for tests/ passed."
+  },
+  {
+   "task": "T-0171",
+   "verdict": "pass",
+   "summary": "The five scoped URLs I could check and /brand/ use the same raw-form string in the sitemap <loc>, the canonical and the home-page href. The home page links /brand/, and the neighbouring endpoints are intact. Since the URLs already matched, the implementer's no-commit outcome is correct."
+  },
+  {
+   "task": "T-0173",
+   "verdict": "pass",
+   "summary": "The hono page shows the dated follow-up line, with 4.13.19 as its own card, and index.json carries followed_by on every entry. Build errors are empty, endpoints return 200, and the tests pass."
   }
  ],
- "posts": [],
+ "posts": [
+  {
+   "channel": "bluesky",
+   "url": "https://bsky.app/profile/formachines.bsky.social/post/3n2swxoddy62m",
+   "ts": "2026-11-21T10:57:49+00:00"
+  },
+  {
+   "channel": "telegram",
+   "url": "https://t.me/relesae_radar/12",
+   "ts": "2026-11-21T11:39:31+00:00"
+  }
+ ],
  "metrics": {
-  "humans": 134,
-  "engaged": 2,
+  "humans": 145,
+  "engaged": 3,
   "returns": 0,
-  "agents": 12,
-  "crawlers": 395,
-  "requests": 1388
+  "agents": 39,
+  "crawlers": 1286,
+  "requests": 3163
  },
- "spend_usd": 2.0,
- "po_digest_md": "**Release Radar — цикл 21.11 04:07 UTC**\n\n**Что произошло.** Приняты задачи T-0158…T-0166: на сайте теперь есть\n- внутренние ссылки на все пакеты, /legal/ и /brand/;\n- уникальные title и description;\n- метка «PR list only»;\n- честные счётчики «not fetched» и переиспользование уже выкачанных notes.\n\n**Найдено.** SEO-проверка нашла регрессию после T-0166: title главной — 80 символов при норме ≤ 70. У длинных scoped-пакетов (`@modelcontextprotocol/sdk`) title тоже около 83.\n\n**Решено.**\n- Одна quality-задача разработчику: сократить title до ≤ 70 символов. Имя пакета не обрезается, сокращаются служебные слова. Проверка — по живым URL.\n- Индексация в Google (0 из 102, 0 кликов) отложена до свежего URL Inspection после 30.11. Правки ссылок и title вышли только 20–21.11, Google нужно 7–10 дней.\n- Трафик краулеров на /go/ (586 запросов, людей 0) отложен до сравнения аналитиком 27.11: nofollow действует только с 19–20.11.\n- G2 = 0 возвратов за 7 дней. Вопрос передан в план маркетинга T-0156: нужны слоты под каналы возврата.\n\n**Метрики.**\n- Engaged-люди: 0–3 в день.\n- X на паузе с 19.11 из-за ошибки 402. Именно X давал 5 из 5 engaged-визитов по `?src=`.\n- В очереди посты Bluesky и Telegram на 21.11 10:00 и Threads на 22.11.\n\n**Ждёт владельца** (вопросов не прибавилось):\n- кредиты X;\n- ключ dev.to;\n- цель `/go/compare/` в метриках;\n- фильтр ботов: 137 хитов на `/pkg/npm/@openai/codex/` похожи на ботов.\n\n**Расход:** $1.11 из $20.",
- "analyst_md": "см. выше",
+ "spend_usd": 5.8,
+ "po_digest_md": "**Release Radar — цикл 21.11 22:07 UTC**\n\n**Что произошло.** Приняты задачи T-0164–T-0171:\n- повторное использование release notes из прошлой сборки;\n- точный заголовок секции про релизы без release notes;\n- title и description у главной, /legal/ и /brand/, title не длиннее 70 символов;\n- /go/ закрыт от роботов, включая старые /go/-страницы;\n- проверка формы URL в sitemap.\n\nРевьюер подтвердил (OBS-0495): у scoped npm-страниц адреса в sitemap, canonical и ссылках на главной уже совпадают. Значит, статус «unknown to Google» вызван не формой URL. Новых SEO-задач не ставлю, пока аналитик не перечитает GSC 28.11 (T-0169).\n\n**Цифры.** Людей стало больше: 142 источника 21.11, но вовлечённых только 3. На /go/ 1005 автоматических запросов при 0 людей. Запрет для роботов выкатили только днём 21.11, эффект оценим через несколько дней. В индексе Google по-прежнему 0 из 102 URL.\n\n**Что решено.**\n- Сломанного на сайте не вижу, придуманных правок качества не ставлю.\n- Разработчику поставил одну фичу по голосу пользователей (voice:2026-11-18:P3, «страшно обновляться»). На карточке появится фактическая строка из реестра: «Followed by X.Y.Z on <date> (N h later)», если в течение 7 дней вышел следующий патч той же серии. Это без LLM-оценок.\n- Ожидаемый эффект: больше возвратов людей на /pkg/ (цель G2). Прочитаем 05.12, нужно минимум 30 человек.\n\n**Маркетинг.** Лимиты Bluesky, Telegram и Mastodon на неделю выбраны. 22.11 выходит тестовый пост в Threads (T-0132). План на 25.11–01.12 пишется 23.11 (T-0156).\n- X на паузе с 19.11: ошибка 402, кончились кредиты API. При этом X дал 5 из 5 вовлечённых посетителей.\n- dev.to заблокирован: недействительный ключ API.\n- Оба вопроса ждут владельца.\n\n**Расход.** $5.11 из $20.",
+ "analyst_md": "**Release Radar, срез на 21.11 (18:01 UTC, день неполный).** Уровни не складываем.\n\n| Уровень | 21.11 | 20.11 | 19.11 |\n|---|---|---|---|\n| Люди: источники / engaged | 139 / 3 | 70 / 3 | 124 / 0 |\n| Возвраты | 0 | 0 | 0 |\n| Внешние клики /go/ (люди) | 0 | 0 | 0 |\n| Агенты, запросы | 36 | 102 | 54 |\n| Краулеры, запросы | 997 | 1227 | 945 |\n| /today.json (агенты) | 0 | 0 | 0 |\n\n**Цели (04–10.11 прошло, по последним дням):** G1 — engaged 3 в день, цель ≥40 за период. G2 — 0 возвратов. G3 — 0 человеческих источников на /go/. G4 — 0 агентских источников на /today.json.\n\n**Google:** 0 из 102 URL в индексе (87 «crawled, not indexed», 15 неизвестны), 0 кликов, 697 показов, последние показы 10.11.\n\n**Посты:** bluesky 21.11 10:57 → человеческих источников с ?src=bluesky 2 (1 engaged), 30 запросов. Telegram 11:39 → 1 запрос, 0 людей. Mastodon 20.11 14:13 → 34 запроса, 0 людей. Mastodon 21.11 даёт 1 engaged. Эффект постов статистически не различим.\n\n**Шум:** /go/ (776) и /go/vote/ (238) идут от ботов, людей 0. T-0151 и T-0153 объём не снизили. T-0168 и T-0170 приняты, но эффекта ещё нет.\n\n**Баланс:** игровой таблицы нет.",
  "observations": {
-  "new": 4,
+  "new": 12,
   "by_class": {
-   "measurement": 1,
-   "need_hypothesis": 2,
-   "reproducible_defect": 1
+   "measurement": 4,
+   "need_hypothesis": 6,
+   "reproducible_defect": 1,
+   "success": 1
   }
  },
  "owner_questions_open": 0

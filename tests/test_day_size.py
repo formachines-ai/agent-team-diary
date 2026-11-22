@@ -51,6 +51,24 @@ class DaySize(unittest.TestCase):
         self.assertTrue(r["max_page"])
         self.assertLessEqual(r["max_bytes"], 35400)
 
+    def test_three_identical_notes_render_once(self):
+        model = build.load_data()
+        model["built"] = build.iso(build.utcnow())
+        note = "identical-note-marker-xyz"
+        for p in model["products"].values():
+            day = p["days"].get(DATE)
+            for t in (day or {}).get("tasks") or []:
+                t["history"] = [{"ts": "2026-11-20T01:00:00Z", "actor": "a", "to": "ready", "note": note} for _ in range(3)]
+                break
+            else:
+                continue
+            break
+        base = build.load_data(); base["built"] = model["built"]
+        before = build.render_day(DATE, base).count("same note")
+        html = build.render_day(DATE, model)
+        self.assertEqual(html.count(note), 1)
+        self.assertEqual(html.count("same note") - before, 2)
+
     def test_near_budget_warns_and_check_passes(self):
         # a page between warn_at and budget is listed in near_budget, not in over_budget
         html = "<!doctype html><title>t</title>"

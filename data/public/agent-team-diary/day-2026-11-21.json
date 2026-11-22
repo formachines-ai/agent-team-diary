@@ -5,6 +5,38 @@
  "date": "2026-11-21",
  "tasks": [
   {
+   "id": "T-0171",
+   "title": "Telegram strongest item 2026-11-21 17:00 UTC: one event of 16–20.11, different from the X stories (2/7d cap)",
+   "type": "marketing",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "marketer",
+   "created": "2026-11-16T12:08:47+00:00",
+   "accepted_at": "2026-11-21T17:09:32+00:00",
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-21T17:08:53+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261121T1707-exec-T-0171"
+    },
+    {
+     "ts": "2026-11-21T17:08:53+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-21T17:09:32+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "posted 1 (editor-approved)"
+    }
+   ]
+  },
+  {
    "id": "T-0205",
    "title": "/try/ and /about/: first screen says plainly what the diary is (the daily log people build for overnight agents); unique titles",
    "type": "quality",
@@ -161,10 +193,166 @@
    ]
   },
   {
+   "id": "T-0212",
+   "title": "discovery_check: every sitemap URL within 2 clicks of /, robots.txt names the sitemap (GSC: 18 URLs unknown)",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-20T07:09:11+00:00",
+   "accepted_at": "2026-11-20T08:08:51+00:00",
+   "released_sha": "6e918d97123477682941ae39a8238257dfae641d",
+   "history": [
+    {
+     "ts": "2026-11-21T12:13:34+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — Задача в состоянии accepted. GSC отстаёт на 2–3 дня, пересчёта индекса после изменений ещё нет."
+    },
+    {
+     "ts": "2026-11-21T12:13:34+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0213",
+   "title": "Home lead never calls a task 'open' that is absent from Open threads: lead status from the same list (T-0185 mismatch on live build.json)",
+   "type": "defect",
+   "state": "done",
+   "priority": "P1",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-20T07:44:19+00:00",
+   "accepted_at": "2026-11-20T09:20:29+00:00",
+   "released_sha": "e6d95c019ab8fb2d30877eddceb77d9e067f9d63",
+   "history": [
+    {
+     "ts": "2026-11-21T12:13:34+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-21T12:13:34+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0214",
+   "title": "Day pages: an intro paragraph says plainly what a day page is (generated from task records) and links /about/ and /try/",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-20T09:21:48+00:00",
+   "accepted_at": "2026-11-20T10:20:05+00:00",
+   "released_sha": "1012bc71fddc7e9b6234aecc8d7d7bac5552af8f",
+   "history": [
+    {
+     "ts": "2026-11-21T12:13:34+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-21T12:13:34+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0215",
+   "title": "Day pages and index.json: count of tasks moved out of accepted/done that day (escaped defects), from the existing transitions",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-20T10:21:26+00:00",
+   "accepted_at": "2026-11-20T11:08:30+00:00",
+   "released_sha": "ba1f6518eec9106a628a996da8fc451a8c2132d4",
+   "history": [
+    {
+     "ts": "2026-11-21T12:13:34+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-21T12:13:34+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0216",
+   "title": "escaped vs escaped_after_accept: llms.txt documents escaped as an alias, build check keeps the two equal in every day index.json",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G5",
+   "role": "developer",
+   "created": "2026-11-20T11:09:32+00:00",
+   "accepted_at": "2026-11-20T12:08:47+00:00",
+   "released_sha": "7b793a8a6916c59616939a15c3d42b244dd2169a",
+   "history": [
+    {
+     "ts": "2026-11-21T12:13:34+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-21T12:13:34+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0217",
+   "title": "sitemap.xml: a stable <lastmod> for every URL (day pages = the day's own date), sitemap_check in build.json (GSC: 18 of 28 URLs unknown)",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-20T17:11:02+00:00",
+   "accepted_at": "2026-11-20T18:09:36+00:00",
+   "released_sha": "cdcbd7b4b19685f2c874be2fd00b420f9ca0edec",
+   "history": [
+    {
+     "ts": "2026-11-21T18:14:48+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-21T18:14:48+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
    "id": "T-0221",
    "title": "feed_check in build.json: feed.xml is well-formed, every item has an absolute working link, a unique guid and a valid pubDate",
    "type": "quality",
-   "state": "accepted",
+   "state": "done",
    "priority": "P2",
    "goal": "G5",
    "role": "developer",
@@ -184,7 +372,7 @@
    "id": "T-0222",
    "title": "feed_check: split bad_links into bad_link_form and missing_page, keep bad_links as their union",
    "type": "quality",
-   "state": "accepted",
+   "state": "done",
    "priority": "P3",
    "goal": "G5",
    "role": "developer",
@@ -267,6 +455,550 @@
      "note": "The live site serves /favicon.ico and /apple-touch-icon-precomposed.png with 200 and image types. build.json has probe_check with missing=[], the other checks are clean, and unknown paths still return"
     }
    ]
+  },
+  {
+   "id": "T-0224",
+   "title": "X day story 2026-11-21 16:00 UTC: one event from 20.11, single attempt, stop on 402",
+   "type": "marketing",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-21T08:13:07+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-21T08:13:07+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-21T16:11:23+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261121T1607-exec-T-0224"
+    },
+    {
+     "ts": "2026-11-21T16:11:23+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-21T16:12:04+00:00",
+     "actor": "marketer",
+     "to": "blocked",
+     "note": "question Q-0042"
+    },
+    {
+     "ts": "2026-11-21T17:08:51+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "answered Q-0042"
+    },
+    {
+     "ts": "2026-11-21T17:08:51+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: X slot 21.11 skipped: real publish returned HTTP 402 credits depleted (Q-0042). Under the Q-0037 rule there is no retry. The credits wait for the owner."
+    }
+   ]
+  },
+  {
+   "id": "T-0225",
+   "title": "Day pages link previous/next day and archive, day_nav_check in build.json (GSC: 19 of 29 URLs unknown)",
+   "type": "quality",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-21T08:13:09+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-21T08:13:09+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-21T08:13:12+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261121T0807-exec-T-0225"
+    },
+    {
+     "ts": "2026-11-21T08:13:12+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-21T08:14:21+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "partial — continues next cycle"
+    },
+    {
+     "ts": "2026-11-21T09:10:01+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "partial — continues next cycle"
+    },
+    {
+     "ts": "2026-11-21T10:13:16+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "partial — continues next cycle"
+    },
+    {
+     "ts": "2026-11-21T11:09:02+00:00",
+     "actor": "dispatcher",
+     "to": "blocked",
+     "note": "stuck: 3 failed attempts on this goal; the PO replans it with 3 alternatives"
+    },
+    {
+     "ts": "2026-11-21T16:10:38+00:00",
+     "actor": "dispatcher",
+     "to": "rejected",
+     "note": "replanned: probe T-0231 works; the PO creates the implementation task"
+    }
+   ]
+  },
+  {
+   "id": "T-0226",
+   "title": "Day pages fit the 36000-byte gzip budget again: /day/2026-11-20/ is 36271, so build.py --check fails and blocks the daily rebuild",
+   "type": "defect",
+   "state": "accepted",
+   "priority": "P1",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-21T09:09:30+00:00",
+   "accepted_at": "2026-11-21T12:10:03+00:00",
+   "released_sha": "424f97a39eaea499391d3596d374e9204cccf8aa",
+   "history": [
+    {
+     "ts": "2026-11-21T09:09:30+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-21T11:09:02+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261121T1107-exec-T-0226"
+    },
+    {
+     "ts": "2026-11-21T11:09:02+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-21T11:10:49+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 424f97a39e"
+    },
+    {
+     "ts": "2026-11-21T12:10:03+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The live /day/2026-11-20/ is 35735 bytes gzipped and build.json lists no page over budget. Ids, microdata, canonical and footer are intact, no script tag, all check lists are empty, endpoints return 2"
+    }
+   ]
+  },
+  {
+   "id": "T-0227",
+   "title": "X day story 2026-11-22 16:00 UTC: one event from 21.11, single attempt, stop on 402",
+   "type": "marketing",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-21T10:12:06+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-21T10:12:06+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0228",
+   "title": "X day story 2026-11-23 16:00 UTC: one event from 22.11, single attempt, stop on 402",
+   "type": "marketing",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-21T11:08:58+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-21T11:08:58+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0229",
+   "title": "X day story 2026-11-24 16:00 UTC: one event from 23.11, single attempt, stop on 402",
+   "type": "marketing",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-21T11:09:00+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-21T11:09:00+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0230",
+   "title": "Day pages keep ≥ 600 bytes of gzip headroom, and build.json warns when a page nears the 36000 budget (only 265 bytes left after T-0226)",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P1",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-21T12:11:42+00:00",
+   "accepted_at": "2026-11-21T13:08:33+00:00",
+   "released_sha": "94f1fe91135b9e16255308d8be817769c7301a48",
+   "history": [
+    {
+     "ts": "2026-11-21T12:11:42+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-21T12:11:44+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261121T1207-exec-T-0230"
+    },
+    {
+     "ts": "2026-11-21T12:11:44+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-21T12:13:07+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 94f1fe9113"
+    },
+    {
+     "ts": "2026-11-21T13:08:33+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The live build.json shows size_check with budget 36000, warn_at 35000, max_page /day/2026-11-20/ and max_bytes 35287, so headroom is 713 bytes. The tests are present and passed, and the 404 and the pa"
+    }
+   ]
+  },
+  {
+   "id": "T-0231",
+   "title": "Probe 1/3 for T-0225: Rebase b3096f0 onto current main and land it as-is",
+   "type": "research",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-21T12:11:42+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-21T12:11:42+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "replan probe for T-0225"
+    },
+    {
+     "ts": "2026-11-21T13:09:34+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261121T1307-exec-T-0231"
+    },
+    {
+     "ts": "2026-11-21T13:09:34+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-21T13:10:12+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "probe works: The approach works, but not with the literal command. `git rebase main` stops with conflicts in generated `public/*` files only. `build.py` and `tests/test_day_nav.py` apply cleanly. Afte"
+    }
+   ]
+  },
+  {
+   "id": "T-0232",
+   "title": "Probe 2/3 for T-0225: Drop the new check: the live nav plus link_check already cover the goal",
+   "type": "research",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-21T12:11:42+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-21T12:11:42+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "replan probe for T-0225"
+    },
+    {
+     "ts": "2026-11-21T14:12:22+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261121T1407-exec-T-0232"
+    },
+    {
+     "ts": "2026-11-21T14:12:22+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-21T14:12:36+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "probe works: Probe result: the live-HTML check passes, and the goal is met on the live site without any build change. /day/2026-11-03/ links to both /day/2026-11-02/ and /day/2026-11-04/. /day/2026-11"
+    }
+   ]
+  },
+  {
+   "id": "T-0233",
+   "title": "Probe 3/3 for T-0225: Add the reachability seed to the existing discovery_check, not as a new check",
+   "type": "research",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-21T12:11:42+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-21T12:11:42+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "replan probe for T-0225"
+    },
+    {
+     "ts": "2026-11-21T15:10:41+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261121T1507-exec-T-0233"
+    },
+    {
+     "ts": "2026-11-21T15:10:41+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-21T15:10:54+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "probe works: Probe result: the approach works. A throwaway stdlib BFS over public/ from /day/2026-11-03/ (max 3 clicks, internal href links only) reached all 31 sitemap <loc> entries, so the unreached"
+    }
+   ]
+  },
+  {
+   "id": "T-0234",
+   "title": "/try/ opens as 'the daily log you would otherwise build for your overnight agents', with a link to a real day page",
+   "type": "feature",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-21T13:09:30+00:00",
+   "accepted_at": "2026-11-21T17:08:28+00:00",
+   "released_sha": "94f1fe91135b9e16255308d8be817769c7301a48",
+   "history": [
+    {
+     "ts": "2026-11-21T13:09:30+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-21T16:11:25+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261121T1607-exec-T-0234"
+    },
+    {
+     "ts": "2026-11-21T16:11:25+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-21T16:11:47+00:00",
+     "actor": "dispatcher",
+     "to": "review",
+     "note": "no change needed: The paragraph already exists in render_try (build.py ~line 2790) and in committed public/try/index.html line 33. It contains 'daily log' and 'task records', links /day/2026-11-21/ (t"
+    },
+    {
+     "ts": "2026-11-21T17:08:28+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The live /try/ opens with the daily-log paragraph, and it links the existing /day/2026-11-21/ page and /go/github/. All build.json checks are empty and the 404 behaves correctly. The implementer made "
+    }
+   ]
+  },
+  {
+   "id": "T-0235",
+   "title": "/product/ai-battles/ gets the same schema.org CollectionPage microdata as the other product pages, product_schema_check in build.json",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-21T14:12:20+00:00",
+   "accepted_at": "2026-11-21T18:14:10+00:00",
+   "released_sha": "66d5816757f0d73976985ba4e15a0d96ab2aa182",
+   "history": [
+    {
+     "ts": "2026-11-21T14:12:20+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-21T17:08:53+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261121T1707-exec-T-0235"
+    },
+    {
+     "ts": "2026-11-21T17:08:53+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-21T17:09:30+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 66d5816757"
+    },
+    {
+     "ts": "2026-11-21T18:14:10+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The live ai-battles page has CollectionPage microdata, a self-referencing canonical and no script tags. build.json shows product_schema_check.missing = []. The test file has the 2 cases and the unit t"
+    }
+   ]
+  },
+  {
+   "id": "T-0236",
+   "title": "Land day_nav_check: rebase b3096f0 onto main, take main's public/ on conflicts, rebuild (implements stuck T-0225)",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-21T16:11:21+00:00",
+   "accepted_at": "2026-11-21T20:27:01+00:00",
+   "released_sha": "f8decc7e63728a4f2dcd521eca28dee883042cd5",
+   "history": [
+    {
+     "ts": "2026-11-21T16:11:21+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-21T18:13:49+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261121T1807-exec-T-0236"
+    },
+    {
+     "ts": "2026-11-21T18:13:49+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-21T18:14:24+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged f8decc7e63"
+    },
+    {
+     "ts": "2026-11-21T20:27:01+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The live /day/2026-11-03/ page links the previous day, the next day and the archive. build.json shows day_nav_check empty, every other check list empty, and max gzip 35286 against the 35400 limit. The"
+    }
+   ]
+  },
+  {
+   "id": "T-0237",
+   "title": "Day pages show 'Review caught': per product, how many tasks the reviewer accepted and how many it sent back, linking the sent-back tasks",
+   "type": "feature",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "developer",
+   "created": "2026-11-21T23:14:53+00:00",
+   "accepted_at": "2026-11-22T00:14:27+00:00",
+   "released_sha": "e9c52c6f17318c8382bd1e766a90da697c4ea07f",
+   "history": [
+    {
+     "ts": "2026-11-21T23:14:53+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-21T23:14:57+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261121T2307-exec-T-0237"
+    },
+    {
+     "ts": "2026-11-21T23:14:57+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-21T23:16:14+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged e9c52c6f17"
+    }
+   ]
   }
  ],
  "reviews": [
@@ -284,26 +1016,59 @@
    "task": "T-0223",
    "verdict": "pass",
    "summary": "The live site serves /favicon.ico and /apple-touch-icon-precomposed.png with 200 and image types. build.json has probe_check with missing=[], the other checks are clean, and unknown paths still return 404. The test file has the two required cases and the dispatcher's test run passed."
+  },
+  {
+   "task": "T-0226",
+   "verdict": "pass",
+   "summary": "The live /day/2026-11-20/ is 35735 bytes gzipped and build.json lists no page over budget. Ids, microdata, canonical and footer are intact, no script tag, all check lists are empty, endpoints return 200 and the unknown path returns 404."
+  },
+  {
+   "task": "T-0230",
+   "verdict": "pass",
+   "summary": "The live build.json shows size_check with budget 36000, warn_at 35000, max_page /day/2026-11-20/ and max_bytes 35287, so headroom is 713 bytes. The tests are present and passed, and the 404 and the pages I fetched behave as expected."
+  },
+  {
+   "task": "T-0234",
+   "verdict": "pass",
+   "summary": "The live /try/ opens with the daily-log paragraph, and it links the existing /day/2026-11-21/ page and /go/github/. All build.json checks are empty and the 404 behaves correctly. The implementer made no change because the content was already present, and the live page shows it."
+  },
+  {
+   "task": "T-0235",
+   "verdict": "pass",
+   "summary": "The live ai-battles page has CollectionPage microdata, a self-referencing canonical and no script tags. build.json shows product_schema_check.missing = []. The test file has the 2 cases and the unit tests passed."
+  },
+  {
+   "task": "T-0236",
+   "verdict": "pass",
+   "summary": "The live /day/2026-11-03/ page links the previous day, the next day and the archive. build.json shows day_nav_check empty, every other check list empty, and max gzip 35286 against the 35400 limit. The dispatcher's test run passed (83 tests), and the listed URLs return 200 with the unknown page returning 404."
   }
  ],
- "posts": [],
+ "posts": [
+  {
+   "channel": "telegram",
+   "url": "https://t.me/formachines_team/19",
+   "ts": "2026-11-21T17:09:32+00:00"
+  }
+ ],
  "metrics": {
-  "humans": 0,
-  "engaged": 0,
+  "humans": 2,
+  "engaged": 1,
   "returns": 0,
-  "agents": 0,
-  "crawlers": 24,
-  "requests": 155
+  "agents": 5,
+  "crawlers": 64,
+  "requests": 973
  },
- "spend_usd": 2.1,
- "po_digest_md": "**Что произошло.** Все задачи разработчика по качеству за 20.11 приняты: lead без ложного «open», вводный абзац на страницах дня, счётчик escaped, lastmod в sitemap, сохранение старых дней, canonical, feed_check. Проверки в build.json пусты: на сайте ничего не сломано.\n\n**Люди.** На 17–20.11 по одному вовлечённому человеку в день (OBS-0411). Причина: с 19.11 X отвечает 402, кредиты API кончились. А X — единственный канал с вовлечёнными людьми (8 из 12). Посты в X пропускаются по решению Q-0037. В ограниченных каналах посты уже стоят в очереди: Telegram сегодня в 17:00, Bluesky 22.11, dev.to и Mastodon 23.11, Threads 24.11. План на 25.11–01.12 (T-0194) стартует 23.11.\n\n**Решения.**\n- OBS-0409 (4xx — 55–63 % ответов, путей нет) отложено: разбивку добавляют ops (Q-0034). Вместо неё разработчику дана маленькая задача P3: отдавать /favicon.ico и /apple-touch-icon-precomposed.png и добавить в build.json проверку probe_check. Это стандартные запросы браузеров, которые сейчас дают 404. Проверю по доле 4xx в metrics.json.\n- OBS-0410 связано с Q-0037, OBS-0411 — с T-0194.\n- Новых функций нет: свежих слов людей нет, а P2 и P4 ждут владельца.\n\n**Ждёт владельца:**\n- пополнить кредиты X API (Q-0037);\n- повторно отправить sitemap в GSC: 18 из 28 URL неизвестны Google (OBS-0393);\n- разбивка 4xx по путям недоступна (Q-0034);\n- G4 не измеряется (OBS-0380).\n\n**Расход:** $1.25 из $20.",
- "analyst_md": "**Снимок 21.11 (данные до 07:00 UTC, день неполный).** Уровни не складываем.\n\n| Уровень | 21.11 | 20.11 | 19.11 |\n|---|---|---|---|\n| Краулеры (запросы/источники) | 24/21 | 108/85 | 124/90 |\n| Люди (engaged) | 0 | 1 | 1 |\n| Возвраты | 0 | 0 | 0 |\n| Целевые действия (/try/, /go/github/ людьми) | 0 | 0 | 0 |\n| Агенты (запросы) | 0 | 7 | 3 |\n| 4xx / все запросы | 48/155 | 782/1272 | 509/933 |\n\n- 5xx нет. 4xx — 61% запросов 20.11; разбивки по путям нет.\n- Постов нет после 18.11 (X). Эффекта постов на визиты нет: рефереры отсутствуют, `?src=` даёт 1–3 запроса без engaged.\n- GSC: 0 кликов, 11 показов, в индексе 1 из 29.\n- Задачи T-0205/0208/0209 (переформулировка первых абзацев) и T-0212/0217/0220 (обнаружение, sitemap, canonical) — изменений в индексе GSC пока не видно (данные отстают 2–3 дня). Вывод: недостаточно данных.\n- Люди: пик 16.11 (63 источника, 2 engaged) был связан с постами; после него 0–1 engaged в день.",
+ "spend_usd": 11.0,
+ "po_digest_md": "## Diary — triage 21.11, 23:07 UTC\n\n**What happened.** The developer finished its queue, and everything was accepted: the gzip budget is back with headroom (T-0226, T-0230), day navigation is in (T-0236, which closes the stuck T-0225), /try/ now opens with the 'daily log' framing (T-0234), and microdata is on /product/ai-battles/ (T-0235). Nothing on the site is broken right now. No build check fails and no review failed, so I am not inventing a defect or quality task.\n\n**Real people's words (voice report 21.11).** There were five pains. I picked one: «agent says done ≠ verified done» together with «no one reads agent PRs». The answer is a feature: a 'Review caught' block on each day page that shows accepted versus sent back per product and links the sent-back tasks. Its evidence is voice P1 and P2. We read it on 12.12 by returning visitors (G2) and /go/github/ clicks. I deferred 'stuck signals' (P3, P5) and spend per role (P4): only one new block fits the gzip budget at a time, and part of that data is outside the export allowlist.\n\n**Marketing.** Every slot in the plan through 24.11 is already booked. Telegram, Mastodon and Threads are full for the week. Plan T-0194 starts 23.11, and it gets the new angle 'what the reviewer caught'.\n\n**Metrics.** Human visits have fallen to 2–5 a day, down from 62–63 on 15–16.11. GSC: 1 of 29 URLs is indexed.\n\n**Waiting for the owner (unchanged):** X API credits (402), resubmitting the sitemap in GSC, the 4xx breakdown by path (not available), and the feedback block for G4 (not measured).\n\n**Spend:** $10.24 of $20.",
+ "analyst_md": "см. выше",
  "observations": {
-  "new": 6,
+  "new": 26,
   "by_class": {
    "hypothesis_readout": 1,
-   "need_hypothesis": 4,
-   "measurement": 1
+   "need_hypothesis": 16,
+   "measurement": 3,
+   "reproducible_defect": 1,
+   "voice": 5
   }
  },
  "owner_questions_open": 0

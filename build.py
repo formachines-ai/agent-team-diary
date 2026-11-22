@@ -670,13 +670,11 @@ def product_section(d: dict, product: dict, heading_link: bool = True, anchors: 
             if is_accepted(t):
                 out.append(evidence_line(t, d))
             if hist:
-                items, prev_note = [], None
+                items = []
                 for h in hist:
                     note = str(h.get("note") or "")[:NOTE_MAX_CHARS]
-                    shown = "same note" if note and note == prev_note else (f"<i>{esc(note)}</i>" if note else "")
-                    prev_note = note or prev_note
                     items.append(f'<li>{fmt_ts(h.get("ts")).removesuffix(" UTC")} {esc(h.get("actor"))} → {esc(h.get("to"))}'
-                                 + (f' {shown}' if shown else ""))
+                                 + (f' <i>{esc(note)}</i>' if note else ""))
                 ol = "<ol>" + "".join(items) + "</ol>"
                 if len(hist) > FOLD_MIN_TRANSITIONS:
                     last = esc(hist[-1].get("to"))

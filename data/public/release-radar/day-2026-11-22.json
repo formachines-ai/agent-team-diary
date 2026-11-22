@@ -1,0 +1,352 @@
+{
+ "slug": "release-radar",
+ "name": "Release Radar",
+ "site": "https://releases.formachines.ai",
+ "date": "2026-11-22",
+ "tasks": [
+  {
+   "id": "T-0164",
+   "title": "Notes completeness: a build reuses notes already fetched in the previous committed build instead of marking 183 versions 'not fetched'",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-20T18:13:34+00:00",
+   "accepted_at": "2026-11-20T19:22:24+00:00",
+   "released_sha": "ce8cab096a14914781f8023ffc4969da13cdb0c5",
+   "history": [
+    {
+     "ts": "2026-11-22T00:32:07+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-22T00:32:07+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0165",
+   "title": "Home heading names what it counts: 'Versions checked with no release notes (<N>)' instead of a bare '(0)'",
+   "type": "quality",
+   "state": "done",
+   "priority": "P3",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-20T18:13:36+00:00",
+   "accepted_at": "2026-11-20T20:24:02+00:00",
+   "released_sha": "35f6252ab5c19d0c1ffd007a3062a73449e95cd1",
+   "history": [
+    {
+     "ts": "2026-11-22T00:32:07+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-22T00:32:07+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0166",
+   "title": "Home page, /legal/ and /brand/ get their own <title> and a meta description built from build data (counts, build date)",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-21T02:36:56+00:00",
+   "accepted_at": "2026-11-21T04:54:21+00:00",
+   "released_sha": "d23e3b44a548cfaeb6217ec095785027c82bd422",
+   "history": [
+    {
+     "ts": "2026-11-22T06:22:59+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-22T06:22:59+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0174",
+   "title": "Analyst: who are the 145 'human' sources of 21.11 and the 1048 /go/ hits after robots Disallow — UA/IP clusters and a filter proposal",
+   "type": "research",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "analyst",
+   "created": "2026-11-22T01:41:49+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-22T01:41:49+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-22T01:41:50+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261122T0107-exec-T-0174"
+    },
+    {
+     "ts": "2026-11-22T01:41:50+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-22T01:42:13+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measurement delivered"
+    }
+   ]
+  },
+  {
+   "id": "T-0175",
+   "title": "Unflagged cards say what was checked: 'No breaking keyword in the release notes (regex only; changes the notes omit are not detected)'",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-22T02:22:17+00:00",
+   "accepted_at": "2026-11-22T03:24:41+00:00",
+   "released_sha": "2ec809f32320af9a87900c3c7b3a353955708f89",
+   "history": [
+    {
+     "ts": "2026-11-22T02:22:17+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-22T02:22:21+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261122T0207-exec-T-0175"
+    },
+    {
+     "ts": "2026-11-22T02:22:21+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-22T02:22:49+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 2ec809f323"
+    },
+    {
+     "ts": "2026-11-22T03:24:41+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "Unflagged cards with notes show the fixed regex-only sentence, and the home legend carries the matching sentence. Flagged cards and cards without notes are unchanged, and the endpoints, build.json and"
+    }
+   ]
+  },
+  {
+   "id": "T-0176",
+   "title": "Flagged cards in a minor/patch release show the semver fact 'keyword match in a patch release (1.2.3 → 1.2.4)'",
+   "type": "feature",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-22T02:22:19+00:00",
+   "accepted_at": "2026-11-22T04:12:44+00:00",
+   "released_sha": "70bdc95c3e3fb7f4dda83f85e11b1db6a3cfa6be",
+   "history": [
+    {
+     "ts": "2026-11-22T02:22:19+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-22T03:24:32+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261122T0307-exec-T-0176"
+    },
+    {
+     "ts": "2026-11-22T03:24:32+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-22T03:25:24+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 70bdc95c3e"
+    },
+    {
+     "ts": "2026-11-22T04:12:44+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The live hono page shows the marked card with both versions, and index.json carries a matching bump value on every record. Tests pass, build errors are empty, and the neighbouring endpoints return 200"
+    }
+   ]
+  },
+  {
+   "id": "T-0177",
+   "title": "pkg index.json: `bump` keeps its old values; the T-0176 semver kind goes into the additive key `semver_bump`",
+   "type": "defect",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G4",
+   "role": "developer",
+   "created": "2026-11-22T04:12:44+00:00",
+   "accepted_at": "2026-11-22T05:37:22+00:00",
+   "released_sha": "907a79e4f8d679e2d8c32bb2f5a737bdf83cf329",
+   "history": [
+    {
+     "ts": "2026-11-22T04:12:44+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-22T04:12:45+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261122T0407-exec-T-0177"
+    },
+    {
+     "ts": "2026-11-22T04:12:45+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-22T04:13:16+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 907a79e4f8"
+    },
+    {
+     "ts": "2026-11-22T05:37:22+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The pkg index.json files now carry both `bump` (old values) and the additive `semver_bump`. The hono card matches its JSON, and the test and build checks pass."
+    }
+   ]
+  },
+  {
+   "id": "T-0178",
+   "title": "Cards without fetched release notes state where we looked and when: 'No release notes found on GitHub Releases …, checked <UTC>'",
+   "type": "quality",
+   "state": "released",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-22T06:21:45+00:00",
+   "accepted_at": null,
+   "released_sha": "4657a699e8925f510e8e79e7f1411cdab65b7ae7",
+   "history": [
+    {
+     "ts": "2026-11-22T06:21:45+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-22T06:21:49+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261122T0607-exec-T-0178"
+    },
+    {
+     "ts": "2026-11-22T06:21:49+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-22T06:22:35+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 4657a699e8"
+    }
+   ]
+  },
+  {
+   "id": "T-0179",
+   "title": "llms.txt tells review agents how to read /pkg/<eco>/<name>/index.json for a dependency bump (quotes, semver_bump, followed_by)",
+   "type": "quality",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G4",
+   "role": "developer",
+   "created": "2026-11-22T06:21:47+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-22T06:21:47+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  }
+ ],
+ "reviews": [
+  {
+   "task": "T-0175",
+   "verdict": "pass",
+   "summary": "Unflagged cards with notes show the fixed regex-only sentence, and the home legend carries the matching sentence. Flagged cards and cards without notes are unchanged, and the endpoints, build.json and title look fine."
+  },
+  {
+   "task": "T-0176",
+   "verdict": "pass",
+   "summary": "The live hono page shows the marked card with both versions, and index.json carries a matching bump value on every record. Tests pass, build errors are empty, and the neighbouring endpoints return 200."
+  },
+  {
+   "task": "T-0177",
+   "verdict": "pass",
+   "summary": "The pkg index.json files now carry both `bump` (old values) and the additive `semver_bump`. The hono card matches its JSON, and the test and build checks pass."
+  }
+ ],
+ "posts": [],
+ "metrics": {
+  "humans": 6,
+  "engaged": 0,
+  "returns": 0,
+  "agents": 5,
+  "crawlers": 498,
+  "requests": 1191
+ },
+ "spend_usd": 3.8,
+ "po_digest_md": "**Release Radar — 22.11, утро**\n\n**Что случилось.** Все задачи разработчика по SEO, /go/ и карточкам приняты: T-0166–T-0171, T-0173 (строка «Followed by»), T-0175 (строка «regex only»), T-0176/T-0177 (`semver_bump`, у старого `bump` прежний смысл). Воскресные посты в Telegram и Bluesky вышли 21.11. Лимиты Bluesky, Telegram и Mastodon на 7 дней исчерпаны. X на паузе с 19.11: ошибка 402, кредиты API закончились. Именно X давал 5 из 5 engaged-посетителей. dev.to заблокирован (Q-0025).\n\n**Метрики.** Людей за 21.11 насчитано 145, но engaged только 3, возвратов 0. Среди «людских» страниц в топе /robots.txt и /style.css, так что часть этих людей — боты. GSC: в индексе 0 из 102 URL. Повторная проверка индекса — T-0169, 28.11.\n\n**Решения.** Разработчику поставил 2 задачи качества (P2). Обе основаны на свежих словах людей из voice-отчёта за 22.11:\n1. Карточки без release notes будут писать, где мы искали и когда: «No release notes found on GitHub Releases… checked <UTC>». Сейчас пробел можно принять за «ничего не изменилось» (P2, many).\n2. В llms.txt появится раздел для агентов, которые проверяют обновления зависимостей: как читать `/pkg/*/index.json`, что значат `semver_bump` и `followed_by` (P5, цель G4).\n\nНовых фич не открывал: T-0173 и T-0176 ещё ждут дат чтения метрик (05.12 и 07.12). Пост в Threads по плану сегодня в 12:00 (T-0132). Новый план на 25.11–01.12 — T-0156, 23.11.\n\n**Ждёт владельца.** Кредиты X или решение отказаться от X. Ключ dev.to. Цель /go/compare/ в product.yaml.\n\n**Расход.** $3.04 из $20.",
+ "analyst_md": "**Release Radar, снимок 22.11 06:01 UTC. Пилот 04–10.11 закончен, цели читаем по последним дням.**\n\n| Уровень | 22.11 (частичный день) | 21.11 | 20.11 | 19.11 |\n|---|---|---|---|---|\n| Люди: источники / engaged | 6 / 0 | 145 / 3 | 70 / 3 | 124 / 0 |\n| Возвраты | 0 | 0 | 0 | 0 |\n| Агенты, запросы | 5 | 39 | 102 | 54 |\n| Краулеры, запросы | 498 | 1286 | 1227 | 945 |\n| /go/ у людей | 0 | 0 | 0 | 0 |\n\n- **G1 (≥40 engaged):** за 17–21.11 engaged = 1+3+0+3+... всего 7 за 5 дней. Не на пути.\n- **G2 (≥5 возвратов):** 0 во всех днях. Не на пути.\n- **G3 (≥10 % визитов с внешним кликом):** у людей 0 кликов по /go/ за 19–22.11; был 1 источник 18.11. Всплески /go/ (1048 запросов 21.11) приходят от ботов. Referer-доменов не наших: google, livequote.org, bluenews.app, t.co. Это 4 разных домена, но по 1–2 запроса.\n- **G4 (≥5 /today.json не от краулеров):** агентских источников на /today.json 0, у людей 2 источника 19.11. Агенты в основном python-requests и chatgpt. Не выполнено по определению.\n- **Google:** 0 из 102 URL в индексе (клики 0, показы 697, но показы только до 10.11).\n- **Посты 21.11:** Bluesky 10:57 и Telegram 11:39. by_src за 21.11: bluesky 33 запроса, 2 человека, 1 engaged. Mastodon 1 engaged. До поста (до 10:57) и после разделить нельзя, потому что данные только по дням. Эффект Bluesky возможен, но выборка 1–2.\n- **Баланс:** не применимо.\n\n**Задачи:** эффект T-0150…T-0177 не оценим: нет сдвига в метриках до и после.",
+ "observations": {
+  "new": 12,
+  "by_class": {
+   "need_hypothesis": 4,
+   "measurement": 2,
+   "voice": 6
+  }
+ },
+ "owner_questions_open": 0
+}

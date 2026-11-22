@@ -8,7 +8,7 @@
    "id": "T-0186",
    "title": "X post 21.11 06:15 UTC from @formachines_ai: Card link (repo added AGENTS.md in 24 h)",
    "type": "content",
-   "state": "blocked",
+   "state": "rejected",
    "priority": "P2",
    "goal": "G1",
    "role": "marketer",
@@ -33,6 +33,50 @@
      "actor": "marketer",
      "to": "blocked",
      "note": "question Q-0028"
+    },
+    {
+     "ts": "2026-11-21T08:18:36+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "answered Q-0028"
+    },
+    {
+     "ts": "2026-11-21T08:18:36+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Отправка в X вернула 402 credits depleted (Q-0028). По интериму из Q-0027 слот записан как неопубликованный, повторно не отправляем; черновик проверен."
+    }
+   ]
+  },
+  {
+   "id": "T-0187",
+   "title": "Telegram post 21.11 12:00 UTC @agentsmd_tracker: Daily number with one card",
+   "type": "content",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "marketer",
+   "created": "2026-11-17T01:08:52+00:00",
+   "accepted_at": "2026-11-21T12:14:58+00:00",
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-21T12:14:28+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261121T1207-exec-T-0187"
+    },
+    {
+     "ts": "2026-11-21T12:14:28+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-21T12:14:58+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "posted 1 (editor-approved)"
     }
    ]
   },
@@ -66,7 +110,7 @@
    "id": "T-0220",
    "title": "tests/test_reachability.py: drop the skip for unreachable cards now that /lang/ pages link every card; offline test",
    "type": "quality",
-   "state": "accepted",
+   "state": "done",
    "priority": "P3",
    "goal": "G1",
    "role": "developer",
@@ -86,12 +130,12 @@
    "id": "T-0221",
    "title": "Every URL the site emits (HTML, sitemap, llms.txt, feed, JSON) resolves to a generated file, with trailing slash; offline test",
    "type": "quality",
-   "state": "released",
+   "state": "accepted",
    "priority": "P2",
    "goal": "G4",
    "role": "developer",
    "created": "2026-11-21T04:12:28+00:00",
-   "accepted_at": null,
+   "accepted_at": "2026-11-21T08:17:36+00:00",
    "released_sha": "0b332c456fb823ed6d0850cfdf772456a2899d50",
    "history": [
     {
@@ -135,6 +179,194 @@
      "actor": "dispatcher",
      "to": "released",
      "note": "merged 0b332c456f"
+    },
+    {
+     "ts": "2026-11-21T08:17:36+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The new test covers sitemap, llms.txt, feed, stats, today, repo index.json and HTML, and the dispatcher's run passed all 158 tests with 126,812 URLs checked. The live sitemap has /lang/php/ with a sla"
+    }
+   ]
+  },
+  {
+   "id": "T-0222",
+   "title": "/go/ redirect pages carry no subresources (no favicon, stylesheet or image references); offline test",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-21T08:18:39+00:00",
+   "accepted_at": "2026-11-21T09:14:39+00:00",
+   "released_sha": "69d30c1ea3be2bec27c26772f552a2b4a2d55ed2",
+   "history": [
+    {
+     "ts": "2026-11-21T08:18:39+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-21T08:18:41+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261121T0807-exec-T-0222"
+    },
+    {
+     "ts": "2026-11-21T08:18:41+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-21T08:25:20+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 69d30c1ea3"
+    },
+    {
+     "ts": "2026-11-21T09:14:39+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The live /go/1191/ page has a minimal head with the github.com refresh and the robots meta. Home and the solid page keep favicon and CSS. The offline test is present and passes (5107 /go/ pages), and "
+    }
+   ]
+  },
+  {
+   "id": "T-0223",
+   "title": "Test suite: build the site once per session (shared temp dir) instead of in each test; same assertions, at least 2× faster",
+   "type": "quality",
+   "state": "blocked",
+   "priority": "P3",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-21T09:15:43+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-21T09:15:43+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-21T09:15:47+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261121T0907-exec-T-0223"
+    },
+    {
+     "ts": "2026-11-21T09:15:47+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-21T09:40:51+00:00",
+     "actor": "dispatcher",
+     "to": "ready",
+     "note": "run failed: timeout after 1500s"
+    },
+    {
+     "ts": "2026-11-21T10:13:53+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261121T1007-exec-T-0223"
+    },
+    {
+     "ts": "2026-11-21T10:13:53+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-21T10:38:57+00:00",
+     "actor": "dispatcher",
+     "to": "ready",
+     "note": "run failed: timeout after 1500s"
+    },
+    {
+     "ts": "2026-11-21T11:11:06+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261121T1107-exec-T-0223"
+    },
+    {
+     "ts": "2026-11-21T11:11:06+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-21T11:36:08+00:00",
+     "actor": "dispatcher",
+     "to": "blocked",
+     "note": "run failed: timeout after 1500s"
+    }
+   ]
+  },
+  {
+   "id": "T-0224",
+   "title": "Homepage: static dated summary paragraph and schema.org Dataset JSON-LD for stats.json (CC BY 4.0); offline test",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G4",
+   "role": "developer",
+   "created": "2026-11-21T20:28:34+00:00",
+   "accepted_at": "2026-11-21T21:22:03+00:00",
+   "released_sha": "2af38cec6948382964a3c9bc60a1d87af4a86322",
+   "history": [
+    {
+     "ts": "2026-11-21T20:28:34+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-21T20:28:37+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261121T2007-exec-T-0224"
+    },
+    {
+     "ts": "2026-11-21T20:28:37+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-21T20:39:05+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 2af38cec69"
+    },
+    {
+     "ts": "2026-11-21T21:22:03+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The live homepage has the dated paragraph with numbers matching stats.json, one valid Dataset JSON-LD block with both distribution URLs returning 200, and a dated meta description. The test exists and"
+    }
+   ]
+  },
+  {
+   "id": "T-0225",
+   "title": "Homepage intro: one dated headline number before 'Explore your language'; 3-type comparison moves to the type table",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-21T21:19:49+00:00",
+   "accepted_at": "2026-11-22T07:26:31+00:00",
+   "released_sha": "9ee99aa6782a0afc2fe5c2348fc12d7944de9811",
+   "history": [
+    {
+     "ts": "2026-11-21T21:19:49+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
     }
    ]
   }
@@ -144,25 +376,48 @@
    "task": "T-0220",
    "verdict": "pass",
    "summary": "The reachability test now asserts all 1922 generated cards are reachable from / within 2 hops, with no status-based skip. The offline suite passes (157 tests, exit 0), and the live site shows /lang/python/ linking 3b1b/manim and data_delayed false."
+  },
+  {
+   "task": "T-0221",
+   "verdict": "pass",
+   "summary": "The new test covers sitemap, llms.txt, feed, stats, today, repo index.json and HTML, and the dispatcher's run passed all 158 tests with 126,812 URLs checked. The live sitemap has /lang/php/ with a slash, /lang/php/ returns 200 and build.json shows data_delayed false."
+  },
+  {
+   "task": "T-0222",
+   "verdict": "pass",
+   "summary": "The live /go/1191/ page has a minimal head with the github.com refresh and the robots meta. Home and the solid page keep favicon and CSS. The offline test is present and passes (5107 /go/ pages), and build.json shows data_delayed false."
+  },
+  {
+   "task": "T-0224",
+   "verdict": "pass",
+   "summary": "The live homepage has the dated paragraph with numbers matching stats.json, one valid Dataset JSON-LD block with both distribution URLs returning 200, and a dated meta description. The test exists and the dispatcher's full run passed; build.json shows data_delayed false."
   }
  ],
- "posts": [],
+ "posts": [
+  {
+   "channel": "telegram",
+   "url": "https://t.me/agentsmd_tracker/11",
+   "ts": "2026-11-21T12:14:58+00:00"
+  }
+ ],
  "metrics": {
-  "humans": 36,
-  "engaged": 0,
+  "humans": 317,
+  "engaged": 1,
   "returns": 0,
   "agents": 5,
-  "crawlers": 183,
-  "requests": 433
+  "crawlers": 1000,
+  "requests": 2627
  },
- "spend_usd": 1.8,
- "po_digest_md": "**AGENTS.md Tracker — цикл 21.11 04:07 UTC**\n\n**Что произошло:** приняты три задачи: T-0217 (nofollow/noindex на /go/), T-0218 (путь обхода до каждой карточки через /lang/) и T-0220 (тест достижимости без исключений). Данные за 21.11 в метриках есть. Расход за день $0.24 из $20.\n\n**Метрики:** в счётчике «люди» снова мусор. 20.11 показывает 1 845 «людей», но только 2 engaged; /favicon.svg запрошен 16 302 раза. Это фильтр sitemetrics (Q-0023 ждёт владельца). Для G1 и G3 учитываем только engaged и ?src=. В X за 14 дней пришли 10 человек (8 engaged), с x-card — 7 (6 engaged). Остальные каналы почти пустые. Google: в индексе 2 из 567 URL, по 524 URL «unknown». Эффект T-0211 и T-0218 читаем 26.11 (T-0216).\n\n**4xx снова выше фона:** 550 за 19.11 и 646 за 20.11 при обычных 10–13. Разбивки по путям нет (Q-0024). Отмечаем только здесь, источник не угадываем.\n\n**Решения:**\n- OBS-0499 привязано к T-0219: 23.11 аналитик сравнит нагрузку краулеров на /go/ до и после T-0217.\n- OBS-0498 отложено до исправления фильтра в sitemetrics.\n- Разработчику поставлена одна quality-задача: тест, что каждый URL, который сайт сам выдаёт (sitemap, llms.txt, feed, JSON), ведёт на существующий файл и записан со слешем в конце. Повод — в логах встречается «/lang/php» без слеша. Выбрал её, а не новые функции: она исправляет возможные 404 для агентов (G4) и не даёт нового обещания.\n\n**Маркетинг:** посты в X до 24.11 уже нарезаны. Mastodon и Threads заполнены до лимита. План на 25.11–01.12 — задача T-0202 (не раньше 22.11). X API может отвечать 402: тогда пост в X не выходит, это фиксируется.\n\n**Ждёт владельца:** фильтр «людей» (Q-0023), разбивка 4xx по путям (Q-0024), кредиты X API (Q-0027).",
- "analyst_md": "**Окно данных 15–21.11 (пилот 04–10.11 в этих метриках не виден; 21.11 — неполный день, срез 07:00).**\n\n| Уровень | 15 | 16 | 17 | 18 | 19 | 20 | 21 |\n|---|---|---|---|---|---|---|---|\n| люди, источники | 1937 | 3867 | 6 | 3 | 42 | 1845 | 36 |\n| engaged | 5 | 6 | 2 | 1 | 1 | 2 | 0 |\n| returns | 0 | 1 | 1 | 0 | 1 | 0 | 0 |\n| /go/ human src | 6 | 9 | 0 | 0 | 1 | 15 | 24 |\n| агенты, источники | 24 | 11 | 4 | 0 | 10 | 17 | 2 |\n\n- Engaged за 7 дней: 17; returns: 3. Пики «людей» (1.9–3.9 тыс. источников при 0–6 engaged, /favicon.svg 3–6 тыс. запросов) похожи на невыявленных ботов, а не на людей.\n- 21.11: /go/ и /go/vote/ по 24 human src — вероятно, один скриптовый обход.\n- Дискавери: краулеры 1.2–5.5 тыс. запросов в день. GSC: 0 кликов, 2 из 617 URL в индексе.\n- 4xx: 550 и 646 (19–20.11) против 3 на 21.11. 5xx = 0.\n- Посты X за 20–21.11 в списке отсутствуют.\n\nЭффект T-0217 (nofollow): краулерских /go/ было 3848 только 17.11, до задачи — данных мало.",
+ "spend_usd": 7.3,
+ "po_digest_md": "**Цикл 21.11 21:07 — agentsmd-tracker**\n\n- Данные свежие. Telegram-пост 21.11 ушёл (T-0187: +2 репо, 569 из 1 919). У Telegram, Mastodon и Threads лимит на 7 дней исчерпан, новых слотов там нет. Посты в X на 22–24.11 уже стоят в плане, но X API может снова ответить 402 (нет кредитов): тогда маркетолог отметит «не опубликовано».\n- T-0224 выпущена и ждёт ревью: на главной появились датированный абзац и разметка Dataset (JSON-LD). Прогон занял 616 с, из них 96 % — повторные запуски медленного набора тестов (~3 мин). Задача T-0223 на ускорение тестов заблокирована.\n- Внешний критик (OBS-0512) заметил, что число 569/1 919 повторяется на главной три раза до раздела «Explore your language». Поставлена задача качества P2 (старт 22.11 06:00, после ревью T-0224): вверху останется одно датированное предложение и ссылка на таблицу языков, данные по CLAUDE.md и llms.txt переедут к таблице типов файлов. Цель — чтобы мейнтейнер быстрее находил свой язык.\n- Метрики: «людей» в счётчике много, но это в основном запросы к /favicon.svg и к /go/ от краулеров; вовлечённых людей 1–2 в день. В Google проиндексировано 2 из 617 проверенных URL. Влияние T-0217, T-0218 и T-0211 посмотрим в отчётах 23.11 и 26.11.\n- От владельца ничего нового не нужно; вопрос о кредитах X (Q-0027) по-прежнему открыт.\n- Расход за день $6.18 из $20.",
+ "analyst_md": "**Срез 21.11 (частичный день, снимок 18:01 UTC).** Уровни не суммируются.\n\n| Метрика | 21.11 | 20.11 | 19.11 |\n|---|---|---|---|\n| Human sources (после фильтра) | 160 | 1845 | 42 |\n| Engaged | 0 | 2 | 1 |\n| Returns | 0 | 0 | 1 |\n| /go/ human src | 89 (все на /go/vote/) | 15 | 1 |\n| Агенты (src) | 2 | 17 | 10 |\n| 5xx / 4xx | 0 / 312 | 0 / 646 | 0 / 550 |\n\n**Цели:** G1 (≥60 engaged за пилот): по дням в окне engaged 0–6, пилотный порог по этому окну не виден. G2: returns ≤1 в день, цель ≥5 не достигнута. G3: по /go/ человеческие источники есть, но 21.11 это в основном голосование (/go/vote/ 89 src), а не клики на GitHub. G3b: людей на stats/today/feed 0. G4: агентов/краулеров есть (ChatGPT, OAI-SearchBot, GPTBot), цель выполнена.\n\n**Люди:** высокие «human sources» (1845, 3867) при 0–6 engaged и топ-страница /favicon.svg похожи на не-человеческий трафик, а не на аудиторию. Эффект постов не читается: у by_src 0–1 engaged на день.\n\n**Google:** 0 кликов, 33 показа, 2 из 617 в индексе. T-0211/T-0218/T-0220 (индексируемость, пути обхода) приняты 19–21.11; GSC отстаёт на 2–3 дня, эффекта пока не видно.\n\n**Баланс:** не применимо (не игра).",
  "observations": {
-  "new": 6,
+  "new": 21,
   "by_class": {
-   "need_hypothesis": 4,
-   "measurement": 2
+   "need_hypothesis": 9,
+   "measurement": 5,
+   "feedback": 1,
+   "voice": 6
   }
  },
  "owner_questions_open": 0

@@ -1,0 +1,342 @@
+{
+ "slug": "agentsmd-tracker",
+ "name": "AGENTS.md Tracker",
+ "site": "https://agentsmd.formachines.ai",
+ "date": "2026-11-22",
+ "tasks": [
+  {
+   "id": "T-0188",
+   "title": "X post 22.11 06:15 UTC from @formachines_ai: Cut (one dated language share)",
+   "type": "content",
+   "state": "blocked",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-17T01:08:53+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-22T07:17:28+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261122T0707-exec-T-0188"
+    },
+    {
+     "ts": "2026-11-22T07:17:28+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-22T07:18:27+00:00",
+     "actor": "marketer",
+     "to": "blocked",
+     "note": "question Q-0029"
+    }
+   ]
+  },
+  {
+   "id": "T-0217",
+   "title": "/go/ redirects: rel=\"nofollow\" on every link to /go/ and noindex,nofollow meta on /go/ pages; offline test",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-20T19:14:13+00:00",
+   "accepted_at": "2026-11-20T20:14:53+00:00",
+   "released_sha": "6b95fa8ed07fcee3cd160ccedc2d00f7fcb93a32",
+   "history": [
+    {
+     "ts": "2026-11-22T00:26:03+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: positive — Запросы краулеров к /go/: 3848 (17.11), 4115 всего на 20.11. После релиза 21.11 всего 319, из них краулеров 2. Механизм: nofollow и noindex. Но это один день, и T-0222 действует одн"
+    },
+    {
+     "ts": "2026-11-22T00:26:03+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0218",
+   "title": "Crawl path to every card: / links every /lang/<x>/, each /lang/<x>/ links all its repo cards; offline reachability test",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-20T22:25:06+00:00",
+   "accepted_at": "2026-11-20T23:14:42+00:00",
+   "released_sha": "0f44f2d1623bcf7a877763e9da3c163242ec0cd7",
+   "history": [
+    {
+     "ts": "2026-11-22T00:26:03+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — GSC отстаёт на 2–3 дня, индексация на 20.11: 2 из 617. До и после сравнить нечем."
+    },
+    {
+     "ts": "2026-11-22T00:26:03+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0220",
+   "title": "tests/test_reachability.py: drop the skip for unreachable cards now that /lang/ pages link every card; offline test",
+   "type": "quality",
+   "state": "done",
+   "priority": "P3",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-20T23:15:22+00:00",
+   "accepted_at": "2026-11-21T02:15:13+00:00",
+   "released_sha": "1066e3fb365076b176e58927cf5ed5f67f0d0d8b",
+   "history": [
+    {
+     "ts": "2026-11-22T06:19:23+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-22T06:19:23+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0225",
+   "title": "Homepage intro: one dated headline number before 'Explore your language'; 3-type comparison moves to the type table",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-21T21:19:49+00:00",
+   "accepted_at": "2026-11-22T07:26:31+00:00",
+   "released_sha": "9ee99aa6782a0afc2fe5c2348fc12d7944de9811",
+   "history": [
+    {
+     "ts": "2026-11-22T06:11:38+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261122T0607-exec-T-0225"
+    },
+    {
+     "ts": "2026-11-22T06:11:38+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-22T06:19:01+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 9ee99aa678"
+    },
+    {
+     "ts": "2026-11-22T07:26:31+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The homepage has one dated AGENTS.md sentence before the Explore link. The CLAUDE.md and llms.txt counts moved to p#dated-counts in the language section, and their numbers match the table and stats.js"
+    }
+   ]
+  },
+  {
+   "id": "T-0226",
+   "title": "PATHS: track .clinerules, .windsurf/rules/ and .agents/ with tracked_since; cards, stats.json, offline test",
+   "type": "feature",
+   "state": "blocked",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-22T00:16:05+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-22T00:16:05+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-22T00:16:10+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261122T0007-exec-T-0226"
+    },
+    {
+     "ts": "2026-11-22T00:16:10+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-22T00:25:25+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "partial — continues next cycle"
+    },
+    {
+     "ts": "2026-11-22T01:32:26+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "run stopped by the inactivity watchdog after 948 s; the working tree was clean, nothing uncommitted to save — continues next cycle (continuation 1/3)"
+    },
+    {
+     "ts": "2026-11-22T02:18:09+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "partial — continues next cycle"
+    },
+    {
+     "ts": "2026-11-22T03:12:23+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "partial — continues next cycle"
+    },
+    {
+     "ts": "2026-11-22T04:10:48+00:00",
+     "actor": "dispatcher",
+     "to": "blocked",
+     "note": "stuck: 3 failed attempts on this goal; the PO replans it with 3 alternatives"
+    }
+   ]
+  },
+  {
+   "id": "T-0227",
+   "title": "Probe 1/3 for T-0226: Merge as-is, check tracked_since later with an analyst",
+   "type": "research",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-22T05:23:35+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-22T05:23:35+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "replan probe for T-0226"
+    },
+    {
+     "ts": "2026-11-22T05:23:38+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261122T0507-exec-T-0227"
+    },
+    {
+     "ts": "2026-11-22T05:23:38+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-22T05:24:10+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "probe does not work: The approach works for the developer-side half. With `--no-scan`, the T-0226 tree gives tracked_since null for the three new paths and the card reads \"not measured yet\", with no 0"
+    }
+   ]
+  },
+  {
+   "id": "T-0228",
+   "title": "Probe 2/3 for T-0226: Check that the existing scan stamps tracked_since by itself (the T-0199 mechanism)",
+   "type": "research",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-22T05:23:35+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-22T05:23:35+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "replan probe for T-0226"
+    },
+    {
+     "ts": "2026-11-22T07:17:28+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261122T0707-exec-T-0228"
+    },
+    {
+     "ts": "2026-11-22T07:17:28+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-22T07:17:55+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "probe works: The approach works. Live stats.json (generated 2026-11-22T05:30:13Z) has tracked_since 2026-11-19 for both .github/instructions and .claude/rules. 2026-11-19 is also the first history day"
+    }
+   ]
+  },
+  {
+   "id": "T-0229",
+   "title": "Probe 3/3 for T-0226: Fixed tracked_since in PATHS, cards wait for the first history day",
+   "type": "research",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-22T05:23:35+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-22T05:23:35+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "replan probe for T-0226"
+    }
+   ]
+  }
+ ],
+ "reviews": [
+  {
+   "task": "T-0225",
+   "verdict": "pass",
+   "summary": "The homepage has one dated AGENTS.md sentence before the Explore link. The CLAUDE.md and llms.txt counts moved to p#dated-counts in the language section, and their numbers match the table and stats.json. The meta description and JSON-LD are intact, build.json has data_delayed false, and the dispatcher's 163 tests passed."
+  }
+ ],
+ "posts": [],
+ "metrics": {
+  "humans": 14,
+  "engaged": 0,
+  "returns": 0,
+  "agents": 0,
+  "crawlers": 449,
+  "requests": 706
+ },
+ "spend_usd": 3.3,
+ "po_digest_md": "**AGENTS.md Tracker, 22.11**\n\n**Что произошло**\n- Задачи T-0220, T-0221, T-0222 и T-0224 приняты: тесты достижимости карточек, проверка адресов в машинных выходах (sitemap, llms.txt, feed, JSON), чистые /go/-страницы без лишних файлов, датированный абзац и разметка Dataset на главной.\n- Telegram-пост 21.11 вышел: +2 репо, 569 из 1 919.\n\n**Застряла T-0226** (новые пути .clinerules, .windsurf/rules/, .agents/)\n- Код и тесты готовы на ветке (165 тестов проходят).\n- Критерий «живой stats.json с датой tracked_since» нельзя выполнить за один прогон разработчика: дата появляется только после серверного скана в 04:00 UTC.\n- Предложены 3 проверки:\n  1. влить ветку как есть, дату проверит аналитик после скана;\n  2. проверить, что скан сам проставил дату путям из T-0199;\n  3. записывать дату как фиксированное значение в PATHS.\n- Диспетчер запустит эти проверки. Рабочий вариант придёт ко мне вопросом.\n\n**Решения**\n- Новых задач нет: в очереди уже стоят посты по плану до 24.11, план на 25.11–01.12 (T-0202, стартует сегодня в 08:00) и два замера аналитика (23.11 и 26.11).\n- X по-прежнему отвечает 402 (кредиты закончились). Действует временный порядок из Q-0027: черновик, одна попытка отправки, пометка в дайджесте.\n\n**Метрики**\n- Вовлечённых людей 0–2 в день.\n- Google: проиндексировано 2 из 617 проверенных адресов, кликов 0.\n- Эффект правок для поиска прочитаем 26.11.\n\n**Ждёт владельца:** пополнение кредитов X API (Q-0027, без изменений).\n\n**Расход:** $1.81 из $20.\n\n_Перепланирование застрявших целей: T-0226 застряла → пробы T-0227, T-0228, T-0229._",
+ "analyst_md": "см. выше",
+ "observations": {
+  "new": 4,
+  "by_class": {
+   "need_hypothesis": 2,
+   "measurement": 1,
+   "success": 1
+  }
+ },
+ "owner_questions_open": 0
+}

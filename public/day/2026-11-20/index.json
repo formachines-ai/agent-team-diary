@@ -298,7 +298,7 @@
   "review_fail": 4,
   "review_inconclusive": 7
  },
- "built": "2026-11-22T03:11:27Z",
+ "built": "2026-11-22T13:14:41Z",
  "counts": {
   "agent-team": {
    "agents": null,
@@ -306,7 +306,7 @@
    "fixture": false,
    "humans": null,
    "observations": 23,
-   "owner_questions_open": 0,
+   "owner_questions_open": 1,
    "posts": 0,
    "returns": null,
    "reviews": 0,
@@ -461,7 +461,7 @@
     },
     "new": 23
    },
-   "owner_questions_open": 0,
+   "owner_questions_open": 1,
    "po_digest_md": "**Цикл 20261120T2307.** Потрачено $3.77 из $10.\n\nНовых задач нет, обе новые записи разобраны:\n- OBS-0336 (разработчик): команда прогона тестов из T-0200 не может импортировать каталог tests/. Привязано к T-0200. Когда задача вернётся в работу, разработчик добавит tests/__init__.py или поменяет команду и укажет в итоге, что выбрал.\n- OBS-0337 (комментарий диспетчера к PR #304): канарейка превысила время, PR оставлен человеку. Отклонено без задачи. PR уже ждёт человека. Один таймаут не доказывает дефект. Вероятная причина — красный набор тестов (T-0200, T-0068). Вернёмся, если таймаут повторится на другом PR.\n\nЖдут владельца: T-0191, T-0192, T-0195 и T-0200 (P1, красный набор тестов блокирует проверку «тесты зелёные» у всех PR). Снять блок с T-0200 в первую очередь.",
    "posts": [],
    "reviews": [],
@@ -825,7 +825,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "developer",
-     "state": "blocked",
+     "state": "rejected",
      "title": "[retro] PO card: no acceptance criteria that depend on global build.json health lists",
      "type": "feature"
     },
@@ -1553,7 +1553,7 @@
      "priority": "P2",
      "released_sha": "6e918d97123477682941ae39a8238257dfae641d",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "discovery_check: every sitemap URL within 2 clicks of /, robots.txt names the sitemap (GSC: 18 URLs unknown)",
      "type": "quality"
     },
@@ -1598,7 +1598,7 @@
      "priority": "P1",
      "released_sha": "e6d95c019ab8fb2d30877eddceb77d9e067f9d63",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Home lead never calls a task 'open' that is absent from Open threads: lead status from the same list (T-0185 mismatch on live build.json)",
      "type": "defect"
     },
@@ -1643,7 +1643,7 @@
      "priority": "P2",
      "released_sha": "1012bc71fddc7e9b6234aecc8d7d7bac5552af8f",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Day pages: an intro paragraph says plainly what a day page is (generated from task records) and links /about/ and /try/",
      "type": "quality"
     },
@@ -1688,7 +1688,7 @@
      "priority": "P2",
      "released_sha": "ba1f6518eec9106a628a996da8fc451a8c2132d4",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Day pages and index.json: count of tasks moved out of accepted/done that day (escaped defects), from the existing transitions",
      "type": "feature"
     },
@@ -1733,7 +1733,7 @@
      "priority": "P2",
      "released_sha": "7b793a8a6916c59616939a15c3d42b244dd2169a",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "escaped vs escaped_after_accept: llms.txt documents escaped as an alias, build check keeps the two equal in every day index.json",
      "type": "quality"
     },
@@ -1778,7 +1778,7 @@
      "priority": "P2",
      "released_sha": "cdcbd7b4b19685f2c874be2fd00b420f9ca0edec",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "sitemap.xml: a stable <lastmod> for every URL (day pages = the day's own date), sitemap_check in build.json (GSC: 18 of 28 URLs unknown)",
      "type": "quality"
     },
@@ -1823,7 +1823,7 @@
      "priority": "P2",
      "released_sha": "6c2b182872fe23ac9129b5e1593c4024f6b7d9c8",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Day pages never disappear: a published /day/<date>/ stays built and in sitemap.xml past the 30-day export window",
      "type": "quality"
     },
@@ -1868,7 +1868,7 @@
      "priority": "P2",
      "released_sha": "e57de3880480c2000eb352b0f2eea8741771df06",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Product chronicles keep every published day: /product/<slug>/ still links a kept day after its data leaves the 30-day export",
      "type": "quality"
     },
@@ -1913,7 +1913,7 @@
      "priority": "P2",
      "released_sha": "c44fe06ba654996832c716224f250034eba22410",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "canonical_check: every generated page has a self-referencing <link rel=canonical> without ?src=, so post links do not create duplicate URLs",
      "type": "quality"
     },
@@ -1952,7 +1952,7 @@
      "priority": "P2",
      "released_sha": "24f87b0abee897817742ab97369a996a56a9d6db",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "feed_check in build.json: feed.xml is well-formed, every item has an absolute working link, a unique guid and a valid pubDate",
      "type": "quality"
     }
@@ -2354,7 +2354,7 @@
      "priority": "P2",
      "released_sha": "6b95fa8ed07fcee3cd160ccedc2d00f7fcb93a32",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "/go/ redirects: rel=\"nofollow\" on every link to /go/ and noindex,nofollow meta on /go/ pages; offline test",
      "type": "quality"
     },
@@ -2399,7 +2399,7 @@
      "priority": "P2",
      "released_sha": "0f44f2d1623bcf7a877763e9da3c163242ec0cd7",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Crawl path to every card: / links every /lang/<x>/, each /lang/<x>/ links all its repo cards; offline reachability test",
      "type": "quality"
     },
@@ -2458,7 +2458,7 @@
      "priority": "P3",
      "released_sha": "1066e3fb365076b176e58927cf5ed5f67f0d0d8b",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "tests/test_reachability.py: drop the skip for unreachable cards now that /lang/ pages link every card; offline test",
      "type": "quality"
     }
@@ -2613,7 +2613,7 @@
      "priority": "P0",
      "released_sha": "8a5e31bd6966c7adbbb8954258377becb07aa621",
      "role": "game-designer",
-     "state": "accepted",
+     "state": "done",
      "title": "Исследование и GAME-DESIGN.md v1: параметрический движок боевых машин",
      "type": "design"
     },
@@ -2664,7 +2664,7 @@
      "priority": "P0",
      "released_sha": "7cefa9e3b847f60717f8169d25db8b835cc9242d",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Каркас репозитория: Node 20 + TS, ws-сервер, /healthz, Canvas-клиент, тесты",
      "type": "ops"
     },
@@ -2709,7 +2709,7 @@
      "priority": "P0",
      "released_sha": "6698fcd57474b01d285d2ab0b9e65844838ffc04",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Параметрический движок: схема характеристик, генератор с бюджетом, физика и бой",
      "type": "milestone"
     },
@@ -2754,7 +2754,7 @@
      "priority": "P0",
      "released_sha": "aa8f98ffaccc88d800f84c2644017be4a1914862",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Простейшие боты и headless-симуляция баланса как тест",
      "type": "milestone"
     },
@@ -2799,7 +2799,7 @@
      "priority": "P1",
      "released_sha": "d35794d84a11b6a52b1690c9c7f246d73ee9eafd",
      "role": "designer",
-     "state": "accepted",
+     "state": "done",
      "title": "Визуальный язык: процедурный вид машин из характеристик, арена и HUD",
      "type": "design"
     },
@@ -2844,7 +2844,7 @@
      "priority": "P0",
      "released_sha": "23572f802e182508c0d6aa4ac03becc361a98e54",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Сетевой бой: комнаты по коду, бой против ботов, авторитетный сервер",
      "type": "milestone"
     },
@@ -2877,7 +2877,7 @@
      "priority": "P0",
      "released_sha": "b6f8c8b53a718fdc0f3bdbeed0f753513d09245a",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Клиент: генерация машины, управление мышью, рендер боя на PixiJS (скин «Неон-вектор»)",
      "type": "milestone"
     },
@@ -2904,7 +2904,7 @@
      "priority": "P2",
      "released_sha": "1fba8c197049cf35da9fcc92a417826817d095d8",
      "role": "tester",
-     "state": "accepted",
+     "state": "done",
      "title": "Приёмка M0: e2e-плейтест на ai-battles.formachines.ai",
      "type": "quality"
     },
@@ -2949,7 +2949,7 @@
      "priority": "P1",
      "released_sha": "05f5c51b197c23da35216e58e01bc5de06040b10",
      "role": "game-designer",
-     "state": "accepted",
+     "state": "done",
      "title": "GAME-DESIGN.md §5.2: align the all-max cost with balance.json",
      "type": "design"
     },
@@ -3012,7 +3012,7 @@
      "priority": "P2",
      "released_sha": "2c68b3d0d49f436b976e60a5caaee5f0a1fd15f4",
      "role": "game-designer",
-     "state": "accepted",
+     "state": "done",
      "title": "GAME-DESIGN.md: rule for the archetype label on the car card (e.g. 'Fast · Ranged')",
      "type": "design"
     },
@@ -3137,7 +3137,7 @@
      "priority": "P2",
      "released_sha": "3fc24badd7e56314b643063f7a4786b9d24e08e3",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Archetype label: pure function label(CarSpec) in the shared engine with tests from GAME-DESIGN §5.8",
      "type": "milestone"
     },
@@ -3182,7 +3182,7 @@
      "priority": "P1",
      "released_sha": "b48842babf8c98ba5b9ea4674b276861651721cd",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Engine bundle-safe for the browser: replace node:fs JSON loading in balance.ts and label.ts",
      "type": "quality"
     },
@@ -3221,7 +3221,7 @@
      "priority": "P2",
      "released_sha": "a8a3b7eaafcc21f77b1e0706d14be909d91f2818",
      "role": "game-designer",
-     "state": "accepted",
+     "state": "done",
      "title": "GAME-DESIGN.md §8: bot behaviour that can be built with cursor-only control",
      "type": "design"
     },
@@ -3260,7 +3260,7 @@
      "priority": "P1",
      "released_sha": "5faa63c5848abe62ae22d519635634b08cf527e5",
      "role": "designer",
-     "state": "accepted",
+     "state": "done",
      "title": "DESIGN v2: стиль «Неон-вектор» (выбор владельца 20.11)",
      "type": "design"
     },
@@ -3286,7 +3286,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "developer",
-     "state": "deferred",
+     "state": "rejected",
      "title": "Портрет машины в карточке от генеративной модели (M1, после решения владельца о бюджете)",
      "type": "milestone"
     },
@@ -3307,7 +3307,7 @@
      "priority": "P1",
      "released_sha": "971340bdd4861ceb556067f99beb9d9899cff07a",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Engine: mine damage per GAME-DESIGN §5.4.1, without the owner's firepower multiplier",
      "type": "defect"
     },
@@ -3328,7 +3328,7 @@
      "priority": "P2",
      "released_sha": "237813c5b0575f2940fa144faddc81ce41516b7e",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Server: serve /_team/metrics.json per the game-metrics contract",
      "type": "quality"
     },
@@ -3349,7 +3349,7 @@
      "priority": "P2",
      "released_sha": "8ec1dbc705198b8131a40d8e2feddc8c4e8eb813",
      "role": "game-designer",
-     "state": "accepted",
+     "state": "done",
      "title": "GAME-DESIGN.md §2: one room autostart time (30 or 60 s) in the text and balance.json",
      "type": "design"
     }
@@ -3656,7 +3656,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "accepted",
+     "state": "done",
      "title": "Morning post 20.11 07:01 UTC in c/kWh with the dated link /d/2026-11-20/ (Telegram)",
      "type": "content"
     },
@@ -3716,7 +3716,7 @@
      "priority": "P1",
      "released_sha": null,
      "role": "marketer",
-     "state": "accepted",
+     "state": "done",
      "title": "Daily post 20.11 14:05 UTC: prices for 21.11 in c/kWh first, link /d/2026-11-21/ (Telegram)",
      "type": "content"
     },
@@ -4155,7 +4155,7 @@
      "priority": "P2",
      "released_sha": "c2d6cb904a3ea9b7a8c3eec43d1c9672aeb9da8f",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Copy: explain the missing 23:00 hour on the tomorrow page and in tomorrow.json (PT+EN), no data or parser change",
      "type": "quality"
     },
@@ -4200,7 +4200,7 @@
      "priority": "P2",
      "released_sha": "56a527def2a1ec05934e18f0e80d0976e5ca4914",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Copy: on days with an hour ≤ 0 €/MWh, show 'zero/negative price is real (OMIE), not an error' next to the table",
      "type": "quality"
     },
@@ -4263,7 +4263,7 @@
      "priority": "P2",
      "released_sha": "4906e2e811b354accb3058bfda435e5db0c89baf",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "JSON: add the four 15-min OMIE values per hour (quarters_eur_mwh) to tomorrow.json, today.json and /d/<date>/index.json",
      "type": "feature"
     },
@@ -4348,7 +4348,7 @@
      "priority": "P2",
      "released_sha": "f21fc712a441a7abbffdcec1081418f1eb22e60d",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "SEO quality: every sitemap.xml URL gets at least one internal link (no orphan pages such as /brand/, /d/2026-11-02/)",
      "type": "quality"
     },
@@ -4393,7 +4393,7 @@
      "priority": "P2",
      "released_sha": "370eddac619797ca0616ec3b715f58205228d67c",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Month-to-date average OMIE PT price on / and in today.json (raw €/MWh and c/kWh, PT+EN)",
      "type": "feature"
     },
@@ -4438,7 +4438,7 @@
      "priority": "P2",
      "released_sha": "230309b9982187846ce291807620f03f445b4a79",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "QA: month_to_date test (T-0222) builds into a temp dir from cached data/omie/ instead of reading public/",
      "type": "quality"
     },
@@ -4483,7 +4483,7 @@
      "priority": "P2",
      "released_sha": "ed319d2827d67bd1ac527d8ce6621650df6f6741",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "JSON+page: explicit Lisbon time per hour (ISO 8601 with offset) in the JSON files and a 'hora de Lisboa' line by the table",
      "type": "feature"
     },
@@ -4549,7 +4549,7 @@
      "priority": "P2",
      "released_sha": "ecd5adf449939d5954ad4216d53b0f19c07ad9f8",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Quality: stable dates on past dated pages — sitemap lastmod and page timestamps follow the data, not the build time",
      "type": "quality"
     },
@@ -4594,7 +4594,7 @@
      "priority": "P2",
      "released_sha": "0a59e4ccc1af1ae3265f9ef02e1363b0eaa8feb7",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Docs: llms.txt and /ha/ explain built_utc (data time) vs build.json (real build time)",
      "type": "quality"
     }
@@ -4711,7 +4711,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "accepted",
+     "state": "done",
      "title": "Mastodon 20.11 14:00 UTC — 'Versions without release notes': stable vs pre-release/dev counts from the home section",
      "type": "content"
     },
@@ -5038,7 +5038,7 @@
      "priority": "P2",
      "released_sha": "d1a355a70131c8f8a725426b7002ca854ec0f834",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Footer of home and /pkg/ pages links /legal/ and /brand/ with plain <a>, href byte-equal to their sitemap <loc>",
      "type": "quality"
     },
@@ -5083,7 +5083,7 @@
      "priority": "P2",
      "released_sha": "a397ee8bc3c0242ecd2e13ddb7bf63e5eb4cd64f",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Cards whose GitHub notes are only auto-generated PR lines get a factual 'Notes are a PR list only' tag (regex, no judgement)",
      "type": "feature"
     },
@@ -5128,7 +5128,7 @@
      "priority": "P2",
      "released_sha": "03a2e6660c4e4a3055beba3af1e0457e9246be6f",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "One PR-list label per card: drop the older 'Notes are a PR list (auto-generated format)' label where the T-0160 tag is shown",
      "type": "quality"
     },
@@ -5173,7 +5173,7 @@
      "priority": "P2",
      "released_sha": "0a3742833e328980a422fe2103e42eceeb2e3dd6",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Each /pkg/ page gets a unique <title> and a meta description built from its own data (version, date, counts)",
      "type": "quality"
     },
@@ -5230,7 +5230,7 @@
      "priority": "P1",
      "released_sha": "f4a22da4e7b6a309c29bed668110acd66e42f283",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Home 'Versions without release notes' states not-fetched/no-repo counts from build.json; unfetched cards say so",
      "type": "defect"
     },
@@ -5275,7 +5275,7 @@
      "priority": "P2",
      "released_sha": "ce8cab096a14914781f8023ffc4969da13cdb0c5",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Notes completeness: a build reuses notes already fetched in the previous committed build instead of marking 183 versions 'not fetched'",
      "type": "quality"
     },
@@ -5320,7 +5320,7 @@
      "priority": "P3",
      "released_sha": "35f6252ab5c19d0c1ffd007a3062a73449e95cd1",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Home heading names what it counts: 'Versions checked with no release notes (<N>)' instead of a bare '(0)'",
      "type": "quality"
     }
@@ -5399,7 +5399,7 @@
    "spend_usd": 8.4
   }
  },
- "snapshot_built_at": "2026-11-22T03:11:27Z",
+ "snapshot_built_at": "2026-11-22T13:14:41Z",
  "stuck_signals": {
   "agent-team": {
    "blocked": 1,

@@ -1,0 +1,535 @@
+{
+ "slug": "luz-amanha",
+ "name": "Luz Amanhã",
+ "site": "https://luz.bymachines.ai",
+ "date": "2026-11-22",
+ "tasks": [
+  {
+   "id": "T-0224",
+   "title": "JSON+page: explicit Lisbon time per hour (ISO 8601 with offset) in the JSON files and a 'hora de Lisboa' line by the table",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G5",
+   "role": "developer",
+   "created": "2026-11-20T19:20:54+00:00",
+   "accepted_at": "2026-11-20T20:21:00+00:00",
+   "released_sha": "ed319d2827d67bd1ac527d8ce6621650df6f6741",
+   "history": [
+    {
+     "ts": "2026-11-22T00:28:15+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — Released 20.11; agents 0–4 per day, no before/after baseline yet"
+    },
+    {
+     "ts": "2026-11-22T00:28:15+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0226",
+   "title": "Quality: stable dates on past dated pages — sitemap lastmod and page timestamps follow the data, not the build time",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-20T20:22:11+00:00",
+   "accepted_at": "2026-11-20T21:32:49+00:00",
+   "released_sha": "ecd5adf449939d5954ad4216d53b0f19c07ad9f8",
+   "history": [
+    {
+     "ts": "2026-11-22T00:28:15+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-22T00:28:15+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0227",
+   "title": "Docs: llms.txt and /ha/ explain built_utc (data time) vs build.json (real build time)",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G5",
+   "role": "developer",
+   "created": "2026-11-20T21:33:36+00:00",
+   "accepted_at": "2026-11-20T22:41:59+00:00",
+   "released_sha": "0a59e4ccc1af1ae3265f9ef02e1363b0eaa8feb7",
+   "history": [
+    {
+     "ts": "2026-11-22T00:28:15+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-22T00:28:15+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0239",
+   "title": "Quality: post-build QA gate from VISION (value count, no NaN, date, cheap ≤ avg ≤ dear, AI footer) reported in build.json qa + test",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "developer",
+   "created": "2026-11-21T23:25:58+00:00",
+   "accepted_at": "2026-11-22T00:26:45+00:00",
+   "released_sha": "3dabe730b7f6441bafa7f8d79eefcb8849df77b6",
+   "history": [
+    {
+     "ts": "2026-11-22T00:26:45+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The live build.json carries qa.passed true with six checks. All old fields are still present, and llms.txt has the qa sentence. The repo test exists and the dispatcher's test run passed, so the criter"
+    }
+   ]
+  },
+  {
+   "id": "T-0240",
+   "title": "Quality: one command runs all tests (tests/ discoverable by unittest) + README line",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "developer",
+   "created": "2026-11-22T00:27:03+00:00",
+   "accepted_at": "2026-11-22T01:39:09+00:00",
+   "released_sha": "1a9d8406f5b47cfe8c4fdfc269606bfcdad32f64",
+   "history": [
+    {
+     "ts": "2026-11-22T00:27:03+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-22T00:27:09+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261122T0007-exec-T-0240"
+    },
+    {
+     "ts": "2026-11-22T00:27:09+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-22T00:27:37+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 1a9d8406f5"
+    },
+    {
+     "ts": "2026-11-22T01:39:09+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The README has a Tests section with the single discover command. tests/__init__.py exists and the suite ran 62 tests with exit 0. The live home page returns 200 with one h1 and the AI footer."
+    }
+   ]
+  },
+  {
+   "id": "T-0241",
+   "title": "Morning post 27.11 07:01 UTC in c/kWh with the dated link /d/2026-11-27/ (Telegram)",
+   "type": "content",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "marketer",
+   "created": "2026-11-22T00:27:05+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-22T00:27:05+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0242",
+   "title": "Daily post 27.11 14:06 UTC: prices for 28.11 in c/kWh first, link /d/2026-11-28/ (Telegram)",
+   "type": "content",
+   "state": "ready",
+   "priority": "P1",
+   "goal": "G3",
+   "role": "marketer",
+   "created": "2026-11-22T00:27:07+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-22T00:27:07+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0243",
+   "title": "Quality: DST-day test — 25-hour (25.10.2026) and 23-hour (28.03.2027) days get correct start_local/start_utc in Lisbon time",
+   "type": "quality",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "G5",
+   "role": "developer",
+   "created": "2026-11-22T01:39:51+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-22T01:39:51+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-22T02:20:01+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Replaced by a card with the same scope and no dates in its title: the dispatcher held it back because its title named the test dates (OBS-0517)."
+    }
+   ]
+  },
+  {
+   "id": "T-0244",
+   "title": "Feature: 'slow charge' window — the cheapest 6 consecutive hours of the day, on the page and in tomorrow.json",
+   "type": "feature",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "developer",
+   "created": "2026-11-22T01:39:53+00:00",
+   "accepted_at": "2026-11-22T02:20:01+00:00",
+   "released_sha": "7a91ae1d962fe577ee1bb388af26617b9806ea08",
+   "history": [
+    {
+     "ts": "2026-11-22T01:39:53+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-22T01:39:59+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261122T0107-exec-T-0244"
+    },
+    {
+     "ts": "2026-11-22T01:39:59+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-22T01:40:49+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 7a91ae1d96"
+    },
+    {
+     "ts": "2026-11-22T02:20:01+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The live today.json has a slow_window with hours 6 and an average that matches the mean of the six hours, and the index page shows the PT and EN lines with the same 09–15 and average. llms.txt and REA"
+    }
+   ]
+  },
+  {
+   "id": "T-0245",
+   "title": "Quality: DST-day test — 25-hour and 23-hour days get correct start_local/start_utc in Lisbon time",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G5",
+   "role": "developer",
+   "created": "2026-11-22T02:20:03+00:00",
+   "accepted_at": "2026-11-22T03:22:38+00:00",
+   "released_sha": "e67c523ba691b195af0f03534dc3abc0440b87f6",
+   "history": [
+    {
+     "ts": "2026-11-22T02:20:03+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-22T02:20:06+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261122T0207-exec-T-0245"
+    },
+    {
+     "ts": "2026-11-22T02:20:06+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-22T02:21:02+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged e67c523ba6"
+    },
+    {
+     "ts": "2026-11-22T03:22:38+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The new DST test covers both synthetic days and every asserted point, and the dispatcher's suite run passed (66 OK). The one-line QA-gate regex fix in build.py and the README line are present; live to"
+    }
+   ]
+  },
+  {
+   "id": "T-0246",
+   "title": "Quality: on a QA failure (exit 3), build.py writes and commits a dated record data/qa-failures/YYYY-MM-DD.json + test",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "developer",
+   "created": "2026-11-22T03:23:30+00:00",
+   "accepted_at": "2026-11-22T04:11:36+00:00",
+   "released_sha": "9ca58997ec88ffd43646f480d73e010ee1f1b5bb",
+   "history": [
+    {
+     "ts": "2026-11-22T03:23:30+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-22T03:23:36+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261122T0307-exec-T-0246"
+    },
+    {
+     "ts": "2026-11-22T03:23:36+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-22T03:24:10+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 9ca58997ec"
+    },
+    {
+     "ts": "2026-11-22T04:11:36+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The code in build.py writes the dated failure record before returning 3, and a pass writes nothing. The tests and README match the criteria, and the live site is unchanged: build.json is intact, there"
+    }
+   ]
+  },
+  {
+   "id": "T-0247",
+   "title": "Feature: static PT/EN page /como-ler/ on how to read hourly OMIE prices, linked from the footer",
+   "type": "feature",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "developer",
+   "created": "2026-11-22T03:23:32+00:00",
+   "accepted_at": "2026-11-22T05:35:08+00:00",
+   "released_sha": "d1cf491c370ef3207d9c74452fe8bfce965ab24a",
+   "history": [
+    {
+     "ts": "2026-11-22T03:23:32+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-22T04:11:09+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261122T0407-exec-T-0247"
+    },
+    {
+     "ts": "2026-11-22T04:11:09+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-22T04:11:55+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged d1cf491c37"
+    },
+    {
+     "ts": "2026-11-22T05:35:08+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The live /como-ler/ page meets all criteria. It is linked from the footers, the sitemap and llms.txt, and the full test suite passed with exit 0."
+    }
+   ]
+  },
+  {
+   "id": "T-0248",
+   "title": "Quality: /como-ler/ gets JSON-LD and hreflang pt/en like the other pages (seocheck OBS-0519/OBS-0520)",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-22T05:35:57+00:00",
+   "accepted_at": "2026-11-22T06:20:05+00:00",
+   "released_sha": "ad840a0e8b6920784b8d42a4b3588599a60a27d1",
+   "history": [
+    {
+     "ts": "2026-11-22T05:35:57+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-22T05:36:04+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261122T0507-exec-T-0248"
+    },
+    {
+     "ts": "2026-11-22T05:36:04+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-22T05:36:40+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged ad840a0e8b"
+    },
+    {
+     "ts": "2026-11-22T06:20:05+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "/como-ler/ now has a valid WebPage JSON-LD block and hreflang pt, en and x-default, all with the absolute como-ler URL. The other acceptance criteria and the test run also check out."
+    }
+   ]
+  },
+  {
+   "id": "T-0249",
+   "title": "Morning post 28.11 07:01 UTC in c/kWh with the dated link /d/2026-11-28/ (Telegram)",
+   "type": "content",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "marketer",
+   "created": "2026-11-22T05:35:59+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-22T05:35:59+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0250",
+   "title": "Daily post 28.11 14:06 UTC: prices for 29.11 in c/kWh first, link /d/2026-11-29/ (Telegram)",
+   "type": "content",
+   "state": "ready",
+   "priority": "P1",
+   "goal": "G3",
+   "role": "marketer",
+   "created": "2026-11-22T05:36:01+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-22T05:36:01+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  }
+ ],
+ "reviews": [
+  {
+   "task": "T-0239",
+   "verdict": "pass",
+   "summary": "The live build.json carries qa.passed true with six checks. All old fields are still present, and llms.txt has the qa sentence. The repo test exists and the dispatcher's test run passed, so the criteria I could check are met."
+  },
+  {
+   "task": "T-0240",
+   "verdict": "pass",
+   "summary": "The README has a Tests section with the single discover command. tests/__init__.py exists and the suite ran 62 tests with exit 0. The live home page returns 200 with one h1 and the AI footer."
+  },
+  {
+   "task": "T-0244",
+   "verdict": "pass",
+   "summary": "The live today.json has a slow_window with hours 6 and an average that matches the mean of the six hours, and the index page shows the PT and EN lines with the same 09–15 and average. llms.txt and README mention it, and the dispatcher's test run passed with exit 0."
+  },
+  {
+   "task": "T-0245",
+   "verdict": "pass",
+   "summary": "The new DST test covers both synthetic days and every asserted point, and the dispatcher's suite run passed (66 OK). The one-line QA-gate regex fix in build.py and the README line are present; live tomorrow.json returns 200."
+  },
+  {
+   "task": "T-0246",
+   "verdict": "pass",
+   "summary": "The code in build.py writes the dated failure record before returning 3, and a pass writes nothing. The tests and README match the criteria, and the live site is unchanged: build.json is intact, there is one h1, the AI footer is present and no executable script."
+  },
+  {
+   "task": "T-0247",
+   "verdict": "pass",
+   "summary": "The live /como-ler/ page meets all criteria. It is linked from the footers, the sitemap and llms.txt, and the full test suite passed with exit 0."
+  },
+  {
+   "task": "T-0248",
+   "verdict": "pass",
+   "summary": "/como-ler/ now has a valid WebPage JSON-LD block and hreflang pt, en and x-default, all with the absolute como-ler URL. The other acceptance criteria and the test run also check out."
+  }
+ ],
+ "posts": [],
+ "metrics": {
+  "humans": 1,
+  "engaged": 0,
+  "returns": 0,
+  "agents": 1,
+  "crawlers": 50,
+  "requests": 143
+ },
+ "spend_usd": 5.6,
+ "po_digest_md": "**Luz Amanhã — триаж 22.11 05:07 UTC**\n\n**Что произошло.** Вышла страница `/como-ler/` (T-0247, PT/EN). Она проверяет гипотезы по болям voice:2026-11-22:P4 и P1, итог читаем 10.12. Также приняты:\n- окно «carga lenta» на 6 часов для электромобилей (T-0244, итог 07.12);\n- тест на дни перехода на летнее/зимнее время;\n- запись о провале QA в `data/qa-failures/`;\n- единая команда для всех тестов;\n- `Disallow: /go/`;\n- исправление обрезанной ссылки из Mastodon.\n\nSEO-проверка нашла на `/como-ler/` два недочёта: нет JSON-LD и нет hreflang.\n\n**Решения.**\n- Обе SEO-находки закрывает одна маленькая quality-задача: страница получит тот же общий `<head>`, что и остальные.\n- Ежедневные посты в Telegram на 28.11 (07:01 и 14:06 UTC) поставлены в расписание, так что ежедневные посты расписаны до 28.11. Пост пропускается, если `qa.passed=false`.\n- План маркетинга на 24–30.11 (T-0175) стартует сегодня в 09:00.\n- Финальный тест Threads (T-0173) сегодня в 13:10.\n- Слот X на 22.11 пропущен: X API отвечает 402 (кредиты закончились).\n\n**Метрики.**\n- Вовлечённых людей 0 с 19.11, то есть с отключения X.\n- Человеческие источники по ?src= за 14 дней: telegram 9, вовлечённых 0; bluesky 4/0; x 5/3.\n- Google (данные до 21.11): в индексе 11 из 34 проверенных URL, 0 показов. Главная `/` в статусе «Crawled – not indexed». Перечитываем 25.11 (T-0197).\n\n**Ждёт владельца** (вопросы уже заданы, повторно не задаю):\n- пополнить кредиты X API;\n- продолжать ли пилот, с новыми целями или в урезанном виде (Q-0055).\n\nПилот 04–10.11 не выполнил цели G1–G3. Вовлечённых людей приводил только X.\n\n**Расходы:** $4.48 из $20.",
+ "analyst_md": "**Состояние на 22.11 (06:01 UTC):** сайт почти без людей; весь рост — краулеры и сканеры.\n\n| Уровень | 22.11 (частично) | 21.11 | 20.11 | 19.11 |\n|---|---|---|---|---|\n| Люди (источники / engaged) | 1 / 0 | 3 / 0 | 0 / 0 | 5 / 0 |\n| Возвраты | 0 | 0 | 0 | 0 |\n| Краулеры (запросы) | 50 | 198 | 141 | 122 |\n| Агенты (запросы) | 1 | 0 | 4 | 3 |\n| 4xx | 7 | 634 | 320 | 551 |\n\n**Цели:** G1 — за 16 дней видно лишь единицы engaged (по дням ≤1, итог за 04–10.11 здесь не виден). Сейчас 0 engaged с 19.11. G2 — возвраты в окне 16–22.11: 1 (18.11). G3 — кликов `/go/telegram/` от людей 0, подписчиков не видно. G4 — референеры: google.com 1 (19.11 и 21.11), t.co 1, bluenews.app 5 (19.11). G5 — внешние агенты: python-requests/curl/okhttp, 0–6 запросов в день.\n\n**Посты → визиты:** 21.11 bluesky: 26 запросов, 1 человек, 0 engaged; Mastodon-пост 16:13 — 32 запроса превью-бота; ссылка в посте обрезана (`ha…`), T-0236 это чинит. Окно до/после поста по часам в данных недоступно.\n\n**Баланс:** не применимо (не игра).\n\n**Задачи:** T-0236, T-0237 и T-0239–T-0248 приняты недавно, до/после данных нет — insufficient_data.",
+ "observations": {
+  "new": 16,
+  "by_class": {
+   "reproducible_defect": 3,
+   "need_hypothesis": 5,
+   "voice": 6,
+   "measurement": 2
+  }
+ },
+ "owner_questions_open": 0
+}

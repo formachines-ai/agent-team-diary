@@ -2026,6 +2026,43 @@ def stuck_signals(d: dict) -> dict:
     return {"blocked": len(blocked), "blocked_tasks": blocked, "repeat_fails": len(rep), "repeat_fail_tasks": rep}
 
 
+def spend_vs_typical(date: str, p: dict) -> dict:
+    """Day spend against the median of up to 7 earlier days that carry a spend record. None values when not recorded or < 3 earlier days."""
+    days = p["days"]
+    d = days.get(date)
+    spend = None
+    if d is not None and d.get("spend_usd") is not None and not d.get("fixture"):
+        spend = round(float(d["spend_usd"]), 1)
+    prev = [round(float(days[k]["spend_usd"]), 1) for k in sorted(days) if k < date and days[k].get("spend_usd") is not None and not days[k].get("fixture")][-7:]
+    med = None
+    if len(prev) >= 3:
+        s = sorted(prev)
+        m = len(s) // 2
+        med = round(s[m] if len(s) % 2 else (s[m - 1] + s[m]) / 2, 2)
+    return {"spend_usd": spend, "median_7d_usd": med, "days_in_median": len(prev),
+            "bad_day": bool(spend is not None and med is not None and spend > 2 * med)}
+
+
+def day_spend_block(date: str, model: dict) -> str:
+    rows = []
+    for slug, p in model["products"].items():
+        if date not in p["days"]:
+            continue
+        v = spend_vs_typical(date, p)
+        nm = esc(p["product"].get("name") or slug)
+        if v["spend_usd"] is None:
+            txt = "no spend recorded"
+        elif v["median_7d_usd"] is None:
+            txt = f'${v["spend_usd"]:.1f}, not enough history ({v["days_in_median"]} earlier {nn(v["days_in_median"], "day")} with records, 3 needed)'
+        else:
+            txt = (f'${v["spend_usd"]:.1f} against a median of ${v["median_7d_usd"]:.2f} over {v["days_in_median"]} earlier days'
+                   + (" · <strong>bad day</strong> (above 2× median)" if v["bad_day"] else ""))
+        rows.append(f'<li data-spend="{esc(slug)}">{nm}: {txt}</li>')
+    out = ['<section id="day-spend"><h3>Spend vs typical day</h3>']
+    out.append("<ul>" + "".join(rows) + "</ul></section>" if rows else '<p class="note">no spend recorded</p></section>')
+    return "\n".join(out)
+
+
 def day_stuck_block(date: str, model: dict) -> str:
     anchors = task_anchors(date, model)
 
@@ -2276,6 +2313,7 @@ def render_day(date: str, model: dict) -> str:
     body.append(day_escaped_block(date, model))
     body.append(day_review_caught_block(date, model))
     body.append(day_stuck_block(date, model))
+    body.append(day_spend_block(date, model))
     body.append(work_vs_people_block(date, model))
     body.append(try_block("day-try"))
     body.append(follow_block("day-follow"))
@@ -3574,6 +3612,7 @@ def write_site(model: dict) -> dict:
                   "escaped_after_accept": escaped_after_accept(date, model),
                   "review_caught": {slug: review_caught(p["days"][date]) for slug, p in model["products"].items() if date in p["days"]},
                   "stuck_signals": {slug: stuck_signals(p["days"][date]) for slug, p in model["products"].items() if date in p["days"]},
+                  "spend_vs_typical": {slug: spend_vs_typical(date, p) for slug, p in model["products"].items() if date in p["days"]},
                   "disclosure": f"{FOOTER_LINE}; responsible: {RESPONSIBLE}.", "built": built,
                   "day_complete": not day_in_progress(date, built), "snapshot_built_at": built}
         write_json(PUBLIC_DIR / "day" / date / "index.json", merged)

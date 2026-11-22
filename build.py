@@ -105,8 +105,29 @@ def write_json(path: Path, obj: object) -> None:
     tmp.replace(path)
 
 
+SPLIT_URLS: dict = {}   # (date, slug) -> first subpage URL, for day pages whose task lists moved to /day/<date>/<slug>/
+ANCHOR_URL: dict = {}   # date -> {task anchor id: subpage URL that now holds the task card}
+SPLIT_PAGES: dict = {}  # date -> [subpage URLs (path), in order]
+
+
+def retarget_anchors(path: Path, text: str) -> str:
+    """Links to a task card that moved to a subpage point at the subpage; ids that stayed are untouched."""
+    if not ANCHOR_URL or path.suffix != ".html":
+        return text
+    def sub_abs(m: re.Match) -> str:
+        url = ANCHOR_URL.get(m.group(1), {}).get(m.group(3))
+        return f'href="{url}#{m.group(3)}"' if url else m.group(0)
+    text = re.sub(r'href="(?:' + re.escape(SITE_BASE) + r')?/day/(\d{4}-\d\d-\d\d)/(#([^"]+))"', lambda m: sub_abs(m), text)
+    parts = path.parts
+    if len(parts) >= 3 and parts[-3] == "day" and parts[-1] == "index.html" and parts[-2] in ANCHOR_URL:
+        amap = ANCHOR_URL[parts[-2]]
+        text = re.sub(r'href="#([^"]+)"', lambda m: f'href="{amap[m.group(1)]}#{m.group(1)}"' if m.group(1) in amap else m.group(0), text)
+    return text
+
+
 def write_text(path: Path, text: str) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
+    text = retarget_anchors(path, text)
     path.write_text(text, encoding="utf-8")
 
 
@@ -609,37 +630,11 @@ def with_artifacts(d: dict) -> dict:
     return out
 
 
-def product_section(d: dict, product: dict, heading_link: bool = True, anchors: dict | None = None) -> str:
-    """One product's block inside a day page: digest, tasks with history, reviews, posts, metrics, spend."""
-    c = day_counts(d)
-    slug, name = product["slug"], product.get("name") or product["slug"]
-    cp = f"counts.{slug}"
-    out = [f'<section class="product" id="{esc(slug)}">']
-    title = f'<a href="/product/{esc(slug)}/">{esc(name)}</a>' if heading_link else esc(name)
-    out.append(f"<h2>{title}</h2>")
-    if c["fixture"]:
-        out.append('<p class="note fixture">fixture — sample record, not a measurement</p>')
-    stats = [("tasks_done_distinct", "tasks done"), ("tasks_done", "state transitions"), ("reviews_pass", "reviews passed"),
-             ("posts", "posts")]
-    html_stats = "".join(f"<li><b>{esc(c[f])}</b><span>{esc(k)}</span></li>" for f, k in stats)
-    html_stats += ('<li><b>' + esc(c["humans"] if c["humans"] is not None else "—") +
-                   '</b><span>people (estimated log sources, <a href="/about/#method">method</a>)</span></li>')
-    spent = f"{c['spend_usd']:.1f}"
-    html_stats += f"<li><b>${esc(spent)}</b><span>spent</span></li>"
-    out.append('<ul class="stats">' + html_stats + "</ul>")
-    out.append(rework_line(d))
-
-    digest = (d.get("po_digest_md") or "").strip()
-    out.append("<h3>Manager's digest</h3>")
-    out.append(f'<div class="digest">{md_to_html(digest)}</div>' if digest else '<p class="note">no digest recorded</p>')
-
-    analyst = (d.get("analyst_md") or "").strip()
-    if analyst:
-        out.append("<h3>Analyst's summary</h3>")
-        out.append(f'<div class="digest">{md_to_html(analyst)}</div>')
-
-    tasks = d.get("tasks") or []
-    out.append(f"<h3>Tasks ({len(tasks)})</h3>")
+def tasks_block(d: dict, slug: str, tasks: list, anchors: dict | None, total: int | None = None, heading: bool = True) -> list:
+    """The Tasks heading and the task cards (notes verbatim) of one product-day, or of one chunk of them."""
+    out: list = []
+    if heading:
+        out.append(f"<h3>Tasks ({total if total is not None else len(tasks)})</h3>")
     if tasks:
         out.append('<p class="note">Transition times are UTC.</p>')
         out.append('<ul class="cards tasks">')
@@ -685,6 +680,45 @@ def product_section(d: dict, product: dict, heading_link: bool = True, anchors: 
         out.append("</ul>")
     else:
         out.append('<p class="note">no task transitions recorded</p>')
+    return out
+
+
+def product_section(d: dict, product: dict, heading_link: bool = True, anchors: dict | None = None) -> str:
+    """One product's block inside a day page: digest, tasks with history, reviews, posts, metrics, spend."""
+    c = day_counts(d)
+    slug, name = product["slug"], product.get("name") or product["slug"]
+    cp = f"counts.{slug}"
+    out = [f'<section class="product" id="{esc(slug)}">']
+    title = f'<a href="/product/{esc(slug)}/">{esc(name)}</a>' if heading_link else esc(name)
+    out.append(f"<h2>{title}</h2>")
+    if c["fixture"]:
+        out.append('<p class="note fixture">fixture — sample record, not a measurement</p>')
+    stats = [("tasks_done_distinct", "tasks done"), ("tasks_done", "state transitions"), ("reviews_pass", "reviews passed"),
+             ("posts", "posts")]
+    html_stats = "".join(f"<li><b>{esc(c[f])}</b><span>{esc(k)}</span></li>" for f, k in stats)
+    html_stats += ('<li><b>' + esc(c["humans"] if c["humans"] is not None else "—") +
+                   '</b><span>people (estimated log sources, <a href="/about/#method">method</a>)</span></li>')
+    spent = f"{c['spend_usd']:.1f}"
+    html_stats += f"<li><b>${esc(spent)}</b><span>spent</span></li>"
+    out.append('<ul class="stats">' + html_stats + "</ul>")
+    out.append(rework_line(d))
+
+    digest = (d.get("po_digest_md") or "").strip()
+    out.append("<h3>Manager's digest</h3>")
+    out.append(f'<div class="digest">{md_to_html(digest)}</div>' if digest else '<p class="note">no digest recorded</p>')
+
+    analyst = (d.get("analyst_md") or "").strip()
+    if analyst:
+        out.append("<h3>Analyst's summary</h3>")
+        out.append(f'<div class="digest">{md_to_html(analyst)}</div>')
+
+    tasks = d.get("tasks") or []
+    split_url = SPLIT_URLS.get((d.get("date"), slug)) if SPLIT_URLS else None
+    if split_url:
+        out.append(f"<h3>Tasks ({len(tasks)})</h3>")
+        out.append(f'<p class="note" id="{esc(slug)}-tasks"><a href="{esc(split_url)}">All {len(tasks)} tasks with their transition notes</a> are on a page of their own to keep this page small.</p>')
+    else:
+        out.extend(tasks_block(d, slug, tasks, anchors))
 
     reviews = d.get("reviews") or []
     out.append(f"<h3>Reviews ({len(reviews)})</h3>")
@@ -1037,7 +1071,7 @@ def check_seo() -> dict:
                 orphans.append(path)
     except (ET.ParseError, OSError):
         lastmod_missing.append("sitemap.xml unreadable")
-    days = sorted(p for p in locs if p.startswith("/day/"))
+    days = sorted(p for p in locs if re.fullmatch(r"/day/\d{4}-\d\d-\d\d/", p))
     daylink_missing = []
     for i, p in enumerate(days):
         t = pages.get(p, "")
@@ -1248,13 +1282,21 @@ def day_evidence_block(date: str, model: dict) -> str:
     return f'<p id="day-evidence" class="note">{n} of {m} accepted tasks have a passed review; {k} are claim only</p>'
 
 
+def read_day(f: Path) -> str:
+    """Text of a day page plus the text of its task subpages (/day/<date>/<slug>/ and /<n>/), where the task cards moved."""
+    t = f.read_text(encoding="utf-8")
+    for sub in sorted(f.parent.glob("*/index.html")) + sorted(f.parent.glob("*/*/index.html")):
+        t += "\n" + sub.read_text(encoding="utf-8")
+    return t
+
+
 def check_evidence() -> dict:
     """Every /day/*/ with data: one #day-evidence after #day-lead; N, M, K equal index.json; every accepted task card shows
     a review, sha, artifact link or 'claim only'; links only where index.json has a URL."""
     mism, pages = [], sorted(PUBLIC_DIR.glob("day/*/index.html"))
     for f in pages:
         name = f"/day/{f.parent.name}/"
-        t = f.read_text(encoding="utf-8")
+        t = read_day(f)
         data = json.loads(f.with_name("index.json").read_text(encoding="utf-8"))
         prods = (data.get("products") or {}).values()
         if not prods:
@@ -2145,6 +2187,74 @@ def day_intro(date: str, has_records: bool) -> str:
     return f'<p class="day-intro">{what} <a href="/about/">How it works</a> · <a href="/try/">Try it on your product</a></p>'
 
 
+def day_sub_url(date: str, slug: str, page: int) -> str:
+    return f"/day/{date}/{slug}/" + (f"{page}/" if page > 1 else "")
+
+
+def render_day_sub(date: str, slug: str, p: dict, chunk: list, page: int, npages: int, total: int, built: str, anchors: dict) -> str:
+    """One page of a product's task list for a split day: every task card whole, notes verbatim."""
+    d = p["days"][date]
+    name = p["product"].get("name") or slug
+    head = f"{date} · {name} · all tasks with notes" + (f" (page {page} of {npages})" if npages > 1 else "")
+    pager = []
+    if npages > 1:
+        pager = ['<p class="toc">Pages: ' + " · ".join(
+            (f"<strong>{i}</strong>" if i == page else f'<a href="{day_sub_url(date, slug, i)}">{i}</a>') for i in range(1, npages + 1)) + "</p>"]
+    body = [f"<h1>{esc(head)}</h1>",
+            f'<p class="lead">{total} task{"s" if total != 1 else ""} of <a href="/product/{esc(slug)}/">{esc(name)}</a> on {esc(date)} with their transition notes. '
+            f'The digest, the review and the day summary are on <a href="/day/{esc(date)}/#{esc(slug)}">the day page</a>.</p>',
+            *pager, f'<section class="product" id="{esc(slug)}-tasks-list">']
+    body += tasks_block(d, slug, [d["tasks"][i] for i in chunk], anchors, total=total)
+    body.append("</section>")
+    body += pager
+    body.append(f'<p class="toc"><a href="/day/{esc(date)}/">← {esc(date)}</a></p>')
+    body.append(NEXT_ROW)
+    desc = f"All {total} tasks of {name} on {date} with their transition notes" + (f", page {page} of {npages}" if npages > 1 else "") + ", from the team's own records."
+    return layout(f"{head} · AI diary", "\n".join(body), built, description=desc,
+                  canonical=f"{SITE_BASE}{day_sub_url(date, slug, page)}")
+
+
+def gz_len(text: str) -> int:
+    return len(gzip.compress(text.encode(), compresslevel=GZIP_LEVEL, mtime=0))
+
+
+def plan_day_split(model: dict) -> dict:
+    """For every day page over GZIP_WARN_BYTES: the task lists move to /day/<date>/<slug>/ (and /2/ … when a subpage is
+    still over the limit; a task stays whole). Fills SPLIT_URLS, ANCHOR_URL, SPLIT_PAGES; returns date -> {slug: [chunks]}."""
+    SPLIT_URLS.clear(); ANCHOR_URL.clear(); SPLIT_PAGES.clear()
+    plan: dict = {}
+    for date in model["dates"]:
+        if date in model.get("kept", []):
+            continue
+        if gz_len(render_day(date, model)) <= GZIP_WARN_BYTES:
+            continue
+        anchors = task_anchors(date, model)
+        per: dict = {}
+        for slug, p in model["products"].items():
+            tasks = (p["days"].get(date) or {}).get("tasks") or []
+            if not tasks:
+                continue
+            chunks = [list(range(len(tasks)))]
+            while True:
+                big = next((k for k, c in enumerate(chunks) if len(c) > 1 and gz_len(render_day_sub(date, slug, p, c, k + 1, len(chunks), len(tasks), model["built"], anchors)) > GZIP_WARN_BYTES), None)
+                if big is None:
+                    break
+                c = chunks[big]
+                chunks[big:big + 1] = [c[:len(c) // 2], c[len(c) // 2:]]
+            per[slug] = chunks
+        plan[date] = per
+        for slug, chunks in per.items():
+            tasks = model["products"][slug]["days"][date]["tasks"]
+            SPLIT_URLS[(date, slug)] = day_sub_url(date, slug, 1)
+            for k, c in enumerate(chunks):
+                SPLIT_PAGES.setdefault(date, []).append(day_sub_url(date, slug, k + 1))
+                for i in c:
+                    aid = anchors.get((slug, str(tasks[i].get("id") or "")))
+                    if aid and aid not in ANCHOR_URL.setdefault(date, {}):
+                        ANCHOR_URL[date][aid] = day_sub_url(date, slug, k + 1)
+    return plan
+
+
 def render_day(date: str, model: dict) -> str:
     products = model["products"]
     present = [(slug, p) for slug, p in products.items() if date in p["days"]]
@@ -2606,7 +2716,7 @@ def check_home_lead() -> dict:
     if "data-k" in blk or "$" in txt:
         mm.append({"issue": "counters or spend in home-lead"})
     try:
-        d = (PUBLIC_DIR / "day" / date / "index.html").read_text(encoding="utf-8")
+        d = read_day(PUBLIC_DIR / "day" / date / "index.html")
         idx = json.loads((PUBLIC_DIR / "day" / date / "index.json").read_text(encoding="utf-8"))
     except (OSError, ValueError) as e:
         return {"lead_mismatches": [{"issue": f"day page unreadable: {e}"}], "bad_anchors": [], "words": words}
@@ -2617,12 +2727,12 @@ def check_home_lead() -> dict:
             mm.append({"issue": "export caveat missing"})
         b = d.rfind("<", 0, d.find('id="what-broke"'))
         wb = d[b:d.find("</section>", b)]
-        first = re.search(r'<li><a href="#([^"]+)"><span class="id">([^<]+)</span> ([^<]*)</a> · state: ([a-z_]+)', wb)
+        first = re.search(r'<li><a href="(?:/day/[^"#]+/)?#([^"]+)"><span class="id">([^<]+)</span> ([^<]*)</a> · state: ([a-z_]+)', wb)
         if first:
             want = f'({html.unescape(first.group(2))})'
             if not txt.startswith("What happened on") or "Failed:" not in txt or want not in txt or "final state:" not in txt:
                 mm.append({"issue": f"first failed task not named with its outcome, want '{want}'"})
-            if f'href="/day/{date}/#{first.group(1)}"' not in blk:
+            if f'#{first.group(1)}"' not in blk:
                 mm.append({"issue": "link to first failed task missing"})
             n = sum(int(x) for x in re.findall(r"<h3>[^<]*: (\d+) tasks?</h3>", wb))
             if (n > 1) != ("more" in txt):
@@ -3296,6 +3406,7 @@ def sitemap_entries(model: dict) -> list[tuple[str, str]]:
     for slug, p in model["products"].items():
         out.append((f"{SITE_BASE}/product/{slug}/", max([dm[d] for d in p["days"] if d in dm] or [static])))
     out += [(f"{SITE_BASE}/day/{d}/", dm[d]) for d in model["dates"]]
+    out += [(f"{SITE_BASE}{u}", dm[d]) for d in model["dates"] for u in SPLIT_PAGES.get(d, [])]
     return out
 
 
@@ -3440,11 +3551,17 @@ def write_site(model: dict) -> dict:
     # never delete public/ wholesale: addresses must survive; old day pages stay even if a day file disappears.
     written = 0
     FOOTER_PRODUCTS[:] = [(sl, p["product"].get("name") or sl) for sl, p in model["products"].items()]
+    plan = plan_day_split(model)
     write_text(PUBLIC_DIR / "index.html", render_index(model)); written += 1
     for date in model["dates"]:
         if date in model.get("kept", []):
             continue  # published before, data gone from the export window: page and index.json stay untouched
         write_text(PUBLIC_DIR / "day" / date / "index.html", render_day(date, model)); written += 1
+        for slug, chunks in plan.get(date, {}).items():
+            for k, c in enumerate(chunks):
+                tot = len(model["products"][slug]["days"][date]["tasks"])
+                write_text(PUBLIC_DIR / "day" / date / slug / (f"{k + 1}" if k else "") / "index.html",
+                           render_day_sub(date, slug, model["products"][slug], c, k + 1, len(chunks), tot, built, task_anchors(date, model))); written += 1
         merged = {"date": date, "page": f"{SITE_BASE}/day/{date}/", "products": {slug: with_artifacts(p["days"][date]) for slug, p in model["products"].items() if date in p["days"]},
                   "counts": {slug: day_counts(p["days"][date]) for slug, p in model["products"].items() if date in p["days"]},
                   "totals": day_totals(date, model),
@@ -3536,6 +3653,7 @@ def check_size() -> dict:
             "gzip_budget_bytes": GZIP_BUDGET_BYTES, "largest_gzip_bytes": largest,
             "min_gzip_headroom_bytes": GZIP_BUDGET_BYTES - largest,
             "budget_bytes": SIZE_BUDGET_BYTES, "largest_html_bytes": largest_raw,
+            "split_pages": [f"/day/{d}/" for d in sorted(SPLIT_PAGES)],
             "exempt": [], "over_budget": over, "near_budget": near, "pages": pages}
 
 

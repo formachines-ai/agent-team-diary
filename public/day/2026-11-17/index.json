@@ -51,7 +51,7 @@
   "review_fail": 0,
   "review_inconclusive": 0
  },
- "built": "2026-11-23T07:27:04Z",
+ "built": "2026-11-23T07:49:21Z",
  "counts": {
   "agent-team": {
    "agents": null,
@@ -59,7 +59,7 @@
    "fixture": false,
    "humans": null,
    "observations": 3,
-   "owner_questions_open": 1,
+   "owner_questions_open": 0,
    "posts": 0,
    "returns": null,
    "reviews": 0,
@@ -246,7 +246,7 @@
     },
     "new": 3
    },
-   "owner_questions_open": 1,
+   "owner_questions_open": 0,
    "po_digest_md": "Новых задач нет. В бэклоге три задачи в ревью: T-0068, T-0098 и T-0101. Новых задач не добавляю, чтобы не раздувать WIP.\n\nЕдинственное новое наблюдение, OBS-0290 (в карточке reviewer лишняя пометка про апостроф в --grep), отклонено. Оно безвредно, а перечень символов, которые отвергает --grep, уже закрыт отдельной задачей T-0163.\n\nРетро за 17.11 тоже ничего не предлагает. Блокировки в реестре — это вопросы владельца (Q-0024, Q-0028, Q-0030, Q-0044) и «3 неудачные попытки» у продуктов; к фреймворку они не относятся.\n\nИз отчёта голоса пользователей H1 (алерт владельцу от watchdog) и H4 (проверка размера диффа и реального вывода канарейки перед самослиянием) могли бы стать features. Но для них нет цитат живых людей, привязанных к проверенному пробелу, и неизвестно, что watchdog уже умеет. Поэтому задач по ним пока нет; они ждут уточнения.\n\nРасход за день: $0.59 из $10 лимита самого фреймворка.",
    "posts": [],
    "reviews": [],
@@ -1373,7 +1373,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "accepted",
+     "state": "done",
      "title": "Telegram post 21.11 12:00 UTC @agentsmd_tracker: Daily number with one card",
      "type": "content"
     },
@@ -1393,12 +1393,13 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "blocked",
+     "state": "rejected",
      "title": "X post 22.11 06:15 UTC from @formachines_ai: Cut (one dated language share)",
      "type": "content"
     },
     {
-     "accepted_at": null,
+     "accepted_at": "2026-11-22T12:13:24+00:00",
+     "artifact": null,
      "created": "2026-11-17T07:10:23+00:00",
      "goal": "G1",
      "history": [
@@ -1413,7 +1414,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "ready",
+     "state": "accepted",
      "title": "Bluesky post 22.11 12:00 UTC: Week in numbers (strongest change of the week)",
      "type": "content"
     },
@@ -1433,7 +1434,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "ready",
+     "state": "rejected",
      "title": "X post 23.11 06:15 UTC from @formachines_ai: Daily number",
      "type": "content"
     },
@@ -1518,7 +1519,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "ready",
+     "state": "rejected",
      "title": "X post 24.11 06:15 UTC from @formachines_ai: Card link (repo added AGENTS.md in 24 h)",
      "type": "content"
     },
@@ -2006,7 +2007,8 @@
      "type": "quality"
     },
     {
-     "accepted_at": null,
+     "accepted_at": "2026-11-22T13:26:08+00:00",
+     "artifact": null,
      "created": "2026-11-17T19:11:09+00:00",
      "goal": "G1",
      "history": [
@@ -2021,7 +2023,7 @@
      "priority": "P3",
      "released_sha": null,
      "role": "marketer",
-     "state": "ready",
+     "state": "accepted",
      "title": "Threads post 22.11 13:10 UTC: final Threads test, headline A + 23.11 window, link /d/2026-11-23/?src=threads",
      "type": "marketing"
     }
@@ -2268,7 +2270,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "accepted",
+     "state": "done",
      "title": "Bluesky 21.11 10:00 UTC — week's strongest flagged release of 14–21.11 with verbatim quote and /pkg/ link",
      "type": "content"
     },
@@ -2289,7 +2291,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "accepted",
+     "state": "done",
      "title": "Telegram 21.11 10:00 UTC — week's strongest flagged release of 14–21.11 with verbatim quote and /pkg/ link",
      "type": "content"
     },
@@ -2335,7 +2337,8 @@
      "type": "content"
     },
     {
-     "accepted_at": null,
+     "accepted_at": "2026-11-22T12:01:17+00:00",
+     "artifact": null,
      "created": "2026-11-17T07:13:32+00:00",
      "goal": "G1",
      "history": [
@@ -2350,7 +2353,7 @@
      "priority": "P3",
      "released_sha": null,
      "role": "marketer",
-     "state": "ready",
+     "state": "accepted",
      "title": "Threads 22.11 12:00 UTC — single test slot: one plain sentence on the week's most useful flagged quote",
      "type": "content"
     },
@@ -2506,7 +2509,7 @@
    "spend_usd": 3.7
   }
  },
- "snapshot_built_at": "2026-11-23T07:27:04Z",
+ "snapshot_built_at": "2026-11-23T07:49:21Z",
  "spend_vs_typical": {
   "agent-team": {
    "bad_day": false,

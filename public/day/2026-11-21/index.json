@@ -688,7 +688,7 @@
   "review_fail": 17,
   "review_inconclusive": 15
  },
- "built": "2026-11-23T07:27:04Z",
+ "built": "2026-11-23T07:49:21Z",
  "counts": {
   "agent-team": {
    "agents": null,
@@ -696,7 +696,7 @@
    "fixture": false,
    "humans": null,
    "observations": 28,
-   "owner_questions_open": 1,
+   "owner_questions_open": 0,
    "posts": 0,
    "returns": null,
    "reviews": 0,
@@ -884,7 +884,7 @@
     },
     "new": 28
    },
-   "owner_questions_open": 1,
+   "owner_questions_open": 0,
    "po_digest_md": "**Цикл 2026-11-21 23:07.** Потрачено $4.42 из $10.\n\n- OBS-0364 (падает test_start_health_and_stop) связана с T-0200. Возможная причина — перезапуск сервиса после выхода (PR #317). T-0200 ждёт владельца, а красная база по-прежнему блокирует остальные PR.\n- OBS-0365 (issue #323): создана одна задача — team-play test получает строку прогресса, правильный порядок аргументов для --spec с --project и повторяемый --grep. Она трогает team/play.py, как и T-0205 (PR #318, ждёт человека).\n- OBS-0366: канарейка PR #322 истекла по таймауту, оставлена человеку. Отложено до повтора.\n- Три пробы T-0209..T-0211 по T-0204 идут своим ходом. Новых вопросов владельцу нет.\n\nГлавный блокер остаётся прежним: красный набор тестов (T-0200) и PR, которые ждут человека.",
    "posts": [],
    "reviews": [],
@@ -1141,7 +1141,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "developer",
-     "state": "waiting_owner",
+     "state": "blocked",
      "title": "README: developer restrictions are role instructions, not a technical sandbox",
      "type": "defect"
     },
@@ -1291,7 +1291,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "developer",
-     "state": "blocked",
+     "state": "rejected",
      "title": "[retro] design-spec: split large GAME-DESIGN.md or raise content maxLength",
      "type": "feature"
     },
@@ -1394,7 +1394,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "developer",
-     "state": "ready",
+     "state": "blocked",
      "title": "[retro] Game profile: fast e2e mode for developer runs, one short live battle for tester",
      "type": "feature"
     },
@@ -1434,7 +1434,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "developer",
-     "state": "ready",
+     "state": "rejected",
      "title": "[retro] Reviewer: tell it how to see a commit diff, or give it a diff in the prompt",
      "type": "feature"
     },
@@ -1454,7 +1454,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "developer",
-     "state": "ready",
+     "state": "waiting_owner",
      "title": "team-play test: progress line, --spec with --project, repeatable --grep",
      "type": "feature"
     }
@@ -1566,7 +1566,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "accepted",
+     "state": "done",
      "title": "Telegram strongest item 2026-11-21 17:00 UTC: one event of 16–20.11, different from the X stories (2/7d cap)",
      "type": "marketing"
     },
@@ -2001,7 +2001,7 @@
      "priority": "P3",
      "released_sha": "2dc95bbf23e20c890c2ef7370710e3d3a17ecab4",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Standard probe files return 200: /favicon.ico and /apple-touch-icon-precomposed.png served from existing assets, probe_check in build.json",
      "type": "quality"
     },
@@ -2158,7 +2158,7 @@
      "priority": "P1",
      "released_sha": "424f97a39eaea499391d3596d374e9204cccf8aa",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Day pages fit the 36000-byte gzip budget again: /day/2026-11-20/ is 36271, so build.py --check fails and blocks the daily rebuild",
      "type": "defect"
     },
@@ -2178,7 +2178,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "ready",
+     "state": "rejected",
      "title": "X day story 2026-11-22 16:00 UTC: one event from 21.11, single attempt, stop on 402",
      "type": "marketing"
     },
@@ -2263,7 +2263,7 @@
      "priority": "P1",
      "released_sha": "94f1fe91135b9e16255308d8be817769c7301a48",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Day pages keep ≥ 600 bytes of gzip headroom, and build.json warns when a page nears the 36000 budget (only 265 bytes left after T-0226)",
      "type": "quality"
     },
@@ -2425,7 +2425,7 @@
      "priority": "P2",
      "released_sha": "94f1fe91135b9e16255308d8be817769c7301a48",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "/try/ opens as 'the daily log you would otherwise build for your overnight agents', with a link to a real day page",
      "type": "feature"
     },
@@ -2470,7 +2470,7 @@
      "priority": "P2",
      "released_sha": "66d5816757f0d73976985ba4e15a0d96ab2aa182",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "/product/ai-battles/ gets the same schema.org CollectionPage microdata as the other product pages, product_schema_check in build.json",
      "type": "quality"
     },
@@ -2515,7 +2515,7 @@
      "priority": "P2",
      "released_sha": "f8decc7e63728a4f2dcd521eca28dee883042cd5",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Land day_nav_check: rebase b3096f0 onto main, take main's public/ on conflicts, rebuild (implements stuck T-0225)",
      "type": "quality"
     },
@@ -2554,7 +2554,7 @@
      "priority": "P2",
      "released_sha": "e9c52c6f17318c8382bd1e766a90da697c4ea07f",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Day pages show 'Review caught': per product, how many tasks the reviewer accepted and how many it sent back, linking the sent-back tasks",
      "type": "feature"
     }
@@ -2689,7 +2689,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "accepted",
+     "state": "done",
      "title": "Telegram post 21.11 12:00 UTC @agentsmd_tracker: Daily number with one card",
      "type": "content"
     },
@@ -2800,7 +2800,7 @@
      "priority": "P2",
      "released_sha": "0b332c456fb823ed6d0850cfdf772456a2899d50",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Every URL the site emits (HTML, sitemap, llms.txt, feed, JSON) resolves to a generated file, with trailing slash; offline test",
      "type": "quality"
     },
@@ -2845,7 +2845,7 @@
      "priority": "P2",
      "released_sha": "69d30c1ea3be2bec27c26772f552a2b4a2d55ed2",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "/go/ redirect pages carry no subresources (no favicon, stylesheet or image references); offline test",
      "type": "quality"
     },
@@ -2916,7 +2916,7 @@
       }
      ],
      "id": "T-0223",
-     "priority": "P3",
+     "priority": "P2",
      "released_sha": null,
      "role": "developer",
      "state": "blocked",
@@ -2964,7 +2964,7 @@
      "priority": "P2",
      "released_sha": "2af38cec6948382964a3c9bc60a1d87af4a86322",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Homepage: static dated summary paragraph and schema.org Dataset JSON-LD for stats.json (CC BY 4.0); offline test",
      "type": "quality"
     },
@@ -3809,7 +3809,7 @@
      "priority": "P0",
      "released_sha": "a55721f98ecbd8dcaf5d093a506b4886ec73e38f",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Server: latch LMB/RMB presses between ticks so a short click is never lost (fixes flaky RMB cooldown e2e)",
      "type": "defect"
     },
@@ -3897,7 +3897,7 @@
      "priority": "P3",
      "released_sha": null,
      "role": "developer",
-     "state": "ready",
+     "state": "rejected",
      "title": "Client: take the battle view from balance.json arena.view and commit the regenerated balance.data.ts",
      "type": "quality"
     },
@@ -4042,7 +4042,7 @@
      "priority": "P1",
      "released_sha": "ee3c8c41d95738ce4875e7e69332ee7f77bfc900",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "E2E harness: never reuse a stale server on port 3101; make 'a full bot battle' spec stable",
      "type": "quality"
     },
@@ -4087,7 +4087,7 @@
      "priority": "P0",
      "released_sha": "8e0c921f1cf17c78c12f284547a89f3ca62325a1",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Test-mode short match: e2e battles run with a 15–20 s match, one real 180 s spec tagged @slow, npm run e2e ≤ 3 min",
      "type": "quality"
     },
@@ -4144,7 +4144,7 @@
      "priority": "P1",
      "released_sha": "606bcfbf380c1e3dc2320def00e240be92b25503",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Connection sometimes stays 'connecting' after the reconnect test: find the root cause on the server or client",
      "type": "defect"
     },
@@ -4227,7 +4227,7 @@
      "priority": "P2",
      "released_sha": "926ad70d5774c8f5fae4abd2381bdb08d3ceca9c",
      "role": "developer",
-     "state": "blocked",
+     "state": "rejected",
      "title": "Журнал подключений и боёв: сервер и клиент пишут события с временем, чтобы видеть, где и когда зависло",
      "type": "quality"
     },
@@ -4290,7 +4290,7 @@
      "priority": "P1",
      "released_sha": "a56a15aa0444480285a0334271ee0507cfcbef58",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Музыка: три синтвейв-мелодии (меню, бой, итоги) с выключателем и громкостью",
      "type": "milestone"
     },
@@ -4341,7 +4341,7 @@
      "priority": "P1",
      "released_sha": "96ee2a1f504ed73b5dace4bf5b15bf6e853b698f",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Звуковые эффекты: ускорение, стрельба пяти оружий, лазер, попадания, взрывы, способности, интерфейс",
      "type": "milestone"
     },
@@ -4496,7 +4496,7 @@
      "priority": "P0",
      "released_sha": "de94c057738ff66fcaa3d46cb600b6aa4d85c79c",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "E2E: live-host mode runs only the real 180 s @slow battle; local npm run e2e ≤ 3 min",
      "type": "quality"
     },
@@ -4547,7 +4547,7 @@
      "priority": "P1",
      "released_sha": "8eaf541c44f13103b1cc6eb10be130f86ad338f2",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Load script tests/load/clients.ts: N rooms of ws clients, input at 20 Hz, report p95 latency and errors",
      "type": "milestone"
     },
@@ -4747,7 +4747,7 @@
      "priority": "P0",
      "released_sha": "4d9f32622d165c422b6178f759f837b134f64423",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Мобильное управление v2: стик в левом углу, надёжный огонь, проверка на движке Safari (iPhone)",
      "type": "milestone"
     },
@@ -4887,7 +4887,7 @@
      "priority": "P1",
      "released_sha": "24edafc46f10b62ea674cd82b1fa23b6aa1f056a",
      "role": "game-designer",
-     "state": "accepted",
+     "state": "done",
      "title": "GAME-DESIGN.md §3 и §8: раздельные движение и прицел (WASD/стик + независимая башня)",
      "type": "design"
     },
@@ -5088,7 +5088,7 @@
      "priority": "P2",
      "released_sha": "b399821405337b1e9179efd2dfaf232c60fcdaeb",
      "role": "game-designer",
-     "state": "accepted",
+     "state": "done",
      "title": "Каталог механик: необычные оружия и воздействия на карту (design/ideas/mechanics.md, первая версия)",
      "type": "design"
     },
@@ -5133,12 +5133,13 @@
      "priority": "P2",
      "released_sha": "53fdc87c41f14b934c9572d1dbcdd6a2fbcca0f3",
      "role": "game-designer",
-     "state": "accepted",
+     "state": "done",
      "title": "GAME-DESIGN.md: правила автоматической балансировки — как находим имбу и как быстро лечим",
      "type": "design"
     },
     {
-     "accepted_at": null,
+     "accepted_at": "2026-11-22T08:01:53+00:00",
+     "artifact": null,
      "created": "2026-11-21T13:10:21+00:00",
      "goal": "G1",
      "history": [
@@ -5153,7 +5154,7 @@
      "priority": "P2",
      "released_sha": "25339d2bc17f727127ff3f010a21ce9f1543e8b5",
      "role": "developer",
-     "state": "released",
+     "state": "accepted",
      "title": "Телеметрия баланса: счётчики настоящих матчей по оружию, способностям и характеристикам в /_team/metrics.json",
      "type": "milestone"
     },
@@ -5242,7 +5243,7 @@
      "priority": "P2",
      "released_sha": "d86158a6114bc47cd70b5b71f1ac19346f186e73",
      "role": "designer",
-     "state": "accepted",
+     "state": "done",
      "title": "DESIGN.md: readable separate turret in Neon-vector (direction at 1280×720 and on a 360 px wide phone)",
      "type": "design"
     },
@@ -5263,7 +5264,7 @@
      "priority": "P1",
      "released_sha": "947902f4b87288bcdaafee5d0c5a565be53455df",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Bots aim the turret separately from movement (GAME-DESIGN §8.3–8.4) and re-run the 200-car balance corridor",
      "type": "milestone"
     },
@@ -5469,7 +5470,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "developer",
-     "state": "in_progress",
+     "state": "blocked",
      "title": "Прототип «Заряд удержанием» (weapons.charge) за флагом features.charge_cannon, выключенным по умолчанию, с симуляцией в коридоре",
      "type": "milestone"
     },
@@ -5514,7 +5515,7 @@
      "priority": "P2",
      "released_sha": "ed8810a0ba49c28b18619b2222e2d40a270e8fe4",
      "role": "game-designer",
-     "state": "accepted",
+     "state": "done",
      "title": "GAME-DESIGN.md §2 и §3.1: телефон — два стика без кнопки Fire (числа из этой карточки, без git)",
      "type": "design"
     },
@@ -5559,7 +5560,7 @@
      "priority": "P1",
      "released_sha": "52cf99a090493eced679d29adad9278cc19d3be7",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Load script: tests/load/clients.ts honours the rooms/clients/seconds that team-play load passes",
      "type": "quality"
     },
@@ -5579,7 +5580,7 @@
      "priority": "P3",
      "released_sha": null,
      "role": "developer",
-     "state": "ready",
+     "state": "rejected",
      "title": "Playwright: software-rendering flags for Chromium in playwright.config.ts behind an env variable, not in spec files",
      "type": "quality"
     },
@@ -5675,7 +5676,7 @@
      "priority": "P1",
      "released_sha": "f06e429e69f6d74f76f6ee76c9cda5d25e91baee",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Metrics: separate test battles (e2e/load/headless) from real players and record why a battle was abandoned",
      "type": "quality"
     },
@@ -5853,7 +5854,7 @@
      "priority": "P1",
      "released_sha": "a520fb2cf7a21c8b261c9b140905741c30a73b12",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Repo: no pkill/killall/kill by pattern in scripts and tests; stop only own processes by saved PID, guarded by a test",
      "type": "defect"
     },
@@ -6043,7 +6044,7 @@
      "priority": "P0",
      "released_sha": "425b4712dd560b407da1f3b189d580e51f1c8197",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Телефон: доводка после полного экрана — лишняя кнопка и подсказка в бою на iPhone, наложения в гараже",
      "type": "milestone"
     },
@@ -6088,7 +6089,7 @@
      "priority": "P1",
      "released_sha": "f52f788832d7d24d041510ad455498fb1ab66354",
      "role": "game-designer",
-     "state": "accepted",
+     "state": "done",
      "title": "GAME-DESIGN.md «Машина по описанию», часть 1: контракт генератора, словарь, таблица точности, блок generation",
      "type": "design"
     },
@@ -6208,7 +6209,7 @@
      "priority": "P3",
      "released_sha": null,
      "role": "developer",
-     "state": "ready",
+     "state": "rejected",
      "title": "E2E: быстрые сценарии menu.spec.ts помечены @live, чтобы меню проверялось на живом хосте",
      "type": "quality"
     },
@@ -6229,7 +6230,7 @@
      "priority": "P0",
      "released_sha": "223757d0ef254a00e25653f911e55c05f6c8d59e",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Десктоп: потеря связи в бою показывает сообщение и возвращает в гараж, экран боя не замирает",
      "type": "milestone"
     },
@@ -6250,7 +6251,7 @@
      "priority": "P1",
      "released_sha": "4774af373f28c74be26e12f81c49123d288d5c8f",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Запись всех боёв и реплей: каждый бой сохраняется полностью и воспроизводится на десктопе",
      "type": "milestone"
     },
@@ -6271,12 +6272,13 @@
      "priority": "P1",
      "released_sha": "2cbbcb2b30e95648f0643b1523ad07cac1271daf",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Калибровка: турниры ботов измеряют, сколько даёт очко каждой характеристики, оружие и способность",
      "type": "milestone"
     },
     {
-     "accepted_at": null,
+     "accepted_at": "2026-11-22T08:21:27+00:00",
+     "artifact": null,
      "created": "2026-11-21T23:58:44+00:00",
      "goal": "G1",
      "history": [
@@ -6289,9 +6291,9 @@
      ],
      "id": "T-0079",
      "priority": "P1",
-     "released_sha": null,
+     "released_sha": "6365dd9bf5a35c0bbbf082eef3c0c3d163b88e38",
      "role": "game-designer",
-     "state": "rejected",
+     "state": "accepted",
      "title": "GAME-DESIGN.md: перевзвешивание характеристик по данным калибровки — неравная стоимость очков",
      "type": "design"
     },
@@ -6486,7 +6488,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "accepted",
+     "state": "done",
      "title": "Morning post 21.11 07:01 UTC in c/kWh with the dated link /d/2026-11-21/ (Telegram)",
      "type": "content"
     },
@@ -6519,7 +6521,7 @@
      "priority": "P1",
      "released_sha": null,
      "role": "marketer",
-     "state": "accepted",
+     "state": "done",
      "title": "Daily post 21.11 14:06 UTC: prices for 22.11 in c/kWh first, link /d/2026-11-22/ (Telegram)",
      "type": "content"
     },
@@ -6579,7 +6581,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "accepted",
+     "state": "done",
      "title": "Bluesky post 21.11 14:20 UTC: tomorrow card for 22.11 in c/kWh, link /d/2026-11-22/?src=bluesky (replaces X slot while X API is down)",
      "type": "marketing"
     },
@@ -6840,7 +6842,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "accepted",
+     "state": "done",
      "title": "Mastodon post 21.11 15:00 UTC: new JSON fields for Home Assistant (start_local, quarters_eur_mwh) + 22.11 window, link /ha/?src=mastodon",
      "type": "marketing"
     },
@@ -6925,7 +6927,7 @@
      "priority": "P2",
      "released_sha": "d70ffd2549a27978344f20b17e098955cc4e6016",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Data quality: re-fetch cached OMIE files younger than 48 h and replace them when OMIE republished different content (test + README)",
      "type": "quality"
     },
@@ -6970,7 +6972,7 @@
      "priority": "P2",
      "released_sha": "59638e3cc97b73f596849cddada8f18a6e46b725",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Transparency: build.json reports the OMIE refetch result (checked/republished) + test that unchanged files keep stamps",
      "type": "quality"
     },
@@ -7015,7 +7017,7 @@
      "priority": "P2",
      "released_sha": "c92f9b85669276a185f0b977793026e27e5a0fc7",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Transparency: build.json omie_refetch adds failed_detail (file + reason: network / http_status / invalid_body), and llms.txt explains failed",
      "type": "quality"
     },
@@ -7060,7 +7062,7 @@
      "priority": "P2",
      "released_sha": "5e6591b3d9764ffa8d408c5b8de7dd78d04a130e",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Clarity: one PT+EN line on day pages with hours ≤ 0 €/MWh saying a zero or negative price is real OMIE data, not an error",
      "type": "quality"
     },
@@ -7125,7 +7127,7 @@
      "priority": "P2",
      "released_sha": "b4ee3c358be1a6dc67601da82f5b0cfb8088c303",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Defect: rescue the cut Mastodon link — /ha… (ha%E2%80%A6) leads to /ha/ instead of 404",
      "type": "defect"
     },
@@ -7170,7 +7172,7 @@
      "priority": "P2",
      "released_sha": "6ea0b7de288a0d76c7c70615f8b559ba6d74ffff",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Quality: keep crawlers off /go/ redirects — robots.txt Disallow /go/ and rel=nofollow on /go/ links",
      "type": "quality"
     },
@@ -7248,7 +7250,7 @@
      "priority": "P2",
      "released_sha": "3dabe730b7f6441bafa7f8d79eefcb8849df77b6",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Quality: post-build QA gate from VISION (value count, no NaN, date, cheap ≤ avg ≤ dear, AI footer) reported in build.json qa + test",
      "type": "quality"
     }
@@ -7354,7 +7356,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "accepted",
+     "state": "done",
      "title": "Bluesky 21.11 10:00 UTC — week's strongest flagged release of 14–21.11 with verbatim quote and /pkg/ link",
      "type": "content"
     },
@@ -7387,7 +7389,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "accepted",
+     "state": "done",
      "title": "Telegram 21.11 10:00 UTC — week's strongest flagged release of 14–21.11 with verbatim quote and /pkg/ link",
      "type": "content"
     },
@@ -7780,7 +7782,7 @@
      "priority": "P2",
      "released_sha": "bf3df74311f1180b2c2850b30c5fa261870d3cb8",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Titles ≤ 70 chars: shorten the home <title> (80 chars) and the long /pkg/ titles while keeping them distinct and data-built",
      "type": "quality"
     },
@@ -7825,7 +7827,7 @@
      "priority": "P2",
      "released_sha": "d73aa79ec398b6bd337820637b108c86bdd6aba8",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Keep crawlers and bots off /go/ redirect pages: robots.txt Disallow /go/ and meta robots noindex,nofollow on every /go/ page",
      "type": "quality"
     },
@@ -7890,7 +7892,7 @@
      "priority": "P2",
      "released_sha": "c435b679eaf0517148dd579c5a84f97b75ea19cc",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Retained legacy /go/ pages are regenerated or normalised by build.py so their <head> always equals render_go() output",
      "type": "quality"
     },
@@ -7935,7 +7937,7 @@
      "priority": "P2",
      "released_sha": "c435b679eaf0517148dd579c5a84f97b75ea19cc",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Scoped npm /pkg/ pages and /brand/ are 'unknown to Google': their sitemap <loc>, canonical and internal hrefs use one identical URL form",
      "type": "quality"
     },
@@ -8019,7 +8021,7 @@
      "priority": "P2",
      "released_sha": "9104409cd9f25f618de657fcd0b3690498b400f9",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Cards show a dated registry fact 'Followed by X.Y.Z on <date> (N h later)' when a newer patch of the series came within 7 days",
      "type": "feature"
     }
@@ -8098,7 +8100,7 @@
    "spend_usd": 5.8
   }
  },
- "snapshot_built_at": "2026-11-23T07:27:04Z",
+ "snapshot_built_at": "2026-11-23T07:49:21Z",
  "spend_vs_typical": {
   "agent-team": {
    "bad_day": false,

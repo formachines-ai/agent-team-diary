@@ -1,0 +1,214 @@
+{
+ "slug": "agentsmd-tracker",
+ "name": "AGENTS.md Tracker",
+ "site": "https://agentsmd.formachines.ai",
+ "date": "2026-11-23",
+ "tasks": [
+  {
+   "id": "T-0190",
+   "title": "X post 23.11 06:15 UTC from @formachines_ai: Daily number",
+   "type": "content",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-17T07:10:24+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-23T06:16:43+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261123T0607-exec-T-0190"
+    },
+    {
+     "ts": "2026-11-23T06:16:43+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-23T06:17:10+00:00",
+     "actor": "marketer",
+     "to": "blocked",
+     "note": "question Q-0032"
+    },
+    {
+     "ts": "2026-11-23T07:28:42+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "answered Q-0032"
+    },
+    {
+     "ts": "2026-11-23T07:28:42+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: The X API answered 402 'credits depleted' on the real send (Q-0032). The draft and the checks are in the question. Per the owner's interim rule (Q-0027), the slot is recorded as 'X: not "
+    }
+   ]
+  },
+  {
+   "id": "T-0193",
+   "title": "X post 24.11 06:15 UTC from @formachines_ai: Card link (repo added AGENTS.md in 24 h)",
+   "type": "content",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-17T13:09:01+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-23T07:28:42+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Replaced by a new task for the same 24.11 06:15 X slot. The new task can finish on a 402 instead of blocking, as T-0190 did."
+    }
+   ]
+  },
+  {
+   "id": "T-0219",
+   "title": "Analyst readout 23.11: did T-0217 (nofollow/noindex on /go/) cut crawler requests to /go/?",
+   "type": "research",
+   "state": "done",
+   "priority": "P3",
+   "goal": "G3",
+   "role": "analyst",
+   "created": "2026-11-20T22:25:09+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-23T01:12:19+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261123T0107-exec-T-0219"
+    },
+    {
+     "ts": "2026-11-23T01:12:19+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-23T01:12:41+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measurement delivered"
+    }
+   ]
+  },
+  {
+   "id": "T-0224",
+   "title": "Homepage: static dated summary paragraph and schema.org Dataset JSON-LD for stats.json (CC BY 4.0); offline test",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G4",
+   "role": "developer",
+   "created": "2026-11-21T20:28:34+00:00",
+   "accepted_at": "2026-11-21T21:22:03+00:00",
+   "released_sha": "2af38cec6948382964a3c9bc60a1d87af4a86322",
+   "history": [
+    {
+     "ts": "2026-11-23T00:21:48+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-23T00:21:48+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0240",
+   "title": "Mastodon post 28.11 12:00 UTC: Size bands",
+   "type": "content",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "G4",
+   "role": "marketer",
+   "created": "2026-11-22T13:16:30+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-23T07:28:42+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Cap conflict. Mastodon is capped at 1 post per 7 days, and T-0191 posts on mastodon on 23.11, so a 28.11 mastodon post would exceed the cap. The size bands go to X (T-0234) and Threads ("
+    }
+   ]
+  },
+  {
+   "id": "T-0244",
+   "title": "Sample size M: stats.json and homepage say why M changed (1,922→1,919) with dated counts of repos left out by status",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-22T23:17:36+00:00",
+   "accepted_at": "2026-11-23T00:21:24+00:00",
+   "released_sha": "7d7141ff560a760899248f73e23a6d0a690850d2",
+   "history": [
+    {
+     "ts": "2026-11-23T00:21:24+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "Live stats.json has an integer denominator accounting (1919 + 3 = 1922) matching the homepage note and the excluded Telegram card with status moved. The suite passed (174 tests OK) and data_delayed is"
+    }
+   ]
+  },
+  {
+   "id": "T-0245",
+   "title": "X post 24.11 06:15 UTC from @formachines_ai: Card link (repo added AGENTS.md in 24 h), with 402 handling",
+   "type": "content",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-23T07:28:44+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-23T07:28:44+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  }
+ ],
+ "reviews": [
+  {
+   "task": "T-0244",
+   "verdict": "pass",
+   "summary": "Live stats.json has an integer denominator accounting (1919 + 3 = 1922) matching the homepage note and the excluded Telegram card with status moved. The suite passed (174 tests OK) and data_delayed is false."
+  }
+ ],
+ "posts": [],
+ "metrics": {
+  "humans": 6,
+  "engaged": 0,
+  "returns": 0,
+  "agents": 1,
+  "crawlers": 746,
+  "requests": 938
+ },
+ "spend_usd": 1.2,
+ "po_digest_md": "**agentsmd-tracker, 23.11**\n\n**Что случилось.** Пост в X за 23.11 (T-0190) не вышел: API ответил 402 «credits depleted». Данные свежие: `data_delayed` = false, `generated` 2026-11-23T05:30. По правилу Q-0027 слот записан как «X: not posted», черновик сохранён, повтора не будет. Итог дня: +0 AGENTS.md и −1 удалён; 568 из 1 919 (29,6 %).\n\n**Что решено.**\n- Закрыта T-0193 (X за 24.11), вместо неё поставлена новая задача на тот же слот. В новой задаче прописано, что делать при 402, чтобы она не застряла, как T-0190.\n- Закрыта T-0240 (Mastodon 28.11): вместе с T-0191 (23.11) получилось бы 2 поста за 7 дней при лимите 1.\n- Новых задач для разработчика нет, и функции я не придумывал. Сломанного на сайте не найдено, четыре последние задачи разработчика приняты.\n- Главная слабость — поиск: в Google проиндексировано 2 из 717 проверенных URL, 660 Google не знает. Почему это так, неясно. Задача T-0216 прочтёт эффект T-0211 26.11, и уже по её итогу будет решение по SEO.\n- T-0223 (ускорение тестов) стоит заблокированной, причины в моих данных нет. При этом прогоны всё ещё тратят до 84 % времени на тесты (T-0244), так что задача нужна.\n\n**Ждёт владельца.**\n- Пополнение кредитов X API: X остаётся единственным каналом с вовлечёнными людьми, а постов там нет с 19.11.\n- Цель G3 в `product.yaml` должна исключать `/go/vote/` (Q-0031).\n\n**Расход:** $0,82 из $20.",
+ "analyst_md": "см. выше",
+ "observations": {
+  "new": 0,
+  "by_class": {}
+ },
+ "owner_questions_open": 0
+}

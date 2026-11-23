@@ -5,6 +5,64 @@
  "date": "2026-11-22",
  "tasks": [
   {
+   "id": "T-0171",
+   "title": "Telegram strongest item 2026-11-21 17:00 UTC: one event of 16–20.11, different from the X stories (2/7d cap)",
+   "type": "marketing",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "marketer",
+   "created": "2026-11-16T12:08:47+00:00",
+   "accepted_at": "2026-11-21T17:09:32+00:00",
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-22T18:13:14+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: none — Telegram 21.11: src=telegram 1 запрос, людей 0 и engaged 0."
+    },
+    {
+     "ts": "2026-11-22T18:13:14+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0173",
+   "title": "Bluesky strongest item 2026-11-22 17:00 UTC: one event of 16–21.11, different from X and Telegram (2/7d cap)",
+   "type": "marketing",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-16T12:08:49+00:00",
+   "accepted_at": "2026-11-22T17:21:39+00:00",
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-22T17:20:44+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261122T1707-exec-T-0173"
+    },
+    {
+     "ts": "2026-11-22T17:20:44+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-22T17:21:39+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "posted 1 (editor-approved)"
+    }
+   ]
+  },
+  {
    "id": "T-0218",
    "title": "Day pages never disappear: a published /day/<date>/ stays built and in sitemap.xml past the 30-day export window",
    "type": "quality",
@@ -135,10 +193,182 @@
    ]
   },
   {
+   "id": "T-0223",
+   "title": "Standard probe files return 200: /favicon.ico and /apple-touch-icon-precomposed.png served from existing assets, probe_check in build.json",
+   "type": "quality",
+   "state": "done",
+   "priority": "P3",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-21T04:10:36+00:00",
+   "accepted_at": "2026-11-21T07:08:42+00:00",
+   "released_sha": "2dc95bbf23e20c890c2ef7370710e3d3a17ecab4",
+   "history": [
+    {
+     "ts": "2026-11-22T12:11:08+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-22T12:11:08+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0226",
+   "title": "Day pages fit the 36000-byte gzip budget again: /day/2026-11-20/ is 36271, so build.py --check fails and blocks the daily rebuild",
+   "type": "defect",
+   "state": "done",
+   "priority": "P1",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-21T09:09:30+00:00",
+   "accepted_at": "2026-11-21T12:10:03+00:00",
+   "released_sha": "424f97a39eaea499391d3596d374e9204cccf8aa",
+   "history": [
+    {
+     "ts": "2026-11-22T12:11:08+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-22T12:11:08+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0227",
+   "title": "X day story 2026-11-22 16:00 UTC: one event from 21.11, single attempt, stop on 402",
+   "type": "marketing",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-21T10:12:06+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-22T16:14:30+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261122T1607-exec-T-0227"
+    },
+    {
+     "ts": "2026-11-22T16:14:30+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-22T16:15:22+00:00",
+     "actor": "marketer",
+     "to": "blocked",
+     "note": "question Q-0046"
+    },
+    {
+     "ts": "2026-11-22T17:20:26+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "answered Q-0046"
+    },
+    {
+     "ts": "2026-11-22T18:12:41+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261122T1807-exec-T-0227"
+    },
+    {
+     "ts": "2026-11-22T18:12:41+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-22T18:12:50+00:00",
+     "actor": "marketer",
+     "to": "blocked",
+     "note": "question Q-0047"
+    },
+    {
+     "ts": "2026-11-22T19:16:28+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "answered Q-0047"
+    },
+    {
+     "ts": "2026-11-22T19:16:28+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: X answered 402 on the one allowed attempt. Under the task rule the 22.11 X slot is dropped with nothing posted, and there is nothing left to do."
+    }
+   ]
+  },
+  {
+   "id": "T-0230",
+   "title": "Day pages keep ≥ 600 bytes of gzip headroom, and build.json warns when a page nears the 36000 budget (only 265 bytes left after T-0226)",
+   "type": "quality",
+   "state": "done",
+   "priority": "P1",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-21T12:11:42+00:00",
+   "accepted_at": "2026-11-21T13:08:33+00:00",
+   "released_sha": "94f1fe91135b9e16255308d8be817769c7301a48",
+   "history": [
+    {
+     "ts": "2026-11-22T18:13:14+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-22T18:13:14+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0234",
+   "title": "/try/ opens as 'the daily log you would otherwise build for your overnight agents', with a link to a real day page",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-21T13:09:30+00:00",
+   "accepted_at": "2026-11-21T17:08:28+00:00",
+   "released_sha": "94f1fe91135b9e16255308d8be817769c7301a48",
+   "history": [
+    {
+     "ts": "2026-11-22T18:13:14+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-22T18:13:14+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
    "id": "T-0237",
    "title": "Day pages show 'Review caught': per product, how many tasks the reviewer accepted and how many it sent back, linking the sent-back tasks",
    "type": "feature",
-   "state": "accepted",
+   "state": "done",
    "priority": "P2",
    "goal": "G2",
    "role": "developer",
@@ -158,7 +388,7 @@
    "id": "T-0238",
    "title": "Day pages show 'Stuck signals': per product, tasks blocked that day and tasks sent back twice or more, linking each task",
    "type": "feature",
-   "state": "accepted",
+   "state": "done",
    "priority": "P2",
    "goal": "G2",
    "role": "developer",
@@ -252,13 +482,13 @@
    "id": "T-0240",
    "title": "Day pages regain ≥ 1200 bytes gzip headroom: drop data-k, trim markup, dedupe identical notes; test limit 34800",
    "type": "quality",
-   "state": "blocked",
+   "state": "rejected",
    "priority": "P1",
    "goal": "G1",
    "role": "developer",
    "created": "2026-11-22T03:10:12+00:00",
    "accepted_at": null,
-   "released_sha": null,
+   "released_sha": "653805b51fc85d2b281d4b22a6c7d70901df0e31",
    "history": [
     {
      "ts": "2026-11-22T03:10:12+00:00",
@@ -295,6 +525,78 @@
      "actor": "dispatcher",
      "to": "blocked",
      "note": "stuck: 3 failed attempts on this goal; the PO replans it with 3 alternatives"
+    },
+    {
+     "ts": "2026-11-22T10:12:49+00:00",
+     "actor": "dispatcher",
+     "to": "blocked",
+     "note": "stuck: none of the 3 probes of the PO's replan worked"
+    },
+    {
+     "ts": "2026-11-22T10:12:49+00:00",
+     "actor": "dispatcher",
+     "to": "waiting_owner",
+     "note": "question Q-0044"
+    },
+    {
+     "ts": "2026-11-22T12:10:08+00:00",
+     "actor": "deputy",
+     "to": "ready",
+     "note": "answered Q-0044"
+    },
+    {
+     "ts": "2026-11-22T12:10:25+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261122T1207-exec-T-0240"
+    },
+    {
+     "ts": "2026-11-22T12:10:25+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-22T12:10:44+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "merge conflict with main in public/404.html, public/about/index.html, public/brand/index.html, public/build.json, public/day/2026-11-02/index.html, public/day/2026-11-02/index.json, public/day/2026-11"
+    },
+    {
+     "ts": "2026-11-22T13:15:09+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "partial — continues next cycle"
+    },
+    {
+     "ts": "2026-11-22T14:15:03+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 653805b51f"
+    },
+    {
+     "ts": "2026-11-22T15:12:21+00:00",
+     "actor": "reviewer",
+     "to": "in_progress",
+     "note": "failed: https://agentteam.formachines.ai/build.json size_check: max_bytes 52297 against the required ≤ 34800, with /day/2026-11-21/ over the 36000 budget."
+    },
+    {
+     "ts": "2026-11-22T15:13:16+00:00",
+     "actor": "developer",
+     "to": "blocked",
+     "note": "question Q-0045"
+    },
+    {
+     "ts": "2026-11-22T16:14:26+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "answered Q-0045"
+    },
+    {
+     "ts": "2026-11-22T16:14:26+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Not achievable as specified: three probes (T-0241..T-0243) failed and the deputy decided to close it (Q-0044). T-0245 replaces it with a per-product split of busy day pages."
     }
    ]
   },
@@ -378,7 +680,7 @@
    "id": "T-0243",
    "title": "Probe 3/3 for T-0240: Graceful overflow: the build shortens older notes only on a page that would exceed 36000",
    "type": "research",
-   "state": "ready",
+   "state": "done",
    "priority": "P1",
    "goal": "G1",
    "role": "developer",
@@ -391,6 +693,182 @@
      "actor": "po",
      "to": "ready",
      "note": "replan probe for T-0240"
+    },
+    {
+     "ts": "2026-11-22T08:12:56+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261122T0807-exec-T-0243"
+    },
+    {
+     "ts": "2026-11-22T08:12:56+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-22T08:14:23+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "probe does not work: The approach does not work as specified. I built a synthetic day with 2× the transitions of 2026-11-20 (862 transitions with distinct notes) in a scratch copy at /tmp/p243/r. It g"
+    }
+   ]
+  },
+  {
+   "id": "T-0244",
+   "title": "Busy day pages over 35000 gzip bytes move their per-product task lists to /day/<date>/<slug>/ subpages linked from the unchanged day page",
+   "type": "quality",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-22T13:14:13+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-22T13:14:13+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-22T14:14:28+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Replaced by the new P0 split task. That task has the same cure, but its acceptance names the real over-budget days 21.11 and 22.11 and adds a fallback for one product's subpage that is s"
+    }
+   ]
+  },
+  {
+   "id": "T-0245",
+   "title": "P0: daily rebuild fails --check: split day pages over 35000 gzip bytes into /day/<date>/<slug>/ subpages (21.11 = 52296, 22.11 = 37275)",
+   "type": "defect",
+   "state": "accepted",
+   "priority": "P0",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-22T14:14:31+00:00",
+   "accepted_at": "2026-11-22T17:19:34+00:00",
+   "released_sha": "f5f31d7e4e82e4539251af2825b1cef14db03a71",
+   "history": [
+    {
+     "ts": "2026-11-22T14:14:31+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-22T16:14:30+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261122T1607-exec-T-0245"
+    },
+    {
+     "ts": "2026-11-22T16:14:30+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-22T16:18:13+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged f5f31d7e4e"
+    },
+    {
+     "ts": "2026-11-22T17:19:34+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The live site shows the split working. Three days are split, no page is over budget (max 32456), every other check list is empty, and the subpages have canonicals, the footer and sitemap entries. The "
+    }
+   ]
+  },
+  {
+   "id": "T-0246",
+   "title": "Day pages show 'Spend vs typical day': the day's model spend next to the 7-day median, with a 'bad day' flag above 2× median",
+   "type": "feature",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "developer",
+   "created": "2026-11-22T17:20:33+00:00",
+   "accepted_at": "2026-11-22T18:12:44+00:00",
+   "released_sha": "5150606b1f8bca5291e4a767d3d4a4083ec8fc64",
+   "history": [
+    {
+     "ts": "2026-11-22T17:20:33+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-22T17:20:48+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261122T1707-exec-T-0246"
+    },
+    {
+     "ts": "2026-11-22T17:20:48+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-22T17:21:58+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 5150606b1f"
+    },
+    {
+     "ts": "2026-11-22T18:12:44+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The #day-spend section on /day/2026-11-21/ matches the new spend_vs_typical field in the day index.json for all products. The flag logic, size budget, tests and status codes check out."
+    }
+   ]
+  },
+  {
+   "id": "T-0247",
+   "title": "Day pages and their /day/<date>/<slug>/ subpages link /try/ and /go/github/ above #day-lead",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-22T19:16:31+00:00",
+   "accepted_at": "2026-11-22T20:11:22+00:00",
+   "released_sha": "375a446854aa626fb26c68ffec0cfa37a94cd89e",
+   "history": [
+    {
+     "ts": "2026-11-22T19:16:31+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-22T19:16:34+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261122T1907-exec-T-0247"
+    },
+    {
+     "ts": "2026-11-22T19:16:34+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-22T19:17:11+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 375a446854"
+    },
+    {
+     "ts": "2026-11-22T20:11:22+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The day-page and subpage CTA line is live and sits before id=day-lead (or above the task list on subpages). Size budget is clean and the test file has the two cases. Link text is neutral, with no pric"
     }
    ]
   }
@@ -405,25 +883,53 @@
    "task": "T-0238",
    "verdict": "pass",
    "summary": "The 2026-11-20 day page has a Stuck signals section whose per-product blocked counts and task ids match stuck_signals in the day index.json. Size and check lists in build.json pass, the tests exist, and the neighbour pages return 200 with the unknown page returning 404."
+  },
+  {
+   "task": "T-0240",
+   "verdict": "fail",
+   "summary": "The T-0240 acceptance criteria are not met. The owner closed the task as not achievable, and the branch contains no net change from main. The live build shows a day page at 52297 gzip bytes, and the repository tests fail."
+  },
+  {
+   "task": "T-0245",
+   "verdict": "pass",
+   "summary": "The live site shows the split working. Three days are split, no page is over budget (max 32456), every other check list is empty, and the subpages have canonicals, the footer and sitemap entries. The 3 tests exist and the dispatcher's unittest run passed."
+  },
+  {
+   "task": "T-0246",
+   "verdict": "pass",
+   "summary": "The #day-spend section on /day/2026-11-21/ matches the new spend_vs_typical field in the day index.json for all products. The flag logic, size budget, tests and status codes check out."
+  },
+  {
+   "task": "T-0247",
+   "verdict": "pass",
+   "summary": "The day-page and subpage CTA line is live and sits before id=day-lead (or above the task list on subpages). Size budget is clean and the test file has the two cases. Link text is neutral, with no price or promise."
   }
  ],
- "posts": [],
+ "posts": [
+  {
+   "channel": "bluesky",
+   "url": "https://bsky.app/profile/formachines.bsky.social/post/3n2w4ux6jcd22",
+   "ts": "2026-11-22T17:21:39+00:00"
+  }
+ ],
  "metrics": {
-  "humans": 1,
-  "engaged": 0,
+  "humans": 5,
+  "engaged": 1,
   "returns": 0,
-  "agents": 1,
-  "crawlers": 18,
-  "requests": 194
+  "agents": 11,
+  "crawlers": 85,
+  "requests": 683
  },
- "spend_usd": 4.8,
- "po_digest_md": "**Дневник, 22.11**\n\n**Что произошло.** Приняты задачи T-0234 (/try/ начинается с «daily log») и T-0235 (микроразметка у ai-battles). Также приняты T-0236 (навигация между днями), T-0237 («Review caught») и T-0238 («Stuck signals»). T-0240 заблокирована: нужно освободить запас под лимит gzip 36000 Б. Сейчас самая большая страница 35395 Б. Два оставшихся пробника идут в работу: T-0242 убирает повторы заметок между блоками, T-0243 сокращает старые заметки, только если страница не влезает в лимит.\n\n**Люди.** За 16–22.11 вовлечённых 0–2 в день, возвратов 0. Переходов людей на /try/ и /go/github/ почти нет. В индексе Google 1 из 31 адреса, кликов 0.\n\n**Решения.** Новых задач нет. Разработчику хватает пробников по T-0240. Блоки на странице дня не расширяем, пока у неё нет запаса под лимит. Поэтому идею H3 (расход по ролям, «плохой день») пока откладываем. Доля ответов 4xx (50–80 %) отложена до разбивки по путям (Q-0034). Падение трафика привязано к плану маркетинга на 25.11–01.12 (T-0194). Повторное чтение GSC — 26.11 (T-0200).\n\n**Посты.** Bluesky сегодня в 17:00. X сегодня в 16:00: одна попытка, без повтора при ответе 402. 23.11: dev.to, Mastodon и X. 24.11: Threads и X. Лимиты Telegram и Threads на 7 дней исчерпаны, новых слотов в них нет.\n\n**Ждёт владельца:**\n- пополнить кредиты X API (Q-0037);\n- переотправить sitemap в GSC (Q-0039, 21 из 31 адреса Google не знает);\n- блок обратной связи для цели G4 (Q-0038, OBS-0380);\n- разбивка 4xx по путям (Q-0034).\n\n**Расход:** $4.37 из $20.",
- "analyst_md": "**Снимок 22.11 (06:01 UTC), данные за 22.11 неполные.**\n\n| Уровень | 22.11 | 21.11 | 20.11 | 19.11 |\n|---|---|---|---|---|\n| Люди: engaged / источники | 0 / 0 | 1 / 2 | 1 / 3 | 1 / 4 |\n| Возвраты | 0 | 0 | 0 | 0 |\n| Агенты: источники | 0 | 5 | 6 | 3 |\n| Краулеры: запросы | 12 | 64 | 108 | 124 |\n| 4xx | 79 | 501 | 782 | 509 |\n| 5xx | 0 | 0 | 0 | 0 |\n\n- Люди: за 16–21.11 engaged-источников 1–2 в день, возвратов нет. Пик 16.11 (63 источника, 2 engaged) пришёл от постов и превью соцсетей.\n- Целевые действия людей (`/try/`, `/go/`): 0 с 17.11. 16.11 было 3 источника на `/try/`.\n- G5: агенты — python-requests, 3–9 запросов в день, но `human src` и `agent src` по таргетам везде 0. GPTBot заходил 19.11 (16 запросов), и это закрывает условие G5.\n- Посты: после Telegram 21.11 17:09 в этот день по `?src=telegram` пришёл 1 запрос и 0 людей. Эффекта не видно, данных мало.\n- GSC: в индексе 1 из 31, 0 кликов, 11 показов.\n- Доля 4xx стабильно 50–80%. Разбивки по путям нет.\n\n**Цели (G1–G5):** G1, G2, G3, G4 далеко от целей. G5 выполнена GPTBot. Пилот закончился 10.11.\n\nБаланс: не игра.\n\n**Задачи:** T-0234 и T-0237 принимались 21–22.11. Рано судить.",
+ "spend_usd": 11.4,
+ "po_digest_md": "**Цикл 22.11 19:07.** Расход $10,65 из $20.\n\n**Что случилось.** Закрыта задача P0 T-0245: самые большие дни (21.11 и 22.11) разбиты на подстраницы по продуктам, ежедневная пересборка снова проходит. Приняты три новых блока на страницах дня:\n- «Review caught» (T-0237), чтение 12.12;\n- «Stuck signals» (T-0238), чтение 20.12;\n- «Spend vs typical day» (T-0246), чтение 22.12.\n\n**Пост в X за 22.11 не вышел.** X снова ответил 402 «credits depleted». По правилу была одна попытка без повтора, задача T-0227 закрыта.\n\n**Люди.** 1 вовлечённый посетитель в день, возвратов 0. На /try/ люди не заходят с 16.11.\n\n**Решения.**\n- Поставлена задача разработчику (quality): на странице дня и её подстраницах, над #day-lead, появятся ссылки на /try/ и /go/github/. Основание: замер аналитика OBS-0456. Выбрано вместо новых функций, потому что люди приходят из постов именно на страницы дня. Проверка: запросы людей к /try/ и /go/github/ за 14 дней после слияния.\n- Индексация в Google: в индексе 1 страница из 31 (OBS-0455). Отдельной задачи нет, ждём повторного чтения аналитиком 26.11 (T-0200), он назовёт конкретную правку.\n- Посты 23–24.11 в dev.to, Mastodon, X и Threads идут по плану, лимиты соблюдены. Новый план на 25.11–01.12 — задача T-0194, старт 23.11.\n\n**Ждёт владельца.**\n- Пополнить кредиты X API: X — единственный канал, который приводит вовлечённых людей, а сейчас каждый пост отвечает 402.\n- Отправить sitemap заново в Google Search Console (OBS-0393).\n- G4 пока не измеряется (OBS-0380).",
+ "analyst_md": "**Срез 22.11 (снимок 18:01 UTC, день неполный).** Уровни не складываем.\n\n| Уровень | 22.11 | 21.11 | 20.11 |\n|---|---|---|---|\n| Люди: engaged | 1 (источников 5) | 1 (2) | 1 (3) |\n| Возвраты | 0 | 0 | 0 |\n| Целевые: /try/ и /go/github/ от людей | 0 | 0 | 0 |\n| Агенты (python-requests и др.) | 7 req, 5 источников | 5 / 5 | 7 / 6 |\n| Краулеры | 73 req, 61 источник | 64 / 56 | 108 / 85 |\n| 5xx | 0 | 0 | 0 |\n\n- G1 (≥50 людей): за 16–22.11 engaged по 1 в день, пик 2 (16.11). Цель недостижима.\n- G2: возвратов 0 за все дни.\n- G3: людей на /try/ и /go/github/ за 17–22.11 нет, последние 3 запроса 16.11.\n- G4: данных об откликах в промпте нет.\n- G5: агентские источники есть каждый день (python-requests), но запросы к /today.json и /feed.xml идут без метки «agent src». GPTBot был 19.11 (16 req). Цель, по-видимому, достигнута.\n- Посты → визиты: после Bluesky 22.11 17:21 по `src=bluesky` 2 запроса, людей 0. Telegram 21.11: 1 запрос, 0 людей. Эффекта не видно.\n- Google: 1 из 31 URL в индексе, 0 кликов, 11 показов.\n- Баланс: не игровой продукт, таблицы нет.\n- Задачи T-0205…T-0246 — в основном проверки сборки. До/после по людям не измеримы: людей 1–5 в день.\n- 4xx 157–782 в день при 5xx = 0. Это в основном сканеры и боты.",
  "observations": {
-  "new": 10,
+  "new": 23,
   "by_class": {
-   "need_hypothesis": 8,
-   "measurement": 2
+   "need_hypothesis": 17,
+   "measurement": 4,
+   "environment_error": 1,
+   "success": 1
   }
  },
  "owner_questions_open": 0

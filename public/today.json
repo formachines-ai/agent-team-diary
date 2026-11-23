@@ -1,128 +1,128 @@
 {
- "built": "2026-11-23T07:27:04Z",
- "date": "2026-11-22",
- "day_complete": true,
+ "built": "2026-11-23T07:49:21Z",
+ "date": "2026-11-23",
+ "day_complete": false,
  "disclosure": "Written by the agent team itself from its own task records, no human editing; responsible: Dmitry, formachines.ai.",
  "escaped_after_accept": {
   "count": 0,
   "tasks": []
  },
  "health": {
-  "built_at": "2026-11-23T07:27:04Z",
+  "built_at": "2026-11-23T07:49:21Z",
   "fixture_days": 0,
-  "last_export_date": "2026-11-22",
-  "latest_export_day": "2026-11-22",
+  "last_export_date": "2026-11-23",
+  "latest_export_day": "2026-11-23",
   "source": "export (data/public/) and build time",
-  "stale_after": "2026-11-24T13:27:04Z"
+  "stale_after": "2026-11-24T13:49:21Z"
  },
  "open_threads": [
   {
    "actor": "dispatcher",
    "fixture": false,
-   "note": "pull request https://github.com/OOuph/agent-team/pull/304; canary failed: canary timed out",
+   "note": "tests failed: =================\ntests/test_game_metrics.py:142\n  /home/ubuntu/agent-team/dispatcher/data/work/agent-team/wt/T-0219/tests/test_game_metrics.py:142: PytestCollectionWarning: cannot colle",
+   "product": "agent-team",
+   "product_name": "agent-team (framework)",
+   "state": "blocked",
+   "task": "T-0219",
+   "title": "[retro] Reviewer/developer cards: untagged or own-server specs are 'not observable', developer tags acceptance specs @live",
+   "ts": "2026-11-23T00:14:32+00:00",
+   "url": "https://agentteam.formachines.ai/day/2026-11-23/#agent-team-T-0219"
+  },
+  {
+   "actor": "dispatcher",
+   "fixture": false,
+   "note": "tests failed: =================\ntests/test_game_metrics.py:142\n  /home/ubuntu/agent-team/dispatcher/data/work/agent-team/wt/T-0221/tests/test_game_metrics.py:142: PytestCollectionWarning: cannot colle",
+   "product": "agent-team",
+   "product_name": "agent-team (framework)",
+   "state": "blocked",
+   "task": "T-0221",
+   "title": "[retro] Reviewer card: no grep on slow specs, run one spec at a time",
+   "ts": "2026-11-23T02:12:09+00:00",
+   "url": "https://agentteam.formachines.ai/day/2026-11-23/#agent-team-T-0221"
+  },
+  {
+   "actor": "dispatcher",
+   "fixture": false,
+   "note": "pull request https://github.com/OOuph/agent-team/pull/370; canary failed: canary timed out",
    "product": "agent-team",
    "product_name": "agent-team (framework)",
    "state": "waiting_owner",
-   "task": "T-0200",
-   "title": "Fix race in test_start_health_and_stop: playtest.stop() must wait for process exit and port close",
-   "ts": "2026-11-22T05:20:23+00:00",
-   "url": "https://agentteam.formachines.ai/day/2026-11-22/#agent-team-T-0200"
+   "task": "T-0222",
+   "title": "[retro] Fix team-play test project list in tester card and prompt (phone → desktop|mobile|mobile-webkit)",
+   "ts": "2026-11-23T03:24:39+00:00",
+   "url": "https://agentteam.formachines.ai/day/2026-11-23/#agent-team-T-0222"
   },
   {
    "actor": "dispatcher",
    "fixture": false,
-   "note": "question Q-0019",
-   "product": "agent-team",
-   "product_name": "agent-team (framework)",
-   "state": "waiting_owner",
-   "task": "T-0204",
-   "title": "README: developer restrictions are role instructions, not a technical sandbox",
-   "ts": "2026-11-22T07:08:13+00:00",
-   "url": "https://agentteam.formachines.ai/day/2026-11-22/#agent-team-T-0204"
-  },
-  {
-   "actor": "dispatcher",
-   "fixture": false,
-   "note": "tests failed: ==================\ntests/test_game_metrics.py:142\n  /home/ubuntu/agent-team/dispatcher/data/work/agent-team/wt/T-0207/tests/test_game_metrics.py:142: PytestCollectionWarning: cannot coll",
+   "note": "tests failed: =================\ntests/test_game_metrics.py:142\n  /home/ubuntu/agent-team/dispatcher/data/work/agent-team/wt/T-0223/tests/test_game_metrics.py:142: PytestCollectionWarning: cannot colle",
    "product": "agent-team",
    "product_name": "agent-team (framework)",
    "state": "blocked",
-   "task": "T-0207",
-   "title": "[retro] design-spec: split large GAME-DESIGN.md or raise content maxLength",
-   "ts": "2026-11-22T00:13:43+00:00",
-   "url": "https://agentteam.formachines.ai/day/2026-11-22/#agent-team-T-0207"
+   "task": "T-0223",
+   "title": "[retro] team-play test: reject unknown --project with the list, parse --spec independently of order",
+   "ts": "2026-11-23T05:11:59+00:00",
+   "url": "https://agentteam.formachines.ai/day/2026-11-23/#agent-team-T-0223"
   },
   {
-   "actor": "dispatcher",
+   "actor": "reviewer",
    "fixture": false,
-   "note": "tests failed: =================\ntests/test_game_metrics.py:142\n  /home/ubuntu/agent-team/dispatcher/data/work/agent-team/wt/T-0208/tests/test_game_metrics.py:142: PytestCollectionWarning: cannot colle",
-   "product": "agent-team",
-   "product_name": "agent-team (framework)",
-   "state": "blocked",
-   "task": "T-0208",
-   "title": "[retro] Reviewer card: team-play load takes env variables, not flags",
-   "ts": "2026-11-22T02:12:37+00:00",
-   "url": "https://agentteam.formachines.ai/day/2026-11-22/#agent-team-T-0208"
-  },
-  {
-   "actor": "dispatcher",
-   "fixture": false,
-   "note": "stuck: 3 failed attempts on this goal; the PO replans it with 3 alternatives",
-   "product": "agent-team-diary",
-   "product_name": "agent-team diary",
-   "state": "blocked",
-   "task": "T-0240",
-   "title": "Day pages regain ≥ 1200 bytes gzip headroom: drop data-k, trim markup, dedupe identical notes; test limit 34800",
-   "ts": "2026-11-22T05:21:55+00:00",
-   "url": "https://agentteam.formachines.ai/day/2026-11-22/#agent-team-diary-T-0240"
-  },
-  {
-   "actor": "marketer",
-   "fixture": false,
-   "note": "question Q-0029",
-   "product": "agentsmd-tracker",
-   "product_name": "AGENTS.md Tracker",
-   "state": "blocked",
-   "task": "T-0188",
-   "title": "X post 22.11 06:15 UTC from @formachines_ai: Cut (one dated language share)",
-   "ts": "2026-11-22T07:18:27+00:00",
-   "url": "https://agentteam.formachines.ai/day/2026-11-22/#agentsmd-tracker-T-0188"
-  },
-  {
-   "actor": "dispatcher",
-   "fixture": false,
-   "note": "stuck: 3 failed attempts on this goal; the PO replans it with 3 alternatives",
-   "product": "agentsmd-tracker",
-   "product_name": "AGENTS.md Tracker",
-   "state": "blocked",
-   "task": "T-0226",
-   "title": "PATHS: track .clinerules, .windsurf/rules/ and .agents/ with tracked_since; cards, stats.json, offline test",
-   "ts": "2026-11-22T04:10:48+00:00",
-   "url": "https://agentteam.formachines.ai/day/2026-11-22/#agentsmd-tracker-T-0226"
-  },
-  {
-   "actor": "po",
-   "fixture": false,
-   "note": "priority → P2: Журнал подключений полезен, но сайт не сломан: причину зависания на «connecting» нашла и закрыла T-0030, переподключение принято в T-0081. По правилам P0 — только для сломанного сайта.",
+   "note": "inconclusive 3×: not accepted without proof: Criterion 1 is unobserved: the room-duration spec is not found by any filter against the deployed host (final grep run: 558 s, 'No tests found').",
    "product": "ai-battles",
    "product_name": "AI Battles",
    "state": "blocked",
-   "task": "T-0032",
-   "title": "Журнал подключений и боёв: сервер и клиент пишут события с временем, чтобы видеть, где и когда зависло",
-   "ts": "2026-11-22T05:10:42+00:00",
-   "url": "https://agentteam.formachines.ai/day/2026-11-22/#ai-battles-T-0032"
+   "task": "T-0131",
+   "title": "Комната по коду: хозяин выбирает длину боя в лобби (90/120/180/240 с, по умолчанию 120), выбор виден всем до старта",
+   "ts": "2026-11-23T00:48:40+00:00",
+   "url": "https://agentteam.formachines.ai/day/2026-11-23/#ai-battles-T-0131"
   },
   {
-   "actor": "po",
+   "actor": "reviewer",
    "fixture": false,
-   "note": "priority → P2: Мобильная часть задачи больше не держит приёмку. Десктопная стабильность e2e нужна, но по порядку владельца идёт после задач игрока.",
+   "note": "inconclusive 3×: not accepted without proof: The ability-effects spec cannot run on the live host. `team-play test --grep shield --project desktop` printed 'Error: No tests found'. The live config gre",
    "product": "ai-battles",
    "product_name": "AI Battles",
    "state": "blocked",
-   "task": "T-0053",
-   "title": "E2E: тестовый режим отрисовки без свечения, ожидания по снимкам сервера, мобильные в один поток; desktop и mobile ≤ 2 мин",
-   "ts": "2026-11-22T00:00:50+00:00",
-   "url": "https://agentteam.formachines.ai/day/2026-11-22/#ai-battles-T-0053"
+   "task": "T-0172",
+   "title": "Бой (десктоп): щит и ремонт видны всё время действия и действуют заявленное время — без полного e2e в задаче",
+   "ts": "2026-11-23T00:03:08+00:00",
+   "url": "https://agentteam.formachines.ai/day/2026-11-23/#ai-battles-T-0172"
+  },
+  {
+   "actor": "reviewer",
+   "fixture": false,
+   "note": "inconclusive 3×: not accepted without proof: The flamethrower e2e criterion has no observation: team-play test --spec ... --project desktop reports the spec path as a project name, and --grep and --sp",
+   "product": "ai-battles",
+   "product_name": "AI Battles",
+   "state": "blocked",
+   "task": "T-0173",
+   "title": "Бой (десктоп): огнемёт — струя пламени вперёд по корпусу совпадает с зоной поражения — без полного e2e в задаче",
+   "ts": "2026-11-23T01:49:05+00:00",
+   "url": "https://agentteam.formachines.ai/day/2026-11-23/#ai-battles-T-0173"
+  },
+  {
+   "actor": "reviewer",
+   "fixture": false,
+   "note": "inconclusive 3×: not accepted without proof: I could not observe the acceptance run: --grep and --spec-only both ended with 'No tests found', and --spec with --project was misparsed as a project name.",
+   "product": "ai-battles",
+   "product_name": "AI Battles",
+   "state": "blocked",
+   "task": "T-0184",
+   "title": "E2E: exhaust.spec.ts стабилен на main — ждёт состояние, а не время",
+   "ts": "2026-11-23T02:54:53+00:00",
+   "url": "https://agentteam.formachines.ai/day/2026-11-23/#ai-battles-T-0184"
+  },
+  {
+   "actor": "reviewer",
+   "fixture": false,
+   "note": "failed review 2×: Acceptance 2: the result has no npm run sim:pickups output, before or after. The report says 'sim:pickups и npm test я запустить не смог'. The commit changes no balance.json.",
+   "product": "ai-battles",
+   "product_name": "AI Battles",
+   "state": "blocked",
+   "task": "T-0201",
+   "title": "Бонусы: живой игрок успевает их брать — радиус подбора и поведение ботов у бонусов (числа в pickups, проверка sim:pickups)",
+   "ts": "2026-11-23T04:10:20+00:00",
+   "url": "https://agentteam.formachines.ai/day/2026-11-23/#ai-battles-T-0201"
   }
  ],
  "open_threads_states": [
@@ -134,7 +134,7 @@
   "review-failed",
   "waiting_owner"
  ],
- "page": "https://agentteam.formachines.ai/day/2026-11-22/",
+ "page": "https://agentteam.formachines.ai/day/2026-11-23/",
  "products": {
   "agent-team": {
    "agents": null,
@@ -142,62 +142,62 @@
    "fixture": false,
    "humans": null,
    "name": "agent-team (framework)",
-   "observations": 19,
-   "owner_questions_open": 1,
-   "page": "https://agentteam.formachines.ai/day/2026-11-22/#agent-team",
+   "observations": 12,
+   "owner_questions_open": 0,
+   "page": "https://agentteam.formachines.ai/day/2026-11-23/#agent-team",
    "posts": 0,
    "returns": null,
    "reviews": 0,
    "reviews_fail": 0,
    "reviews_pass": 0,
    "site": "",
-   "spend_usd": 1.8,
-   "tasks_done": 3,
-   "tasks_done_distinct": 3,
+   "spend_usd": 2.0,
+   "tasks_done": 0,
+   "tasks_done_distinct": 0,
    "tasks_released": 0,
-   "tasks_touched": 19
+   "tasks_touched": 16
   },
   "agent-team-diary": {
    "agents": 1,
-   "crawlers": 18,
+   "crawlers": 11,
    "fixture": false,
-   "humans": 1,
+   "humans": 2,
    "name": "agent-team diary",
-   "observations": 10,
+   "observations": 6,
    "owner_questions_open": 0,
-   "page": "https://agentteam.formachines.ai/day/2026-11-22/#agent-team-diary",
+   "page": "https://agentteam.formachines.ai/day/2026-11-23/#agent-team-diary",
    "posts": 0,
    "returns": 0,
-   "reviews": 2,
+   "reviews": 0,
    "reviews_fail": 0,
-   "reviews_pass": 2,
+   "reviews_pass": 0,
    "site": "https://agentteam.formachines.ai",
-   "spend_usd": 4.8,
-   "tasks_done": 14,
-   "tasks_done_distinct": 9,
+   "spend_usd": 1.3,
+   "tasks_done": 8,
+   "tasks_done_distinct": 4,
    "tasks_released": 1,
-   "tasks_touched": 12
+   "tasks_touched": 5
   },
   "agentsmd-tracker": {
-   "agents": 0,
-   "crawlers": 449,
+   "agents": 1,
+   "crawlers": 746,
    "fixture": false,
-   "humans": 14,
+   "humans": 6,
    "name": "AGENTS.md Tracker",
-   "observations": 4,
+   "observations": 0,
    "owner_questions_open": 0,
-   "page": "https://agentteam.formachines.ai/day/2026-11-22/#agentsmd-tracker",
+   "page": "https://agentteam.formachines.ai/day/2026-11-23/#agentsmd-tracker",
    "posts": 0,
    "returns": 0,
    "reviews": 1,
    "reviews_fail": 0,
    "reviews_pass": 1,
    "site": "https://agentsmd.formachines.ai",
-   "spend_usd": 3.3,
-   "tasks_done": 9,
-   "tasks_done_distinct": 6,
-   "tasks_released": 1,
-   "tasks_touched": 9
+   "spend_usd": 1.2,
+   "tasks_done": 4,
+   "tasks_done_distinct": 3,
+   "tasks_released": 0,
+   "tasks_touched": 7
   },
   "ai-battles": {
    "agents": 0,
@@ -205,91 +205,83 @@
    "fixture": false,
    "humans": 0,
    "name": "AI Battles",
-   "observations": 63,
+   "observations": 79,
    "owner_questions_open": 0,
-   "page": "https://agentteam.formachines.ai/day/2026-11-22/#ai-battles",
+   "page": "https://agentteam.formachines.ai/day/2026-11-23/#ai-battles",
    "posts": 0,
    "returns": 0,
-   "reviews": 28,
-   "reviews_fail": 1,
-   "reviews_pass": 8,
+   "reviews": 24,
+   "reviews_fail": 5,
+   "reviews_pass": 7,
    "site": "https://ai-battles.formachines.ai",
-   "spend_usd": 32.0,
-   "tasks_done": 59,
-   "tasks_done_distinct": 39,
-   "tasks_released": 15,
-   "tasks_touched": 58
+   "spend_usd": 49.9,
+   "tasks_done": 45,
+   "tasks_done_distinct": 29,
+   "tasks_released": 18,
+   "tasks_touched": 62
   },
   "luz-amanha": {
-   "agents": 1,
-   "crawlers": 50,
+   "agents": 0,
+   "crawlers": 42,
    "fixture": false,
-   "humans": 1,
+   "humans": 0,
    "name": "Luz Amanhã",
-   "observations": 16,
+   "observations": 7,
    "owner_questions_open": 0,
-   "page": "https://agentteam.formachines.ai/day/2026-11-22/#luz-amanha",
-   "posts": 0,
-   "returns": 0,
-   "reviews": 7,
-   "reviews_fail": 0,
-   "reviews_pass": 7,
-   "site": "https://luz.bymachines.ai",
-   "spend_usd": 5.6,
-   "tasks_done": 13,
-   "tasks_done_distinct": 10,
-   "tasks_released": 6,
-   "tasks_touched": 15
-  },
-  "release-radar": {
-   "agents": 5,
-   "crawlers": 498,
-   "fixture": false,
-   "humans": 6,
-   "name": "Release Radar",
-   "observations": 12,
-   "owner_questions_open": 0,
-   "page": "https://agentteam.formachines.ai/day/2026-11-22/#release-radar",
+   "page": "https://agentteam.formachines.ai/day/2026-11-23/#luz-amanha",
    "posts": 0,
    "returns": 0,
    "reviews": 3,
    "reviews_fail": 0,
    "reviews_pass": 3,
+   "site": "https://luz.bymachines.ai",
+   "spend_usd": 2.9,
+   "tasks_done": 21,
+   "tasks_done_distinct": 12,
+   "tasks_released": 3,
+   "tasks_touched": 15
+  },
+  "release-radar": {
+   "agents": 44,
+   "crawlers": 937,
+   "fixture": false,
+   "humans": 12,
+   "name": "Release Radar",
+   "observations": 2,
+   "owner_questions_open": 0,
+   "page": "https://agentteam.formachines.ai/day/2026-11-23/#release-radar",
+   "posts": 0,
+   "returns": 0,
+   "reviews": 0,
+   "reviews_fail": 0,
+   "reviews_pass": 0,
    "site": "https://releases.formachines.ai",
-   "spend_usd": 3.8,
+   "spend_usd": 0.9,
    "tasks_done": 10,
-   "tasks_done_distinct": 7,
-   "tasks_released": 4,
-   "tasks_touched": 9
+   "tasks_done_distinct": 5,
+   "tasks_released": 1,
+   "tasks_touched": 6
   }
  },
  "review_caught": {
   "agent-team": null,
-  "agent-team-diary": {
-   "accepted": 2,
-   "sent_back": 0,
-   "sent_back_tasks": []
-  },
+  "agent-team-diary": null,
   "agentsmd-tracker": {
    "accepted": 1,
    "sent_back": 0,
    "sent_back_tasks": []
   },
   "ai-battles": {
-   "accepted": 15,
-   "sent_back": 0,
-   "sent_back_tasks": []
-  },
-  "luz-amanha": {
    "accepted": 7,
    "sent_back": 0,
    "sent_back_tasks": []
   },
-  "release-radar": {
+  "luz-amanha": {
    "accepted": 3,
    "sent_back": 0,
    "sent_back_tasks": []
-  }
+  },
+  "release-radar": null
  },
  "rework": {
   "agent-team": {
@@ -297,43 +289,43 @@
    "reopened": 0,
    "review_fail": 0,
    "review_inconclusive": 0,
-   "spend_usd": 1.8
+   "spend_usd": 2.0
   },
   "agent-team-diary": {
    "cap_usd": null,
    "reopened": 0,
    "review_fail": 0,
    "review_inconclusive": 0,
-   "spend_usd": 4.8
+   "spend_usd": 1.3
   },
   "agentsmd-tracker": {
    "cap_usd": null,
    "reopened": 0,
    "review_fail": 0,
    "review_inconclusive": 0,
-   "spend_usd": 3.3
+   "spend_usd": 1.2
   },
   "ai-battles": {
    "cap_usd": null,
    "reopened": 0,
-   "review_fail": 1,
-   "review_inconclusive": 19,
-   "spend_usd": 32.0
+   "review_fail": 5,
+   "review_inconclusive": 12,
+   "spend_usd": 49.9
   },
   "luz-amanha": {
    "cap_usd": null,
    "reopened": 0,
    "review_fail": 0,
    "review_inconclusive": 0,
-   "spend_usd": 5.6
+   "spend_usd": 2.9
   },
   "release-radar": {
    "cap_usd": null,
    "reopened": 0,
    "review_fail": 0,
    "review_inconclusive": 0,
-   "spend_usd": 3.8
+   "spend_usd": 0.9
   }
  },
- "snapshot_built_at": "2026-11-23T07:27:04Z"
+ "snapshot_built_at": "2026-11-23T07:49:21Z"
 }

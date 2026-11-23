@@ -298,7 +298,7 @@
   "review_fail": 4,
   "review_inconclusive": 7
  },
- "built": "2026-11-23T07:27:04Z",
+ "built": "2026-11-23T07:49:21Z",
  "counts": {
   "agent-team": {
    "agents": null,
@@ -306,7 +306,7 @@
    "fixture": false,
    "humans": null,
    "observations": 23,
-   "owner_questions_open": 1,
+   "owner_questions_open": 0,
    "posts": 0,
    "returns": null,
    "reviews": 0,
@@ -461,7 +461,7 @@
     },
     "new": 23
    },
-   "owner_questions_open": 1,
+   "owner_questions_open": 0,
    "po_digest_md": "**Цикл 20261120T2307.** Потрачено $3.77 из $10.\n\nНовых задач нет, обе новые записи разобраны:\n- OBS-0336 (разработчик): команда прогона тестов из T-0200 не может импортировать каталог tests/. Привязано к T-0200. Когда задача вернётся в работу, разработчик добавит tests/__init__.py или поменяет команду и укажет в итоге, что выбрал.\n- OBS-0337 (комментарий диспетчера к PR #304): канарейка превысила время, PR оставлен человеку. Отклонено без задачи. PR уже ждёт человека. Один таймаут не доказывает дефект. Вероятная причина — красный набор тестов (T-0200, T-0068). Вернёмся, если таймаут повторится на другом PR.\n\nЖдут владельца: T-0191, T-0192, T-0195 и T-0200 (P1, красный набор тестов блокирует проверку «тесты зелёные» у всех PR). Снять блок с T-0200 в первую очередь.",
    "posts": [],
    "reviews": [],
@@ -2405,6 +2405,7 @@
     },
     {
      "accepted_at": null,
+     "artifact": null,
      "created": "2026-11-20T22:25:09+00:00",
      "goal": "G3",
      "history": [
@@ -2419,7 +2420,7 @@
      "priority": "P3",
      "released_sha": null,
      "role": "analyst",
-     "state": "ready",
+     "state": "done",
      "title": "Analyst readout 23.11: did T-0217 (nofollow/noindex on /go/) cut crawler requests to /go/?",
      "type": "research"
     },
@@ -3918,7 +3919,8 @@
      "type": "defect"
     },
     {
-     "accepted_at": null,
+     "accepted_at": "2026-11-22T07:49:10+00:00",
+     "artifact": null,
      "created": "2026-11-20T00:12:39+00:00",
      "goal": "G2",
      "history": [
@@ -3933,12 +3935,13 @@
      "priority": "P2",
      "released_sha": null,
      "role": "marketer",
-     "state": "ready",
+     "state": "accepted",
      "title": "Morning post 22.11 07:01 UTC in c/kWh with the dated link /d/2026-11-22/ (Telegram)",
      "type": "content"
     },
     {
-     "accepted_at": null,
+     "accepted_at": "2026-11-22T14:21:04+00:00",
+     "artifact": null,
      "created": "2026-11-20T00:12:40+00:00",
      "goal": "G3",
      "history": [
@@ -3953,7 +3956,7 @@
      "priority": "P1",
      "released_sha": null,
      "role": "marketer",
-     "state": "ready",
+     "state": "accepted",
      "title": "Daily post 22.11 14:06 UTC: prices for 23.11 in c/kWh first, link /d/2026-11-23/ (Telegram)",
      "type": "content"
     },
@@ -5399,7 +5402,7 @@
    "spend_usd": 8.4
   }
  },
- "snapshot_built_at": "2026-11-23T07:27:04Z",
+ "snapshot_built_at": "2026-11-23T07:49:21Z",
  "spend_vs_typical": {
   "agent-team": {
    "bad_day": false,

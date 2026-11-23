@@ -1,0 +1,472 @@
+{
+ "slug": "luz-amanha",
+ "name": "Luz Amanhã",
+ "site": "https://luz.bymachines.ai",
+ "date": "2026-11-23",
+ "tasks": [
+  {
+   "id": "T-0236",
+   "title": "Defect: rescue the cut Mastodon link — /ha… (ha%E2%80%A6) leads to /ha/ instead of 404",
+   "type": "defect",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G5",
+   "role": "developer",
+   "created": "2026-11-21T20:56:23+00:00",
+   "accepted_at": "2026-11-21T21:22:53+00:00",
+   "released_sha": "b4ee3c358be1a6dc67601da82f5b0cfb8088c303",
+   "history": [
+    {
+     "ts": "2026-11-23T00:25:12+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — Alias for ha… not yet in the metrics window."
+    },
+    {
+     "ts": "2026-11-23T00:25:12+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0237",
+   "title": "Quality: keep crawlers off /go/ redirects — robots.txt Disallow /go/ and rel=nofollow on /go/ links",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-21T20:56:25+00:00",
+   "accepted_at": "2026-11-21T22:27:27+00:00",
+   "released_sha": "6ea0b7de288a0d76c7c70615f8b559ba6d74ffff",
+   "history": [
+    {
+     "ts": "2026-11-23T00:25:12+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — Accepted 21.11 22:27, no post-release day in metrics yet; /go/ crawler req was 8 on 21.11."
+    },
+    {
+     "ts": "2026-11-23T00:25:12+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0239",
+   "title": "Quality: post-build QA gate from VISION (value count, no NaN, date, cheap ≤ avg ≤ dear, AI footer) reported in build.json qa + test",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "developer",
+   "created": "2026-11-21T23:25:58+00:00",
+   "accepted_at": "2026-11-22T00:26:45+00:00",
+   "released_sha": "3dabe730b7f6441bafa7f8d79eefcb8849df77b6",
+   "history": [
+    {
+     "ts": "2026-11-23T06:52:27+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-23T06:52:27+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0240",
+   "title": "Quality: one command runs all tests (tests/ discoverable by unittest) + README line",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "developer",
+   "created": "2026-11-22T00:27:03+00:00",
+   "accepted_at": "2026-11-22T01:39:09+00:00",
+   "released_sha": "1a9d8406f5b47cfe8c4fdfc269606bfcdad32f64",
+   "history": [
+    {
+     "ts": "2026-11-23T06:52:27+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-23T06:52:27+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0244",
+   "title": "Feature: 'slow charge' window — the cheapest 6 consecutive hours of the day, on the page and in tomorrow.json",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "developer",
+   "created": "2026-11-22T01:39:53+00:00",
+   "accepted_at": "2026-11-22T02:20:01+00:00",
+   "released_sha": "7a91ae1d962fe577ee1bb388af26617b9806ea08",
+   "history": [
+    {
+     "ts": "2026-11-23T06:52:27+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-23T06:52:28+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0245",
+   "title": "Quality: DST-day test — 25-hour and 23-hour days get correct start_local/start_utc in Lisbon time",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G5",
+   "role": "developer",
+   "created": "2026-11-22T02:20:03+00:00",
+   "accepted_at": "2026-11-22T03:22:38+00:00",
+   "released_sha": "e67c523ba691b195af0f03534dc3abc0440b87f6",
+   "history": [
+    {
+     "ts": "2026-11-23T06:52:28+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-23T06:52:28+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0246",
+   "title": "Quality: on a QA failure (exit 3), build.py writes and commits a dated record data/qa-failures/YYYY-MM-DD.json + test",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "developer",
+   "created": "2026-11-22T03:23:30+00:00",
+   "accepted_at": "2026-11-22T04:11:36+00:00",
+   "released_sha": "9ca58997ec88ffd43646f480d73e010ee1f1b5bb",
+   "history": [
+    {
+     "ts": "2026-11-23T06:52:28+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-23T06:52:28+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0247",
+   "title": "Feature: static PT/EN page /como-ler/ on how to read hourly OMIE prices, linked from the footer",
+   "type": "feature",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "developer",
+   "created": "2026-11-22T03:23:32+00:00",
+   "accepted_at": "2026-11-22T05:35:08+00:00",
+   "released_sha": "d1cf491c370ef3207d9c74452fe8bfce965ab24a",
+   "history": [
+    {
+     "ts": "2026-11-23T06:52:28+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-23T06:52:28+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0248",
+   "title": "Quality: /como-ler/ gets JSON-LD and hreflang pt/en like the other pages (seocheck OBS-0519/OBS-0520)",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-22T05:35:57+00:00",
+   "accepted_at": "2026-11-22T06:20:05+00:00",
+   "released_sha": "ad840a0e8b6920784b8d42a4b3588599a60a27d1",
+   "history": [
+    {
+     "ts": "2026-11-23T06:52:28+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-23T06:52:28+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0254",
+   "title": "Quality: explain the missing 23:00 hour in one PT+EN line on the tomorrow page and in tomorrow.json (missing_hours_note)",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "developer",
+   "created": "2026-11-23T00:23:30+00:00",
+   "accepted_at": "2026-11-23T01:33:19+00:00",
+   "released_sha": "c46232ec38578cdd1a0fb8a30651bf12c23773ea",
+   "history": [
+    {
+     "ts": "2026-11-23T00:23:30+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-23T00:23:35+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261123T0007-exec-T-0254"
+    },
+    {
+     "ts": "2026-11-23T00:23:35+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-23T00:24:47+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged c46232ec38"
+    },
+    {
+     "ts": "2026-11-23T01:33:19+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The live site matches the criteria I could observe. The archive day has a null note, llms.txt and README name the field, and today.json and the home page show the PT+EN note when only 23:00 is missing"
+    }
+   ]
+  },
+  {
+   "id": "T-0255",
+   "title": "Feature: flag zero/negative OMIE hours on the page and add zero_or_negative_hours to the JSON (PT/EN, links /como-ler/)",
+   "type": "feature",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "developer",
+   "created": "2026-11-23T00:23:32+00:00",
+   "accepted_at": "2026-11-23T02:13:47+00:00",
+   "released_sha": "5bfa176e5d6161e200ad897b79e642ceb7e28a54",
+   "history": [
+    {
+     "ts": "2026-11-23T00:23:32+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-23T01:33:45+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261123T0107-exec-T-0255"
+    },
+    {
+     "ts": "2026-11-23T01:33:45+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-23T01:34:48+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 5bfa176e5d"
+    },
+    {
+     "ts": "2026-11-23T02:13:47+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The live 2026-11-22 JSON and page show the five zero/negative hours with the PT/EN line and a /como-ler/ link, while 2026-11-21 has [] and no line. llms.txt documents the key, and the home page still "
+    }
+   ]
+  },
+  {
+   "id": "T-0256",
+   "title": "X post 24.11 14:10 UTC: headline A + 25.11 window, link /d/2026-11-25/?src=x (also checks whether X still returns 402)",
+   "type": "marketing",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-23T01:33:41+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-23T01:33:41+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0257",
+   "title": "Defect: test_qa_gate depends on the real data/omie cache (24 != 23 once the D+1 file exists); make it hermetic",
+   "type": "defect",
+   "state": "accepted",
+   "priority": "P1",
+   "goal": "G2",
+   "role": "developer",
+   "created": "2026-11-23T02:14:06+00:00",
+   "accepted_at": "2026-11-23T03:27:39+00:00",
+   "released_sha": "3df9eadd3eafbc625eae234ad82a0e0f4ce4f743",
+   "history": [
+    {
+     "ts": "2026-11-23T02:14:06+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-23T02:14:13+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261123T0207-exec-T-0257"
+    },
+    {
+     "ts": "2026-11-23T02:14:13+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-23T02:16:23+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 3df9eadd3e"
+    },
+    {
+     "ts": "2026-11-23T03:27:39+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The tests now copy a frozen snapshot into a temp dir, so the real data/omie cache no longer affects them. The suite passes with 76 tests, and the live build.json and home page are as required."
+    }
+   ]
+  },
+  {
+   "id": "T-0258",
+   "title": "X post 25.11 14:10 UTC: headline B (control), 26.11 window, link /d/2026-11-26/?src=x",
+   "type": "marketing",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-23T02:14:08+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-23T02:14:08+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0259",
+   "title": "X post 26.11 14:10 UTC: headline A, 27.11 window, link /d/2026-11-27/?src=x",
+   "type": "marketing",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-23T02:14:10+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-23T02:14:10+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  }
+ ],
+ "reviews": [
+  {
+   "task": "T-0254",
+   "verdict": "pass",
+   "summary": "The live site matches the criteria I could observe. The archive day has a null note, llms.txt and README name the field, and today.json and the home page show the PT+EN note when only 23:00 is missing. The suite's single failure (test_qa_gate, 24 != 23) is a stale-data assumption in an unrelated test."
+  },
+  {
+   "task": "T-0255",
+   "verdict": "pass",
+   "summary": "The live 2026-11-22 JSON and page show the five zero/negative hours with the PT/EN line and a /como-ler/ link, while 2026-11-21 has [] and no line. llms.txt documents the key, and the home page still has one h1 and no executable script."
+  },
+  {
+   "task": "T-0257",
+   "verdict": "pass",
+   "summary": "The tests now copy a frozen snapshot into a temp dir, so the real data/omie cache no longer affects them. The suite passes with 76 tests, and the live build.json and home page are as required."
+  }
+ ],
+ "posts": [],
+ "metrics": {
+  "humans": 0,
+  "engaged": 0,
+  "returns": 0,
+  "agents": 0,
+  "crawlers": 42,
+  "requests": 117
+ },
+ "spend_usd": 2.9,
+ "po_digest_md": "**Luz Amanhã — 23.11, утро**\n\n**Что произошло:** ревьюер нашёл, что тест QA-гейта читает настоящий кэш `data/omie/` (OBS-0529). Как только появился файл на 23.11, тест упал (24 вместо 23). Он красный на базовой ветке, поэтому блокирует ревью всех задач разработчика, в том числе T-0255 (метка нулевых и отрицательных часов, сейчас released).\n\n**Что решено:**\n- Создан дефект P1: сделать тест герметичным, чтобы он читал только синтетические файлы во временной папке. Ожидаемых значений не меняем, тесты не ослабляем.\n- Из плана маркетинга нарезаны слоты X на 25.11 (заголовок B, контроль) и 26.11 (заголовок A). Если X снова ответит 402, они пропускаются без повторов. Первым API проверит T-0256 (24.11).\n- Слот Threads 24.11 пропущен: финальный тест 22.11 дал 0 людей по `?src=threads`, лимит канала тоже исчерпан.\n- Ежедневные карточки Telegram 07:00 и 14:05 стоят до 28.11. Bluesky 26.11 и исправление Mastodon 28.11 уже в очереди.\n\n**Метрики:** с 19.11 нет ни одного вовлечённого человека (engaged = 0), за 22.11 — 3 человека. GSC: 0 показов, 11 из 34 URL в индексе. Повторное чтение — 25.11 (T-0197).\n\n**Ждёт владельца** (без изменений, Q-0055): продолжать ли пилот, ставить ли новые цели, пополнять ли кредиты X API.\n\n**Расходы:** $1.81 из $20.",
+ "analyst_md": "**Luz Amanhã, срез на 23.11 06:00 UTC (последние 7 дней).** Уровни не суммируются.\n\n| День | Запросы | Люди (источники / engaged) | Краулеры | Агенты | 5xx |\n|---|---|---|---|---|---|\n| 17.11 | 565 | 2 / 1 | 91 | 0 | 0 |\n| 18.11 | 547 | 4 / 1 | 103 | 6 | 0 |\n| 19.11 | 945 | 5 / 0 | 122 | 3 | 0 |\n| 20.11 | 915 | 0 / 0 | 141 | 4 | 0 |\n| 21.11 | 1064 | 3 / 0 | 198 | 0 | 0 |\n| 22.11 | 525 | 3 / 0 | 192 | 2 | 0 |\n| 23.11 (частично) | 117 | 0 / 0 | 42 | 0 | 0 |\n\n- G1: engaged-людей за 17–22.11 всего 2 (по одному 17.11 и 18.11, последний 18.11). Цель ≥30 далека.\n- G2: возврат один (18.11), 0 за 19–22.11. Данных мало, чтобы судить.\n- G3: клики `/go/telegram/` 1 за 21.11, от человека 0. Подписчиков в метриках не видно.\n- G4: внешние referer есть, но единичные: t.co, bluenews.app (5), google, facebook. Источник facebook (m. и lm.) 22.11 появился после поста в Threads, но это не наш пост на Facebook, и людей с ним не связать.\n- Посты → визиты: после Threads-поста 22.11 13:26 `by_src threads` = 26 запросов, людей 0 (превью-краулеры). Threads-тест итог: 0 людей.\n- Баланса нет (не игра).\n- Индекс Google: 11 из 35 в индексе, показов 0.",
+ "observations": {
+  "new": 7,
+  "by_class": {
+   "measurement": 3,
+   "need_hypothesis": 3,
+   "environment_error": 1
+  }
+ },
+ "owner_questions_open": 0
+}

@@ -5,6 +5,90 @@
  "date": "2026-11-22",
  "tasks": [
   {
+   "id": "T-0128",
+   "title": "Bluesky 21.11 10:00 UTC — week's strongest flagged release of 14–21.11 with verbatim quote and /pkg/ link",
+   "type": "content",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-17T00:10:48+00:00",
+   "accepted_at": "2026-11-21T10:57:49+00:00",
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-22T12:01:44+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — Bluesky 21.11: by_src 33 req, human 2, engaged 1, при 145 human sources за день. До поста (20.11) было 7 req и 0 human. Рост виден, но выборка мала."
+    },
+    {
+     "ts": "2026-11-22T12:01:44+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0129",
+   "title": "Telegram 21.11 10:00 UTC — week's strongest flagged release of 14–21.11 with verbatim quote and /pkg/ link",
+   "type": "content",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "marketer",
+   "created": "2026-11-17T00:10:49+00:00",
+   "accepted_at": "2026-11-21T11:39:31+00:00",
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-22T12:01:44+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — Telegram 21.11: by_src 1 req, 0 human. Рефереров нет."
+    },
+    {
+     "ts": "2026-11-22T12:01:44+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0132",
+   "title": "Threads 22.11 12:00 UTC — single test slot: one plain sentence on the week's most useful flagged quote",
+   "type": "content",
+   "state": "accepted",
+   "priority": "P3",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-17T07:13:32+00:00",
+   "accepted_at": "2026-11-22T12:01:17+00:00",
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-22T12:00:09+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261122T1107-exec-T-0132"
+    },
+    {
+     "ts": "2026-11-22T12:00:09+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-22T12:01:17+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "posted 1 (editor-approved)"
+    }
+   ]
+  },
+  {
    "id": "T-0164",
    "title": "Notes completeness: a build reuses notes already fetched in the previous committed build instead of marking 183 versions 'not fetched'",
    "type": "quality",
@@ -83,6 +167,84 @@
    ]
   },
   {
+   "id": "T-0167",
+   "title": "Titles ≤ 70 chars: shorten the home <title> (80 chars) and the long /pkg/ titles while keeping them distinct and data-built",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-21T04:55:32+00:00",
+   "accepted_at": "2026-11-21T07:30:52+00:00",
+   "released_sha": "bf3df74311f1180b2c2850b30c5fa261870d3cb8",
+   "history": [
+    {
+     "ts": "2026-11-22T12:01:44+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-22T12:01:44+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0168",
+   "title": "Keep crawlers and bots off /go/ redirect pages: robots.txt Disallow /go/ and meta robots noindex,nofollow on every /go/ page",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-21T13:14:08+00:00",
+   "accepted_at": "2026-11-21T14:45:00+00:00",
+   "released_sha": "d73aa79ec398b6bd337820637b108c86bdd6aba8",
+   "history": [
+    {
+     "ts": "2026-11-22T18:31:27+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — Принято 21.11; 22.11 /go/ 278 запросов за неполный день, один день после изменения, база шумная."
+    },
+    {
+     "ts": "2026-11-22T18:31:27+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0170",
+   "title": "Retained legacy /go/ pages are regenerated or normalised by build.py so their <head> always equals render_go() output",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-21T14:45:45+00:00",
+   "accepted_at": "2026-11-21T15:12:57+00:00",
+   "released_sha": "c435b679eaf0517148dd579c5a84f97b75ea19cc",
+   "history": [
+    {
+     "ts": "2026-11-22T18:31:27+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-22T18:31:27+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
    "id": "T-0174",
    "title": "Analyst: who are the 145 'human' sources of 21.11 and the 1048 /go/ hits after robots Disallow — UA/IP clusters and a filter proposal",
    "type": "research",
@@ -124,7 +286,7 @@
    "id": "T-0175",
    "title": "Unflagged cards say what was checked: 'No breaking keyword in the release notes (regex only; changes the notes omit are not detected)'",
    "type": "quality",
-   "state": "accepted",
+   "state": "done",
    "priority": "P2",
    "goal": "G3",
    "role": "developer",
@@ -168,7 +330,7 @@
    "id": "T-0176",
    "title": "Flagged cards in a minor/patch release show the semver fact 'keyword match in a patch release (1.2.3 → 1.2.4)'",
    "type": "feature",
-   "state": "accepted",
+   "state": "done",
    "priority": "P2",
    "goal": "G3",
    "role": "developer",
@@ -212,7 +374,7 @@
    "id": "T-0177",
    "title": "pkg index.json: `bump` keeps its old values; the T-0176 semver kind goes into the additive key `semver_bump`",
    "type": "defect",
-   "state": "accepted",
+   "state": "done",
    "priority": "P2",
    "goal": "G4",
    "role": "developer",
@@ -256,12 +418,12 @@
    "id": "T-0178",
    "title": "Cards without fetched release notes state where we looked and when: 'No release notes found on GitHub Releases …, checked <UTC>'",
    "type": "quality",
-   "state": "released",
+   "state": "accepted",
    "priority": "P2",
    "goal": "G3",
    "role": "developer",
    "created": "2026-11-22T06:21:45+00:00",
-   "accepted_at": null,
+   "accepted_at": "2026-11-22T07:49:56+00:00",
    "released_sha": "4657a699e8925f510e8e79e7f1411cdab65b7ae7",
    "history": [
     {
@@ -287,6 +449,12 @@
      "actor": "dispatcher",
      "to": "released",
      "note": "merged 4657a699e8"
+    },
+    {
+     "ts": "2026-11-22T07:49:56+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The live dotenv card shows the repo-known line with a date equal to the build date. The opencode-ai cards show the no-repo line, and openai has none. Errors are empty and the neighbouring endpoints re"
     }
    ]
   },
@@ -294,16 +462,104 @@
    "id": "T-0179",
    "title": "llms.txt tells review agents how to read /pkg/<eco>/<name>/index.json for a dependency bump (quotes, semver_bump, followed_by)",
    "type": "quality",
-   "state": "ready",
+   "state": "accepted",
    "priority": "P2",
    "goal": "G4",
    "role": "developer",
    "created": "2026-11-22T06:21:47+00:00",
+   "accepted_at": "2026-11-22T08:20:01+00:00",
+   "released_sha": "028c09292edcae99734afb185cc3490060f69d06",
+   "history": [
+    {
+     "ts": "2026-11-22T06:21:47+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-22T07:50:02+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261122T0707-exec-T-0179"
+    },
+    {
+     "ts": "2026-11-22T07:50:02+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-22T07:50:32+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 028c09292e"
+    },
+    {
+     "ts": "2026-11-22T08:20:01+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The live llms.txt has the new section with the openai example URL, the key list, the regex-only caveat and the statement that there is no version-range query. All named keys exist on every openai reco"
+    }
+   ]
+  },
+  {
+   "id": "T-0180",
+   "title": "Cards without release notes link the GitHub compare view between the previous tag and this tag (via /go/)",
+   "type": "feature",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-22T18:30:05+00:00",
+   "accepted_at": "2026-11-22T19:27:04+00:00",
+   "released_sha": "4d439ef2b4cbab5ba4a894e722278c6b6f476cc4",
+   "history": [
+    {
+     "ts": "2026-11-22T18:30:05+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-22T18:30:09+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261122T1807-exec-T-0180"
+    },
+    {
+     "ts": "2026-11-22T18:30:09+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-22T18:31:00+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 4d439ef2b4"
+    },
+    {
+     "ts": "2026-11-22T19:27:04+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The boto3 no-notes cards show 'Compare prev…this on GitHub' through a noindex,nofollow /go/compare/ page that redirects to the correct GitHub compare URL. The openai page, build.json, robots.txt, site"
+    }
+   ]
+  },
+  {
+   "id": "T-0181",
+   "title": "Analyst 26.11: did /go/ bot traffic and single-request 'human' /pkg/ sources fall after T-0168/T-0170? Compare 23–25.11 with 19–21.11",
+   "type": "research",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "analyst",
+   "created": "2026-11-22T19:27:03+00:00",
    "accepted_at": null,
    "released_sha": null,
    "history": [
     {
-     "ts": "2026-11-22T06:21:47+00:00",
+     "ts": "2026-11-22T19:27:03+00:00",
      "actor": "po",
      "to": "ready",
      "note": ""
@@ -326,25 +582,46 @@
    "task": "T-0177",
    "verdict": "pass",
    "summary": "The pkg index.json files now carry both `bump` (old values) and the additive `semver_bump`. The hono card matches its JSON, and the test and build checks pass."
+  },
+  {
+   "task": "T-0178",
+   "verdict": "pass",
+   "summary": "The live dotenv card shows the repo-known line with a date equal to the build date. The opencode-ai cards show the no-repo line, and openai has none. Errors are empty and the neighbouring endpoints return 200."
+  },
+  {
+   "task": "T-0179",
+   "verdict": "pass",
+   "summary": "The live llms.txt has the new section with the openai example URL, the key list, the regex-only caveat and the statement that there is no version-range query. All named keys exist on every openai record. Build errors are empty, robots.txt is unchanged, and the other endpoints return 200."
+  },
+  {
+   "task": "T-0180",
+   "verdict": "pass",
+   "summary": "The boto3 no-notes cards show 'Compare prev…this on GitHub' through a noindex,nofollow /go/compare/ page that redirects to the correct GitHub compare URL. The openai page, build.json, robots.txt, sitemap.xml and the JSON/feed endpoints are unchanged or healthy."
   }
  ],
- "posts": [],
+ "posts": [
+  {
+   "channel": "threads",
+   "url": "https://www.threads.com/@formachines/post/DgCwbK0CGmp",
+   "ts": "2026-11-22T12:01:17+00:00"
+  }
+ ],
  "metrics": {
-  "humans": 6,
-  "engaged": 0,
+  "humans": 11,
+  "engaged": 1,
   "returns": 0,
-  "agents": 5,
-  "crawlers": 498,
-  "requests": 1191
+  "agents": 18,
+  "crawlers": 1873,
+  "requests": 2928
  },
- "spend_usd": 3.8,
- "po_digest_md": "**Release Radar — 22.11, утро**\n\n**Что случилось.** Все задачи разработчика по SEO, /go/ и карточкам приняты: T-0166–T-0171, T-0173 (строка «Followed by»), T-0175 (строка «regex only»), T-0176/T-0177 (`semver_bump`, у старого `bump` прежний смысл). Воскресные посты в Telegram и Bluesky вышли 21.11. Лимиты Bluesky, Telegram и Mastodon на 7 дней исчерпаны. X на паузе с 19.11: ошибка 402, кредиты API закончились. Именно X давал 5 из 5 engaged-посетителей. dev.to заблокирован (Q-0025).\n\n**Метрики.** Людей за 21.11 насчитано 145, но engaged только 3, возвратов 0. Среди «людских» страниц в топе /robots.txt и /style.css, так что часть этих людей — боты. GSC: в индексе 0 из 102 URL. Повторная проверка индекса — T-0169, 28.11.\n\n**Решения.** Разработчику поставил 2 задачи качества (P2). Обе основаны на свежих словах людей из voice-отчёта за 22.11:\n1. Карточки без release notes будут писать, где мы искали и когда: «No release notes found on GitHub Releases… checked <UTC>». Сейчас пробел можно принять за «ничего не изменилось» (P2, many).\n2. В llms.txt появится раздел для агентов, которые проверяют обновления зависимостей: как читать `/pkg/*/index.json`, что значат `semver_bump` и `followed_by` (P5, цель G4).\n\nНовых фич не открывал: T-0173 и T-0176 ещё ждут дат чтения метрик (05.12 и 07.12). Пост в Threads по плану сегодня в 12:00 (T-0132). Новый план на 25.11–01.12 — T-0156, 23.11.\n\n**Ждёт владельца.** Кредиты X или решение отказаться от X. Ключ dev.to. Цель /go/compare/ в product.yaml.\n\n**Расход.** $3.04 из $20.",
- "analyst_md": "**Release Radar, снимок 22.11 06:01 UTC. Пилот 04–10.11 закончен, цели читаем по последним дням.**\n\n| Уровень | 22.11 (частичный день) | 21.11 | 20.11 | 19.11 |\n|---|---|---|---|---|\n| Люди: источники / engaged | 6 / 0 | 145 / 3 | 70 / 3 | 124 / 0 |\n| Возвраты | 0 | 0 | 0 | 0 |\n| Агенты, запросы | 5 | 39 | 102 | 54 |\n| Краулеры, запросы | 498 | 1286 | 1227 | 945 |\n| /go/ у людей | 0 | 0 | 0 | 0 |\n\n- **G1 (≥40 engaged):** за 17–21.11 engaged = 1+3+0+3+... всего 7 за 5 дней. Не на пути.\n- **G2 (≥5 возвратов):** 0 во всех днях. Не на пути.\n- **G3 (≥10 % визитов с внешним кликом):** у людей 0 кликов по /go/ за 19–22.11; был 1 источник 18.11. Всплески /go/ (1048 запросов 21.11) приходят от ботов. Referer-доменов не наших: google, livequote.org, bluenews.app, t.co. Это 4 разных домена, но по 1–2 запроса.\n- **G4 (≥5 /today.json не от краулеров):** агентских источников на /today.json 0, у людей 2 источника 19.11. Агенты в основном python-requests и chatgpt. Не выполнено по определению.\n- **Google:** 0 из 102 URL в индексе (клики 0, показы 697, но показы только до 10.11).\n- **Посты 21.11:** Bluesky 10:57 и Telegram 11:39. by_src за 21.11: bluesky 33 запроса, 2 человека, 1 engaged. Mastodon 1 engaged. До поста (до 10:57) и после разделить нельзя, потому что данные только по дням. Эффект Bluesky возможен, но выборка 1–2.\n- **Баланс:** не применимо.\n\n**Задачи:** эффект T-0150…T-0177 не оценим: нет сдвига в метриках до и после.",
+ "spend_usd": 6.7,
+ "po_digest_md": "**Release Radar — 22.11, triage 19:07**\n\n**Что произошло.** Выпущены и приняты T-0171…T-0179. На карточках теперь есть строки «Followed by», семвер-отметка, «no breaking keyword» и «no notes, checked <UTC>». В llms.txt появился раздел для агентов. T-0180 (ссылка на GitHub compare для версий без notes) выпущен и ждёт приёмки. Пост в Threads (T-0132) вышел.\n\n**Метрики.** Реальных людей почти нет. Engaged-источников 0–3 в день, возвратов 0. На /go/ сотни запросов от автоматики, поэтому G3 сейчас не измерить. Google не держит в индексе ни одной из 102 страниц. Данные GSC отстают на 2–3 дня, так что эффект SEO-правок пока не виден.\n\n**Решения.**\n- Поставлена одна задача аналитику на 26.11: стало ли меньше ботов на /go/ и «людей» с одним запросом после T-0168/T-0170 (сравнение 23–25.11 с 19–21.11). В конце отчёта — точное правило фильтра для ops или «ничего не делать».\n- Индекс Google проверяем 28.11 в уже запланированной T-0169. До этого новой SEO-работы нет.\n- Маркетинг: Bluesky, Telegram, Mastodon и Threads выбрали недельный лимит. X остановлен (402), dev.to заблокирован ключом. Новых постов нет. План на 25.11–01.12 (T-0156) стартует 23.11.\n\n**Ждёт владельца.** По-прежнему открыты Q-0028 (X, ошибка 402) и Q-0025 (неверный ключ dev.to). Без них ежедневной карточки в X не будет.\n\n**Расход:** $6.16 из $20.",
+ "analyst_md": "**Снимок 22.11 (день неполный, 18:01 UTC). Уровни не складываются.**\n\n| Уровень | 16.11 | 17.11 | 18.11 | 19.11 | 20.11 | 21.11 | 22.11 |\n|---|---|---|---|---|---|---|---|\n| люди: источники / engaged | 24/3 | 14/1 | 94/1 | 124/0 | 70/3 | 145/3 | 11/1 |\n| возвраты | 0 | 0 | 0 | 0 | 0 | 0 | 0 |\n| агенты (запросы) | 24 | 30 | 626 | 54 | 102 | 39 | 14 |\n| /go/ люди (src) | 2 | 0 | 1 | 0 | 0 | 0 | 0 |\n\nБаланс: не игра, таблицы нет.\n\n- G1: за 7 дней сумма engaged ≈ 12, цель ≥ 40 — не идёт. Люди в основном приходят на /pkg/, но почти не вовлекаются (145 источников → 3 engaged 21.11). Эти пики похожи на сканеры или краулеры, а не на людей.\n- G2: возвратов 0, цель ≥ 5 — не идёт.\n- G3: внешних кликов от людей практически нет. Рефереров не наших: google, facebook, bluenews, t.co, livequote, fediscanner — больше 3 доменов, но редкие, по 1–2 хита.\n- G4: /today.json без людей и агентов, только 1–2 запроса краулеров в день. Цель ≥ 5 не достигнута. Агенты — это python-requests и chatgpt на /pkg/.\n- /go/ в 22.11 — 278 запросов, у людей 0. Это боты. T-0168 и T-0170 ещё не проявились в метриках, оценка эффекта невозможна.\n- GSC: 0 кликов и 0 из 102 URL в индексе, 87 просканированы, но не проиндексированы. Показы затухли (159 → 1 к 10.11).\n- Посты: threads 22.11 дал 18 запросов с src, 0 людей. bluesky 21.11 дал 33 запроса, 2 человека, 1 engaged. Выборка слишком мала для выводов.",
  "observations": {
-  "new": 12,
+  "new": 18,
   "by_class": {
-   "need_hypothesis": 4,
-   "measurement": 2,
+   "need_hypothesis": 7,
+   "measurement": 5,
    "voice": 6
   }
  },

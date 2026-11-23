@@ -5,10 +5,36 @@
  "date": "2026-11-22",
  "tasks": [
   {
+   "id": "T-0187",
+   "title": "Telegram post 21.11 12:00 UTC @agentsmd_tracker: Daily number with one card",
+   "type": "content",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "marketer",
+   "created": "2026-11-17T01:08:52+00:00",
+   "accepted_at": "2026-11-21T12:14:58+00:00",
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-22T12:18:22+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: none — Телеграм-пост 21.11 12:14. telegram-card 1 req, human 0, engaged 0 (21.11). Рядом с постом нет человеческих визитов."
+    },
+    {
+     "ts": "2026-11-22T12:18:22+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
    "id": "T-0188",
    "title": "X post 22.11 06:15 UTC from @formachines_ai: Cut (one dated language share)",
    "type": "content",
-   "state": "blocked",
+   "state": "rejected",
    "priority": "P2",
    "goal": "G1",
    "role": "marketer",
@@ -33,6 +59,82 @@
      "actor": "marketer",
      "to": "blocked",
      "note": "question Q-0029"
+    },
+    {
+     "ts": "2026-11-22T08:15:13+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "answered Q-0029"
+    },
+    {
+     "ts": "2026-11-22T08:15:13+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: X API returns 402 credits depleted (Q-0029). Under the owner's interim rule from Q-0027 the 22.11 X slot is recorded as not posted. No retry and no move to another channel."
+    }
+   ]
+  },
+  {
+   "id": "T-0189",
+   "title": "Bluesky post 22.11 12:00 UTC: Week in numbers (strongest change of the week)",
+   "type": "content",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-17T07:10:23+00:00",
+   "accepted_at": "2026-11-22T12:13:24+00:00",
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-22T12:12:41+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261122T1207-exec-T-0189"
+    },
+    {
+     "ts": "2026-11-22T12:12:42+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-22T12:13:24+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "posted 1 (editor-approved)"
+    }
+   ]
+  },
+  {
+   "id": "T-0202",
+   "title": "Marketing plan 25.11–01.12 (replaces T-0128)",
+   "type": "marketing",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-18T13:10:59+00:00",
+   "accepted_at": "2026-11-22T08:15:47+00:00",
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-22T08:15:19+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261122T0807-exec-T-0202"
+    },
+    {
+     "ts": "2026-11-22T08:15:19+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-22T08:15:47+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "marketing plan written (5136 chars); no post expected"
     }
    ]
   },
@@ -115,6 +217,78 @@
    ]
   },
   {
+   "id": "T-0221",
+   "title": "Every URL the site emits (HTML, sitemap, llms.txt, feed, JSON) resolves to a generated file, with trailing slash; offline test",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G4",
+   "role": "developer",
+   "created": "2026-11-21T04:12:28+00:00",
+   "accepted_at": "2026-11-21T08:17:36+00:00",
+   "released_sha": "0b332c456fb823ed6d0850cfdf772456a2899d50",
+   "history": [
+    {
+     "ts": "2026-11-22T12:18:22+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — 4xx: 646 (20.11), 313 (21.11), 4 (22.11, неполный день). Связь не доказана, и задача сама запрещает такое утверждение."
+    },
+    {
+     "ts": "2026-11-22T12:18:22+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0222",
+   "title": "/go/ redirect pages carry no subresources (no favicon, stylesheet or image references); offline test",
+   "type": "quality",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-21T08:18:39+00:00",
+   "accepted_at": "2026-11-21T09:14:39+00:00",
+   "released_sha": "69d30c1ea3be2bec27c26772f552a2b4a2d55ed2",
+   "history": [
+    {
+     "ts": "2026-11-22T12:18:22+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: positive — Принято 21.11 09:14. /favicon.svg 2182 → 270 → 31, human sources 1845 → 317 → 45. Механизм прямой, но эффект на реальных людей не показан (engaged 2 → 1 → 0)."
+    },
+    {
+     "ts": "2026-11-22T12:18:22+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0223",
+   "title": "Test suite: build the site once per session (shared temp dir) instead of in each test; same assertions, at least 2× faster",
+   "type": "quality",
+   "state": "blocked",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-21T09:15:43+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-22T19:18:16+00:00",
+     "actor": "po",
+     "to": "blocked",
+     "note": "priority → P2: RUN TIME: in T-0239, 71% of 490 s went to unit tests. The slow suite slows every developer fix. This task has a measurable basis (at least 2× faster), so it gets P2."
+    }
+   ]
+  },
+  {
    "id": "T-0225",
    "title": "Homepage intro: one dated headline number before 'Explore your language'; 3-type comparison moves to the type table",
    "type": "quality",
@@ -156,7 +330,7 @@
    "id": "T-0226",
    "title": "PATHS: track .clinerules, .windsurf/rules/ and .agents/ with tracked_since; cards, stats.json, offline test",
    "type": "feature",
-   "state": "blocked",
+   "state": "rejected",
    "priority": "P2",
    "goal": "G1",
    "role": "developer",
@@ -211,6 +385,12 @@
      "actor": "dispatcher",
      "to": "blocked",
      "note": "stuck: 3 failed attempts on this goal; the PO replans it with 3 alternatives"
+    },
+    {
+     "ts": "2026-11-22T10:13:12+00:00",
+     "actor": "dispatcher",
+     "to": "rejected",
+     "note": "replanned: probe T-0228 works; the PO creates the implementation task"
     }
    ]
   },
@@ -294,7 +474,7 @@
    "id": "T-0229",
    "title": "Probe 3/3 for T-0226: Fixed tracked_since in PATHS, cards wait for the first history day",
    "type": "research",
-   "state": "ready",
+   "state": "done",
    "priority": "P2",
    "goal": "G1",
    "role": "developer",
@@ -307,6 +487,414 @@
      "actor": "po",
      "to": "ready",
      "note": "replan probe for T-0226"
+    },
+    {
+     "ts": "2026-11-22T08:15:19+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261122T0807-exec-T-0229"
+    },
+    {
+     "ts": "2026-11-22T08:15:19+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-22T08:18:47+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "probe does not work: Probe result: a fixed tracked_since in PATHS puts a valid ISO date into stats.json after --no-scan, but it breaks the \"not measured\" semantics. No product code was changed or comm"
+    }
+   ]
+  },
+  {
+   "id": "T-0230",
+   "title": "PATHS: track .clinerules, .windsurf/rules/ and .agents/ via the T-0199 tracked_since mechanism; cards, stats.json, offline test",
+   "type": "feature",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-22T10:14:35+00:00",
+   "accepted_at": "2026-11-22T11:16:47+00:00",
+   "released_sha": "364dd5b8c7df3ff8fde878232a6d94131496d33b",
+   "history": [
+    {
+     "ts": "2026-11-22T10:14:35+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-22T10:14:48+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261122T1007-exec-T-0230"
+    },
+    {
+     "ts": "2026-11-22T10:14:48+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-22T10:21:50+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 364dd5b8c7"
+    },
+    {
+     "ts": "2026-11-22T11:16:47+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The live site lists .clinerules, .windsurf/rules and .agents in stats.json with tracked_since null. The solidjs/solid card shows 'not measured yet (not yet scanned)' for all three. The test file exist"
+    }
+   ]
+  },
+  {
+   "id": "T-0231",
+   "title": "X post 25.11 06:15 UTC from @formachines_ai: Daily number",
+   "type": "content",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-22T10:14:38+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-22T10:14:38+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0232",
+   "title": "X post 26.11 06:15 UTC from @formachines_ai: Card link (repo added AGENTS.md in 24 h)",
+   "type": "content",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-22T10:14:41+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-22T10:14:41+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0233",
+   "title": ".clinerules: count a repo as present when it has either the .clinerules file or the .clinerules/ directory; card and test",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-22T11:13:12+00:00",
+   "accepted_at": "2026-11-22T12:17:24+00:00",
+   "released_sha": "66d1fc19273c5559f5fec8043b85e0d6eb58e56c",
+   "history": [
+    {
+     "ts": "2026-11-22T11:13:12+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-22T11:13:25+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261122T1107-exec-T-0233"
+    },
+    {
+     "ts": "2026-11-22T11:13:26+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-22T11:29:04+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 66d1fc1927"
+    },
+    {
+     "ts": "2026-11-22T12:17:24+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The card shows '.clinerules (file or directory)' as 'not yet scanned', and stats.json keeps the '.clinerules' key with tracked_since null. The new tests exist, and the dispatcher's full suite passed ("
+    }
+   ]
+  },
+  {
+   "id": "T-0234",
+   "title": "X post 27.11 06:15 UTC from @formachines_ai: Size bands",
+   "type": "content",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-22T11:13:16+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-22T11:13:16+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0235",
+   "title": "Bluesky post 27.11 12:00 UTC: Week in numbers (strongest change since 17.11)",
+   "type": "content",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-22T11:13:21+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-22T11:13:21+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0236",
+   "title": "X post 28.11 06:15 UTC from @formachines_ai: Card link (repo added AGENTS.md in 24 h)",
+   "type": "content",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-22T12:12:32+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-22T12:12:32+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0237",
+   "title": "X post 29.11 06:15 UTC from @formachines_ai: New paths (.github/instructions/ and .claude/rules/ since tracked_since)",
+   "type": "content",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-22T12:12:35+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-22T12:12:35+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0238",
+   "title": "Telegram post 29.11 12:00 UTC @agentsmd_tracker: Daily number",
+   "type": "content",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "marketer",
+   "created": "2026-11-22T12:12:38+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-22T12:12:38+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0239",
+   "title": "robots.txt: Disallow /go/ (incl. /go/vote/) for crawlers; /go/ stays out of sitemap; offline test",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G3",
+   "role": "developer",
+   "created": "2026-11-22T13:16:26+00:00",
+   "accepted_at": "2026-11-22T14:20:09+00:00",
+   "released_sha": "e593f96c807dacde2999b714aaea3039f15a0230",
+   "history": [
+    {
+     "ts": "2026-11-22T13:16:26+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-22T13:16:39+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261122T1307-exec-T-0239"
+    },
+    {
+     "ts": "2026-11-22T13:16:39+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-22T13:24:59+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged e593f96c80"
+    },
+    {
+     "ts": "2026-11-22T14:20:09+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The live robots.txt disallows /go/ under User-agent: * and keeps the Sitemap line. The sitemap lists no /go/ URL, /go/59/ still redirects to GitHub, data_delayed is false, and the offline test exists "
+    }
+   ]
+  },
+  {
+   "id": "T-0240",
+   "title": "Mastodon post 28.11 12:00 UTC: Size bands",
+   "type": "content",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "G4",
+   "role": "marketer",
+   "created": "2026-11-22T13:16:30+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-22T13:16:30+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0241",
+   "title": "X post 30.11 06:15 UTC from @formachines_ai: Daily number",
+   "type": "content",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-22T13:16:34+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-22T13:16:34+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0242",
+   "title": "Threads post 30.11 14:30 UTC from @formachines: Size bands",
+   "type": "content",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-22T19:18:18+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-22T19:18:18+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0243",
+   "title": "X post 01.12 06:15 UTC from @formachines_ai: Card link (repo added AGENTS.md in 24 h)",
+   "type": "content",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-22T19:18:21+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-22T19:18:21+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0244",
+   "title": "Sample size M: stats.json and homepage say why M changed (1,922→1,919) with dated counts of repos left out by status",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-22T23:17:36+00:00",
+   "accepted_at": "2026-11-23T00:21:24+00:00",
+   "released_sha": "7d7141ff560a760899248f73e23a6d0a690850d2",
+   "history": [
+    {
+     "ts": "2026-11-22T23:17:36+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-22T23:17:41+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261122T2307-exec-T-0244"
+    },
+    {
+     "ts": "2026-11-22T23:17:41+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-22T23:27:23+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 7d7141ff56"
     }
    ]
   }
@@ -316,25 +904,46 @@
    "task": "T-0225",
    "verdict": "pass",
    "summary": "The homepage has one dated AGENTS.md sentence before the Explore link. The CLAUDE.md and llms.txt counts moved to p#dated-counts in the language section, and their numbers match the table and stats.json. The meta description and JSON-LD are intact, build.json has data_delayed false, and the dispatcher's 163 tests passed."
+  },
+  {
+   "task": "T-0230",
+   "verdict": "pass",
+   "summary": "The live site lists .clinerules, .windsurf/rules and .agents in stats.json with tracked_since null. The solidjs/solid card shows 'not measured yet (not yet scanned)' for all three. The test file exists and the full suite passed, and build.json has data_delayed false."
+  },
+  {
+   "task": "T-0233",
+   "verdict": "pass",
+   "summary": "The card shows '.clinerules (file or directory)' as 'not yet scanned', and stats.json keeps the '.clinerules' key with tracked_since null. The new tests exist, and the dispatcher's full suite passed (169 tests, exit 0)."
+  },
+  {
+   "task": "T-0239",
+   "verdict": "pass",
+   "summary": "The live robots.txt disallows /go/ under User-agent: * and keeps the Sitemap line. The sitemap lists no /go/ URL, /go/59/ still redirects to GitHub, data_delayed is false, and the offline test exists and the dispatcher's suite run passed."
   }
  ],
- "posts": [],
+ "posts": [
+  {
+   "channel": "bluesky",
+   "url": "https://bsky.app/profile/formachines.bsky.social/post/3n2vlnqod532k",
+   "ts": "2026-11-22T12:13:24+00:00"
+  }
+ ],
  "metrics": {
-  "humans": 14,
+  "humans": 147,
   "engaged": 0,
   "returns": 0,
-  "agents": 0,
-  "crawlers": 449,
-  "requests": 706
+  "agents": 106,
+  "crawlers": 1216,
+  "requests": 2215
  },
- "spend_usd": 3.3,
- "po_digest_md": "**AGENTS.md Tracker, 22.11**\n\n**Что произошло**\n- Задачи T-0220, T-0221, T-0222 и T-0224 приняты: тесты достижимости карточек, проверка адресов в машинных выходах (sitemap, llms.txt, feed, JSON), чистые /go/-страницы без лишних файлов, датированный абзац и разметка Dataset на главной.\n- Telegram-пост 21.11 вышел: +2 репо, 569 из 1 919.\n\n**Застряла T-0226** (новые пути .clinerules, .windsurf/rules/, .agents/)\n- Код и тесты готовы на ветке (165 тестов проходят).\n- Критерий «живой stats.json с датой tracked_since» нельзя выполнить за один прогон разработчика: дата появляется только после серверного скана в 04:00 UTC.\n- Предложены 3 проверки:\n  1. влить ветку как есть, дату проверит аналитик после скана;\n  2. проверить, что скан сам проставил дату путям из T-0199;\n  3. записывать дату как фиксированное значение в PATHS.\n- Диспетчер запустит эти проверки. Рабочий вариант придёт ко мне вопросом.\n\n**Решения**\n- Новых задач нет: в очереди уже стоят посты по плану до 24.11, план на 25.11–01.12 (T-0202, стартует сегодня в 08:00) и два замера аналитика (23.11 и 26.11).\n- X по-прежнему отвечает 402 (кредиты закончились). Действует временный порядок из Q-0027: черновик, одна попытка отправки, пометка в дайджесте.\n\n**Метрики**\n- Вовлечённых людей 0–2 в день.\n- Google: проиндексировано 2 из 617 проверенных адресов, кликов 0.\n- Эффект правок для поиска прочитаем 26.11.\n\n**Ждёт владельца:** пополнение кредитов X API (Q-0027, без изменений).\n\n**Расход:** $1.81 из $20.\n\n_Перепланирование застрявших целей: T-0226 застряла → пробы T-0227, T-0228, T-0229._",
- "analyst_md": "см. выше",
+ "spend_usd": 8.9,
+ "po_digest_md": "**Цикл 22.11 23:07.** Расход $7.66 из $20.\n\n**Что было:** новых наблюдений и вопросов нет. Пост в Bluesky 22.11 вышел (T-0189): «569 из 1 919, 29,7 %, +0,5 п.п.». Слоты плана T-0202 на 25.11–01.12 уже нарезаны. Пост в X на 23.11 (T-0190) в очереди, но X API отвечает 402, так что, скорее всего, будет только черновик. Disallow для /go/ в robots.txt (T-0239) принят сегодня. Его эффект аналитик прочитает 23.11 (T-0219), индексацию в Google — 26.11 (T-0216).\n\n**Решение:** разработчику дана одна задача типа quality. Знаменатель M уменьшился: 1 922 → 1 921 → 1 919, и сайт не объясняет почему, хотя VISION обещает не менять выборку задним числом. Задача: показать в stats.json и на главной, сколько репозиториев не вошли в M и по какой причине, проверить, что их карточки остались, и добавить офлайн-тест. Я выбрал это вместо новой функции, потому что это число мы просим цитировать. Проверка: M + исключённые = общее число.\n\nДругих явных поломок не вижу. На /favicon.svg пришлось 11 872 «человеческих» запроса — это шум классификации в метриках, а не дефект продукта. T-0223 (ускорение тестов) остаётся заблокированной, вопроса по ней нет.\n\n**Ждёт владельца:**\n- пополнить кредиты X API;\n- цель G3 в product.yaml без /go/vote/ (Q-0031; пока вычитаем вручную);\n- ключ dev.to (сейчас 401).",
+ "analyst_md": "**Данные 16–22.11 (окно пилота 04–10.11 в метриках отсутствует, G1–G3 за него посчитать нельзя).**\n\n| Уровень | 22.11 | 21.11 | 20.11 | 19.11 |\n|---|---|---|---|---|\n| Discovery: запросы краулеров | 876 | 1000 | 3441 | 1205 |\n| Люди: источники / engaged | 88 / 0 | 317 / 1 | 1845 / 2 | 42 / 1 |\n| Возвраты | 0 | 0 | 0 | 0 |\n| /go/ запросы / human src | 159 / 41 | 319 / 165 | 4115 / 15 | 45 / 1 |\n| Агенты (запросы / источники) | 106 / 15 | 5 / 2 | 343 / 17 | 71 / 10 |\n| 5xx | 0 | 0 | 0 | 0 |\n\n- Люди: engaged за 16–22.11 всего 13 (6+2+1+1+2+1+0). Реальных людей мало. Источники без engaged (88–1845 в день) похожи на необработанных ботов, а не на аудиторию.\n- /go/: human src 41 и 165 состоят из /go/vote/. Голоса up/down делятся почти поровну (82/83 и 20/21) при engaged 0. Это поведение ботов, поэтому G3 сейчас не читается. Прямых кликов на GitHub от людей отдельно не видно.\n- Посты: bluesky 22.11 дал `?src=bluesky` 25 запросов, 1 human, 0 engaged. Почасовой разбивки нет, до/после по часам сравнить нельзя. Telegram 21.11: 1 запрос telegram-card, 0 людей.\n- Google Search Console: 0 кликов, 33 показа, в индексе 2 из 667.\n- Баланс: не применимо, это не игра.\n\nКратко по задачам: T-0222 (favicon) возможно сработала, favicon.svg упал с 2182 до 270 и 59. T-0239 (robots) принята 22.11 в 14:20, данных после неё нет.",
  "observations": {
-  "new": 4,
+  "new": 12,
   "by_class": {
-   "need_hypothesis": 2,
-   "measurement": 1,
+   "need_hypothesis": 6,
+   "measurement": 5,
    "success": 1
   }
  },

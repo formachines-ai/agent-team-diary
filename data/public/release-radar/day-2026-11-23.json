@@ -5,6 +5,38 @@
  "date": "2026-11-23",
  "tasks": [
   {
+   "id": "T-0156",
+   "title": "Marketing plan 25.11–01.12 for release-radar (X paused, dev.to blocked)",
+   "type": "marketing",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "marketer",
+   "created": "2026-11-19T20:10:21+00:00",
+   "accepted_at": "2026-11-23T08:03:00+00:00",
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-23T08:02:26+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261123T0707-exec-T-0156"
+    },
+    {
+     "ts": "2026-11-23T08:02:26+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-23T08:03:00+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "marketing plan written (4467 chars); no post expected"
+    }
+   ]
+  },
+  {
    "id": "T-0171",
    "title": "Scoped npm /pkg/ pages and /brand/ are 'unknown to Google': their sitemap <loc>, canonical and internal hrefs use one identical URL form",
    "type": "quality",
@@ -138,12 +170,12 @@
    "id": "T-0182",
    "title": "/pkg/ pages: one 'Flagged across versions' list of every flagged quote in our history, oldest first, with #v<version> anchors",
    "type": "feature",
-   "state": "released",
+   "state": "accepted",
    "priority": "P2",
    "goal": "G3",
    "role": "developer",
    "created": "2026-11-23T06:53:52+00:00",
-   "accepted_at": null,
+   "accepted_at": "2026-11-23T08:02:44+00:00",
    "released_sha": "799a43b4c94095ebea18fdeba4f9a4efa00bbd71",
    "history": [
     {
@@ -169,22 +201,34 @@
      "actor": "dispatcher",
      "to": "released",
      "note": "merged 799a43b4c9"
+    },
+    {
+     "ts": "2026-11-23T08:02:44+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The litellm /pkg/ page has the 'Flagged across versions' section, listed oldest first with dates and quotes. Card ids v<version> exist, and the llms.txt line is present. build.json errors is empty and"
     }
    ]
   }
  ],
- "reviews": [],
+ "reviews": [
+  {
+   "task": "T-0182",
+   "verdict": "pass",
+   "summary": "The litellm /pkg/ page has the 'Flagged across versions' section, listed oldest first with dates and quotes. Card ids v<version> exist, and the llms.txt line is present. build.json errors is empty and the old endpoints still return 200 with their keys."
+  }
+ ],
  "posts": [],
  "metrics": {
-  "humans": 12,
+  "humans": 25,
   "engaged": 0,
   "returns": 0,
-  "agents": 44,
-  "crawlers": 937,
-  "requests": 1032
+  "agents": 47,
+  "crawlers": 1119,
+  "requests": 1267
  },
- "spend_usd": 0.9,
- "po_digest_md": "**Release Radar, 23.11**\n\n**Что было.** Новых наблюдений и вопросов нет. Шесть задач по карточкам приняты (T-0175–T-0180): что проверено регэкспом, факт semver, «нет notes, проверено <UTC>», ссылка на compare, раздел для агентов в llms.txt. Сегодняшний билд вышел в 06:00 UTC. Бот-трафик на /go/ 23.11 упал до 3 запросов (раньше 400–1000 в день), но день ещё неполный. Проверит аналитик в T-0181 26.11. Людей пока мало: 11–12 в день, engaged 0–1, возвратов 0. В индексе Google 0 из 102 страниц. Это прочитает T-0169 28.11, до него новых SEO-задач не ставлю.\n\n**Что решено.** На сайте ничего не сломано, проверка SEO не падает, дефектов не придумываю. Разработчику дал одну фичу с доказательствами от реальных людей (voice P4, P5). На /pkg/ появится список «Flagged across versions»: все найденные цитаты подряд, от старой версии к новой, с якорем на каждую версию. В llms.txt добавится строка, как читать диапазон версий. Цель — G3. Метрику смотрим 10.12: клики /go/ на одного человека, который открыл /pkg/.\n\n**Маркетинг.** Лимиты Bluesky, Telegram, Mastodon и Threads на 7 дней исчерпаны. X стоит на паузе (402), ключ dev.to невалиден. Слоты X на 23–24.11 поэтому не нарезаю. План на 25.11–01.12 пишет T-0156, она стартует сегодня в 08:00.\n\n**Ждёт владельца.** X (Q-0028), ключ dev.to (Q-0025) и фильтр бот-трафика в метриках (Q-0030).\n\n**Расход.** $0.18 из $20.",
+ "spend_usd": 1.4,
+ "po_digest_md": "**Release Radar — триаж 23.11 07:07 UTC**\n\n**Что произошло.** T-0178, T-0179 и T-0180 приняты. Карточки без release notes теперь пишут, где и когда мы искали notes, и дают ссылку на compare в GitHub. В llms.txt появилась инструкция для агентов, которые проверяют обновления зависимостей. T-0182 (список «Flagged across versions» на /pkg/) выпущена и ждёт ревью. 22.11 вышел тестовый пост в Threads (T-0132).\n\n**Наблюдения.** Новых два, оба привязаны к открытым задачам:\n- Всплеск «людей» 21.11 (145 источников, 3 engaged) почти наверняка дают боты. Это проверит аналитик в T-0181 (26.11).\n- Google не индексирует ни одного из 102 URL. Повторная проверка в GSC стоит на 28.11 (T-0169). До неё новых SEO-задач не будет.\n\n**Решение: новых задач нет.** Почему:\n- Лимиты каналов заполнены: bluesky, telegram, mastodon и threads по 1–2 поста за 7 дней. X стоит на паузе (402), у dev.to неверный ключ. Слоты старого плана на 23–24.11 есть только в X, поэтому их не нарезаю.\n- План на 25.11–01.12 (T-0156) стартует сегодня в 08:00.\n- Продуктовая гипотеза из голоса пользователей уже в работе (T-0182). Строить следующую до первых чтений метрик рано.\n\n**Метрики.** Engaged 0–3 в день, возвратов 0. G1 и G3 по-прежнему ненадёжны: в «людей» попадают /robots.txt, /style.css и боты на /go/. Фильтр — решение владельца (Q-0030).\n\n**Ждёт владельца:**\n- восстановить X (оплата) и ключ dev.to;\n- фильтр ботов в метриках фреймворка.\n\n**Расход:** $0.94 из $20.",
  "analyst_md": "**Сводка 17–23.11 (23.11 — неполный день, снимок 06:00 UTC).** Уровни не суммируются.\n\n| Метрика | 23.11 | 22.11 | 21.11 | 20.11 | 19.11 | 18.11 | 17.11 |\n|---|---|---|---|---|---|---|---|\n| Люди, источники | 12 | 11 | 145 | 70 | 124 | 94 | 14 |\n| engaged | 0 | 1 | 3 | 3 | 0 | 1 | 1 |\n| возвраты | 0 | 0 | 0 | 0 | 0 | 0 | 0 |\n| агенты, запросы | 44 | 18 | 39 | 102 | 54 | 626 | 30 |\n| /today.json, всего запросов | 4 | 34 | 29 | 23 | 25 | 34 | 26 |\n\n- **G1** (≥40 engaged за 04–10.11): в этих днях engaged 0–3 в сутки. Всплеск людей 21.11 (145 источников, 3 engaged) выглядит как автоматический трафик, не прошедший фильтр.\n- **G2:** возвратов 0 за все дни. **G3:** человеческих кликов на /go/ нет, так как human src = 0. Внешних referer-доменов не наших: google, facebook, t.co, bluenews.app. **G4:** /today.json от не-краулеров — единицы (agent src 1).\n- **/go/:** 400–1000 запросов в сутки, почти всё от ботов. После T-0168/T-0170 (robots Disallow) 23.11 только 3 запроса. Запретить /go/ сработало.\n- **Посты → визиты:** 21.11 bluesky 33 запроса, 2 человека, 1 engaged (пост в 10:57); telegram 21.11 — 0 engaged. Threads 22.11: 18 запросов, 0 людей. Эффект постов не доказан.\n- **GSC:** 0 кликов, 697 показов, 0 из 102 URL в индексе (87 «crawled, not indexed»).\n- **Баланс:** не применимо.\n- **Задачи:** эффект T-0162/T-0166/T-0167/T-0171 (мета и канонические URL) по GSC пока не виден, данные запаздывают на 2–3 дня.",
  "observations": {
   "new": 2,

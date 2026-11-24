@@ -1,20 +1,20 @@
 {
- "generated": "2026-11-23T07:49:20+00:00",
+ "generated": "2026-11-24T07:43:36+00:00",
  "days": 7,
- "total": 750,
+ "total": 1255,
  "by_kind": {
-  "task_blocked": 90,
-  "tool_denied": 39,
-  "review_fail": 45,
-  "reported": 406,
-  "run_failed": 40,
-  "review_inconclusive": 75,
-  "env_error": 55
+  "tool_denied": 74,
+  "task_blocked": 123,
+  "review_fail": 57,
+  "reported": 606,
+  "run_failed": 49,
+  "review_inconclusive": 119,
+  "env_error": 74,
+  "no_commit": 1,
+  "budget_stop": 147,
+  "watchdog_rollback": 5
  },
  "by_day": {
-  "2026-11-16": {
-   "task_blocked": 2
-  },
   "2026-11-17": {
    "tool_denied": 1,
    "task_blocked": 1
@@ -55,365 +55,379 @@
    "review_fail": 17
   },
   "2026-11-23": {
-   "task_blocked": 16,
-   "reported": 88,
-   "review_inconclusive": 13,
-   "review_fail": 6,
-   "env_error": 8,
-   "tool_denied": 9,
-   "run_failed": 5
+   "task_blocked": 39,
+   "reported": 233,
+   "review_inconclusive": 42,
+   "review_fail": 17,
+   "env_error": 23,
+   "tool_denied": 38,
+   "run_failed": 11,
+   "no_commit": 1,
+   "budget_stop": 27,
+   "watchdog_rollback": 4
+  },
+  "2026-11-24": {
+   "watchdog_rollback": 1,
+   "tool_denied": 6,
+   "task_blocked": 12,
+   "reported": 55,
+   "review_inconclusive": 15,
+   "review_fail": 1,
+   "run_failed": 3,
+   "env_error": 4,
+   "budget_stop": 120
   }
  },
  "recent": [
   {
-   "ts": "2026-11-23T07:47:00+00:00",
-   "product": "ai-battles",
-   "role": "reviewer",
-   "kind": "review_inconclusive",
-   "summary": "T-0162: I could not run any e2e scenario for T-0162. Every `team-play test` call against the deployed host returned \"No tests found\" or timed out, and I cannot type into the page or POST to /api/gener"
-  },
-  {
-   "ts": "2026-11-23T07:47:00+00:00",
-   "product": "ai-battles",
-   "role": "reviewer",
-   "kind": "reported",
-   "summary": "reviewer: [environment] `team-play test` against the deployed host reports 'No tests found' for specs that exist in the checkout, and the first --spec call ran past 120 s with an empty output file."
-  },
-  {
-   "ts": "2026-11-23T07:47:00+00:00",
-   "product": "ai-battles",
-   "role": "reviewer",
-   "kind": "reported",
-   "summary": "reviewer: [missing_tool] No way to POST to /api/generate or type into the garage from my tools to check the replacement line by hand."
-  },
-  {
-   "ts": "2026-11-23T07:46:40+00:00",
-   "product": "ai-battles",
-   "role": "reviewer",
-   "kind": "env_error",
-   "summary": "reviewer: Balance corridor test exceeds the 480 s limit"
-  },
-  {
-   "ts": "2026-11-23T07:46:38+00:00",
-   "product": "ai-battles",
-   "role": "reviewer",
-   "kind": "review_fail",
-   "summary": "T-0185: The journal code from T-0032 is live and shows up on the deployed host. The last criterion (list of failing e2e, marked as also failing on main) is not met: the implementer ran no e2e. The des"
-  },
-  {
-   "ts": "2026-11-23T07:46:38+00:00",
-   "product": "ai-battles",
-   "role": "reviewer",
-   "kind": "reported",
-   "summary": "reviewer: [environment] `team-play test --spec` was read as a project name, and the smoke run went past 120 s with no interim output."
-  },
-  {
-   "ts": "2026-11-23T07:46:38+00:00",
-   "product": "ai-battles",
-   "role": "reviewer",
-   "kind": "reported",
-   "summary": "reviewer: [missing_data] `team-play logs` returns only build output, with no server journal lines to check for IPs or names."
-  },
-  {
-   "ts": "2026-11-23T07:31:24+00:00",
-   "product": "ai-battles",
-   "role": "developer",
-   "kind": "reported",
-   "summary": "developer: [unclear_instruction] 'thresholds stay' (fallbacks < 10 %) contradicts 'owner rule wins, same weapon fallback'. I relaxed the fallback assertion and had to guess the F-xxxx entry."
-  },
-  {
-   "ts": "2026-11-23T07:25:27+00:00",
-   "product": "ai-battles",
-   "role": "game-designer",
-   "kind": "reported",
-   "summary": "game-designer: [unspecified] Текста design/ideas/mechanics.md не было во входных данных. По правилу «файл целиком» вернуть его без потери прежних идей нельзя, поэтому запись о пиле лежит в §20.9 докум"
-  },
-  {
-   "ts": "2026-11-23T07:25:27+00:00",
-   "product": "ai-battles",
-   "role": "game-designer",
-   "kind": "reported",
-   "summary": "game-designer: [unspecified] Коммит после каждого раздела невозможен: схема возвращает все файлы одним ответом. Все четыре раздела готовы и лежат в одном файле."
-  },
-  {
-   "ts": "2026-11-23T07:25:27+00:00",
-   "product": "ai-battles",
-   "role": "game-designer",
-   "kind": "reported",
-   "summary": "game-designer: [unspecified] §10 GAME-DESIGN.md («Dead fixed mount») по-прежнему называет рычаги огнемёта. Это нужно переписать под пилу, но в scope T-0218 входит только строка ссылки."
-  },
-  {
-   "ts": "2026-11-23T07:25:09+00:00",
-   "product": "agent-team",
-   "role": "developer",
-   "kind": "reported",
-   "summary": "developer: [environment] tests/test_playtest.py::test_start_health_and_stop fails (line 69, assertion on the stopped process or port) in this worktree and is unrelated to the docs-only branch; the PO "
-  },
-  {
-   "ts": "2026-11-23T07:22:51+00:00",
-   "product": "ai-battles",
-   "role": "tester",
-   "kind": "tool_denied",
-   "summary": "tester: denied Bash(git -C /home/ubuntu/agent-team/dispatcher/data/work/ai-battles/20261123T0700/pla), Bash(git diff -U0 HEAD~1 HEAD)"
-  },
-  {
-   "ts": "2026-11-23T07:22:29+00:00",
-   "product": "ai-battles",
-   "role": "reviewer",
-   "kind": "review_fail",
-   "summary": "T-0218: The saw design doc and the disabled balance.json block are complete, and the tests pass. But the mechanics.md catalogue entry is missing, and no proposed_tasks (developer and designer) are vis"
-  },
-  {
-   "ts": "2026-11-23T07:22:24+00:00",
-   "product": "ai-battles",
-   "role": "game-designer",
-   "kind": "reported",
-   "summary": "game-designer: [unspecified] The task names the saw as T-0212, but GAME-DESIGN v1.27 and the balance.json `_patch` name it T-0218. The document now cites §20 with T-0212 in §3.3 and §5.3.0. The PO sho"
-  },
-  {
-   "ts": "2026-11-23T07:22:24+00:00",
-   "product": "ai-battles",
-   "role": "game-designer",
-   "kind": "reported",
-   "summary": "game-designer: [unspecified] The whole document did not fit the 40,000-character limit, so I shortened some text and pointed it to git (v1.25, v1.27). No rule or number was removed."
-  },
-  {
-   "ts": "2026-11-23T07:22:24+00:00",
-   "product": "ai-battles",
-   "role": "game-designer",
-   "kind": "reported",
-   "summary": "game-designer: [unspecified] §10 ('Dead fixed mount → flamethrower.cost down') still reads as if the flamethrower were hull-fixed. It was outside this task's scope, so it was left as it is, noted in §"
-  },
-  {
-   "ts": "2026-11-23T07:13:21+00:00",
-   "product": "ai-battles",
-   "role": "reviewer",
-   "kind": "env_error",
-   "summary": "reviewer: controls.spec.ts:56 is not runnable via team-play on the deployed host"
-  },
-  {
-   "ts": "2026-11-23T07:13:19+00:00",
-   "product": "ai-battles",
-   "role": "reviewer",
-   "kind": "review_inconclusive",
-   "summary": "T-0216: The turret follows the aim on the deployed host: in the battle frames it turned from 2.72 to -0.365 rad and then -0.548 rad. I could not run the :56 test or the 30-round ws loop, so the repeat"
-  },
-  {
-   "ts": "2026-11-23T07:13:19+00:00",
-   "product": "ai-battles",
-   "role": "reviewer",
-   "kind": "reported",
-   "summary": "reviewer: [missing_tool] team-play test has no --repeat-each, and it cannot run non-@live tests against the deployed host."
-  },
-  {
-   "ts": "2026-11-23T07:13:19+00:00",
-   "product": "ai-battles",
-   "role": "reviewer",
-   "kind": "reported",
-   "summary": "reviewer: [other] team-play test --project desktop --spec <path> treats the spec path as a project name."
-  },
-  {
-   "ts": "2026-11-23T07:11:53+00:00",
-   "product": "ai-battles",
-   "role": "reviewer",
-   "kind": "review_inconclusive",
-   "summary": "T-0162: The T-0162 e2e test could not run against the deployed host, because the spec is not tagged `@live` and Playwright reports \"No tests found\". The unit criteria are met by the dispatcher's run, "
-  },
-  {
-   "ts": "2026-11-23T07:11:53+00:00",
-   "product": "ai-battles",
-   "role": "reviewer",
-   "kind": "reported",
-   "summary": "reviewer: [environment] Remote runs filter by the @live tag, so page.route-based specs cannot run on the deployed host."
-  },
-  {
-   "ts": "2026-11-23T07:11:53+00:00",
-   "product": "ai-battles",
-   "role": "reviewer",
-   "kind": "reported",
-   "summary": "reviewer: [unclear_instruction] --spec with --project desktop makes team-play pass the path as a project name; --spec alone found no tests."
-  },
-  {
-   "ts": "2026-11-23T06:51:33+00:00",
-   "product": "ai-battles",
-   "role": "developer",
-   "kind": "reported",
-   "summary": "developer: [other] Two e2e specs fail in files this branch does not touch: ability-effects.spec.ts:68 (repair) and controls.spec.ts:56 (cursor/turret). A defect for each is needed."
-  },
-  {
-   "ts": "2026-11-23T06:51:33+00:00",
-   "product": "ai-battles",
-   "role": "developer",
-   "kind": "reported",
-   "summary": "developer: [environment] Full e2e takes about 9 minutes; a background job started with `&` inside a command is killed when the command returns, and an orphaned server then holds the port."
-  },
-  {
-   "ts": "2026-11-23T06:34:30+00:00",
-   "product": "ai-battles",
-   "role": "game-designer",
-   "kind": "reported",
-   "summary": "game-designer: [unspecified] design/ideas/mechanics.md was not in the prompt, so returning the full catalogue would have deleted it. The ready entry is §20.9 of design/gdd/20-saw.md; the dispatcher or"
-  },
-  {
-   "ts": "2026-11-23T06:34:30+00:00",
-   "product": "ai-battles",
-   "role": "game-designer",
-   "kind": "reported",
-   "summary": "game-designer: [unspecified] The task asks for a commit after each section, but this role has no git or shell: all sections come back in one result."
-  },
-  {
-   "ts": "2026-11-23T06:34:30+00:00",
-   "product": "ai-battles",
-   "role": "game-designer",
-   "kind": "reported",
-   "summary": "game-designer: [unspecified] GAME-DESIGN.md has no §19 in the given copy even though the file name is 20-saw.md; if a §19 exists in another branch (T-0214/T-0215), its link line has to be kept when me"
-  },
-  {
-   "ts": "2026-11-23T06:34:30+00:00",
-   "product": "ai-battles",
-   "role": "game-designer",
-   "kind": "reported",
-   "summary": "game-designer: [unspecified] The sim:weapons report already shows autocannon 0.395 and railgun 0.595 above the band, flamethrower 0.008 and shotgun 0.033 below; the saw will be read against a skewed b"
-  },
-  {
-   "ts": "2026-11-23T06:34:03+00:00",
+   "ts": "2026-11-24T07:41:42+00:00",
    "product": "ai-battles",
    "role": "dispatcher",
-   "kind": "task_blocked",
-   "summary": "T-0217 First gun balance patch (owner's word 23.11) from reports/we: question Q-0065"
+   "kind": "budget_stop",
+   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
   },
   {
-   "ts": "2026-11-23T06:34:03+00:00",
-   "product": "ai-battles",
-   "role": "game-designer",
-   "kind": "reported",
-   "summary": "game-designer: [unspecified] The task asks for a commit after each step and npm test at the end. This role has no shell, so the dispatcher must commit the files and run the tests."
-  },
-  {
-   "ts": "2026-11-23T06:34:03+00:00",
-   "product": "ai-battles",
-   "role": "game-designer",
-   "kind": "reported",
-   "summary": "game-designer: [unspecified] The gate's reference car carries the autocannon, so its nerf shifts the corridor for every other car. I cannot check how the fallback count moves."
-  },
-  {
-   "ts": "2026-11-23T06:34:03+00:00",
-   "product": "ai-battles",
-   "role": "game-designer",
-   "kind": "reported",
-   "summary": "game-designer: [unspecified] The sensitivity rows are single-number runs. Interactions in a four-number package are not measured (±0.08 per weapon)."
-  },
-  {
-   "ts": "2026-11-23T06:34:03+00:00",
-   "product": "ai-battles",
-   "role": "game-designer",
-   "kind": "reported",
-   "summary": "game-designer: [unspecified] Range levers are blocked by data ties: the label ref is 600 and the label span is 220–1000; the falloff tests require min_at_u ≤ range."
-  },
-  {
-   "ts": "2026-11-23T06:34:03+00:00",
-   "product": "ai-battles",
-   "role": "game-designer",
-   "kind": "reported",
-   "summary": "game-designer: [unspecified] 4 numbers move by up to 30 %. That is above autobalance.patch.max_relative_change 0.10 and the one-lever rule; it is allowed only by the owner's word."
-  },
-  {
-   "ts": "2026-11-23T06:34:03+00:00",
-   "product": "ai-battles",
-   "role": "game-designer",
-   "kind": "reported",
-   "summary": "game-designer: [unspecified] The task asks for a commit after each of 4 steps, but this role returns complete files once. The steps are §19.2–§19.5 of the new gdd file."
-  },
-  {
-   "ts": "2026-11-23T06:34:03+00:00",
-   "product": "ai-battles",
-   "role": "game-designer",
-   "kind": "reported",
-   "summary": "game-designer: [unspecified] The scope allows only a link line in GAME-DESIGN.md, but the rule is to return the whole document. Besides the link, only the weapon numbers, the version and the patch log"
-  },
-  {
-   "ts": "2026-11-23T06:34:03+00:00",
-   "product": "ai-battles",
-   "role": "game-designer",
-   "kind": "reported",
-   "summary": "game-designer: [unspecified] The sensitivity rows change one number at 300 matches, and the report calls a difference below 0.06 noise. The combined expected shares add measured deltas and are not mea"
-  },
-  {
-   "ts": "2026-11-23T06:34:03+00:00",
-   "product": "ai-battles",
-   "role": "game-designer",
-   "kind": "reported",
-   "summary": "game-designer: [unspecified] I could not see whether a test derives the label's range.half_span from weapon ranges, so no range was changed."
-  },
-  {
-   "ts": "2026-11-23T06:27:44+00:00",
-   "product": "ai-battles",
-   "role": "game-designer",
-   "kind": "tool_denied",
-   "summary": "game-designer: denied Bash(git status | head -5; git ls-tree -r --name-only HEAD | grep -E 'mechanics|gdd/|)"
-  },
-  {
-   "ts": "2026-11-23T06:21:28+00:00",
-   "product": "ai-battles",
-   "role": "reviewer",
-   "kind": "reported",
-   "summary": "reviewer: [missing_tool] No way to restart the deployed server or run vitest through team-play, so a repo_only persistence task can't be played against the live host."
-  },
-  {
-   "ts": "2026-11-23T06:20:39+00:00",
+   "ts": "2026-11-24T07:40:18+00:00",
    "product": "ai-battles",
    "role": "dispatcher",
-   "kind": "task_blocked",
-   "summary": "T-0209 E2E: menu, textgen, text-generation и controls ждут состояни: stuck: stuck again after a replan on this chain (3 failed attempts)"
+   "kind": "budget_stop",
+   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
   },
   {
-   "ts": "2026-11-23T06:17:10+00:00",
-   "product": "agentsmd-tracker",
-   "role": "dispatcher",
-   "kind": "task_blocked",
-   "summary": "T-0190 X post 23.11 06:15 UTC from @formachines_ai: Daily number: question Q-0032"
-  },
-  {
-   "ts": "2026-11-23T06:15:45+00:00",
-   "product": "ai-battles",
-   "role": "developer",
-   "kind": "tool_denied",
-   "summary": "developer: denied Monitor(while pgrep -f \"bin/playwright test tests/e2e/menu\" >/dev/null; do sleep 5; done)"
-  },
-  {
-   "ts": "2026-11-23T06:15:28+00:00",
-   "product": "agent-team",
-   "role": "developer",
-   "kind": "reported",
-   "summary": "developer: [environment] tests/test_playtest.py::test_start_health_and_stop fails in this worktree and is unrelated to the branch; the PO should open a defect."
-  },
-  {
-   "ts": "2026-11-23T06:01:17+00:00",
-   "product": "ai-battles",
-   "role": "developer",
-   "kind": "run_failed",
-   "summary": "developer: error_max_turns"
-  },
-  {
-   "ts": "2026-11-23T05:51:09+00:00",
-   "product": "ai-battles",
-   "role": "game-designer",
-   "kind": "run_failed",
-   "summary": "game-designer: inactive for 300s"
-  },
-  {
-   "ts": "2026-11-23T05:50:09+00:00",
+   "ts": "2026-11-24T07:37:27+00:00",
    "product": "ai-battles",
    "role": "dispatcher",
-   "kind": "task_blocked",
-   "summary": "T-0217 First gun balance patch (owner's word 23.11) from reports/we: question Q-0063"
+   "kind": "budget_stop",
+   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
   },
   {
-   "ts": "2026-11-23T05:44:42+00:00",
+   "ts": "2026-11-24T07:37:08+00:00",
    "product": "ai-battles",
-   "role": "tester",
-   "kind": "run_failed",
-   "summary": "tester: inactive for 300s"
+   "role": "dispatcher",
+   "kind": "budget_stop",
+   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+  },
+  {
+   "ts": "2026-11-24T07:37:06+00:00",
+   "product": "ai-battles",
+   "role": "dispatcher",
+   "kind": "budget_stop",
+   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+  },
+  {
+   "ts": "2026-11-24T07:37:04+00:00",
+   "product": "ai-battles",
+   "role": "dispatcher",
+   "kind": "budget_stop",
+   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+  },
+  {
+   "ts": "2026-11-24T07:37:03+00:00",
+   "product": "ai-battles",
+   "role": "dispatcher",
+   "kind": "budget_stop",
+   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+  },
+  {
+   "ts": "2026-11-24T07:36:59+00:00",
+   "product": "ai-battles",
+   "role": "dispatcher",
+   "kind": "budget_stop",
+   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+  },
+  {
+   "ts": "2026-11-24T07:36:57+00:00",
+   "product": "ai-battles",
+   "role": "dispatcher",
+   "kind": "budget_stop",
+   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+  },
+  {
+   "ts": "2026-11-24T07:36:56+00:00",
+   "product": "ai-battles",
+   "role": "dispatcher",
+   "kind": "budget_stop",
+   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+  },
+  {
+   "ts": "2026-11-24T07:36:54+00:00",
+   "product": "ai-battles",
+   "role": "dispatcher",
+   "kind": "budget_stop",
+   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+  },
+  {
+   "ts": "2026-11-24T07:36:53+00:00",
+   "product": "ai-battles",
+   "role": "dispatcher",
+   "kind": "budget_stop",
+   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+  },
+  {
+   "ts": "2026-11-24T07:36:51+00:00",
+   "product": "ai-battles",
+   "role": "dispatcher",
+   "kind": "budget_stop",
+   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+  },
+  {
+   "ts": "2026-11-24T07:36:49+00:00",
+   "product": "ai-battles",
+   "role": "dispatcher",
+   "kind": "budget_stop",
+   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+  },
+  {
+   "ts": "2026-11-24T07:36:48+00:00",
+   "product": "ai-battles",
+   "role": "dispatcher",
+   "kind": "budget_stop",
+   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+  },
+  {
+   "ts": "2026-11-24T07:36:46+00:00",
+   "product": "ai-battles",
+   "role": "dispatcher",
+   "kind": "budget_stop",
+   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+  },
+  {
+   "ts": "2026-11-24T07:36:44+00:00",
+   "product": "ai-battles",
+   "role": "dispatcher",
+   "kind": "budget_stop",
+   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+  },
+  {
+   "ts": "2026-11-24T07:36:43+00:00",
+   "product": "ai-battles",
+   "role": "dispatcher",
+   "kind": "budget_stop",
+   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+  },
+  {
+   "ts": "2026-11-24T07:36:41+00:00",
+   "product": "ai-battles",
+   "role": "dispatcher",
+   "kind": "budget_stop",
+   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+  },
+  {
+   "ts": "2026-11-24T07:36:40+00:00",
+   "product": "ai-battles",
+   "role": "dispatcher",
+   "kind": "budget_stop",
+   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+  },
+  {
+   "ts": "2026-11-24T07:36:38+00:00",
+   "product": "ai-battles",
+   "role": "dispatcher",
+   "kind": "budget_stop",
+   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+  },
+  {
+   "ts": "2026-11-24T07:36:37+00:00",
+   "product": "ai-battles",
+   "role": "dispatcher",
+   "kind": "budget_stop",
+   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+  },
+  {
+   "ts": "2026-11-24T07:36:35+00:00",
+   "product": "ai-battles",
+   "role": "dispatcher",
+   "kind": "budget_stop",
+   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+  },
+  {
+   "ts": "2026-11-24T07:36:33+00:00",
+   "product": "ai-battles",
+   "role": "dispatcher",
+   "kind": "budget_stop",
+   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+  },
+  {
+   "ts": "2026-11-24T07:36:31+00:00",
+   "product": "ai-battles",
+   "role": "dispatcher",
+   "kind": "budget_stop",
+   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+  },
+  {
+   "ts": "2026-11-24T07:36:29+00:00",
+   "product": "ai-battles",
+   "role": "dispatcher",
+   "kind": "budget_stop",
+   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+  },
+  {
+   "ts": "2026-11-24T07:36:27+00:00",
+   "product": "ai-battles",
+   "role": "dispatcher",
+   "kind": "budget_stop",
+   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+  },
+  {
+   "ts": "2026-11-24T07:36:25+00:00",
+   "product": "ai-battles",
+   "role": "dispatcher",
+   "kind": "budget_stop",
+   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+  },
+  {
+   "ts": "2026-11-24T07:36:24+00:00",
+   "product": "ai-battles",
+   "role": "dispatcher",
+   "kind": "budget_stop",
+   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+  },
+  {
+   "ts": "2026-11-24T07:36:12+00:00",
+   "product": "ai-battles",
+   "role": "dispatcher",
+   "kind": "budget_stop",
+   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+  },
+  {
+   "ts": "2026-11-24T07:26:07+00:00",
+   "product": "ai-battles",
+   "role": "dispatcher",
+   "kind": "budget_stop",
+   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+  },
+  {
+   "ts": "2026-11-24T07:24:33+00:00",
+   "product": "ai-battles",
+   "role": "dispatcher",
+   "kind": "budget_stop",
+   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+  },
+  {
+   "ts": "2026-11-24T07:22:18+00:00",
+   "product": "ai-battles",
+   "role": "dispatcher",
+   "kind": "budget_stop",
+   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+  },
+  {
+   "ts": "2026-11-24T07:21:59+00:00",
+   "product": "ai-battles",
+   "role": "dispatcher",
+   "kind": "budget_stop",
+   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+  },
+  {
+   "ts": "2026-11-24T07:21:57+00:00",
+   "product": "ai-battles",
+   "role": "dispatcher",
+   "kind": "budget_stop",
+   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+  },
+  {
+   "ts": "2026-11-24T07:21:55+00:00",
+   "product": "ai-battles",
+   "role": "dispatcher",
+   "kind": "budget_stop",
+   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+  },
+  {
+   "ts": "2026-11-24T07:21:53+00:00",
+   "product": "ai-battles",
+   "role": "dispatcher",
+   "kind": "budget_stop",
+   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+  },
+  {
+   "ts": "2026-11-24T07:21:50+00:00",
+   "product": "ai-battles",
+   "role": "dispatcher",
+   "kind": "budget_stop",
+   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+  },
+  {
+   "ts": "2026-11-24T07:21:49+00:00",
+   "product": "ai-battles",
+   "role": "dispatcher",
+   "kind": "budget_stop",
+   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+  },
+  {
+   "ts": "2026-11-24T07:21:47+00:00",
+   "product": "ai-battles",
+   "role": "dispatcher",
+   "kind": "budget_stop",
+   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+  },
+  {
+   "ts": "2026-11-24T07:21:46+00:00",
+   "product": "ai-battles",
+   "role": "dispatcher",
+   "kind": "budget_stop",
+   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+  },
+  {
+   "ts": "2026-11-24T07:21:44+00:00",
+   "product": "ai-battles",
+   "role": "dispatcher",
+   "kind": "budget_stop",
+   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+  },
+  {
+   "ts": "2026-11-24T07:21:43+00:00",
+   "product": "ai-battles",
+   "role": "dispatcher",
+   "kind": "budget_stop",
+   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+  },
+  {
+   "ts": "2026-11-24T07:21:41+00:00",
+   "product": "ai-battles",
+   "role": "dispatcher",
+   "kind": "budget_stop",
+   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+  },
+  {
+   "ts": "2026-11-24T07:21:40+00:00",
+   "product": "ai-battles",
+   "role": "dispatcher",
+   "kind": "budget_stop",
+   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+  },
+  {
+   "ts": "2026-11-24T07:21:38+00:00",
+   "product": "ai-battles",
+   "role": "dispatcher",
+   "kind": "budget_stop",
+   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+  },
+  {
+   "ts": "2026-11-24T07:21:37+00:00",
+   "product": "ai-battles",
+   "role": "dispatcher",
+   "kind": "budget_stop",
+   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+  },
+  {
+   "ts": "2026-11-24T07:21:35+00:00",
+   "product": "ai-battles",
+   "role": "dispatcher",
+   "kind": "budget_stop",
+   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+  },
+  {
+   "ts": "2026-11-24T07:21:34+00:00",
+   "product": "ai-battles",
+   "role": "dispatcher",
+   "kind": "budget_stop",
+   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+  },
+  {
+   "ts": "2026-11-24T07:21:32+00:00",
+   "product": "ai-battles",
+   "role": "dispatcher",
+   "kind": "budget_stop",
+   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
   }
  ]
 }

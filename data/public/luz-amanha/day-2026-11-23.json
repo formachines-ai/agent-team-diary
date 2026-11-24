@@ -5,6 +5,38 @@
  "date": "2026-11-23",
  "tasks": [
   {
+   "id": "T-0211",
+   "title": "Morning post 23.11 07:01 UTC in c/kWh with the dated link /d/2026-11-23/ (Telegram)",
+   "type": "content",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G2",
+   "role": "marketer",
+   "created": "2026-11-20T00:12:41+00:00",
+   "accepted_at": "2026-11-23T08:01:05+00:00",
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-23T08:00:31+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261123T0707-exec-T-0211"
+    },
+    {
+     "ts": "2026-11-23T08:00:31+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-23T08:01:05+00:00",
+     "actor": "dispatcher",
+     "to": "accepted",
+     "note": "posted 1 (editor-approved)"
+    }
+   ]
+  },
+  {
    "id": "T-0236",
    "title": "Defect: rescue the cut Mastodon link — /ha… (ha%E2%80%A6) leads to /ha/ instead of 404",
    "type": "defect",
@@ -429,6 +461,88 @@
      "note": ""
     }
    ]
+  },
+  {
+   "id": "T-0260",
+   "title": "Quality: /d/ archive links every dated page; each /d/YYYY-MM-DD/ links its previous and next day",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "developer",
+   "created": "2026-11-23T08:00:25+00:00",
+   "accepted_at": "2026-11-23T08:38:05+00:00",
+   "released_sha": "92dcc9e2a7f315754feed6e05b181485535073ea",
+   "history": [
+    {
+     "ts": "2026-11-23T08:00:25+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-23T08:00:31+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261123T0707-exec-T-0260"
+    },
+    {
+     "ts": "2026-11-23T08:00:31+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-23T08:01:34+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 92dcc9e2a7"
+    },
+    {
+     "ts": "2026-11-23T08:38:05+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "Archive, prev/next links and footer /d/ link are live and correct. The newest page has no dead next link, and the test suite passes."
+    }
+   ]
+  },
+  {
+   "id": "T-0261",
+   "title": "Analyst: why engaged = 0 since 19.11 — X 402, or a threshold too strict for Telegram/Bluesky visits?",
+   "type": "research",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1",
+   "role": "analyst",
+   "created": "2026-11-23T08:00:28+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-23T08:00:28+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-23T08:00:31+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261123T0707-exec-T-0261"
+    },
+    {
+     "ts": "2026-11-23T08:00:31+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-23T08:01:08+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measurement delivered"
+    }
+   ]
   }
  ],
  "reviews": [
@@ -446,19 +560,30 @@
    "task": "T-0257",
    "verdict": "pass",
    "summary": "The tests now copy a frozen snapshot into a temp dir, so the real data/omie cache no longer affects them. The suite passes with 76 tests, and the live build.json and home page are as required."
+  },
+  {
+   "task": "T-0260",
+   "verdict": "pass",
+   "summary": "Archive, prev/next links and footer /d/ link are live and correct. The newest page has no dead next link, and the test suite passes."
   }
  ],
- "posts": [],
+ "posts": [
+  {
+   "channel": "telegram",
+   "url": "https://t.me/luz_amanha/41",
+   "ts": "2026-11-23T08:01:05+00:00"
+  }
+ ],
  "metrics": {
   "humans": 0,
   "engaged": 0,
   "returns": 0,
   "agents": 0,
   "crawlers": 42,
-  "requests": 117
+  "requests": 144
  },
- "spend_usd": 2.9,
- "po_digest_md": "**Luz Amanhã — 23.11, утро**\n\n**Что произошло:** ревьюер нашёл, что тест QA-гейта читает настоящий кэш `data/omie/` (OBS-0529). Как только появился файл на 23.11, тест упал (24 вместо 23). Он красный на базовой ветке, поэтому блокирует ревью всех задач разработчика, в том числе T-0255 (метка нулевых и отрицательных часов, сейчас released).\n\n**Что решено:**\n- Создан дефект P1: сделать тест герметичным, чтобы он читал только синтетические файлы во временной папке. Ожидаемых значений не меняем, тесты не ослабляем.\n- Из плана маркетинга нарезаны слоты X на 25.11 (заголовок B, контроль) и 26.11 (заголовок A). Если X снова ответит 402, они пропускаются без повторов. Первым API проверит T-0256 (24.11).\n- Слот Threads 24.11 пропущен: финальный тест 22.11 дал 0 людей по `?src=threads`, лимит канала тоже исчерпан.\n- Ежедневные карточки Telegram 07:00 и 14:05 стоят до 28.11. Bluesky 26.11 и исправление Mastodon 28.11 уже в очереди.\n\n**Метрики:** с 19.11 нет ни одного вовлечённого человека (engaged = 0), за 22.11 — 3 человека. GSC: 0 показов, 11 из 34 URL в индексе. Повторное чтение — 25.11 (T-0197).\n\n**Ждёт владельца** (без изменений, Q-0055): продолжать ли пилот, ставить ли новые цели, пополнять ли кредиты X API.\n\n**Расходы:** $1.81 из $20.",
+ "spend_usd": 4.3,
+ "po_digest_md": "**Luz Amanhã — триаж 23.11 07:07 UTC**\n\n**Что произошло**\n- Финальный тест Threads 22.11 (T-0173) не привёл ни одного человека: 3 поста, 0 человек. По правилу T-0175 Threads снижается до 1 поста в месяц. Условный слот 24.11 не ставлю.\n- Google: в индексе 11 из 35 URL, показов 0. Главная `/` в статусе «Crawled — not indexed». Данные GSC идут только до 22.11, поэтому эффект SEO-правок 18–23.11 пока не виден. Анализ T-0197 даст вывод 25.11.\n- С 19.11 вовлечённых людей 0, хотя заходит 3–5 человек в день. Вероятная причина: X отвечает 402, а вовлечённые приходили именно оттуда.\n\n**Решения**\n- Разработчику ставлю одну quality-задачу. Ссылки между существующими страницами: архив `/d/` ведёт на все датированные страницы, на каждой дате есть «вчера/завтра». Основание — 12 URL «unknown to Google», среди них `/d/2026-11-02/` и `/d/2026-11-10/`. Новых функций нет. Других сломанных мест в данных не нашёл.\n- Аналитику: разобрать, вызван ли ноль вовлечённых уходом X или порог engaged отсекает живых читателей из Telegram и Bluesky. Если виноват порог, будет готовая формулировка вопроса для ops.\n- Новые слоты X (27–30.11) не ставлю, пока пост T-0256 от 24.11 не покажет, работает ли API. Ежедневные посты в Telegram стоят до 28.11.\n\n**Ждёт владельца**\n- Без изменений, по Q-0055: цели и судьба пилота, пополнение кредитов X API, алерт cron на exit 3.\n\n**Расход:** $2,86 из $20.",
  "analyst_md": "**Luz Amanhã, срез на 23.11 06:00 UTC (последние 7 дней).** Уровни не суммируются.\n\n| День | Запросы | Люди (источники / engaged) | Краулеры | Агенты | 5xx |\n|---|---|---|---|---|---|\n| 17.11 | 565 | 2 / 1 | 91 | 0 | 0 |\n| 18.11 | 547 | 4 / 1 | 103 | 6 | 0 |\n| 19.11 | 945 | 5 / 0 | 122 | 3 | 0 |\n| 20.11 | 915 | 0 / 0 | 141 | 4 | 0 |\n| 21.11 | 1064 | 3 / 0 | 198 | 0 | 0 |\n| 22.11 | 525 | 3 / 0 | 192 | 2 | 0 |\n| 23.11 (частично) | 117 | 0 / 0 | 42 | 0 | 0 |\n\n- G1: engaged-людей за 17–22.11 всего 2 (по одному 17.11 и 18.11, последний 18.11). Цель ≥30 далека.\n- G2: возврат один (18.11), 0 за 19–22.11. Данных мало, чтобы судить.\n- G3: клики `/go/telegram/` 1 за 21.11, от человека 0. Подписчиков в метриках не видно.\n- G4: внешние referer есть, но единичные: t.co, bluenews.app (5), google, facebook. Источник facebook (m. и lm.) 22.11 появился после поста в Threads, но это не наш пост на Facebook, и людей с ним не связать.\n- Посты → визиты: после Threads-поста 22.11 13:26 `by_src threads` = 26 запросов, людей 0 (превью-краулеры). Threads-тест итог: 0 людей.\n- Баланса нет (не игра).\n- Индекс Google: 11 из 35 в индексе, показов 0.",
  "observations": {
   "new": 7,

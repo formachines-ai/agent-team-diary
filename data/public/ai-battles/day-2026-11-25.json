@@ -1,0 +1,1625 @@
+{
+ "slug": "ai-battles",
+ "name": "AI Battles",
+ "site": "https://battles.bymachines.ai",
+ "date": "2026-11-25",
+ "tasks": [
+  {
+   "id": "T-0129",
+   "title": "Прототип: скорость поворота башни зависит от машины (§5.3.3, блок turret, флаг выключен по умолчанию)",
+   "type": "milestone",
+   "state": "accepted",
+   "priority": "P1",
+   "goal": "G1: скорость поворота башни различается у машин и задаёт стиль игры (владелец 22.11)",
+   "role": "developer",
+   "created": "2026-11-22T13:36:23+00:00",
+   "accepted_at": "2026-11-25T03:01:35+00:00",
+   "released_sha": "b038eb0e3d36d1b477a56e0882f18306b3167ec9",
+   "history": [
+    {
+     "ts": "2026-11-25T00:32:54+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "merge conflict with main in public/en.json, reports/balance-report.json, reports/balance-report.md, scripts/balance-report-lib.ts, src/client/main.ts, src/engine/balance.data.ts, src/engine/bot.ts, sr"
+    },
+    {
+     "ts": "2026-11-25T01:43:37+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "partial — continues next cycle"
+    },
+    {
+     "ts": "2026-11-25T02:35:27+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged b038eb0e3d"
+    },
+    {
+     "ts": "2026-11-25T03:01:35+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "On the deployed host the flag is off (/api/flags returns {\"turret\":false}). The garage and a battle (railgun/shield) look and behave as before. The merged run's npm test exited 0 with the 200-car bala"
+    }
+   ]
+  },
+  {
+   "id": "T-0200",
+   "title": "E2E: exhaust.spec.ts and every other spec runnable without test env tagged @live (audit of tests/e2e)",
+   "type": "quality",
+   "state": "blocked",
+   "priority": "P2",
+   "goal": "M1: released tasks are checkable on the live host (T-0184 and later specs)",
+   "role": "developer",
+   "created": "2026-11-23T02:01:39+00:00",
+   "accepted_at": null,
+   "released_sha": "42c8d0a8ff65ef963720319f7fe8e2581b899841",
+   "history": [
+    {
+     "ts": "2026-11-25T00:20:00+00:00",
+     "actor": "reviewer",
+     "to": "blocked",
+     "note": "review failed to run 3×: timeout after 1500s"
+    }
+   ]
+  },
+  {
+   "id": "T-0213",
+   "title": "E2E: flamethrower.spec.ts @live — струя идёт по башне за курсором, контура конуса нет (B-002, владелец 23.11)",
+   "type": "quality",
+   "state": "blocked",
+   "priority": "P2",
+   "goal": "M1 критерий 6: огнемёт по решению владельца 23.11 проверен на живом хосте",
+   "role": "developer",
+   "created": "2026-11-23T04:56:15+00:00",
+   "accepted_at": null,
+   "released_sha": "a795bc0ffb097c6b0ec5e55ee7788ec609bcb854",
+   "history": [
+    {
+     "ts": "2026-11-25T01:40:24+00:00",
+     "actor": "reviewer",
+     "to": "blocked",
+     "note": "review failed to run 3×: timeout after 1500s"
+    }
+   ]
+  },
+  {
+   "id": "T-0220",
+   "title": "E2E: seeded test cars use the current CarSpec version; a helper fails loudly if the client discards the car",
+   "type": "defect",
+   "state": "blocked",
+   "priority": "P2",
+   "goal": "M1: a reliable check cycle (e2e tests check the car they set)",
+   "role": "developer",
+   "created": "2026-11-23T06:20:34+00:00",
+   "accepted_at": null,
+   "released_sha": "b287a2f505af7620554566b8d24f145f6352a60a",
+   "history": [
+    {
+     "ts": "2026-11-25T01:35:47+00:00",
+     "actor": "reviewer",
+     "to": "blocked",
+     "note": "inconclusive 3×: not accepted without proof: team-play test --spec tests/e2e/battle-defects.spec.ts --project desktop timed out after 600s with no test output; keys-layout did the same."
+    }
+   ]
+  },
+  {
+   "id": "T-0236",
+   "title": "Tests: replay.test.ts tick-cost check does not fail on host load (npm test stable on main)",
+   "type": "defect",
+   "state": "rejected",
+   "priority": "P1",
+   "goal": "M1: a reliable check cycle (npm test on main without flaky tests)",
+   "role": "developer",
+   "created": "2026-11-23T12:27:55+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-25T07:10:33+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Blocked with the fix not in main while the test keeps failing (OBS-1163, OBS-1166). Replaced by a narrower task for the same goal with continues T-0236."
+    }
+   ]
+  },
+  {
+   "id": "T-0239",
+   "title": "E2E runs end on their own and show the queue wait: Playwright reporter does not hold the terminal, e2e-host-lock prints the lock wait",
+   "type": "quality",
+   "state": "done",
+   "priority": "P0",
+   "goal": "M1: a reliable check cycle (a failed or queued e2e run is not taken for a hang)",
+   "role": "developer",
+   "created": "2026-11-23T13:06:56+00:00",
+   "accepted_at": "2026-11-24T01:11:11+00:00",
+   "released_sha": "4eaa22a96aabcd9229555f3ce6ba10721b857681",
+   "history": [
+    {
+     "ts": "2026-11-25T06:17:53+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-25T06:17:53+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0242",
+   "title": "E2E live: pickups.spec.ts passes on battles.bymachines.ai (0 pickups in 30 s) and the autocannon reload-ring failure has a named cause",
+   "type": "defect",
+   "state": "blocked",
+   "priority": "P2",
+   "goal": "M1: a reliable check cycle (the @live set has no failing scenario, so released game tasks can be accepted)",
+   "role": "developer",
+   "created": "2026-11-23T14:03:55+00:00",
+   "accepted_at": null,
+   "released_sha": "7175db85c5e0ff37ab162632fad563fef38c1c57",
+   "history": [
+    {
+     "ts": "2026-11-25T00:25:54+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "partial — continues next cycle"
+    },
+    {
+     "ts": "2026-11-25T01:46:38+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 7175db85c5"
+    },
+    {
+     "ts": "2026-11-25T03:55:59+00:00",
+     "actor": "reviewer",
+     "to": "blocked",
+     "note": "inconclusive 3×: not accepted without proof: Playwright on the deployed host never started a test within 600 s, in two attempts. The host lock is the likely cause, but I did not confirm it."
+    }
+   ]
+  },
+  {
+   "id": "T-0243",
+   "title": "E2E live: client.spec.ts :42 and replay.spec.ts :46 run alone on the live host (@live, -g); result in the status report — replaces T-0229",
+   "type": "defect",
+   "state": "released",
+   "priority": "P2",
+   "goal": "M1: a reliable check cycle (the fixes of T-0229 are seen working)",
+   "role": "developer",
+   "created": "2026-11-23T14:03:59+00:00",
+   "accepted_at": null,
+   "released_sha": "0eeebccbeb572c2a97a3b3cd42dcf21ff0cf3279",
+   "history": [
+    {
+     "ts": "2026-11-25T03:37:12+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261125T0330-exec-T-0243"
+    },
+    {
+     "ts": "2026-11-25T03:37:12+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-25T04:09:17+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 019657de53"
+    },
+    {
+     "ts": "2026-11-25T05:10:31+00:00",
+     "actor": "reviewer",
+     "to": "in_progress",
+     "note": "failed: replay.spec.ts @slow @live real full-length battle: Test timeout of 300000ms exceeded in my run (307 s); the implementer reported 214 s. The pass on live is not reproduced."
+    },
+    {
+     "ts": "2026-11-25T06:10:01+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "partial — continues next cycle"
+    },
+    {
+     "ts": "2026-11-25T06:41:52+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 0eeebccbeb"
+    }
+   ]
+  },
+  {
+   "id": "T-0245",
+   "title": "sim:pickups: the 'flag off' run really has pickups off; rows Ц1, Ц3 and the pickup context split in tracked reports/pickups-sim.md",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "Alpha test item 4: the share of bonuses a live player can get is measurable before real battles",
+   "role": "developer",
+   "created": "2026-11-23T14:58:08+00:00",
+   "accepted_at": "2026-11-25T05:01:16+00:00",
+   "released_sha": "fbec1c7fe0bd7694467044acdaaab36642b399ee",
+   "history": [
+    {
+     "ts": "2026-11-25T04:18:31+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261125T0415-exec-T-0245"
+    },
+    {
+     "ts": "2026-11-25T04:18:31+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-25T04:37:58+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged fbec1c7fe0"
+    },
+    {
+     "ts": "2026-11-25T05:01:16+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "This repo-only task has no player-visible change. I checked the tracked report in the checkout against each acceptance criterion by reading it, and the dispatcher's `npm test` run (659/659) covers the"
+    }
+   ]
+  },
+  {
+   "id": "T-0246",
+   "title": "Car look: the flamethrower body turns with the turret (B-002), and weapon-variant screenshots can be taken for two seeds",
+   "type": "defect",
+   "state": "done",
+   "priority": "P1",
+   "goal": "Игрок видит разные машины, и рисунок оружия показывает, куда оно стреляет (владелец 23.11: огнемёт на башне)",
+   "role": "developer",
+   "created": "2026-11-23T14:58:13+00:00",
+   "accepted_at": "2026-11-24T01:27:24+00:00",
+   "released_sha": "f4b3ec70906d44c3a70dbf10889f3c5ee78dd464",
+   "history": [
+    {
+     "ts": "2026-11-25T06:17:54+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-25T06:17:54+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0251",
+   "title": "Комната на серию боёв: после итогов все возвращаются в то же лобби, вход по ссылке с кодом комнаты",
+   "type": "milestone",
+   "state": "done",
+   "priority": "P0",
+   "goal": "Альфа с друзьями: компания играет серию боёв в одной комнате",
+   "role": "developer",
+   "created": "2026-11-23T16:34:13+00:00",
+   "accepted_at": "2026-11-23T18:41:37+00:00",
+   "released_sha": "ad0d799c194c96a7f769e6abd8066cababa40f4a",
+   "history": [
+    {
+     "ts": "2026-11-25T01:02:08+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-25T01:02:08+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0255",
+   "title": "Экран итогов и таблица боя: значки пяти способностей и размер машины победителя — раздел DESIGN.md и docs/ability-icons.svg",
+   "type": "design",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1: игрок видит, что работает у соперников (VISION «Социальное удержание», пункт 1)",
+   "role": "designer",
+   "created": "2026-11-23T16:42:16+00:00",
+   "accepted_at": "2026-11-23T18:42:06+00:00",
+   "released_sha": "e40500a241f4b4efb1a0c70de1d3bc0797828236",
+   "history": [
+    {
+     "ts": "2026-11-25T01:02:08+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-25T01:02:08+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0256",
+   "title": "design/gdd/15-1-9-boost-respawn.md: бонус ускорения «как навык» (числа владельца 23.11) и способность, перезаряженная после возрождения",
+   "type": "design",
+   "state": "done",
+   "priority": "P2",
+   "goal": "M1 критерий 4: бонусы на арене; правила в документе совпадают с игрой",
+   "role": "game-designer",
+   "created": "2026-11-23T16:42:24+00:00",
+   "accepted_at": "2026-11-23T18:44:40+00:00",
+   "released_sha": "b42c7673558c120b258e917be8baf0da6ccebae7",
+   "history": [
+    {
+     "ts": "2026-11-25T01:02:09+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-25T01:02:09+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0260",
+   "title": "Chassis proof for T-0208: tracked screenshots of A2, B1, C1 and W4 in the garage and in battle from a local run (docs/shots/chassis/)",
+   "type": "quality",
+   "state": "released",
+   "priority": "P2",
+   "goal": "Игрок видит разные машины: ходовая из T-0208 показана работающей (G1)",
+   "role": "developer",
+   "created": "2026-11-23T19:01:21+00:00",
+   "accepted_at": null,
+   "released_sha": "9e67cade54f7c33a7adb501e66ddc920c791aebd",
+   "history": [
+    {
+     "ts": "2026-11-25T04:18:31+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261125T0415-exec-T-0260"
+    },
+    {
+     "ts": "2026-11-25T04:18:32+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-25T04:48:11+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "partial — continues next cycle"
+    },
+    {
+     "ts": "2026-11-25T05:20:22+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged d066757dca"
+    },
+    {
+     "ts": "2026-11-25T05:53:25+00:00",
+     "actor": "reviewer",
+     "to": "in_progress",
+     "note": "failed: The garage frames (C1-garage.png, W4-garage.png) do not show the card's Chassis line; only the car name 'Chassis W4' is visible. The spec asserts the line but the frames do not show it. The sp"
+    },
+    {
+     "ts": "2026-11-25T06:57:50+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 9e67cade54"
+    }
+   ]
+  },
+  {
+   "id": "T-0261",
+   "title": "DESIGN.md по словам владельца 23.11: штриховка тонких стен и столбов (§20), кнопка полного экрана в бою (§14.8.4), описание справа (§21.4)",
+   "type": "design",
+   "state": "done",
+   "priority": "P2",
+   "goal": "Альфа: вид игры в документе совпадает с игрой",
+   "role": "designer",
+   "created": "2026-11-23T19:01:26+00:00",
+   "accepted_at": "2026-11-24T00:26:56+00:00",
+   "released_sha": "0fccf5dad8f2136feff7351d323785c0fdc73875",
+   "history": [
+    {
+     "ts": "2026-11-25T01:02:09+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-25T01:02:09+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0262",
+   "title": "GAME-DESIGN.md: длина боя из match.duration_s (сейчас 180 с) вместо 2:00 и строка о таблицах v6 (ракеты 32)",
+   "type": "design",
+   "state": "done",
+   "priority": "P2",
+   "goal": "Альфа: правила в документе совпадают с игрой",
+   "role": "game-designer",
+   "created": "2026-11-23T19:01:31+00:00",
+   "accepted_at": "2026-11-24T00:59:43+00:00",
+   "released_sha": "2e002dc49d9d871eb6cb05d84cb547517656c579",
+   "history": [
+    {
+     "ts": "2026-11-25T01:02:09+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-25T01:02:09+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0263",
+   "title": "Arena proof for T-0237: tracked battle frames of the four layouts with a thin wall or pillar in view, from a local run (docs/shots/arenas/)",
+   "type": "quality",
+   "state": "released",
+   "priority": "P2",
+   "goal": "Мультиплеер интереснее: четыре арены из T-0237 показаны работающими (G1)",
+   "role": "developer",
+   "created": "2026-11-24T00:09:37+00:00",
+   "accepted_at": null,
+   "released_sha": "72e30e8a62510a845231977141313634d82c989a",
+   "history": [
+    {
+     "ts": "2026-11-25T04:58:54+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261125T0455-exec-T-0263"
+    },
+    {
+     "ts": "2026-11-25T04:58:54+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-25T05:10:48+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 72e30e8a62"
+    }
+   ]
+  },
+  {
+   "id": "T-0264",
+   "title": "Opponent-brief proof for T-0190: tracked frames of the battle table, death plate and results screen from a local run (docs/shots/results/)",
+   "type": "quality",
+   "state": "in_progress",
+   "priority": "P2",
+   "goal": "G1: игрок видит, что работает у соперников — значки и описания из T-0190 показаны работающими",
+   "role": "developer",
+   "created": "2026-11-24T00:09:42+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-25T07:11:24+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261125T0707-exec-T-0264"
+    },
+    {
+     "ts": "2026-11-25T07:11:24+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    }
+   ]
+  },
+  {
+   "id": "T-0269",
+   "title": "Saw lever sweep: sim:weapons with the saw on for damage, cooldown, range and lunge variants, in reports/weapon-sim.saw-levers.md",
+   "type": "quality",
+   "state": "done",
+   "priority": "P1",
+   "goal": "Melee weapons as a play style (owner 23.11): the saw can be tuned into the 0.20–0.30 band",
+   "role": "developer",
+   "created": "2026-11-24T00:43:16+00:00",
+   "accepted_at": "2026-11-24T05:48:44+00:00",
+   "released_sha": "c634b732c4f423b105f36bc116aebc3fdc1d5ae1",
+   "history": [
+    {
+     "ts": "2026-11-25T06:17:54+00:00",
+     "actor": "analyst",
+     "to": "measured",
+     "note": "effect: insufficient_data — "
+    },
+    {
+     "ts": "2026-11-25T06:17:54+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measured"
+    }
+   ]
+  },
+  {
+   "id": "T-0298",
+   "title": "E2E: a single spec run prints its first test line and ends by itself — cause of the silent 600 s hang named and fixed",
+   "type": "defect",
+   "state": "rejected",
+   "priority": "P0",
+   "goal": "M1: a reliable check cycle (released game tasks can be checked; G1)",
+   "role": "developer",
+   "created": "2026-11-24T15:22:45+00:00",
+   "accepted_at": null,
+   "released_sha": "f43dbdf5b238632b2ce5dece88add11d063b4b48",
+   "history": [
+    {
+     "ts": "2026-11-25T01:07:48+00:00",
+     "actor": "deputy",
+     "to": "ready",
+     "note": "answered Q-0136"
+    },
+    {
+     "ts": "2026-11-25T01:13:37+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Deputy's answer to Q-0136: the silent 600 s hang is in team-play (framework), not fixable in the game repo; failed review twice. The repo-side part (lock takeover race, OBS-1097) continu"
+    }
+   ]
+  },
+  {
+   "id": "T-0312",
+   "title": "Load before the alpha: 48 clients for 120 s on a server from main — p95 move latency ≤ 300 ms, 0 server errors",
+   "type": "load",
+   "state": "accepted",
+   "priority": "P1",
+   "goal": "G4: p95 input-to-snapshot latency ≤ 300 ms; alpha with friends — strong multiplayer",
+   "role": "tester",
+   "created": "2026-11-24T19:24:51+00:00",
+   "accepted_at": "2026-11-25T03:37:11+00:00",
+   "released_sha": "cd1f45ded681453eee96d8d34dd26bc7f6887d70",
+   "history": [
+    {
+     "ts": "2026-11-25T03:33:54+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261125T0330-exec-T-0312"
+    },
+    {
+     "ts": "2026-11-25T03:33:54+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-25T03:37:12+00:00",
+     "actor": "tester",
+     "to": "accepted",
+     "note": "load pass: p50 36 p95 54 ms — The run used 48 clients for 120 s (123 s wall) against the live host at commit cd1f45ded681, which was the version before and after. p95 move latency was 54 ms against th"
+    }
+   ]
+  },
+  {
+   "id": "T-0327",
+   "title": "Вид и звук лужи масла и закрутки машины (владелец 24.11): раздел DESIGN.md и docs/oil-spin.svg",
+   "type": "design",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "M1 критерий 6: бой на десктопе интереснее — эффект масла понятен игроку с первого раза",
+   "role": "designer",
+   "created": "2026-11-24T22:54:18+00:00",
+   "accepted_at": "2026-11-25T00:37:21+00:00",
+   "released_sha": "74374a1973e46d877382aef0d954a1ea3790d15f",
+   "history": [
+    {
+     "ts": "2026-11-25T00:37:21+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The change is documentation only: DESIGN.md §26 and docs/oil-spin.svg/.png. The diff touches only those three files, with 62 insertions and 0 deletions, and the image and section text meet every crite"
+    }
+   ]
+  },
+  {
+   "id": "T-0330",
+   "title": "Вид зон арены: ускорение, грязь, лёд, лес",
+   "type": "feature",
+   "state": "accepted",
+   "priority": "P0",
+   "goal": "Игрок с первого взгляда отличает зону от препятствия и понимает, что она делает.",
+   "role": "designer",
+   "created": "2026-11-24T23:44:17+00:00",
+   "accepted_at": "2026-11-25T01:50:01+00:00",
+   "released_sha": "f8b2c1e441eb44ff6b40e0a006ff4ea1a2887208",
+   "history": [
+    {
+     "ts": "2026-11-25T00:17:00+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261124T2350-exec-T-0330"
+    },
+    {
+     "ts": "2026-11-25T00:17:00+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-25T00:34:36+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged f8b2c1e441"
+    },
+    {
+     "ts": "2026-11-25T01:50:01+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The task is a design deliverable (§27 in DESIGN.md plus two pictures), and I checked each acceptance item against the files and the two PNGs. The four zones, the forest in three states, the greyscale "
+    }
+   ]
+  },
+  {
+   "id": "T-0331",
+   "title": "Вид пяти оружий на физических принципах и двух бонусов-взрывов",
+   "type": "feature",
+   "state": "accepted",
+   "priority": "P0",
+   "goal": "Каждое новое оружие и бонус узнаются по виду с первого попадания.",
+   "role": "designer",
+   "created": "2026-11-24T23:44:17+00:00",
+   "accepted_at": "2026-11-25T02:09:36+00:00",
+   "released_sha": "48d05ab7de606e5dfcbdbe4a18e423498f17d34b",
+   "history": [
+    {
+     "ts": "2026-11-25T01:35:47+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261125T0107-exec-T-0331"
+    },
+    {
+     "ts": "2026-11-25T01:35:47+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-25T01:47:38+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 48d05ab7de"
+    },
+    {
+     "ts": "2026-11-25T02:09:36+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The docs-only task is met: DESIGN.md §28 and docs/physics-weapons.png cover all five weapons, both states in colour and greyscale, and both bonuses on the spot, arming and spreading. The named layers,"
+    }
+   ]
+  },
+  {
+   "id": "T-0332",
+   "title": "design/gdd/19-1-arena-zones.md: зоны арены как построено (ускорение, грязь, лёд, лес) — правила ключами arena_zones, пороги",
+   "type": "design",
+   "state": "accepted",
+   "priority": "P1",
+   "goal": "M1 критерий 6: бой на десктопе интереснее — правила зон в документе совпадают с игрой",
+   "role": "game-designer",
+   "created": "2026-11-24T23:54:21+00:00",
+   "accepted_at": "2026-11-25T01:51:07+00:00",
+   "released_sha": "cb4e4bf840f3049fbf59d060cab9f111f7d240c8",
+   "history": [
+    {
+     "ts": "2026-11-25T00:24:43+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261124T2350-exec-T-0332"
+    },
+    {
+     "ts": "2026-11-25T00:24:44+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-25T00:28:34+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged cb4e4bf840"
+    },
+    {
+     "ts": "2026-11-25T01:51:07+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The new file is the only change in the diff. Every zone value I compared matches balance.json (arena_zones version 1), and the file covers the rest of the criteria and negative cases."
+    }
+   ]
+  },
+  {
+   "id": "T-0333",
+   "title": "design/gdd/18-6: пять оружий на принципах и два бонуса-взрыва как построено (таблицы v9) — правила, ответы, пороги баланса",
+   "type": "design",
+   "state": "rejected",
+   "priority": "P1",
+   "goal": "Альфа: более или менее сбалансированное оружие — у десяти оружий и новых бонусов есть правила и пороги",
+   "role": "game-designer",
+   "created": "2026-11-24T23:54:30+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-25T00:25:54+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261124T2350-exec-T-0333"
+    },
+    {
+     "ts": "2026-11-25T00:25:54+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-25T00:31:18+00:00",
+     "actor": "dispatcher",
+     "to": "blocked",
+     "note": "merge/push failed: git push -q origin main: remote: Internal Server Error        \nremote: Request ID B44E:13EF9E:DE9070:14B2AA9:6B062C54        \nremote: Time 2026-11-25T00:31:18Z\nTo https://github.com"
+    },
+    {
+     "ts": "2026-11-25T07:10:33+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Blocked; the 18-6 section covers the release path and thresholds but not the weapon rules (OBS-1165). The missing part is re-created as the narrow task 18-6-1-principle-weapon-rules."
+    }
+   ]
+  },
+  {
+   "id": "T-0334",
+   "title": "Playtest live with ?test=1: five principle weapons, the forest and the zone arenas against bots — frames and defects as observations",
+   "type": "quality",
+   "state": "rejected",
+   "priority": "P1",
+   "goal": "M1 criterion 6: what the owner asked for on 24.11 (weapons on principles, arena zones) is seen working on the live host",
+   "role": "tester",
+   "created": "2026-11-24T23:54:37+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-25T00:20:01+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261124T2350-exec-T-0334"
+    },
+    {
+     "ts": "2026-11-25T00:20:01+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-25T00:24:38+00:00",
+     "actor": "tester",
+     "to": "blocked",
+     "note": "load inconclusive: p50 ? p95 ? ms — I reached none of the five weapons or the forest. The only battle-frame tool, `team-play shots`, opens `https://battles.bymachines.ai/` without `?test=1`, which the"
+    },
+    {
+     "ts": "2026-11-25T01:13:37+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": "answered Q-0139"
+    },
+    {
+     "ts": "2026-11-25T01:13:37+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Cannot be done as written (Q-0139): the only frame tool opens a non-test page and times out. Replaced in this cycle by the shots-tool fix and a local proof spec for the five weapons."
+    }
+   ]
+  },
+  {
+   "id": "T-0335",
+   "title": "Shots tool opens the game as a test client: tests/tools/battle-shots.mjs with ?test=1, a --render-test mode, guard extended to tests/tools",
+   "type": "defect",
+   "state": "accepted",
+   "priority": "P1",
+   "goal": "Alpha with friends: real players never see or join the team's test rooms (G1, G2)",
+   "role": "developer",
+   "created": "2026-11-25T01:13:51+00:00",
+   "accepted_at": "2026-11-25T03:20:17+00:00",
+   "released_sha": "29e6ed9d88ea5f2bd0529bc0282fb650a2b627ea",
+   "history": [
+    {
+     "ts": "2026-11-25T01:13:51+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-25T02:05:53+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261125T0200-exec-T-0335"
+    },
+    {
+     "ts": "2026-11-25T02:05:53+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-25T02:18:56+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 29e6ed9d88"
+    },
+    {
+     "ts": "2026-11-25T03:20:17+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The patched shots tool opens the game with ?test=1, runs --weapon cryo against the deployed host and writes all 7 frames; the guard test is in the green npm test. Several criteria rest on the implemen"
+    }
+   ]
+  },
+  {
+   "id": "T-0336",
+   "title": "Principle weapons proof (replaces T-0334): local spec seeds cryo, napalm, tesla, wave_rocket, laser; frames in docs/shots/principle-weapons/",
+   "type": "quality",
+   "state": "blocked",
+   "priority": "P1",
+   "goal": "M1 criterion 6: the weapons on physical principles the owner asked for on 24.11 are seen working (G1)",
+   "role": "developer",
+   "created": "2026-11-25T01:14:05+00:00",
+   "accepted_at": null,
+   "released_sha": "cd1f45ded681453eee96d8d34dd26bc7f6887d70",
+   "history": [
+    {
+     "ts": "2026-11-25T01:14:05+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-25T02:47:16+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261125T0245-exec-T-0336"
+    },
+    {
+     "ts": "2026-11-25T02:47:16+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-25T03:12:51+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged cd1f45ded6"
+    },
+    {
+     "ts": "2026-11-25T05:27:34+00:00",
+     "actor": "reviewer",
+     "to": "blocked",
+     "note": "inconclusive 3×: not accepted without proof: The spec could not be run: `team-play test --spec tests/e2e/principle-weapons-shots.spec.ts --project desktop` against https://battles.bymachines.ai timed "
+    }
+   ]
+  },
+  {
+   "id": "T-0337",
+   "title": "E2E host lock: takeover race fixed — never two holders at once; a Vitest test with 8 concurrent waiters on a stale lock",
+   "type": "defect",
+   "state": "accepted",
+   "priority": "P1",
+   "goal": "M1: a reliable check cycle (two e2e runs never share the host, so specs do not fail for a reason no task owns)",
+   "role": "developer",
+   "created": "2026-11-25T01:14:19+00:00",
+   "accepted_at": "2026-11-25T04:03:06+00:00",
+   "released_sha": "fe4ff98212802c56e4c3ad6df4b63dd54825a7c7",
+   "history": [
+    {
+     "ts": "2026-11-25T01:14:19+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-25T02:47:16+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261125T0245-exec-T-0337"
+    },
+    {
+     "ts": "2026-11-25T02:47:16+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-25T02:56:11+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged fe4ff98212"
+    },
+    {
+     "ts": "2026-11-25T04:03:06+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "The change is repo-only and touches e2e infrastructure. The fix takes a guard file, re-checks staleness under it, and removes the lock by rename. The new 8-process test, real concurrent processes with"
+    }
+   ]
+  },
+  {
+   "id": "T-0338",
+   "title": "Forest: the server does not send a recipient the cars hidden from it in the forest (PROTOCOL.md versioned), proved by server tests",
+   "type": "defect",
+   "state": "accepted",
+   "priority": "P1",
+   "goal": "Alpha with friends: the server is the only source of truth — forest hiding cannot be bypassed",
+   "role": "developer",
+   "created": "2026-11-25T02:05:17+00:00",
+   "accepted_at": "2026-11-25T06:16:55+00:00",
+   "released_sha": "29a8c407f7d1fcf4ae1cc41bf4b8ff2042831160",
+   "history": [
+    {
+     "ts": "2026-11-25T02:05:17+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-25T03:33:54+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261125T0330-exec-T-0338"
+    },
+    {
+     "ts": "2026-11-25T03:33:54+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-25T03:43:35+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 29a8c407f7"
+    },
+    {
+     "ts": "2026-11-25T06:16:55+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "Acceptance rests on 4 unit tests in forest-snapshot.test.ts, which passed in the dispatcher's full npm test run (exit 0), and PROTOCOL.md carries version 2 and the rule. No live two-client forest play"
+    }
+   ]
+  },
+  {
+   "id": "T-0339",
+   "title": "Seeded-car proof for T-0220: Vitest guard — no e2e spec seeds a literal CarSpec version; the helper's car passes the car check",
+   "type": "quality",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "M1: a reliable check cycle (e2e tests check the car they set)",
+   "role": "developer",
+   "created": "2026-11-25T02:05:35+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-25T02:05:35+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0340",
+   "title": "Tesla arc proof: engine test that a hit chains to a second enemy inside the arc radius; arcs per hit at 4 and 6 cars in reports/tesla-arc.md",
+   "type": "defect",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "Alpha: more or less balanced weapons — the tesla does what its rule says (M1 criterion 6)",
+   "role": "developer",
+   "created": "2026-11-25T03:33:31+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-25T03:33:31+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0341",
+   "title": "Laser ramp and blast-wave push in snapshots (PROTOCOL.md versioned); beam drawn by ramp step; test hook shows cold, burn, beam",
+   "type": "milestone",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "M1 criterion 6: the player sees what a weapon on a physical principle is doing to him and can answer",
+   "role": "developer",
+   "created": "2026-11-25T03:33:42+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-25T03:33:42+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0342",
+   "title": "Pickups proof for T-0242: Vitest server test — pickup spawns on time, picking it up changes hp, shield or speed in snapshots",
+   "type": "quality",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "Alpha test item 4 (M1 criterion 4): pickups on the arena work for a live player — seen working",
+   "role": "developer",
+   "created": "2026-11-25T04:18:10+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-25T04:18:10+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0343",
+   "title": "design/gdd/19-2-forest-edge-cases.md: лес и утечки — что получает погибший игрок, мины и масло скрытой машины, цена мерцания",
+   "type": "design",
+   "state": "rejected",
+   "priority": "P2",
+   "goal": "Альфа с друзьями: сервер — единственный источник правды, скрытие в лесу нельзя обойти",
+   "role": "game-designer",
+   "created": "2026-11-25T04:18:20+00:00",
+   "accepted_at": null,
+   "released_sha": "e6a05e6970426a84b414dd7df6fbf8f4394baeaf",
+   "history": [
+    {
+     "ts": "2026-11-25T04:18:20+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-25T04:28:08+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261125T0415-exec-T-0343"
+    },
+    {
+     "ts": "2026-11-25T04:28:08+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-25T04:35:43+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 98945d7254"
+    },
+    {
+     "ts": "2026-11-25T05:28:18+00:00",
+     "actor": "reviewer",
+     "to": "in_progress",
+     "note": "failed: The developer task is missing. The report has no proposed_tasks, and the file has no developer task with checkable criteria. The only mention is «задача developer, которая его назовёт» (§6)."
+    },
+    {
+     "ts": "2026-11-25T05:34:40+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged e6a05e6970"
+    },
+    {
+     "ts": "2026-11-25T06:35:02+00:00",
+     "actor": "reviewer",
+     "to": "blocked",
+     "note": "failed review 2×: The criterion «одна задача developer в proposed_tasks с проверяемыми критериями» is not met. design/gdd/19-2-forest-edge-cases.md has no proposed_tasks or developer-task section, and"
+    },
+    {
+     "ts": "2026-11-25T07:10:33+00:00",
+     "actor": "po",
+     "to": "rejected",
+     "note": "closed by PO: Failed review twice and its premise is gone: the owner chose a dim silhouette on 25.11 (OBS-1169), so position and pose of a hidden car are sent again. Replaced by the new 19-3-forest-si"
+    }
+   ]
+  },
+  {
+   "id": "T-0344",
+   "title": "sim:pickups at the goal's sample (400 battles × 2 seeds): reports/pickups-sim.md regenerated, Ц1 verdict; unused sim worker removed",
+   "type": "quality",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "Alpha test item 4 (M1 criterion 4): the share of bonuses a live player can get is measured before real battles",
+   "role": "developer",
+   "created": "2026-11-25T04:58:30+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-25T04:58:30+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0345",
+   "title": "Ходовая в бою читается: поправка DESIGN.md §18 для масштаба боя (ходовая около 50 px) и docs/chassis-battle-scale.svg",
+   "type": "design",
+   "state": "accepted",
+   "priority": "P2",
+   "goal": "G1: игрок видит разные машины в бою — трайк, мотоцикл, гусеницы и четыре колеса различимы с первого взгляда",
+   "role": "designer",
+   "created": "2026-11-25T04:58:42+00:00",
+   "accepted_at": "2026-11-25T06:07:24+00:00",
+   "released_sha": "209bd4c2996221e8254b4e575a6bdca8e509a52c",
+   "history": [
+    {
+     "ts": "2026-11-25T04:58:42+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-25T05:01:16+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261125T0455-exec-T-0345"
+    },
+    {
+     "ts": "2026-11-25T05:01:16+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-25T05:11:08+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 209bd4c299"
+    },
+    {
+     "ts": "2026-11-25T06:07:24+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "DESIGN.md §18.8 and docs/chassis-battle-scale.png meet the acceptance. The section names what fails at about 50 px for A2, B1, C1 and W4, gives numbers scaled by r/23, shows a greyscale reading, state"
+    }
+   ]
+  },
+  {
+   "id": "T-0346",
+   "title": "Principle weapons proof for T-0336: Vitest server test — each of the five weapons damages its target; cryo cold and napalm burn in snapshots",
+   "type": "quality",
+   "state": "accepted",
+   "priority": "P1",
+   "goal": "M1 criterion 6: the weapons on physical principles the owner asked for on 24.11 are seen working (G1)",
+   "role": "developer",
+   "created": "2026-11-25T05:43:49+00:00",
+   "accepted_at": "2026-11-25T06:48:04+00:00",
+   "released_sha": "92ee965f395982ac716ce0d27b1e9fbd12a22973",
+   "history": [
+    {
+     "ts": "2026-11-25T05:43:49+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-25T05:44:13+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261125T0540-exec-T-0346"
+    },
+    {
+     "ts": "2026-11-25T05:44:13+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-25T05:52:35+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 92ee965f39"
+    },
+    {
+     "ts": "2026-11-25T06:48:04+00:00",
+     "actor": "reviewer",
+     "to": "accepted",
+     "note": "Repo-only Vitest task: I read the new test and the dispatcher's npm test run (97 files, 667 tests passed, exit 0). The test covers every acceptance criterion, with numbers read from balance.json and f"
+    }
+   ]
+  },
+  {
+   "id": "T-0347",
+   "title": "Arena look: hatch step of thin walls and pillars follows DESIGN.md §20 (target 12; pillar no longer 26), pinned by a unit test",
+   "type": "quality",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G1: arenas with thin walls and cover look as the accepted drawing (owner 22.11: more cover from railguns)",
+   "role": "developer",
+   "created": "2026-11-25T05:44:01+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-25T05:44:01+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0348",
+   "title": "Chassis readable at battle scale: A2, B1, C1 and W4 drawn by DESIGN.md §18.8 (line widths, wheel and track sizes), W4 inside r + 0.5",
+   "type": "quality",
+   "state": "ready",
+   "priority": "P2",
+   "goal": "G1: the player sees different cars in battle — trike, bike, tracks and four wheels are told apart at a glance",
+   "role": "developer",
+   "created": "2026-11-25T06:29:56+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-25T06:29:56+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "T-0349",
+   "title": "Humans-only G1 and G2 for 24.11 and 25.11 from by_origin of https://battles.bymachines.ai/_team/metrics.json (separate source, per Q-0143)",
+   "type": "research",
+   "state": "done",
+   "priority": "P2",
+   "goal": "G1, G2: battles and finished share are read for real players before the owner decides on the alpha",
+   "role": "analyst",
+   "created": "2026-11-25T06:30:19+00:00",
+   "accepted_at": null,
+   "released_sha": null,
+   "history": [
+    {
+     "ts": "2026-11-25T06:30:19+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-25T06:35:03+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261125T0625-exec-T-0349"
+    },
+    {
+     "ts": "2026-11-25T06:35:03+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-25T06:35:35+00:00",
+     "actor": "dispatcher",
+     "to": "done",
+     "note": "measurement delivered"
+    }
+   ]
+  },
+  {
+   "id": "T-0350",
+   "title": "Tests: replay.test.ts «recording costs the tick less than 10 %» no longer depends on host load (replaces T-0236)",
+   "type": "defect",
+   "state": "released",
+   "priority": "P1",
+   "goal": "M1: a reliable check cycle (npm test on main without flaky tests)",
+   "role": "developer",
+   "created": "2026-11-25T07:10:45+00:00",
+   "accepted_at": null,
+   "released_sha": "8f3060fec53647b394f9a40dc504b4008de7e2b2",
+   "history": [
+    {
+     "ts": "2026-11-25T07:10:45+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-25T07:11:24+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261125T0707-exec-T-0350"
+    },
+    {
+     "ts": "2026-11-25T07:11:24+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-25T07:19:46+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 8f3060fec5"
+    }
+   ]
+  },
+  {
+   "id": "T-0351",
+   "title": "design/gdd/19-3-forest-silhouette.md: скрытый в лесу враг — тусклый силуэт (владелец 25.11), что шлёт сервер и что рисует страница",
+   "type": "design",
+   "state": "released",
+   "priority": "P1",
+   "goal": "M1 критерий 6: бой на десктопе интереснее — правила леса в документах совпадают с игрой и словом владельца",
+   "role": "game-designer",
+   "created": "2026-11-25T07:10:57+00:00",
+   "accepted_at": null,
+   "released_sha": "134f413821035a5eb93c7787df6127ae5c1344bc",
+   "history": [
+    {
+     "ts": "2026-11-25T07:10:57+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-25T07:22:58+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261125T0707-exec-T-0351"
+    },
+    {
+     "ts": "2026-11-25T07:22:58+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-25T07:26:34+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged 134f413821"
+    }
+   ]
+  },
+  {
+   "id": "T-0352",
+   "title": "design/gdd/18-6-1-principle-weapon-rules.md: правила пяти оружий на принципах и двух бонусов-взрывов — что делает, ответ соперника, ключи",
+   "type": "design",
+   "state": "released",
+   "priority": "P1",
+   "goal": "Альфа: более или менее сбалансированное оружие — у пяти новых оружий и двух бонусов есть записанные правила",
+   "role": "game-designer",
+   "created": "2026-11-25T07:11:10+00:00",
+   "accepted_at": null,
+   "released_sha": "c67dab2f5ad435771905d43cc29dd2737192b19f",
+   "history": [
+    {
+     "ts": "2026-11-25T07:11:10+00:00",
+     "actor": "po",
+     "to": "ready",
+     "note": ""
+    },
+    {
+     "ts": "2026-11-25T07:23:19+00:00",
+     "actor": "dispatcher",
+     "to": "claimed",
+     "note": "20261125T0707-exec-T-0352"
+    },
+    {
+     "ts": "2026-11-25T07:23:19+00:00",
+     "actor": "dispatcher",
+     "to": "in_progress",
+     "note": "started"
+    },
+    {
+     "ts": "2026-11-25T07:27:32+00:00",
+     "actor": "dispatcher",
+     "to": "released",
+     "note": "merged c67dab2f5a"
+    }
+   ]
+  }
+ ],
+ "reviews": [
+  {
+   "task": "T-0213",
+   "verdict": "inconclusive",
+   "summary": "The flamethrower spec never produced a result: both `team-play test` runs (plain and --grep @live) failed with exit 1 after only progress lines and a 600 s timeout. The battle frames agree with the design (jet toward the cursor along the turret, no cone outline), but the numeric criteria (±2° turret match, 0.5 rad, cone_deg, 0.3 s release) were not observed by me."
+  },
+  {
+   "task": "T-0327",
+   "verdict": "pass",
+   "summary": "The change is documentation only: DESIGN.md §26 and docs/oil-spin.svg/.png. The diff touches only those three files, with 62 insertions and 0 deletions, and the image and section text meet every criterion. No browser scenarios or battle frames were run, because nothing the game renders was changed."
+  },
+  {
+   "task": "T-0220",
+   "verdict": "inconclusive",
+   "summary": "The grep criterion and npm test are met, and both specs use the helper. I couldn't observe either desktop spec pass: both team-play runs hit the 600s limit with no results. The implementer also saw about 12.5 min of host-lock waiting, so the lock is the likely cause."
+  },
+  {
+   "task": "T-0330",
+   "verdict": "pass",
+   "summary": "The task is a design deliverable (§27 in DESIGN.md plus two pictures), and I checked each acceptance item against the files and the two PNGs. The four zones, the forest in three states, the greyscale copies, the layer and test names and the drawing numbers are all present."
+  },
+  {
+   "task": "T-0332",
+   "verdict": "pass",
+   "summary": "The new file is the only change in the diff. Every zone value I compared matches balance.json (arena_zones version 1), and the file covers the rest of the criteria and negative cases."
+  },
+  {
+   "task": "T-0331",
+   "verdict": "pass",
+   "summary": "The docs-only task is met: DESIGN.md §28 and docs/physics-weapons.png cover all five weapons, both states in colour and greyscale, and both bonuses on the spot, arming and spreading. The named layers, drawing numbers and what the hit player sees are all given."
+  },
+  {
+   "task": "T-0242",
+   "verdict": "inconclusive",
+   "summary": "I could not play the pickups @live scenario. Both runs of team-play test timed out at 600 s with no test result, probably while waiting for the e2e host lock, which the implementer also reported waiting on for 7 to 17 min. The only checks I made were the empty `git diff --stat` and the dispatcher's passing npm test."
+  },
+  {
+   "task": "T-0129",
+   "verdict": "pass",
+   "summary": "On the deployed host the flag is off (/api/flags returns {\"turret\":false}). The garage and a battle (railgun/shield) look and behave as before. The merged run's npm test exited 0 with the 200-car balance test green. I could not play the flag-on state (production has no TURRET_ENABLED), and my smoke e2e spec timed out after 600 s with no tests run."
+  },
+  {
+   "task": "T-0242",
+   "verdict": "inconclusive",
+   "summary": "I could not play the pickups scenario. Both runs of `team-play test` timed out after 600 s without a test result, most likely because they were waiting on the e2e host lock. The criteria are unverified, and the only evidence is the implementer's claim and the dispatcher's passing npm test."
+  },
+  {
+   "task": "T-0335",
+   "verdict": "pass",
+   "summary": "The patched shots tool opens the game with ?test=1, runs --weapon cryo against the deployed host and writes all 7 frames; the guard test is in the green npm test. Several criteria rest on the implementer's report: the --render-test run, the local per-mode timings, the temp-file guard failure and the diff scope."
+  },
+  {
+   "task": "T-0336",
+   "verdict": "inconclusive",
+   "summary": "The five frames and the README exist, and the two frames I opened (cryo.png, tesla.png) match the README claims. The spec did not finish through team-play within 600 s, so the seeding, snapshot-assertion and local-pass criteria are unverified by me."
+  },
+  {
+   "task": "T-0242",
+   "verdict": "inconclusive",
+   "summary": "Neither live pickups run produced a result: both waited the full 600 s and were killed by the tool timeout, most likely stuck on the e2e host lock (the implementer saw the same 6–17 min waits). No criterion was observed, so I could not verify the change."
+  },
+  {
+   "task": "T-0337",
+   "verdict": "pass",
+   "summary": "The change is repo-only and touches e2e infrastructure. The fix takes a guard file, re-checks staleness under it, and removes the lock by rename. The new 8-process test, real concurrent processes with an exclusive marker, passed in the dispatcher's npm test. I did not independently re-run the pre-fix failure; I judged it from the test's structure and the report's quote."
+  },
+  {
+   "task": "T-0338",
+   "verdict": "inconclusive",
+   "summary": "I could not verify the behaviour. Both the Playwright run (timed out after 600s) and the battle-frames script hung on the deployed host, and the server log showed only build output. The only evidence is the PROTOCOL.md version line and a dispatcher test run with 1 unrelated-looking failure."
+  },
+  {
+   "task": "T-0336",
+   "verdict": "inconclusive",
+   "summary": "I read all five committed 1280×720 frames and the README. They come from the game's own renderer and show cryo, napalm, tesla, wave_rocket and laser firing. I could not re-run the spec: `team-play test` on the deployed host timed out at 600 s, so the \"spec passes\" criterion has no observation of mine."
+  },
+  {
+   "task": "T-0245",
+   "verdict": "pass",
+   "summary": "This repo-only task has no player-visible change. I checked the tracked report in the checkout against each acceptance criterion by reading it, and the dispatcher's `npm test` run (659/659) covers the new test. I did not rerun `sim:pickups` or play a battle, and I could not check the diff scope."
+  },
+  {
+   "task": "T-0243",
+   "verdict": "fail",
+   "summary": "The client scenario passes on live in 11.9 s, but the live replay scenario timed out at 300 s in my run, so the claimed 214 s pass was not reproduced. Verdict is fail on the replay criterion; a re-run or a shorter live variant is needed."
+  },
+  {
+   "task": "T-0338",
+   "verdict": "inconclusive",
+   "summary": "I could not verify the forest-hiding criteria by play: the task forbids Playwright, no e2e spec covers forest hiding, and I cannot run the unit tests. Only the PROTOCOL.md version line (version 2) is confirmed, and the battle frames render normally with no forest on screen."
+  },
+  {
+   "task": "T-0336",
+   "verdict": "inconclusive",
+   "summary": "I could not run the new spec: `team-play test` against the deployed host timed out after 600 s with no test lines, and the spec is local-only (`?render=test` plus a local server). I only read the committed README and two of the five frames (cryo.png, tesla.png), which are real 1280×720 renderer frames taken mid-fire and match the README table."
+  },
+  {
+   "task": "T-0343",
+   "verdict": "fail",
+   "summary": "The design document covers the three cases, gives one rule each for the dead player and for mines and oil, treats flicker as an owner variant, and lists server tests. The diff touches only the new file. It fails because the required developer task in proposed_tasks is absent."
+  },
+  {
+   "task": "T-0260",
+   "verdict": "fail",
+   "summary": "I could not rerun the spec: team-play test of chassis-shots.spec.ts timed out at 600 s with exit 1 and no test lines, and the implementer reported the same host-lock waits. The committed frames show the wheels in the zoom crops for A2, B1 and W4, but the garage frames do not show the Chassis line, and C1 has no crop."
+  },
+  {
+   "task": "T-0263",
+   "verdict": "inconclusive",
+   "summary": "The 8 tracked PNGs exist and the four battle frames and four mini-maps look right on inspection. My own run of arena-shots.spec.ts against the live host timed out at 600 s with no per-test line, so the spec's in-view assertion is not confirmed by me."
+  },
+  {
+   "task": "T-0345",
+   "verdict": "pass",
+   "summary": "DESIGN.md §18.8 and docs/chassis-battle-scale.png meet the acceptance. The section names what fails at about 50 px for A2, B1, C1 and W4, gives numbers scaled by r/23, shows a greyscale reading, states the r+0.5 limit with the hit circle and camera unchanged, and records a camera zoom only as an owner option. I could not run a git diff to confirm that only the four files changed; I relied on the implementer's file list."
+  },
+  {
+   "task": "T-0338",
+   "verdict": "pass",
+   "summary": "Acceptance rests on 4 unit tests in forest-snapshot.test.ts, which passed in the dispatcher's full npm test run (exit 0), and PROTOCOL.md carries version 2 and the rule. No live two-client forest play was done, so live behaviour is unproven."
+  },
+  {
+   "task": "T-0343",
+   "verdict": "fail",
+   "summary": "The design document is substantively good: it has one rule each for the dead player and for mines and oil, an owner variant for flicker with hidden_alpha at 0, and a per-rule server test list. It fails because the required single developer task in proposed_tasks, with checkable criteria, appears nowhere in the file or the report."
+  },
+  {
+   "task": "T-0263",
+   "verdict": "inconclusive",
+   "summary": "The 8 frames and the README are in the checkout, and the opened battle frames show hatched pillars and thin walls drawn by the game's own renderer. The spec timed out after 600s on the live host, so the in-view assertions and the local pass are unverified."
+  },
+  {
+   "task": "T-0346",
+   "verdict": "pass",
+   "summary": "Repo-only Vitest task: I read the new test and the dispatcher's npm test run (97 files, 667 tests passed, exit 0). The test covers every acceptance criterion, with numbers read from balance.json and field names from PROTOCOL.md. I did not run the test or git diff --stat myself, and no browser play was in scope."
+  },
+  {
+   "task": "T-0243",
+   "verdict": "inconclusive",
+   "summary": "The change only adds report text, and the diff is limited to the allowed file. I could not watch client:44 pass myself, because the live run timed out after 600 s waiting for the host lock. The report's claims are therefore unverified by me."
+  },
+  {
+   "task": "T-0260",
+   "verdict": "inconclusive",
+   "summary": "The spec could not be played here: `team-play test` on chassis-shots.spec.ts timed out at 600 s without a result. The tracked frames and README look right by eye, and the dispatcher's npm test passed (669/669)."
+  }
+ ],
+ "posts": [],
+ "metrics": {
+  "humans": 0,
+  "engaged": 0,
+  "returns": 0,
+  "agents": 0,
+  "crawlers": 0,
+  "requests": 0
+ },
+ "spend_usd": 67.4,
+ "po_digest_md": "## AI Battles — цикл 25.11, 07:07 UTC\n\n**Что произошло**\n- Вы ответили про лес: «Тусклый силуэт». Оператор выложил `hidden_alpha` 0,3; место скрытой машины снова уходит на страницу, здоровье и состояния нет.\n- Тест `replay.test.ts` (цена записи боя) снова дважды упал под нагрузкой хоста. Он входит в `npm test` и держит приёмку чужих задач.\n- Ревьюер нашёл, что в разделе 18-6 нет правил пяти новых оружий: там только путь выпуска и пороги.\n\n**Что решено**\n- Новая задача разработчику (P1): сделать тест записи боя независимым от нагрузки. Заменяет T-0236, та закрыта.\n- Новая задача геймдизайнеру: записать правило силуэта в новый файл 19-3. T-0343 закрыта: ваш ответ снял её вопросы. Ответы заместителя «не видно вовсе» этим отменены.\n- Новая задача геймдизайнеру: правила пяти оружий и двух бонусов-взрывов в новом файле 18-6-1. Заменяет заблокированную T-0333.\n- Ботов (поверхности, три уровня) делает оператор, задачу разработчику не завожу. Выбор уровня в опциях комнаты ждёт вашего слова.\n- T-0263 (кадры четырёх арен) принимается по локальным доказательствам: живой e2e по-прежнему молчит до таймаута 600 с.\n\n**Что ждёт вас**\n- Запуск альфы (Q-0146): нагрузка пройдена, идёт баланс десяти оружий.\n- Три пробела гаража (Q-0138): проверка Origin, ежедневная копия, расхождение документа с кодом.\n- Починка team-play для живых прогонов (Q-0136).\n\n**Метрики и расход**\n- Общие числа боёв (25.11: 797 начато, 714 брошено) почти целиком тестовый трафик, выводов по G1 и G2 из них не делаю.\n- Потрачено $61 из $350.",
+ "analyst_md": "**Уровни не складываем.** Данные на 25.11 (неполный день, снимок 05:40 UTC).\n\n| Метрика | 25.11 | 24.11 | 23.11 |\n|---|---|---|---|\n| Бои начато / доиграно / брошено | 601 / 55 / 535 | 1140 / 104 / 992 | 1095 / 176 / 886 |\n| Игроки / пик онлайн | 632 / 53 | 1339 / 153 | 1178 / 42 |\n| p95 задержки, мс | 31.2 | 31.5 | 31.6 |\n| Ошибки сервера | 0 | 0 | 0 |\n\nDiscovery: GSC — 0 показов и 0 кликов, индекса нет. Возвраты: метрики нет («—»), G3 не измерим. Целевые действия и агенты в данных не выделены.\n\n**Подозрение на свой трафик:** ~9% доигранных при 600–1100 «игроках» и пике 153, тогда как владелец говорил о трёх живых людях. Скорее всего это e2e, load и ревью. Правка T-0309 (разбивка по origin) принята 24.11, но по этим данным эффекта не видно: всё в одной строке.\n\n**Баланс (v7, 1 день, полоса 0.20–0.30):** вне полосы почти всё (UNDER у большинства строк); хуже всего reactor 8–10: 41 выбор, 0.07 (−0.18); shield 32, 0.12. У людей везде мало выборов (<30). Полоса рассчитана на 4 машины, а комната по умолчанию на 6 (честная доля 0.167): чтение, скорее всего, ложное (T-0311 это описывает). Люди и все бои совпадают по знаку, но боты не искажают сильнее выборки.\n\n**Задачи:** T-0309 — недостаточно данных; T-0338 (лес) и остальные — эффекта на метриках нет.",
+ "observations": {
+  "new": 88,
+  "by_class": {
+   "environment_error": 3,
+   "reproducible_defect": 2,
+   "need_hypothesis": 76,
+   "ux_friction": 4,
+   "success": 2,
+   "measurement": 1
+  }
+ },
+ "owner_questions_open": 0
+}

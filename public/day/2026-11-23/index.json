@@ -1312,7 +1312,7 @@
   "review_fail": 17,
   "review_inconclusive": 42
  },
- "built": "2026-11-24T07:43:37Z",
+ "built": "2026-11-25T07:48:47Z",
  "counts": {
   "agent-team": {
    "agents": null,
@@ -3780,7 +3780,7 @@
      "priority": "P3",
      "released_sha": null,
      "role": "developer",
-     "state": "ready",
+     "state": "rejected",
      "title": "PROTOCOL.md: room autostart 60 s from match.room_autostart_wait_s, and the server_error error code",
      "type": "defect"
     },
@@ -4477,7 +4477,8 @@
      "type": "quality"
     },
     {
-     "accepted_at": null,
+     "accepted_at": "2026-11-24T14:53:32+00:00",
+     "artifact": null,
      "created": "2026-11-22T07:01:41+00:00",
      "goal": "G1 / balance standing direction: real-match balance data is correct",
      "history": [
@@ -4502,14 +4503,15 @@
      ],
      "id": "T-0098",
      "priority": "P2",
-     "released_sha": null,
+     "released_sha": "dc5e6c4d8fe9c052b21619bb987a25cfc35f9cfa",
      "role": "developer",
-     "state": "ready",
+     "state": "accepted",
      "title": "Balance telemetry: a human who left before the battle closed is still counted as a human in humans_only",
      "type": "defect"
     },
     {
-     "accepted_at": null,
+     "accepted_at": "2026-11-24T16:07:32+00:00",
+     "artifact": null,
      "created": "2026-11-22T07:27:30+00:00",
      "goal": "M1: a reliable check cycle (e2e does not fail on host load)",
      "history": [
@@ -4534,9 +4536,9 @@
      ],
      "id": "T-0099",
      "priority": "P2",
-     "released_sha": null,
+     "released_sha": "356e36427de5fd1b95a12083b177e5ed268ac750",
      "role": "developer",
-     "state": "ready",
+     "state": "accepted",
      "title": "E2E: the Fight! banner spec waits on the match-start state, not a fixed 2.5 s window",
      "type": "quality"
     },
@@ -4816,7 +4818,8 @@
      "type": "design"
     },
     {
-     "accepted_at": null,
+     "accepted_at": "2026-11-24T21:45:32+00:00",
+     "artifact": null,
      "created": "2026-11-22T12:31:08+00:00",
      "goal": "M1: generated cars differ (VISION: very different cars, roughly equal chances)",
      "history": [
@@ -4841,9 +4844,9 @@
      ],
      "id": "T-0122",
      "priority": "P2",
-     "released_sha": null,
+     "released_sha": "60d7ee79223a46b80a5eb90469529cbfa60bd89a",
      "role": "developer",
-     "state": "ready",
+     "state": "accepted",
      "title": "Generator: car size is almost always 8–10 (45 of 48 picks): find the cause and report the size distribution",
      "type": "defect"
     },
@@ -5252,6 +5255,7 @@
     },
     {
      "accepted_at": null,
+     "artifact": null,
      "created": "2026-11-22T19:36:23+00:00",
      "goal": "G1: скорость поворота башни различается у машин и задаёт стиль игры (владелец 22.11)",
      "history": [
@@ -5278,7 +5282,7 @@
      "priority": "P2",
      "released_sha": null,
      "role": "developer",
-     "state": "ready",
+     "state": "done",
      "title": "Probe 2/3 for T-0129: Приёмка флагового прототипа без полного e2e",
      "type": "research"
     },
@@ -5593,7 +5597,7 @@
      "priority": "P1",
      "released_sha": "7c81c8ae955f0a6149e8289ed6095b1679f0db6b",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Журнал подключений и боёв (готово к альфе, п. 7): доделать по ветке T-0032, критерий «нет новых падений относительно main»",
      "type": "quality"
     },
@@ -5677,7 +5681,7 @@
      "priority": "P1",
      "released_sha": "413183f2d78ff5e819ac9138e1af1662a0bab362",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Мультиплеер: ник игрока на текущую сессию — ввод в гараже, виден в лобби, над машиной, в таблице и в итогах",
      "type": "milestone"
     },
@@ -6235,9 +6239,9 @@
      ],
      "id": "T-0200",
      "priority": "P2",
-     "released_sha": null,
+     "released_sha": "42c8d0a8ff65ef963720319f7fe8e2581b899841",
      "role": "developer",
-     "state": "ready",
+     "state": "blocked",
      "title": "E2E: exhaust.spec.ts and every other spec runnable without test env tagged @live (audit of tests/e2e)",
      "type": "quality"
     },
@@ -6461,12 +6465,13 @@
      "priority": "P1",
      "released_sha": "d6190494f7b0e2c79583cb7bda33d3f76f6cde71",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Боты у бонусов: задержка замечания как у человека, бот видит бонус только на своём экране, щит и лечение в бою берёт, предела на число бонусов нет",
      "type": "milestone"
     },
     {
-     "accepted_at": null,
+     "accepted_at": "2026-11-24T22:14:21+00:00",
+     "artifact": null,
      "created": "2026-11-23T03:21:26+00:00",
      "goal": "Альфа-тест, пункт 4: доля бонусов у живого игрока измерима на настоящих боях",
      "history": [
@@ -6497,9 +6502,9 @@
      ],
      "id": "T-0206",
      "priority": "P2",
-     "released_sha": null,
+     "released_sha": "67aff100a64b686465a37d02c4f36a2dbe4d87de",
      "role": "developer",
-     "state": "ready",
+     "state": "accepted",
      "title": "Метрика бонусов по водителю: доля бонусов у людей и у ботов за первые 10 с и за раунд в /_team/metrics.json",
      "type": "quality"
     },
@@ -6792,7 +6797,7 @@
      "priority": "P0",
      "released_sha": "81592923b8eb949b6e95e7611eba33804a7c7129",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Движок: угасание урона с расстоянием по блоку falloff (GAME-DESIGN §5.3.4) работает за выключателем и видно в npm run sim:weapons",
      "type": "milestone"
     },
@@ -6878,9 +6883,9 @@
      ],
      "id": "T-0213",
      "priority": "P2",
-     "released_sha": null,
+     "released_sha": "a795bc0ffb097c6b0ec5e55ee7788ec609bcb854",
      "role": "developer",
-     "state": "ready",
+     "state": "blocked",
      "title": "E2E: flamethrower.spec.ts @live — струя идёт по башне за курсором, контура конуса нет (B-002, владелец 23.11)",
      "type": "quality"
     },
@@ -6925,7 +6930,7 @@
      "priority": "P2",
      "released_sha": "d58b57ee0ee0bbd463daa2446c5f474f52c35da3",
      "role": "game-designer",
-     "state": "accepted",
+     "state": "done",
      "title": "GAME-DESIGN.md: огнемёт на башне (B-002) — сверить §3.3, таблицу §5.3 и поведение ботов §8",
      "type": "design"
     },
@@ -7296,9 +7301,9 @@
      ],
      "id": "T-0220",
      "priority": "P2",
-     "released_sha": null,
+     "released_sha": "b287a2f505af7620554566b8d24f145f6352a60a",
      "role": "developer",
-     "state": "ready",
+     "state": "blocked",
      "title": "E2E: seeded test cars use the current CarSpec version; a helper fails loudly if the client discards the car",
      "type": "defect"
     },
@@ -7343,7 +7348,7 @@
      "priority": "P2",
      "released_sha": "8f0bb5a994645d848baf200f97cd63cb69b3f907",
      "role": "designer",
-     "state": "accepted",
+     "state": "done",
      "title": "DESIGN.md §4.1 и таблица оружия: огнемёт на башне, убрать «крепление по курсу» (строки 49, 54, 337)",
      "type": "design"
     },
@@ -7450,7 +7455,7 @@
      "priority": "P2",
      "released_sha": "076457d1a30d20e1fc23db2517e7b7a3b60aba58",
      "role": "designer",
-     "state": "accepted",
+     "state": "done",
      "title": "Вид пилы и зоны укуса по 20-saw.md §20.3 и DESIGN.md §17: диск, клин сектора, укус, кулдаун",
      "type": "design"
     },
@@ -7519,7 +7524,7 @@
      "priority": "P0",
      "released_sha": "3d0d56398c4d052ab7d4337503870110d6ce3c29",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "npm test: the 200-car balance test fits its timeout under host load again (388 s against 480 s, T-0185 review)",
      "type": "defect"
     },
@@ -7797,7 +7802,7 @@
      "priority": "P1",
      "released_sha": "3a2a89a48b92cd85d3518002621ef4838e504780",
      "role": "game-designer",
-     "state": "accepted",
+     "state": "done",
      "title": "GAME-DESIGN.md под лимит: §5.3.4 (угасание) в design/gdd/05-3-4-falloff.md и строка §10 про пилу — без mechanics.md (заменяет T-0222)",
      "type": "design"
     },
@@ -7868,7 +7873,7 @@
      "priority": "P0",
      "released_sha": "b3ff18286b108acfa202bf57e920942515c5d08a",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "E2E check for T-0209: four specs run alone, result in reports/e2e-t0209-check.md; controls :56/:79 quarantined if still flaky",
      "type": "defect"
     },
@@ -7913,7 +7918,7 @@
      "priority": "P1",
      "released_sha": "53431f57e3f4b9f93ff38e5dafa63456cfa8e3bc",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Generator: equal weapon shares — finish T-0178 with the numbers in a tracked reports/generator-weapons.md produced by a script",
      "type": "defect"
     },
@@ -7958,7 +7963,7 @@
      "priority": "P0",
      "released_sha": "4a1ecfd39772e650bfc50726fe16bf4e12ad006a",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "E2E: ability-effects repair scenario stable on main; ability-effects and room-duration specs run on the live host (@live) — replaces T-0191",
      "type": "defect"
     },
@@ -8003,7 +8008,7 @@
      "priority": "P0",
      "released_sha": "455e703100b299e48692814d3ac39a72eb377438",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "E2E live: controls.spec.ts cursor-left turret/shots scenario passes on battles.bymachines.ai (cause named, waits on state)",
      "type": "defect"
     },
@@ -8044,10 +8049,10 @@
       }
      ],
      "id": "T-0236",
-     "priority": "P2",
+     "priority": "P1",
      "released_sha": null,
      "role": "developer",
-     "state": "ready",
+     "state": "rejected",
      "title": "Tests: replay.test.ts tick-cost check does not fail on host load (npm test stable on main)",
      "type": "defect"
     },
@@ -8192,7 +8197,7 @@
      "priority": "P0",
      "released_sha": "4eaa22a96aabcd9229555f3ce6ba10721b857681",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "E2E runs end on their own and show the queue wait: Playwright reporter does not hold the terminal, e2e-host-lock prints the lock wait",
      "type": "quality"
     },
@@ -8394,9 +8399,9 @@
      ],
      "id": "T-0242",
      "priority": "P2",
-     "released_sha": null,
+     "released_sha": "7175db85c5e0ff37ab162632fad563fef38c1c57",
      "role": "developer",
-     "state": "ready",
+     "state": "blocked",
      "title": "E2E live: pickups.spec.ts passes on battles.bymachines.ai (0 pickups in 30 s) and the autocannon reload-ring failure has a named cause",
      "type": "defect"
     },
@@ -8432,9 +8437,9 @@
      ],
      "id": "T-0243",
      "priority": "P2",
-     "released_sha": null,
+     "released_sha": "0eeebccbeb572c2a97a3b3cd42dcf21ff0cf3279",
      "role": "developer",
-     "state": "ready",
+     "state": "released",
      "title": "E2E live: client.spec.ts :42 and replay.spec.ts :46 run alone on the live host (@live, -g); result in the status report — replaces T-0229",
      "type": "defect"
     },
@@ -8477,7 +8482,8 @@
      "type": "quality"
     },
     {
-     "accepted_at": null,
+     "accepted_at": "2026-11-25T05:01:16+00:00",
+     "artifact": null,
      "created": "2026-11-23T14:58:08+00:00",
      "goal": "Alpha test item 4: the share of bonuses a live player can get is measurable before real battles",
      "history": [
@@ -8508,9 +8514,9 @@
      ],
      "id": "T-0245",
      "priority": "P2",
-     "released_sha": null,
+     "released_sha": "fbec1c7fe0bd7694467044acdaaab36642b399ee",
      "role": "developer",
-     "state": "ready",
+     "state": "accepted",
      "title": "sim:pickups: the 'flag off' run really has pickups off; rows Ц1, Ц3 and the pickup context split in tracked reports/pickups-sim.md",
      "type": "quality"
     },
@@ -8555,7 +8561,7 @@
      "priority": "P1",
      "released_sha": "f4b3ec70906d44c3a70dbf10889f3c5ee78dd464",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Car look: the flamethrower body turns with the turret (B-002), and weapon-variant screenshots can be taken for two seeds",
      "type": "defect"
     },
@@ -8642,7 +8648,8 @@
      "type": "milestone"
     },
     {
-     "accepted_at": null,
+     "accepted_at": "2026-11-24T21:35:49+00:00",
+     "artifact": null,
      "created": "2026-11-23T15:47:33+00:00",
      "goal": "M1: a reliable check cycle (branches do not drift, merges of unrelated tasks do not conflict)",
      "history": [
@@ -8672,10 +8679,10 @@
       }
      ],
      "id": "T-0249",
-     "priority": "P2",
-     "released_sha": null,
+     "priority": "P1",
+     "released_sha": "5ccfabcb5b5b672748b79f2af4ed88c7ebab20d7",
      "role": "developer",
-     "state": "ready",
+     "state": "accepted",
      "title": "npm test does not rewrite tracked reports/balance-report.*; only npm run balance:report writes it, committed copy regenerated once",
      "type": "quality"
     },
@@ -8726,7 +8733,7 @@
      "priority": "P0",
      "released_sha": null,
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Гараж (десктоп), сразу в код: ник рядом с описанием машины и ник по умолчанию, заметная кнопка полного экрана, подсказки о полном экране и м",
      "type": "milestone"
     },
@@ -8771,7 +8778,7 @@
      "priority": "P0",
      "released_sha": "ad0d799c194c96a7f769e6abd8066cababa40f4a",
      "role": "developer",
-     "state": "accepted",
+     "state": "done",
      "title": "Комната на серию боёв: после итогов все возвращаются в то же лобби, вход по ссылке с кодом комнаты",
      "type": "milestone"
     },
@@ -8925,7 +8932,7 @@
      "priority": "P2",
      "released_sha": "e40500a241f4b4efb1a0c70de1d3bc0797828236",
      "role": "designer",
-     "state": "accepted",
+     "state": "done",
      "title": "Экран итогов и таблица боя: значки пяти способностей и размер машины победителя — раздел DESIGN.md и docs/ability-icons.svg",
      "type": "design"
     },
@@ -8970,7 +8977,7 @@
      "priority": "P2",
      "released_sha": "b42c7673558c120b258e917be8baf0da6ccebae7",
      "role": "game-designer",
-     "state": "accepted",
+     "state": "done",
      "title": "design/gdd/15-1-9-boost-respawn.md: бонус ускорения «как навык» (числа владельца 23.11) и способность, перезаряженная после возрождения",
      "type": "design"
     },
@@ -9090,9 +9097,9 @@
      ],
      "id": "T-0260",
      "priority": "P2",
-     "released_sha": null,
+     "released_sha": "9e67cade54f7c33a7adb501e66ddc920c791aebd",
      "role": "developer",
-     "state": "ready",
+     "state": "released",
      "title": "Chassis proof for T-0208: tracked screenshots of A2, B1, C1 and W4 in the garage and in battle from a local run (docs/shots/chassis/)",
      "type": "quality"
     },
@@ -9131,7 +9138,7 @@
      "priority": "P2",
      "released_sha": "0fccf5dad8f2136feff7351d323785c0fdc73875",
      "role": "designer",
-     "state": "accepted",
+     "state": "done",
      "title": "DESIGN.md по словам владельца 23.11: штриховка тонких стен и столбов (§20), кнопка полного экрана в бою (§14.8.4), описание справа (§21.4)",
      "type": "design"
     },
@@ -9170,7 +9177,7 @@
      "priority": "P2",
      "released_sha": "2e002dc49d9d871eb6cb05d84cb547517656c579",
      "role": "game-designer",
-     "state": "accepted",
+     "state": "done",
      "title": "GAME-DESIGN.md: длина боя из match.duration_s (сейчас 180 с) вместо 2:00 и строка о таблицах v6 (ракеты 32)",
      "type": "design"
     }
@@ -10112,7 +10119,7 @@
    "spend_usd": 1.4
   }
  },
- "snapshot_built_at": "2026-11-24T07:43:37Z",
+ "snapshot_built_at": "2026-11-25T07:48:47Z",
  "spend_vs_typical": {
   "agent-team": {
    "bad_day": false,

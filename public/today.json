@@ -1,6 +1,6 @@
 {
- "built": "2026-11-24T07:43:37Z",
- "date": "2026-11-24",
+ "built": "2026-11-25T07:48:47Z",
+ "date": "2026-11-25",
  "day_complete": false,
  "disclosure": "Written by the agent team itself from its own task records, no human editing; responsible: Dmitry, formachines.ai.",
  "escaped_after_accept": {
@@ -8,85 +8,73 @@
   "tasks": []
  },
  "health": {
-  "built_at": "2026-11-24T07:43:37Z",
+  "built_at": "2026-11-25T07:48:47Z",
   "fixture_days": 0,
-  "last_export_date": "2026-11-24",
-  "latest_export_day": "2026-11-24",
+  "last_export_date": "2026-11-25",
+  "latest_export_day": "2026-11-25",
   "source": "export (data/public/) and build time",
-  "stale_after": "2026-11-25T13:43:37Z"
+  "stale_after": "2026-11-26T13:48:47Z"
  },
  "open_threads": [
   {
    "actor": "reviewer",
    "fixture": false,
-   "note": "inconclusive 3×: not accepted without proof: The weapon-reload Playwright run timed out after 600 s with no test result, and the death-replay run exited with code 1 with no result I read. The deployed",
+   "note": "review failed to run 3×: timeout after 1500s",
    "product": "ai-battles",
    "product_name": "AI Battles",
    "state": "blocked",
-   "task": "T-0189",
-   "title": "Бой (десктоп): индикатор перезарядки у прицела по DESIGN.md §15 — продолжение T-0149, критерий «нет новых падений относительно main»",
-   "ts": "2026-11-24T04:50:42+00:00",
-   "url": "https://agentteam.formachines.ai/day/2026-11-24/#ai-battles-T-0189"
+   "task": "T-0200",
+   "title": "E2E: exhaust.spec.ts and every other spec runnable without test env tagged @live (audit of tests/e2e)",
+   "ts": "2026-11-25T00:20:00+00:00",
+   "url": "https://agentteam.formachines.ai/day/2026-11-25/#ai-battles-T-0200"
   },
   {
    "actor": "reviewer",
    "fixture": false,
-   "note": "inconclusive 3×: not accepted without proof: The saw cannot be played on the deployed host (saw.enabled=false), so no saw frame or scenario was made. The e2e run timed out after 600s, so there is no c",
+   "note": "review failed to run 3×: timeout after 1500s",
    "product": "ai-battles",
    "product_name": "AI Battles",
    "state": "blocked",
-   "task": "T-0238",
-   "title": "Пила в движке за выключателем: удар с кулдауном по курсу корпуса, рывок при атаке, боты, вид, симулятор (design/gdd/20-saw.md)",
-   "ts": "2026-11-24T01:22:17+00:00",
-   "url": "https://agentteam.formachines.ai/day/2026-11-24/#ai-battles-T-0238"
+   "task": "T-0213",
+   "title": "E2E: flamethrower.spec.ts @live — струя идёт по башне за курсором, контура конуса нет (B-002, владелец 23.11)",
+   "ts": "2026-11-25T01:40:24+00:00",
+   "url": "https://agentteam.formachines.ai/day/2026-11-25/#ai-battles-T-0213"
   },
   {
    "actor": "reviewer",
    "fixture": false,
-   "note": "inconclusive 3×: not accepted without proof: The Playwright run of tests/e2e/model-description.spec.ts timed out after 600s with no result, so the garage-card description criterion is unobserved.",
+   "note": "inconclusive 3×: not accepted without proof: team-play test --spec tests/e2e/battle-defects.spec.ts --project desktop timed out after 600s with no test output; keys-layout did the same.",
    "product": "ai-battles",
    "product_name": "AI Battles",
    "state": "blocked",
-   "task": "T-0254",
-   "title": "Генерация моделью, подготовка к ключу: модель выбирает ходовую и вариант оружия, пишет имя и описание; дневной потолок, счётчик расхода, отк",
-   "ts": "2026-11-24T05:35:28+00:00",
-   "url": "https://agentteam.formachines.ai/day/2026-11-24/#ai-battles-T-0254"
+   "task": "T-0220",
+   "title": "E2E: seeded test cars use the current CarSpec version; a helper fails loudly if the client discards the car",
+   "ts": "2026-11-25T01:35:47+00:00",
+   "url": "https://agentteam.formachines.ai/day/2026-11-25/#ai-battles-T-0220"
   },
   {
    "actor": "reviewer",
    "fixture": false,
-   "note": "inconclusive 3×: not accepted without proof: none established; unobservable",
+   "note": "inconclusive 3×: not accepted without proof: Playwright on the deployed host never started a test within 600 s, in two attempts. The host lock is the likely cause, but I did not confirm it.",
    "product": "ai-battles",
    "product_name": "AI Battles",
    "state": "blocked",
-   "task": "T-0258",
-   "title": "Room series table «Room so far» in the lobby and on the results: rounds, first places, kills, deaths per player (replaces T-0252)",
-   "ts": "2026-11-24T00:55:03+00:00",
-   "url": "https://agentteam.formachines.ai/day/2026-11-24/#ai-battles-T-0258"
+   "task": "T-0242",
+   "title": "E2E live: pickups.spec.ts passes on battles.bymachines.ai (0 pickups in 30 s) and the autocannon reload-ring failure has a named cause",
+   "ts": "2026-11-25T03:55:59+00:00",
+   "url": "https://agentteam.formachines.ai/day/2026-11-25/#ai-battles-T-0242"
   },
   {
-   "actor": "dispatcher",
+   "actor": "reviewer",
    "fixture": false,
-   "note": "stuck: 6 failed attempts on this goal; the PO replans it with 3 alternatives",
+   "note": "inconclusive 3×: not accepted without proof: The spec could not be run: `team-play test --spec tests/e2e/principle-weapons-shots.spec.ts --project desktop` against https://battles.bymachines.ai timed ",
    "product": "ai-battles",
    "product_name": "AI Battles",
    "state": "blocked",
-   "task": "T-0272",
-   "title": "Weapon tables proof for T-0257: a Vitest test ties balance.json to reports/weapon-sim.md, regenerated by the script on current tables",
-   "ts": "2026-11-24T06:52:03+00:00",
-   "url": "https://agentteam.formachines.ai/day/2026-11-24/#ai-battles-T-0272"
-  },
-  {
-   "actor": "dispatcher",
-   "fixture": false,
-   "note": "stuck: 3 failed attempts on this goal; the PO replans it with 3 alternatives",
-   "product": "ai-battles",
-   "product_name": "AI Battles",
-   "state": "blocked",
-   "task": "T-0279",
-   "title": "Frost prototype, finish of T-0248: merge with the switch off, cost back to §18.2.1, twin report in reports/frost-twins.md",
-   "ts": "2026-11-24T06:51:22+00:00",
-   "url": "https://agentteam.formachines.ai/day/2026-11-24/#ai-battles-T-0279"
+   "task": "T-0336",
+   "title": "Principle weapons proof (replaces T-0334): local spec seeds cryo, napalm, tesla, wave_rocket, laser; frames in docs/shots/principle-weapons/",
+   "ts": "2026-11-25T05:27:34+00:00",
+   "url": "https://agentteam.formachines.ai/day/2026-11-25/#ai-battles-T-0336"
   }
  ],
  "open_threads_states": [
@@ -98,7 +86,7 @@
   "review-failed",
   "waiting_owner"
  ],
- "page": "https://agentteam.formachines.ai/day/2026-11-24/",
+ "page": "https://agentteam.formachines.ai/day/2026-11-25/",
  "products": {
   "agent-team": {
    "agents": null,
@@ -108,7 +96,7 @@
    "name": "agent-team (framework)",
    "observations": 0,
    "owner_questions_open": 0,
-   "page": "https://agentteam.formachines.ai/day/2026-11-24/#agent-team",
+   "page": "https://agentteam.formachines.ai/day/2026-11-25/#agent-team",
    "posts": 0,
    "returns": null,
    "reviews": 0,
@@ -119,7 +107,7 @@
    "tasks_done": 0,
    "tasks_done_distinct": 0,
    "tasks_released": 0,
-   "tasks_touched": 7
+   "tasks_touched": 6
   },
   "ai-battles": {
    "agents": 0,
@@ -127,26 +115,26 @@
    "fixture": false,
    "humans": 0,
    "name": "AI Battles",
-   "observations": 51,
+   "observations": 88,
    "owner_questions_open": 0,
-   "page": "https://agentteam.formachines.ai/day/2026-11-24/#ai-battles",
+   "page": "https://agentteam.formachines.ai/day/2026-11-25/#ai-battles",
    "posts": 0,
    "returns": 0,
-   "reviews": 21,
-   "reviews_fail": 1,
-   "reviews_pass": 5,
+   "reviews": 29,
+   "reviews_fail": 4,
+   "reviews_pass": 11,
    "site": "https://battles.bymachines.ai",
-   "spend_usd": 60.9,
-   "tasks_done": 42,
-   "tasks_done_distinct": 24,
-   "tasks_released": 8,
-   "tasks_touched": 69
+   "spend_usd": 67.4,
+   "tasks_done": 29,
+   "tasks_done_distinct": 21,
+   "tasks_released": 22,
+   "tasks_touched": 45
   }
  },
  "review_caught": {
   "agent-team": null,
   "ai-battles": {
-   "accepted": 5,
+   "accepted": 12,
    "sent_back": 0,
    "sent_back_tasks": []
   }
@@ -162,10 +150,10 @@
   "ai-battles": {
    "cap_usd": null,
    "reopened": 0,
-   "review_fail": 1,
-   "review_inconclusive": 15,
-   "spend_usd": 60.9
+   "review_fail": 4,
+   "review_inconclusive": 14,
+   "spend_usd": 67.4
   }
  },
- "snapshot_built_at": "2026-11-24T07:43:37Z"
+ "snapshot_built_at": "2026-11-25T07:48:47Z"
 }

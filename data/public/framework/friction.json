@@ -1,24 +1,20 @@
 {
- "generated": "2026-11-24T07:43:36+00:00",
+ "generated": "2026-11-25T07:48:46+00:00",
  "days": 7,
- "total": 1255,
+ "total": 1837,
  "by_kind": {
-  "tool_denied": 74,
-  "task_blocked": 123,
-  "review_fail": 57,
-  "reported": 606,
-  "run_failed": 49,
-  "review_inconclusive": 119,
-  "env_error": 74,
+  "review_fail": 64,
+  "reported": 802,
+  "task_blocked": 143,
+  "run_failed": 54,
+  "review_inconclusive": 155,
+  "tool_denied": 97,
+  "env_error": 90,
   "no_commit": 1,
-  "budget_stop": 147,
-  "watchdog_rollback": 5
+  "budget_stop": 424,
+  "watchdog_rollback": 7
  },
  "by_day": {
-  "2026-11-17": {
-   "tool_denied": 1,
-   "task_blocked": 1
-  },
   "2026-11-18": {
    "review_fail": 1,
    "reported": 3
@@ -67,367 +63,376 @@
    "watchdog_rollback": 4
   },
   "2026-11-24": {
-   "watchdog_rollback": 1,
-   "tool_denied": 6,
-   "task_blocked": 12,
-   "reported": 55,
-   "review_inconclusive": 15,
-   "review_fail": 1,
+   "watchdog_rollback": 3,
+   "tool_denied": 22,
+   "task_blocked": 24,
+   "reported": 172,
+   "review_inconclusive": 36,
+   "review_fail": 4,
+   "run_failed": 5,
+   "env_error": 16,
+   "budget_stop": 397
+  },
+  "2026-11-25": {
    "run_failed": 3,
+   "tool_denied": 8,
+   "reported": 79,
+   "task_blocked": 9,
+   "review_inconclusive": 15,
    "env_error": 4,
-   "budget_stop": 120
+   "review_fail": 4
   }
  },
  "recent": [
   {
-   "ts": "2026-11-24T07:41:42+00:00",
+   "ts": "2026-11-25T07:43:07+00:00",
    "product": "ai-battles",
-   "role": "dispatcher",
-   "kind": "budget_stop",
-   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+   "role": "developer",
+   "kind": "reported",
+   "summary": "developer: [environment] playtest-T-0260 held the e2e host lock from 07:12 to about 07:39."
   },
   {
-   "ts": "2026-11-24T07:40:18+00:00",
+   "ts": "2026-11-25T07:43:07+00:00",
    "product": "ai-battles",
-   "role": "dispatcher",
-   "kind": "budget_stop",
-   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+   "role": "developer",
+   "kind": "reported",
+   "summary": "developer: [unclear_instruction] The task says 4 participants; bots_battle_size is 6."
   },
   {
-   "ts": "2026-11-24T07:37:27+00:00",
+   "ts": "2026-11-25T07:39:08+00:00",
    "product": "ai-battles",
    "role": "dispatcher",
-   "kind": "budget_stop",
-   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+   "kind": "task_blocked",
+   "summary": "T-0263 Arena proof for T-0237: tracked battle frames of the four la: inconclusive 3×: not accepted without proof: arena-shots.spec.ts did not complete: 'playwright test timed out after 600s' against t"
   },
   {
-   "ts": "2026-11-24T07:37:08+00:00",
+   "ts": "2026-11-25T07:39:08+00:00",
    "product": "ai-battles",
-   "role": "dispatcher",
-   "kind": "budget_stop",
-   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+   "role": "reviewer",
+   "kind": "env_error",
+   "summary": "reviewer: Spec cannot be run via team-play against the live host"
   },
   {
-   "ts": "2026-11-24T07:37:06+00:00",
+   "ts": "2026-11-25T07:39:04+00:00",
    "product": "ai-battles",
-   "role": "dispatcher",
-   "kind": "budget_stop",
-   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+   "role": "reviewer",
+   "kind": "review_inconclusive",
+   "summary": "T-0263: The tracked frames check out by eye: open, camper and speed battle frames show a hatched pillar or thin wall in view, and the README names the commit and command. I could not run arena-shots.s"
   },
   {
-   "ts": "2026-11-24T07:37:04+00:00",
+   "ts": "2026-11-25T07:39:04+00:00",
    "product": "ai-battles",
-   "role": "dispatcher",
-   "kind": "budget_stop",
-   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+   "role": "reviewer",
+   "kind": "reported",
+   "summary": "reviewer: [environment] The spec needs a local server with ?render=test and takes minutes, but the play-test server is the deployed host with a 600 s cap."
   },
   {
-   "ts": "2026-11-24T07:37:03+00:00",
+   "ts": "2026-11-25T07:27:32+00:00",
    "product": "ai-battles",
-   "role": "dispatcher",
-   "kind": "budget_stop",
-   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+   "role": "game-designer",
+   "kind": "reported",
+   "summary": "game-designer: [missing_data] В присланной копии balance.json обрезано начало вместе с полем version; версия 10 в файле взята из reports/weapon-sim.md, где те же числа."
   },
   {
-   "ts": "2026-11-24T07:36:59+00:00",
+   "ts": "2026-11-25T07:27:32+00:00",
    "product": "ai-battles",
-   "role": "dispatcher",
-   "kind": "budget_stop",
-   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+   "role": "game-designer",
+   "kind": "reported",
+   "summary": "game-designer: [missing_data] Текст раздела 18-6 не прислан, поэтому я не смог проверить, есть ли в его §6 пороги; в файле стоит только ссылка на §6. Если порогов там нет, нужно наблюдение и задача их"
   },
   {
-   "ts": "2026-11-24T07:36:57+00:00",
+   "ts": "2026-11-25T07:27:32+00:00",
    "product": "ai-battles",
-   "role": "dispatcher",
-   "kind": "budget_stop",
-   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+   "role": "game-designer",
+   "kind": "reported",
+   "summary": "game-designer: [missing_data] Список файлов design/gdd не прислан, и я не смог проверить, что номер 18-6-1 свободен."
   },
   {
-   "ts": "2026-11-24T07:36:56+00:00",
+   "ts": "2026-11-25T07:26:34+00:00",
    "product": "ai-battles",
-   "role": "dispatcher",
-   "kind": "budget_stop",
-   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+   "role": "game-designer",
+   "kind": "reported",
+   "summary": "game-designer: [missing_data] Файлов design/gdd/19-1-arena-zones.md и 19-2 нет во входе задачи: таблица §19.3.7 построена по тексту задачи и по описанию arena_zones в balance.json, её надо сверить с с"
   },
   {
-   "ts": "2026-11-24T07:36:54+00:00",
+   "ts": "2026-11-25T07:26:34+00:00",
    "product": "ai-battles",
-   "role": "dispatcher",
-   "kind": "budget_stop",
-   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+   "role": "game-designer",
+   "kind": "reported",
+   "summary": "game-designer: [missing_data] balance.json пришёл обрезанным (последние 40000 из 48243 знаков). Блок arena_zones виден целиком, hidden_alpha = 0.3; версия таблиц 7 взята из GAME-DESIGN.md, а отчёт сим"
   },
   {
-   "ts": "2026-11-24T07:36:53+00:00",
+   "ts": "2026-11-25T07:26:34+00:00",
    "product": "ai-battles",
-   "role": "dispatcher",
-   "kind": "budget_stop",
-   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+   "role": "game-designer",
+   "kind": "reported",
+   "summary": "game-designer: [missing_data] Нет списка занятых имён в design/gdd: проверить, свободен ли номер 19-3, нельзя; файл назван 19-3, как в задаче."
   },
   {
-   "ts": "2026-11-24T07:36:51+00:00",
+   "ts": "2026-11-25T07:25:00+00:00",
    "product": "ai-battles",
-   "role": "dispatcher",
-   "kind": "budget_stop",
-   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+   "role": "developer",
+   "kind": "reported",
+   "summary": "developer: [unclear_instruction] The tests-change-reason line needs an F-xxxx id; the task names none for OBS-1163/1166, so I used F-0127, the entry the rules cite for test edits."
   },
   {
-   "ts": "2026-11-24T07:36:49+00:00",
+   "ts": "2026-11-25T07:23:19+00:00",
    "product": "ai-battles",
-   "role": "dispatcher",
-   "kind": "budget_stop",
-   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+   "role": "developer",
+   "kind": "reported",
+   "summary": "developer: [environment] The e2e host lock was held by the T-0263 playtest from 06:35; my first spec run waited 20 min and was stopped without running a test, so the second run used E2E_HOST_LOCK=off"
   },
   {
-   "ts": "2026-11-24T07:36:48+00:00",
+   "ts": "2026-11-25T07:23:19+00:00",
    "product": "ai-battles",
-   "role": "dispatcher",
-   "kind": "budget_stop",
-   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+   "role": "developer",
+   "kind": "reported",
+   "summary": "developer: [environment] npm test exited 1 on the replay.test.ts timing test (it also fails on main, so not caused by this branch), which skipped the balance stage of npm test"
   },
   {
-   "ts": "2026-11-24T07:36:46+00:00",
+   "ts": "2026-11-25T07:23:19+00:00",
    "product": "ai-battles",
-   "role": "dispatcher",
-   "kind": "budget_stop",
-   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+   "role": "reviewer",
+   "kind": "env_error",
+   "summary": "reviewer: Spec cannot finish inside the 600 s play-test cap"
   },
   {
-   "ts": "2026-11-24T07:36:44+00:00",
+   "ts": "2026-11-25T07:23:12+00:00",
    "product": "ai-battles",
-   "role": "dispatcher",
-   "kind": "budget_stop",
-   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+   "role": "reviewer",
+   "kind": "review_inconclusive",
+   "summary": "T-0260: The spec could not be played here: `team-play test` on chassis-shots.spec.ts timed out at 600 s without a result. The tracked frames and README look right by eye, and the dispatcher's npm test"
   },
   {
-   "ts": "2026-11-24T07:36:43+00:00",
+   "ts": "2026-11-25T07:23:12+00:00",
    "product": "ai-battles",
-   "role": "dispatcher",
-   "kind": "budget_stop",
-   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+   "role": "reviewer",
+   "kind": "reported",
+   "summary": "reviewer: [environment] team-play test is capped at 600 s and the chassis spec needs about 4 min or more on a loaded host, so no result came back."
   },
   {
-   "ts": "2026-11-24T07:36:41+00:00",
+   "ts": "2026-11-25T07:22:58+00:00",
    "product": "ai-battles",
-   "role": "dispatcher",
-   "kind": "budget_stop",
-   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+   "role": "developer",
+   "kind": "reported",
+   "summary": "developer: [environment] The e2e host lock was held by playtest-T-0260 for more than 24 min. The task expected waits of 100–134 s, so both runs of the 45-min budget expired while waiting for the lock."
   },
   {
-   "ts": "2026-11-24T07:36:40+00:00",
+   "ts": "2026-11-25T07:22:58+00:00",
    "product": "ai-battles",
-   "role": "dispatcher",
-   "kind": "budget_stop",
-   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+   "role": "developer",
+   "kind": "reported",
+   "summary": "developer: [unclear_instruction] The review checked replay:62 (the @slow @live twin) as the T-0229 scenario. The task's line numbers are stale; cite scenario titles instead."
   },
   {
-   "ts": "2026-11-24T07:36:38+00:00",
+   "ts": "2026-11-25T07:22:58+00:00",
    "product": "ai-battles",
-   "role": "dispatcher",
-   "kind": "budget_stop",
-   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+   "role": "developer",
+   "kind": "reported",
+   "summary": "developer: [environment] The timing unit test replay.test.ts 'recording costs the tick less than 10 %' fails under host load (0.0789 vs 0.0767) and passes alone. The PO may want a defect for it."
   },
   {
-   "ts": "2026-11-24T07:36:37+00:00",
+   "ts": "2026-11-25T07:22:58+00:00",
    "product": "ai-battles",
-   "role": "dispatcher",
-   "kind": "budget_stop",
-   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+   "role": "reviewer",
+   "kind": "review_inconclusive",
+   "summary": "T-0243: The change only adds report text, and the diff is limited to the allowed file. I could not watch client:44 pass myself, because the live run timed out after 600 s waiting for the host lock. Th"
   },
   {
-   "ts": "2026-11-24T07:36:35+00:00",
+   "ts": "2026-11-25T07:22:58+00:00",
    "product": "ai-battles",
-   "role": "dispatcher",
-   "kind": "budget_stop",
-   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+   "role": "reviewer",
+   "kind": "reported",
+   "summary": "reviewer: [environment] The e2e host lock was held by another run for the whole 600 s, so the single-scenario live run could not start."
   },
   {
-   "ts": "2026-11-24T07:36:33+00:00",
+   "ts": "2026-11-25T06:57:35+00:00",
    "product": "ai-battles",
-   "role": "dispatcher",
-   "kind": "budget_stop",
-   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+   "role": "developer",
+   "kind": "tool_denied",
+   "summary": "developer: denied Monitor(F=/tmp/claude-1000/-home-ubuntu-agent-team-dispatcher-data-work-ai-battles-wt-T-)"
   },
   {
-   "ts": "2026-11-24T07:36:31+00:00",
+   "ts": "2026-11-25T06:47:58+00:00",
    "product": "ai-battles",
-   "role": "dispatcher",
-   "kind": "budget_stop",
-   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+   "role": "reviewer",
+   "kind": "reported",
+   "summary": "reviewer: [missing_tool] team-fetch was not callable as a tool, and Bash was not offered for the shell rule, so /healthz could not be read"
   },
   {
-   "ts": "2026-11-24T07:36:29+00:00",
+   "ts": "2026-11-25T06:45:43+00:00",
    "product": "ai-battles",
-   "role": "dispatcher",
-   "kind": "budget_stop",
-   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+   "role": "reviewer",
+   "kind": "review_inconclusive",
+   "summary": "T-0263: The 8 frames and the README are in the checkout, and the opened battle frames show hatched pillars and thin walls drawn by the game's own renderer. The spec timed out after 600s on the live ho"
   },
   {
-   "ts": "2026-11-24T07:36:27+00:00",
+   "ts": "2026-11-25T06:35:02+00:00",
    "product": "ai-battles",
    "role": "dispatcher",
-   "kind": "budget_stop",
-   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+   "kind": "task_blocked",
+   "summary": "T-0343 design/gdd/19-2-forest-edge-cases.md: лес и утечки — что пол: failed review 2×: The criterion «одна задача developer в proposed_tasks с проверяемыми критериями» is not met. design/gdd/19-2-fore"
   },
   {
-   "ts": "2026-11-24T07:36:25+00:00",
+   "ts": "2026-11-25T06:35:01+00:00",
    "product": "ai-battles",
-   "role": "dispatcher",
-   "kind": "budget_stop",
-   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+   "role": "reviewer",
+   "kind": "tool_denied",
+   "summary": "reviewer: denied Bash(git log --oneline -5 -- design/gdd/19-2-forest-edge-cases.md; git diff --stat d0)"
   },
   {
-   "ts": "2026-11-24T07:36:24+00:00",
+   "ts": "2026-11-25T06:35:01+00:00",
    "product": "ai-battles",
-   "role": "dispatcher",
-   "kind": "budget_stop",
-   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+   "role": "reviewer",
+   "kind": "review_fail",
+   "summary": "T-0343: The design document is substantively good: it has one rule each for the dead player and for mines and oil, an owner variant for flicker with hidden_alpha at 0, and a per-rule server test list."
   },
   {
-   "ts": "2026-11-24T07:36:12+00:00",
+   "ts": "2026-11-25T06:35:01+00:00",
    "product": "ai-battles",
-   "role": "dispatcher",
-   "kind": "budget_stop",
-   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+   "role": "reviewer",
+   "kind": "reported",
+   "summary": "reviewer: [missing_data] The review prompt doesn't show where proposed_tasks should be read (the file or the task result), so I judged only the file and the report."
   },
   {
-   "ts": "2026-11-24T07:26:07+00:00",
+   "ts": "2026-11-25T06:35:01+00:00",
    "product": "ai-battles",
-   "role": "dispatcher",
-   "kind": "budget_stop",
-   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+   "role": "reviewer",
+   "kind": "reported",
+   "summary": "reviewer: [environment] The Bash tool rejected a compound git command, so I couldn't compare the file with its earlier version."
   },
   {
-   "ts": "2026-11-24T07:24:33+00:00",
+   "ts": "2026-11-25T06:16:55+00:00",
    "product": "ai-battles",
-   "role": "dispatcher",
-   "kind": "budget_stop",
-   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+   "role": "reviewer",
+   "kind": "reported",
+   "summary": "reviewer: [missing_tool] team-fetch is not available as a tool, so I could not read /healthz."
   },
   {
-   "ts": "2026-11-24T07:22:18+00:00",
+   "ts": "2026-11-25T06:16:55+00:00",
    "product": "ai-battles",
-   "role": "dispatcher",
-   "kind": "budget_stop",
-   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+   "role": "reviewer",
+   "kind": "reported",
+   "summary": "reviewer: [environment] The smoke Playwright spec timed out after 600s with no result."
   },
   {
-   "ts": "2026-11-24T07:21:59+00:00",
+   "ts": "2026-11-25T06:09:50+00:00",
    "product": "ai-battles",
-   "role": "dispatcher",
-   "kind": "budget_stop",
-   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+   "role": "developer",
+   "kind": "tool_denied",
+   "summary": "developer: denied Monitor(until grep -q \"^exit\" /tmp/T0243-live-replay.log; do sleep 5; done; tail -25 /tm)"
   },
   {
-   "ts": "2026-11-24T07:21:57+00:00",
+   "ts": "2026-11-25T06:07:18+00:00",
    "product": "ai-battles",
-   "role": "dispatcher",
-   "kind": "budget_stop",
-   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+   "role": "tester",
+   "kind": "tool_denied",
+   "summary": "tester: denied Bash(git -C /home/ubuntu/agent-team/dispatcher/data/work/ai-battles/20261125T0540/pla), Bash(git -C /home/ubuntu/agent-team/dispatcher/data/work/ai-battles/20261125T0540/rev)"
   },
   {
-   "ts": "2026-11-24T07:21:55+00:00",
+   "ts": "2026-11-25T05:56:35+00:00",
    "product": "ai-battles",
-   "role": "dispatcher",
-   "kind": "budget_stop",
-   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+   "role": "developer",
+   "kind": "reported",
+   "summary": "developer: [unclear_instruction] The acceptance criteria cite weapon rules in 'design/gdd/18-6', but that section is about the release path; I cited the balance.json _doc and PROTOCOL.md:178 instead."
   },
   {
-   "ts": "2026-11-24T07:21:53+00:00",
+   "ts": "2026-11-25T05:56:35+00:00",
    "product": "ai-battles",
-   "role": "dispatcher",
-   "kind": "budget_stop",
-   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+   "role": "developer",
+   "kind": "reported",
+   "summary": "developer: [schema_mismatch] The 1200-character summary limit does not fit the table and test-name quotes the acceptance criteria ask for; I moved the table into changes."
   },
   {
-   "ts": "2026-11-24T07:21:50+00:00",
+   "ts": "2026-11-25T05:56:05+00:00",
    "product": "ai-battles",
-   "role": "dispatcher",
-   "kind": "budget_stop",
-   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+   "role": "developer",
+   "kind": "reported",
+   "summary": "developer: [unclear_instruction] The criterion requires a thin wall or pillar on all four layouts, but balance.json's classic layout has only blocks"
   },
   {
-   "ts": "2026-11-24T07:21:49+00:00",
+   "ts": "2026-11-25T05:55:58+00:00",
    "product": "ai-battles",
-   "role": "dispatcher",
-   "kind": "budget_stop",
-   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+   "role": "reviewer",
+   "kind": "review_inconclusive",
+   "summary": "T-0263: The 8 tracked PNGs exist and the four battle frames and four mini-maps look right on inspection. My own run of arena-shots.spec.ts against the live host timed out at 600 s with no per-test lin"
   },
   {
-   "ts": "2026-11-24T07:21:47+00:00",
+   "ts": "2026-11-25T05:55:58+00:00",
    "product": "ai-battles",
-   "role": "dispatcher",
-   "kind": "budget_stop",
-   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+   "role": "reviewer",
+   "kind": "reported",
+   "summary": "reviewer: [environment] The task is repo_only and needs a local server, but the play-test server is the deployed host. team-play test has a 600 s cap and the spec needs about 3 minutes or more."
   },
   {
-   "ts": "2026-11-24T07:21:46+00:00",
+   "ts": "2026-11-25T05:53:25+00:00",
    "product": "ai-battles",
-   "role": "dispatcher",
-   "kind": "budget_stop",
-   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+   "role": "developer",
+   "kind": "reported",
+   "summary": "developer: [environment] The e2e host lock was held by other tasks' runs: 180 s and 268 s of waiting in this run's two lock waits"
   },
   {
-   "ts": "2026-11-24T07:21:44+00:00",
+   "ts": "2026-11-25T05:53:18+00:00",
    "product": "ai-battles",
-   "role": "dispatcher",
-   "kind": "budget_stop",
-   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+   "role": "reviewer",
+   "kind": "review_fail",
+   "summary": "T-0260: I could not rerun the spec: team-play test of chassis-shots.spec.ts timed out at 600 s with exit 1 and no test lines, and the implementer reported the same host-lock waits. The committed frame"
   },
   {
-   "ts": "2026-11-24T07:21:43+00:00",
+   "ts": "2026-11-25T05:53:18+00:00",
    "product": "ai-battles",
-   "role": "dispatcher",
-   "kind": "budget_stop",
-   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+   "role": "reviewer",
+   "kind": "reported",
+   "summary": "reviewer: [environment] The spec takes 7+ min with the e2e host lock, so it exceeds the team-play test 600 s limit"
   },
   {
-   "ts": "2026-11-24T07:21:41+00:00",
+   "ts": "2026-11-25T05:34:40+00:00",
    "product": "ai-battles",
-   "role": "dispatcher",
-   "kind": "budget_stop",
-   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+   "role": "game-designer",
+   "kind": "reported",
+   "summary": "game-designer: [missing_data] design/gdd/19-1-arena-zones.md и полный balance.json в рабочую папку не попали (там вообще нет design/gdd), а balance.json в промпте обрезан. Правило раскрытия пересказан"
   },
   {
-   "ts": "2026-11-24T07:21:40+00:00",
+   "ts": "2026-11-25T05:34:40+00:00",
    "product": "ai-battles",
-   "role": "dispatcher",
-   "kind": "budget_stop",
-   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+   "role": "game-designer",
+   "kind": "reported",
+   "summary": "game-designer: [unclear_instruction] review_fails: 1, но причина прошлого провала ревью в задачу не передана. Неясно, что именно надо было исправить."
   },
   {
-   "ts": "2026-11-24T07:21:38+00:00",
+   "ts": "2026-11-25T05:34:40+00:00",
    "product": "ai-battles",
-   "role": "dispatcher",
-   "kind": "budget_stop",
-   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+   "role": "game-designer",
+   "kind": "reported",
+   "summary": "game-designer: [missing_data] Нет текущего формата снимка (PROTOCOL.md): неизвестно, шлются ли сейчас мины внутри записи машины или отдельно. Поэтому задача разработчику сформулирована через результат"
   },
   {
-   "ts": "2026-11-24T07:21:37+00:00",
+   "ts": "2026-11-25T05:28:18+00:00",
    "product": "ai-battles",
-   "role": "dispatcher",
-   "kind": "budget_stop",
-   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+   "role": "reviewer",
+   "kind": "review_fail",
+   "summary": "T-0343: The design document covers the three cases, gives one rule each for the dead player and for mines and oil, treats flicker as an owner variant, and lists server tests. The diff touches only the"
   },
   {
-   "ts": "2026-11-24T07:21:35+00:00",
+   "ts": "2026-11-25T05:27:34+00:00",
    "product": "ai-battles",
    "role": "dispatcher",
-   "kind": "budget_stop",
-   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+   "kind": "task_blocked",
+   "summary": "T-0336 Principle weapons proof (replaces T-0334): local spec seeds : inconclusive 3×: not accepted without proof: The spec could not be run: `team-play test --spec tests/e2e/principle-weapons-shots.sp"
   },
   {
-   "ts": "2026-11-24T07:21:34+00:00",
+   "ts": "2026-11-25T05:27:26+00:00",
    "product": "ai-battles",
-   "role": "dispatcher",
-   "kind": "budget_stop",
-   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+   "role": "reviewer",
+   "kind": "review_inconclusive",
+   "summary": "T-0336: I could not run the new spec: `team-play test` against the deployed host timed out after 600 s with no test lines, and the spec is local-only (`?render=test` plus a local server). I only read "
   },
   {
-   "ts": "2026-11-24T07:21:32+00:00",
+   "ts": "2026-11-25T05:27:26+00:00",
    "product": "ai-battles",
-   "role": "dispatcher",
-   "kind": "budget_stop",
-   "summary": "budget stop: {'remaining': -0.918, 'cap': 60.0}"
+   "role": "reviewer",
+   "kind": "reported",
+   "summary": "reviewer: [environment] The spec is local-only (needs ?render=test and a local server), but the play-test server is the deployed host. team-play test hung for 600 s with no output."
   }
  ]
 }

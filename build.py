@@ -683,6 +683,20 @@ def tasks_block(d: dict, slug: str, tasks: list, anchors: dict | None, total: in
     return out
 
 
+def spend_per_task_line(d: dict, slug: str, c: dict) -> str:
+    """Day spend divided by tasks accepted that day, from the export fields spend_usd and tasks done. No estimate when either is missing."""
+    src = "source: export fields spend_usd and accepted tasks of this day, spend rounded to $0.1"
+    raw = d.get("spend_usd")
+    if raw is None:
+        txt = "no spend data"
+    elif not c["tasks_done_distinct"]:
+        txt = "no accepted task"
+    else:
+        usd = float(raw) / c["tasks_done_distinct"]
+        txt = f'${usd:.2f} per accepted task ({usd * 100:.0f} cents; ${float(raw):.2f} ÷ {c["tasks_done_distinct"]})'
+    return f'<p class="note" id="spend-per-task-{esc(slug)}"><strong>Spend per accepted task:</strong> {txt} · {src}</p>'
+
+
 def product_section(d: dict, product: dict, heading_link: bool = True, anchors: dict | None = None) -> str:
     """One product's block inside a day page: digest, tasks with history, reviews, posts, metrics, spend."""
     c = day_counts(d)
@@ -701,6 +715,7 @@ def product_section(d: dict, product: dict, heading_link: bool = True, anchors: 
     spent = f"{c['spend_usd']:.1f}"
     html_stats += f"<li><b>${esc(spent)}</b><span>spent</span></li>"
     out.append('<ul class="stats">' + html_stats + "</ul>")
+    out.append(spend_per_task_line(d, slug, c))
     out.append(rework_line(d))
 
     digest = (d.get("po_digest_md") or "").strip()

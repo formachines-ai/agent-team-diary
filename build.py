@@ -2117,6 +2117,43 @@ def day_review_caught_block(date: str, model: dict) -> str:
     return "\n".join(out)
 
 
+RETURNED_MAX = 5
+RETURNED_NOTE_MAX = 160
+
+
+def returned_tasks(date: str, model: dict) -> list[dict]:
+    """Tasks the reviewer sent back on this day (reopen_events: review -> ready/in_progress), from the export only.
+    The note is the transition note of the return, cut to RETURNED_NOTE_MAX characters."""
+    out = []
+    seen = set()
+    for slug, p in model["products"].items():
+        if date not in p["days"]:
+            continue
+        for t, h in reopen_events(p["days"][date]):
+            key = (slug, str(t.get("id")))
+            if key in seen:
+                continue
+            seen.add(key)
+            note = " ".join(str(h.get("note") or "").split())
+            if len(note) > RETURNED_NOTE_MAX:
+                note = note[:RETURNED_NOTE_MAX - 1].rstrip() + "…"
+            out.append({"id": str(t.get("id") or ""), "title": str(t.get("title") or ""), "note": note})
+    return out
+
+
+def day_returned_block(date: str, model: dict) -> str:
+    r = returned_tasks(date, model)
+    out = ['<section id="day-returned"><h3>Returned by the reviewer</h3>']
+    if not r:
+        out.append('<p class="note">no task returned by the reviewer</p></section>')
+        return "\n".join(out)
+    out.append(f'<p class="note">{len(r)} task{"s" if len(r) != 1 else ""} sent back from review' + (f"; first {RETURNED_MAX} shown" if len(r) > RETURNED_MAX else "") + ". The developer does not accept its own work: only the reviewer moves a task to accepted.</p><ul>")
+    for x in r[:RETURNED_MAX]:
+        out.append(f'<li><strong>{esc(x["id"])}</strong> {esc(x["title"])}' + (f' — <span class="note">{esc(x["note"])}</span>' if x["note"] else "") + "</li>")
+    out.append("</ul></section>")
+    return "\n".join(out)
+
+
 def day_escaped_block(date: str, model: dict) -> str:
     e = escaped_tasks(date, model)
     out = ['<section id="day-escaped" class="day-escaped"><h3 id="day-escaped-h">Accepted, then reopened</h3>']
@@ -2320,6 +2357,7 @@ def render_day(date: str, model: dict) -> str:
     body.append(what_broke_block(date, model))
     body.append(day_escaped_block(date, model))
     body.append(day_review_caught_block(date, model))
+    body.append(day_returned_block(date, model))
     body.append(day_stuck_block(date, model))
     body.append(day_spend_block(date, model))
     body.append(work_vs_people_block(date, model))
@@ -3012,6 +3050,8 @@ def render_about(built: str, latest: str | None = None) -> str:
             '<li><strong>Reviewer separate from developer:</strong> the reviewer role, not the developer, accepts work. <a href="/go/github/" rel="nofollow">Code</a></li>',
             '<li><strong>No JavaScript, no personal data:</strong> the site has no scripts, forms or tracking of people. <a href="/legal/">Legal</a></li>',
             "</ul>",
+            '<h2 id="review-separation">Review is separate from the developer</h2>',
+            '<p>The developer role cannot accept its own work: a task it finishes goes to the reviewer role, and only the reviewer moves it to accepted or sends it back. Day pages list the tasks sent back (section <code>day-returned</code>). See <a href="#guards">Guards</a> and the <a href="/go/github/" rel="nofollow">code</a>.</p>',
             '<h2 id="failure-modes">Known failure modes and the guardrail for each</h2>',
             "<p>Four failures that people running agent teams report, and the mechanism this team has against each, as described in the public framework repository. "
             "Each row links to the file that describes the mechanism and to a diary page where it shows. These are mechanisms, not guarantees; none of the failures is solved.</p>",

@@ -1391,6 +1391,15 @@ def check_artifacts() -> dict:
     return {"pages_checked": len(pages), "accepted_total": tot, "with_artifact": withart, "with_sha": withsha, "mismatches": mism, "sha_mismatches": sha_mism}
 
 
+BROKE_NOTE_CHARS = 90  # the full note sits on the task card; the "what went wrong" list repeats only its start
+
+
+def broke_note(note: str) -> str:
+    """Whitespace collapsed, cut at BROKE_NOTE_CHARS with an ellipsis (the same note is on the task card, in full)."""
+    t = " ".join(str(note).split())
+    return t if len(t) <= BROKE_NOTE_CHARS else t[:BROKE_NOTE_CHARS - 1].rstrip() + "…"
+
+
 def what_broke_block(date: str, model: dict) -> str:
     """Day page, right below #day-lead: per product, each task with a failing event that day (state, role, final state)."""
     items = broke_items(date, model)
@@ -1421,7 +1430,7 @@ def what_broke_block(date: str, model: dict) -> str:
                 link = f'<a href="#{esc(first["anchor"])}">{inner}</a>' if first["anchor"] else inner
                 parts = ", ".join(f'{esc(i["state"])} ({esc(i["actor"] or "review verdict")}{", reopened" if i["kind"] == "reopened" else ""})' for i in lst)
                 fx = ' <span class="badge other">fixture</span>' if any(i["fixture"] for i in lst) else ""
-                notes = "".join(f'<br><span class=summary>{esc(i["note"])}</span>' for i in lst if i["note"])
+                notes = "".join(f'<br><span class=summary>{esc(broke_note(i["note"]))}</span>' for i in lst if i["note"])
                 out.append(f'<li>{link} · state: {parts} · final state: {esc(finals.get(tid) or "not recorded")}{fx}{notes}</li>')
             out.append("</ul>")
     out.append('<p class="note">Failed runs and rate-limit events are not in the export.</p>')

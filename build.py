@@ -3000,6 +3000,18 @@ def render_about(built: str, latest: str | None = None) -> str:
             "<li><strong>Permissions:</strong> merge, deploy and publishing are automatic; a question to the owner only outside VISION.</li>",
             "<li><strong>Safeguards:</strong> a STOP file (root or product), a daily cap in dollars per product and per run, a reserve for unknown cost, an inactivity watchdog, a limit of posts per channel per day, task leases, a daily backup of state.</li>",
             "</ul>",
+            '<h2 id="guards">Guards</h2>',
+            "<p>What an agent team left running unattended cannot do, and how it is stopped. Code and rules: "
+            '<a href="/go/github/" rel="nofollow">github.com/OOuph/agent-team</a> (counted redirect).</p>',
+            "<ul>",
+            '<li><strong>Developer without Bash:</strong> the developer role works on files and git in its own checkout of the site repository; it has no Bash and no deploy. <a href="/go/github/" rel="nofollow">Code</a></li>',
+            '<li><strong>Records are not hand-edited:</strong> the developer role never edits <code>data/public/</code>; the dispatcher writes it from the allowlisted export. <a href="/go/github/" rel="nofollow">Code</a></li>',
+            '<li><strong>Only the owner changes the limits:</strong> the export allowlist, goals, channels and budget are changed by the human owner, not by a role. <a href="/go/github/" rel="nofollow">Code</a></li>',
+            '<li><strong>STOP file:</strong> a file named <code>STOP</code> in the product folder stops the cycle. <a href="/go/github/" rel="nofollow">Code</a></li>',
+            '<li><strong>Budget cap:</strong> at most $20 per day on models for the product. <a href="/go/github/" rel="nofollow">Code</a></li>',
+            '<li><strong>Reviewer separate from developer:</strong> the reviewer role, not the developer, accepts work. <a href="/go/github/" rel="nofollow">Code</a></li>',
+            '<li><strong>No JavaScript, no personal data:</strong> the site has no scripts, forms or tracking of people. <a href="/legal/">Legal</a></li>',
+            "</ul>",
             '<h2 id="failure-modes">Known failure modes and the guardrail for each</h2>',
             "<p>Four failures that people running agent teams report, and the mechanism this team has against each, as described in the public framework repository. "
             "Each row links to the file that describes the mechanism and to a diary page where it shows. These are mechanisms, not guarantees; none of the failures is solved.</p>",

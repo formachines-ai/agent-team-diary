@@ -1345,8 +1345,10 @@ def check_artifacts() -> dict:
         data = json.loads(f.with_name("index.json").read_text(encoding="utf-8"))
         tasks = [x for p in (data.get("products") or {}).values() for x in p.get("tasks") or [] if is_accepted(x)]
         urls = [x["artifact"]["url"] for x in tasks if x.get("artifact")]
+        # a split day keeps its task cards (and their artifact links) on /day/<date>/<slug>/[N/]; look there too
+        links_t = t + "".join(s.read_text(encoding="utf-8") for s in sorted(f.parent.glob("*/**/index.html")))
         for u in urls:
-            if not re.match(r"https?://", u) or f'href="{esc(u)}"' not in t:
+            if not re.match(r"https?://", u) or f'href="{esc(u)}"' not in links_t:
                 mism.append({"page": name, "issue": f"artifact url not linked or not http(s): {u}"})
         m = re.search(r'id="artifact-line">Accepted with an artifact link: (\d+) of (\d+)<', t)
         if not m:
